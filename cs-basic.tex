@@ -1,0 +1,327 @@
+%% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn>
+
+\section{C\#语言简介}
+
+\begin{frame} \frametitle{C\#语言简介}
+  \begin{itemize}
+  \item<1-> 面向对象\\语言本身支持抽象类、接口、特性和事件等
+  \item<2-> 基于组件的开发\\提供内置的版本支持，接口与实现分离，事件的发布与订阅等
+  \item<3-> 与~Web~开发相结合\\可以将组件转变为~Web~服务，支持远程调用等
+  \item<4-> 更高的效率\\垃圾自动回收，变量是类型安全的，变量自动初始化等
+  \item<4-> 支持局部类、泛型等高级特性
+  \end{itemize}
+\end{frame}
+\note{
+  \begin{itemize}
+  \item C\#是一门较新的语言，在面向对象编成比较热的时候诞生，因此支持面向对象的
+    各种概念。
+  \item 支持比较现代的软件开发的方法，组件开发
+  \item 值得一提的是进行 Web Service 的开发
+  \item 和 Java 类似，但优于Java，除支持垃圾自动回收等，还支持局部类泛型等
+  \end{itemize}
+}
+
+\section{C\#的基本语法}
+\subsection{变量、数组、注释等}
+
+\begin{frame}[fragile] \frametitle{C\# 语言的语法}
+\begin{itemize}
+\item 与~C~族语言类似(C/C++/Java)
+\pause
+\item 标识符对大小写敏感
+\pause
+\item 变量的声明、创建类的实例
+\begin{lstlisting}
+int    a = 10;
+Circle b = new Circle();
+\end{lstlisting}
+\pause
+\item 注释有三种风格
+\begin{lstlisting}
+/* multi-line comments */
+// single-line comments
+/// <summary> XML comments </summary>
+\end{lstlisting}
+通过~XML~注释，可自动生成程序文档
+\end{itemize}
+\end{frame}
+
+\note{
+  \begin{itemize}
+  \item 语法类似 C/C++/Java
+  \item 同样的变量声明，创建类实例，如例子所示
+  \end{itemize}
+}
+
+\begin{frame} \frametitle{简单数据类型(Primitive Data Types)}
+\begin{itemize}
+\item 字符串型：string
+\item 布尔型~bool：值为~true~或~false \pause
+\item 字符型~char：长度为 2 字节(Unicode字符) \pause
+\item 整数型：\\byte, sbyte, short, ushort, int, uint, long, ulong \pause
+\item 浮点型：float, double, decimal \pause
+\item 枚举类型：enum
+\end{itemize}
+\end{frame}
+
+\note{
+  \begin{itemize}
+  \item C\# 中有较丰富的数据类型
+  \item 新的内置数据类型 string 和 bool，bool长度为 1 字节，值为 true/false
+  \item 分别支持 1/2/4/8 字节长的整型
+  \item 以及 4/8/16 字节长的浮点型
+  \end{itemize}
+}
+
+\begin{frame}[fragile] \frametitle{结构体(struct)类型}
+结构体是和类(class)相似的一种简单的封装构造，同样可以包含成员变量和方法。
+\begin{lstlisting}[escapeinside=<>]
+struct Point {
+  int x,y;
+  public Point(int X, int Y)
+    { x=X;  y=Y;}
+}
+\end{lstlisting}
+\begin{itemize}
+\item 结构体不能定义无参数的构造函数，不能定义析构函数
+\item 如果定义构造函数，必须为结构体中的每个字段赋值
+\end{itemize}
+\end{frame}
+
+\note{
+  \begin{itemize}
+  \item 也支持 struct，和 class 类似
+  \end{itemize}}
+
+\begin{frame}[fragile] \frametitle{数组}
+\begin{itemize}
+\item 一维数组
+\begin{lstlisting}[escapeinside=<>]
+int[] x; // <声明一个数组变量>
+int[] y = new int[4]; // <创建数组>
+int[] z = new int[] {1,3,5}; // <初始化>
+
+\end{lstlisting}
+\pause
+\item 矩形多维数组
+\begin{lstlisting}[escapeinside=<>,mathescape]
+int[,] y = new int[4,3]; // $4\times3$ <的数组>
+
+\end{lstlisting}
+\pause
+\item 锯齿形多维数组
+\begin{lstlisting}[escapeinside=<>]
+int[][] z = new int[2][];
+     z[0] = new int[3]; // z[0]<长度为3>
+     z[1] = new int[5]; // z[0]<长度为3>
+//z[0]<只是数组变量；>z[0][0]<才是整数>
+
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\note{
+  \begin{itemize}
+  \item 数组的声明稍有不同，不过和 Java 类似
+  \item int[]表示类型，需要创建实例
+  \item int[,] 和 int[][]不同
+  \end{itemize}
+}
+
+\begin{frame}[fragile] \frametitle{溢出检查(checked和unchecked)}
+\begin{itemize}
+\item 进行溢出检查
+\lstset{emph={checked,unchecked}}
+\begin{lstlisting}[escapeinside=<>]
+int i = 1000000, j = 1000000;
+int x = checked(i*j);
+//<发生运行时异常：>System.OverflowException
+
+\end{lstlisting}
+\pause
+\item 不进行溢出检查
+\begin{lstlisting}[escapeinside=<>]
+int i = 1000000, j = 1000000;
+int x = unchecked(i*j);
+//<无异常出现，但> x=-727379968
+
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\subsection{流程控制、异常处理}
+
+\begin{frame}[fragile] \frametitle{分支语句}
+  \begin{onlyenv}<1-2>
+    \begin{itemize}
+    \item if-else 语句
+\begin{lstlisting}
+  if (a>=b){
+    x =  1;
+  } else if (a<b) {
+    x = -1;
+  }
+\end{lstlisting}
+\pause
+    \item 判断条件的值必须是 bool 型的 true 或 false
+\begin{lstlisting}[escapeinside=<>]
+  int i = 1;
+  if (i) { ... }
+  // <编译错误：无法隐式的将~int~转为~bool>
+\end{lstlisting}
+    \end{itemize}
+  \end{onlyenv}
+
+  \begin{onlyenv}<3>
+    \begin{itemize}
+    \item switch 语句
+    \end{itemize}
+      \begin{columns}
+        \column{.5\textwidth}
+\begin{lstlisting}
+int Score; string r;
+switch(Score/10){
+  case 10:
+  case 9:  
+    r = "A"; break;
+  case 8:  
+    r = "B"; break;
+  ...
+  default: 
+    r = "E"; break;
+}
+
+\end{lstlisting}
+        \column{.5\textwidth}
+\begin{lstlisting}
+int Score; string r;
+switch(Score/10){
+  case 10:
+    r = "A+"; 
+    goto case 9;
+  case 9:  
+    r = "A"; break;
+  ...
+  default: 
+    r = "E"; break;
+}
+
+\end{lstlisting}
+      \end{columns}
+  \end{onlyenv}
+\end{frame}
+\note{
+  \begin{itemize}
+  \item case 语句之间
+  \item 如果语句为空，可以自动进入下一个 case 语句
+  \item 如果不空必须显示使用 goto case xx; 语句
+  \end{itemize}
+}
+\begin{frame}[fragile] \frametitle{循环语句}
+\begin{itemize}
+\item while/do-while 循环
+\begin{lstlisting}
+while (condition) { ... }
+do { ... } while (condition);
+\end{lstlisting}
+\pause
+\item for 循环
+\begin{lstlisting}
+for(int i=0; i<5; i++) { ... }
+\end{lstlisting}
+\pause
+\item foreach 循环
+\begin{lstlisting}
+string[] colors={"Red","Green","Blue"};
+foreach (string x in colors) {
+  Console.WriteLine(x);
+}
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\note{
+  \begin{itemize}
+  \item foreach 和 VB 中的类似，用来对数组中的每个元素进行迭代
+  \item 使用 foreach 可以省去使用索引变量的麻烦，也不用判断数组的长度
+  \end{itemize}
+}
+
+\begin{frame} \frametitle{跳转语句}
+\begin{itemize}
+\item break \\用来退出 while, do-while, for 和 foreach 循环以及 swich 分支语句等；
+\item continue \\用来中断循环的当前迭代，并继续循环；
+\item goto \\任意跳转；
+\item return \\返回方法的调用；
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile] \frametitle{异常处理(try-catch-finally)}
+捕捉和处理可能在运行时发生的错误的技术，常见的异常有整数溢出、下标越界、IO错误等。\pause
+\begin{itemize}
+\item try 监测异常的发生
+\begin{lstlisting}
+try { ... }
+\end{lstlisting}
+\pause
+\item catch 捕获并处理异常
+\begin{lstlisting}[escapeinside=<>]
+catch (SomeException e) { 
+  // <处理> SomeException <类型的异常> e
+}
+
+\end{lstlisting}
+\pause
+\item finally 确保必要操作一定会执行
+\begin{lstlisting}
+finally { ... }
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\note{
+  \begin{itemize}
+  \item 以一种优雅的方式处理错误
+  \item 可以将正常代码和错误处理代码分开
+  \end{itemize}}
+
+\begin{frame}[fragile] \frametitle{异常处理举例}
+\begin{lstlisting}
+// using System; using System.IO;
+StreamWriter sw = null;
+try {
+  sw = new StreamWriter(
+    new FileStream("T.txt",FileMode.Open));
+  sw.WriteLine ("Hello World");           
+}
+catch (FileNotFoundException e) {
+  Console.WriteLine("File "
+               +e.FileName+" not found.");
+}
+catch (Exception e){ Console.WriteLine(e);}
+finally { if (sw!=null)   sw.Close();     }
+
+\end{lstlisting}
+\end{frame}
+
+\note{
+  \begin{itemize}
+  \item 例子中打开文件处可能发生错误，如文件不存在，或者不可读
+  \item 当不存在时，在第一个catch处捕获，并处理
+  \item 其他任何错误，都会被更通用的异常类型捕获
+  \item finally保证，无论是否发生异常，此处代码都会被执行
+  \end{itemize}}
+
+\part<presentation>{类}
+
+\begin{frame}
+\tableofcontents
+\end{frame}
+
+
+% Local Variables: 
+% mode: LaTeX
+% mode: Tex-Pdf
+% coding: gb2312
+% TeX-master: "lesson-02.tex"
+% End:
