@@ -1,0 +1,579 @@
+Content-Type: text/enriched
+Text-Width: 78
+
+<x-bg-color><param>snow</param>snow		      </x-bg-color><x-color><param>snow</param> snow                          </x-color>  fffafa {1,0.98,0.98}
+
+<x-bg-color><param>ghost white</param>ghost white	      </x-bg-color><x-color><param>ghost white</param> GhostWhite		     </x-color>  f8f8ff {0.97,0.97,1}
+<x-bg-color><param>white smoke</param>white smoke	      </x-bg-color><x-color><param>white smoke</param> WhiteSmoke		     </x-color>  f5f5f5 {0.96,0.96,0.96}
+<x-bg-color><param>gainsboro</param>gainsboro	      </x-bg-color><x-color><param>gainsboro</param> gainsboro		     </x-color>  dcdcdc {0.86,0.86,0.86}
+<x-bg-color><param>floral white</param>floral white	      </x-bg-color><x-color><param>floral white</param> FloralWhite		     </x-color>  fffaf0 {1,0.98,0.94}
+<x-bg-color><param>old lace</param>old lace	      </x-bg-color><x-color><param>old lace</param> OldLace			     </x-color>  fdf5e6 {0.99,0.96,0.9}
+<x-bg-color><param>linen</param>linen		      </x-bg-color><x-color><param>linen</param> linen			     </x-color>  faf0e6 {0.98,0.94,0.9}
+<x-bg-color><param>antique white</param>antique white	      </x-bg-color><x-color><param>antique white</param> AntiqueWhite		     </x-color>  faebd7 {0.98,0.92,0.84}
+<x-bg-color><param>papaya whip</param>papaya whip	      </x-bg-color><x-color><param>papaya whip</param> PapayaWhip		     </x-color>  ffefd5 {1,0.94,0.84}
+<x-bg-color><param>blanched almond</param>blanched almond	      </x-bg-color><x-color><param>blanched almond</param> BlanchedAlmond		     </x-color>  ffebcd {1,0.92,0.8}
+<x-bg-color><param>bisque</param>bisque		      </x-bg-color><x-color><param>bisque</param> bisque			     </x-color>  ffe4c4 {1,0.89,0.77}
+<x-bg-color><param>peach puff</param>peach puff	      </x-bg-color><x-color><param>peach puff</param> PeachPuff		     </x-color>  ffdab9 {1,0.85,0.73}
+<x-bg-color><param>navajo white</param>navajo white	      </x-bg-color><x-color><param>navajo white</param> NavajoWhite		     </x-color>  ffdead {1,0.87,0.68}
+<x-bg-color><param>moccasin</param>moccasin	      </x-bg-color><x-color><param>moccasin</param> moccasin			     </x-color>  ffe4b5 {1,0.89,0.71}
+<x-bg-color><param>cornsilk</param>cornsilk	      </x-bg-color><x-color><param>cornsilk</param> cornsilk			     </x-color>  fff8dc {1,0.97,0.86}
+<x-bg-color><param>ivory</param>ivory		      </x-bg-color><x-color><param>ivory</param> ivory			     </x-color>  fffff0 {1,1,0.94}
+<x-bg-color><param>lemon chiffon</param>lemon chiffon	      </x-bg-color><x-color><param>lemon chiffon</param> LemonChiffon		     </x-color>  fffacd {1,0.98,0.8}
+<x-bg-color><param>seashell</param>seashell	      </x-bg-color><x-color><param>seashell</param> seashell			     </x-color>  fff5ee {1,0.96,0.93}
+<x-bg-color><param>honeydew</param>honeydew	      </x-bg-color><x-color><param>honeydew</param> honeydew			     </x-color>  f0fff0 {0.94,1,0.94}
+<x-bg-color><param>mint cream</param>mint cream	      </x-bg-color><x-color><param>mint cream</param> MintCream		     </x-color>  f5fffa {0.96,1,0.98}
+<x-bg-color><param>azure</param>azure		      </x-bg-color><x-color><param>azure</param> azure			     </x-color>  f0ffff {0.94,1,1}
+<x-bg-color><param>alice blue</param>alice blue	      </x-bg-color><x-color><param>alice blue</param> AliceBlue		     </x-color>  f0f8ff {0.94,0.97,1}
+<x-bg-color><param>lavender</param>lavender	      </x-bg-color><x-color><param>lavender</param> lavender			     </x-color>  e6e6fa {0.9,0.9,0.98}
+<x-bg-color><param>lavender blush</param>lavender blush	      </x-bg-color><x-color><param>lavender blush</param> LavenderBlush		     </x-color>  fff0f5 {1,0.94,0.96}
+<x-bg-color><param>misty rose</param>misty rose	      </x-bg-color><x-color><param>misty rose</param> MistyRose		     </x-color>  ffe4e1 {1,0.89,0.88}
+<x-bg-color><param>white</param>white		      </x-bg-color><x-color><param>white</param> white			     </x-color>  ffffff {1,1,1}
+<x-bg-color><param>black</param>black		      </x-bg-color><x-color><param>black</param> black			     </x-color>  000000 {0,0,0}
+<x-bg-color><param>dark slate gray</param>dark slate gray	      </x-bg-color><x-color><param>dark slate gray</param> dark slate grey, DarkSlateGra </x-color>  2f4f4f {0.18,0.31,0.31}
+<x-bg-color><param>gray</param>gray		      </x-bg-color><x-color><param>gray</param> grey			     </x-color>  bebebe {0.75,0.75,0.75}
+<x-bg-color><param>light gray</param>light gray	      </x-bg-color><x-color><param>light gray</param> light grey, LightGray, Light  </x-color>  d3d3d3 {0.83,0.83,0.83}
+<x-bg-color><param>midnight blue</param>midnight blue	      </x-bg-color><x-color><param>midnight blue</param> MidnightBlue		     </x-color>  191970 {0.1,0.1,0.44}
+<x-bg-color><param>navy</param>navy		      </x-bg-color><x-color><param>navy</param> navy blue, NavyBlue	     </x-color>  000080 {0,0,0.5}
+<x-bg-color><param>cornflower blue</param>cornflower blue	      </x-bg-color><x-color><param>cornflower blue</param> CornflowerBlue		     </x-color>  6495ed {0.39,0.58,0.93}
+<x-bg-color><param>dark slate blue</param>dark slate blue	      </x-bg-color><x-color><param>dark slate blue</param> DarkSlateBlue		     </x-color>  483d8b {0.28,0.24,0.55}
+<x-bg-color><param>slate blue</param>slate blue	      </x-bg-color><x-color><param>slate blue</param> SlateBlue		     </x-color>  6a5acd {0.42,0.35,0.8}
+<x-bg-color><param>medium slate blue</param>medium slate blue     </x-bg-color><x-color><param>medium slate blue</param> MediumSlateBlue		     </x-color>  7b68ee {0.48,0.41,0.93}
+<x-bg-color><param>light slate blue</param>light slate blue      </x-bg-color><x-color><param>light slate blue</param> LightSlateBlue		     </x-color>  8470ff {0.52,0.44,1}
+<x-bg-color><param>medium blue</param>medium blue	      </x-bg-color><x-color><param>medium blue</param> MediumBlue		     </x-color>  0000cd {0,0,0.8}
+<x-bg-color><param>royal blue</param>royal blue	      </x-bg-color><x-color><param>royal blue</param> RoyalBlue		     </x-color>  4169e1 {0.25,0.41,0.88}
+<x-bg-color><param>blue</param>blue		      </x-bg-color><x-color><param>blue</param> blue			     </x-color>  0000ff {0,0,1}
+<x-bg-color><param>dodger blue</param>dodger blue	      </x-bg-color><x-color><param>dodger blue</param> DodgerBlue		     </x-color>  1e90ff {0.12,0.56,1}
+<x-bg-color><param>deep sky blue</param>deep sky blue	      </x-bg-color><x-color><param>deep sky blue</param> DeepSkyBlue		     </x-color>  00bfff {0,0.75,1}
+<x-bg-color><param>sky blue</param>sky blue	      </x-bg-color><x-color><param>sky blue</param> SkyBlue			     </x-color>  87ceeb {0.53,0.81,0.92}
+<x-bg-color><param>light sky blue</param>light sky blue	      </x-bg-color><x-color><param>light sky blue</param> LightSkyBlue		     </x-color>  87cefa {0.53,0.81,0.98}
+<x-bg-color><param>steel blue</param>steel blue	      </x-bg-color><x-color><param>steel blue</param> SteelBlue		     </x-color>  4682b4 {0.27,0.51,0.71}
+<x-bg-color><param>light steel blue</param>light steel blue      </x-bg-color><x-color><param>light steel blue</param> LightSteelBlue		     </x-color>  b0c4de {0.69,0.77,0.87}
+<x-bg-color><param>light blue</param>light blue	      </x-bg-color><x-color><param>light blue</param> LightBlue		     </x-color>  add8e6 {0.68,0.85,0.9}
+<x-bg-color><param>powder blue</param>powder blue	      </x-bg-color><x-color><param>powder blue</param> PowderBlue		     </x-color>  b0e0e6 {0.69,0.88,0.9}
+<x-bg-color><param>pale turquoise</param>pale turquoise	      </x-bg-color><x-color><param>pale turquoise</param> PaleTurquoise		     </x-color>  afeeee {0.69,0.93,0.93}
+<x-bg-color><param>dark turquoise</param>dark turquoise	      </x-bg-color><x-color><param>dark turquoise</param> DarkTurquoise		     </x-color>  00ced1 {0,0.81,0.82}
+<x-bg-color><param>medium turquoise</param>medium turquoise      </x-bg-color><x-color><param>medium turquoise</param> MediumTurquoise		     </x-color>  48d1cc {0.28,0.82,0.8}
+<x-bg-color><param>turquoise</param>turquoise	      </x-bg-color><x-color><param>turquoise</param> turquoise		     </x-color>  40e0d0 {0.25,0.88,0.82}
+<x-bg-color><param>cyan</param>cyan		      </x-bg-color><x-color><param>cyan</param> cyan			     </x-color>  00ffff {0,1,1}
+<x-bg-color><param>light cyan</param>light cyan	      </x-bg-color><x-color><param>light cyan</param> LightCyan		     </x-color>  e0ffff {0.88,1,1}
+<x-bg-color><param>cadet blue</param>cadet blue	      </x-bg-color><x-color><param>cadet blue</param> CadetBlue		     </x-color>  5f9ea0 {0.37,0.62,0.63}
+<x-bg-color><param>medium aquamarine</param>medium aquamarine     </x-bg-color><x-color><param>medium aquamarine</param> MediumAquamarine		     </x-color>  66cdaa {0.4,0.8,0.67}
+<x-bg-color><param>aquamarine</param>aquamarine	      </x-bg-color><x-color><param>aquamarine</param> aquamarine		     </x-color>  7fffd4 {0.5,1,0.83}
+<x-bg-color><param>dark green</param>dark green	      </x-bg-color><x-color><param>dark green</param> DarkGreen		     </x-color>  006400 {0,0.39,0}
+<x-bg-color><param>dark olive green</param>dark olive green      </x-bg-color><x-color><param>dark olive green</param> DarkOliveGreen		     </x-color>  556b2f {0.33,0.42,0.18}
+<x-bg-color><param>dark sea green</param>dark sea green	      </x-bg-color><x-color><param>dark sea green</param> DarkSeaGreen		     </x-color>  8fbc8f {0.56,0.74,0.56}
+<x-bg-color><param>sea green</param>sea green	      </x-bg-color><x-color><param>sea green</param> SeaGreen			     </x-color>  2e8b57 {0.18,0.55,0.34}
+<x-bg-color><param>medium sea green</param>medium sea green      </x-bg-color><x-color><param>medium sea green</param> MediumSeaGreen		     </x-color>  3cb371 {0.24,0.7,0.44}
+<x-bg-color><param>light sea green</param>light sea green	      </x-bg-color><x-color><param>light sea green</param> LightSeaGreen		     </x-color>  20b2aa {0.13,0.7,0.67}
+<x-bg-color><param>pale green</param>pale green	      </x-bg-color><x-color><param>pale green</param> PaleGreen		     </x-color>  98fb98 {0.6,0.98,0.6}
+<x-bg-color><param>spring green</param>spring green	      </x-bg-color><x-color><param>spring green</param> SpringGreen		     </x-color>  00ff7f {0,1,0.5}
+<x-bg-color><param>lawn green</param>lawn green	      </x-bg-color><x-color><param>lawn green</param> LawnGreen		     </x-color>  7cfc00 {0.49,0.99,0}
+<x-bg-color><param>green</param>green		      </x-bg-color><x-color><param>green</param> green			     </x-color>  00ff00 {0,1,0}
+<x-bg-color><param>chartreuse</param>chartreuse	      </x-bg-color><x-color><param>chartreuse</param> chartreuse		     </x-color>  7fff00 {0.5,1,0}
+<x-bg-color><param>medium spring green</param>medium spring green   </x-bg-color><x-color><param>medium spring green</param> MediumSpringGreen	     </x-color>  00fa9a {0,0.98,0.6}
+<x-bg-color><param>green yellow</param>green yellow	      </x-bg-color><x-color><param>green yellow</param> GreenYellow		     </x-color>  adff2f {0.68,1,0.18}
+<x-bg-color><param>lime green</param>lime green	      </x-bg-color><x-color><param>lime green</param> LimeGreen		     </x-color>  32cd32 {0.2,0.8,0.2}
+<x-bg-color><param>yellow green</param>yellow green	      </x-bg-color><x-color><param>yellow green</param> YellowGreen		     </x-color>  9acd32 {0.6,0.8,0.2}
+<x-bg-color><param>forest green</param>forest green	      </x-bg-color><x-color><param>forest green</param> ForestGreen		     </x-color>  228b22 {0.13,0.55,0.13}
+<x-bg-color><param>olive drab</param>olive drab	      </x-bg-color><x-color><param>olive drab</param> OliveDrab		     </x-color>  6b8e23 {0.42,0.56,0.14}
+<x-bg-color><param>dark khaki</param>dark khaki	      </x-bg-color><x-color><param>dark khaki</param> DarkKhaki		     </x-color>  bdb76b {0.74,0.72,0.42}
+<x-bg-color><param>khaki</param>khaki		      </x-bg-color><x-color><param>khaki</param> khaki			     </x-color>  f0e68c {0.94,0.9,0.55}
+<x-bg-color><param>pale goldenrod</param>pale goldenrod	      </x-bg-color><x-color><param>pale goldenrod</param> PaleGoldenrod		     </x-color>  eee8aa {0.93,0.91,0.67}
+<x-bg-color><param>light goldenrod yellow</param>light goldenrod yellow</x-bg-color><x-color><param>light goldenrod yellow</param> LightGoldenrodYellow	     </x-color>  fafad2 {0.98,0.98,0.82}
+<x-bg-color><param>light yellow</param>light yellow	      </x-bg-color><x-color><param>light yellow</param> LightYellow		     </x-color>  ffffe0 {1,1,0.88}
+<x-bg-color><param>yellow</param>yellow		      </x-bg-color><x-color><param>yellow</param> yellow			     </x-color>  ffff00 {1,1,0}
+<x-bg-color><param>gold</param>gold		      </x-bg-color><x-color><param>gold</param> gold			     </x-color>  ffd700 {1,0.84,0}
+<x-bg-color><param>light goldenrod</param>light goldenrod	      </x-bg-color><x-color><param>light goldenrod</param> LightGoldenrod		     </x-color>  eedd82 {0.93,0.87,0.51}
+<x-bg-color><param>goldenrod</param>goldenrod	      </x-bg-color><x-color><param>goldenrod</param> goldenrod		     </x-color>  daa520 {0.85,0.65,0.13}
+<x-bg-color><param>dark goldenrod</param>dark goldenrod	      </x-bg-color><x-color><param>dark goldenrod</param> DarkGoldenrod		     </x-color>  b8860b {0.72,0.53,0.04}
+<x-bg-color><param>rosy brown</param>rosy brown	      </x-bg-color><x-color><param>rosy brown</param> RosyBrown		     </x-color>  bc8f8f {0.74,0.56,0.56}
+<x-bg-color><param>indian red</param>indian red	      </x-bg-color><x-color><param>indian red</param> IndianRed		     </x-color>  cd5c5c {0.8,0.36,0.36}
+<x-bg-color><param>saddle brown</param>saddle brown	      </x-bg-color><x-color><param>saddle brown</param> SaddleBrown		     </x-color>  8b4513 {0.55,0.27,0.07}
+<x-bg-color><param>sienna</param>sienna		      </x-bg-color><x-color><param>sienna</param> sienna			     </x-color>  a0522d {0.63,0.32,0.18}
+<x-bg-color><param>peru</param>peru		      </x-bg-color><x-color><param>peru</param> peru			     </x-color>  cd853f {0.8,0.52,0.25}
+<x-bg-color><param>burlywood</param>burlywood	      </x-bg-color><x-color><param>burlywood</param> burlywood		     </x-color>  deb887 {0.87,0.72,0.53}
+<x-bg-color><param>beige</param>beige		      </x-bg-color><x-color><param>beige</param> beige			     </x-color>  f5f5dc {0.96,0.96,0.86}
+<x-bg-color><param>wheat</param>wheat		      </x-bg-color><x-color><param>wheat</param> wheat			     </x-color>  f5deb3 {0.96,0.87,0.7}
+<x-bg-color><param>sandy brown</param>sandy brown	      </x-bg-color><x-color><param>sandy brown</param> SandyBrown		     </x-color>  f4a460 {0.96,0.64,0.38}
+<x-bg-color><param>tan</param>tan		      </x-bg-color><x-color><param>tan</param> tan			     </x-color>  d2b48c {0.82,0.71,0.55}
+<x-bg-color><param>chocolate</param>chocolate	      </x-bg-color><x-color><param>chocolate</param> chocolate		     </x-color>  d2691e {0.82,0.41,0.12}
+<x-bg-color><param>firebrick</param>firebrick	      </x-bg-color><x-color><param>firebrick</param> firebrick		     </x-color>  b22222 {0.7,0.13,0.13}
+<x-bg-color><param>brown</param>brown		      </x-bg-color><x-color><param>brown</param> brown			     </x-color>  a52a2a {0.65,0.16,0.16}
+<x-bg-color><param>dark salmon</param>dark salmon	      </x-bg-color><x-color><param>dark salmon</param> DarkSalmon		     </x-color>  e9967a {0.91,0.59,0.48}
+<x-bg-color><param>salmon</param>salmon		      </x-bg-color><x-color><param>salmon</param> salmon			     </x-color>  fa8072 {0.98,0.5,0.45}
+<x-bg-color><param>light salmon</param>light salmon	      </x-bg-color><x-color><param>light salmon</param> LightSalmon		     </x-color>  ffa07a {1,0.63,0.48}
+<x-bg-color><param>orange</param>orange		      </x-bg-color><x-color><param>orange</param> orange			     </x-color>  ffa500 {1,0.65,0}
+<x-bg-color><param>dark orange</param>dark orange	      </x-bg-color><x-color><param>dark orange</param> DarkOrange		     </x-color>  ff8c00 {1,0.55,0}
+<x-bg-color><param>coral</param>coral		      </x-bg-color><x-color><param>coral</param> coral			     </x-color>  ff7f50 {1,0.5,0.31}
+<x-bg-color><param>light coral</param>light coral	      </x-bg-color><x-color><param>light coral</param> LightCoral		     </x-color>  f08080 {0.94,0.5,0.5}
+<x-bg-color><param>tomato</param>tomato		      </x-bg-color><x-color><param>tomato</param> tomato			     </x-color>  ff6347 {1,0.39,0.28}
+<x-bg-color><param>orange red</param>orange red	      </x-bg-color><x-color><param>orange red</param> OrangeRed		     </x-color>  ff4500 {1,0.27,0}
+<x-bg-color><param>red</param>red		      </x-bg-color><x-color><param>red</param> red			     </x-color>  ff0000 {1,0,0}
+<x-bg-color><param>hot pink</param>hot pink	      </x-bg-color><x-color><param>hot pink</param> HotPink			     </x-color>  ff69b4 {1,0.41,0.71}
+<x-bg-color><param>deep pink</param>deep pink	      </x-bg-color><x-color><param>deep pink</param> DeepPink			     </x-color>  ff1493 {1,0.08,0.58}
+<x-bg-color><param>pink</param>pink		      </x-bg-color><x-color><param>pink</param> pink			     </x-color>  ffc0cb {1,0.75,0.8}
+<x-bg-color><param>light pink</param>light pink	      </x-bg-color><x-color><param>light pink</param> LightPink		     </x-color>  ffb6c1 {1,0.71,0.76}
+<x-bg-color><param>pale violet red</param>pale violet red	      </x-bg-color><x-color><param>pale violet red</param> PaleVioletRed		     </x-color>  db7093 {0.86,0.44,0.58}
+<x-bg-color><param>maroon</param>maroon		      </x-bg-color><x-color><param>maroon</param> maroon			     </x-color>  b03060 {0.69,0.19,0.38}
+<x-bg-color><param>medium violet red</param>medium violet red     </x-bg-color><x-color><param>medium violet red</param> MediumVioletRed		     </x-color>  c71585 {0.78,0.08,0.52}
+<x-bg-color><param>violet red</param>violet red	      </x-bg-color><x-color><param>violet red</param> VioletRed		     </x-color>  d02090 {0.82,0.13,0.56}
+<x-bg-color><param>magenta</param>magenta		      </x-bg-color><x-color><param>magenta</param> magenta			     </x-color>  ff00ff {1,0,1}
+<x-bg-color><param>violet</param>violet		      </x-bg-color><x-color><param>violet</param> violet			     </x-color>  ee82ee {0.93,0.51,0.93}
+<x-bg-color><param>plum</param>plum		      </x-bg-color><x-color><param>plum</param> plum			     </x-color>  dda0dd {0.87,0.63,0.87}
+<x-bg-color><param>orchid</param>orchid		      </x-bg-color><x-color><param>orchid</param> orchid			     </x-color>  da70d6 {0.85,0.44,0.84}
+<x-bg-color><param>medium orchid</param>medium orchid	      </x-bg-color><x-color><param>medium orchid</param> MediumOrchid		     </x-color>  ba55d3 {0.73,0.33,0.83}
+<x-bg-color><param>dark orchid</param>dark orchid	      </x-bg-color><x-color><param>dark orchid</param> DarkOrchid		     </x-color>  9932cc {0.6,0.2,0.8}
+<x-bg-color><param>dark violet</param>dark violet	      </x-bg-color><x-color><param>dark violet</param> DarkViolet		     </x-color>  9400d3 {0.58,0,0.83}
+<x-bg-color><param>blue violet</param>blue violet	      </x-bg-color><x-color><param>blue violet</param> BlueViolet		     </x-color>  8a2be2 {0.54,0.17,0.89}
+<x-bg-color><param>purple</param>purple		      </x-bg-color><x-color><param>purple</param> purple			     </x-color>  a020f0 {0.63,0.13,0.94}
+<x-bg-color><param>medium purple</param>medium purple	      </x-bg-color><x-color><param>medium purple</param> MediumPurple		     </x-color>  9370db {0.58,0.44,0.86}
+<x-bg-color><param>thistle</param>thistle		      </x-bg-color><x-color><param>thistle</param> thistle			     </x-color>  d8bfd8 {0.85,0.75,0.85}
+<x-bg-color><param>snow1</param>snow1		      </x-bg-color><x-color><param>snow1</param> snow1			     </x-color>  fffafa {1,0.98,0.98}
+<x-bg-color><param>snow2</param>snow2		      </x-bg-color><x-color><param>snow2</param> snow2			     </x-color>  eee9e9 {0.93,0.91,0.91}
+<x-bg-color><param>snow3</param>snow3		      </x-bg-color><x-color><param>snow3</param> snow3			     </x-color>  cdc9c9 {0.8,0.79,0.79}
+<x-bg-color><param>snow4</param>snow4		      </x-bg-color><x-color><param>snow4</param> snow4			     </x-color>  8b8989 {0.55,0.54,0.54}
+<x-bg-color><param>seashell1</param>seashell1	      </x-bg-color><x-color><param>seashell1</param> seashell1		     </x-color>  fff5ee {1,0.96,0.93}
+<x-bg-color><param>seashell2</param>seashell2	      </x-bg-color><x-color><param>seashell2</param> seashell2		     </x-color>  eee5de {0.93,0.9,0.87}
+<x-bg-color><param>seashell3</param>seashell3	      </x-bg-color><x-color><param>seashell3</param> seashell3		     </x-color>  cdc5bf {0.8,0.77,0.75}
+<x-bg-color><param>seashell4</param>seashell4	      </x-bg-color><x-color><param>seashell4</param> seashell4		     </x-color>  8b8682 {0.55,0.53,0.51}
+<x-bg-color><param>AntiqueWhite1</param>AntiqueWhite1	      </x-bg-color><x-color><param>AntiqueWhite1</param> AntiqueWhite1		     </x-color>  ffefdb {1,0.94,0.86}
+<x-bg-color><param>AntiqueWhite2</param>AntiqueWhite2	      </x-bg-color><x-color><param>AntiqueWhite2</param> AntiqueWhite2		     </x-color>  eedfcc {0.93,0.87,0.8}
+<x-bg-color><param>AntiqueWhite3</param>AntiqueWhite3	      </x-bg-color><x-color><param>AntiqueWhite3</param> AntiqueWhite3		     </x-color>  cdc0b0 {0.8,0.75,0.69}
+<x-bg-color><param>AntiqueWhite4</param>AntiqueWhite4	      </x-bg-color><x-color><param>AntiqueWhite4</param> AntiqueWhite4		     </x-color>  8b8378 {0.55,0.51,0.47}
+<x-bg-color><param>bisque1</param>bisque1		      </x-bg-color><x-color><param>bisque1</param> bisque1			     </x-color>  ffe4c4 {1,0.89,0.77}
+<x-bg-color><param>bisque2</param>bisque2		      </x-bg-color><x-color><param>bisque2</param> bisque2			     </x-color>  eed5b7 {0.93,0.84,0.72}
+<x-bg-color><param>bisque3</param>bisque3		      </x-bg-color><x-color><param>bisque3</param> bisque3			     </x-color>  cdb79e {0.8,0.72,0.62}
+<x-bg-color><param>bisque4</param>bisque4		      </x-bg-color><x-color><param>bisque4</param> bisque4			     </x-color>  8b7d6b {0.55,0.49,0.42}
+<x-bg-color><param>PeachPuff1</param>PeachPuff1	      </x-bg-color><x-color><param>PeachPuff1</param> PeachPuff1		     </x-color>  ffdab9 {1,0.85,0.73}
+<x-bg-color><param>PeachPuff2</param>PeachPuff2	      </x-bg-color><x-color><param>PeachPuff2</param> PeachPuff2		     </x-color>  eecbad {0.93,0.8,0.68}
+<x-bg-color><param>PeachPuff3</param>PeachPuff3	      </x-bg-color><x-color><param>PeachPuff3</param> PeachPuff3		     </x-color>  cdaf95 {0.8,0.69,0.58}
+<x-bg-color><param>PeachPuff4</param>PeachPuff4	      </x-bg-color><x-color><param>PeachPuff4</param> PeachPuff4		     </x-color>  8b7765 {0.55,0.47,0.4}
+<x-bg-color><param>NavajoWhite1</param>NavajoWhite1	      </x-bg-color><x-color><param>NavajoWhite1</param> NavajoWhite1		     </x-color>  ffdead {1,0.87,0.68}
+<x-bg-color><param>NavajoWhite2</param>NavajoWhite2	      </x-bg-color><x-color><param>NavajoWhite2</param> NavajoWhite2		     </x-color>  eecfa1 {0.93,0.81,0.63}
+<x-bg-color><param>NavajoWhite3</param>NavajoWhite3	      </x-bg-color><x-color><param>NavajoWhite3</param> NavajoWhite3		     </x-color>  cdb38b {0.8,0.7,0.55}
+<x-bg-color><param>NavajoWhite4</param>NavajoWhite4	      </x-bg-color><x-color><param>NavajoWhite4</param> NavajoWhite4		     </x-color>  8b795e {0.55,0.47,0.37}
+<x-bg-color><param>LemonChiffon1</param>LemonChiffon1	      </x-bg-color><x-color><param>LemonChiffon1</param> LemonChiffon1		     </x-color>  fffacd {1,0.98,0.8}
+<x-bg-color><param>LemonChiffon2</param>LemonChiffon2	      </x-bg-color><x-color><param>LemonChiffon2</param> LemonChiffon2		     </x-color>  eee9bf {0.93,0.91,0.75}
+<x-bg-color><param>LemonChiffon3</param>LemonChiffon3	      </x-bg-color><x-color><param>LemonChiffon3</param> LemonChiffon3		     </x-color>  cdc9a5 {0.8,0.79,0.65}
+<x-bg-color><param>LemonChiffon4</param>LemonChiffon4	      </x-bg-color><x-color><param>LemonChiffon4</param> LemonChiffon4		     </x-color>  8b8970 {0.55,0.54,0.44}
+<x-bg-color><param>cornsilk1</param>cornsilk1	      </x-bg-color><x-color><param>cornsilk1</param> cornsilk1		     </x-color>  fff8dc {1,0.97,0.86}
+<x-bg-color><param>cornsilk2</param>cornsilk2	      </x-bg-color><x-color><param>cornsilk2</param> cornsilk2		     </x-color>  eee8cd {0.93,0.91,0.8}
+<x-bg-color><param>cornsilk3</param>cornsilk3	      </x-bg-color><x-color><param>cornsilk3</param> cornsilk3		     </x-color>  cdc8b1 {0.8,0.78,0.69}
+<x-bg-color><param>cornsilk4</param>cornsilk4	      </x-bg-color><x-color><param>cornsilk4</param> cornsilk4		     </x-color>  8b8878 {0.55,0.53,0.47}
+<x-bg-color><param>ivory1</param>ivory1		      </x-bg-color><x-color><param>ivory1</param> ivory1			     </x-color>  fffff0 {1,1,0.94}
+<x-bg-color><param>ivory2</param>ivory2		      </x-bg-color><x-color><param>ivory2</param> ivory2			     </x-color>  eeeee0 {0.93,0.93,0.88}
+<x-bg-color><param>ivory3</param>ivory3		      </x-bg-color><x-color><param>ivory3</param> ivory3			     </x-color>  cdcdc1 {0.8,0.8,0.76}
+<x-bg-color><param>ivory4</param>ivory4		      </x-bg-color><x-color><param>ivory4</param> ivory4			     </x-color>  8b8b83 {0.55,0.55,0.51}
+<x-bg-color><param>honeydew1</param>honeydew1	      </x-bg-color><x-color><param>honeydew1</param> honeydew1		     </x-color>  f0fff0 {0.94,1,0.94}
+<x-bg-color><param>honeydew2</param>honeydew2	      </x-bg-color><x-color><param>honeydew2</param> honeydew2		     </x-color>  e0eee0 {0.88,0.93,0.88}
+<x-bg-color><param>honeydew3</param>honeydew3	      </x-bg-color><x-color><param>honeydew3</param> honeydew3		     </x-color>  c1cdc1 {0.76,0.8,0.76}
+<x-bg-color><param>honeydew4</param>honeydew4	      </x-bg-color><x-color><param>honeydew4</param> honeydew4		     </x-color>  838b83 {0.51,0.55,0.51}
+<x-bg-color><param>LavenderBlush1</param>LavenderBlush1	      </x-bg-color><x-color><param>LavenderBlush1</param> LavenderBlush1		     </x-color>  fff0f5 {1,0.94,0.96}
+<x-bg-color><param>LavenderBlush2</param>LavenderBlush2	      </x-bg-color><x-color><param>LavenderBlush2</param> LavenderBlush2		     </x-color>  eee0e5 {0.93,0.88,0.9}
+<x-bg-color><param>LavenderBlush3</param>LavenderBlush3	      </x-bg-color><x-color><param>LavenderBlush3</param> LavenderBlush3		     </x-color>  cdc1c5 {0.8,0.76,0.77}
+<x-bg-color><param>LavenderBlush4</param>LavenderBlush4	      </x-bg-color><x-color><param>LavenderBlush4</param> LavenderBlush4		     </x-color>  8b8386 {0.55,0.51,0.53}
+<x-bg-color><param>MistyRose1</param>MistyRose1	      </x-bg-color><x-color><param>MistyRose1</param> MistyRose1		     </x-color>  ffe4e1 {1,0.89,0.88}
+<x-bg-color><param>MistyRose2</param>MistyRose2	      </x-bg-color><x-color><param>MistyRose2</param> MistyRose2		     </x-color>  eed5d2 {0.93,0.84,0.82}
+<x-bg-color><param>MistyRose3</param>MistyRose3	      </x-bg-color><x-color><param>MistyRose3</param> MistyRose3		     </x-color>  cdb7b5 {0.8,0.72,0.71}
+<x-bg-color><param>MistyRose4</param>MistyRose4	      </x-bg-color><x-color><param>MistyRose4</param> MistyRose4		     </x-color>  8b7d7b {0.55,0.49,0.48}
+<x-bg-color><param>azure1</param>azure1		      </x-bg-color><x-color><param>azure1</param> azure1			     </x-color>  f0ffff {0.94,1,1}
+<x-bg-color><param>azure2</param>azure2		      </x-bg-color><x-color><param>azure2</param> azure2			     </x-color>  e0eeee {0.88,0.93,0.93}
+<x-bg-color><param>azure3</param>azure3		      </x-bg-color><x-color><param>azure3</param> azure3			     </x-color>  c1cdcd {0.76,0.8,0.8}
+<x-bg-color><param>azure4</param>azure4		      </x-bg-color><x-color><param>azure4</param> azure4			     </x-color>  838b8b {0.51,0.55,0.55}
+<x-bg-color><param>SlateBlue1</param>SlateBlue1	      </x-bg-color><x-color><param>SlateBlue1</param> SlateBlue1		     </x-color>  836fff {0.51,0.44,1}
+<x-bg-color><param>SlateBlue2</param>SlateBlue2	      </x-bg-color><x-color><param>SlateBlue2</param> SlateBlue2		     </x-color>  7a67ee {0.48,0.4,0.93}
+<x-bg-color><param>SlateBlue3</param>SlateBlue3	      </x-bg-color><x-color><param>SlateBlue3</param> SlateBlue3		     </x-color>  6959cd {0.41,0.35,0.8}
+<x-bg-color><param>SlateBlue4</param>SlateBlue4	      </x-bg-color><x-color><param>SlateBlue4</param> SlateBlue4		     </x-color>  473c8b {0.28,0.24,0.55}
+<x-bg-color><param>RoyalBlue1</param>RoyalBlue1	      </x-bg-color><x-color><param>RoyalBlue1</param> RoyalBlue1		     </x-color>  4876ff {0.28,0.46,1}
+<x-bg-color><param>RoyalBlue2</param>RoyalBlue2	      </x-bg-color><x-color><param>RoyalBlue2</param> RoyalBlue2		     </x-color>  436eee {0.26,0.43,0.93}
+<x-bg-color><param>RoyalBlue3</param>RoyalBlue3	      </x-bg-color><x-color><param>RoyalBlue3</param> RoyalBlue3		     </x-color>  3a5fcd {0.23,0.37,0.8}
+<x-bg-color><param>RoyalBlue4</param>RoyalBlue4	      </x-bg-color><x-color><param>RoyalBlue4</param> RoyalBlue4		     </x-color>  27408b {0.15,0.25,0.55}
+<x-bg-color><param>blue1</param>blue1		      </x-bg-color><x-color><param>blue1</param> blue1			     </x-color>  0000ff {0,0,1}
+<x-bg-color><param>blue2</param>blue2		      </x-bg-color><x-color><param>blue2</param> blue2			     </x-color>  0000ee {0,0,0.93}
+<x-bg-color><param>blue3</param>blue3		      </x-bg-color><x-color><param>blue3</param> blue3			     </x-color>  0000cd {0,0,0.8}
+<x-bg-color><param>blue4</param>blue4		      </x-bg-color><x-color><param>blue4</param> blue4			     </x-color>  00008b {0,0,0.55}
+<x-bg-color><param>DodgerBlue1</param>DodgerBlue1	      </x-bg-color><x-color><param>DodgerBlue1</param> DodgerBlue1		     </x-color>  1e90ff {0.12,0.56,1}
+<x-bg-color><param>DodgerBlue2</param>DodgerBlue2	      </x-bg-color><x-color><param>DodgerBlue2</param> DodgerBlue2		     </x-color>  1c86ee {0.11,0.53,0.93}
+<x-bg-color><param>DodgerBlue3</param>DodgerBlue3	      </x-bg-color><x-color><param>DodgerBlue3</param> DodgerBlue3		     </x-color>  1874cd {0.09,0.45,0.8}
+<x-bg-color><param>DodgerBlue4</param>DodgerBlue4	      </x-bg-color><x-color><param>DodgerBlue4</param> DodgerBlue4		     </x-color>  104e8b {0.06,0.31,0.55}
+<x-bg-color><param>SteelBlue1</param>SteelBlue1	      </x-bg-color><x-color><param>SteelBlue1</param> SteelBlue1		     </x-color>  63b8ff {0.39,0.72,1}
+<x-bg-color><param>SteelBlue2</param>SteelBlue2	      </x-bg-color><x-color><param>SteelBlue2</param> SteelBlue2		     </x-color>  5cacee {0.36,0.67,0.93}
+<x-bg-color><param>SteelBlue3</param>SteelBlue3	      </x-bg-color><x-color><param>SteelBlue3</param> SteelBlue3		     </x-color>  4f94cd {0.31,0.58,0.8}
+<x-bg-color><param>SteelBlue4</param>SteelBlue4	      </x-bg-color><x-color><param>SteelBlue4</param> SteelBlue4		     </x-color>  36648b {0.21,0.39,0.55}
+<x-bg-color><param>DeepSkyBlue1</param>DeepSkyBlue1	      </x-bg-color><x-color><param>DeepSkyBlue1</param> DeepSkyBlue1		     </x-color>  00bfff {0,0.75,1}
+<x-bg-color><param>DeepSkyBlue2</param>DeepSkyBlue2	      </x-bg-color><x-color><param>DeepSkyBlue2</param> DeepSkyBlue2		     </x-color>  00b2ee {0,0.7,0.93}
+<x-bg-color><param>DeepSkyBlue3</param>DeepSkyBlue3	      </x-bg-color><x-color><param>DeepSkyBlue3</param> DeepSkyBlue3		     </x-color>  009acd {0,0.6,0.8}
+<x-bg-color><param>DeepSkyBlue4</param>DeepSkyBlue4	      </x-bg-color><x-color><param>DeepSkyBlue4</param> DeepSkyBlue4		     </x-color>  00688b {0,0.41,0.55}
+<x-bg-color><param>SkyBlue1</param>SkyBlue1	      </x-bg-color><x-color><param>SkyBlue1</param> SkyBlue1			     </x-color>  87ceff {0.53,0.81,1}
+<x-bg-color><param>SkyBlue2</param>SkyBlue2	      </x-bg-color><x-color><param>SkyBlue2</param> SkyBlue2			     </x-color>  7ec0ee {0.49,0.75,0.93}
+<x-bg-color><param>SkyBlue3</param>SkyBlue3	      </x-bg-color><x-color><param>SkyBlue3</param> SkyBlue3			     </x-color>  6ca6cd {0.42,0.65,0.8}
+<x-bg-color><param>SkyBlue4</param>SkyBlue4	      </x-bg-color><x-color><param>SkyBlue4</param> SkyBlue4			     </x-color>  4a708b {0.29,0.44,0.55}
+<x-bg-color><param>LightSkyBlue1</param>LightSkyBlue1	      </x-bg-color><x-color><param>LightSkyBlue1</param> LightSkyBlue1		     </x-color>  b0e2ff {0.69,0.89,1}
+<x-bg-color><param>LightSkyBlue2</param>LightSkyBlue2	      </x-bg-color><x-color><param>LightSkyBlue2</param> LightSkyBlue2		     </x-color>  a4d3ee {0.64,0.83,0.93}
+<x-bg-color><param>LightSkyBlue3</param>LightSkyBlue3	      </x-bg-color><x-color><param>LightSkyBlue3</param> LightSkyBlue3		     </x-color>  8db6cd {0.55,0.71,0.8}
+<x-bg-color><param>LightSkyBlue4</param>LightSkyBlue4	      </x-bg-color><x-color><param>LightSkyBlue4</param> LightSkyBlue4		     </x-color>  607b8b {0.38,0.48,0.55}
+<x-bg-color><param>SlateGray1</param>SlateGray1	      </x-bg-color><x-color><param>SlateGray1</param> SlateGray1		     </x-color>  c6e2ff {0.78,0.89,1}
+<x-bg-color><param>SlateGray2</param>SlateGray2	      </x-bg-color><x-color><param>SlateGray2</param> SlateGray2		     </x-color>  b9d3ee {0.73,0.83,0.93}
+<x-bg-color><param>SlateGray3</param>SlateGray3	      </x-bg-color><x-color><param>SlateGray3</param> SlateGray3		     </x-color>  9fb6cd {0.62,0.71,0.8}
+<x-bg-color><param>SlateGray4</param>SlateGray4	      </x-bg-color><x-color><param>SlateGray4</param> SlateGray4		     </x-color>  6c7b8b {0.42,0.48,0.55}
+<x-bg-color><param>LightSteelBlue1</param>LightSteelBlue1	      </x-bg-color><x-color><param>LightSteelBlue1</param> LightSteelBlue1		     </x-color>  cae1ff {0.79,0.88,1}
+<x-bg-color><param>LightSteelBlue2</param>LightSteelBlue2	      </x-bg-color><x-color><param>LightSteelBlue2</param> LightSteelBlue2		     </x-color>  bcd2ee {0.74,0.82,0.93}
+<x-bg-color><param>LightSteelBlue3</param>LightSteelBlue3	      </x-bg-color><x-color><param>LightSteelBlue3</param> LightSteelBlue3		     </x-color>  a2b5cd {0.64,0.71,0.8}
+<x-bg-color><param>LightSteelBlue4</param>LightSteelBlue4	      </x-bg-color><x-color><param>LightSteelBlue4</param> LightSteelBlue4		     </x-color>  6e7b8b {0.43,0.48,0.55}
+<x-bg-color><param>LightBlue1</param>LightBlue1	      </x-bg-color><x-color><param>LightBlue1</param> LightBlue1		     </x-color>  bfefff {0.75,0.94,1}
+<x-bg-color><param>LightBlue2</param>LightBlue2	      </x-bg-color><x-color><param>LightBlue2</param> LightBlue2		     </x-color>  b2dfee {0.7,0.87,0.93}
+<x-bg-color><param>LightBlue3</param>LightBlue3	      </x-bg-color><x-color><param>LightBlue3</param> LightBlue3		     </x-color>  9ac0cd {0.6,0.75,0.8}
+<x-bg-color><param>LightBlue4</param>LightBlue4	      </x-bg-color><x-color><param>LightBlue4</param> LightBlue4		     </x-color>  68838b {0.41,0.51,0.55}
+<x-bg-color><param>LightCyan1</param>LightCyan1	      </x-bg-color><x-color><param>LightCyan1</param> LightCyan1		     </x-color>  e0ffff {0.88,1,1}
+<x-bg-color><param>LightCyan2</param>LightCyan2	      </x-bg-color><x-color><param>LightCyan2</param> LightCyan2		     </x-color>  d1eeee {0.82,0.93,0.93}
+<x-bg-color><param>LightCyan3</param>LightCyan3	      </x-bg-color><x-color><param>LightCyan3</param> LightCyan3		     </x-color>  b4cdcd {0.71,0.8,0.8}
+<x-bg-color><param>LightCyan4</param>LightCyan4	      </x-bg-color><x-color><param>LightCyan4</param> LightCyan4		     </x-color>  7a8b8b {0.48,0.55,0.55}
+<x-bg-color><param>PaleTurquoise1</param>PaleTurquoise1	      </x-bg-color><x-color><param>PaleTurquoise1</param> PaleTurquoise1		     </x-color>  bbffff {0.73,1,1}
+<x-bg-color><param>PaleTurquoise2</param>PaleTurquoise2	      </x-bg-color><x-color><param>PaleTurquoise2</param> PaleTurquoise2		     </x-color>  aeeeee {0.68,0.93,0.93}
+<x-bg-color><param>PaleTurquoise3</param>PaleTurquoise3	      </x-bg-color><x-color><param>PaleTurquoise3</param> PaleTurquoise3		     </x-color>  96cdcd {0.59,0.8,0.8}
+<x-bg-color><param>PaleTurquoise4</param>PaleTurquoise4	      </x-bg-color><x-color><param>PaleTurquoise4</param> PaleTurquoise4		     </x-color>  668b8b {0.4,0.55,0.55}
+<x-bg-color><param>CadetBlue1</param>CadetBlue1	      </x-bg-color><x-color><param>CadetBlue1</param> CadetBlue1		     </x-color>  98f5ff {0.6,0.96,1}
+<x-bg-color><param>CadetBlue2</param>CadetBlue2	      </x-bg-color><x-color><param>CadetBlue2</param> CadetBlue2		     </x-color>  8ee5ee {0.56,0.9,0.93}
+<x-bg-color><param>CadetBlue3</param>CadetBlue3	      </x-bg-color><x-color><param>CadetBlue3</param> CadetBlue3		     </x-color>  7ac5cd {0.48,0.77,0.8}
+<x-bg-color><param>CadetBlue4</param>CadetBlue4	      </x-bg-color><x-color><param>CadetBlue4</param> CadetBlue4		     </x-color>  53868b {0.33,0.53,0.55}
+<x-bg-color><param>turquoise1</param>turquoise1	      </x-bg-color><x-color><param>turquoise1</param> turquoise1		     </x-color>  00f5ff {0,0.96,1}
+<x-bg-color><param>turquoise2</param>turquoise2	      </x-bg-color><x-color><param>turquoise2</param> turquoise2		     </x-color>  00e5ee {0,0.9,0.93}
+<x-bg-color><param>turquoise3</param>turquoise3	      </x-bg-color><x-color><param>turquoise3</param> turquoise3		     </x-color>  00c5cd {0,0.77,0.8}
+<x-bg-color><param>turquoise4</param>turquoise4	      </x-bg-color><x-color><param>turquoise4</param> turquoise4		     </x-color>  00868b {0,0.53,0.55}
+<x-bg-color><param>cyan1</param>cyan1		      </x-bg-color><x-color><param>cyan1</param> cyan1			     </x-color>  00ffff {0,1,1}
+<x-bg-color><param>cyan2</param>cyan2		      </x-bg-color><x-color><param>cyan2</param> cyan2			     </x-color>  00eeee {0,0.93,0.93}
+<x-bg-color><param>cyan3</param>cyan3		      </x-bg-color><x-color><param>cyan3</param> cyan3			     </x-color>  00cdcd {0,0.8,0.8}
+<x-bg-color><param>cyan4</param>cyan4		      </x-bg-color><x-color><param>cyan4</param> cyan4			     </x-color>  008b8b {0,0.55,0.55}
+<x-bg-color><param>DarkSlateGray1</param>DarkSlateGray1	      </x-bg-color><x-color><param>DarkSlateGray1</param> DarkSlateGray1		     </x-color>  97ffff {0.59,1,1}
+<x-bg-color><param>DarkSlateGray2</param>DarkSlateGray2	      </x-bg-color><x-color><param>DarkSlateGray2</param> DarkSlateGray2		     </x-color>  8deeee {0.55,0.93,0.93}
+<x-bg-color><param>DarkSlateGray3</param>DarkSlateGray3	      </x-bg-color><x-color><param>DarkSlateGray3</param> DarkSlateGray3		     </x-color>  79cdcd {0.47,0.8,0.8}
+<x-bg-color><param>DarkSlateGray4</param>DarkSlateGray4	      </x-bg-color><x-color><param>DarkSlateGray4</param> DarkSlateGray4		     </x-color>  528b8b {0.32,0.55,0.55}
+<x-bg-color><param>aquamarine1</param>aquamarine1	      </x-bg-color><x-color><param>aquamarine1</param> aquamarine1		     </x-color>  7fffd4 {0.5,1,0.83}
+<x-bg-color><param>aquamarine2</param>aquamarine2	      </x-bg-color><x-color><param>aquamarine2</param> aquamarine2		     </x-color>  76eec6 {0.46,0.93,0.78}
+<x-bg-color><param>aquamarine3</param>aquamarine3	      </x-bg-color><x-color><param>aquamarine3</param> aquamarine3		     </x-color>  66cdaa {0.4,0.8,0.67}
+<x-bg-color><param>aquamarine4</param>aquamarine4	      </x-bg-color><x-color><param>aquamarine4</param> aquamarine4		     </x-color>  458b74 {0.27,0.55,0.45}
+<x-bg-color><param>DarkSeaGreen1</param>DarkSeaGreen1	      </x-bg-color><x-color><param>DarkSeaGreen1</param> DarkSeaGreen1		     </x-color>  c1ffc1 {0.76,1,0.76}
+<x-bg-color><param>DarkSeaGreen2</param>DarkSeaGreen2	      </x-bg-color><x-color><param>DarkSeaGreen2</param> DarkSeaGreen2		     </x-color>  b4eeb4 {0.71,0.93,0.71}
+<x-bg-color><param>DarkSeaGreen3</param>DarkSeaGreen3	      </x-bg-color><x-color><param>DarkSeaGreen3</param> DarkSeaGreen3		     </x-color>  9bcd9b {0.61,0.8,0.61}
+<x-bg-color><param>DarkSeaGreen4</param>DarkSeaGreen4	      </x-bg-color><x-color><param>DarkSeaGreen4</param> DarkSeaGreen4		     </x-color>  698b69 {0.41,0.55,0.41}
+<x-bg-color><param>SeaGreen1</param>SeaGreen1	      </x-bg-color><x-color><param>SeaGreen1</param> SeaGreen1		     </x-color>  54ff9f {0.33,1,0.62}
+<x-bg-color><param>SeaGreen2</param>SeaGreen2	      </x-bg-color><x-color><param>SeaGreen2</param> SeaGreen2		     </x-color>  4eee94 {0.31,0.93,0.58}
+<x-bg-color><param>SeaGreen3</param>SeaGreen3	      </x-bg-color><x-color><param>SeaGreen3</param> SeaGreen3		     </x-color>  43cd80 {0.26,0.8,0.5}
+<x-bg-color><param>SeaGreen4</param>SeaGreen4	      </x-bg-color><x-color><param>SeaGreen4</param> SeaGreen4		     </x-color>  2e8b57 {0.18,0.55,0.34}
+<x-bg-color><param>PaleGreen1</param>PaleGreen1	      </x-bg-color><x-color><param>PaleGreen1</param> PaleGreen1		     </x-color>  9aff9a {0.6,1,0.6}
+<x-bg-color><param>PaleGreen2</param>PaleGreen2	      </x-bg-color><x-color><param>PaleGreen2</param> PaleGreen2		     </x-color>  90ee90 {0.56,0.93,0.56}
+<x-bg-color><param>PaleGreen3</param>PaleGreen3	      </x-bg-color><x-color><param>PaleGreen3</param> PaleGreen3		     </x-color>  7ccd7c {0.49,0.8,0.49}
+<x-bg-color><param>PaleGreen4</param>PaleGreen4	      </x-bg-color><x-color><param>PaleGreen4</param> PaleGreen4		     </x-color>  548b54 {0.33,0.55,0.33}
+<x-bg-color><param>SpringGreen1</param>SpringGreen1	      </x-bg-color><x-color><param>SpringGreen1</param> SpringGreen1		     </x-color>  00ff7f {0,1,0.5}
+<x-bg-color><param>SpringGreen2</param>SpringGreen2	      </x-bg-color><x-color><param>SpringGreen2</param> SpringGreen2		     </x-color>  00ee76 {0,0.93,0.46}
+<x-bg-color><param>SpringGreen3</param>SpringGreen3	      </x-bg-color><x-color><param>SpringGreen3</param> SpringGreen3		     </x-color>  00cd66 {0,0.8,0.4}
+<x-bg-color><param>SpringGreen4</param>SpringGreen4	      </x-bg-color><x-color><param>SpringGreen4</param> SpringGreen4		     </x-color>  008b45 {0,0.55,0.27}
+<x-bg-color><param>green1</param>green1		      </x-bg-color><x-color><param>green1</param> green1			     </x-color>  00ff00 {0,1,0}
+<x-bg-color><param>green2</param>green2		      </x-bg-color><x-color><param>green2</param> green2			     </x-color>  00ee00 {0,0.93,0}
+<x-bg-color><param>green3</param>green3		      </x-bg-color><x-color><param>green3</param> green3			     </x-color>  00cd00 {0,0.8,0}
+<x-bg-color><param>green4</param>green4		      </x-bg-color><x-color><param>green4</param> green4			     </x-color>  008b00 {0,0.55,0}
+<x-bg-color><param>chartreuse1</param>chartreuse1	      </x-bg-color><x-color><param>chartreuse1</param> chartreuse1		     </x-color>  7fff00 {0.5,1,0}
+<x-bg-color><param>chartreuse2</param>chartreuse2	      </x-bg-color><x-color><param>chartreuse2</param> chartreuse2		     </x-color>  76ee00 {0.46,0.93,0}
+<x-bg-color><param>chartreuse3</param>chartreuse3	      </x-bg-color><x-color><param>chartreuse3</param> chartreuse3		     </x-color>  66cd00 {0.4,0.8,0}
+<x-bg-color><param>chartreuse4</param>chartreuse4	      </x-bg-color><x-color><param>chartreuse4</param> chartreuse4		     </x-color>  458b00 {0.27,0.55,0}
+<x-bg-color><param>OliveDrab1</param>OliveDrab1	      </x-bg-color><x-color><param>OliveDrab1</param> OliveDrab1		     </x-color>  c0ff3e {0.75,1,0.24}
+<x-bg-color><param>OliveDrab2</param>OliveDrab2	      </x-bg-color><x-color><param>OliveDrab2</param> OliveDrab2		     </x-color>  b3ee3a {0.7,0.93,0.23}
+<x-bg-color><param>OliveDrab3</param>OliveDrab3	      </x-bg-color><x-color><param>OliveDrab3</param> OliveDrab3		     </x-color>  9acd32 {0.6,0.8,0.2}
+<x-bg-color><param>OliveDrab4</param>OliveDrab4	      </x-bg-color><x-color><param>OliveDrab4</param> OliveDrab4		     </x-color>  698b22 {0.41,0.55,0.13}
+<x-bg-color><param>DarkOliveGreen1</param>DarkOliveGreen1	      </x-bg-color><x-color><param>DarkOliveGreen1</param> DarkOliveGreen1		     </x-color>  caff70 {0.79,1,0.44}
+<x-bg-color><param>DarkOliveGreen2</param>DarkOliveGreen2	      </x-bg-color><x-color><param>DarkOliveGreen2</param> DarkOliveGreen2		     </x-color>  bcee68 {0.74,0.93,0.41}
+<x-bg-color><param>DarkOliveGreen3</param>DarkOliveGreen3	      </x-bg-color><x-color><param>DarkOliveGreen3</param> DarkOliveGreen3		     </x-color>  a2cd5a {0.64,0.8,0.35}
+<x-bg-color><param>DarkOliveGreen4</param>DarkOliveGreen4	      </x-bg-color><x-color><param>DarkOliveGreen4</param> DarkOliveGreen4		     </x-color>  6e8b3d {0.43,0.55,0.24}
+<x-bg-color><param>khaki1</param>khaki1		      </x-bg-color><x-color><param>khaki1</param> khaki1			     </x-color>  fff68f {1,0.96,0.56}
+<x-bg-color><param>khaki2</param>khaki2		      </x-bg-color><x-color><param>khaki2</param> khaki2			     </x-color>  eee685 {0.93,0.9,0.52}
+<x-bg-color><param>khaki3</param>khaki3		      </x-bg-color><x-color><param>khaki3</param> khaki3			     </x-color>  cdc673 {0.8,0.78,0.45}
+<x-bg-color><param>khaki4</param>khaki4		      </x-bg-color><x-color><param>khaki4</param> khaki4			     </x-color>  8b864e {0.55,0.53,0.31}
+<x-bg-color><param>LightGoldenrod1</param>LightGoldenrod1	      </x-bg-color><x-color><param>LightGoldenrod1</param> LightGoldenrod1		     </x-color>  ffec8b {1,0.93,0.55}
+<x-bg-color><param>LightGoldenrod2</param>LightGoldenrod2	      </x-bg-color><x-color><param>LightGoldenrod2</param> LightGoldenrod2		     </x-color>  eedc82 {0.93,0.86,0.51}
+<x-bg-color><param>LightGoldenrod3</param>LightGoldenrod3	      </x-bg-color><x-color><param>LightGoldenrod3</param> LightGoldenrod3		     </x-color>  cdbe70 {0.8,0.75,0.44}
+<x-bg-color><param>LightGoldenrod4</param>LightGoldenrod4	      </x-bg-color><x-color><param>LightGoldenrod4</param> LightGoldenrod4		     </x-color>  8b814c {0.55,0.51,0.3}
+<x-bg-color><param>LightYellow1</param>LightYellow1	      </x-bg-color><x-color><param>LightYellow1</param> LightYellow1		     </x-color>  ffffe0 {1,1,0.88}
+<x-bg-color><param>LightYellow2</param>LightYellow2	      </x-bg-color><x-color><param>LightYellow2</param> LightYellow2		     </x-color>  eeeed1 {0.93,0.93,0.82}
+<x-bg-color><param>LightYellow3</param>LightYellow3	      </x-bg-color><x-color><param>LightYellow3</param> LightYellow3		     </x-color>  cdcdb4 {0.8,0.8,0.71}
+<x-bg-color><param>LightYellow4</param>LightYellow4	      </x-bg-color><x-color><param>LightYellow4</param> LightYellow4		     </x-color>  8b8b7a {0.55,0.55,0.48}
+<x-bg-color><param>yellow1</param>yellow1		      </x-bg-color><x-color><param>yellow1</param> yellow1			     </x-color>  ffff00 {1,1,0}
+<x-bg-color><param>yellow2</param>yellow2		      </x-bg-color><x-color><param>yellow2</param> yellow2			     </x-color>  eeee00 {0.93,0.93,0}
+<x-bg-color><param>yellow3</param>yellow3		      </x-bg-color><x-color><param>yellow3</param> yellow3			     </x-color>  cdcd00 {0.8,0.8,0}
+<x-bg-color><param>yellow4</param>yellow4		      </x-bg-color><x-color><param>yellow4</param> yellow4			     </x-color>  8b8b00 {0.55,0.55,0}
+<x-bg-color><param>gold1</param>gold1		      </x-bg-color><x-color><param>gold1</param> gold1			     </x-color>  ffd700 {1,0.84,0}
+<x-bg-color><param>gold2</param>gold2		      </x-bg-color><x-color><param>gold2</param> gold2			     </x-color>  eec900 {0.93,0.79,0}
+<x-bg-color><param>gold3</param>gold3		      </x-bg-color><x-color><param>gold3</param> gold3			     </x-color>  cdad00 {0.8,0.68,0}
+<x-bg-color><param>gold4</param>gold4		      </x-bg-color><x-color><param>gold4</param> gold4			     </x-color>  8b7500 {0.55,0.46,0}
+<x-bg-color><param>goldenrod1</param>goldenrod1	      </x-bg-color><x-color><param>goldenrod1</param> goldenrod1		     </x-color>  ffc125 {1,0.76,0.15}
+<x-bg-color><param>goldenrod2</param>goldenrod2	      </x-bg-color><x-color><param>goldenrod2</param> goldenrod2		     </x-color>  eeb422 {0.93,0.71,0.13}
+<x-bg-color><param>goldenrod3</param>goldenrod3	      </x-bg-color><x-color><param>goldenrod3</param> goldenrod3		     </x-color>  cd9b1d {0.8,0.61,0.11}
+<x-bg-color><param>goldenrod4</param>goldenrod4	      </x-bg-color><x-color><param>goldenrod4</param> goldenrod4		     </x-color>  8b6914 {0.55,0.41,0.08}
+<x-bg-color><param>DarkGoldenrod1</param>DarkGoldenrod1	      </x-bg-color><x-color><param>DarkGoldenrod1</param> DarkGoldenrod1		     </x-color>  ffb90f {1,0.73,0.06}
+<x-bg-color><param>DarkGoldenrod2</param>DarkGoldenrod2	      </x-bg-color><x-color><param>DarkGoldenrod2</param> DarkGoldenrod2		     </x-color>  eead0e {0.93,0.68,0.05}
+<x-bg-color><param>DarkGoldenrod3</param>DarkGoldenrod3	      </x-bg-color><x-color><param>DarkGoldenrod3</param> DarkGoldenrod3		     </x-color>  cd950c {0.8,0.58,0.05}
+<x-bg-color><param>DarkGoldenrod4</param>DarkGoldenrod4	      </x-bg-color><x-color><param>DarkGoldenrod4</param> DarkGoldenrod4		     </x-color>  8b6508 {0.55,0.4,0.03}
+<x-bg-color><param>RosyBrown1</param>RosyBrown1	      </x-bg-color><x-color><param>RosyBrown1</param> RosyBrown1		     </x-color>  ffc1c1 {1,0.76,0.76}
+<x-bg-color><param>RosyBrown2</param>RosyBrown2	      </x-bg-color><x-color><param>RosyBrown2</param> RosyBrown2		     </x-color>  eeb4b4 {0.93,0.71,0.71}
+<x-bg-color><param>RosyBrown3</param>RosyBrown3	      </x-bg-color><x-color><param>RosyBrown3</param> RosyBrown3		     </x-color>  cd9b9b {0.8,0.61,0.61}
+<x-bg-color><param>RosyBrown4</param>RosyBrown4	      </x-bg-color><x-color><param>RosyBrown4</param> RosyBrown4		     </x-color>  8b6969 {0.55,0.41,0.41}
+<x-bg-color><param>IndianRed1</param>IndianRed1	      </x-bg-color><x-color><param>IndianRed1</param> IndianRed1		     </x-color>  ff6a6a {1,0.42,0.42}
+<x-bg-color><param>IndianRed2</param>IndianRed2	      </x-bg-color><x-color><param>IndianRed2</param> IndianRed2		     </x-color>  ee6363 {0.93,0.39,0.39}
+<x-bg-color><param>IndianRed3</param>IndianRed3	      </x-bg-color><x-color><param>IndianRed3</param> IndianRed3		     </x-color>  cd5555 {0.8,0.33,0.33}
+<x-bg-color><param>IndianRed4</param>IndianRed4	      </x-bg-color><x-color><param>IndianRed4</param> IndianRed4		     </x-color>  8b3a3a {0.55,0.23,0.23}
+<x-bg-color><param>sienna1</param>sienna1		      </x-bg-color><x-color><param>sienna1</param> sienna1			     </x-color>  ff8247 {1,0.51,0.28}
+<x-bg-color><param>sienna2</param>sienna2		      </x-bg-color><x-color><param>sienna2</param> sienna2			     </x-color>  ee7942 {0.93,0.47,0.26}
+<x-bg-color><param>sienna3</param>sienna3		      </x-bg-color><x-color><param>sienna3</param> sienna3			     </x-color>  cd6839 {0.8,0.41,0.22}
+<x-bg-color><param>sienna4</param>sienna4		      </x-bg-color><x-color><param>sienna4</param> sienna4			     </x-color>  8b4726 {0.55,0.28,0.15}
+<x-bg-color><param>burlywood1</param>burlywood1	      </x-bg-color><x-color><param>burlywood1</param> burlywood1		     </x-color>  ffd39b {1,0.83,0.61}
+<x-bg-color><param>burlywood2</param>burlywood2	      </x-bg-color><x-color><param>burlywood2</param> burlywood2		     </x-color>  eec591 {0.93,0.77,0.57}
+<x-bg-color><param>burlywood3</param>burlywood3	      </x-bg-color><x-color><param>burlywood3</param> burlywood3		     </x-color>  cdaa7d {0.8,0.67,0.49}
+<x-bg-color><param>burlywood4</param>burlywood4	      </x-bg-color><x-color><param>burlywood4</param> burlywood4		     </x-color>  8b7355 {0.55,0.45,0.33}
+<x-bg-color><param>wheat1</param>wheat1		      </x-bg-color><x-color><param>wheat1</param> wheat1			     </x-color>  ffe7ba {1,0.91,0.73}
+<x-bg-color><param>wheat2</param>wheat2		      </x-bg-color><x-color><param>wheat2</param> wheat2			     </x-color>  eed8ae {0.93,0.85,0.68}
+<x-bg-color><param>wheat3</param>wheat3		      </x-bg-color><x-color><param>wheat3</param> wheat3			     </x-color>  cdba96 {0.8,0.73,0.59}
+<x-bg-color><param>wheat4</param>wheat4		      </x-bg-color><x-color><param>wheat4</param> wheat4			     </x-color>  8b7e66 {0.55,0.49,0.4}
+<x-bg-color><param>tan1</param>tan1		      </x-bg-color><x-color><param>tan1</param> tan1			     </x-color>  ffa54f {1,0.65,0.31}
+<x-bg-color><param>tan2</param>tan2		      </x-bg-color><x-color><param>tan2</param> tan2			     </x-color>  ee9a49 {0.93,0.6,0.29}
+<x-bg-color><param>tan3</param>tan3		      </x-bg-color><x-color><param>tan3</param> tan3			     </x-color>  cd853f {0.8,0.52,0.25}
+<x-bg-color><param>tan4</param>tan4		      </x-bg-color><x-color><param>tan4</param> tan4			     </x-color>  8b5a2b {0.55,0.35,0.17}
+<x-bg-color><param>chocolate1</param>chocolate1	      </x-bg-color><x-color><param>chocolate1</param> chocolate1		     </x-color>  ff7f24 {1,0.5,0.14}
+<x-bg-color><param>chocolate2</param>chocolate2	      </x-bg-color><x-color><param>chocolate2</param> chocolate2		     </x-color>  ee7621 {0.93,0.46,0.13}
+<x-bg-color><param>chocolate3</param>chocolate3	      </x-bg-color><x-color><param>chocolate3</param> chocolate3		     </x-color>  cd661d {0.8,0.4,0.11}
+<x-bg-color><param>chocolate4</param>chocolate4	      </x-bg-color><x-color><param>chocolate4</param> chocolate4		     </x-color>  8b4513 {0.55,0.27,0.07}
+<x-bg-color><param>firebrick1</param>firebrick1	      </x-bg-color><x-color><param>firebrick1</param> firebrick1		     </x-color>  ff3030 {1,0.19,0.19}
+<x-bg-color><param>firebrick2</param>firebrick2	      </x-bg-color><x-color><param>firebrick2</param> firebrick2		     </x-color>  ee2c2c {0.93,0.17,0.17}
+<x-bg-color><param>firebrick3</param>firebrick3	      </x-bg-color><x-color><param>firebrick3</param> firebrick3		     </x-color>  cd2626 {0.8,0.15,0.15}
+<x-bg-color><param>firebrick4</param>firebrick4	      </x-bg-color><x-color><param>firebrick4</param> firebrick4		     </x-color>  8b1a1a {0.55,0.1,0.1}
+<x-bg-color><param>brown1</param>brown1		      </x-bg-color><x-color><param>brown1</param> brown1			     </x-color>  ff4040 {1,0.25,0.25}
+<x-bg-color><param>brown2</param>brown2		      </x-bg-color><x-color><param>brown2</param> brown2			     </x-color>  ee3b3b {0.93,0.23,0.23}
+<x-bg-color><param>brown3</param>brown3		      </x-bg-color><x-color><param>brown3</param> brown3			     </x-color>  cd3333 {0.8,0.2,0.2}
+<x-bg-color><param>brown4</param>brown4		      </x-bg-color><x-color><param>brown4</param> brown4			     </x-color>  8b2323 {0.55,0.14,0.14}
+<x-bg-color><param>salmon1</param>salmon1		      </x-bg-color><x-color><param>salmon1</param> salmon1			     </x-color>  ff8c69 {1,0.55,0.41}
+<x-bg-color><param>salmon2</param>salmon2		      </x-bg-color><x-color><param>salmon2</param> salmon2			     </x-color>  ee8262 {0.93,0.51,0.38}
+<x-bg-color><param>salmon3</param>salmon3		      </x-bg-color><x-color><param>salmon3</param> salmon3			     </x-color>  cd7054 {0.8,0.44,0.33}
+<x-bg-color><param>salmon4</param>salmon4		      </x-bg-color><x-color><param>salmon4</param> salmon4			     </x-color>  8b4c39 {0.55,0.3,0.22}
+<x-bg-color><param>LightSalmon1</param>LightSalmon1	      </x-bg-color><x-color><param>LightSalmon1</param> LightSalmon1		     </x-color>  ffa07a {1,0.63,0.48}
+<x-bg-color><param>LightSalmon2</param>LightSalmon2	      </x-bg-color><x-color><param>LightSalmon2</param> LightSalmon2		     </x-color>  ee9572 {0.93,0.58,0.45}
+<x-bg-color><param>LightSalmon3</param>LightSalmon3	      </x-bg-color><x-color><param>LightSalmon3</param> LightSalmon3		     </x-color>  cd8162 {0.8,0.51,0.38}
+<x-bg-color><param>LightSalmon4</param>LightSalmon4	      </x-bg-color><x-color><param>LightSalmon4</param> LightSalmon4		     </x-color>  8b5742 {0.55,0.34,0.26}
+<x-bg-color><param>orange1</param>orange1		      </x-bg-color><x-color><param>orange1</param> orange1			     </x-color>  ffa500 {1,0.65,0}
+<x-bg-color><param>orange2</param>orange2		      </x-bg-color><x-color><param>orange2</param> orange2			     </x-color>  ee9a00 {0.93,0.6,0}
+<x-bg-color><param>orange3</param>orange3		      </x-bg-color><x-color><param>orange3</param> orange3			     </x-color>  cd8500 {0.8,0.52,0}
+<x-bg-color><param>orange4</param>orange4		      </x-bg-color><x-color><param>orange4</param> orange4			     </x-color>  8b5a00 {0.55,0.35,0}
+<x-bg-color><param>DarkOrange1</param>DarkOrange1	      </x-bg-color><x-color><param>DarkOrange1</param> DarkOrange1		     </x-color>  ff7f00 {1,0.5,0}
+<x-bg-color><param>DarkOrange2</param>DarkOrange2	      </x-bg-color><x-color><param>DarkOrange2</param> DarkOrange2		     </x-color>  ee7600 {0.93,0.46,0}
+<x-bg-color><param>DarkOrange3</param>DarkOrange3	      </x-bg-color><x-color><param>DarkOrange3</param> DarkOrange3		     </x-color>  cd6600 {0.8,0.4,0}
+<x-bg-color><param>DarkOrange4</param>DarkOrange4	      </x-bg-color><x-color><param>DarkOrange4</param> DarkOrange4		     </x-color>  8b4500 {0.55,0.27,0}
+<x-bg-color><param>coral1</param>coral1		      </x-bg-color><x-color><param>coral1</param> coral1			     </x-color>  ff7256 {1,0.45,0.34}
+<x-bg-color><param>coral2</param>coral2		      </x-bg-color><x-color><param>coral2</param> coral2			     </x-color>  ee6a50 {0.93,0.42,0.31}
+<x-bg-color><param>coral3</param>coral3		      </x-bg-color><x-color><param>coral3</param> coral3			     </x-color>  cd5b45 {0.8,0.36,0.27}
+<x-bg-color><param>coral4</param>coral4		      </x-bg-color><x-color><param>coral4</param> coral4			     </x-color>  8b3e2f {0.55,0.24,0.18}
+<x-bg-color><param>tomato1</param>tomato1		      </x-bg-color><x-color><param>tomato1</param> tomato1			     </x-color>  ff6347 {1,0.39,0.28}
+<x-bg-color><param>tomato2</param>tomato2		      </x-bg-color><x-color><param>tomato2</param> tomato2			     </x-color>  ee5c42 {0.93,0.36,0.26}
+<x-bg-color><param>tomato3</param>tomato3		      </x-bg-color><x-color><param>tomato3</param> tomato3			     </x-color>  cd4f39 {0.8,0.31,0.22}
+<x-bg-color><param>tomato4</param>tomato4		      </x-bg-color><x-color><param>tomato4</param> tomato4			     </x-color>  8b3626 {0.55,0.21,0.15}
+<x-bg-color><param>OrangeRed1</param>OrangeRed1	      </x-bg-color><x-color><param>OrangeRed1</param> OrangeRed1		     </x-color>  ff4500 {1,0.27,0}
+<x-bg-color><param>OrangeRed2</param>OrangeRed2	      </x-bg-color><x-color><param>OrangeRed2</param> OrangeRed2		     </x-color>  ee4000 {0.93,0.25,0}
+<x-bg-color><param>OrangeRed3</param>OrangeRed3	      </x-bg-color><x-color><param>OrangeRed3</param> OrangeRed3		     </x-color>  cd3700 {0.8,0.22,0}
+<x-bg-color><param>OrangeRed4</param>OrangeRed4	      </x-bg-color><x-color><param>OrangeRed4</param> OrangeRed4		     </x-color>  8b2500 {0.55,0.15,0}
+<x-bg-color><param>red1</param>red1		      </x-bg-color><x-color><param>red1</param> red1			     </x-color>  ff0000 {1,0,0}
+<x-bg-color><param>red2</param>red2		      </x-bg-color><x-color><param>red2</param> red2			     </x-color>  ee0000 {0.93,0,0}
+<x-bg-color><param>red3</param>red3		      </x-bg-color><x-color><param>red3</param> red3			     </x-color>  cd0000 {0.8,0,0}
+<x-bg-color><param>red4</param>red4		      </x-bg-color><x-color><param>red4</param> red4			     </x-color>  8b0000 {0.55,0,0}
+<x-bg-color><param>DeepPink1</param>DeepPink1	      </x-bg-color><x-color><param>DeepPink1</param> DeepPink1		     </x-color>  ff1493 {1,0.08,0.58}
+<x-bg-color><param>DeepPink2</param>DeepPink2	      </x-bg-color><x-color><param>DeepPink2</param> DeepPink2		     </x-color>  ee1289 {0.93,0.07,0.54}
+<x-bg-color><param>DeepPink3</param>DeepPink3	      </x-bg-color><x-color><param>DeepPink3</param> DeepPink3		     </x-color>  cd1076 {0.8,0.06,0.46}
+<x-bg-color><param>DeepPink4</param>DeepPink4	      </x-bg-color><x-color><param>DeepPink4</param> DeepPink4		     </x-color>  8b0a50 {0.55,0.04,0.31}
+<x-bg-color><param>HotPink1</param>HotPink1	      </x-bg-color><x-color><param>HotPink1</param> HotPink1			     </x-color>  ff6eb4 {1,0.43,0.71}
+<x-bg-color><param>HotPink2</param>HotPink2	      </x-bg-color><x-color><param>HotPink2</param> HotPink2			     </x-color>  ee6aa7 {0.93,0.42,0.65}
+<x-bg-color><param>HotPink3</param>HotPink3	      </x-bg-color><x-color><param>HotPink3</param> HotPink3			     </x-color>  cd6090 {0.8,0.38,0.56}
+<x-bg-color><param>HotPink4</param>HotPink4	      </x-bg-color><x-color><param>HotPink4</param> HotPink4			     </x-color>  8b3a62 {0.55,0.23,0.38}
+<x-bg-color><param>pink1</param>pink1		      </x-bg-color><x-color><param>pink1</param> pink1			     </x-color>  ffb5c5 {1,0.71,0.77}
+<x-bg-color><param>pink2</param>pink2		      </x-bg-color><x-color><param>pink2</param> pink2			     </x-color>  eea9b8 {0.93,0.66,0.72}
+<x-bg-color><param>pink3</param>pink3		      </x-bg-color><x-color><param>pink3</param> pink3			     </x-color>  cd919e {0.8,0.57,0.62}
+<x-bg-color><param>pink4</param>pink4		      </x-bg-color><x-color><param>pink4</param> pink4			     </x-color>  8b636c {0.55,0.39,0.42}
+<x-bg-color><param>LightPink1</param>LightPink1	      </x-bg-color><x-color><param>LightPink1</param> LightPink1		     </x-color>  ffaeb9 {1,0.68,0.73}
+<x-bg-color><param>LightPink2</param>LightPink2	      </x-bg-color><x-color><param>LightPink2</param> LightPink2		     </x-color>  eea2ad {0.93,0.64,0.68}
+<x-bg-color><param>LightPink3</param>LightPink3	      </x-bg-color><x-color><param>LightPink3</param> LightPink3		     </x-color>  cd8c95 {0.8,0.55,0.58}
+<x-bg-color><param>LightPink4</param>LightPink4	      </x-bg-color><x-color><param>LightPink4</param> LightPink4		     </x-color>  8b5f65 {0.55,0.37,0.4}
+<x-bg-color><param>PaleVioletRed1</param>PaleVioletRed1	      </x-bg-color><x-color><param>PaleVioletRed1</param> PaleVioletRed1		     </x-color>  ff82ab {1,0.51,0.67}
+<x-bg-color><param>PaleVioletRed2</param>PaleVioletRed2	      </x-bg-color><x-color><param>PaleVioletRed2</param> PaleVioletRed2		     </x-color>  ee799f {0.93,0.47,0.62}
+<x-bg-color><param>PaleVioletRed3</param>PaleVioletRed3	      </x-bg-color><x-color><param>PaleVioletRed3</param> PaleVioletRed3		     </x-color>  cd6889 {0.8,0.41,0.54}
+<x-bg-color><param>PaleVioletRed4</param>PaleVioletRed4	      </x-bg-color><x-color><param>PaleVioletRed4</param> PaleVioletRed4		     </x-color>  8b475d {0.55,0.28,0.36}
+<x-bg-color><param>maroon1</param>maroon1		      </x-bg-color><x-color><param>maroon1</param> maroon1			     </x-color>  ff34b3 {1,0.2,0.7}
+<x-bg-color><param>maroon2</param>maroon2		      </x-bg-color><x-color><param>maroon2</param> maroon2			     </x-color>  ee30a7 {0.93,0.19,0.65}
+<x-bg-color><param>maroon3</param>maroon3		      </x-bg-color><x-color><param>maroon3</param> maroon3			     </x-color>  cd2990 {0.8,0.16,0.56}
+<x-bg-color><param>maroon4</param>maroon4		      </x-bg-color><x-color><param>maroon4</param> maroon4			     </x-color>  8b1c62 {0.55,0.11,0.38}
+<x-bg-color><param>VioletRed1</param>VioletRed1	      </x-bg-color><x-color><param>VioletRed1</param> VioletRed1		     </x-color>  ff3e96 {1,0.24,0.59}
+<x-bg-color><param>VioletRed2</param>VioletRed2	      </x-bg-color><x-color><param>VioletRed2</param> VioletRed2		     </x-color>  ee3a8c {0.93,0.23,0.55}
+<x-bg-color><param>VioletRed3</param>VioletRed3	      </x-bg-color><x-color><param>VioletRed3</param> VioletRed3		     </x-color>  cd3278 {0.8,0.2,0.47}
+<x-bg-color><param>VioletRed4</param>VioletRed4	      </x-bg-color><x-color><param>VioletRed4</param> VioletRed4		     </x-color>  8b2252 {0.55,0.13,0.32}
+<x-bg-color><param>magenta1</param>magenta1	      </x-bg-color><x-color><param>magenta1</param> magenta1			     </x-color>  ff00ff {1,0,1}
+<x-bg-color><param>magenta2</param>magenta2	      </x-bg-color><x-color><param>magenta2</param> magenta2			     </x-color>  ee00ee {0.93,0,0.93}
+<x-bg-color><param>magenta3</param>magenta3	      </x-bg-color><x-color><param>magenta3</param> magenta3			     </x-color>  cd00cd {0.8,0,0.8}
+<x-bg-color><param>magenta4</param>magenta4	      </x-bg-color><x-color><param>magenta4</param> magenta4			     </x-color>  8b008b {0.55,0,0.55}
+<x-bg-color><param>orchid1</param>orchid1		      </x-bg-color><x-color><param>orchid1</param> orchid1			     </x-color>  ff83fa {1,0.51,0.98}
+<x-bg-color><param>orchid2</param>orchid2		      </x-bg-color><x-color><param>orchid2</param> orchid2			     </x-color>  ee7ae9 {0.93,0.48,0.91}
+<x-bg-color><param>orchid3</param>orchid3		      </x-bg-color><x-color><param>orchid3</param> orchid3			     </x-color>  cd69c9 {0.8,0.41,0.79}
+<x-bg-color><param>orchid4</param>orchid4		      </x-bg-color><x-color><param>orchid4</param> orchid4			     </x-color>  8b4789 {0.55,0.28,0.54}
+<x-bg-color><param>plum1</param>plum1		      </x-bg-color><x-color><param>plum1</param> plum1			     </x-color>  ffbbff {1,0.73,1}
+<x-bg-color><param>plum2</param>plum2		      </x-bg-color><x-color><param>plum2</param> plum2			     </x-color>  eeaeee {0.93,0.68,0.93}
+<x-bg-color><param>plum3</param>plum3		      </x-bg-color><x-color><param>plum3</param> plum3			     </x-color>  cd96cd {0.8,0.59,0.8}
+<x-bg-color><param>plum4</param>plum4		      </x-bg-color><x-color><param>plum4</param> plum4			     </x-color>  8b668b {0.55,0.4,0.55}
+<x-bg-color><param>MediumOrchid1</param>MediumOrchid1	      </x-bg-color><x-color><param>MediumOrchid1</param> MediumOrchid1		     </x-color>  e066ff {0.88,0.4,1}
+<x-bg-color><param>MediumOrchid2</param>MediumOrchid2	      </x-bg-color><x-color><param>MediumOrchid2</param> MediumOrchid2		     </x-color>  d15fee {0.82,0.37,0.93}
+<x-bg-color><param>MediumOrchid3</param>MediumOrchid3	      </x-bg-color><x-color><param>MediumOrchid3</param> MediumOrchid3		     </x-color>  b452cd {0.71,0.32,0.8}
+<x-bg-color><param>MediumOrchid4</param>MediumOrchid4	      </x-bg-color><x-color><param>MediumOrchid4</param> MediumOrchid4		     </x-color>  7a378b {0.48,0.22,0.55}
+<x-bg-color><param>DarkOrchid1</param>DarkOrchid1	      </x-bg-color><x-color><param>DarkOrchid1</param> DarkOrchid1		     </x-color>  bf3eff {0.75,0.24,1}
+<x-bg-color><param>DarkOrchid2</param>DarkOrchid2	      </x-bg-color><x-color><param>DarkOrchid2</param> DarkOrchid2		     </x-color>  b23aee {0.7,0.23,0.93}
+<x-bg-color><param>DarkOrchid3</param>DarkOrchid3	      </x-bg-color><x-color><param>DarkOrchid3</param> DarkOrchid3		     </x-color>  9a32cd {0.6,0.2,0.8}
+<x-bg-color><param>DarkOrchid4</param>DarkOrchid4	      </x-bg-color><x-color><param>DarkOrchid4</param> DarkOrchid4		     </x-color>  68228b {0.41,0.13,0.55}
+<x-bg-color><param>purple1</param>purple1		      </x-bg-color><x-color><param>purple1</param> purple1			     </x-color>  9b30ff {0.61,0.19,1}
+<x-bg-color><param>purple2</param>purple2		      </x-bg-color><x-color><param>purple2</param> purple2			     </x-color>  912cee {0.57,0.17,0.93}
+<x-bg-color><param>purple3</param>purple3		      </x-bg-color><x-color><param>purple3</param> purple3			     </x-color>  7d26cd {0.49,0.15,0.8}
+<x-bg-color><param>purple4</param>purple4		      </x-bg-color><x-color><param>purple4</param> purple4			     </x-color>  551a8b {0.33,0.1,0.55}
+<x-bg-color><param>MediumPurple1</param>MediumPurple1	      </x-bg-color><x-color><param>MediumPurple1</param> MediumPurple1		     </x-color>  ab82ff {0.67,0.51,1}
+<x-bg-color><param>MediumPurple2</param>MediumPurple2	      </x-bg-color><x-color><param>MediumPurple2</param> MediumPurple2		     </x-color>  9f79ee {0.62,0.47,0.93}
+<x-bg-color><param>MediumPurple3</param>MediumPurple3	      </x-bg-color><x-color><param>MediumPurple3</param> MediumPurple3		     </x-color>  8968cd {0.54,0.41,0.8}
+<x-bg-color><param>MediumPurple4</param>MediumPurple4	      </x-bg-color><x-color><param>MediumPurple4</param> MediumPurple4		     </x-color>  5d478b {0.36,0.28,0.55}
+<x-bg-color><param>thistle1</param>thistle1	      </x-bg-color><x-color><param>thistle1</param> thistle1			     </x-color>  ffe1ff {1,0.88,1}
+<x-bg-color><param>thistle2</param>thistle2	      </x-bg-color><x-color><param>thistle2</param> thistle2			     </x-color>  eed2ee {0.93,0.82,0.93}
+<x-bg-color><param>thistle3</param>thistle3	      </x-bg-color><x-color><param>thistle3</param> thistle3			     </x-color>  cdb5cd {0.8,0.71,0.8}
+<x-bg-color><param>thistle4</param>thistle4	      </x-bg-color><x-color><param>thistle4</param> thistle4			     </x-color>  8b7b8b {0.55,0.48,0.55}
+<x-bg-color><param>gray0</param>gray0		      </x-bg-color><x-color><param>gray0</param> grey0			     </x-color>  000000 {0,0,0}
+<x-bg-color><param>gray1</param>gray1		      </x-bg-color><x-color><param>gray1</param> grey1			     </x-color>  030303 {0.01,0.01,0.01}
+<x-bg-color><param>gray2</param>gray2		      </x-bg-color><x-color><param>gray2</param> grey2			     </x-color>  050505 {0.02,0.02,0.02}
+<x-bg-color><param>gray3</param>gray3		      </x-bg-color><x-color><param>gray3</param> grey3			     </x-color>  080808 {0.03,0.03,0.03}
+<x-bg-color><param>gray4</param>gray4		      </x-bg-color><x-color><param>gray4</param> grey4			     </x-color>  0a0a0a {0.04,0.04,0.04}
+<x-bg-color><param>gray5</param>gray5		      </x-bg-color><x-color><param>gray5</param> grey5			     </x-color>  0d0d0d {0.05,0.05,0.05}
+<x-bg-color><param>gray6</param>gray6		      </x-bg-color><x-color><param>gray6</param> grey6			     </x-color>  0f0f0f {0.06,0.06,0.06}
+<x-bg-color><param>gray7</param>gray7		      </x-bg-color><x-color><param>gray7</param> grey7			     </x-color>  121212 {0.07,0.07,0.07}
+<x-bg-color><param>gray8</param>gray8		      </x-bg-color><x-color><param>gray8</param> grey8			     </x-color>  141414 {0.08,0.08,0.08}
+<x-bg-color><param>gray9</param>gray9		      </x-bg-color><x-color><param>gray9</param> grey9			     </x-color>  171717 {0.09,0.09,0.09}
+<x-bg-color><param>gray10</param>gray10		      </x-bg-color><x-color><param>gray10</param> grey10			     </x-color>  1a1a1a {0.1,0.1,0.1}
+<x-bg-color><param>gray11</param>gray11		      </x-bg-color><x-color><param>gray11</param> grey11			     </x-color>  1c1c1c {0.11,0.11,0.11}
+<x-bg-color><param>gray12</param>gray12		      </x-bg-color><x-color><param>gray12</param> grey12			     </x-color>  1f1f1f {0.12,0.12,0.12}
+<x-bg-color><param>gray13</param>gray13		      </x-bg-color><x-color><param>gray13</param> grey13			     </x-color>  212121 {0.13,0.13,0.13}
+<x-bg-color><param>gray14</param>gray14		      </x-bg-color><x-color><param>gray14</param> grey14			     </x-color>  242424 {0.14,0.14,0.14}
+<x-bg-color><param>gray15</param>gray15		      </x-bg-color><x-color><param>gray15</param> grey15			     </x-color>  262626 {0.15,0.15,0.15}
+<x-bg-color><param>gray16</param>gray16		      </x-bg-color><x-color><param>gray16</param> grey16			     </x-color>  292929 {0.16,0.16,0.16}
+<x-bg-color><param>gray17</param>gray17		      </x-bg-color><x-color><param>gray17</param> grey17			     </x-color>  2b2b2b {0.17,0.17,0.17}
+<x-bg-color><param>gray18</param>gray18		      </x-bg-color><x-color><param>gray18</param> grey18			     </x-color>  2e2e2e {0.18,0.18,0.18}
+<x-bg-color><param>gray19</param>gray19		      </x-bg-color><x-color><param>gray19</param> grey19			     </x-color>  303030 {0.19,0.19,0.19}
+<x-bg-color><param>gray20</param>gray20		      </x-bg-color><x-color><param>gray20</param> grey20			     </x-color>  333333 {0.2,0.2,0.2}
+<x-bg-color><param>gray21</param>gray21		      </x-bg-color><x-color><param>gray21</param> grey21			     </x-color>  363636 {0.21,0.21,0.21}
+<x-bg-color><param>gray22</param>gray22		      </x-bg-color><x-color><param>gray22</param> grey22			     </x-color>  383838 {0.22,0.22,0.22}
+<x-bg-color><param>gray23</param>gray23		      </x-bg-color><x-color><param>gray23</param> grey23			     </x-color>  3b3b3b {0.23,0.23,0.23}
+<x-bg-color><param>gray24</param>gray24		      </x-bg-color><x-color><param>gray24</param> grey24			     </x-color>  3d3d3d {0.24,0.24,0.24}
+<x-bg-color><param>gray25</param>gray25		      </x-bg-color><x-color><param>gray25</param> grey25			     </x-color>  404040 {0.25,0.25,0.25}
+<x-bg-color><param>gray26</param>gray26		      </x-bg-color><x-color><param>gray26</param> grey26			     </x-color>  424242 {0.26,0.26,0.26}
+<x-bg-color><param>gray27</param>gray27		      </x-bg-color><x-color><param>gray27</param> grey27			     </x-color>  454545 {0.27,0.27,0.27}
+<x-bg-color><param>gray28</param>gray28		      </x-bg-color><x-color><param>gray28</param> grey28			     </x-color>  474747 {0.28,0.28,0.28}
+<x-bg-color><param>gray29</param>gray29		      </x-bg-color><x-color><param>gray29</param> grey29			     </x-color>  4a4a4a {0.29,0.29,0.29}
+<x-bg-color><param>gray30</param>gray30		      </x-bg-color><x-color><param>gray30</param> grey30			     </x-color>  4d4d4d {0.3,0.3,0.3}
+<x-bg-color><param>gray31</param>gray31		      </x-bg-color><x-color><param>gray31</param> grey31			     </x-color>  4f4f4f {0.31,0.31,0.31}
+<x-bg-color><param>gray32</param>gray32		      </x-bg-color><x-color><param>gray32</param> grey32			     </x-color>  525252 {0.32,0.32,0.32}
+<x-bg-color><param>gray33</param>gray33		      </x-bg-color><x-color><param>gray33</param> grey33			     </x-color>  545454 {0.33,0.33,0.33}
+<x-bg-color><param>gray34</param>gray34		      </x-bg-color><x-color><param>gray34</param> grey34			     </x-color>  575757 {0.34,0.34,0.34}
+<x-bg-color><param>gray35</param>gray35		      </x-bg-color><x-color><param>gray35</param> grey35			     </x-color>  595959 {0.35,0.35,0.35}
+<x-bg-color><param>gray36</param>gray36		      </x-bg-color><x-color><param>gray36</param> grey36			     </x-color>  5c5c5c {0.36,0.36,0.36}
+<x-bg-color><param>gray37</param>gray37		      </x-bg-color><x-color><param>gray37</param> grey37			     </x-color>  5e5e5e {0.37,0.37,0.37}
+<x-bg-color><param>gray38</param>gray38		      </x-bg-color><x-color><param>gray38</param> grey38			     </x-color>  616161 {0.38,0.38,0.38}
+<x-bg-color><param>gray39</param>gray39		      </x-bg-color><x-color><param>gray39</param> grey39			     </x-color>  636363 {0.39,0.39,0.39}
+<x-bg-color><param>gray40</param>gray40		      </x-bg-color><x-color><param>gray40</param> grey40			     </x-color>  666666 {0.4,0.4,0.4}
+<x-bg-color><param>gray41</param>gray41		      </x-bg-color><x-color><param>gray41</param> grey41			     </x-color>  696969 {0.41,0.41,0.41}
+<x-bg-color><param>gray42</param>gray42		      </x-bg-color><x-color><param>gray42</param> grey42			     </x-color>  6b6b6b {0.42,0.42,0.42}
+<x-bg-color><param>gray43</param>gray43		      </x-bg-color><x-color><param>gray43</param> grey43			     </x-color>  6e6e6e {0.43,0.43,0.43}
+<x-bg-color><param>gray44</param>gray44		      </x-bg-color><x-color><param>gray44</param> grey44			     </x-color>  707070 {0.44,0.44,0.44}
+<x-bg-color><param>gray45</param>gray45		      </x-bg-color><x-color><param>gray45</param> grey45			     </x-color>  737373 {0.45,0.45,0.45}
+<x-bg-color><param>gray46</param>gray46		      </x-bg-color><x-color><param>gray46</param> grey46			     </x-color>  757575 {0.46,0.46,0.46}
+<x-bg-color><param>gray47</param>gray47		      </x-bg-color><x-color><param>gray47</param> grey47			     </x-color>  787878 {0.47,0.47,0.47}
+<x-bg-color><param>gray48</param>gray48		      </x-bg-color><x-color><param>gray48</param> grey48			     </x-color>  7a7a7a {0.48,0.48,0.48}
+<x-bg-color><param>gray49</param>gray49		      </x-bg-color><x-color><param>gray49</param> grey49			     </x-color>  7d7d7d {0.49,0.49,0.49}
+<x-bg-color><param>gray50</param>gray50		      </x-bg-color><x-color><param>gray50</param> grey50			     </x-color>  7f7f7f {0.5,0.5,0.5}
+<x-bg-color><param>gray51</param>gray51		      </x-bg-color><x-color><param>gray51</param> grey51			     </x-color>  828282 {0.51,0.51,0.51}
+<x-bg-color><param>gray52</param>gray52		      </x-bg-color><x-color><param>gray52</param> grey52			     </x-color>  858585 {0.52,0.52,0.52}
+<x-bg-color><param>gray53</param>gray53		      </x-bg-color><x-color><param>gray53</param> grey53			     </x-color>  878787 {0.53,0.53,0.53}
+<x-bg-color><param>gray54</param>gray54		      </x-bg-color><x-color><param>gray54</param> grey54			     </x-color>  8a8a8a {0.54,0.54,0.54}
+<x-bg-color><param>gray55</param>gray55		      </x-bg-color><x-color><param>gray55</param> grey55			     </x-color>  8c8c8c {0.55,0.55,0.55}
+<x-bg-color><param>gray56</param>gray56		      </x-bg-color><x-color><param>gray56</param> grey56			     </x-color>  8f8f8f {0.56,0.56,0.56}
+<x-bg-color><param>gray57</param>gray57		      </x-bg-color><x-color><param>gray57</param> grey57			     </x-color>  919191 {0.57,0.57,0.57}
+<x-bg-color><param>gray58</param>gray58		      </x-bg-color><x-color><param>gray58</param> grey58			     </x-color>  949494 {0.58,0.58,0.58}
+<x-bg-color><param>gray59</param>gray59		      </x-bg-color><x-color><param>gray59</param> grey59			     </x-color>  969696 {0.59,0.59,0.59}
+<x-bg-color><param>gray60</param>gray60		      </x-bg-color><x-color><param>gray60</param> grey60			     </x-color>  999999 {0.6,0.6,0.6}
+<x-bg-color><param>gray61</param>gray61		      </x-bg-color><x-color><param>gray61</param> grey61			     </x-color>  9c9c9c {0.61,0.61,0.61}
+<x-bg-color><param>gray62</param>gray62		      </x-bg-color><x-color><param>gray62</param> grey62			     </x-color>  9e9e9e {0.62,0.62,0.62}
+<x-bg-color><param>gray63</param>gray63		      </x-bg-color><x-color><param>gray63</param> grey63			     </x-color>  a1a1a1 {0.63,0.63,0.63}
+<x-bg-color><param>gray64</param>gray64		      </x-bg-color><x-color><param>gray64</param> grey64			     </x-color>  a3a3a3 {0.64,0.64,0.64}
+<x-bg-color><param>gray65</param>gray65		      </x-bg-color><x-color><param>gray65</param> grey65			     </x-color>  a6a6a6 {0.65,0.65,0.65}
+<x-bg-color><param>gray66</param>gray66		      </x-bg-color><x-color><param>gray66</param> grey66			     </x-color>  a8a8a8 {0.66,0.66,0.66}
+<x-bg-color><param>gray67</param>gray67		      </x-bg-color><x-color><param>gray67</param> grey67			     </x-color>  ababab {0.67,0.67,0.67}
+<x-bg-color><param>gray68</param>gray68		      </x-bg-color><x-color><param>gray68</param> grey68			     </x-color>  adadad {0.68,0.68,0.68}
+<x-bg-color><param>gray69</param>gray69		      </x-bg-color><x-color><param>gray69</param> grey69			     </x-color>  b0b0b0 {0.69,0.69,0.69}
+<x-bg-color><param>gray70</param>gray70		      </x-bg-color><x-color><param>gray70</param> grey70			     </x-color>  b3b3b3 {0.7,0.7,0.7}
+<x-bg-color><param>gray71</param>gray71		      </x-bg-color><x-color><param>gray71</param> grey71			     </x-color>  b5b5b5 {0.71,0.71,0.71}
+<x-bg-color><param>gray72</param>gray72		      </x-bg-color><x-color><param>gray72</param> grey72			     </x-color>  b8b8b8 {0.72,0.72,0.72}
+<x-bg-color><param>gray73</param>gray73		      </x-bg-color><x-color><param>gray73</param> grey73			     </x-color>  bababa {0.73,0.73,0.73}
+<x-bg-color><param>gray74</param>gray74		      </x-bg-color><x-color><param>gray74</param> grey74			     </x-color>  bdbdbd {0.74,0.74,0.74}
+<x-bg-color><param>gray75</param>gray75		      </x-bg-color><x-color><param>gray75</param> grey75			     </x-color>  bfbfbf {0.75,0.75,0.75}
+<x-bg-color><param>gray76</param>gray76		      </x-bg-color><x-color><param>gray76</param> grey76			     </x-color>  c2c2c2 {0.76,0.76,0.76}
+<x-bg-color><param>gray77</param>gray77		      </x-bg-color><x-color><param>gray77</param> grey77			     </x-color>  c4c4c4 {0.77,0.77,0.77}
+<x-bg-color><param>gray78</param>gray78		      </x-bg-color><x-color><param>gray78</param> grey78			     </x-color>  c7c7c7 {0.78,0.78,0.78}
+<x-bg-color><param>gray79</param>gray79		      </x-bg-color><x-color><param>gray79</param> grey79			     </x-color>  c9c9c9 {0.79,0.79,0.79}
+<x-bg-color><param>gray80</param>gray80		      </x-bg-color><x-color><param>gray80</param> grey80			     </x-color>  cccccc {0.8,0.8,0.8}
+<x-bg-color><param>gray81</param>gray81		      </x-bg-color><x-color><param>gray81</param> grey81			     </x-color>  cfcfcf {0.81,0.81,0.81}
+<x-bg-color><param>gray82</param>gray82		      </x-bg-color><x-color><param>gray82</param> grey82			     </x-color>  d1d1d1 {0.82,0.82,0.82}
+<x-bg-color><param>gray83</param>gray83		      </x-bg-color><x-color><param>gray83</param> grey83			     </x-color>  d4d4d4 {0.83,0.83,0.83}
+<x-bg-color><param>gray84</param>gray84		      </x-bg-color><x-color><param>gray84</param> grey84			     </x-color>  d6d6d6 {0.84,0.84,0.84}
+<x-bg-color><param>gray85</param>gray85		      </x-bg-color><x-color><param>gray85</param> grey85			     </x-color>  d9d9d9 {0.85,0.85,0.85}
+<x-bg-color><param>gray86</param>gray86		      </x-bg-color><x-color><param>gray86</param> grey86			     </x-color>  dbdbdb {0.86,0.86,0.86}
+<x-bg-color><param>gray87</param>gray87		      </x-bg-color><x-color><param>gray87</param> grey87			     </x-color>  dedede {0.87,0.87,0.87}
+<x-bg-color><param>gray88</param>gray88		      </x-bg-color><x-color><param>gray88</param> grey88			     </x-color>  e0e0e0 {0.88,0.88,0.88}
+<x-bg-color><param>gray89</param>gray89		      </x-bg-color><x-color><param>gray89</param> grey89			     </x-color>  e3e3e3 {0.89,0.89,0.89}
+<x-bg-color><param>gray90</param>gray90		      </x-bg-color><x-color><param>gray90</param> grey90			     </x-color>  e5e5e5 {0.9,0.9,0.9}
+<x-bg-color><param>gray91</param>gray91		      </x-bg-color><x-color><param>gray91</param> grey91			     </x-color>  e8e8e8 {0.91,0.91,0.91}
+<x-bg-color><param>gray92</param>gray92		      </x-bg-color><x-color><param>gray92</param> grey92			     </x-color>  ebebeb {0.92,0.92,0.92}
+<x-bg-color><param>gray93</param>gray93		      </x-bg-color><x-color><param>gray93</param> grey93			     </x-color>  ededed {0.93,0.93,0.93}
+<x-bg-color><param>gray94</param>gray94		      </x-bg-color><x-color><param>gray94</param> grey94			     </x-color>  f0f0f0 {0.94,0.94,0.94}
+<x-bg-color><param>gray95</param>gray95		      </x-bg-color><x-color><param>gray95</param> grey95			     </x-color>  f2f2f2 {0.95,0.95,0.95}
+<x-bg-color><param>gray96</param>gray96		      </x-bg-color><x-color><param>gray96</param> grey96			     </x-color>  f5f5f5 {0.96,0.96,0.96}
+<x-bg-color><param>gray97</param>gray97		      </x-bg-color><x-color><param>gray97</param> grey97			     </x-color>  f7f7f7 {0.97,0.97,0.97}
+<x-bg-color><param>gray98</param>gray98		      </x-bg-color><x-color><param>gray98</param> grey98			     </x-color>  fafafa {0.98,0.98,0.98}
+<x-bg-color><param>gray99</param>gray99		      </x-bg-color><x-color><param>gray99</param> grey99			     </x-color>  fcfcfc {0.99,0.99,0.99}
+<x-bg-color><param>gray100</param>gray100		      </x-bg-color><x-color><param>gray100</param> grey100			     </x-color>  ffffff {1,1,1}
+<x-bg-color><param>dark gray</param>dark gray	      </x-bg-color><x-color><param>dark gray</param> dark grey, DarkGray, DarkGrey </x-color>  a9a9a9 {0.66,0.66,0.66}
+<x-bg-color><param>dark blue</param>dark blue	      </x-bg-color><x-color><param>dark blue</param> DarkBlue			     </x-color>  00008b {0,0,0.55}
+<x-bg-color><param>dark cyan</param>dark cyan	      </x-bg-color><x-color><param>dark cyan</param> DarkCyan			     </x-color>  008b8b {0,0.55,0.55}
+<x-bg-color><param>dark magenta</param>dark magenta	      </x-bg-color><x-color><param>dark magenta</param> DarkMagenta		     </x-color>  8b008b {0.55,0,0.55}
+<x-bg-color><param>dark red</param>dark red	      </x-bg-color><x-color><param>dark red</param> DarkRed			     </x-color>  8b0000 {0.55,0,0}
+<x-bg-color><param>light green</param>light green	      </x-bg-color><x-color><param>light green</param> LightGreen		     </x-color>  90ee90 {0.56,0.93,0.56}
+<x-bg-color><param>SystemActiveBorder</param>SystemActiveBorder    </x-bg-color><x-color><param>SystemActiveBorder</param> SystemActiveBorder	     </x-color>  d4d0c8 {0.83,0.82,0.78}
+<x-bg-color><param>SystemActiveTitle</param>SystemActiveTitle     </x-bg-color><x-color><param>SystemActiveTitle</param> SystemActiveTitle	     </x-color>  c0c0c0 {0.75,0.75,0.75}
+<x-bg-color><param>SystemAppWorkSpace</param>SystemAppWorkSpace    </x-bg-color><x-color><param>SystemAppWorkSpace</param> SystemAppWorkSpace	     </x-color>  808080 {0.5,0.5,0.5}
+<x-bg-color><param>SystemBackground</param>SystemBackground      </x-bg-color><x-color><param>SystemBackground</param> SystemBackground		     </x-color>  585768 {0.35,0.34,0.41}
+<x-bg-color><param>SystemButtonAlternateFace</param>SystemButtonAlternateFace</x-bg-color><x-color><param>SystemButtonAlternateFace</param> SystemButtonAlternateFace  </x-color>  b5b5b5 {0.71,0.71,0.71}
+<x-bg-color><param>SystemButtonDkShadow</param>SystemButtonDkShadow  </x-bg-color><x-color><param>SystemButtonDkShadow</param> SystemButtonDkShadow	     </x-color>  716f64 {0.44,0.44,0.39}
+<x-bg-color><param>SystemButtonFace</param>SystemButtonFace      </x-bg-color><x-color><param>SystemButtonFace</param> SystemButtonFace		     </x-color>  e0dfe3 {0.88,0.87,0.89}
+<x-bg-color><param>SystemButtonHilight</param>SystemButtonHilight   </x-bg-color><x-color><param>SystemButtonHilight</param> SystemButtonHilight	     </x-color>  ffffff {1,1,1}
+<x-bg-color><param>SystemButtonLight</param>SystemButtonLight     </x-bg-color><x-color><param>SystemButtonLight</param> SystemButtonLight	     </x-color>  f1efe2 {0.95,0.94,0.89}
+<x-bg-color><param>SystemButtonShadow</param>SystemButtonShadow    </x-bg-color><x-color><param>SystemButtonShadow</param> SystemButtonShadow	     </x-color>  9d9da1 {0.62,0.62,0.63}
+<x-bg-color><param>SystemButtonText</param>SystemButtonText      </x-bg-color><x-color><param>SystemButtonText</param> SystemButtonText		     </x-color>  000000 {0,0,0}
+<x-bg-color><param>SystemGradientActiveTitle</param>SystemGradientActiveTitle</x-bg-color><x-color><param>SystemGradientActiveTitle</param> SystemGradientActiveTitle  </x-color>  c8c8c8 {0.78,0.78,0.78}
+<x-bg-color><param>SystemGradientInactiveTitle</param>SystemGradientInactiveTitle</x-bg-color><x-color><param>SystemGradientInactiveTitle</param> SystemGradientInactiveT  </x-color>  eeeff7 {0.93,0.94,0.97}
+<x-bg-color><param>SystemGrayText</param>SystemGrayText	      </x-bg-color><x-color><param>SystemGrayText</param> SystemGrayText		     </x-color>  aca899 {0.67,0.66,0.6}
+<x-bg-color><param>SystemHilight</param>SystemHilight	      </x-bg-color><x-color><param>SystemHilight</param> SystemHilight		     </x-color>  b2b4bf {0.7,0.71,0.75}
+<x-bg-color><param>SystemHilightText</param>SystemHilightText     </x-bg-color><x-color><param>SystemHilightText</param> SystemHilightText	     </x-color>  000000 {0,0,0}
+<x-bg-color><param>SystemHotTrackingColor</param>SystemHotTrackingColor</x-bg-color><x-color><param>SystemHotTrackingColor</param> SystemHotTrackingColor	     </x-color>  648bcb {0.39,0.55,0.8}
+<x-bg-color><param>SystemInactiveBorder</param>SystemInactiveBorder  </x-bg-color><x-color><param>SystemInactiveBorder</param> SystemInactiveBorder	     </x-color>  d4d0c8 {0.83,0.82,0.78}
+<x-bg-color><param>SystemInactiveTitle</param>SystemInactiveTitle   </x-bg-color><x-color><param>SystemInactiveTitle</param> SystemInactiveTitle	     </x-color>  ffffff {1,1,1}
+<x-bg-color><param>SystemInactiveTitleText</param>SystemInactiveTitleText</x-bg-color><x-color><param>SystemInactiveTitleText</param> SystemInactiveTitleText	     </x-color>  a2a1a1 {0.64,0.63,0.63}
+<x-bg-color><param>SystemInfoText</param>SystemInfoText	      </x-bg-color><x-color><param>SystemInfoText</param> SystemInfoText		     </x-color>  000000 {0,0,0}
+<x-bg-color><param>SystemInfoWindow</param>SystemInfoWindow      </x-bg-color><x-color><param>SystemInfoWindow</param> SystemInfoWindow		     </x-color>  ffffe1 {1,1,0.88}
+<x-bg-color><param>SystemMenu</param>SystemMenu	      </x-bg-color><x-color><param>SystemMenu</param> SystemMenu		     </x-color>  ffffff {1,1,1}
+<x-bg-color><param>SystemMenuText</param>SystemMenuText	      </x-bg-color><x-color><param>SystemMenuText</param> SystemMenuText		     </x-color>  000000 {0,0,0}
+<x-bg-color><param>SystemScrollbar</param>SystemScrollbar	      </x-bg-color><x-color><param>SystemScrollbar</param> SystemScrollbar		     </x-color>  d4d0c8 {0.83,0.82,0.78}
+<x-bg-color><param>SystemTitleText</param>SystemTitleText	      </x-bg-color><x-color><param>SystemTitleText</param> SystemTitleText		     </x-color>  0e1010 {0.05,0.06,0.06}
+<x-bg-color><param>SystemWindow</param>SystemWindow	      </x-bg-color><x-color><param>SystemWindow</param> SystemWindow		     </x-color>  ffffff {1,1,1}
+<x-bg-color><param>SystemWindowFrame</param>SystemWindowFrame     </x-bg-color><x-color><param>SystemWindowFrame</param> SystemWindowText		     </x-color>  000000 {0,0,0}
+<x-bg-color><param>SystemMenuHilight</param>SystemMenuHilight     </x-bg-color><x-color><param>SystemMenuHilight</param> SystemMenuHilight	     </x-color>  bbb7c7 {0.73,0.72,0.78}
+<x-bg-color><param>SystemMenuBar</param>SystemMenuBar	      </x-bg-color><x-color><param>SystemMenuBar</param> SystemMenuBar		     </x-color>  e0e2eb {0.88,0.89,0.92} 

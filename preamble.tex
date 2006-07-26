@@ -1,0 +1,65 @@
+%% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn>
+
+\documentclass[14pt,cjk,color=usenames]{beamer}
+
+%% beamer setup
+\mode<presentation> {
+  \usetheme{Warsaw}
+  \setbeamertemplate{background canvas}[vertical shading][bottom=red!10,top=blue!10]
+}
+
+%% some other packages
+\usepackage{CJK,ccmap,pgf,times,listings}
+\usepackage[latin1]{inputenc}
+\usepackage[usenames]{color}
+\usepackage[english]{babel}
+
+%% C# language for "listings"
+\lstdefinelanguage{CSharp}
+{morekeywords={abstract, as, base, bool, break, byte, case, catch, char,
+    checked, class, const, continue, decimal, default, delegate, do, double,
+    else, enum, event, explicit, extern, false, finally, fixed, float, for,
+    foreach, get, goto, if, implicit, in, int, interface, internal, is, lock,
+    long, namespace, new, null, object, operator, out, override, params,
+    private, protected, public, readonly, ref, return, sbyte, sealed, set,
+    short, sizeof, stackalloc, static, string, struct, switch, this, throw,
+    true, try, typeof, uint, ulong, unchecked, unsafe, ushort, using, value,
+    virtual, void, volatile, while},
+  otherkeywords={:},
+  sensitive=true,
+  morecomment=[l]{//},
+  %morecomment=[l]{///},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]"
+}
+
+%% listings setup
+\lstset{basicstyle=\small\ttfamily,
+  keywordstyle=\color[rgb]{0.15,0.25,0.55}\bfseries,
+  identifierstyle=,
+  stringstyle=\color[rgb]{0.41,0.13,0.55}\ttfamily,
+  commentstyle=\color[rgb]{0.55,0.14,0.14}\sl,
+  emphstyle=\color[rgb]{0.75,0,0}\bfseries,
+  emphstyle={[2]\color[rgb]{0,0.55,0}\bfseries},
+  frameround=tttt,
+  frame=single,
+  framerule=1pt,
+  rulecolor=\color[rgb]{0.18,0.55,0.34},
+  backgroundcolor=\color{red!10}, %\color[rgb]{0.94,0.85,0.71},
+  escapebegin=\small\CJKfamily{li}\sl\color[rgb]{0.55,0.14,0.14},
+  escapeend=,
+  language=CSharp}
+
+%% logo definition
+\pgfdeclaremask{hit-mask}{logo/hit-mask}
+\pgfdeclareimage[mask=hit-mask,width=1.3cm]{hit-logo}{logo/hit-logo}
+\logo{\vbox{\hbox to 1.3cm{\pgfuseimage{hit-logo}}}}
+
+%% Full screen when start up
+% \hypersetup{pdfpagemode=FullScreen}
+% \setbeamercovered{dynamic}
+
+%% Enviroment for Emacs.
+% Local Variables: 
+% mode: LaTeX
+% End:

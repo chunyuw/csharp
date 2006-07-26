@@ -1,0 +1,65 @@
+#+TITLE:     Slides for ".NET Programming"
+#+AUTHOR:    Chunyu Wang
+#+EMAIL:     chunyu@hit.edu.cn
+#+STARTUP:   nofold
+
+* Tasks
+** TODO Slides
+*** TODO .NET Framework
+*** TODO C# Language
+*** TODO Class Library
+** TODO Experiment Materials
+** TODO Oral Pratice
+** TODO Supporting Site
+
+* .NET Framework
+4 lessons
+
+** .NET 框架概述 & .NET 历史
+** 组件的使用
+** 部署和版本控制
+** 公共类型系统
+** 公共语言运行环境
+** 受管开发环境
+** 受管代码的执行
+** 垃圾回收
+** Visual Studio
+** 开发工具
+
+* C# Language
+8 lessons
+
+** 语言基础
+** 类
+** 类型之间的转换
+** 类型系统
+** 封装、继承、多态
+** 接口、抽象类
+** 委托、事件、索引器
+** 串行化
+** 组件开发
+
+* Class Library
+8 lessons
+
+** Streams
+** Collections
+** System.Text
+** GUI
+** Network
+** Threads
+** ADO.NET
+** System.Drawing
+** Remoting / Web Service
+** ASP.NET
+
+
+* Experiment
+** [大纲] 构建一个简单的.NET应用程序
+** [大纲] 通过ASP.NET页面来调用组件
+** [大纲] 建立简单的Chat服务器
+** [大纲] 建立日期/时间的客户/服务器应用程序
+** [大纲] 通过使用远程服务机制构建一个产品订单
+
+* References
+** [[http://www.microsoft.com/china/MSDN/library/default.mspx][MSDN resources]]
