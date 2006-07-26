@@ -62,9 +62,11 @@ morestring=[b]",
         escapeend=,
         language=CSharp}
 
-\pgfdeclaremask{hit}{hit-mask}
-\pgfdeclareimage[mask=hit,width=1.3cm]{hit-logo}{hit-logo}
-\logo{\vbox{\hbox to 1.3cm{\pgfuseimage{hit-logo}}}}
+\pgfdeclaremask{hit-mask}{logo/hit-mask}
+\pgfdeclareimage[mask=hit-mask,width=1.3cm]{hit-logo}{logo/hit-logo}
+\pgfdeclaremask{cs-mask}{logo/cs-mask}
+\pgfdeclareimage[mask=cs-mask,width=1.3cm]{cs-logo}{logo/cs-logo}
+\logo{\vbox{\hbox to 1.3cm{\hfil\pgfuseimage{cs-logo}}\vskip0.1cm\hbox{\pgfuseimage{hit-logo}}}}
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
