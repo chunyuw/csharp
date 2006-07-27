@@ -1,12 +1,16 @@
 ## Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn>
 
-LESSONS = lesson-01
+LESSONS = lesson-01 lesson-02
 
-all:
-	for i in $(LESSONS) ; do \
-	  if [ -e $$i.out ] ; then  gbk2uni $$i ; fi ; \
-	  pdflatex $$i ; \
-	done
+all: $(LESSONS)
+# 	for i in $(LESSONS) ; do \
+# 	  if [ -e $$i.out ] ; then  gbk2uni $$i ; fi ; \
+# 	  pdflatex $$i ; \
+# 	done
+
+lesson-%:
+	if [ -e $@.out ] ; then  gbk2uni $@ ; fi ; 
+	pdflatex $@ ; 
 
 clean: distclean
 
