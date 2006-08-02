@@ -5,10 +5,10 @@ m1 :=   (-2u, 2u); m2 := (-2u,-2u); m3 := (-1.5u,-2u);
 m4  = m3+(1.1u,0); m5 :=   (0,-2u); m6 := (0,-0.75u);
 
 path q[];
-q1 :=  m1 --  m2 --  m3;
-q2 :=  m4 --  m5 --  m6;
-q3 := -m1 -- -m2 -- -m3;
-q4 := -m4 -- -m5 -- -m6;
+q1 :=  m1 --  m2 --  m3;	% left   blue   strip
+q2 :=  m4 --  m5 --  m6;	% bottom yellow strip
+q3 := -m1 -- -m2 -- -m3;	% right  green  strip
+q4 := -m4 -- -m5 -- -m6;	% top    yellow strip
 
 path p; p := (0,0)--(0,1)--(1,1)--(1,0)--cycle ;
 pen po; po := currentpen;
@@ -28,6 +28,7 @@ def cslogo(expr a,b,c) =
     
     currentpicture := currentpicture shifted (4u,4u) slanted 0.5 yscaled 0.9;
     
+    % just for enlarge boundingbox
     pickup po;
     draw bbox currentpicture withcolor white;
   endgroup
