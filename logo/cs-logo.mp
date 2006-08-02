@@ -31,11 +31,17 @@ def cslogo(expr a,b,c) =
 enddef;
 
 beginfig(1)
-  cslogo(.675[green,white],(1,1,.5),.625[blue,white]);
-  %cslogo(.675[green,black],(1,1,0),.625[blue,black]);
+  % dark color
+  cslogo(.675[green,black],(1,1,0),.625[blue,black]);
 endfig;
 
 beginfig(2)
+  % light color
+  cslogo(.675[green,white],(1,1,.5),.625[blue,white]);
+endfig;
+
+beginfig(3)
+  % mask
   cslogo(black,black,black);
 endfig;
 
