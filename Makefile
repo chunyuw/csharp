@@ -3,7 +3,7 @@
 
 all: 1 2
 
-%.pdf: %.tex
+%.pdf: %.tex preamble.tex
 	@if [ -e $(basename $@).tex ] ; then \
 	  if [ -e $(basename $@).out ] ; then gbk2uni $(basename $@) ; fi ; \
 	  pdflatex $(basename $@) ; \
