@@ -2,20 +2,18 @@
 
 \documentclass[14pt,cjk,color=usenames]{beamer}
 
-%% beamer setup
 \mode<presentation> {
   \usetheme{Warsaw}
   \setbeamertemplate{background canvas}[vertical shading][bottom=red!10,top=blue!10]
   \setbeamercovered{transparent}
 }
 
-%% some other packages
 \usepackage{CJK,ccmap,pgf,times,listings}
 \usepackage[latin1]{inputenc}
 \usepackage[usenames]{color}
 \usepackage[english]{babel}
 
-%% C# language for "listings"
+%% C# language for listings
 \lstdefinelanguage{CSharp}
 {morekeywords={abstract, as, base, bool, break, byte, case, catch, char,
     checked, class, const, continue, decimal, default, delegate, do, double,
@@ -67,7 +65,6 @@
 \pgfdeclareimage[mask=cs-mask,width=1.3cm]{cs-logo}{logo/cs-logo}
 \logo{\vbox{\hbox to 1.3cm{\hfil\pgfuseimage{cs-logo}}\vskip0.1cm\hbox{\pgfuseimage{hit-logo}}}}
 
-%% Enviroment for Emacs.
 % Local Variables: 
 % mode: LaTeX
 % End:
