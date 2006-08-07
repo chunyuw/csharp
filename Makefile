@@ -1,9 +1,7 @@
 ## Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn>
 
-LESSONS = $(wildcard lesson-*)
 
-all: 
-	echo $(LESSONS)
+all: 1 2
 
 %.pdf: %.tex
 	@if [ -e $(basename $@).tex ] ; then \
