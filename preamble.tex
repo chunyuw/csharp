@@ -6,6 +6,7 @@
 \mode<presentation> {
   \usetheme{Warsaw}
   \setbeamertemplate{background canvas}[vertical shading][bottom=red!10,top=blue!10]
+  \setbeamercovered{transparent}
 }
 
 %% some other packages
@@ -58,8 +59,13 @@
 \logo{\vbox{\hbox to 1.3cm{\hfil\pgfuseimage{cs-logo}}\vskip0.1cm\hbox{\pgfuseimage{hit-logo}}}}
 
 %% Full screen when start up
-% \hypersetup{pdfpagemode=FullScreen}
-\setbeamercovered{transparent}
+\hypersetup{
+  colorlinks=false,
+  % pdfpagemode=FullScreen,
+  pdfauthor={Chunyu Wang <chunyu@hit.edu.cn>},
+  pdfsubject={.NET Programming},
+  pdfkeywords={.NET, C\#},
+}
 
 %% Enviroment for Emacs.
 % Local Variables: 
