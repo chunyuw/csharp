@@ -1,20 +1,31 @@
 ## Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn>
 
-LESSONS = lesson-01 lesson-02
+LESSONS = $(wildcard lesson-*)
 
-all: $(LESSONS)
-# 	for i in $(LESSONS) ; do \
-# 	  if [ -e $$i.out ] ; then  gbk2uni $$i ; fi ; \
-# 	  pdflatex $$i ; \
-# 	done
+all: 
+	echo $(LESSONS)
 
-lesson-%:
-	if [ -e $@.out ] ; then  gbk2uni $@ ; fi ; 
-	pdflatex $@ ; 
+%.pdf: %.tex
+	@if [ -e $(basename $@).tex ] ; then \
+	  if [ -e $(basename $@).out ] ; then gbk2uni $(basename $@) ; fi ; \
+	  pdflatex $(basename $@) ; \
+	else \
+	  echo "$@ doesn't exist" ; \
+	fi
 
-clean: distclean
+clean: 
+	rm -f *.nav *.log *.snm *.toc *.out *.aux *.vrb *.out.bak
+	rm -f *.pdf
 
-distclean:
-	rm -fv *.nav *.log *.snm *.toc *.out *.aux *.vrb *.out.bak *.pdf
+.PHONY:	all clean
 
-.PHONY:	all clean distclean
+# lesson-01.pdf: dn-outline.tex
+# lesson-02.pdf: $(wildcard cs-*.tex)
+
+1: lesson-01.pdf
+2: lesson-02.pdf
+3: lesson-03.pdf
+4: lesson-04.pdf
+5: lesson-05.pdf
+6: lesson-06.pdf
+
