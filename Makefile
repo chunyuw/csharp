@@ -17,8 +17,8 @@ clean:
 
 .PHONY:	all clean
 
-# lesson-01.pdf: dn-outline.tex
-# lesson-02.pdf: $(wildcard cs-*.tex)
+lesson-01.pdf: dn-outline.tex
+lesson-02.pdf: $(wildcard cs-*.tex)
 
 1: lesson-01.pdf
 2: lesson-02.pdf
