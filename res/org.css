@@ -1,0 +1,21 @@
+html { font: 11pt Verdana, Helvetica, sans-serif;}
+pre {
+  padding: 0.5em;
+  border: 1px solid #808080;
+  background-color: #F1F0ED;
+  margin: 0em 4em 0.5em 2em;
+  font-family: monospace;
+  font-size: 10pt;
+  line-height: 1.1;
+  overflow: auto;}
+.title { text-align: center; }
+.todo  { color: red; }
+.done { color: green; }
+.timestamp { color: grey }
+.timestamp-kwd { color: CadetBlue }
+.tag { background-color:lightblue; font-weight:normal }
+.target { background-color: lavender; }
+table { border-collapse: collapse; }
+td, th {
+  vertical-align: top;
+  border: 1pt solid #ADB9CC;}
