@@ -51,14 +51,7 @@
   escapeend=,
   language=CSharp}
 
-%% logo definition
-\pgfdeclaremask{hit-mask}{logo/hit-mask}
-\pgfdeclareimage[mask=hit-mask,width=1.3cm]{hit-logo}{logo/hit-logo}
-\pgfdeclaremask{cs-mask}{logo/cs-mask}
-\pgfdeclareimage[mask=cs-mask,width=1.3cm]{cs-logo}{logo/cs-logo}
-\logo{\vbox{\hbox to 1.3cm{\hfil\pgfuseimage{cs-logo}}\vskip0.1cm\hbox{\pgfuseimage{hit-logo}}}}
-
-%% Full screen when start up
+%% hyperref setup
 \hypersetup{
   colorlinks=false,
   % pdfpagemode=FullScreen,
@@ -66,6 +59,13 @@
   pdfsubject={.NET Programming},
   pdfkeywords={.NET, C\#},
 }
+
+%% logo definition
+\pgfdeclaremask{hit-mask}{logo/hit-mask}
+\pgfdeclareimage[mask=hit-mask,width=1.3cm]{hit-logo}{logo/hit-logo}
+\pgfdeclaremask{cs-mask}{logo/cs-mask}
+\pgfdeclareimage[mask=cs-mask,width=1.3cm]{cs-logo}{logo/cs-logo}
+\logo{\vbox{\hbox to 1.3cm{\hfil\pgfuseimage{cs-logo}}\vskip0.1cm\hbox{\pgfuseimage{hit-logo}}}}
 
 %% Enviroment for Emacs.
 % Local Variables: 
