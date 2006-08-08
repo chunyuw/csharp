@@ -63,3 +63,44 @@
 
 * References
 ** [[http://www.microsoft.com/china/MSDN/library/default.mspx][MSDN resources]]
+
+
+* Beamer Usage
+
+** QUOTE frame break
+
+\begin{frame}[allowframebreaks, allowdisplaybreaks]
+  ...
+  \framebreak
+  ...
+\end{frame}
+
+** QUOTE 2 slides on one page
+
+\mode<handout>{
+  \setbeamercolor{background canvas}{bg=black!50}
+}
+...
+\usepackage{pgf,pgfpages}
+\pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm]
+
+** QUOTE limit slides of frame
+
+\begin{frame}<1-2,4->    % only display 1,2,4... overlays
+\begin{frame}<beamer>    % only in beamer mode
+\begin{frame}<0>         % no display
+\begin{frame}<handout:0> % only not in handout mode
+
+** QUOTE overlays
+
+  + \pause
+  + \only<n>
+  + \onslide<>{}
+  + \invisible \visible
+  + \uncover
+  + \alt<>{}{}
+  + \temporal<>{}{}{}
+
+# Local Variables:
+# org-export-html-style: "<link rel=\"stylesheet\" type=\"text/css\" href=\"res/org.css\">"
+# End:
