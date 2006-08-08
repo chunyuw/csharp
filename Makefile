@@ -26,4 +26,4 @@ lesson-02.pdf: $(wildcard cs-*.tex)
 4: lesson-04.pdf
 5: lesson-05.pdf
 6: lesson-06.pdf
-
+t: test.pdf
