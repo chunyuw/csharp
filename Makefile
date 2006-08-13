@@ -12,8 +12,8 @@ all: 1 2
 	fi
 
 clean: 
-	rm -f *.nav *.log *.snm *.toc *.out *.aux *.vrb *.out.bak
-	rm -f *.pdf
+	-rm -f *.nav *.log *.snm *.toc *.out *.aux *.vrb *.out.bak
+	-rm -f *.pdf
 
 .PHONY:	all clean
 
