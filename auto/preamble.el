@@ -7,6 +7,7 @@
      "usenames"
      "inputenc"
      "latin1"
+     "tikz"
      "listings"
      "times"
      "pgf"

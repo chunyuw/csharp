@@ -93,18 +93,35 @@
     可以在各种平台上用各种工具来创建。}
 \end{frame}
 
-\begin{frame} \frametitle{公共语言结构(CLI)}
-  \begin{block}{CLI(Common Language Infrastructure)}
-    CLI 标准定义了一个与平台无关的虚拟代码执行环境。由于没有指定操作系统，所以
-    可以在任何的系统上执行。
-  \end{block}
-  CLI 定义了一种中间语言(CIL)和一个类型系统(CTS)。首先将高级语言程序编译为CIL，
-  在执行的过程中编译为宿主机器的目标代码。
+% 对于开发人员而言，丰富的类库，方便的集成，以及发布、部署和维护方便性显得尤为
+% 重要
 
-  % C# ...
-  % Microsoft 的 CLI 实现就是 CLR
-  % CLR + FCL 就是 Microsoft .NET Framework
+% \begin{frame} \frametitle{公共语言结构(CLI)}
+%   \begin{block}{CLI(Common Language Infrastructure)}
+%     CLI 标准定义了一个与平台无关的虚拟代码执行环境。由于没有指定操作系统，所以
+%     可以在任何的系统上执行。
+%   \end{block}
+%   CLI 定义了一种中间语言(CIL)和一个类型系统(CTS)。首先将高级语言程序编译为CIL，
+%   在执行的过程中编译为宿主机器的目标代码。
 
+%   % C# ...
+%   % Microsoft 的 CLI 实现就是 CLR
+%   % CLR + FCL 就是 Microsoft .NET Framework
+
+% \end{frame}
+
+\begin{frame} \frametitle{.NET框架}
+  \begin{itemize}
+  \item 互联网和分布式应用的开发平台
+  \item .NET 框架是创建 Windows 应用程序的基础
+  \item 简化了应用程序的开发 \\
+    ASP.NET, Windows Forms, ASP.NET Web Services, Enterprise Services, ADO.NET
+  \item .NET 类库提供开发所需的各种基本功能库
+  \item .NET 类库可以支持各种类型的应用程序
+  \item 简化开发，屏蔽底层细节，统一的编成模式
+  \item 使用国际标准，如XML、SOAP、XPath等
+  \item 容易维护、部署等
+  \end{itemize}
 \end{frame}
 
 \begin{frame} \frametitle{.NET 框架的组成}
@@ -113,25 +130,38 @@
     % 组成的内容 (文字)
   \end{itemize}
   % .NET 框架的层次图 (图)
+  \input{pgf/dn-framework.tex}
 \end{frame}
 
-% \begin{frame} \frametitle{.NET框架的主要特点}
-%   \begin{itemize}
-%   \item .NET 框架是创建 Windows 应用程序的基础
-%   \item 简化了应用程序的开发 \\
-%     ASP.NET, Windows Forms, ASP.NET Web Services, Enterprise Services, ADO.NET
-%   \item .NET 类库提供开发所需的各种基本功能库
-%   \item .NET 类库可以支持各种类型的应用程序
-%   \item 简化开发，屏蔽底层细节，统一的编成模式
-%   \item 使用国际标准，如XML、SOAP、XPath等
-%   \item 容易维护、部署等
-%   \end{itemize}
-% \end{frame}
 
 % 多种语言之间的交互
-\section{CTS 公共类型系统}
+
+
+\section{CLR 公共语言运行环境}
+\begin{frame} \frametitle{CLR}
+  \begin{itemize}
+  \item CLR 是负责托管代码执行的虚拟运行环境
+  \item 为 CLR 编写的代码是使用 CIL 编写的托管代码
+  \item CIL 在 CLR 中通过 JIT 实时的编译为本地代码
+  \end{itemize}
+\end{frame}
+
+\begin{frame} \frametitle{CLR的功能和作用}
+  \begin{itemize}
+  \item 提供通用类型系统 (CTS)\\
+    值类型：整数、浮点数、结构体等\\
+    引用类型：类对象、委托、接口等
+  \item 为托管代码执行提供服务\\
+    智能内存管理，元数据管理，受管库的加载与分析，处理异常，代码互操作
+  \item 访问系统资源\\
+    Win32 API 或 COM 等
+  \end{itemize}
+\end{frame}
+
+\subsection*{公共类型系统}
+
 \begin{frame} \frametitle{公共类型系统(CTS)}
-  \begin{block}{Common Language Runtime, CTS}
+  \begin{block}{Common Language System, CTS}
     公共类型系统是一组预定义的类型，以及所有类型行为的规范。
   \end{block}
   \begin{itemize}
@@ -142,19 +172,83 @@
   \end{itemize}
 \end{frame}
 
+\begin{frame} \frametitle{CTS的类型结构}
+  所有的类型都派生自Objects类型，而所有的值类型都派生自ValueTypes类型。
+  % 图 pic/cts-type-system.JPG
+\end{frame}
 
-\section{CLR 公共语言运行环境}
+\begin{frame} \frametitle{值类型和引用类型}
+  CTS定义了两种类别的类型：值类型和引用类型
+  % 图 pic/cts-value-reference-type.JPG
+\end{frame}
 
-\section{.NET 框架类库}
-% 名子空间
+\subsection*{CLR的执行模型}
+% CIL
+
+\begin{frame} \frametitle{托管代码的执行}
+  
+\end{frame}
+
+\subsection*{程序集}
+
+\subsection*{元数据}
+
+\subsection*{托管模块}
 % 
 
+
+
+
+
+\section{.NET 框架类库(FCL)}
+% 名子空间
+% 
+\begin{frame}
+  Microsoft .NET 框架提供了功能丰富的类库，这些类库 .NET 框架应用程序的基础。这
+  些类库的应用十分广泛，从基本的输入输出，文本处理，到数据库应用、Web应用一应俱
+  全。
+% 学习 .NET 开发的过程，基本上也是学习 .NET FCL 的过程
+  \begin{itemize}
+  \item 类库结构是一个命名空间(namespace)的树形结构
+  \item 命名空间 System 是树形结构的根
+  \item 命名空间下可以有子命名空间或类(class)
+  \item 命名空间或类之间通过''.''连接
+  \end{itemize}
+\end{frame}
+
+\begin{frame} \frametitle{命名空间的结构}
+  % 图
+\end{frame}
+
+\begin{frame} \frametitle{基本的类库简介}
+  \begin{itemize}
+  \item System.IO -- 文件或目录的访问
+
+    基本的输入输出，文件、目录以及内存数据流的访问。
+
+  \item System.Net -- 网络数据的访问
+
+    使用各种网络协议 HTTP, FTP, Mail, 基本的 Socket 等进行网络数据通信，简化了
+    网络应用程序的开发。
+
+  \item System.Text -- 文本处理
+
+    提供不同编码文本之间的转换功能，文本处理功能，正则表达式搜索及匹配文本等等。
+
+  \item System.Data -- ADO.NET 的基础
+
+    实现了 ADO.NET 的类库，用于访问各种数据源，比如 System.Data.SqlClient,
+    System.Data.OracleClient, System.Data.ODBC等等。
+
+    % System.Threading, System.Web, System.Windows, System.XML
+
+  \end{itemize}
+\end{frame}
 
 \begin{frame} \frametitle{公共语言运行环境}
   .NET 提供的运行环境，管理代码执行，简化开发过程
 \end{frame}
 
-\subsection*{公共类型系统}
 
 \subsection*{受管开发环境}
 
