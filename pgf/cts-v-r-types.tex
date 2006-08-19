@@ -3,12 +3,12 @@
 
 \node[anchor=center] at (2cm, 0.5cm) {托管栈};
 
-\draw[rounded corners] (1cm,1cm) rectangle +(2cm,4cm);
+\filldraw[draw=black,fill=blue!20,fill opacity=.4,rounded corners] (1cm,1cm) rectangle +(2cm,4cm);
 \filldraw[draw=black,fill=red!40] (1cm,2cm) rectangle +(2cm,1cm);
 \draw (1cm,4cm) -- (3cm,4cm);
 % \draw (1cm,3cm) -- (3cm,3cm);
 % \draw (1cm,2cm) -- (3cm,2cm);
-\draw[dashed,rounded corners] (4cm,1cm) rectangle +(3.5cm,3.5cm);
+\filldraw[draw=black,fill=blue!20,fill opacity=.4,dashed,rounded corners] (4cm,1cm) rectangle +(3.5cm,3.5cm);
 \fill[red!40,rounded corners] (4.75cm, 2cm) rectangle +(2cm,1cm);
 \foreach \a/\b in {1.5/整型: 43, 2.5/字符串:, 3.5/字符型: A, 4.5/整型:124}
 \node[anchor=west, font=\small] at (1cm, \a cm) {\b};
