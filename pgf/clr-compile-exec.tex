@@ -1,0 +1,20 @@
+\begin{tikzpicture}[rounded corners, >=stealth]
+\tikzstyle{tnode}=[fill=red!30, text width=1.7cm, rounded corners,
+minimum height=1.1cm, minimum width=1.7cm, anchor=south west, font=\footnotesize]
+\draw[dashed,fill=blue!20, fill opacity=.4] (.7, .5) rectangle +(8.4,1.8);
+\draw[dashed,fill=blue!20, fill opacity=.4] (.7,2.5) rectangle +(8.4,1.9);
+
+\draw (1,2.7) node[style=tnode] (aa) {³ÌÐòÔ´Âë} ;   
+\draw (4,2.7) node[style=tnode] (bb) {±àÒëÆ÷} ; 
+\draw (7,2.7) node[style=tnode] (cc) {ÖÐ¼äÓïÑÔ} ;
+\draw (4,1)   node[style=tnode] (dd) {JIT±àÒëÆ÷} ;  
+\draw (1,1)   node[style=tnode] (ee) {±¾µØ´úÂë} ;   
+
+\draw (4.5,.7)  node {³ÌÐòÖ´ÐÐ};
+\draw (4.5,4.2) node {³ÌÐò±àÒë};
+
+\draw[->] (aa.east) -- (bb.west);
+\draw[->] (bb.east) -- (cc.west);
+\draw[->] (dd.west)--(ee.east);
+\draw[->] (cc.south) .. controls (cc.south|-dd.east) .. (dd.east);
+\end{tikzpicture}
