@@ -18,18 +18,16 @@
   % XML 是 Internet 上数据交换的通用语言。它提供了一个广泛包容的、开放标准的技
   % 术，用于数据交换和转换，克服了应用程序和服务互操作性和集成面临的障碍。
   
-  \begin{block}{.NET 平台}
     \begin{itemize}
     \item 底层操作系统 -- Windows
     \item 辅助产品 -- .NET 企业服务器
     \item 开发以及运行平台 -- .NET 框架
     \item 集成开发环境 -- Visual Studio .NET
     \end{itemize}
-  \end{block}
-  \begin{itemize}
-  \item .NET Framework
-  \item Visual Studio
-  \end{itemize}
+  % \begin{itemize}
+  % \item Microsoft .NET Framework
+  % \item Microsoft Visual Studio
+  % \end{itemize}
 
 \end{frame}
 
@@ -51,48 +49,51 @@
 \end{frame}
 
 
-\begin{frame} \frametitle{Microsoft .NET 相关技术标准}
+\begin{frame}[t] \frametitle{Microsoft .NET 相关技术标准}
   \begin{itemize}
-  \item<1> XML -- 基于 Web 的结构化数据的通用格式
-  \item<2> SOAP -- 基于 XML 构建的简单对象访问协议
-  \item<3> UDDI -- 统一描述、发现和集成
-  \item<4> WSDL -- Web 服务描述语言
-  \item<5> C\# 和 CLI -- .NET 框架的一部分
+  \item<1-> XML -- 基于 Web 的结构化数据的通用格式
+
+    \only<1>{\CJKindent \small XML 是一组设计文本数据格式的规则，所产生的文件意
+      义明确并且独立于平台，方便生成和（被计算机）读取。当前，如果一个 Web 应用
+      程序要从另一个应用程序那里检索数据，它必须借助“屏幕搜索”- 捕获带有它所
+      需数据的屏幕图片，并试图弄清如何把图片解释回数据。这样做效率非常低，并且
+      容易产生错误。XML 为 XML Web 服务提供了一种格式，使其能够交换实际数据而不
+      是包含数据的图片。}
+
+  \item<2-> SOAP -- 基于 XML 构建的简单对象访问协议
+
+    \only<2>{\CJKindent \small 它使应用程序可以通过一种标准的，松耦合的方式相互
+      调用，这使生成在 Internet 上分发的应用程序成为可能。
+
+      如果您将 XML Web 服务之间的交互想象成电话通话，那么 XML 描述了应用程序在
+      它们的对话中相互所说的内容，SOAP 则描述了它们在电话里是如何呼叫对方的。}
+
+    % 与 XML 一样，SOAP 是 W3C 标准过程的一部分，是由 Microsoft 和包括 IBM 在内
+    % 的很多其他公司联合建议的。 XML 和 SOAP 实际上已经得到了业内主要软件供应商
+    % 的公开认可，包括 Microsoft, IBM, HP, Sun 和 Oracle。
+
+  \item<3-> UDDI -- 统一描述、发现和集成
+
+    \only<3>{\CJKindent \small 如果说 XML 是对话，SOAP 描述了您呼叫他人的规则，
+      那么UDDI就是电话号码簿。UDDI 提供了一个 XML Web 服务的目录，便于查找提
+      供 XML Web 服务的企业。UDDI 现在是一个有超过 200 家公司参与的群体过
+      程，UDDI 群体的目的是在未来某个时间将其提交到一个正式的标准组织。}
+
+  \item<4-> WSDL -- Web 服务描述语言
+
+    \only<4>{\CJKindent \small WSDL 提供了一个标准方法，用以描述一个特定 XML
+      Web 服务提供何种函数，以及调用这些函数时必须传递哪些参数。与 SOAP 一
+      样，WSDL已经提交给 W3C 进行标准化。}
+
+  \item<5-> C\# 和 CLI -- .NET 框架的一部分
+
+    \only<5>{\CJKindent \small Microsoft 为 XML Web 服务家族创建的一种编程语
+      言C\#。并且已经提交给 ECMA 进行标准化。Microsoft 还向 ECMA 提交
+      了 Microsoft .NET 框架的一个子集，叫做公共语言结构 (CLI)。这将使其他供应
+      商能够在各种平台上实现 CLI，以便用 .NET 框架提供的基本体系结构模型所写的
+      软件可以在各种平台上用各种工具来创建。}
+
   \end{itemize}
-
-  \only<1>{ XML 是一组设计文本数据格式的规则，所产生的文件意义明确并且独立
-    于平台，方便生成和（被计算机）读取。当前，如果一个 Web 应用程序要从另一个
-    应用程序那里检索数据，它必须借助“屏幕搜索”- 捕获带有它所需数据的屏幕图
-    片，并试图弄清如何把图片解释回数据。这样做效率非常低，并且容易产生错
-    误。XML 为 XML Web 服务提供了一种格式，使其能够交换实际数据而不是包含数据
-    的图片。}
-
-  \only<2>{它使应用程序可以通过一种标准的，松耦合的方式相互调用，这使生成
-    在 Internet 上分发的应用程序成为可能。
-
-    如果您将 XML Web 服务之间的交互想象成电话通话，那么 XML 描述了应用程序在
-    它们的对话中相互所说的内容，SOAP 则描述了它们在电话里是如何呼叫对方的。
-
-    与 XML 一样，SOAP 是 W3C 标准过程的一部分，是由 Microsoft 和包括 IBM 在内
-    的很多其他公司联合建议的。 XML 和 SOAP 实际上已经得到了业内主要软件供应商
-    的公开认可，包括 Microsoft、IBM、HP、Sun 和 Oracle。}
-
-  \only<3>{如果说 XML 是对话，SOAP 描述了您呼叫他人的规则，那么UDDI就是电话号码
-    簿。UDDI 提供了一个 XML Web 服务的目录，便于查找提供 XML Web 服务的企
-    业。UDDI 现在是一个有超过 200 家公司参与的群体过程，UDDI 群体的目的是在未来
-    某个时间将其提交到一个正式的标准组织。}
-
-  \only<4>{WSDL 提供了一个标准方法，用以描述一个特定 XML Web 服务提供何种函数，
-    以及调用这些函数时必须传递哪些参数。与 SOAP 一样，WSDL已经提交给 W3C 进行
-    标准化。}
-
-  \only<5>{Microsoft 已经为 XML Web 服务家族创建了一种新的编程语言，叫做 C\#（读做
-    “C-sharp”）。C\# 已经提交给 ECMA 进行标准化，这是一个致力于推动行业范围内
-    采用信息和通信技术的非特定供应商的国际标准组织。C\# 的标准化使希望在任何平台
-    上都可以实现 C\# 编程工具的公司能够实现他们的愿望。Microsoft 还向 ECMA 提交
-    了 Microsoft .NET 框架的一个子集，叫做公共语言结构 (CLI)。这将使其他供应商
-    能够在各种平台上实现 CLI，以便用 .NET 框架提供的基本体系结构模型所写的软件
-    可以在各种平台上用各种工具来创建。}
 \end{frame}
 
 % 对于开发人员而言，丰富的类库，方便的集成，以及发布、部署和维护方便性显得尤为
@@ -112,40 +113,46 @@
 
 % \end{frame}
 
-\begin{frame} \frametitle{.NET框架}
+\begin{frame} \frametitle{Microsoft .NET框架}
   \begin{itemize}
   \item 互联网和分布式应用的开发平台
   \item .NET 框架是创建 Windows 应用程序的基础
-  \item 简化了应用程序的开发 \\
-    ASP.NET, Windows Forms, ASP.NET Web Services, Enterprise Services, ADO.NET
-  \item .NET 类库提供开发所需的各种基本功能库
-  \item .NET 类库可以支持各种类型的应用程序
-  \item 简化开发，屏蔽底层细节，统一的编成模式
-  \item 使用国际标准，如XML、SOAP、XPath等
+  \item 丰富的类库简化了应用程序的开发，如 \\
+    {\small ASP.NET, Windows Forms, ASP.NET Web Services, Enterprise Services, ADO.NET}
+  \item .NET 类库提供开发所需的各种基本功能，可以支持各种类型的应用程序
+  \item 类库屏蔽了底层细节，统一的编成模式，易于使用
   \item 容易维护、部署等
   \end{itemize}
 \end{frame}
 
 \begin{frame} \frametitle{.NET 框架的组成}
   \begin{itemize}
-  \item 公共语言运行环境 (CLR) 和 .NET 框架类库 (FCL)
+  \item 公共语言运行环境 (CLR)
+  \item .NET 框架类库 (FCL)
     % 组成的内容 (文字)
   \end{itemize}
   % .NET 框架的层次图 (图)
   \input{pgf/dn-framework.tex}
 \end{frame}
 
-
 % 多种语言之间的交互
 
-
 \section{CLR 公共语言运行环境}
-\begin{frame} \frametitle{CLR}
+\begin{frame} \frametitle{Common Language Runtime}
+  \begin{block}{公共语言运行环境}
+    
+  \end{block}
+\end{frame}
+
+\begin{frame} \frametitle{CLR 中程序的运行}
+
+\input{pgf/clr-compile-exec}
   \begin{itemize}
+  \item CLR 上执行的代码是 CIL 编写的托管代码
+  \item CIL 通过 JIT 实时的编译为本地代码
   \item CLR 是负责托管代码执行的虚拟运行环境
-  \item 为 CLR 编写的代码是使用 CIL 编写的托管代码
-  \item CIL 在 CLR 中通过 JIT 实时的编译为本地代码
   \end{itemize}
+
 \end{frame}
 
 \begin{frame} \frametitle{CLR的功能和作用}
@@ -180,7 +187,7 @@
 \end{frame}
 
 \begin{frame} \frametitle{值类型和引用类型}
-  CTS定义了两种类别的类型：值类型和引用类型
+  值类型和引用类型的区别：
 
   \input{pgf/cts-v-r-types}
 
@@ -227,6 +234,7 @@
 \end{frame}
 
 \begin{frame} \frametitle{命名空间的结构}
+\input{pgf/fcl-namespaces}
   % 图
 \end{frame}
 
