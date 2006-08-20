@@ -1,0 +1,14 @@
+%% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn>
+
+\def\helplines{%
+  \draw[->] (0,0)--(9,0);  \draw[->] (0,0)--(0,7.2);
+  \draw[step=1cm,color=blue!40,very thin] (1pt,1pt) grid (8.9,6.9);
+  \draw[step=1cm,color=black!40,dotted,very thin,shift={(-.5,-.5)}] (1pt+.5cm,1pt+.5cm) grid (9.5,7.5);
+  \foreach \x in {1,2,...,7} \draw[font=\scriptsize] 
+  (\x,0) -- +(up:1pt) ++(down:4pt) node {$\x$}  
+  (0,\x) -- +(right:1pt) ++(left:3pt) node {$\x$};}
+
+% Local Variables: 
+% mode: TeX
+% coding: gb2312
+% End:
