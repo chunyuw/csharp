@@ -1,0 +1,21 @@
+\begin{tikzpicture} [edge from parent fork down, font=\footnotesize]
+  \tikzstyle{every node}=[fill=red!30,rounded corners]
+  \tikzstyle{edge from parent}=[red,thick,draw]
+  \tikzstyle{level 1}=[sibling distance=1.7cm, level distance=1cm]
+  \tikzstyle{level 2}=[sibling distance=1.8cm, level distance=1cm]
+  \node {System}
+  child {node {IO}
+    child {node {\it Stream}}
+    child {node {\it File}}
+  }
+  child {node {Net}}
+  child {node {Data}
+    child {node {\it DataTable}}
+    child {node {\it DataSet}}
+  }
+  child {node {...}}
+  child {node {Windows}
+    child {node {Forms}}
+  }
+  ;
+\end{tikzpicture}
