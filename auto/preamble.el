@@ -20,5 +20,6 @@
      "beamer10"
      "beamer"
      "14pt"
-     "cjk")))
+     "cjk"
+     "macros")))
 
