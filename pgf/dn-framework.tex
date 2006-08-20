@@ -1,25 +1,25 @@
 \begin{tikzpicture}[rounded corners,font=\small]
-  \draw[fill=yellow!10,opacity=.5] (  0,  0) rectangle +(11cm, 5.5cm); % background
-  \filldraw[black!20!white] (.8cm,.2cm) rectangle +(9.4cm, .6cm); 
-  \node at (5.5cm, .5cm) {操作系统或移动设备};
+  \draw[fill=yellow!10,opacity=.5] (  0,  0) rectangle +(11, 5.5); % background
+  \filldraw[black!20!white] (.8,.2) rectangle +(9.4, .6); 
+  \node at (5.5, .5) {操作系统或移动设备};
 
-  \draw[dashed] (.6cm,1cm) rectangle +(9.8cm, 3.2cm);
-  \filldraw[red!20] (.8cm,1.2cm) rectangle +(9.4cm, .6cm); 
-  \node at (5.5cm, 1.5cm) {公共语言运行环境CLR};
-  \filldraw[blue!20] (.8cm,  2cm) rectangle +(9.4cm,  2cm); 
-  \node at (5.5cm, 2.3cm) {.NET 框架类库FCL};
+  \draw[dashed] (.6,1) rectangle +(9.8, 3.2);
+  \filldraw[red!20] (.8,1.2) rectangle +(9.4, .6); 
+  \node at (5.5, 1.5) {公共语言运行环境CLR};
+  \filldraw[blue!20] (.8,  2) rectangle +(9.4,  2); 
+  \node at (5.5, 2.3) {.NET 框架类库FCL};
 
   \tikzstyle{fltext}=[fill=blue!30,anchor=west,rectangle,font=\color{black}\footnotesize]
-  \draw (.9cm, 3.2cm) node[text centered, text width=0.9cm, style=fltext] {ASP .NET}; 
-  \draw (2.2cm,3.2cm) node[text centered, text width=1.6cm, style=fltext] {Windows Forms};                         
-  \draw (4.2cm,3.2cm) node[text centered, text width=1.6cm, style=fltext] {Web Service};
-  \draw (6.2cm,3.2cm) node[text centered, text width=1.8cm, style=fltext] {Enterprise Service};
-  \draw (8.4cm,3.2cm) node[text centered, text width=0.9cm, style=fltext] {ADO .NET};
-  \draw (9.5cm,3.2cm) node[anchor=west,ultra thick] {$\dots$};
+  \draw (.9, 3.2) node[text centered, text width=0.9cm, style=fltext] {ASP .NET}; 
+  \draw (2.2,3.2) node[text centered, text width=1.6cm, style=fltext] {Windows Forms};                         
+  \draw (4.2,3.2) node[text centered, text width=1.6cm, style=fltext] {Web Service};
+  \draw (6.2,3.2) node[text centered, text width=1.8cm, style=fltext] {Enterprise Service};
+  \draw (8.4,3.2) node[text centered, text width=0.9cm, style=fltext] {ADO .NET};
+  \draw (9.5,3.2) node[anchor=west,ultra thick] {$\dots$};
 
-  \draw[fill=yellow!70!cyan!60!white,draw=gray,font=\color{black}] (6.0cm, 4.8cm) ellipse (1.5cm and .5cm);
-  \draw[fill=yellow!70!cyan!60!white,draw=gray,font=\color{black}] (5.5cm, 4.8cm) ellipse (1.5cm and .5cm);
-  \draw[fill=yellow!70!cyan!60!white,draw=gray,font=\color{black}] (5.0cm, 4.8cm) ellipse (1.5cm and .5cm);
-  \node at (5.0cm,4.8cm) {应用程序};
+  \draw[fill=yellow!70!cyan!60!white,draw=gray,font=\color{black}] (6.0, 4.8) ellipse (1.5cm and .5cm);
+  \draw[fill=yellow!70!cyan!60!white,draw=gray,font=\color{black}] (5.5, 4.8) ellipse (1.5cm and .5cm);
+  \draw[fill=yellow!70!cyan!60!white,draw=gray,font=\color{black}] (5.0, 4.8) ellipse (1.5cm and .5cm);
+  \node at (5.0,4.8) {应用程序};
 
 \end{tikzpicture}
