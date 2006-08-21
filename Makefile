@@ -12,7 +12,7 @@ all: 1 2
 	fi
 
 ci:
-	svn ci -m"just ci to repository" .
+	svn ci -m"batch checkin to repository by makefile" .
 
 clean: 
 	-rm -f *.nav *.log *.snm *.toc *.out *.aux *.vrb *.out.bak
