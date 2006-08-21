@@ -1,6 +1,8 @@
 ## Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn>
 
 DATE=`gdate "+%Y%m%d-%H:%M"`
+PGFPIC=$(pgf/*.tex)
+
 
 all: 1 2
 
@@ -17,7 +19,7 @@ ci:
 
 clean: 
 	-rm -f *.nav *.log *.snm *.toc *.out *.aux *.vrb *.out.bak
-	-rm -f *.pdf
+	-rm -f *.pdf lesson-*.dvi lesson-*.ps
 
 .PHONY:	all clean
 
