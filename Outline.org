@@ -24,7 +24,7 @@
 ** 受管代码的执行
 ** 垃圾回收
 ** Visual Studio
-** 开发工具
+** 开发工具 SDK
 
 * C# Language
 8 lessons

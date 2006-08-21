@@ -5,5 +5,7 @@
      "pgf/clr-compile-exec"
      "pgf/cts-typesystem"
      "pgf/cts-v-r-types"
+     "pgf/clr-compile"
+     "pgf/clr-execute"
      "pgf/fcl-namespaces")))
 

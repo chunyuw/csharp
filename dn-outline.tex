@@ -51,7 +51,7 @@
 
 \begin{frame}[t] \frametitle{Microsoft .NET 相关技术标准}
   \begin{itemize}
-  \item<1-> XML -- 基于 Web 的结构化数据的通用格式
+  \item<1-> XML \only<2->{-- 基于 Web 的结构化数据的通用格式}
 
     \only<1>{\CJKindent \small XML 是一组设计文本数据格式的规则，所产生的文件意
       义明确并且独立于平台，方便生成和（被计算机）读取。当前，如果一个 Web 应用
@@ -60,7 +60,7 @@
       容易产生错误。XML 为 XML Web 服务提供了一种格式，使其能够交换实际数据而不
       是包含数据的图片。}
 
-  \item<2-> SOAP -- 基于 XML 构建的简单对象访问协议
+  \item<2-> SOAP \only<3->{-- 简单对象访问协议}
 
     \only<2>{\CJKindent \small 它使应用程序可以通过一种标准的，松耦合的方式相互
       调用，这使生成在 Internet 上分发的应用程序成为可能。
@@ -72,28 +72,31 @@
     % 的很多其他公司联合建议的。 XML 和 SOAP 实际上已经得到了业内主要软件供应商
     % 的公开认可，包括 Microsoft, IBM, HP, Sun 和 Oracle。
 
-  \item<3-> UDDI -- 统一描述、发现和集成
+  \item<3-> UDDI \only<4->{-- 统一描述、发现和集成}
 
     \only<3>{\CJKindent \small 如果说 XML 是对话，SOAP 描述了您呼叫他人的规则，
       那么UDDI就是电话号码簿。UDDI 提供了一个 XML Web 服务的目录，便于查找提
       供 XML Web 服务的企业。UDDI 现在是一个有超过 200 家公司参与的群体过
       程，UDDI 群体的目的是在未来某个时间将其提交到一个正式的标准组织。}
 
-  \item<4-> WSDL -- Web 服务描述语言
+  \item<4-> WSDL \only<5->{-- Web 服务描述语言}
 
     \only<4>{\CJKindent \small WSDL 提供了一个标准方法，用以描述一个特定 XML
       Web 服务提供何种函数，以及调用这些函数时必须传递哪些参数。与 SOAP 一
       样，WSDL已经提交给 W3C 进行标准化。}
 
-  \item<5-> C\# 和 CLI -- .NET 框架的一部分
+  \item<5-> C\#, CLI \only<6->{-- .NET 框架的一部分}
 
     \only<5>{\CJKindent \small Microsoft 为 XML Web 服务家族创建的一种编程语
-      言C\#。并且已经提交给 ECMA 进行标准化。Microsoft 还向 ECMA 提交
+      言C\#。并且已经提交给 ECMA 进行标准化。 Microsoft 还向 ECMA 提交
       了 Microsoft .NET 框架的一个子集，叫做公共语言结构 (CLI)。这将使其他供应
       商能够在各种平台上实现 CLI，以便用 .NET 框架提供的基本体系结构模型所写的
       软件可以在各种平台上用各种工具来创建。}
 
   \end{itemize}
+  \only<6>{这些都经过国际组织的标准化，因此有更好的通用性，任何厂商都可以根据
+    标准规定实现自己的 .NET 产品}
+
 \end{frame}
 
 % 对于开发人员而言，丰富的类库，方便的集成，以及发布、部署和维护方便性显得尤为
@@ -169,7 +172,7 @@
   \end{itemize}
 \end{frame}
 
-\subsection*{公共类型系统}
+%\subsection*{公共类型系统}
 
 \begin{frame} \frametitle{公共类型系统(CTS)}
   \begin{block}{Common Language System, CTS}
@@ -202,7 +205,7 @@
 
 \end{frame}
 
-\subsection*{托管代码的编译}
+%\subsection*{托管代码的编译}
 \begin{frame} \frametitle{托管代码的编译}
   
   \begin{itemize}
@@ -225,7 +228,6 @@
 
 \end{frame}
 
-\subsection*{托管代码的组织}
 \begin{frame} \frametitle{托管代码的组织}
   \begin{block}{程序集(Assembly)}
     .NET 框架应用程序中，由一个或一组文件构成的，单一功能的逻辑单元。程序集是
@@ -237,7 +239,7 @@
   \item 清单中有程序集的基本信息
     \begin{itemize}
     \item 程序集的名字
-    \item 清单的版本号，形如 <major>.<minor>.<build>.<revision>
+    \item 清单的版本号，形如 major.minor.build.revision
     \item 程序集其他文件列表
     \item 该程序集所依赖的其他程序集及版本号
     \end{itemize}
@@ -263,10 +265,10 @@
   \end{itemize}
 \end{frame}
 
-\subsection*{CLR的执行模型}
+%\subsection*{CLR的执行模型}
 % CIL
 
-\subsection*{托管代码的执行}
+%\subsection*{托管代码的执行}
 \begin{frame} \frametitle{托管代码的执行}
   \begin{itemize}
   \item 程序集只有在需要的时候才会被自动加载
@@ -280,10 +282,12 @@
   \end{itemize}
 \end{frame}
 
-\subsection*{托管模块}
+%\subsection*{托管模块}
 % 
 
-
+\begin{frame} \frametitle{托管代码的实时编译}
+  \input{pgf/clr-execute}
+\end{frame}
 
 
 
@@ -338,9 +342,9 @@
 \end{frame}
 
 
-\subsection*{受管开发环境}
+%\subsection*{受管开发环境}
 
-\subsection*{垃圾回收}
+%\subsection*{垃圾回收}
 
 \section{.NET 语言}
 
