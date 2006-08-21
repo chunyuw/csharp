@@ -11,6 +11,9 @@ all: 1 2
 	  echo "$@ doesn't exist" ; \
 	fi
 
+ci:
+	svn ci -m"just ci to repository" .
+
 clean: 
 	-rm -f *.nav *.log *.snm *.toc *.out *.aux *.vrb *.out.bak
 	-rm -f *.pdf
