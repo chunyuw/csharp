@@ -1,6 +1,6 @@
 ## Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn>
 
-DATE=`date "+%Y%m%d-%H:%M"`
+DATE=`gdate "+%Y%m%d-%H:%M"`
 
 all: 1 2
 
@@ -13,7 +13,7 @@ all: 1 2
 	fi
 
 ci:
-	svn ci -m"batch checkin to repository by makefile ($(DATE))" .
+	svn ci -m"Batch checkin by Makefile ($(DATE))" .
 
 clean: 
 	-rm -f *.nav *.log *.snm *.toc *.out *.aux *.vrb *.out.bak
