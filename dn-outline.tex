@@ -94,8 +94,8 @@
       软件可以在各种平台上用各种工具来创建。}
 
   \end{itemize}
-  \only<6>{这些都经过国际组织的标准化，因此有更好的通用性，任何厂商都可以根据
-    标准规定实现自己的 .NET 产品}
+  \only<6>{\CJKindent 这些都经过国际组织的标准化，因此有更好的通用性，任何厂商
+    都可以根据标准规定实现自己的 .NET 产品}
 
 \end{frame}
 
@@ -230,19 +230,20 @@
 
 \begin{frame} \frametitle{托管代码的组织}
   \begin{block}{程序集(Assembly)}
-    .NET 框架应用程序中，由一个或一组文件构成的，单一功能的逻辑单元。程序集是
-    组件复用，实施安全策略的最小单位。
+    \small .NET 框架应用程序中，由一个或一组文件构成的，单一功能的逻辑单元。程
+    序集是组件复用，实施安全策略的最小单位。
   \end{block}
   \begin{itemize}
-  \item 每个程序集都有一个清单(manifest)，描述程序集的内容
-  \item 程序集可以有多个文件，但清单只在其中一个文件中
-  \item 清单中有程序集的基本信息
-    \begin{itemize}
+  \item 程序集可以有一个或多个文件，如DLL, EXE 或资源文件等
+  \item 程序集都有一个清单(manifest)
+  \item 清单描述程序集的内容信息
+    \begin{enumerate}
     \item 程序集的名字
-    \item 清单的版本号，形如 major.minor.build.revision
+    \item 版本号，形如 major.minor.build.revision
+    \item 支持的语言
     \item 程序集其他文件列表
-    \item 该程序集所依赖的其他程序集及版本号
-    \end{itemize}
+    \item 所依赖的其他程序集及版本号
+    \end{enumerate}
   \end{itemize}
 \end{frame}
 
@@ -257,10 +258,11 @@
 
   \item 程序集可以有一个 Strong name
     \begin{itemize}
-    \item 通过数字签名，确保程序集的唯一性
+    \item 除了三个必须的成员之外，还要有数字签名和相应的公钥
+    \item 通过数字签名，可以确保程序集的唯一性，增加安全性
     \end{itemize}
 
-  \item 允许不同版本的程序及并存，可有效避免DLL Hell
+  \item 允许不同版本的程序集并存，可有效避免 DLL Hell
     % 因为程序集需要指定版本号，而程序集的依赖也如此
   \end{itemize}
 \end{frame}
@@ -270,23 +272,36 @@
 
 %\subsection*{托管代码的执行}
 \begin{frame} \frametitle{托管代码的执行}
+  \framesubtitle{如何寻找并加载程序集}
   \begin{itemize}
-  \item 程序集只有在需要的时候才会被自动加载
+  \item 只有在需要的时候加载
     % 如果依赖程序集没有调用，不会被加载；
     % 程序集甚至不需在目标机器上
 
   \item CLR通过特定的规则寻找需要的程序集
     % 
+    \begin{enumerate}
+    \item CLR检查是否已经被加载，如果已经加载，结束搜索
+    \item 在Global Assembly Cache(GAC)中搜索
+    \item 在程序代码中指定的位置搜索
+    \item 如果代码没有指定，在Application base查找，可能是目录或URL
+    \item 根据 .NET 的配置，在其他目录查找
+    \item 都未找到，报告错误，结束
+    \end{enumerate}
 
-  \item 
+  \item 检查Strong name(如果有)，加载并使用
   \end{itemize}
 \end{frame}
 
-%\subsection*{托管模块}
-% 
+\begin{frame} \frametitle{托管代码的执行}
+  \framesubtitle{编译MSIL}
+
+\end{frame}
 
 \begin{frame} \frametitle{托管代码的实时编译}
-  \input{pgf/clr-execute}
+  \begin{onlyenv}<2->
+    \input{pgf/clr-execute}
+  \end{onlyenv}
 \end{frame}
 
 

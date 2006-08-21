@@ -19,7 +19,7 @@
      "latex2e"
      "beamer10"
      "beamer"
-     "14pt"
+     "13pt"
      "cjk"
      "macros")))
 
