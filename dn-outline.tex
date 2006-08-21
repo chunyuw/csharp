@@ -188,6 +188,7 @@
   \input{pgf/cts-typesystem}
 \end{frame}
 
+
 \begin{frame} \frametitle{值类型和引用类型}
   值类型和引用类型的区别：
 
@@ -201,20 +202,74 @@
 
 \end{frame}
 
+\subsection*{托管代码的编译}
 \begin{frame} \frametitle{托管代码的编译}
   
+  \begin{itemize}
+  \item 托管代码编译后生成 MSIL 和元数据
+    
+%    {\footnotesize MSIL和元数据都存储在Windows PE文件中，存在形式可以是 DLL 或EXE。}
+
+\item MSIL 和元数据都保存在 DLL 或 EXE 中
+
+  % {\footnotesize MSIL相当于CLR的汇编语言，而且直接支持 CTS 中的各种类型和比较
+  %   高级的操作，比如创建对象、类型之间的转换等。}
+
+\item 元数据描述源代码中定义类型的详细信息
+  % {\footnotesize 类的名字、可见性、基类，该类实现的接口、方法、属性和时间等等。}
+
+
+  \end{itemize}
+
+\input{pgf/clr-compile}
+
+\end{frame}
+
+\subsection*{托管代码的组织}
+\begin{frame} \frametitle{托管代码的组织}
+  \begin{block}{程序集(Assembly)}
+    .NET 框架应用程序中，由一个或一组文件构成的，单一功能的逻辑单元。程序集是
+    组件复用，实施安全策略的最小单位。
+  \end{block}
+  \begin{itemize}
+  \item 每个程序集都有一个清单(manifest)，描述程序集的内容
+  \item 程序集可以有多个文件，但清单只在其中一个文件中
+  \item 清单中有程序集的基本信息
+    \begin{itemize}
+    \item 程序集的名字
+    \item 清单的版本号，形如 <major>.<minor>.<build>.<revision>
+    \item 程序集其他文件列表
+    \item 该程序集所依赖的其他程序集及版本号
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame} \frametitle{程序集的功能}
+  \begin{itemize}
+  \item 程序集定义了类型的有效范围
+    % CLR 通过程序集查找类的定义
+  \item 程序集不需要注册表项
+    % CLR 通过一种算法查找程序集的位置 
+  \item 安装 .NET 应用程序，只拷贝它的程序集即可
+    % 安装与卸载 .NET 模块不需要修改系统注册表，只需copy or delete
+
+  \item 程序集可以有一个 Strong name
+    \begin{itemize}
+    \item 通过数字签名，确保程序集的唯一性
+    \end{itemize}
+
+  \item 允许不同版本的程序及并存，可有效避免DLL Hell
+    % 因为程序集需要指定版本号，而程序集的依赖也如此
+  \end{itemize}
 \end{frame}
 
 \subsection*{CLR的执行模型}
 % CIL
 
+\subsection*{托管代码的执行}
 \begin{frame} \frametitle{托管代码的执行}
   
 \end{frame}
-
-\subsection*{程序集}
-
-\subsection*{元数据}
 
 \subsection*{托管模块}
 % 
