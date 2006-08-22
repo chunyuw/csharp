@@ -13,7 +13,7 @@ all: 1 2
 	fi
 
 ci:
-	svn ci -m"Batch checkin by Makefile ($(DATE))" .
+	svn ci . -m"Batch checkin by Makefile ($(DATE))"
 
 clean: 
 	-rm -f *.nav *.log *.snm *.toc *.out *.aux *.vrb *.out.bak

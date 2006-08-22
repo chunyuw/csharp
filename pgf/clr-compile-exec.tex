@@ -1,6 +1,8 @@
+%% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn>
+
 \begin{tikzpicture}[rounded corners, >=stealth]
 \tikzstyle{tnode}=[fill=red!30, text width=1.7cm, rounded corners,
-minimum height=1.1cm, minimum width=1.7cm, anchor=south west, font=\footnotesize]
+minimum height=1.1cm, minimum width=1.7cm, anchor=south west, text centered]
 \draw[dashed,fill=blue!20, fill opacity=.4] (.7, .5) rectangle +(8.4,1.8);
 \draw[dashed,fill=blue!20, fill opacity=.4] (.7,2.5) rectangle +(8.4,1.9);
 
@@ -15,6 +17,6 @@ minimum height=1.1cm, minimum width=1.7cm, anchor=south west, font=\footnotesize
 
 \draw[->] (aa.east) -- (bb.west);
 \draw[->] (bb.east) -- (cc.west);
-\draw[->] (dd.west)--(ee.east);
+\draw[->] (dd.west) -- (ee.east);
 \draw[->] (cc.south) .. controls (cc.south|-dd.east) .. (dd.east);
 \end{tikzpicture}
