@@ -48,7 +48,6 @@
 
 \end{frame}
 
-
 \begin{frame}[t] \frametitle{Microsoft .NET 相关技术标准}
   \begin{itemize}
   \item<1-> XML \only<2->{-- 基于 Web 的结构化数据的通用格式}
@@ -117,6 +116,66 @@
 
 % \end{frame}
 
+\begin{frame} \frametitle{Web 服务(Web Services)}
+  \begin{block}{Web Services}
+    {\CJKindent 可远程访问的应用程序组件，并且响应以~HTTP~为主访问请求，提供基于
+    文本的信息服务。}
+  \end{block}
+  \begin{itemize}
+  \item 提供了信息发布的标准方式，方便应用程序访问
+  \item 信息不再是网页或文件，以根据需要各取所需
+  \item 消除了使用不同组件模型、操作系统之间存在的差异
+  \item 方便创建基于 Web 服务的分布式应用程序
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile,t] \frametitle{Web 服务示例}
+
+  \begin{itemize}
+  \item http://www.webservicex.net/globalweather.asmx
+  \item \only<1>{通过 SOAP 的访问} \only<2>{返回的结果}
+  \end{itemize}
+
+  \begin{onlyenv}<1>
+\begin{lstlisting}[language=XML, showstringspaces=false]
+POST /globalweather.asmx HTTP/1.1
+Host: www.webservicex.net
+Content-Type: text/xml; charset=utf-8
+Content-Length: length
+SOAPAction: "http://www.webserviceX.NET/GetWeather"
+
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http://  ...>
+ <soap:Body>
+  <GetWeather xmlns="http://www.webserviceX.NET">
+   <CityName>Harbin</CityName>
+   <CountryName>China</CountryName>
+  </GetWeather>
+ </soap:Body>
+</soap:Envelope>
+\end{lstlisting}
+  \end{onlyenv}
+
+  \begin{onlyenv}<2>
+\begin{lstlisting}[language=XML, showstringspaces=false]
+HTTP/1.1 200 OK
+Content-Type: text/xml; charset=utf-8
+Content-Length: length
+
+<?xml version="1.0" encoding="utf-8"?>
+<soap:Envelope xmlns:xsi="http:// ...>
+ <soap:Body>
+  <GetWeatherResponse 
+           xmlns="http://www.webserviceX.NET">
+   <GetWeatherResult>string</GetWeatherResult>
+  </GetWeatherResponse>
+ </soap:Body>
+</soap:Envelope>
+\end{lstlisting}
+  \end{onlyenv}
+
+\end{frame}
+
 \begin{frame} \frametitle{Microsoft .NET框架}
   \begin{itemize}
   \item 互联网和分布式应用的开发平台
@@ -136,6 +195,7 @@
     % 组成的内容 (文字)
   \end{itemize}
   % .NET 框架的层次图 (图)
+
   \input{pgf-dn/dn-framework}
 \end{frame}
 
