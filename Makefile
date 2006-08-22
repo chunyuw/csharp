@@ -1,6 +1,6 @@
 ## Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn>
 
-DATE=`gdate "+%Y%m%d-%H:%M"`
+DATE=$(shell gdate "+%Y%m%d-%H:%M")
 
 all: 1 2
 
@@ -23,6 +23,9 @@ clean:
 
 lesson-01.pdf: dn-outline.tex $(wildcard pgf/*.tex)
 lesson-02.pdf: $(wildcard cs-*.tex)
+
+test:
+	echo $(tt)
 
 1: lesson-01.pdf
 2: lesson-02.pdf
