@@ -1,10 +1,10 @@
-*.pdf
-*.out
-*.log
 *.aux
-*.toc
-*.snm
-*.nav
 *.bak
+*.log
+*.nav
+*.out
+*.pdf
+*.snm
+*.toc
 *.vrb 
 test.tex
