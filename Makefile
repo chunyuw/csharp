@@ -2,7 +2,7 @@
 
 DATE=$(shell gdate "+%Y%m%d-%H:%M")
 AUTOCI="Batch checkin by Makefile ($(DATE))"
-CLNSUFFIX=" nav log snm toc aux vrb out.bak pdf dvi"
+CLNSUFFIX=" nav log snm toc aux vrb out out.bak pdf dvi"
 
 all: 1 2
 
