@@ -3,11 +3,8 @@
     (TeX-run-style-hooks
      "babel"
      "english"
-     "color"
-     "usenames"
      "inputenc"
      "latin1"
-     "pgflibraryarrows"
      "pgflibrarytikztrees"
      "pgflibraryshapes"
      "tikz"
@@ -21,5 +18,6 @@
      "beamer"
      "13pt"
      "cjk"
+     "dvipsnames}"
      "macros")))
 
