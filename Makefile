@@ -1,8 +1,6 @@
 ## Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn>
 
 DATE=`gdate "+%Y%m%d-%H:%M"`
-PGFPIC=$(pgf/*.tex)
-
 
 all: 1 2
 
@@ -23,7 +21,7 @@ clean:
 
 .PHONY:	all clean
 
-lesson-01.pdf: dn-outline.tex
+lesson-01.pdf: dn-outline.tex $(wildcard pgf/*.tex)
 lesson-02.pdf: $(wildcard cs-*.tex)
 
 1: lesson-01.pdf
