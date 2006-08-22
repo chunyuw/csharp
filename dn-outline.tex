@@ -295,6 +295,28 @@ Content-Length: length
 
 \end{frame}
 
+\begin{frame} \frametitle{公共语言规范(CLS)}
+  \begin{block}{Common Language Specification, CLS}
+    语言互操作的最终规范，定义了遵循~CLR~的编译器必须包含的最小特性集，保证语言
+    之间的通信。
+  \end{block}
+
+  \begin{block}{部分~CLS~特性和规则}
+    \begin{tabular}{l|l}
+      \ \ 特\ \ 性 & \ \ \ \ 规\ \ 则 \\
+      \hline
+      可见性       & 定义类型的程序集之外有效 \\
+      字符和大小写 & 变量除了大小写不同之外，还需要有其他区别 \\
+      基本类型     & Byte, Int, Single, Double, Boolean 等 \\
+      构造函数调用 & 在访问其实例数据前，必须调用基类的构造函数 \\
+      数组边界     & 数组的各个维下界必须为~0 \\
+      枚举         & 基类型必须是~Byte, Int16, Int32~或~Int64 \\
+      方法签名     & 签名中返回值和参数的类型必须遵循~CLS \\
+    \end{tabular}
+  \end{block}
+
+\end{frame}
+
 %\subsection*{托管代码的编译}
 \begin{frame}[c] \frametitle{托管代码的编译}
   
