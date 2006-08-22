@@ -136,7 +136,7 @@
     % 组成的内容 (文字)
   \end{itemize}
   % .NET 框架的层次图 (图)
-  \input{pgf/dn-framework}
+  \input{pgf-dn/dn-framework}
 \end{frame}
 
 % 多种语言之间的交互
@@ -150,7 +150,7 @@
 
 \begin{frame} \frametitle{CLR 中程序的运行}
 
-\input{pgf/clr-compile-exec}
+\input{pgf-dn/clr-compile-exec}
   \begin{itemize}
   \item CLR 定义了一种基于栈的虚拟机
   \item CLR 上执行的代码是 CIL 编写的托管代码
@@ -189,14 +189,14 @@
 
 \begin{frame} \frametitle{CTS的类型结构}
   % 所有的类型都派生自Objects类型，而所有的值类型都派生自ValueTypes类型。
-  \input{pgf/cts-typesystem}
+  \input{pgf-dn/cts-typesystem}
 \end{frame}
 
 
 \begin{frame} \frametitle{值类型和引用类型}
   值类型和引用类型的区别：
 
-  \input{pgf/cts-v-r-types}
+  \input{pgf-dn/cts-v-r-types}
 
   % 托管代码执行过程中，变量可以在托管栈或托管堆中分配。
   % 当方法被调用时，局部变量或方法创建的值类型变量都在栈中分配，当方法运行结束时都自动的释放；           
@@ -225,7 +225,7 @@
 
   \end{itemize}
 
-\input{pgf/clr-compile}
+\input{pgf-dn/clr-compile}
 
 \end{frame}
 
@@ -301,7 +301,7 @@
 
 \begin{frame} \frametitle{托管代码的实时编译}
   \begin{onlyenv}<2->
-    \input{pgf/clr-execute}
+    \input{pgf-dn/clr-execute}
   \end{onlyenv}
 \end{frame}
 
@@ -324,7 +324,7 @@
 \end{frame}
 
 \begin{frame} \frametitle{命名空间的结构}
-\input{pgf/fcl-namespaces}
+\input{pgf-dn/fcl-namespaces}
   % 图
 \end{frame}
 
