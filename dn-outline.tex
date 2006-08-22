@@ -4,7 +4,7 @@
 
 \section{.NET 框架简介}
 \begin{frame} \frametitle{什么是 Microsoft .NET} 
-
+  \CJKindent
   .NET 是 Microsoft 的用以创建 XML Web 服务平台，该平台将信息、设备和人以一种统
   一的、个性化的方式联系起来。
 
@@ -32,6 +32,7 @@
 \end{frame}
 
 \begin{frame} \frametitle{Microsoft .NET 平台的设计目标}
+  \CJKindent
 
   .NET 框架设计为一个集成环境,可以在Internet，Windows桌面以及移动设备上进行无缝
   地开发和运行应用程序。
@@ -102,19 +103,24 @@
 % 对于开发人员而言，丰富的类库，方便的集成，以及发布、部署和维护方便性显得尤为
 % 重要
 
-% \begin{frame} \frametitle{公共语言结构(CLI)}
-%   \begin{block}{CLI(Common Language Infrastructure)}
-%     CLI 标准定义了一个与平台无关的虚拟代码执行环境。由于没有指定操作系统，所以
-%     可以在任何的系统上执行。
-%   \end{block}
-%   CLI 定义了一种中间语言(CIL)和一个类型系统(CTS)。首先将高级语言程序编译为CIL，
-%   在执行的过程中编译为宿主机器的目标代码。
-
-%   % C# ...
-%   % Microsoft 的 CLI 实现就是 CLR
-%   % CLR + FCL 就是 Microsoft .NET Framework
-
-% \end{frame}
+\begin{frame} \frametitle{公共语言结构(CLI)}
+  \begin{block}{Common Language Infrastructure(CLI)}
+    \CJKindent CLI 标准定义了一个与平台无关的虚拟代码执行环境。包括公共中间语
+    言(CIL)和公共类型系统(CTS)，相应的语法、语义和部分 .NET 框架类库。
+  \end{block}
+  \begin{itemize}
+  \item CLI 没有指定操作系统，可以在任何的系统或设备上实现
+  \item 任何人或公司都可以根据CLI标准实现相关技术
+    \begin{itemize}
+    \item Microsoft .NET Framework
+    \end{itemize}
+  \item 目前已有的开源 .NET 平台
+    \begin{itemize}
+    \item Mono Project --- http://www.mono-project.com
+    \item DotGNU Project --- http://www.dotgnu.org
+    \end{itemize}
+  \end{itemize}
+\end{frame}
 
 \begin{frame} \frametitle{Web 服务(Web Services)}
   \begin{block}{Web Services}
@@ -176,17 +182,40 @@ Content-Length: length
 
 \end{frame}
 
-\begin{frame} \frametitle{Microsoft .NET框架}
+\begin{frame} \frametitle{Microsoft .NET Framework}
+  \framesubtitle{功能丰富的开发平台}
   \begin{itemize}
-  \item 互联网和分布式应用的开发平台
-  \item .NET 框架是创建 Windows 应用程序的基础
-  \item 丰富的类库简化了应用程序的开发，如 \\
-    {\small ASP.NET, Windows Forms, ASP.NET Web Services, Enterprise Services, ADO.NET}
-  \item .NET 类库提供开发所需的各种基本功能，可以支持各种类型的应用程序
-  \item 类库屏蔽了底层细节，统一的编成模式，易于使用
-  \item 容易维护、部署等
+  \item \large 互联网、分布式应用程序、Windows~应用程序
+  \item \large 创建与运行~Windows~应用程序的基础
+  \item \large 创建与使用~Web~Services~的工具
+  \item \large 便携设备的开发和运行的环境
   \end{itemize}
 \end{frame}
+\begin{frame}\frametitle{Microsoft .NET Framework}
+  \framesubtitle{提供了丰富的类库}
+
+  Windows Forms, ASP.NET, Enterprise Services, ADO.NET ...
+
+  \begin{itemize}
+  \item \large 充分利用代码复用，简化了应用程序的开发
+  \item \large 类库提供开发所需的各种基本功能，可以支持各种类型的应用程序
+  \item \large 类库屏蔽了底层细节，统一了编程模式，易于使用
+  \item \large 容易维护、部署等
+  \end{itemize}
+\end{frame}
+\begin{frame}\frametitle{Microsoft .NET Framework}
+  \framesubtitle{完整的安全解决方案}
+  \begin{itemize}
+  \item \large 基于证据的安全规则，确保组件的来源可靠
+  \item \large 细致的权限设置，可以为组件设置不同权限
+    \begin{itemize}
+    \item \large 访问注册表
+    \item \large 文件读取
+    \item \large 访问网络
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
 
 \begin{frame} \frametitle{.NET 框架的组成}
   \begin{itemize}
@@ -247,13 +276,13 @@ Content-Length: length
   \end{itemize}
 \end{frame}
 
-\begin{frame} \frametitle{CTS的类型结构}
+\begin{frame}[c] \frametitle{CTS的类型结构}
   % 所有的类型都派生自Objects类型，而所有的值类型都派生自ValueTypes类型。
   \input{pgf-dn/cts-typesystem}
 \end{frame}
 
 
-\begin{frame} \frametitle{值类型和引用类型}
+\begin{frame}[c] \frametitle{值类型和引用类型}
   值类型和引用类型的区别：
 
   \input{pgf-dn/cts-v-r-types}
@@ -267,22 +296,16 @@ Content-Length: length
 \end{frame}
 
 %\subsection*{托管代码的编译}
-\begin{frame} \frametitle{托管代码的编译}
+\begin{frame}[c] \frametitle{托管代码的编译}
   
   \begin{itemize}
   \item 托管代码编译后生成 MSIL 和元数据
-    
-%    {\footnotesize MSIL和元数据都存储在Windows PE文件中，存在形式可以是 DLL 或EXE。}
-
-\item MSIL 和元数据都保存在 DLL 或 EXE 中
-
-  % {\footnotesize MSIL相当于CLR的汇编语言，而且直接支持 CTS 中的各种类型和比较
-  %   高级的操作，比如创建对象、类型之间的转换等。}
-
-\item 元数据描述源代码中定义类型的详细信息
-  % {\footnotesize 类的名字、可见性、基类，该类实现的接口、方法、属性和时间等等。}
-
-
+    % {\footnotesize MSIL和元数据都存储在Windows PE文件中，存在形式可以是 DLL 或EXE。}
+  \item MSIL 和元数据都保存在 DLL 或 EXE 中
+    % {\footnotesize MSIL相当于CLR的汇编语言，而且直接支持 CTS 中的各种类型和比较
+    %   高级的操作，比如创建对象、类型之间的转换等。}
+  \item 元数据描述源代码中定义类型的详细信息
+    % {\footnotesize 类的名字、可见性、基类，该类实现的接口、方法、属性和时间等等。}
   \end{itemize}
 
 \input{pgf-dn/clr-compile}
