@@ -2,7 +2,6 @@
  (lambda ()
     (TeX-run-style-hooks
      "pgf-dn/dn-framework"
-     "pgf-dn/clr-compile-exec"
      "pgf-dn/cts-typesystem"
      "pgf-dn/cts-v-r-types"
      "pgf-dn/clr-compile"
