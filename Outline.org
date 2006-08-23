@@ -101,6 +101,23 @@
   + \alt<>{}{}
   + \temporal<>{}{}{}
 
+* Other
+
+** macro
+ \medskip, \bigskip
+
+** PPT 图变透明背景 PDF
+
+  PPT中画的图片，通过 PDFMaker(7.0) 转换为 PDF 文件，可以实现透明背景。
+  \includegraphics[width=4cm, height=3.5cm]{top500sys.pdf}\hspace{1cm}
+  \includegraphics[scale=0.6]{top500sys.pdf}\hspace{1cm}
+
+** attachfile packages
+  \usepackage{attachfile}
+  \attachfile[author=Chunyu Wang,color=1 .2 .2,description=Source
+  file,subject=test,icon=Tag,mimetype=text/plain]{test.tex}
+
+
 # Local Variables:
 # org-export-html-style: "<link rel=\"stylesheet\" type=\"text/css\" href=\"res/org.css\">"
 # End:

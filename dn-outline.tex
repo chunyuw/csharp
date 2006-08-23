@@ -142,8 +142,7 @@
   \item \only<1>{通过 SOAP 的访问} \only<2>{返回的结果}
   \end{itemize}
 
-  \begin{onlyenv}<1>
-\begin{lstlisting}[language=XML, showstringspaces=false]
+\begin{lstlisting}<1>[language=XML, showstringspaces=false]
 POST /globalweather.asmx HTTP/1.1
 Host: www.webservicex.net
 Content-Type: text/xml; charset=utf-8
@@ -151,7 +150,7 @@ Content-Length: length
 SOAPAction: "http://www.webserviceX.NET/GetWeather"
 
 <?xml version="1.0" encoding="utf-8"?>
-<soap:Envelope xmlns:xsi="http://  ...>
+<soap:Envelope xmlns:xsi= ... >
  <soap:Body>
   <GetWeather xmlns="http://www.webserviceX.NET">
    <CityName>Harbin</CityName>
@@ -160,16 +159,15 @@ SOAPAction: "http://www.webserviceX.NET/GetWeather"
  </soap:Body>
 </soap:Envelope>
 \end{lstlisting}
-  \end{onlyenv}
 
-  \begin{onlyenv}<2>
-\begin{lstlisting}[language=XML, showstringspaces=false]
+
+\begin{lstlisting}<2>[language=XML, showstringspaces=false]
 HTTP/1.1 200 OK
 Content-Type: text/xml; charset=utf-8
 Content-Length: length
 
 <?xml version="1.0" encoding="utf-8"?>
-<soap:Envelope xmlns:xsi="http:// ...>
+<soap:Envelope xmlns:xsi= ... >
  <soap:Body>
   <GetWeatherResponse 
            xmlns="http://www.webserviceX.NET">
@@ -178,7 +176,6 @@ Content-Length: length
  </soap:Body>
 </soap:Envelope>
 \end{lstlisting}
-  \end{onlyenv}
 
 \end{frame}
 
@@ -282,10 +279,13 @@ Content-Length: length
 \end{frame}
 
 
-\begin{frame}[c] \frametitle{值类型和引用类型}
+\begin{frame} \frametitle{值类型和引用类型}
   值类型和引用类型的区别：
 
-  \input{pgf-dn/cts-v-r-types}
+  \begin{figure}[h]
+    \centering
+    \input{pgf-dn/cts-v-r-types}
+  \end{figure}
 
   % 托管代码执行过程中，变量可以在托管栈或托管堆中分配。
   % 当方法被调用时，局部变量或方法创建的值类型变量都在栈中分配，当方法运行结束时都自动的释放；           
@@ -301,19 +301,20 @@ Content-Length: length
     之间的通信。
   \end{block}
 
-  \begin{block}{部分~CLS~特性和规则}
+  \begin{exampleblock}{部分~CLS~特性和规则}
+    %\rowcolors{1}{RoyalBlue!20}{RoyalBlue!5}
     \begin{tabular}{l|l}
-      \ \ 特\ \ 性 & \ \ \ \ 规\ \ 则 \\
       \hline
+      \multicolumn{1}{c|}{\hei特\ \ 性} & \multicolumn{1}{c}{\hei 规\ \ 则}\\\hline
       可见性       & 定义类型的程序集之外有效 \\
       字符和大小写 & 变量除了大小写不同之外，还需要有其他区别 \\
       基本类型     & Byte, Int, Single, Double, Boolean 等 \\
-      构造函数调用 & 在访问其实例数据前，必须调用基类的构造函数 \\
+      构造函数调用 & 访问实例数据前，必须调用基类的构造函数 \\
       数组边界     & 数组的各个维下界必须为~0 \\
       枚举         & 基类型必须是~Byte, Int16, Int32~或~Int64 \\
       方法签名     & 签名中返回值和参数的类型必须遵循~CLS \\
     \end{tabular}
-  \end{block}
+  \end{exampleblock}
 
 \end{frame}
 
@@ -405,9 +406,7 @@ Content-Length: length
 \end{frame}
 
 \begin{frame} \frametitle{托管代码的实时编译}
-  \begin{onlyenv}<2->
-    \input{pgf-dn/clr-execute}
-  \end{onlyenv}
+  \only<2->{\input{pgf-dn/clr-execute}}
 \end{frame}
 
 

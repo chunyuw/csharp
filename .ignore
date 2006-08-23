@@ -7,4 +7,5 @@
 *.snm
 *.toc
 *.vrb
-test.tex
+test.*
+_region_.*
