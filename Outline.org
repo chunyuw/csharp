@@ -67,9 +67,28 @@
 
 * Beamer Usage
 
-** QUOTE frame break
+** frame option
 
-\begin{frame}[allowframebreaks, allowdisplaybreaks]
+  fragile    逐字环境
+  shrink     自动缩小
+  squeeze    自动挤压行间空白
+
+
+** \color
+
+  \color{red!50!green!20!blue}
+  \color{DarkSlateGray!25}
+  \color{-green!40!yellow}       补色
+  \color[wave]{485}		 波长(nm)
+  \color[rgb]{.1,.2,.3}		 RGB
+
+
+  \rowcolors{起始行书}{奇数行}{偶数行}
+  \rowcolors{3}{OddColor}{EvenColor}
+
+** QUOTE *allowframebreaks*
+
+\begin{frame}[ allowframebreaks, allowdisplaybreaks]
   ...
   \framebreak
   ...
@@ -91,7 +110,19 @@
 \begin{frame}<0>         % no display
 \begin{frame}<handout:0> % only not in handout mode
 
+** enviroment
+
+  + overlayarea
+     \begin{overlayarea}{width}{height} ... \end{overlayarea}
+  + overprint 
+
+  + \llap{} 重叠图像
+
 ** QUOTE overlays
+
+  + \onslide<n>         隐藏内容占空间，是否被覆盖     \uncover<n>
+  + \onslide+<n>        隐藏内容占空间，是否可见       \visible<n>
+  + \onslide*<n>{text}  隐藏内容不占空间，不存在       \only<n>{text}
 
   + \pause
   + \only<n>
