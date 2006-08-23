@@ -1,4 +1,4 @@
 Local Variables:
-dired-omit-files: "^\\.\\|\\.\\(aux\\|nav\\|out\\|snm\\|toc\\|log\\|vrb\\)$\\|^\\(auto\\)$"
+dired-omit-files: "^\\.\\|\\.\\(aux\\|nav\\|out\\|snm\\|toc\\|log\\|vrb\\)$\\|^\\(auto\\|figures\\|logo\\|res\\|macros\\.tex\\)$"
 dired-omit-files-p: t
 End:
