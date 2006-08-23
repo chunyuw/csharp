@@ -79,7 +79,7 @@
     % 的很多其他公司联合建议的。 XML 和 SOAP 实际上已经得到了业内主要软件供应商
     % 的公开认可，包括 Microsoft, IBM, HP, Sun 和 Oracle。
 
-  \item<3-> UDDI\only<3>{, \textit{Universal Description, Discovery and Integration}}, \only<4->{--- 统一描述、发现和集成}
+  \item<3-> UDDI\only<3>{, \textit{Universal Description, Discovery and Integration}} \only<4->{--- 统一描述、发现和集成}
     \medskip
 
     \only<3>{\CJKindent \small 如果 ~XML 是对话，SOAP 描述呼叫他人的规则，那
@@ -115,9 +115,9 @@
 % 对于开发人员而言，丰富的类库，方便的集成，以及发布、部署和维护方便性显得尤为
 % 重要
 
-\begin{frame} \frametitle{公共语言基础结构(CLI)}
+\begin{frame} \frametitle{公共语言基础结构}
   \framesubtitle{实现 ~.NET 平台的基础}
-  \begin{block}{\textit{Common Language Infrastructure}}
+  \begin{block}{\textit{Common Language Infrastructure(CLI)}}
     \CJKindent CLI 定义了一个与平台无关的虚拟代码执行环境。包括公共中间语言和公
     共类型系统，相应的语法、语义和部分 ~.NET 框架类库。
   \end{block}
@@ -261,15 +261,16 @@ Content-Length: length
 
 \section{CLR 公共语言运行环境}
 \begin{frame} \frametitle{公共语言运行环境}
-  \begin{block}{\textit{Common Language Runtime}}
+  \begin{block}{\textit{Common Language Runtime(CLR)}}
     \CJKindent 全部 ~.NET Framework 的基础，为 ~.NET 程序提供了一个虚拟机环境，
-    以支持进程的创建和执行，为进程提供必要的服务。
+    以支持进程的创建和执行，托管代码和非托管代码的交互，为进程提供必要的服务。
   \end{block}
   % \input{pgf-dn/clr-compile-exec}
   \begin{itemize}
-  \item<2-| handout:1> CLR 要管理程序运行的整个周期：查找代码、编译、加载相关的类、管理其
-    执行、自动内存管理
-  \item<3-| handout:1> 提供多种语言都支持的公共类型系统，定义如何声明和管理这样的类型
+  \item<2-| handout:1> CLR 要管理\alert<2>{托管代码}的整个运行周期：查找代码、编译、加载相
+    关的类、运行、自动内存管理
+  \item<3-| handout:1> 提供多种语言都支持的\alert<3>{公共类型系统}，定义如何声
+    明和管理 ~CLR 中的类型
   \item<4-| handout:1> 支持跨语言集成，允许不同语言生成的代码能够无缝地交互
   \item<5-| handout:1> 管理类型系统的安全，管理组件的安全
   \item<6-| handout:1> 负责访问其他系统资源，提供 ~Win32 API, COM 等访问接口
@@ -286,12 +287,40 @@ Content-Length: length
 
 \end{frame}
 
-\begin{frame} \frametitle{公共类型系统(CTS)}
-  \begin{block}{Common Language System, CTS}
-    公共类型系统是一组预定义的类型，以及所有类型行为的规范。
+\begin{frame} \frametitle{托管代码和托管数据'}
+  什么是托管代码和托管数据？托管代码是编写为支持公共语言运行时服务的代码（请参
+  阅“什么是公共语言运行时？”）。为了支持这些服务，代码必须向运行时提供最小级
+  别的信息（元数据）。默认情况下，所有 C\#、Visual Basic.NET 和 JScript.NET 代码
+  都是托管代码。Visual Studio.NET C++ 代码在默认情况下不是托管代码，但通过指定
+  命令行开关 (/CLR)，编译器也可以生成托管代码。
+
+  与托管代码密切相关的是托管数据。托管数据是由公共语言运行时的垃圾回收器进行分
+  配和释放的数据。默认情况下，C\#、Visual Basic 和 JScript.NET 数据是托管数据。
+  不过，通过使用特殊的关键字，C\# 数据可以被标记为非托管数据。Visual Studio.NET
+  C++ 数据在默认情况下是非托管数据（即使在使用 /CLR 开关时），但是在使用 C++ 的
+%  托管扩展时，可以使用“__gc”关键字将类标记为托管类。就象该名称所显示的那样，
+  它表示类实例的内存由垃圾回收器管理。另外，该类也完全成为 .NET 框架的成员，同
+  时具备它所带来的好处和限制。好处的一个例子是：它可以与其他语言编写的类正确地
+  进行互操作（如托管的 C++ 类可以从 Visual Basic 类继承）；限制的一个例子是：托
+  管类只能从一个基类继承。
+\end{frame}
+
+\begin{frame} \frametitle{CLR 虚拟机}
+http://msdn2.microsoft.com/en-us/library/ddk909ch.aspx
+  \begin{figure}[h]
+    \centering
+    \input{pgf-dn/clr-compile-exec}
+  \end{figure}
+\end{frame}
+
+
+\begin{frame} \frametitle{公共类型系统}
+  \begin{block}{\textit{Common Type System(CTS)}}
+    \CJKindent CTS 是一组预定义的类型和这些类型行为的规范，描述了如何声明和创建
+    定制类型，如何管理这些类型实例的生命周期，以及怎样才能得到 ~CLR 的支持。
   \end{block}
   \begin{itemize}
-  \item 定义了一个声明、使用和管理类型的标准化框架
+  \item 定义了声明、使用和管理定制或预定义类型的标准化框架
   \item 使不同的编程语言之间的能够集成
   \item 遵循 ~CTS 能够保障类型的安全和性能的优化
   \item 遵循 ~CTS 的语言不一定支持 ~CTS 中定义的全部类型
@@ -306,7 +335,7 @@ Content-Length: length
 
 \begin{frame} \frametitle{值类型和引用类型}
   值类型和引用类型的区别：
-
+http://msdn2.microsoft.com/en-us/library/2hf02550.aspx
   \begin{figure}[h]
     \centering
     \input{pgf-dn/cts-v-r-types}
@@ -320,10 +349,10 @@ Content-Length: length
 
 \end{frame}
 
-\begin{frame} \frametitle{公共语言规范(CLS)}
-  \begin{block}{Common Language Specification, CLS}
-    语言互操作的最终规范，定义了遵循 ~CLR 的编译器必须包含的最小特性集，保证语言
-    之间的通信。
+\begin{frame} \frametitle{公共语言规范}
+  \begin{block}{\textit{Common Language Specification(CLS)}}
+    语言互操作的最终规范，定义了遵循 ~CLR 的编译器必须包含的最小特性集，保证语
+    言之间的通信。% CTS 的一个子集。
   \end{block}
 
   \begin{exampleblock}{部分 ~CLS 特性和规则}
@@ -357,56 +386,29 @@ Content-Length: length
 \begin{frame}[c] \frametitle{托管代码的编译}
   
   \begin{itemize}
-  \item 托管代码编译后生成 MSIL 和元数据
-    % {\footnotesize MSIL和元数据都存储在Windows PE文件中，存在形式可以是 DLL 或EXE。}
-  \item MSIL 和元数据都保存在 DLL 或 EXE 中
-    % {\footnotesize MSIL相当于CLR的汇编语言，而且直接支持 CTS 中的各种类型和比较
+  \item 托管代码编译后生成 ~MSIL 和元数据
+    % {\footnotesize MSIL和元数据都存储在 ~Windows PE文件中，存在形式可以是 ~DLL 或 ~EXE。}
+  \item MSIL 和元数据都保存在 ~DLL 或 ~EXE 中
+    % {\footnotesize MSIL相当于 ~CLR的汇编语言，而且直接支持 ~CTS 中的各种类型和比较
     %   高级的操作，比如创建对象、类型之间的转换等。}
   \item 元数据描述源代码中定义类型的详细信息
     % {\footnotesize 类的名字、可见性、基类，该类实现的接口、方法、属性和时间等等。}
   \end{itemize}
 
-\input{pgf-dn/clr-compile}
+  \begin{figure}[h]
+    \centering
+    \input{pgf-dn/clr-compile}
+  \end{figure}
 
 \end{frame}
 
-\begin{frame} \frametitle{托管代码的组织}
-  \begin{block}{程序集(Assembly)}
-    \small .NET 框架应用程序中，由一个或一组文件构成的，单一功能的逻辑单元。程
-    序集是组件复用，实施安全策略的最小单位。
-  \end{block}
-  \begin{itemize}
-  \item 程序集可以有一个或多个文件，如DLL, EXE 或资源文件等
-  \item 程序集都有一个清单(manifest)
-  \item 清单描述程序集的内容信息
-    \begin{enumerate}
-    \item 程序集的名字
-    \item 版本号，形如 major.minor.build.revision
-    \item 支持的语言
-    \item 程序集其他文件列表
-    \item 所依赖的其他程序集及版本号
-    \end{enumerate}
-  \end{itemize}
-\end{frame}
+\begin{frame} \frametitle{Microsoft 中间语言}
+%什么是 Microsoft 中间语言 (MSIL)？
+MSIL 是与 CPU 无关的指令集。.NET 框架程序被编译成 MSIL。它包含加载、存储、初始化和调用对象方法的指令。
 
-\begin{frame} \frametitle{程序集的功能}
-  \begin{itemize}
-  \item 程序集定义了类型的有效范围
-    % CLR 通过程序集查找类的定义
-  \item 程序集不需要注册表项
-    % CLR 通过一种算法查找程序集的位置 
-  \item 安装 .NET 应用程序，只拷贝它的程序集即可
-    % 安装与卸载 .NET 模块不需要修改系统注册表，只需copy or delete
+与元数据和公共类型系统结合，MSIL 允许真正的跨语言集成。
 
-  \item 程序集可以有一个 Strong name
-    \begin{itemize}
-    \item 除了三个必须的成员之外，还要有数字签名和相应的公钥
-    \item 通过数字签名，可以确保程序集的唯一性，增加安全性
-    \end{itemize}
-
-  \item 允许不同版本的程序集并存，可有效避免 DLL Hell
-    % 因为程序集需要指定版本号，而程序集的依赖也如此
-  \end{itemize}
+MSIL 在执行前被转换为机器代码，而不是一边解释一边执行。
 \end{frame}
 
 %\subsection*{CLR的执行模型}
@@ -424,19 +426,19 @@ Content-Length: length
     % 
     \begin{enumerate}
     \item CLR检查是否已经被加载，如果已经加载，结束搜索
-    \item 在Global Assembly Cache(GAC)中搜索
+    \item 在 ~Global Assembly Cache(GAC)中搜索
     \item 在程序代码中指定的位置搜索
-    \item 如果代码没有指定，在Application base查找，可能是目录或URL
-    \item 根据 .NET 的配置，在其他目录查找
+    \item 如果代码没有指定，在 ~Application base查找，可能是目录或 ~URL
+    \item 根据 ~.NET 的配置，在其他目录查找
     \item 都未找到，报告错误，结束
     \end{enumerate}
 
-  \item 检查Strong name(如果有)，加载并使用
+  \item 检查 ~Strong name(如果有)，加载并使用
   \end{itemize}
 \end{frame}
 
 \begin{frame} \frametitle{托管代码的执行}
-  \framesubtitle{编译MSIL}
+  \framesubtitle{编译 ~MSIL}
 
 \end{frame}
 
@@ -444,21 +446,108 @@ Content-Length: length
   \only<2->{\input{pgf-dn/clr-execute}}
 \end{frame}
 
+% 程序集
+% 什么是程序集？
+
+% 程序集是 .NET 框架应用程序的主要构造块。它是作为一个单一实现单元（包含一个或多
+% 个文件）来创建、标识和部署的功能集合。所有的托管类型和资源都可以被标记为仅在其
+% 实现单元内访问，或者标记为可由该单元以外的代码来访问。
+
+% 程序集通过清单来进行自我说明。清单是每个程序集的不可或缺的组成部分。清单：
+
+% 建立程序集标识（以文本名称的格式）、版本、类别和数字签名（如果要在应用程序之间
+% 共享该程序集）。
+
+% 定义组成程序集实现的文件（通过名称和文件散列）。
+
+% 指定组成程序集的类型和资源，包括哪些是从程序集中导出的。
+
+% 逐条记录编译时对其他程序集的依存。
+
+% 指定程序集正确运行所需要的权限的集合。
+
+% 此信息在运行时用于解析引用、强制版本绑定策略以及验证所加载的程序集的完整性。因
+% 为每一类型都被加载到程序集的上下文中，所以运行时可以确定并定位任何正在运行的对
+% 象的程序集。程序集也是应用了代码访问安全权限的单元。在确定授予其所包含的代码哪
+% 些权限时，每个程序集的标识证据都被认为是独立的。
+
+\begin{frame} \frametitle{托管代码的组织}
+  \begin{block}{程序集 --- \textit{Assembly}}
+    \CJKindent \small .NET 框架应用程序中，由一个或一组文件构成的，单一功能的
+    逻辑单元。程序集是组件复用，实施安全策略的最小单位。
+  \end{block}
+  \begin{itemize}
+  \item 程序集可以有一个或多个文件，如 ~DLL, EXE 或资源文件等
+  \item 程序集都有一个{\color{red!65!black}清单}(\textit{manifest}{})
+  \item 清单描述程序集的内容信息
+    \begin{enumerate}
+    \item 程序集的名字
+    \item 版本号，形如 ~major.minor.build.revision
+    \item 支持的语言
+    \item 程序集其他文件列表
+    \item 所依赖的其他程序集及版本号
+    \end{enumerate}
+  \end{itemize}
+\end{frame}
+
+% 什么是专用程序集和共享程序集？
+
+% 专用程序集仅由单一应用程序使用，并且存储在该应用程序的安装目录中（或其子目录
+% 中）。共享程序集是可被多个应用程序引用的程序集。要共享一个程序集，该程序集必
+% 须明确为这个目的而创建，这可以通过给其指定加密的增强型名称（用作共享名称）来
+% 实现。相反，专用程序集名称只要求在使用它的应用程序中是唯一的。
+
+% 通过区分专用和共享程序集，我们介绍明确决定共享的要点。只需简单地将专用程序集
+% 部署在应用程序目录中，即可确保应用程序只在创建和部署它的那部分中运行。对专用
+% 程序集的引用只在专用应用程序目录内部进行解析。
+
+% 选择创建和使用共享程序集可以有多种原因，例如表达版本策略的能力。共享程序集具
+% 有加密的增强型名称，这项事实意味着只有程序集的作者才拥有密钥来生成程序集的新
+% 版本。因此，如果您做出策略声明，希望接受程序集的新版本，则您可以确信版本更新
+% 将由作者来控制和验证。否则，您就不会接受它们。
+
+% 对于在本地安装的应用程序，共享程序集通常被明确安装在全局程序集缓存中（程序集
+% 的本地缓存由 .NET 框架维护）。.NET 框架的版本管理特性的关键在于下载的代码不会
+% 影响本地安装的应用程序的执行。下载的代码被放在一个特殊的下载缓存中，即使某些
+% 下载组件被编译为共享程序集，也不能在机器上全局使用这些代码。
+
+% 与 .NET 框架一起发布的类都被编译为共享程序集。
+
+
+\begin{frame} \frametitle{程序集的功能}
+  \begin{itemize}
+  \item 程序集定义了类型的有效范围
+    % CLR 通过程序集查找类的定义
+  \item 程序集不需要注册表项
+    % CLR 通过一种算法查找程序集的位置 
+  \item 安装 ~.NET 应用程序，只拷贝它的程序集即可
+    % 安装与卸载 ~.NET 模块不需要修改系统注册表，只需 ~copy or delete
+
+  \item 程序集可以有一个 ~Strong name
+    \begin{itemize}
+    \item 除了三个必须的成员之外，还要有数字签名和相应的公钥
+    \item 通过数字签名，可以确保程序集的唯一性，增加安全性
+    \end{itemize}
+
+  \item 允许不同版本的程序集并存，可有效避免 ~DLL Hell
+    % 因为程序集需要指定版本号，而程序集的依赖也如此
+  \end{itemize}
+\end{frame}
 
 
 \section{.NET 框架类库(FCL)}
 % 名子空间
 % 
 \begin{frame}
-  Microsoft .NET 框架提供了功能丰富的类库，这些类库 .NET 框架应用程序的基础。这
-  些类库的应用十分广泛，从基本的输入输出，文本处理，到数据库应用、Web应用一应俱
+  Microsoft .NET 框架提供了功能丰富的类库，这些类库 ~.NET 框架应用程序的基础。这
+  些类库的应用十分广泛，从基本的输入输出，文本处理，到数据库应用、 ~Web应用一应俱
   全。
-% 学习 .NET 开发的过程，基本上也是学习 .NET FCL 的过程
+% 学习 ~.NET 开发的过程，基本上也是学习 ~.NET FCL 的过程
   \begin{itemize}
   \item 类库结构是一个命名空间(namespace)的树形结构
-  \item 命名空间 System 是树形结构的根
+  \item 命名空间 ~System 是树形结构的根
   \item 命名空间下可以有子命名空间或类(class)
-  \item 命名空间或类之间通过''.''连接
+  \item 命名空间或类之间通过``.''连接
   \end{itemize}
 \end{frame}
 
@@ -475,7 +564,7 @@ Content-Length: length
 
   \item System.Net -- 网络数据的访问
 
-    使用各种网络协议 HTTP, FTP, Mail, 基本的 Socket 等进行网络数据通信，简化了
+    使用各种网络协议 ~HTTP, FTP, Mail, 基本的 ~Socket 等进行网络数据通信，简化了
     网络应用程序的开发。
 
   \item System.Text -- 文本处理
@@ -484,7 +573,7 @@ Content-Length: length
 
   \item System.Data -- ADO.NET 的基础
 
-    实现了 ADO.NET 的类库，用于访问各种数据源，比如 System.Data.SqlClient,
+    实现了 ~ADO.NET 的类库，用于访问各种数据源，比如 ~System.Data.SqlClient,
     System.Data.OracleClient, System.Data.ODBC等等。
 
     % System.Threading, System.Web, System.Windows, System.XML
