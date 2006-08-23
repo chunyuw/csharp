@@ -21,6 +21,7 @@ clean:
 	-rm -f $(foreach s,$(CLNSUFFIX),$(wildcard *.$(s)))
 cleanpdf:
 	-rm -f lesson-*.pdf test.pdf
+cleanall: clean cleanpdf
 
 .PHONY:	all clean
 
