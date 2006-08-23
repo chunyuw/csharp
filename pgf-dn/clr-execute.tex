@@ -24,13 +24,13 @@
 \fill[draw,fill=yellow!5] (.5, 0) rectangle +(.5,.5) +(.55,.25) node[anchor=west] {MSIL Code};
 \fill[draw,fill=red!25]   (.5,.7) rectangle +(.5,.5) +(.55,.25) node[anchor=west] {Native Code};
 
-\path[xshift=1cm,draw,fill=orange!30] (2.75,0) rectangle +(2,.75) +(1.2,.41) node (jit) {JIT Compiler};
+\path[xshift=1cm,draw,fill=orange!30] (2.75,0) rectangle +(2,.75) +(1,.375) node (jit) {JIT Compiler};
 
 \draw<2>[->] (y1.east) .. controls +(down:1pt) and +(left:1cm) 
 .. node[near start,right] {First Call} (z1.west);
-\draw<3>[->,shorten >=2pt] (z1.west) .. controls +(250:1pt) and +(up:1.5cm) 
+\draw<3>[->,shorten >=3pt] (z1.west) .. controls +(250:1pt) and +(up:1.5cm) 
 .. node[very near end,right] {Compile MSIL Code} (jit.30);
-\draw<4>[->,shorten >=.15cm] (jit.east) .. controls +(right:3cm) and +(right:1cm)
+\draw<4>[->,shorten >=.15cm, shorten <=3pt] (jit.east) .. controls +(right:3cm) and +(right:1cm)
 .. node[pos=.4,left] {Native code} (z1.east);
 \draw<6>[->] (y1.east) .. controls +(down:1pt) and +(left:1cm) 
 .. node[near start,right] {Call again} (z1.west);
