@@ -1,8 +1,8 @@
 %% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn>
-\part{.NET}
 
 \section{.NET 平台}
-\begin{frame} \frametitle{什么是 ~Microsoft .NET} 
+\begin{frame}
+\frametitle{什么是 ~Microsoft .NET} 
 
   \CJKindent .NET 是 ~Microsoft 的用以创建 ~XML Web 服务平台，该平台将信息、设
   备和人以一种统一的、个性化的方式联系起来。
@@ -34,13 +34,14 @@
 
 \end{frame}
 
-\begin{frame} \frametitle{Microsoft .NET 平台的设计目标}
-  \CJKindent
+\begin{frame}
+\frametitle{Microsoft .NET 平台的设计目标}
+\CJKindent
 
-  Microsoft .NET 平台利用以互联网为基础的计算和通讯激增的特点，通过先进的软件，
-  利用网络协议和格式，协调众多的智能设备与网站，从而提供更简单、更为个性化、更
-  有效的互联网服务。.NET 为一个集成环境，可以在 ~Internet，Windows 桌面以及移动
-  设备上进行无缝地开发和运行应用程序。
+Microsoft .NET 平台利用以互联网为基础的计算和通讯激增的特点，通过先进的软件，
+利用网络协议和格式，协调众多的智能设备与网站，从而提供更简单、更为个性化、更
+有效的互联网服务。.NET 为一个集成环境，可以在 ~Internet，Windows 桌面以及移动
+设备上进行无缝地开发和运行应用程序。
 
   \begin{itemize}
   \item 提供一个覆盖整个应用范围的、一致的面向对象环境
@@ -54,7 +55,8 @@
 
 \end{frame}
 
-\begin{frame}[t] \frametitle{Microsoft .NET 相关技术标准}
+\begin{frame}[t]
+\frametitle{Microsoft .NET 相关技术标准}
   \begin{itemize}
   \item<1-> XML\only<1>{, \textit{eXtensible Markup Language}} \only<2->{--- 基于 ~Web 的结构化数据的通用格式}
     \medskip
@@ -115,7 +117,8 @@
 % 对于开发人员而言，丰富的类库，方便的集成，以及发布、部署和维护方便性显得尤为
 % 重要
 
-\begin{frame} \frametitle{公共语言基础结构}
+\begin{frame}
+\frametitle{公共语言基础结构}
   \framesubtitle{实现 ~.NET 平台的基础}
   \begin{block}{\textit{Common Language Infrastructure(CLI)}}
     \CJKindent CLI 定义了一个与平台无关的虚拟代码执行环境。包括公共中间语言和公
@@ -135,7 +138,8 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}[t] \frametitle{Web 服务}
+\begin{frame}[t]
+\frametitle{Web 服务}
   \begin{block}{\textit{Web Services}}
     {\CJKindent Web Services 是可远程访问的应用程序组件，并且响应以 ~HTTP 为主访
       问请求，提供基于文本的信息服务。}
@@ -148,7 +152,8 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile,t] \frametitle{Web 服务示例}
+\begin{frame}[fragile,t]
+\frametitle{Web 服务示例}
 
   \begin{itemize}
   \item http://www.webservicex.net/globalweather.asmx
@@ -196,7 +201,8 @@ Content-Length: length
 
 \section{ .NET 框架简介}
 
-\begin{frame} \frametitle{Microsoft .NET Framework}
+\begin{frame}
+\frametitle{Microsoft .NET Framework}
   \framesubtitle{功能丰富的开发平台}
   \begin{itemize}
   \item \large 互联网、分布式应用程序、Windows 应用程序
@@ -247,25 +253,33 @@ Content-Length: length
   \end{onlyenv}
 \end{frame}
 
-\begin{frame} \frametitle{.NET 框架的组成}
+\begin{frame}
+\frametitle{.NET 框架的组成}
   \begin{itemize}
-  \item 公共语言运行环境 --- \textit{Common Language Runtime}
+  \item 公共语言运行时 --- \textit{Common Language Runtime}
   \item .NET 框架类库 --- \textit{Framework Class Library}
     % 组成的内容 (文字)
   \end{itemize}
 
-  \input{pgf-dn/dn-framework}   % .NET 框架的层次图 (图)
+  \only<1| handout:1>{\label{fig:dn-framework}}
+    \centering \input{pgf-dn/dn-framework} % .NET 框架的层次图 (图)
+
 \end{frame}
 
 % 多种语言之间的交互
 
-\section{CLR 公共语言运行环境}
-\begin{frame} \frametitle{公共语言运行环境}
+\section{公共语言运行时}
+\begin{frame}
+\frametitle{公共语言运行时}
   \begin{block}{\textit{Common Language Runtime(CLR)}}
     \CJKindent 全部 ~.NET Framework 的基础，为 ~.NET 程序提供了一个虚拟机环境，
     以支持进程的创建和执行，托管代码和非托管代码的交互，为进程提供必要的服务。
   \end{block}
-  % \input{pgf-dn/clr-compile-exec}
+
+  % \begin{figure}[h] \only<1-| handout:1>{\label{fig:clr-compile-exec}}
+  %   \centering \input{pgf-dn/clr-compile-exec}
+  % \end{figure}
+
   \begin{itemize}
   \item<2-| handout:1> CLR 要管理\alert<2>{托管代码}的整个运行周期：查找代码、编译、加载相
     关的类、运行、自动内存管理
@@ -275,6 +289,7 @@ Content-Length: length
   \item<5-| handout:1> 管理类型系统的安全，管理组件的安全
   \item<6-| handout:1> 负责访问其他系统资源，提供 ~Win32 API, COM 等访问接口
   \end{itemize}
+
   % \begin{itemize}
   % \item 提供通用类型系统 (CTS)\\
   %   值类型：整数、浮点数、结构体等\\
@@ -287,60 +302,93 @@ Content-Length: length
 
 \end{frame}
 
-\begin{frame} \frametitle{托管代码和托管数据'}
-  什么是托管代码和托管数据？托管代码是编写为支持公共语言运行时服务的代码（请参
-  阅“什么是公共语言运行时？”）。为了支持这些服务，代码必须向运行时提供最小级
-  别的信息（元数据）。默认情况下，所有 C\#、Visual Basic.NET 和 JScript.NET 代码
-  都是托管代码。Visual Studio.NET C++ 代码在默认情况下不是托管代码，但通过指定
-  命令行开关 (/CLR)，编译器也可以生成托管代码。
+\begin{frame}
+\frametitle{托管代码}
 
-  与托管代码密切相关的是托管数据。托管数据是由公共语言运行时的垃圾回收器进行分
-  配和释放的数据。默认情况下，C\#、Visual Basic 和 JScript.NET 数据是托管数据。
-  不过，通过使用特殊的关键字，C\# 数据可以被标记为非托管数据。Visual Studio.NET
-  C++ 数据在默认情况下是非托管数据（即使在使用 /CLR 开关时），但是在使用 C++ 的
-%  托管扩展时，可以使用“__gc”关键字将类标记为托管类。就象该名称所显示的那样，
-  它表示类实例的内存由垃圾回收器管理。另外，该类也完全成为 .NET 框架的成员，同
-  时具备它所带来的好处和限制。好处的一个例子是：它可以与其他语言编写的类正确地
-  进行互操作（如托管的 C++ 类可以从 Visual Basic 类继承）；限制的一个例子是：托
-  管类只能从一个基类继承。
+\begin{block}{\textit{Managed Code}}
+托管代码是由面向 ~CLR 的编译器生成，支持公共语言运行时服务的代码，为了支持这些服务，代码必须向运行时提供最小级
+别的信息，即元数据(\textit{metadata})。
+\end{block}
+
+\begin{itemize}
+\item<2-| handout:1> 托管代码的运行受 ~CLR 控制，如内存分配、类型检查、安全验证、垃圾回收等
+\item<3-| handout:1> 由公共语言运行时的垃圾回收器进行分配和释放的数据，称为托管数据
+\item<4-| handout:1> 默认情况下，所有 ~C\#, Visual Basic.NET 和 ~JScript.NET 代码都是托管代码
+\item<5-| handout:1> Visual Studio.NET C++ 默认情况下不是，但通过编译器命令行开关 (\texttt{/CLR})，也可以生成托管代码。
+\end{itemize}
 \end{frame}
 
-\begin{frame} \frametitle{CLR 虚拟机}
-http://msdn2.microsoft.com/en-us/library/ddk909ch.aspx
-  \begin{figure}[h]
-    \centering
-    \input{pgf-dn/clr-compile-exec}
+\begin{frame}
+\frametitle{CLR 虚拟机}
+  \begin{itemize}
+  \item<1-| handout:1> CLR 相当于一种虚拟机，独立于操作系统或体系结构
+  \item<2-| handout:1> .NET 编译器生成 ~Windows PE(\textit{Portable Executable}) 文件，扩展名通常
+    为 ~DLL 或 ~EXE
+  \item<3-| handout:1> Windows PE 文件实际内容是面向 ~CLR 的中间语言文件，以及执行所需的 ~CLR 文件头
+  \item<4-| handout:1> 当执行时，通过调用 ~JIT(\textit{Just-In-Time}) 编译器，实时编译为本地代码
+    (\textit{native code})
+  \end{itemize}
+
+  \begin{figure}[h] \only<1| handout:1>{\label{fig:clr-compile-exec}}
+    \centering \input{pgf-dn/clr-compile-exec}
   \end{figure}
 \end{frame}
 
 
-\begin{frame} \frametitle{公共类型系统}
+\begin{frame}
+\frametitle{公共类型系统}
+
   \begin{block}{\textit{Common Type System(CTS)}}
     \CJKindent CTS 是一组预定义的类型和这些类型行为的规范，描述了如何声明和创建
     定制类型，如何管理这些类型实例的生命周期，以及怎样才能得到 ~CLR 的支持。
   \end{block}
-  \begin{itemize}
-  \item 定义了声明、使用和管理定制或预定义类型的标准化框架
-  \item 使不同的编程语言之间的能够集成
-  \item 遵循 ~CTS 能够保障类型的安全和性能的优化
-  \item 遵循 ~CTS 的语言不一定支持 ~CTS 中定义的全部类型
-  \end{itemize}
+
+  \begin{uncoverenv}<2-| handout:1>
+    \begin{itemize}
+    \item 定义了声明、使用和管理定制或预定义类型的标准化框架
+    \item 使不同的编程语言之间的能够集成
+    \item 遵循 ~CTS 能够保障类型的安全和性能的优化
+    \item 遵循 ~CTS 的语言不一定支持 ~CTS 中定义的全部类型
+    \end{itemize}
+  \end{uncoverenv}
 \end{frame}
 
-\begin{frame}[c] \frametitle{CTS的类型结构}
+\begin{frame}[c]
+\frametitle{CTS 的类型结构}
+
   % 所有的类型都派生自Objects类型，而所有的值类型都派生自ValueTypes类型。
-  \input{pgf-dn/cts-typesystem}
+\begin{figure}[h]  \only<1| handout:1>{\label{fig:cts-typesystem}}
+  \centering  \input{pgf-dn/cts-typesystem}
+\end{figure}
 \end{frame}
 
 
-\begin{frame} \frametitle{值类型和引用类型}
-  值类型和引用类型的区别：
-http://msdn2.microsoft.com/en-us/library/2hf02550.aspx
-  \begin{figure}[h]
-    \centering
-    \input{pgf-dn/cts-v-r-types}
-  \end{figure}
+\begin{frame}
+\frametitle{值类型和引用类型}
+%   值类型和引用类型的区别：
+% http://msdn2.microsoft.com/en-us/library/2hf02550.aspx
+\begin{itemize}
+\item<1-| handout:1> \small CLR 是一种基于栈的虚拟机，并维护一个用于创建对象的堆
+\item<2-| handout:1> \small 函数调用时自动分配的内存在栈中，当函数返回时自动释放
+\item<3-| handout:1> \small 自由创建的对象在堆中，栈中只有堆中地址的引用(\textit{reference}) \\
+  \small 堆中分配的对象不会自动释放，而是由垃圾回收负责
+\item<4-| handout:1> \small 在栈中分配的变量是值类型的，而堆中的是引用类型
+\end{itemize}
 
+\begin{columns}
+  \column{.5\textwidth}
+  \begin{figure}[h] \only<1| handout:1>{\label{fig:cts-v-r-types}} 
+    \centering \input{pgf-dn/cts-v-r-types}
+  \end{figure}
+  \column{.5\textwidth}
+  \begin{itemize}
+  \item<1-| handout:1> \small 托管栈 --- \textit{Managed Stack}
+  \item<1-| handout:1> \small 托管堆 --- \textit{Managed Heap}
+  \item<4-| handout:1> \small 值类型 --- \textit{Value Type}
+  \item<4-| handout:1> \small 引用类型 --- \textit{Reference Type}
+  \end{itemize}
+
+\end{columns}
   % 托管代码执行过程中，变量可以在托管栈或托管堆中分配。
   % 当方法被调用时，局部变量或方法创建的值类型变量都在栈中分配，当方法运行结束时都自动的释放；           
   % 而在堆中分配的变量，并不自动释放，而是通过“垃圾处理”来由CLR管理并释放。
@@ -349,13 +397,14 @@ http://msdn2.microsoft.com/en-us/library/2hf02550.aspx
 
 \end{frame}
 
-\begin{frame} \frametitle{公共语言规范}
+\begin{frame}
+\frametitle{公共语言规范}
   \begin{block}{\textit{Common Language Specification(CLS)}}
     语言互操作的最终规范，定义了遵循 ~CLR 的编译器必须包含的最小特性集，保证语
     言之间的通信。% CTS 的一个子集。
   \end{block}
 
-  \begin{exampleblock}{部分 ~CLS 特性和规则}
+  \begin{exampleblock}{部分 ~CLS 特性和规则}<2-| handout:1>
     %\rowcolors{1}{RoyalBlue!20}{RoyalBlue!5}
     \begin{tabular}{l|l}
       \hline
@@ -373,7 +422,8 @@ http://msdn2.microsoft.com/en-us/library/2hf02550.aspx
 \end{frame}
 
 %\subsection*{托管代码的编译}
-\begin{frame}<0> \frametitle{CLR 中程序的运行}
+\begin{frame}<0>
+\frametitle{CLR 中程序的运行}
   \begin{itemize}
   \item CLR 定义了一种基于栈的虚拟机
   \item CLR 上执行的代码是 ~CIL 编写的托管代码
@@ -383,67 +433,47 @@ http://msdn2.microsoft.com/en-us/library/2hf02550.aspx
   \end{itemize}
 \end{frame}
 
-\begin{frame}[c] \frametitle{托管代码的编译}
-  
-  \begin{itemize}
-  \item 托管代码编译后生成 ~MSIL 和元数据
-    % {\footnotesize MSIL和元数据都存储在 ~Windows PE文件中，存在形式可以是 ~DLL 或 ~EXE。}
-  \item MSIL 和元数据都保存在 ~DLL 或 ~EXE 中
-    % {\footnotesize MSIL相当于 ~CLR的汇编语言，而且直接支持 ~CTS 中的各种类型和比较
-    %   高级的操作，比如创建对象、类型之间的转换等。}
-  \item 元数据描述源代码中定义类型的详细信息
-    % {\footnotesize 类的名字、可见性、基类，该类实现的接口、方法、属性和时间等等。}
-  \end{itemize}
-
-  \begin{figure}[h]
-    \centering
-    \input{pgf-dn/clr-compile}
-  \end{figure}
-
-\end{frame}
-
-\begin{frame} \frametitle{Microsoft 中间语言}
+\begin{frame}
+\frametitle{Microsoft 中间语言}
 %什么是 Microsoft 中间语言 (MSIL)？
-MSIL 是与 CPU 无关的指令集。.NET 框架程序被编译成 MSIL。它包含加载、存储、初始化和调用对象方法的指令。
 
-与元数据和公共类型系统结合，MSIL 允许真正的跨语言集成。
+\begin{block}{\textit{Microsoft Intermediate Language}}
+  \CJKindent MSIL 是与 ~CPU 无关的指令集，它包含加载、存储、初始化和调用对象方法
+  的指令，相当于 ~CLR 的汇编语言。
+\end{block}
 
-MSIL 在执行前被转换为机器代码，而不是一边解释一边执行。
+\begin{itemize}
+\item \small .NET 框架程序被编译成生成 ~MSIL 和元数据
+\item \small MSIL，元数据，CTS 结合，允许真正的跨语言集成
+\item \small MSIL 在执行前被转换为机器代码，而不是边解释边执行
+\end{itemize}
+
+\begin{figure}[h] \only<1| handout:1>{\label{fig:clr-compile}}
+  \centering \input{pgf-dn/clr-compile}
+\end{figure}
+
 \end{frame}
 
-%\subsection*{CLR的执行模型}
-% CIL
-
-%\subsection*{托管代码的执行}
-\begin{frame} \frametitle{托管代码的执行}
-  \framesubtitle{如何寻找并加载程序集}
+\begin{frame}
+\frametitle{托管代码的实时编译}
+\begin{overlayarea}{\textwidth}{1.2cm}
   \begin{itemize}
-  \item 只有在需要的时候加载
-    % 如果依赖程序集没有调用，不会被加载；
-    % 程序集甚至不需在目标机器上
-
-  \item CLR通过特定的规则寻找需要的程序集
-    % 
-    \begin{enumerate}
-    \item CLR检查是否已经被加载，如果已经加载，结束搜索
-    \item 在 ~Global Assembly Cache(GAC)中搜索
-    \item 在程序代码中指定的位置搜索
-    \item 如果代码没有指定，在 ~Application base查找，可能是目录或 ~URL
-    \item 根据 ~.NET 的配置，在其他目录查找
-    \item 都未找到，报告错误，结束
-    \end{enumerate}
-
-  \item 检查 ~Strong name(如果有)，加载并使用
+  \item \small
+    \only<1| handout:0> {当托管代码调用其他模块或方法时， ~CLR 自动寻找并将其加载}
+    \only<2| handout:0> {然后跳转到该方法的入口，首先调用 ~\texttt{\_CorExeMain()} 方法，通过它检查当前代
+      码是否已经被编译为本地代码}
+    \only<3| handout:0> {如果没有编译，则调用 ~JIT 编译器，把当前方法的 ~MSIL 编译为本地代码}
+    \only<4| handout:0> {并将原来加载 ~MSIL 代码替换为本地代码}
+    \only<5| handout:0> {因为已经替换了内存中的内容，所以 ~MSIL 加载之后，只需编译一次 }
+    \only<6| handout:0> {当方法再次被调用时，可以直接执行，不需再次编译}
+    \only<0| handout:1> {已经编译的本地代码会替换内存中的 ~MSIL，因此无需再次编译}
   \end{itemize}
-\end{frame}
+\end{overlayarea}
 
-\begin{frame} \frametitle{托管代码的执行}
-  \framesubtitle{编译 ~MSIL}
+\begin{figure}[h] \only<1| handout:1>{\label{fig:clr-execute}}
+  \centering \input{pgf-dn/clr-execute}
+\end{figure}
 
-\end{frame}
-
-\begin{frame} \frametitle{托管代码的实时编译}
-  \only<2->{\input{pgf-dn/clr-execute}}
 \end{frame}
 
 % 程序集
@@ -471,8 +501,9 @@ MSIL 在执行前被转换为机器代码，而不是一边解释一边执行。
 % 象的程序集。程序集也是应用了代码访问安全权限的单元。在确定授予其所包含的代码哪
 % 些权限时，每个程序集的标识证据都被认为是独立的。
 
-\begin{frame} \frametitle{托管代码的组织}
-  \begin{block}{程序集 --- \textit{Assembly}}
+\begin{frame}
+\frametitle{程序集}
+  \begin{block}{\textit{Assembly}}
     \CJKindent \small .NET 框架应用程序中，由一个或一组文件构成的，单一功能的
     逻辑单元。程序集是组件复用，实施安全策略的最小单位。
   \end{block}
@@ -490,40 +521,14 @@ MSIL 在执行前被转换为机器代码，而不是一边解释一边执行。
   \end{itemize}
 \end{frame}
 
-% 什么是专用程序集和共享程序集？
-
-% 专用程序集仅由单一应用程序使用，并且存储在该应用程序的安装目录中（或其子目录
-% 中）。共享程序集是可被多个应用程序引用的程序集。要共享一个程序集，该程序集必
-% 须明确为这个目的而创建，这可以通过给其指定加密的增强型名称（用作共享名称）来
-% 实现。相反，专用程序集名称只要求在使用它的应用程序中是唯一的。
-
-% 通过区分专用和共享程序集，我们介绍明确决定共享的要点。只需简单地将专用程序集
-% 部署在应用程序目录中，即可确保应用程序只在创建和部署它的那部分中运行。对专用
-% 程序集的引用只在专用应用程序目录内部进行解析。
-
-% 选择创建和使用共享程序集可以有多种原因，例如表达版本策略的能力。共享程序集具
-% 有加密的增强型名称，这项事实意味着只有程序集的作者才拥有密钥来生成程序集的新
-% 版本。因此，如果您做出策略声明，希望接受程序集的新版本，则您可以确信版本更新
-% 将由作者来控制和验证。否则，您就不会接受它们。
-
-% 对于在本地安装的应用程序，共享程序集通常被明确安装在全局程序集缓存中（程序集
-% 的本地缓存由 .NET 框架维护）。.NET 框架的版本管理特性的关键在于下载的代码不会
-% 影响本地安装的应用程序的执行。下载的代码被放在一个特殊的下载缓存中，即使某些
-% 下载组件被编译为共享程序集，也不能在机器上全局使用这些代码。
-
-% 与 .NET 框架一起发布的类都被编译为共享程序集。
-
-
-\begin{frame} \frametitle{程序集的功能}
+\begin{frame}
+\frametitle{程序集的功能}
   \begin{itemize}
-  \item 程序集定义了类型的有效范围
-    % CLR 通过程序集查找类的定义
-  \item 程序集不需要注册表项
-    % CLR 通过一种算法查找程序集的位置 
+  \item 程序集定义了类型的有效范围， ~CLR 通过程序集查找类的定义
+  \item 程序集不需要注册表项， ~CLR 通过一种算法查找程序集的位置 
   \item 安装 ~.NET 应用程序，只拷贝它的程序集即可
     % 安装与卸载 ~.NET 模块不需要修改系统注册表，只需 ~copy or delete
-
-  \item 程序集可以有一个 ~Strong name
+  \item 程序集可以有一个增强型名称(\textit{Strong name})，用作共享名称
     \begin{itemize}
     \item 除了三个必须的成员之外，还要有数字签名和相应的公钥
     \item 通过数字签名，可以确保程序集的唯一性，增加安全性
@@ -534,8 +539,52 @@ MSIL 在执行前被转换为机器代码，而不是一边解释一边执行。
   \end{itemize}
 \end{frame}
 
+\begin{frame}
+\frametitle{程序集的种类}
+% http://www.microsoft.com/china/msdn/archives/library/faq111700.asp
 
-\section{.NET 框架类库(FCL)}
+\begin{block}{专用程序集}
+  \CJKindent \small 专用程序集仅由单一应用程序使用，并且存储在该应用程序的安装目录中（或其子目录中）。要求在使
+  用它的应用程序中是唯一的。
+\end{block}
+
+\begin{block}{共享程序集}
+  \CJKindent \small 共享程序集是可被多个应用程序引用的程序集，通常被明确安装在全局程序集缓存 (\textit{Global
+    Assembly Cache})中。要共享一个程序集，该程序集必须明确为这个目的而创建，这可以通过给其指定加密的增强型名称
+  来实现。
+\end{block}
+
+\begin{itemize}
+\item 通过区分专用和共享程序集，确定如何部署 (\textit{Deploy}) 程序集
+\item 根据增强型名称，判断是否接受程序集，或新的版本
+\item 根据版本管理特性，保证下载的代码不会影响本地应用程序的执行
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{程序集的加载过程}
+  \begin{itemize}
+  \item 只有在需要的时候加载，程序集可以在本地或网络中
+    % 如果依赖程序集没有调用，不会被加载；
+    % 程序集甚至不需在目标机器上
+
+  \item CLR通过特定的规则寻找需要的程序集
+    
+    \begin{enumerate}
+    \item CLR检查是否已经被加载，如果已经加载，结束搜索
+    \item 在 ~Global Assembly Cache(GAC)中搜索
+    \item 在程序代码中指定的位置搜索
+    \item 如果代码没有指定，在 ~Application base查找，可能是目录或 ~URL
+    \item 根据 ~.NET 的配置，在其他目录查找
+    \item 都未找到，报告错误，结束
+    \end{enumerate}
+
+  \item 检查 ~Strong name(如果有)，加载并使用
+  \end{itemize}
+\end{frame}
+
+\section{.NET 框架类库}
 % 名子空间
 % 
 \begin{frame}
@@ -551,12 +600,17 @@ MSIL 在执行前被转换为机器代码，而不是一边解释一边执行。
   \end{itemize}
 \end{frame}
 
-\begin{frame} \frametitle{命名空间的结构}
-\input{pgf-dn/fcl-namespaces}
-  % 图
+\begin{frame}
+\frametitle{命名空间的结构}
+
+\begin{figure}[h] \label<1| handout:1>{fig:fcl-namespaces}
+\centering \input{pgf-dn/fcl-namespaces}
+\end{figure}
+
 \end{frame}
 
-\begin{frame} \frametitle{基本的类库简介}
+\begin{frame}
+\frametitle{基本的类库简介}
   \begin{itemize}
   \item System.IO -- 文件或目录的访问
 
@@ -581,11 +635,13 @@ MSIL 在执行前被转换为机器代码，而不是一边解释一边执行。
   \end{itemize}
 \end{frame}
 
-\begin{frame} \frametitle{开发的方便性}
+\begin{frame}
+\frametitle{开发的方便性}
   传统的Windows开发 和 .NET 中 Windows 开发
 \end{frame}
 
-\begin{frame} \frametitle{.NET 编程语言}
+\begin{frame}
+\frametitle{.NET 编程语言}
 %超过20种，同样的开发界面、调试方式、同样的类库
 \end{frame}
 

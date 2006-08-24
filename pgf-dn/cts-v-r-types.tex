@@ -1,23 +1,24 @@
 %% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn>
 
-\begin{tikzpicture}[>=stealth]
+\begin{tikzpicture}[scale=.8,>=stealth]
 \fill[fill=yellow!10,draw=gray,fill opacity=.5, rounded corners] (.5 ,0) rectangle +(7.5,5.5) ;
 
 \node[anchor=center] at (2, 0.5) {托管栈};
+\node[anchor=center] at (5.75, 0.5) {托管堆};
 
 \filldraw[draw=black,fill=blue!20,fill opacity=.4,rounded corners] (1,1) rectangle +(2,4);
-\filldraw[draw=black,fill=red!40] (1,2) rectangle +(2,1);
+\filldraw<3-| handout:1>[draw=black,fill=red!40] (1,2) rectangle +(2,1);
 \draw (1,4) -- (3,4);
-% \draw (1,3) -- (3,3);
-% \draw (1,2) -- (3,2);
+\draw (1,3) -- (3,3);
+\draw (1,2) -- (3,2);
+
 \filldraw[draw=black,fill=blue!20,fill opacity=.4,dashed,rounded corners] (4,1) rectangle +(3.5,3.5);
-\fill[red!40,rounded corners] (4.75, 2) rectangle +(2,1);
-\foreach \a/\b in {1.5/整型: 43, 2.5/字符串:, 3.5/字符型: A, 4.5/整型:124}
-\node[anchor=west, font=\small] at (1, \a ) {\b};
 
-\node[anchor=center] at (5.75, 0.5) {托管堆};
-\draw (5.75, 2.5) node[anchor=center] (a) {Hello};
+\fill<3-| handout:1>[red!40,rounded corners] (4.75, 2) rectangle +(2,1);
+\only<2-| handout:1>{\foreach \a/\b in {1.5/整型: 43, 2.5/字符串:, 3.5/字符型: A, 4.5/整型:124}
+\node[anchor=west, font=\small] at (.9, \a ) {\b};}
 
-\draw[->,thick] (2.75,2.5) .. controls (3.45,2.8) and (4.15,2.8) .. (a.west);
+\draw<3-| handout:1> (5.75, 2.5) node[anchor=center] (a) {Hello};
+\draw<3-| handout:1>[->,thick] (2.75,2.5) .. controls (3.45,2.8) and (4.15,2.8) .. (a.west);
 
 \end{tikzpicture}

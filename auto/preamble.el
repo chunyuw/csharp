@@ -1,12 +1,5 @@
 (TeX-add-style-hook "preamble"
  (lambda ()
-    (TeX-add-symbols
-     "song"
-     "fs"
-     "kai"
-     "hei"
-     "li"
-     "you")
     (TeX-run-style-hooks
      "babel"
      "english"

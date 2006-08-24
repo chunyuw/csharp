@@ -63,10 +63,15 @@
 %% hyperref setup
 \hypersetup{%
   colorlinks=false,
-  bookmarksopen=false,
+  bookmarks=true,
+  bookmarksopen=true,
+  pdfstartview=FitV,
   pdfauthor={Chunyu Wang <chunyu@hit.edu.cn>},
+  pdftitle={Microsoft .NET Framework},
   pdfsubject={.NET Programming},
   pdfkeywords={.NET, C\#},
+  pdffitwindow=true,
+  pdfpagemode=None,
   % pdfpagemode=FullScreen,
   % pdfmenubar=false,
   % pdftoolbar=false,
@@ -80,13 +85,6 @@
 \pgfdeclaremask{cs-mask}{logo/cs-mask}
 \pgfdeclareimage[mask=cs-mask,width=1.3cm]{cs-logo}{logo/cs-logo}
 \logo{\vbox{\hbox to 1.3cm{\hfil\pgfuseimage{cs-logo}}\vskip0.1cm\hbox{\pgfuseimage{hit-logo}}}}
-
-\newcommand{\song}{\CJKfamily{song}}
-\newcommand{\fs}{\CJKfamily{fs}}
-\newcommand{\kai}{\CJKfamily{kai}}
-\newcommand{\hei}{\CJKfamily{hei}}
-\newcommand{\li}{\CJKfamily{li}}
-\newcommand{\you}{\CJKfamily{you}}
 
 \input{macros}
 
