@@ -7,6 +7,8 @@
   \CJKindent .NET 是 ~Microsoft 的用以创建 ~XML Web 服务平台，该平台将信息、设
   备和人以一种统一的、个性化的方式联系起来。
 
+  \smallskip
+
   借助于 ~.NET 平台，可以创建和使用基于 ~XML 的应用程序、进程和 ~Web 站点以及服
   务，它们之间可以按设计、在任何平台或智能设备上共享和组合信息与功能，以向单位
   和个人提供定制好的解决方案。
@@ -17,14 +19,17 @@
   % XML 是 Internet 上数据交换的通用语言。它提供了一个广泛包容的、开放标准的技
   % 术，用于数据交换和转换，克服了应用程序和服务互操作性和集成面临的障碍。
   
+  \begin{uncoverenv}<2-| handout:1>
     \begin{itemize}
-    \item 一组用于创建互联网操作系统的构建块，其中包括 ~Passport .NET 以及用于文
-      件存储的服务、用户首选项管理、日历管理以及众多的其它任务
+    \item 一组用于创建互联网操作系统的构建块，其中包括 ~Passport .NET 以及用于
+      文件存储的服务、用户首选项管理、日历管理以及众多的其它任务
     \item 构建和管理新一代服务的基本结构和工具，包括 ~Visual Studio .NET, .NET
       企业服务器、 .NET 框架和 ~Windows .NET
     \item 能够启用新型智能互联网设备的 ~.NET 设备软件
-    \item 功能丰富而自然的用户界面，个人信息管理和控制，一系列全新的 ~.NET 用户体验
+    \item 功能丰富而自然的用户界面，个人信息管理和控制，一系列全新的 ~.NET 用户
+      体验
     \end{itemize}
+  \end{uncoverenv}
     % http://www.microsoft.com/china/press/2000/06/0627a.mspx
 
   % \begin{itemize}
@@ -58,20 +63,22 @@ Microsoft .NET 平台利用以互联网为基础的计算和通讯激增的特点，通过先进的软件，
 \begin{frame}[t]
 \frametitle{Microsoft .NET 相关技术标准}
   \begin{itemize}
-  \item<1-> XML\only<1>{, \textit{eXtensible Markup Language}} \only<2->{--- 基于 ~Web 的结构化数据的通用格式}
+  \item<1-| handout:1> XML\only<1| handout:0>{, \textit{eXtensible Markup Language}} 
+    \only<2-| handout:1>{--- 基于 ~Web 的结构化数据的通用格式}
     \medskip
 
-    \only<1>{\CJKindent \small XML 是一组设计文本数据格式的规则，所产生的文件意
+    \only<1| handout:0>{\CJKindent \small XML 是一组设计文本数据格式的规则，所产生的文件意
       义明确并且独立于平台，方便生成和（被计算机）读取。当前，如果一个 ~Web 应用
       程序要从另一个应用程序那里检索数据，它必须借助“屏幕搜索”- 捕获带有它所
       需数据的屏幕图片，并试图弄清如何把图片解释回数据。这样做效率非常低，并且
       容易产生错误。XML 为 ~XML Web 服务提供了一种格式，使其能够交换实际数据而不
       是包含数据的图片。}
 
-  \item<2-> SOAP\only<2>{, \textit{Simple Object Access Protocol}} \only<3->{--- 简单对象访问协议}
+  \item<2-| handout:1> SOAP\only<2| handout:0>{, \textit{Simple Object Access Protocol}}
+    \only<3-| handout:1>{--- 简单对象访问协议}
     \medskip
 
-    \only<2>{\CJKindent \small 它使应用程序可以通过一种标准的，松耦合的方式相互
+    \only<2| handout:0>{\CJKindent \small 它使应用程序可以通过一种标准的，松耦合的方式相互
       调用，这使生成在 ~Internet 上分发的应用程序成为可能。
 
       如果将 ~XML Web 服务之间的交互想象成电话通话，则 ~XML 描述了应用程序在
@@ -81,25 +88,28 @@ Microsoft .NET 平台利用以互联网为基础的计算和通讯激增的特点，通过先进的软件，
     % 的很多其他公司联合建议的。 XML 和 SOAP 实际上已经得到了业内主要软件供应商
     % 的公开认可，包括 Microsoft, IBM, HP, Sun 和 Oracle。
 
-  \item<3-> UDDI\only<3>{, \textit{Universal Description, Discovery and Integration}} \only<4->{--- 统一描述、发现和集成}
+  \item<3-| handout:1> UDDI\only<3| handout:0>{, \textit{Universal Description, Discovery and Integration}}
+    \only<4-| handout:1>{--- 统一描述、发现和集成}
     \medskip
 
-    \only<3>{\CJKindent \small 如果 ~XML 是对话，SOAP 描述呼叫他人的规则，那
+    \only<3| handout:0>{\CJKindent \small 如果 ~XML 是对话，SOAP 描述呼叫他人的规则，那
       么 ~UDDI 就是电话号码簿。UDDI 提供了一个 ~XML Web 服务的目录，便于查找提
       供 ~XML Web 服务的企业。UDDI 现在是一个有超过 200 家公司参与的群体过
       程，UDDI 群体的目的是在未来某个时间将其提交到一个正式的标准组织。}
 
-  \item<4-> WSDL\only<4>{, \textit{Web Services Description Language}} \only<5->{--- Web 服务描述语言}
+  \item<4-| handout:1> WSDL\only<4| handout:0>{, \textit{Web Services Description Language}}
+    \only<5-| handout:1>{--- Web 服务描述语言}
     \medskip
 
-    \only<4>{\CJKindent \small WSDL 提供了一个标准方法，用以描述一个特定 ~XML
+    \only<4| handout:0>{\CJKindent \small WSDL 提供了一个标准方法，用以描述一个特定 ~XML
       Web 服务提供何种函数，以及调用这些函数时必须传递哪些参数。与 ~XML, SOAP,
       UDDI 一样， WSDL 也已经提交给 ~W3C 进行标准化。}
 
-  \item<5-> C\# 和 ~CLI\only<5>{, \textit{Common Language Infrastructure}} \only<6->{--- .NET 框架的一部分}
+  \item<5-| handout:1> C\# 和 ~CLI\only<5| handout:0>{, \textit{Common Language Infrastructure}}
+    \only<6-| handout:1>{--- .NET 框架的一部分}
     \medskip
 
-    \only<5>{\CJKindent \small Microsoft 为 ~XML Web 服务家族创建的一种编程语
+    \only<5| handout:0>{\CJKindent \small Microsoft 为 ~XML Web 服务家族创建的一种编程语
       言 ~C\#。并且已经提交给 ~ECMA 进行标准化。 Microsoft 还向 ~ECMA 提交
       了 ~Microsoft .NET 框架的一个子集，叫做公共语言基础结构 (CLI)。这将使其他
       供应商能够在各种平台上实现 ~CLI，以便用 ~.NET 框架提供的基本体系结构模型所
@@ -108,7 +118,7 @@ Microsoft .NET 平台利用以互联网为基础的计算和通讯激增的特点，通过先进的软件，
   \end{itemize}
   \medskip
 
-  \only<6>{\CJKindent Microsoft 致力于为支持 ~.NET 的主要技术制订标准。使软件能
+  \only<6| handout:1>{\CJKindent Microsoft 致力于为支持 ~.NET 的主要技术制订标准。使软件能
     够交互操作和交换数据的技术标准化，将使涉及多种操作平台的解决方案成为可能，
     从而使最终用户受益。}
 
@@ -125,12 +135,12 @@ Microsoft .NET 平台利用以互联网为基础的计算和通讯激增的特点，通过先进的软件，
     共类型系统，相应的语法、语义和部分 ~.NET 框架类库。
   \end{block}
   \begin{itemize}
-  \item<2-> CLI 中没有指定操作系统，可以在任何的系统或设备上实现
-  \item<3-> 其他公司也可以根据 ~CLI 标准实现相关技术
+  \item<2-| handout:1> CLI 中没有指定操作系统，可以在任何的系统或设备上实现
+  \item<3-| handout:1> 其他公司也可以根据 ~CLI 标准实现相关技术
     \begin{itemize}
     \item Microsoft .NET Framework -- 微软公司自己的实现
     \end{itemize}
-  \item<4-> 目前已有的开源 ~.NET 平台
+  \item<4-| handout:1> 目前已有的开源 ~.NET 平台
     \begin{itemize}
     \item Mono Project --- http://www.mono-project.com
     \item DotGNU Project --- http://www.dotgnu.org
@@ -157,10 +167,10 @@ Microsoft .NET 平台利用以互联网为基础的计算和通讯激增的特点，通过先进的软件，
 
   \begin{itemize}
   \item http://www.webservicex.net/globalweather.asmx
-  \item \only<1>{通过 ~SOAP 的访问} \only<2>{返回的结果}
+  \item \only<1| handout:1>{通过 ~SOAP 的访问} \only<2| handout:0>{返回的结果}
   \end{itemize}
 
-  \begin{onlyenv}<1>
+  \begin{onlyenv}<1| handout:1>
 \begin{lstlisting}[language=XML, showstringspaces=false]
 POST /globalweather.asmx HTTP/1.1
 Host: www.webservicex.net
@@ -180,7 +190,7 @@ SOAPAction: "http://www.webserviceX.NET/GetWeather"
 \end{lstlisting}
   \end{onlyenv}
 
-  \begin{onlyenv}<2>
+  \begin{onlyenv}<2| handout:0>
 \begin{lstlisting}[language=XML, showstringspaces=false]
 HTTP/1.1 200 OK
 Content-Type: text/xml; charset=utf-8
@@ -230,7 +240,7 @@ Content-Length: length
       \end{itemize}
     \end{columns}
   \end{exampleblock}
-  \begin{onlyenv}<2>
+  \begin{onlyenv}<2| handout:0>
     \begin{itemize}
     \item 充分利用代码复用，简化了应用程序的开发
     \item 类库提供开发所需的各种基本功能，可以支持各种类型的应用程序
@@ -238,7 +248,7 @@ Content-Length: length
     \item 容易维护、部署等
     \end{itemize}
   \end{onlyenv}
-  \begin{onlyenv}<3>
+  \begin{onlyenv}<3| handout:1>
     \begin{block}{完整的安全解决方案}
       \begin{itemize}
       \item 基于证据的安全规则，确保组件的来源可靠
@@ -281,9 +291,9 @@ Content-Length: length
   % \end{figure}
 
   \begin{itemize}
-  \item<2-| handout:1> CLR 要管理\alert<2>{托管代码}的整个运行周期：查找代码、编译、加载相
+  \item<2-| handout:1> CLR 要管理\alert<2| handout:0>{托管代码}的整个运行周期：查找代码、编译、加载相
     关的类、运行、自动内存管理
-  \item<3-| handout:1> 提供多种语言都支持的\alert<3>{公共类型系统}，定义如何声
+  \item<3-| handout:1> 提供多种语言都支持的\alert<3| handout:0>{公共类型系统}，定义如何声
     明和管理 ~CLR 中的类型
   \item<4-| handout:1> 支持跨语言集成，允许不同语言生成的代码能够无缝地交互
   \item<5-| handout:1> 管理类型系统的安全，管理组件的安全
@@ -306,8 +316,8 @@ Content-Length: length
 \frametitle{托管代码}
 
 \begin{block}{\textit{Managed Code}}
-托管代码是由面向 ~CLR 的编译器生成，支持公共语言运行时服务的代码，为了支持这些服务，代码必须向运行时提供最小级
-别的信息，即元数据(\textit{metadata})。
+\CJKindent 托管代码是由面向 ~CLR 的编译器生成，支持公共语言运行时服务的代码，为了支持这些服务，代码必须向运行时提供最小级
+别的信息，即元数据 (\textit{metadata})。
 \end{block}
 
 \begin{itemize}
@@ -322,10 +332,10 @@ Content-Length: length
 \frametitle{CLR 虚拟机}
   \begin{itemize}
   \item<1-| handout:1> CLR 相当于一种虚拟机，独立于操作系统或体系结构
-  \item<2-| handout:1> .NET 编译器生成 ~Windows PE(\textit{Portable Executable}) 文件，扩展名通常
+  \item<2-| handout:1> .NET 编译器生成 ~Windows PE (\textit{Portable Executable}) 文件，扩展名通常
     为 ~DLL 或 ~EXE
   \item<3-| handout:1> Windows PE 文件实际内容是面向 ~CLR 的中间语言文件，以及执行所需的 ~CLR 文件头
-  \item<4-| handout:1> 当执行时，通过调用 ~JIT(\textit{Just-In-Time}) 编译器，实时编译为本地代码
+  \item<4-| handout:1> 当执行时，通过调用 ~JIT (\textit{Just-In-Time}) 编译器，实时编译为本地代码
     (\textit{native code})
   \end{itemize}
 
@@ -370,7 +380,7 @@ Content-Length: length
 \begin{itemize}
 \item<1-| handout:1> \small CLR 是一种基于栈的虚拟机，并维护一个用于创建对象的堆
 \item<2-| handout:1> \small 函数调用时自动分配的内存在栈中，当函数返回时自动释放
-\item<3-| handout:1> \small 自由创建的对象在堆中，栈中只有堆中地址的引用(\textit{reference}) \\
+\item<3-| handout:1> \small 自由创建的对象在堆中，栈中只有堆中地址的引用 (\textit{reference}) \\
   \small 堆中分配的对象不会自动释放，而是由垃圾回收负责
 \item<4-| handout:1> \small 在栈中分配的变量是值类型的，而堆中的是引用类型
 \end{itemize}
@@ -400,7 +410,7 @@ Content-Length: length
 \begin{frame}
 \frametitle{公共语言规范}
   \begin{block}{\textit{Common Language Specification(CLS)}}
-    语言互操作的最终规范，定义了遵循 ~CLR 的编译器必须包含的最小特性集，保证语
+    \CJKindent 语言互操作的最终规范，定义了遵循 ~CLR 的编译器必须包含的最小特性集，保证语
     言之间的通信。% CTS 的一个子集。
   \end{block}
 
@@ -422,7 +432,7 @@ Content-Length: length
 \end{frame}
 
 %\subsection*{托管代码的编译}
-\begin{frame}<0>
+\begin{frame}<0| handout:0>
 \frametitle{CLR 中程序的运行}
   \begin{itemize}
   \item CLR 定义了一种基于栈的虚拟机
@@ -508,8 +518,8 @@ Content-Length: length
     逻辑单元。程序集是组件复用，实施安全策略的最小单位。
   \end{block}
   \begin{itemize}
-  \item 程序集可以有一个或多个文件，如 ~DLL, EXE 或资源文件等
-  \item 程序集都有一个{\color{red!65!black}清单}(\textit{manifest}{})
+  \item 程序集可以有一个或多个文件
+  \item 程序集都有一个{\color{red!65!black}清单} (\textit{manifest}{})
   \item 清单描述程序集的内容信息
     \begin{enumerate}
     \item 程序集的名字
@@ -521,14 +531,30 @@ Content-Length: length
   \end{itemize}
 \end{frame}
 
+\begin{frame}[t]
+\frametitle{程序集的清单}
+
+  \begin{itemize}
+  \item 清单就是程序集的元数据，描述程序集包含的内容
+  \item 如 ~DLL 文件，EXE 文件，图片文件，数据文件等
+  \item 而程序集的清单只在其中一个文件中
+  \end{itemize}
+
+  \begin{onlyenv}<2-| handout:1>
+    \begin{center}
+      \includegraphics{assembly1.pdf}
+    \end{center}
+  \end{onlyenv}
+\end{frame}
+
 \begin{frame}
 \frametitle{程序集的功能}
   \begin{itemize}
-  \item 程序集定义了类型的有效范围， ~CLR 通过程序集查找类的定义
-  \item 程序集不需要注册表项， ~CLR 通过一种算法查找程序集的位置 
+  \item 程序集定义了类型的有效范围， ~CLR 通过程序集查找类
+  \item 程序集不需要注册表项， ~CLR 通过一种算法查找程序集 
   \item 安装 ~.NET 应用程序，只拷贝它的程序集即可
     % 安装与卸载 ~.NET 模块不需要修改系统注册表，只需 ~copy or delete
-  \item 程序集可以有一个增强型名称(\textit{Strong name})，用作共享名称
+  \item 程序集可以有一个增强型名称 (\textit{Strong name})，用作共享名称
     \begin{itemize}
     \item 除了三个必须的成员之外，还要有数字签名和相应的公钥
     \item 通过数字签名，可以确保程序集的唯一性，增加安全性
@@ -550,7 +576,7 @@ Content-Length: length
 
 \begin{block}{共享程序集}
   \CJKindent \small 共享程序集是可被多个应用程序引用的程序集，通常被明确安装在全局程序集缓存 (\textit{Global
-    Assembly Cache})中。要共享一个程序集，该程序集必须明确为这个目的而创建，这可以通过给其指定加密的增强型名称
+    Assembly Cache, GAC})中。要共享一个程序集，该程序集必须明确为这个目的而创建，这可以通过给其指定加密的增强型名称
   来实现。
 \end{block}
 
@@ -569,18 +595,18 @@ Content-Length: length
     % 如果依赖程序集没有调用，不会被加载；
     % 程序集甚至不需在目标机器上
 
-  \item CLR通过特定的规则寻找需要的程序集
+  \item CLR 通过特定的规则寻找需要的程序集
     
     \begin{enumerate}
-    \item CLR检查是否已经被加载，如果已经加载，结束搜索
-    \item 在 ~Global Assembly Cache(GAC)中搜索
-    \item 在程序代码中指定的位置搜索
-    \item 如果代码没有指定，在 ~Application base查找，可能是目录或 ~URL
-    \item 根据 ~.NET 的配置，在其他目录查找
-    \item 都未找到，报告错误，结束
+    \item CLR 检查是否已经被加载，如果已经加载，结束查找
+    \item 在全局程序集缓存(GAC)中查找
+    \item 在程序代码中指定的位置查找
+    \item 如果代码没有指定，在应用程序目录查找
+    \item 根据 ~.NET 的配置，在其他目录或 ~URL 查找
+    \item 如果都未找到，报告错误，结束查找
     \end{enumerate}
 
-  \item 检查 ~Strong name(如果有)，加载并使用
+  \item 找到程序集后，检查增强名(如果有)，加载并使用
   \end{itemize}
 \end{frame}
 
@@ -592,16 +618,17 @@ Content-Length: length
   些类库的应用十分广泛，从基本的输入输出，文本处理，到数据库应用、 ~Web应用一应俱
   全。
 % 学习 ~.NET 开发的过程，基本上也是学习 ~.NET FCL 的过程
+\end{frame}
+
+\begin{frame}
+\frametitle{命名空间的结构}
+
   \begin{itemize}
   \item 类库结构是一个命名空间(namespace)的树形结构
   \item 命名空间 ~System 是树形结构的根
   \item 命名空间下可以有子命名空间或类(class)
   \item 命名空间或类之间通过``.''连接
   \end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{命名空间的结构}
 
 \begin{figure}[h] \label<1| handout:1>{fig:fcl-namespaces}
 \centering \input{pgf-dn/fcl-namespaces}
@@ -659,5 +686,6 @@ Content-Length: length
 % TeX-master: "lesson-01.tex"
 % TeX-header-end: "% End-Of-Header$"
 % TeX-trailer-start: "% Start-Of-Trailer$"
+% fill-column: 100
 % coding: gb2312-dos
 % End:
