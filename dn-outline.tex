@@ -244,8 +244,8 @@ Content-Length: length
     \item 容易维护、部署等
     \end{itemize}
   \end{onlyenv}
-  \begin{onlyenv}<3| handout:1>
-    \begin{block}{完整的安全解决方案}
+  \begin{onlyenv}
+    \begin{block}<3| handout:1>{完整的安全解决方案}
       \begin{itemize}
       \item 基于证据的安全规则，确保组件的来源可靠
       \item 细致的权限设置，可以为组件设置不同权限
@@ -802,7 +802,7 @@ Content-Length: length
 
 \begin{frame}[t]
 \frametitle{SDK 中的工具}
-\begin{block}{C\# 编译器 ~csc.exe}
+\begin{exampleblock}{C\# 编译器 ~csc.exe}
   \begin{tabular}{l|l}
     \hline
     \multicolumn{1}{c|}{Option} & \multicolumn{1}{c}{Description}\\\hline
@@ -811,15 +811,19 @@ Content-Length: length
     \texttt{/doc:\textsl{name}} & 从源码 ~XML 注释中生成 ~XML 文档 \\
     \texttt{/out:\textsl{name}} & 输出文件名 \\
     \texttt{/target:\textsl{target}} & 输出文件格式 ~{\small exe/winexe/library/module} \\
+    \hline
     \end{tabular}
-\end{block}
+\end{exampleblock}
 
 \begin{block}{}
-  \texttt{csc /t:exe /out:Hello.exe MyHello.cs} 
+  \texttt{csc /target:exe     /out:Hello.exe MyHello.cs}\\
+  \texttt{csc /target:library /out:Hello.dll MyHello.cs}
 \end{block}
 
+
 \begin{block}{}
-  \texttt{csc /t:exe /out:Hello.exe MyHello.cs} 
+  \texttt{csc /target:module A.cs}\\
+  \texttt{csc /out:Final.dll /addmodule:A.netmodule \wraphere \hskip.12\textwidth /target:library B.cs}
 \end{block}
 
 \end{frame}
