@@ -15,19 +15,33 @@
 * .NET Framework
 4 lessons
 
-** .NET 框架概述 & .NET 历史
-** 组件的使用
-** 部署和版本控制
-** 公共类型系统
-** 公共语言运行环境
-** 受管开发环境
-** 受管代码的执行
-** 垃圾回收
-** Visual Studio
-** 开发工具 SDK
+    * [ ] .NET 框架概述 & .NET 历史
+      * .NET Framework Design Goals
+        Section 1.3 in [[file:D:\work\eBook.NET\eBook\Oreilly.Dot.NET.Framework.Essentials.3rd.Edition.eBook-LiB.chm][Dot.NET.Framework.Essentials.3rd.Edition]]
+
+
+    * [ ] 组件的使用
+    * [ ] 部署和版本控制
+    * [X] 公共类型系统
+      * Type Safty
+      * Static Dynamic Type
+	Chapter 2 in [[file:D:\work\eBook.NET\eBook\Wrox.Professional.dot.NET.Framework.2.0.Apr.2006.chm][Professional.dot.NET.Framework.2.0]]
+      * Types and Objects
+
+    * [X] 公共语言运行环境
+    * [ ] 受管开发环境
+    * [X] 受管代码的执行
+    * [ ] app domain
+    * [ ] 垃圾回收
+    * [ ] Visual Studio
+    * [ ] 开发工具 SDK
 
 * C# Language
 8 lessons
+
+  * [ ] Execption
+     Chapter 3 in [[file:D:\work\eBook.NET\eBook\Wrox.Professional.dot.NET.Framework.2.0.Apr.2006.chm][Professional.dot.NET.Framework.2.0]]
+
 
 ** 语言基础
 ** 类

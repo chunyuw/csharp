@@ -63,26 +63,26 @@ Microsoft .NET 平台利用以互联网为基础的计算和通讯激增的特点，通过先进的软件，
 \begin{frame}[t]
 \frametitle{Microsoft .NET 相关技术标准}
   \begin{itemize}
+    \CJKindent
   \item<1-| handout:1> XML\only<1| handout:0>{, \textit{eXtensible Markup Language}} 
     \only<2-| handout:1>{--- 基于 ~Web 的结构化数据的通用格式}
     \medskip
 
-    \only<1| handout:0>{\CJKindent \small XML 是一组设计文本数据格式的规则，所产生的文件意
-      义明确并且独立于平台，方便生成和（被计算机）读取。当前，如果一个 ~Web 应用
-      程序要从另一个应用程序那里检索数据，它必须借助“屏幕搜索”- 捕获带有它所
-      需数据的屏幕图片，并试图弄清如何把图片解释回数据。这样做效率非常低，并且
-      容易产生错误。XML 为 ~XML Web 服务提供了一种格式，使其能够交换实际数据而不
-      是包含数据的图片。}
+    \only<1| handout:0>{\small XML 是一组设计文本数据格式的规则，所产生的文件意义明确并且独立于平台，
+      方便生成和（被计算机）读取。当前，如果一个 ~Web 应用程序要从另一个应用程序那里检索数据，它必须
+      借助“屏幕搜索”- 捕获带有它所需数据的屏幕图片，并试图弄清如何把图片解释回数据。这样做效率非常
+      低，并且容易产生错误。XML 为 ~XML Web 服务提供了一种格式，使其能够交换实际数据而不是包含数据的
+      图片。}
 
   \item<2-| handout:1> SOAP\only<2| handout:0>{, \textit{Simple Object Access Protocol}}
     \only<3-| handout:1>{--- 简单对象访问协议}
     \medskip
 
-    \only<2| handout:0>{\CJKindent \small 它使应用程序可以通过一种标准的，松耦合的方式相互
-      调用，这使生成在 ~Internet 上分发的应用程序成为可能。
+    \only<2| handout:0>{\small 它使应用程序可以通过一种标准的，松耦合的方式相互调用，这使生成
+      在 ~Internet 上分发的应用程序成为可能。
 
-      如果将 ~XML Web 服务之间的交互想象成电话通话，则 ~XML 描述了应用程序在
-      它们的对话中相互所说的内容，SOAP 则描述了它们在电话里是如何呼叫对方的。}
+      如果将 ~XML Web 服务之间的交互想象成电话通话，则 ~XML 描述了应用程序在它们的对话中相互所说的内
+      容，SOAP 则描述了它们在电话里是如何呼叫对方的。}
 
     % 与 XML 一样，SOAP 是 W3C 标准过程的一部分，是由 Microsoft 和包括 IBM 在内
     % 的很多其他公司联合建议的。 XML 和 SOAP 实际上已经得到了业内主要软件供应商
@@ -92,28 +92,24 @@ Microsoft .NET 平台利用以互联网为基础的计算和通讯激增的特点，通过先进的软件，
     \only<4-| handout:1>{--- 统一描述、发现和集成}
     \medskip
 
-    \only<3| handout:0>{\CJKindent \small 如果 ~XML 是对话，SOAP 描述呼叫他人的规则，那
-      么 ~UDDI 就是电话号码簿。UDDI 提供了一个 ~XML Web 服务的目录，便于查找提
-      供 ~XML Web 服务的企业。UDDI 现在是一个有超过 200 家公司参与的群体过
-      程，UDDI 群体的目的是在未来某个时间将其提交到一个正式的标准组织。}
+    \only<3| handout:0>{\small 如果 ~XML 是对话，SOAP 描述呼叫他人的规则，那么 ~UDDI 就是电话号码
+      簿。UDDI 提供了一个 ~XML Web 服务的目录，便于查找提供 ~XML Web 服务的企业。}
 
   \item<4-| handout:1> WSDL\only<4| handout:0>{, \textit{Web Services Description Language}}
     \only<5-| handout:1>{--- Web 服务描述语言}
     \medskip
 
-    \only<4| handout:0>{\CJKindent \small WSDL 提供了一个标准方法，用以描述一个特定 ~XML
-      Web 服务提供何种函数，以及调用这些函数时必须传递哪些参数。与 ~XML, SOAP,
-      UDDI 一样， WSDL 也已经提交给 ~W3C 进行标准化。}
+    \only<4| handout:0>{\small WSDL 提供了一个标准方法，用以描述一个特定 ~XML Web 服务提供何种函数，
+      以及调用这些函数时必须传递哪些参数。与 ~XML, SOAP 一样， WSDL 也已经提交给 ~W3C 进行标准化。}
 
   \item<5-| handout:1> C\# 和 ~CLI\only<5| handout:0>{, \textit{Common Language Infrastructure}}
     \only<6-| handout:1>{--- .NET 框架的一部分}
     \medskip
 
-    \only<5| handout:0>{\CJKindent \small Microsoft 为 ~XML Web 服务家族创建的一种编程语
-      言 ~C\#。并且已经提交给 ~ECMA 进行标准化。 Microsoft 还向 ~ECMA 提交
-      了 ~Microsoft .NET 框架的一个子集，叫做公共语言基础结构 (CLI)。这将使其他
-      供应商能够在各种平台上实现 ~CLI，以便用 ~.NET 框架提供的基本体系结构模型所
-      写的软件可以在各种平台上用各种工具来创建。}
+    \only<5| handout:0>{\small Microsoft 为 ~XML Web 服务家族创建的一种编程语言 ~C\#。并且已经提交
+      给 ~ECMA 进行标准化。 Microsoft 还向 ~ECMA 提交了 ~Microsoft .NET 框架的一个子集，叫做公共语言
+      基础结构 (CLI)。这将使其他供应商能够在各种平台上实现 ~CLI，以便用 ~.NET 框架提供的基本体系结构
+      模型所写的软件可以在各种平台上用各种工具来创建。}
 
   \end{itemize}
   \medskip
@@ -610,13 +606,49 @@ Content-Length: length
   \end{itemize}
 \end{frame}
 
-\section{.NET 框架类库}
-% 名子空间
-% 
+
 \begin{frame}
-  Microsoft .NET 框架提供了功能丰富的类库，这些类库 ~.NET 框架应用程序的基础。这
-  些类库的应用十分广泛，从基本的输入输出，文本处理，到数据库应用、 ~Web应用一应俱
-  全。
+\frametitle{应用程序域}
+\begin{block}{\textit{App Domain}}
+  \CJKindent 应用程序域为安全性、可靠性、版本控制以及卸载程序集提供了隔离边界。应用程序域通常由运行库
+  宿主创建，运行库宿主负责在运行应用程序之前引导公共语言运行库。
+\end{block}
+\begin{itemize}
+\item 加载 ~CLR 的程序称为{\color{red!65!black}运行库宿主} (\textit{runtime host})
+\item 应用程序域，由运行库宿主创建
+\item 宿主依靠{\color{red!65!black}验证} (\textit{verification})来隔离程序集
+\item 在一个应用程序域中出现的错误不会影响其他应用程序域
+\end{itemize}
+\end{frame}
+% \begin{itemize}
+% \item 在一个应用程序中出现的错误不会影响其他应用程序\par
+%   \CJKindent \small 因为类型安全的代码不会导致内存错误，所以使用应用程序域可以确保在一个域中运行的代
+%   码不会影响进程中的其他应用程序。
+% \item 能够在不停止整个进程的情况下停止单个应用程序\par
+%   \CJKindent \small 使用应用程序域使可以卸载在单个应用程序中运行的代码。不能卸载单个程序集或类型。只
+%   能卸载整个域。
+% \item 在一个应用程序中运行的代码不能直接访问其他应用程序中的代码或资源
+% \item 代码行为的作用范围由它运行所在的应用程序决定\par
+%   \CJKindent \small 换言之，应用程序域将提供应用程序版本策略等配置设置、它所访问的任意远程程序集的位
+%   置，以及加载到该域中的程序集的位置信息。
+% \item 向代码授予的权限可以由代码运行所在的应用程序域来控制
+% \end{itemize}
+
+\section{.NET 框架类库}
+\begin{frame}
+\frametitle{.NET 框架类库}
+
+\begin{block}{\textit{Framework Class Library, FCL}}
+  \CJKindent Microsoft .NET 框架提供了功能丰富的类库，这些类库 ~.NET 框架应用程序的基础。这些类库的应
+  用十分广泛，从基本的输入输出，文本处理，到数据库应用、 ~Web 应用等一应俱全。
+\end{block}
+
+\begin{itemize}
+\item .NET 框架类库是构建 ~.NET 应用程序的基础
+\item 通过类库可以看到 ~.NET 提供的各种服务
+\item 类库十分庞大，学习曲线较陡
+\end{itemize}
+
 % 学习 ~.NET 开发的过程，基本上也是学习 ~.NET FCL 的过程
 \end{frame}
 
@@ -624,10 +656,10 @@ Content-Length: length
 \frametitle{命名空间的结构}
 
   \begin{itemize}
-  \item 类库结构是一个命名空间(namespace)的树形结构
+  \item 类库是通过{\color{red!60!black}命名空间} (\textit{namespace})构成的树形结构
   \item 命名空间 ~System 是树形结构的根
-  \item 命名空间下可以有子命名空间或类(class)
-  \item 命名空间或类之间通过``.''连接
+  \item 命名空间下可以有{\color{red!60!black}子命名空间}或{\color{red!60!black}类}
+  \item 用``\textbf{\texttt{.}}''连接，构成命名空间或类库的完整名字 \\ 如 ~\texttt{System.Data.DataSet}
   \end{itemize}
 
 \begin{figure}[h] \label<1| handout:1>{fig:fcl-namespaces}
@@ -637,25 +669,56 @@ Content-Length: length
 \end{frame}
 
 \begin{frame}
-\frametitle{基本的类库简介}
+\frametitle{System 命名空间}
+
+\CJKindent \textbf{System} 是整个类库的根，除了容纳大量的子空间之外，还有很多基本的对象和类型
+
+\begin{itemize}
+\item CTS 定义的基本数据类型
   \begin{itemize}
-  \item System.IO -- 文件或目录的访问
+  \item 值类型，如 ~\texttt{Byte}, \texttt{Int16}, \texttt{Int32}, \texttt{Char} 等等
+  \item 引用类型，如 ~\texttt{Array}, \texttt{Delegate} 等等
+  \item 所有对象的基类 ~\texttt{System.Object}
+  \end{itemize}
+\item \textbf{System.Console} 类，提供控制台（字符界面）的输入输出功能，如 ~\texttt{WriteLine()},
+  \texttt{ReadLine()}等
+\item \textbf{System.Math} 类，各种数学函数运算，如 ~\texttt{Sqrt()}, \texttt{Sin()}, \texttt{Ceiling()}, \texttt{Log()}等
+\item \textbf{System.Enviroment} 类，用于提供当前运行环境信息，如操作系统、当前目录、内存使用量等
+\item \textbf{System.Random} 类，用于产生随机数
 
-    基本的输入输出，文件、目录以及内存数据流的访问。
+\end{itemize}
+  
+\end{frame}
 
-  \item System.Net -- 网络数据的访问
+\begin{frame}
+\frametitle{常用的类库简介}
+  \begin{itemize}
+  \CJKindent
+  \item \textbf{System.IO} --- 文件或目录的访问    \smallskip
 
-    使用各种网络协议 ~HTTP, FTP, Mail, 基本的 ~Socket 等进行网络数据通信，简化了
+     \small 基本的输入输出，文件、目录以及内存数据流的访问。
+    \smallskip
+
+  \item \textbf{System.Net} --- 网络数据的访问    \smallskip
+
+     \small 使用各种网络协议 ~HTTP, FTP, Mail, 基本的 ~Socket 等进行网络数据通信，简化了
     网络应用程序的开发。
+    \smallskip
 
-  \item System.Text -- 文本处理
+  \item \textbf{System.Text} --- 文本处理    \smallskip
 
-    提供不同编码文本之间的转换功能，文本处理功能，正则表达式搜索及匹配文本等等。
+     \small 提供不同编码文本之间的转换功能，文本处理功能，正则表达式搜索及匹配文本等等。
+    \smallskip
 
-  \item System.Data -- ADO.NET 的基础
+  \item \textbf{System.Data} --- ADO.NET 的基础    \smallskip
 
-    实现了 ~ADO.NET 的类库，用于访问各种数据源，比如 ~System.Data.SqlClient,
-    System.Data.OracleClient, System.Data.ODBC等等。
+     \small 实现了 ~ADO.NET 的类库，用于访问各种数据源，如
+    \begin{itemize}
+    \item \texttt{System.Data.SqlClient}
+    \item \texttt{System.Data.OracleClient}
+    \item \texttt{System.Data.ODBC}
+    \end{itemize}
+    \smallskip
 
     % System.Threading, System.Web, System.Windows, System.XML
 
@@ -663,22 +726,105 @@ Content-Length: length
 \end{frame}
 
 \begin{frame}
-\frametitle{开发的方便性}
-  传统的Windows开发 和 .NET 中 Windows 开发
+\frametitle{.NET 编程语言}
+\framesubtitle{Microsoft 提供编程语言}
+%超过20种，同样的开发界面、调试方式、同样的类库
+
+\begin{itemize}
+  \CJKindent
+\item Visual C\# .NET  \par
+  \smallskip \small .NET 平台首推的开发语言
+\item Visual Basic .NET \par
+  \smallskip \small 方便 ~VB 程序员进行 ~.NET 开发
+\item Visual C++ .NET (Managed C++) \par
+  \smallskip \small 同时利用 ~C++ 和 .NET 平台(类库)
+\item Visual J\# .NET (Java) \par
+  \smallskip \small 方便 ~Java 程序员，移植现有 ~Java 项目到 ~.NET 平台
+\item JScript .NET \par
+  \smallskip \small 使用 ~JScript 利用 ~.NET 平台(类库)
+\end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{.NET 编程语言}
+\framesubtitle{其他可以在 ~.NET 平台编译的语言 }
 %超过20种，同样的开发界面、调试方式、同样的类库
+\begin{columns}[t]
+  \column{.28\textwidth}
+  \begin{itemize}
+  \item Fortran
+  \item Python
+  \item Perl
+  \item Scheme
+  \item Haskell
+  \item Smalltalk
+  \end{itemize}
+  \column{.28\textwidth}
+  \begin{itemize}
+  \item F\#
+  \item COBOL
+  \item Mercury
+  \item Mondrian
+  \item Oberon
+  \item Eiffel\#
+  \end{itemize}
+  \column{.44\textwidth}
+  \begin{itemize}
+  \item Component Pascal
+  \item RPG
+  \item Delta Forth
+  \item Standard ML
+  \item TMT Pascal 
+  \item $\ldots$
+  \end{itemize}
+\end{columns}
 \end{frame}
 
 
-%\subsection*{受管开发环境}
 
-%\subsection*{垃圾回收}
+\section{.NET 开发工具}
+\begin{frame}
+\frametitle{.NET 开发工具}
 
-\section{.NET 语言}
+\begin{exampleblock}{\textit{Microsoft .NET Framework Redistributable}}
+  \CJKindent .NET 框架可再发行组件包，包括 ~.NET Framework 应用程序运行所需的库及相关文件。
+\end{exampleblock}
 
+\begin{exampleblock}{\textit{Software Development Kit (SDK)}}
+  \CJKindent .NET 框架开发工具包，包括了编写、生成、测试和部署 .NET Framework 应用程序所需的工具、文档和示例。
+\end{exampleblock}
+
+\begin{block}{\textit{Visual Studio .NET}}
+  \CJKindent 
+\end{block}
+
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{SDK 中的工具}
+\begin{block}{C\# 编译器 ~csc.exe}
+  \begin{tabular}{l|l}
+    \hline
+    \multicolumn{1}{c|}{Option} & \multicolumn{1}{c}{Description}\\\hline
+    \texttt{/help} & 列出所有命令行选项 \\
+    \texttt{/define:\textsl{symbol}}  & 定义编译预处理符号 \\
+    \texttt{/doc:\textsl{name}} & 从源码 ~XML 注释中生成 ~XML 文档 \\
+    \texttt{/out:\textsl{name}} & 输出文件名 \\
+    \texttt{/target:\textsl{target}} & 输出文件格式 ~{\small exe/winexe/library/module} \\
+    \end{tabular}
+\end{block}
+
+\begin{block}{}
+  \texttt{csc /t:exe /out:Hello.exe MyHello.cs} 
+\end{block}
+
+\begin{block}{}
+  \texttt{csc /t:exe /out:Hello.exe MyHello.cs} 
+\end{block}
+
+\end{frame}
+
+% 传统的Windows开发 和 .NET 中 Windows 开发
 
 
 % Local Variables: 
