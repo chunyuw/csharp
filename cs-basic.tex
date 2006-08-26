@@ -1,9 +1,11 @@
 %% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn>
 
-\section{C\#语言简介}
+\part{C\# 语言基础}
+
+\section{C\# 语言简介}
 
 \begin{frame}
-\frametitle{C\#语言简介}
+\frametitle{C\# 语言简介}
 \begin{itemize}
 \item<1-> 面向对象\\语言本身支持抽象类、接口、特性和事件等
 \item<2-> 基于组件的开发\\提供内置的版本支持，接口与实现分离，事件的发布与订阅等
@@ -23,8 +25,6 @@
 }
 
 % \section{C\#的基本语法}
-\section{变量、数组、注释等}
-
 \begin{frame}[fragile]
 \frametitle{C\# 语言的语法}
 \begin{itemize}
@@ -54,6 +54,8 @@ Circle b = new Circle();
   \item 同样的变量声明，创建类实例，如例子所示
   \end{itemize}
 }
+
+\section{基本类型}
 
 \begin{frame}
 \frametitle{简单数据类型(Primitive Data Types)}
@@ -322,13 +324,6 @@ finally { if (sw!=null)   sw.Close();     }
   \item 其他任何错误，都会被更通用的异常类型捕获
   \item finally保证，无论是否发生异常，此处代码都会被执行
   \end{itemize}}
-
-\part<presentation>{类}
-
-\begin{frame}
-\tableofcontents
-\end{frame}
-
 
 % Local Variables: 
 % mode: LaTeX
