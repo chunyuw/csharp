@@ -148,6 +148,24 @@
 
 * Other
 
+** item sep
+
+  \setlength{\topsep}{0pt}
+  \setlength{\parskip}{0pt}
+  \setlength{\parsep}{0pt}
+  \setlength{\partopsep}{0pt}
+  \setlength{\itemsep}{0pt plus 1pt}
+
+  注意，要写在当前的 itemize 环境之中
+
+  \topsep: Space between first item and preceding paragraph.
+  \partopsep: Extra space added to \topsep when environment starts a new
+          paragraph (is called in vmode).
+  \itemsep: Space between successive items.
+  \parsep: Space between paragraphs within an item - the \parskip for this
+          environment.
+  
+
 ** macro
  \medskip, \bigskip
 

@@ -2,9 +2,14 @@
 
 \part{.NET Framework}
 
+% \begin{frame}
+% \frametitle{Outline}
+% \tableofcontents
+% \end{frame}
+
 \section{.NET 平台}
 \begin{frame}
-\frametitle{什么是 ~Microsoft .NET} 
+\frametitle{什么是 ~Microsoft .NET}
 
   \CJKindent .NET 是 ~Microsoft 的用以创建 ~XML Web 服务平台，该平台将信息、设
   备和人以一种统一的、个性化的方式联系起来。
@@ -14,13 +19,13 @@
   借助于 ~.NET 平台，可以创建和使用基于 ~XML 的应用程序、进程和 ~Web 站点以及服
   务，它们之间可以按设计、在任何平台或智能设备上共享和组合信息与功能，以向单位
   和个人提供定制好的解决方案。
-  
+
   % Microsoft .NET 扩展了通过任何设备随时随地操作数据和进行通讯的能力。.NET 使
   % 用分布式计算模型并基于开放标准（如 XML）将 PC 与其他智能设备连接在一起。
 
   % XML 是 Internet 上数据交换的通用语言。它提供了一个广泛包容的、开放标准的技
   % 术，用于数据交换和转换，克服了应用程序和服务互操作性和集成面临的障碍。
-  
+
   \begin{uncoverenv}<2-| handout:1>
     \begin{itemize}
     \item 一组用于创建互联网操作系统的构建块，其中包括 ~Passport .NET 以及用于
@@ -66,7 +71,7 @@ Microsoft .NET 平台利用以互联网为基础的计算和通讯激增的特点，通过先进的软件，
 \frametitle{Microsoft .NET 相关技术标准}
   \begin{itemize}
     \CJKindent
-  \item<1-| handout:1> XML\only<1| handout:0>{, \textit{eXtensible Markup Language}} 
+  \item<1-| handout:1> XML\only<1| handout:0>{, \textit{eXtensible Markup Language}}
     \only<2-| handout:1>{--- 基于 ~Web 的结构化数据的通用格式}
     \medskip
 
@@ -197,7 +202,7 @@ Content-Length: length
 <?xml version="1.0" encoding="utf-8"?>
 <soap:Envelope xmlns:xsi= ... >
  <soap:Body>
-  <GetWeatherResponse 
+  <GetWeatherResponse
            xmlns="http://www.webserviceX.NET">
    <GetWeatherResult>string</GetWeatherResult>
   </GetWeatherResponse>
@@ -385,7 +390,7 @@ Content-Length: length
 
 \begin{columns}
   \column{.5\textwidth}
-  \begin{figure}[h] \only<1| handout:1>{\label{fig:cts-v-r-types}} 
+  \begin{figure}[h] \only<1| handout:1>{\label{fig:cts-v-r-types}}
     \centering \input{pgf-dn/cts-v-r-types}
   \end{figure}
   \column{.5\textwidth}
@@ -398,7 +403,7 @@ Content-Length: length
 
 \end{columns}
   % 托管代码执行过程中，变量可以在托管栈或托管堆中分配。
-  % 当方法被调用时，局部变量或方法创建的值类型变量都在栈中分配，当方法运行结束时都自动的释放；           
+  % 当方法被调用时，局部变量或方法创建的值类型变量都在栈中分配，当方法运行结束时都自动的释放；
   % 而在堆中分配的变量，并不自动释放，而是通过“垃圾处理”来由CLR管理并释放。
 
   % 值类型的变量在栈中分配，而引用类型的变量在栈中只有一个引用，指向在堆中实际内存
@@ -548,8 +553,9 @@ Content-Length: length
 \begin{frame}
 \frametitle{程序集的功能}
   \begin{itemize}
+    \setlength{\itemsep}{10pt plus 1pt}
   \item 程序集定义了类型的有效范围， ~CLR 通过程序集查找类
-  \item 程序集不需要注册表项， ~CLR 通过一种算法查找程序集 
+  \item 程序集不需要注册表项， ~CLR 通过一种算法查找程序集
   \item 安装 ~.NET 应用程序，只拷贝它的程序集即可
     % 安装与卸载 ~.NET 模块不需要修改系统注册表，只需 ~copy or delete
   \item 程序集可以有一个{\color<handout:0>{red!65!black}增强型名称} (\textit{Strong name})，用作共享名称
@@ -589,13 +595,15 @@ Content-Length: length
 \begin{frame}
 \frametitle{程序集的加载过程}
   \begin{itemize}
+    \setlength{\itemsep}{8pt plus 1pt}
   \item 只有在需要的时候加载，程序集可以在本地或网络中
     % 如果依赖程序集没有调用，不会被加载；
     % 程序集甚至不需在目标机器上
 
   \item CLR 通过特定的规则寻找需要的程序集
-    
+
     \begin{enumerate}
+      \setlength{\itemsep}{4pt plus 1pt}
     \item CLR 检查是否已经被加载，如果已经加载，结束查找
     \item 在全局程序集缓存(GAC)中查找
     \item 在程序代码中指定的位置查找
@@ -689,7 +697,7 @@ Content-Length: length
 \item \texttt{\textbf{System.Random}} 类，用于产生随机数
 
 \end{itemize}
-  
+
 \end{frame}
 
 \begin{frame}
@@ -754,6 +762,7 @@ Content-Length: length
 \begin{columns}[t]
   \column{.28\textwidth}
   \begin{itemize}
+    \setlength{\itemsep}{8pt plus 1pt}
   \item Fortran
   \item Python
   \item Perl
@@ -763,6 +772,7 @@ Content-Length: length
   \end{itemize}
   \column{.28\textwidth}
   \begin{itemize}
+    \setlength{\itemsep}{8pt plus 1pt}
   \item F\#
   \item COBOL
   \item Mercury
@@ -772,17 +782,18 @@ Content-Length: length
   \end{itemize}
   \column{.44\textwidth}
   \begin{itemize}
+    \setlength{\itemsep}{8pt plus 1pt}
   \item Component Pascal
   \item RPG
   \item Delta Forth
   \item Standard ML
-  \item TMT Pascal 
+  \item TMT Pascal
   \item $\ldots$
   \end{itemize}
 \end{columns}
 \end{frame}
 
-% Local Variables: 
+% Local Variables:
 % mode: LaTeX
 % TeX-master: "lesson-01.tex"
 % TeX-header-end: "% End-Of-Header$"
