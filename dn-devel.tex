@@ -1,0 +1,105 @@
+%% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn>
+
+% TODO
+%  + Microsoft Visual Studio 2005
+%  + 传统的 Windows 开发 和 .NET 中 Windows 开发
+
+\section{.NET 开发工具}
+\begin{frame}
+\frametitle{.NET 开发工具}
+
+\begin{exampleblock}{\textit{Microsoft .NET Framework Redistributable}}
+  \CJKindent .NET 框架可再发行组件包，包括 ~.NET Framework 应用程序运行所需的库及相关文件。
+\end{exampleblock}
+
+\begin{exampleblock}{\textit{Software Development Kit (SDK)}}
+  \CJKindent .NET 框架开发工具包，包括了编写、生成、测试和部署 .NET Framework 应用程序所需的工具、文档和示例。
+\end{exampleblock}
+
+\begin{block}{\textit{Visual Studio .NET}}
+  \CJKindent 
+\end{block}
+
+\end{frame}
+
+\begin{frame}[t]
+\frametitle{SDK 中的工具 --- \textit{csc}}
+\begin{exampleblock}{C\# 编译器 ~csc.exe}
+  \begin{tabular}{l|l}
+    \hline
+    \multicolumn{1}{c|}{Option} & \multicolumn{1}{c}{Description}\\\hline
+    \texttt{/help} & 列出所有命令行选项 \\
+    \texttt{/define:\textsl{symbol}}  & 定义编译预处理符号 \\
+    \texttt{/doc:\textsl{name}} & 从源码 ~XML 注释中生成 ~XML 文档 \\
+    \texttt{/out:\textsl{name}} & 输出文件名 \\
+    \texttt{/target:\textsl{target}} & 输出文件格式 ~{\small exe/winexe/library/module} \\
+    \hline
+    \end{tabular}
+\end{exampleblock}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+\begin{alertblock}{}
+  \texttt{csc /target:exe     /out:Hello.exe MyHello.cs}\\
+  \texttt{csc /target:library /out:Hello.dll MyHello.cs}
+\end{alertblock}
+
+\begin{alertblock}{}
+   \texttt{csc /target:module A.cs}\\
+  \texttt{csc /out:Final.dll /addmodule:A.netmodule \wraphere \hskip.12\textwidth /target:library B.cs}
+\end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile,t]
+\frametitle{SDK 中的工具 --- \textit{ildasm}}
+\begin{exampleblock}{MSIL 的反编译工具 ~ildasm.exe}
+  \uncover<1-| handout:1>{  \texttt{csc /target:exe     /out:Hello.exe MyHello.cs}\\}
+  \uncover<2-| handout:1>{  \texttt{ildasm Hello.exe}\\
+}  
+\end{exampleblock}
+\begin{onlyenv}<1| handout:0>
+\begin{lstlisting}
+using System;
+class Hello
+{
+  public static void Main ()
+  {
+    Console.WriteLine("Hello World!");
+  }
+}
+\end{lstlisting}
+\end{onlyenv}
+
+  \includegraphics[scale=.5]<2| handout:1>{ildasm1.png}%
+  \rlap{\includegraphics[scale=.5]<3| handout:0>{ildasm2.png}}%
+
+\end{frame}
+
+\begin{frame}
+\frametitle{SDK 中的工具 --- \textit{others}}
+
+\begin{itemize}
+\item vbc.exe --- VB.NET 编译工具
+\item cl.exe  --- C++ 编译工具
+\item al.exe  --- 程序集生成工具
+\item ilasm.exe --- MSIL 的编译工具
+\item dumpbin.exe --- PE 文件查看工具
+\item ngen.exe --- 本地镜像生成工具
+\item xsd.exe --- XML 模式定义工具
+\item sn.exe --- 增强名工具
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Microsoft Visual Stuio 2005}
+
+\end{frame}
+
+
+% Local Variables: 
+% mode: LaTeX
+% TeX-master: "lesson-01.tex"
+% TeX-header-end: "% End-Of-Header$"
+% TeX-trailer-start: "% Start-Of-Trailer$"
+% fill-column: 100
+% coding: gb2312-dos
+% End:

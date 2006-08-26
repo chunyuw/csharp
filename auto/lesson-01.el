@@ -2,5 +2,7 @@
  (lambda ()
     (TeX-run-style-hooks
      "preamble"
-     "dn-outline")))
+     "dn-intro"
+     "dn-outline"
+     "dn-devel")))
 
