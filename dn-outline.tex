@@ -246,8 +246,8 @@ Content-Length: length
     \item 容易维护、部署等
     \end{itemize}
   \end{onlyenv}
-  \begin{onlyenv}
-    \begin{block}<3| handout:1>{完整的安全解决方案}
+  \begin{onlyenv}<3| handout:1>
+    \begin{block}{完整的安全解决方案}
       \begin{itemize}
       \item 基于证据的安全规则，确保组件的来源可靠
       \item 细致的权限设置，可以为组件设置不同权限
@@ -552,7 +552,7 @@ Content-Length: length
   \item 程序集不需要注册表项， ~CLR 通过一种算法查找程序集 
   \item 安装 ~.NET 应用程序，只拷贝它的程序集即可
     % 安装与卸载 ~.NET 模块不需要修改系统注册表，只需 ~copy or delete
-  \item 程序集可以有一个增强型名称 (\textit{Strong name})，用作共享名称
+  \item 程序集可以有一个{\color<handout:0>{red!65!black}增强型名称} (\textit{Strong name})，用作共享名称
     \begin{itemize}
     \item 除了三个必须的成员之外，还要有数字签名和相应的公钥
     \item 通过数字签名，可以确保程序集的唯一性，增加安全性
@@ -579,7 +579,7 @@ Content-Length: length
 \end{block}
 
 \begin{itemize}
-\item 通过区分专用和共享程序集，确定如何部署 (\textit{Deploy}) 程序集
+\item 通过区分专用和共享程序集，确定如何{\color<handout:0>{red!65!black}部署} (\textit{Deploy}) 程序集
 \item 根据增强型名称，判断是否接受程序集，或新的版本
 \item 根据版本管理特性，保证下载的代码不会影响本地应用程序的执行
 \end{itemize}
