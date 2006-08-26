@@ -515,7 +515,7 @@ Content-Length: length
   \end{block}
   \begin{itemize}
   \item 程序集可以有一个或多个文件
-  \item 程序集都有一个{\color{red!65!black}清单} (\textit{manifest}{})
+  \item 程序集都有一个{\color<handout:0>{red!65!black}清单} (\textit{manifest}{})
   \item 清单描述程序集的内容信息
     \begin{enumerate}
     \item 程序集的名字
@@ -614,9 +614,9 @@ Content-Length: length
   宿主创建，运行库宿主负责在运行应用程序之前引导公共语言运行库。
 \end{block}
 \begin{itemize}
-\item 加载 ~CLR 的程序称为{\color{red!65!black}运行库宿主} (\textit{runtime host})
+\item 加载 ~CLR 的程序称为{\color<handout:0>{red!65!black}运行库宿主} (\textit{runtime host})
 \item 应用程序域，由运行库宿主创建
-\item 宿主依靠{\color{red!65!black}验证} (\textit{verification})来隔离程序集
+\item 宿主依靠{\color<handout:0>{red!65!black}验证} (\textit{verification})来隔离程序集
 \item 在一个应用程序域中出现的错误不会影响其他应用程序域
 \end{itemize}
 \end{frame}
@@ -656,9 +656,9 @@ Content-Length: length
 \frametitle{命名空间的结构}
 
   \begin{itemize}
-  \item 类库是通过{\color{red!60!black}命名空间} (\textit{namespace})构成的树形结构
-  \item 命名空间 ~System 是树形结构的根
-  \item 命名空间下可以有{\color{red!60!black}子命名空间}或{\color{red!60!black}类}
+  \item 类库是通过{\color<handout:0>{red!60!black}命名空间} (\textit{namespace})构成的树形结构
+  \item 命名空间 ~\texttt{System} 是树形结构的根
+  \item 命名空间下可以有{\color<handout:0>{red!60!black}子命名空间}或{\color<handout:0>{red!60!black}类}
   \item 用``\textbf{\texttt{.}}''连接，构成命名空间或类库的完整名字 \\ 如 ~\texttt{System.Data.DataSet}
   \end{itemize}
 
@@ -671,7 +671,7 @@ Content-Length: length
 \begin{frame}
 \frametitle{System 命名空间}
 
-\CJKindent \textbf{System} 是整个类库的根，除了容纳大量的子空间之外，还有很多基本的对象和类型
+\CJKindent \texttt{\textbf{System}} 是整个类库的根，除了容纳大量的子空间之外，还有很多基本的对象和类型
 
 \begin{itemize}
 \item CTS 定义的基本数据类型
@@ -680,11 +680,11 @@ Content-Length: length
   \item 引用类型，如 ~\texttt{Array}, \texttt{Delegate} 等等
   \item 所有对象的基类 ~\texttt{System.Object}
   \end{itemize}
-\item \textbf{System.Console} 类，提供控制台（字符界面）的输入输出功能，如 ~\texttt{WriteLine()},
+\item \texttt{\textbf{System.Console}} 类，提供控制台（字符界面）的输入输出功能，如 ~\texttt{WriteLine()},
   \texttt{ReadLine()}等
-\item \textbf{System.Math} 类，各种数学函数运算，如 ~\texttt{Sqrt()}, \texttt{Sin()}, \texttt{Ceiling()}, \texttt{Log()}等
-\item \textbf{System.Enviroment} 类，用于提供当前运行环境信息，如操作系统、当前目录、内存使用量等
-\item \textbf{System.Random} 类，用于产生随机数
+\item \texttt{\textbf{System.Math}} 类，各种数学函数运算，如 ~\texttt{Sqrt()}, \texttt{Sin()}, \texttt{Ceiling()}, \texttt{Log()}等
+\item \texttt{\textbf{System.Enviroment}} 类，用于提供当前运行环境信息，如操作系统、当前目录、内存使用量等
+\item \texttt{\textbf{System.Random}} 类，用于产生随机数
 
 \end{itemize}
   
@@ -694,23 +694,23 @@ Content-Length: length
 \frametitle{常用的类库简介}
   \begin{itemize}
   \CJKindent
-  \item \textbf{System.IO} --- 文件或目录的访问    \smallskip
+  \item \texttt{\textbf{System.IO}} --- 文件或目录的访问    \smallskip
 
      \small 基本的输入输出，文件、目录以及内存数据流的访问。
     \smallskip
 
-  \item \textbf{System.Net} --- 网络数据的访问    \smallskip
+  \item \texttt{\textbf{System.Net}} --- 网络数据的访问    \smallskip
 
      \small 使用各种网络协议 ~HTTP, FTP, Mail, 基本的 ~Socket 等进行网络数据通信，简化了
     网络应用程序的开发。
     \smallskip
 
-  \item \textbf{System.Text} --- 文本处理    \smallskip
+  \item \texttt{\textbf{System.Text}} --- 文本处理    \smallskip
 
      \small 提供不同编码文本之间的转换功能，文本处理功能，正则表达式搜索及匹配文本等等。
     \smallskip
 
-  \item \textbf{System.Data} --- ADO.NET 的基础    \smallskip
+  \item \texttt{\textbf{System.Data}} --- ADO.NET 的基础    \smallskip
 
      \small 实现了 ~ADO.NET 的类库，用于访问各种数据源，如
     \begin{itemize}
@@ -801,7 +801,7 @@ Content-Length: length
 \end{frame}
 
 \begin{frame}[t]
-\frametitle{SDK 中的工具}
+\frametitle{SDK 中的工具 --- \textit{csc}}
 \begin{exampleblock}{C\# 编译器 ~csc.exe}
   \begin{tabular}{l|l}
     \hline
@@ -814,20 +814,59 @@ Content-Length: length
     \hline
     \end{tabular}
 \end{exampleblock}
+\setbeamertemplate{blocks}[rounded][shadow=true]
 
-\begin{block}{}
+\begin{alertblock}{}
   \texttt{csc /target:exe     /out:Hello.exe MyHello.cs}\\
   \texttt{csc /target:library /out:Hello.dll MyHello.cs}
-\end{block}
+\end{alertblock}
 
-
-\begin{block}{}
-  \texttt{csc /target:module A.cs}\\
+\begin{alertblock}{}
+   \texttt{csc /target:module A.cs}\\
   \texttt{csc /out:Final.dll /addmodule:A.netmodule \wraphere \hskip.12\textwidth /target:library B.cs}
-\end{block}
+\end{alertblock}
+\end{frame}
+
+\begin{frame}[fragile,t]
+\frametitle{SDK 中的工具 --- ildasm}
+\begin{exampleblock}{MSIL 的反编译工具 ~ildasm.exe}
+  \uncover<1-| handout:1>{  \texttt{csc /target:exe     /out:Hello.exe MyHello.cs}\\}
+  \uncover<2-| handout:1>{  \texttt{ildasm Hello.exe}\\
+}  
+\end{exampleblock}
+\begin{onlyenv}<1| handout:0>
+\begin{lstlisting}
+using System;
+class Hello
+{
+  public static void Main ()
+  {
+    Console.WriteLine("Hello World!");
+  }
+}
+\end{lstlisting}
+\end{onlyenv}
+
+  \includegraphics[scale=.5]<2| handout:1>{ildasm1.png}%
+  \rlap{\includegraphics[scale=.5]<3| handout:0>{ildasm2.png}}%
 
 \end{frame}
 
+\begin{frame}
+\frametitle{SDK 中的工具 --- others}
+
+\begin{itemize}
+\item vbc.exe --- VB.NET 编译工具
+\item cl.exe  --- C++ 编译工具
+\item al.exe  --- 程序集生成工具
+\item ilasm.exe --- MSIL 的编译工具
+\item dumpbin.exe --- PE 文件查看工具
+\item ngen.exe --- 本地镜像生成工具
+\item xsd.exe --- XML 模式定义工具
+\item sn.exe --- 增强名工具
+\end{itemize}
+  
+\end{frame}
 % 传统的Windows开发 和 .NET 中 Windows 开发
 
 
