@@ -1,10 +1,11 @@
 %% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn>
 
-\section{类的使用}
+% \section{类的使用}
 
-\subsection{类的基本组成}
+\section{类的基本组成}
 
-\begin{frame}[fragile] \frametitle{一个简单的例子}
+\begin{frame}[fragile]
+\frametitle{一个简单的例子}
 \lstset{emph={class,new},emph={[2]Main}}
 \begin{lstlisting}
 class Circle {
@@ -32,36 +33,38 @@ class test {
   \item Main() 函数必须是 static 的，而且首字母大写
   \end{itemize}}
 
-\begin{frame} \frametitle{类的成员}
-  \begin{onlyenv}<1>
-    \begin{block}{字段 - fields}
-      描述对象属性的简单数据类型、自定义的结构或其他类。
-    \end{block}
-    \begin{block}{方法 - methods}
-      对象中执行计算或其他操作的函数成员。
-    \end{block}
-    \begin{block}{特性 - properties}
-      对类中字段提供特定的访问方法。
-    \end{block}
-  \end{onlyenv}
-  \begin{onlyenv}<2>
-    \begin{block}{委托 - delegates}
-      运行时用来动态调用不同的方法的特殊成员。
-    \end{block}
-    \begin{block}{事件 - events}
-      建立程序之间的连接方法和运行过程的终结操作。
-    \end{block}
-    \begin{block}{索引器 - indexers}
-      通过方括号的语法访问成员的方法。
-    \end{block}
-  \end{onlyenv}
+\begin{frame}
+\frametitle{类的成员}
+\begin{onlyenv}<1>
+  \begin{block}{字段 - fields}
+    描述对象属性的简单数据类型、自定义的结构或其他类。
+  \end{block}
+  \begin{block}{方法 - methods}
+    对象中执行计算或其他操作的函数成员。
+  \end{block}
+  \begin{block}{特性 - properties}
+    对类中字段提供特定的访问方法。
+  \end{block}
+\end{onlyenv}
+\begin{onlyenv}<2>
+  \begin{block}{委托 - delegates}
+    运行时用来动态调用不同的方法的特殊成员。
+  \end{block}
+  \begin{block}{事件 - events}
+    建立程序之间的连接方法和运行过程的终结操作。
+  \end{block}
+  \begin{block}{索引器 - indexers}
+    通过方括号的语法访问成员的方法。
+  \end{block}
+\end{onlyenv}
 \end{frame}
 
-\begin{frame}[fragile] \frametitle{静态成员和实例成员}
-  \begin{onlyenv}<1>
-    \begin{itemize}
-    \item 静态成员使用关键字~static~修饰，否则为实例成员
-\lstset{emph={static}}
+\begin{frame}[fragile]
+\frametitle{静态成员和实例成员}
+\begin{onlyenv}<1>
+  \begin{itemize}
+  \item 静态成员使用关键字~static~修饰，否则为实例成员
+    \lstset{emph={static}}
 \begin{lstlisting}[escapeinside=<>]
 class Circle {
   // <实例变量>
@@ -74,30 +77,31 @@ class Circle {
   }
 }
 \end{lstlisting}
-    \end{itemize}
-  \end{onlyenv}
-  \begin{onlyenv}<2>
-    \begin{itemize}
-    \item 静态成员通过类名访问，实例成员通过对象名访问
+  \end{itemize}
+\end{onlyenv}
+\begin{onlyenv}<2>
+  \begin{itemize}
+  \item 静态成员通过类名访问，实例成员通过对象名访问
 \begin{lstlisting}[escapeinside=<>]
 Circle c  = new Circle(); // <创建一个实例>
 Circle.pi = 3.14159265;   // <访问静态变量>
       c.R = 100;          // <访问实例变量>
 
 \end{lstlisting}
-    \item 静态成员和具体实例无关，是类本身的特征
-    \item 通过静态变量，可以在类的实例之间共享信息
-    \end{itemize}
-  \end{onlyenv}
+  \item 静态成员和具体实例无关，是类本身的特征
+  \item 通过静态变量，可以在类的实例之间共享信息
+  \end{itemize}
+\end{onlyenv}
 \end{frame}
 
-\begin{frame}[fragile] \frametitle{常量和只读变量}
-  \begin{itemize}
-  \item 分别使用~const~和~readonly~修饰
-  \item 常量在编译时初始化，只读变量在运行时初始化
-  \item 初始化之后，都不可以被修改
-  \item 引用类型只能使用只读变量，因为无法在编译时初始化
-  \end{itemize}
+\begin{frame}[fragile]
+\frametitle{常量和只读变量}
+\begin{itemize}
+\item 分别使用~const~和~readonly~修饰
+\item 常量在编译时初始化，只读变量在运行时初始化
+\item 初始化之后，都不可以被修改
+\item 引用类型只能使用只读变量，因为无法在编译时初始化
+\end{itemize}
 \lstset{emph={readonly,const}}
 \begin{lstlisting}
   const    string url1="www.hit.edu.cn";
@@ -105,7 +109,8 @@ Circle.pi = 3.14159265;   // <访问静态变量>
 \end{lstlisting}
 \end{frame}
 
-\begin{frame} \frametitle{方法(methods)}
+\begin{frame}
+\frametitle{方法(methods)}
 \begin{itemize}
 \item 方法是一个命名的代码块，用于计算或其他操作的函数成员
 \item 分为实例方法和静态方法
@@ -114,7 +119,8 @@ Circle.pi = 3.14159265;   // <访问静态变量>
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile] \frametitle{构造函数(constructors)}
+\begin{frame}[fragile]
+\frametitle{构造函数(constructors)}
 构造函数是一个（或多个）特殊的方法，用于初始化对象。可以分为静态构造函数
 和实例构造函数两种。
 \pause
@@ -125,7 +131,7 @@ class Circle { public int R;
   // <初始化为单位圆，实例构造函数>
   public Circle() { R=1;}    }
 \end{lstlisting}
-\pause
+  \pause
 \item 静态构造函数(用static修饰)，在加载类时调用，用于初始化静态变量
 \end{itemize}
 \end{frame}
@@ -135,7 +141,8 @@ class Circle { public int R;
   \end{itemize}
 }
 
-\begin{frame}[fragile] \frametitle{析构函数(destructors)}
+\begin{frame}[fragile]
+\frametitle{析构函数(destructors)}
 析构函数是当对象被清除时被调用的特殊方法。
 \begin{itemize}
 \item 名字以字符“\verb|~|”开始的类名，无返回类型
@@ -146,23 +153,24 @@ class Circle {
   ~Circle() { /* <析构函数体> */  } 
 }
 \end{lstlisting}
-\pause
+  \pause
 \item 由于 C\# 的垃圾回收是自动的，往往不需要自己创建析构函数
-\pause
+  \pause
 \item 构造函数和析构函数的定义都不是必须的
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile] \frametitle{重载(overload)}
-  \begin{block}{方法的重载}
-    在同一个类中，定义同一名称的多个成员方法，被重载的成员方法之间的唯一差别就
-    是具有不同的参数类型和参数数量。
-\pause
-    \begin{itemize}
-    \item 索引器、构造函数、操作符都可以重载
-    \item 调用时，C\#会根据参数列表的不同自动选择
-    \end{itemize}
-  \end{block}
+\begin{frame}[fragile]
+\frametitle{重载(overload)}
+\begin{block}{方法的重载}
+  在同一个类中，定义同一名称的多个成员方法，被重载的成员方法之间的唯一差别就
+  是具有不同的参数类型和参数数量。
+  \pause
+  \begin{itemize}
+  \item 索引器、构造函数、操作符都可以重载
+  \item 调用时，C\#会根据参数列表的不同自动选择
+  \end{itemize}
+\end{block}
 \pause
 \begin{lstlisting}[escapeinside=<>]
 class Circle{   public int R;
@@ -174,19 +182,20 @@ class Circle{   public int R;
 \end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile] \frametitle{特性(properties)}
-  \begin{onlyenv}<1>
-    \begin{block}{特性}
-      对字段提供特定的访问方式，为类提供封装。
-    \end{block}
-    \begin{itemize}
-    \item 特性的访问是透明的，类似成员变量
-    \item get~提供读访问，set~提供写访问
-    \item 通过特性可进行完整性检查，类似成员方法
-    \end{itemize}
-  \end{onlyenv}
-  \begin{onlyenv}<2>
-\lstset{emph={get,set}}
+\begin{frame}[fragile]
+\frametitle{特性(properties)}
+\begin{onlyenv}<1>
+  \begin{block}{特性}
+    对字段提供特定的访问方式，为类提供封装。
+  \end{block}
+  \begin{itemize}
+  \item 特性的访问是透明的，类似成员变量
+  \item get~提供读访问，set~提供写访问
+  \item 通过特性可进行完整性检查，类似成员方法
+  \end{itemize}
+\end{onlyenv}
+\begin{onlyenv}<2>
+  \lstset{emph={get,set}}
 \begin{lstlisting}[escapeinside=<>]
 class Circle {
   protected int R;
@@ -201,84 +210,89 @@ class Circle {
   Console.WriteLine(c.Radius);
 
 \end{lstlisting}
-  \end{onlyenv}
+\end{onlyenv}
 \end{frame}
 
-% \begin{frame}[fragile] \frametitle{委托(delegate)}
-%   \begin{onlyenv}<1>
-%     \begin{block}{委托}
-%       具有特定返回类型和参数列表的方法的引用类型；方法可以有任何名字，可以使静
-%       态或实例方法；对方法实际能进行的操作没有限制。
-%     \end{block}
-%     \begin{itemize}
-%     \item 定义委托后，需要声明及创建委托的实例
-%     \item 通过委托，程序可以在运行时动态的调用不同的方法
-%     \end{itemize}
-%   \end{onlyenv}
-%   \begin{onlyenv}<2>
+% \begin{frame}[fragile]
+% \frametitle{委托(delegate)}
+% \begin{onlyenv}<1>
+%   \begin{block}{委托}
+%     具有特定返回类型和参数列表的方法的引用类型；方法可以有任何名字，可以使静
+%     态或实例方法；对方法实际能进行的操作没有限制。
+%   \end{block}
+%   \begin{itemize}
+%   \item 定义委托后，需要声明及创建委托的实例
+%   \item 通过委托，程序可以在运行时动态的调用不同的方法
+%   \end{itemize}
+% \end{onlyenv}
+% \begin{onlyenv}<2>
 % \begin{lstlisting}[escapeinside=<>]
 % // <定义委托 Compute>
 % delegate int Compute (int a, int b);
 % class Test {
-%   public Compute comp;        // <声明委托>
-%   public int add (int x, int y)
-%     { return x + y; }
+% public Compute comp;        // <声明委托>
+% public int add (int x, int y)
+% { return x + y; }
 % } ...
-%  Test n = new Test();
-%  n.comp = new Compute(n.add); // <创建委托实例>
-%  int r  = n.comp3 (20,40);    // <调用委托>
-%  System.Console.WriteLine (r);
+% Test n = new Test();
+% n.comp = new Compute(n.add); // <创建委托实例>
+% int r  = n.comp3 (20,40);    // <调用委托>
+% System.Console.WriteLine (r);
 % \end{lstlisting}
-%   \end{onlyenv}
+% \end{onlyenv}
 % \end{frame}
 
-% \begin{frame}[fragile] \frametitle{事件}
+% \begin{frame}[fragile]
+% \frametitle{事件}
 % \begin{itemize}
 % \item ...
 % \end{itemize}
 % \end{frame}
 
-\begin{frame} \frametitle{成员的访问限制}
+\begin{frame}
+\frametitle{成员的访问限制}
 C\#通过类成员的访问限制，能够完全控制谁能查看和使用类及类的成员。\pause
 
 \begin{block}{访问修饰符的作用}
-\begin{tabular}{l|l}
-private       & 只有同一类的成员\\
-protected     & 同一类和派生类的成员\\
-internal      & 同一程序集的成员\\
-protected internal & 同一程序集或派生类的成员\\
-public        & 任何成员，不受限制的\\
-\end{tabular}
+  \begin{tabular}{l|l}
+    private       & 只有同一类的成员\\
+    protected     & 同一类和派生类的成员\\
+    internal      & 同一程序集的成员\\
+    protected internal & 同一程序集或派生类的成员\\
+    public        & 任何成员，不受限制的\\
+  \end{tabular}
 \end{block}
 \end{frame}
 
-\subsection{类的层次结构、类型转换}
+\section{类的层次结构、类型转换}
 
 \setbeamerfont{table}{size=\small}
-\begin{frame} \frametitle{所有类的基类：System.Object}
+\begin{frame}
+\frametitle{所有类的基类：System.Object}
 \begin{itemize}
 \item C\#中的所有类型直接或间接的基类，也是 .NET Framework 中所有类的最终基类
 \item 隐式继承，不需要在类的定义中声明
 \end{itemize}
 \pause
 \begin{block}{为派生类提供的底层服务}
-\usebeamerfont{table}
-\begin{tabular}{l|l}
-Equals()      & 确定两个对象实例是否相等\\
-GetHashCode() & 生成对象相对应的数字以支持哈希表\\
-ToString()    & 生成描述类的实例的可读文本字符串\\
-GetType()     & 获取当前实例的类型\\
-Finalize()    & 在自动回收对象之前执行清理操作\\
-\end{tabular}
-\normalfont
+  \usebeamerfont{table}
+  \begin{tabular}{l|l}
+    Equals()      & 确定两个对象实例是否相等\\
+    GetHashCode() & 生成对象相对应的数字以支持哈希表\\
+    ToString()    & 生成描述类的实例的可读文本字符串\\
+    GetType()     & 获取当前实例的类型\\
+    Finalize()    & 在自动回收对象之前执行清理操作\\
+  \end{tabular}
+  \normalfont
 \end{block}
 \end{frame}
 
 
-\begin{frame}[fragile] \frametitle{值类型与引用类型}
+\begin{frame}[fragile]
+\frametitle{值类型与引用类型}
 \begin{itemize}
-  \item 值类型，赋值或传递给一个方法时，生成一个新的实例
-  \item 引用类型，赋值或传递给一个方法时，使用当前实例（只传地址）
+\item 值类型，赋值或传递给一个方法时，生成一个新的实例
+\item 引用类型，赋值或传递给一个方法时，使用当前实例（只传地址）
 \end{itemize}
 \begin{lstlisting}[escapeinside=<>]
 class Circle { public int R; }
@@ -291,24 +305,26 @@ class Circle { public int R; }
 \end{lstlisting}
 \end{frame}
 
-% \begin{frame} \frametitle{类型的层次结构}
+% \begin{frame}
+% \frametitle{类型的层次结构}
 % \color[rgb]{1,0,0} 31页层次结构图
 % \end{frame}
 
-\begin{frame}[fragile] \frametitle{类型之间的转换}
-  \begin{block}{隐式转换}
-    \begin{itemize}
-    \item 当信息不会丢失时 \\如 int$\rightarrow$long 的转换，int$\rightarrow$float 的转换；
-    \item 从派生类到基类的转换
-    \end{itemize}
-  \end{block}
+\begin{frame}[fragile]
+\frametitle{类型之间的转换}
+\begin{block}{隐式转换}
+  \begin{itemize}
+  \item 当信息不会丢失时 \\如 int$\rightarrow$long 的转换，int$\rightarrow$float 的转换；
+  \item 从派生类到基类的转换
+  \end{itemize}
+\end{block}
 \pause
-  \begin{block}{显式转换}
-    \begin{itemize}
-    \item 当不能进行隐式转换时，必须使用显式转换
-    \item 使用显式转换，也可以减少错误和异常
-    \end{itemize}
-  \end{block}
+\begin{block}{显式转换}
+  \begin{itemize}
+  \item 当不能进行隐式转换时，必须使用显式转换
+  \item 使用显式转换，也可以减少错误和异常
+  \end{itemize}
+\end{block}
 \pause
 \begin{lstlisting}[escapeinside=<>]
   int  a = 5;
@@ -319,20 +335,21 @@ class Circle { public int R; }
 \note{转换是指把对象从一种类型改变为另外一种类型的能力。}
 \end{frame}
 
-\begin{frame}[fragile] \frametitle{装箱(boxing)与拆箱(unboxing)}
-  \begin{block}{装箱}
-    \begin{itemize}
-    \item 将值类型转换为引用类型的过程
-    \item 系统为引用类型分配新内存，创建对象，并把值类型的内容复制到新分配的内存中。
-    \end{itemize}
-  \end{block}
+\begin{frame}[fragile]
+\frametitle{装箱(boxing)与拆箱(unboxing)}
+\begin{block}{装箱}
+  \begin{itemize}
+  \item 将值类型转换为引用类型的过程
+  \item 系统为引用类型分配新内存，创建对象，并把值类型的内容复制到新分配的内存中。
+  \end{itemize}
+\end{block}
 \pause
-  \begin{block}{拆箱}
-    \begin{itemize}
-    \item 将引用类型的对象转换为值类型的过程
-    \item 拆箱过程必须是显式的
-    \end{itemize}
-  \end{block}
+\begin{block}{拆箱}
+  \begin{itemize}
+  \item 将引用类型的对象转换为值类型的过程
+  \item 拆箱过程必须是显式的
+  \end{itemize}
+\end{block}
 \pause
 \begin{lstlisting}[escapeinside=<>]
   int    a = 5;
@@ -342,15 +359,16 @@ class Circle { public int R; }
 \end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile,t] \frametitle{命名空间}
+\begin{frame}[fragile,t]
+\frametitle{命名空间}
 \begin{onlyenv}<1-2>
   \begin{block}{命名空间(namespace)}
     类、接口、委托等其他类型的一个逻辑上的组合，用来防止名字之间的命名冲突。
   \end{block}
-\pause
+  \pause
   \begin{itemize}
   \item 定义命名空间
-\lstset{emph={namespace}}
+    \lstset{emph={namespace}}
 \begin{lstlisting}[escapeinside=<>]
 namespace Animals{
   namespace Birds{
@@ -366,14 +384,14 @@ namespace Animals{
 \begin{onlyenv}<3>
   \begin{itemize}
   \item 使用命名空间(using)
-\lstset{emph={using}}
+    \lstset{emph={using}}
 \begin{lstlisting}
 using Animals.Birds;
 ...
   Sparrow s = new Sparrow();
 \end{lstlisting}
   \item 使用别名(alias)
-\lstset{emph={using}}
+    \lstset{emph={using}}
 \begin{lstlisting}
 using b = Animals.Birds;
 ...
