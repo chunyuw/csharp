@@ -148,6 +148,10 @@
 
 * Other
 
+** listings
+
+  \lstinline/SomeCode/
+
 ** item sep
 
   \setlength{\topsep}{0pt}

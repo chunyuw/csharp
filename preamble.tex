@@ -25,27 +25,28 @@
 \usepackage[english]{babel}
 
 %% C# language for listings
-\lstdefinelanguage{CSharp}
-{morekeywords={abstract, as, base, bool, break, byte, case, catch, char,
-    checked, class, const, continue, decimal, default, delegate, do, double,
-    else, enum, event, explicit, extern, false, finally, fixed, float, for,
-    foreach, get, goto, if, implicit, in, int, interface, internal, is, lock,
-    long, namespace, new, null, object, operator, out, override, params,
-    private, protected, public, readonly, ref, return, sbyte, sealed, set,
-    short, sizeof, stackalloc, static, string, struct, switch, this, throw,
-    true, try, typeof, uint, ulong, unchecked, unsafe, ushort, using, value,
-    virtual, void, volatile, while},
+\lstdefinelanguage{CSharp}{%
+  morekeywords={abstract, as, base, break, case, catch, checked, class, const,
+    continue, default, delegate, do, else, enum, event, explicit, extern,
+    false, finally, fixed, for, foreach, get, goto, if, implicit, in,
+    interface, internal, is, lock, namespace, new, null, operator, out,
+    override, params, private, protected, public, readonly, ref, return,
+    sealed, set, sizeof, stackalloc, static, struct, switch, this, throw,
+    true, try, typeof, unchecked, unsafe, using, value, virtual, volatile,
+    while},
+  morekeywords={[2]bool, byte, char, decimal, double, float, int, long,
+    object, sbyte, short, string, uint, ulong, ushort, void},
   otherkeywords={:},
   sensitive=true,
   morecomment=[l]{//},
-  %morecomment=[l]{///},
+  morecomment=[l]{///},
   morecomment=[s]{/*}{*/},
-  morestring=[b]"
-}
+  morestring=[b]"}
 
 %% listings setup
-\lstset{basicstyle=\ttfamily\small,
+\lstset{basicstyle=\ttfamily\footnotesize,
   keywordstyle=\color[rgb]{0.15,0.25,0.55}\bfseries,
+  keywordstyle={[2]\color{green!50!black}\bfseries},
   identifierstyle=,
   stringstyle=\color[rgb]{0.41,0.13,0.55}\ttfamily,
   commentstyle=\color[rgb]{0.55,0.14,0.14}\sl,
@@ -56,7 +57,7 @@
   framerule=1pt,
   rulecolor=\color[rgb]{0.18,0.55,0.34},
   backgroundcolor=\color{red!10}, %\color[rgb]{0.94,0.85,0.71},
-  escapebegin=\small\CJKfamily{li}\sl\color[rgb]{0.55,0.14,0.14},
+  escapebegin=\CJKfamily{kai}\sl\color[rgb]{0.55,0.14,0.14},
   escapeend=,
   language=CSharp}
 
