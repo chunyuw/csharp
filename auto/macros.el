@@ -2,5 +2,6 @@
  (lambda ()
     (TeX-add-symbols
      "helplines"
-     "wraphere")))
+     "wraphere"
+     "cmd")))
 
