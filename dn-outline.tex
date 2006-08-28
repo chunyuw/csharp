@@ -281,6 +281,21 @@ Content-Length: length
 
 % 多种语言之间的交互
 
+\begin{frame}
+\frametitle{代码重用和~DLL}
+\begin{itemize}
+\item 代码重用，提高效率，减少二次开发
+\item 维护 ~DLL 需要谨慎认真
+  \begin{itemize}
+  \item 版本唯一，向下兼容，保证代码正确执行
+  \item 仔细实现错误检查，无法处理的错误要通过固定的错误码向上提交
+  \item 处理与其他 ~DLL 之前的联系，保持兼容
+  \end{itemize}
+\item 当旧版本的 ~DLL 覆盖新的 ~DLL 时，会发生 ~DLL Hell
+\item .NET --- 从设计时起就避免 ~DLL Hell 的发生
+\end{itemize}
+\end{frame}
+
 \section{公共语言运行时}
 \begin{frame}
 \frametitle{公共语言运行时}
