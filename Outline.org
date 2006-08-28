@@ -43,6 +43,9 @@
      Chapter 3 in [[file:D:\work\eBook.NET\eBook\Wrox.Professional.dot.NET.Framework.2.0.Apr.2006.chm][Professional.dot.NET.Framework.2.0]]
 
 
+  * [ ] 面向对象、抽象建模、对象和类
+     Chapter 2,3,4 in file:Apress.Beginning.CSharp.Objects.From.Concepts.to.Code.eBook-LiB
+
 ** 语言基础
 ** 类
 ** 类型之间的转换
