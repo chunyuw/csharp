@@ -272,6 +272,27 @@
   \attachfile[author=Chunyu Wang,color=1 .2 .2,description=Source
   file,subject=test,icon=Tag,mimetype=text/plain]{test.tex}
 
+* temp data
+
+** [[file:cs-basic.tex]]
+  | C\#类型 | FCL 类型       | 说明                 |
+  | object  | System.Object  | 所有对象的基类型     |
+  | string  | System.String  | Unicode 字符序列     |
+  | bool    | System.Boolean | true 或 ~false       |
+  | char    | System.Char    | 字符型，2 字节       |
+  | byte    | System.Byte    | 单字节有符号整数     |
+  | sbyte   | System.SByte   | 单字节无符号整数     |
+  | short   | System.Int16   | 2 字节有符号整数     |
+  | ushort  | System.UInt16  | 2 字节无符号整数     |
+  | int     | System.Int32   | 4 字节有符号整数     |
+  | uint    | System.UInt32  | 4 字节无符号整数     |
+  | long    | System.Int65   | 8 字节有符号整数     |
+  | ulong   | System.UInt64  | 8 字节无符号整数     |
+  | float   | System.Single  | 单精度浮点数(4字节)  |
+  | double  | System.Double  | 双精度浮点数(8字节)  |
+  | decimal | System.Decimal | 高精度浮点数(16字节) |
+
+
 # Local Variables:
 # org-export-html-style: "<link rel=\"stylesheet\" type=\"text/css\" href=\"res/org.css\">"
 # End:
