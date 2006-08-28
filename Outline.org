@@ -12,11 +12,13 @@
 ** TODO Oral Pratice
 ** TODO Supporting Site
 
+
+
 * What's going on
 
 ** ...
-** .NET 组建技术
-** C# 语言基础
+** [2] .NET 组建技术
+** [1] C# 语言基础
      + [[file:D:/work/eBook.NET/eBook/Prentice.Hall.Visual.C.Sharp.2005.How.to.Program.2nd.Edition.Dec.2005.chm][Visual.C.Sharp.2005.How.to.Program.2nd.Edition]]
      + [[file:D:/work/eBook.NET/eBook/Sybex.Visual.C.Sharp.Dot.NET.Programming.eBook-LiB.chm][Visual.C.Sharp.Dot.NET.Programming]]
      + [[file:D:/work/eBook.NET/eBook/L-spcs3e.pdf][Professional_C#_3rd]]
@@ -27,7 +29,7 @@
 
 *** 异常
 
-** C# 类
+** [3] C# 类
      + [[file:D:/work/eBook.NET/eBook/Prentice.Hall.Visual.C.Sharp.2005.How.to.Program.2nd.Edition.Dec.2005.chm][Visual.C.Sharp.2005.How.to.Program.2nd.Edition]]
      + [[file:D:/work/eBook.NET/eBook/Sybex.Visual.C.Sharp.Dot.NET.Programming.eBook-LiB.chm][Visual.C.Sharp.Dot.NET.Programming]]
      + [[file:D:/work/eBook.NET/eBook/L-spcs3e.pdf][Professional_C#_3rd]]
@@ -39,30 +41,30 @@
 *** 委托
 *** 泛型
 
-** 文件 IO 和数据流
+** [2] 文件 IO 和数据流
 *** XML
      + Chapter 2, [[file:D:/work/eBook.NET/eBook/Apress.Real.World.Dot.NET.Applications.eBook-LiB.chm][Real.World.Dot.NET.Applications]]
 
-** 其他语言特性
+** [2] 网络编程
+   + [[file:D:/work/eBook.NET/eBook/Microsoft.Press.Microsoft.Network.Programming.For.The.Microsoft.Dot.NET.Framework.eBook-LiB.chm][Network.Programming.For.The.Microsoft.Dot.NET.Framework]]
+
+** [2] 其他语言特性
 *** 串行化
 *** 属性
     + [[file:D:/work/eBook.NET/eBook/Apress.Applied.Dot.NET.Attributes.eBook-LiB.chm][Applied.Dot.NET.Attributes]]
 
 *** 不安全代码
 
-** 多线程
-** 网络编程
-   + [[file:D:/work/eBook.NET/eBook/Microsoft.Press.Microsoft.Network.Programming.For.The.Microsoft.Dot.NET.Framework.eBook-LiB.chm][Network.Programming.For.The.Microsoft.Dot.NET.Framework]]
-
-** 图形界面
+** [2] 多线程
+** [2] 图形界面
    + Chapter 3, [[file:D:/work/eBook.NET/eBook/Oreilly.Visual.C.Sharp.2005.A.Developers.Notebook.Apr.2005.eBook-LiB.chm][Visual.C.Sharp.2005.A.Developers.Notebook.Apr.2005]]
    + [[file:d:/work/eBook.NET/eBook/Apress.Pro.dot.NET.2.0.Windows.Forms.and.Custom.Controls.in.C.Sharp.Dec.2005.pdf][dot.NET.2.0.Windows.Forms.and.Custom.Controls.in.C.Sharp]]
 
-** 应用程序的部署
+** [?] 应用程序的部署
    + [[file:D:/work/eBook.NET/eBook/Microsoft.Press.Deploying.Dot.NET.Applications.A.Lifecycle.Guide.eBook-LiB.chm][Deploying.Dot.NET.Applications.A.Lifecycle.Guide]]
 
 
-** ASP.NET
+** [2] ASP.NET
    * ASP.NET 基础
      + Chapter 5, [[file:D:/work/eBook.NET/eBook/Addison.Wesley.Understanding.dot.NET.2nd.Edition.May.2006.chm][Wesley.Understanding.dot.NET.2nd.Edition]]
    * Web 开发
@@ -72,7 +74,7 @@
    * Web Service 
      + [[file:D:/work/eBook.NET/eBook/Microsoft.Press.Programming.Microsoft.Dot.NET.XML.Web.Services.eBook-LiB.chm][Programming.Microsoft.Dot.NET.XML.Web.Services]]
  
-** ADO.NET
+** [2] ADO.NET
    * ADO.NET 基础
      + Chapter 6, [[file:D:/work/eBook.NET/eBook/Addison.Wesley.Understanding.dot.NET.2nd.Edition.May.2006.chm][Wesley.Understanding.dot.NET.2nd.Edition]]
    * ADO.NET 开发
