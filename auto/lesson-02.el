@@ -2,7 +2,9 @@
  (lambda ()
     (TeX-run-style-hooks
      "preamble"
+     "author"
      "cs-basic"
      "cs-class"
-     "cs-oo")))
+     "cs-oo"
+     "cs-advac")))
 

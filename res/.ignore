@@ -4,6 +4,7 @@
 *.nav
 *.out
 *.pdf
+*.rel
 *.snm
 *.toc
 *.vrb

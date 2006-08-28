@@ -2,7 +2,8 @@
 
 DATE=$(shell gdate "+%Y%m%d-%H:%M")
 AUTOCI="Batch checkin by Makefile ($(DATE))"
-CLNSUFFIX=" nav log snm toc aux vrb out out.bak dvi "
+CLNSUFFIX=" aux log snm toc vrb out out.bak dvi "
+OTHSUFFIX=" nav rel "
 
 all: 1 2
 
@@ -20,8 +21,12 @@ ci:
 clean: 
 	-rm -f $(foreach s,$(CLNSUFFIX),$(wildcard *.$(s)))
 cleanpdf:
-	-rm -f lesson-*.pdf test.pdf
-cleanall: clean cleanpdf
+	-rm -f lesson-*.pdf test.pdf z_region.pdf
+cleanoth:
+	-rm -f $(foreach s,$(OTHSUFFIX),$(wildcard *.$(s)))
+	-rm -f z_region.* test.exe
+
+cleanall: clean cleanpdf cleanoth
 
 .PHONY:	all clean
 
