@@ -22,6 +22,9 @@
 
     * [ ] 组件的使用
     * [ ] 部署和版本控制
+      * 应用程序的部署
+        All in [[file:file:D:\work\eBook.NET\eBook\Microsoft.Press.Deploying.Dot.NET.Applications.A.Lifecycle.Guide.eBook-LiB][Deploying.Dot.NET.Applications]]
+			
     * [X] 公共类型系统
       * Type Safty
       * Static Dynamic Type
@@ -35,13 +38,19 @@
     * [ ] 垃圾回收
     * [ ] Visual Studio
     * [ ] 开发工具 SDK
+      * Visual Studio 2005
+        Chapter 2 in [[file:D:\work\eBook.NET\eBook\Oreilly.Visual.C.Sharp.2005.A.Developers.Notebook.Apr.2005.eBook-LiB.chm][Visual.C.Sharp.2005.A.Developers.Notebook]]
+	Chapter 2 in [[file:D:\work\eBook.NET\eBook\Prentice.Hall.Visual.C.Sharp.2005.How.to.Program.2nd.Edition.Dec.2005.chm][Visual.C.Sharp.2005.How.to.Program]]
+
+    * [ ] .NET 语言
+      * Core Features and Languages
+        Chapter 3 [[file:D:\work\eBook.NET\eBook\Oreilly.Dot.NET.Framework.Essentials.3rd.Edition.eBook-LiB.chm][Dot.NET.Framework.Essentials.3rd.Edition]]
 
 * C# Language
 8 lessons
 
   * [ ] Execption
      Chapter 3 in [[file:D:\work\eBook.NET\eBook\Wrox.Professional.dot.NET.Framework.2.0.Apr.2006.chm][Professional.dot.NET.Framework.2.0]]
-
 
   * [ ] 面向对象、抽象建模、对象和类
      Chapter 2,3,4 in file:Apress.Beginning.CSharp.Objects.From.Concepts.to.Code.eBook-LiB
