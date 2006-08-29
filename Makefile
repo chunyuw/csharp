@@ -20,6 +20,7 @@ ci:
 
 clean: 
 	-rm -f $(foreach s,$(CLNSUFFIX),$(wildcard *.$(s)))
+	-rm -f prv_*
 cleanpdf:
 	-rm -f lesson-*.pdf test.pdf z_region.pdf
 cleanoth:
