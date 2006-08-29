@@ -7,7 +7,8 @@
 \begin{frame}
 \frametitle{C\# 语言简介}
 \begin{itemize}
-\item<1-| handout:1> 面向对象\\语言本身支持抽象类、接口、特性和事件等
+\item 开发简单，功能强大，部署简单
+\item<1-| handout:1> 面向对象，一切皆为对象\\语言本身支持抽象类、接口、特性和事件等
 \item<2-| handout:1> 基于组件的开发\\提供内置的版本支持，接口与实现分离，事件的发布与订阅等
 \item<3-| handout:1> 与~Web~开发相结合\\可以将组件转变为~Web~服务，支持远程调用等
 \item<4-| handout:1> 更高的效率\\垃圾自动回收，变量是类型安全的，变量自动初始化等
@@ -29,8 +30,8 @@
 \begin{frame}[fragile]
 \frametitle{C\# 语言的语法}
 \begin{itemize}
-\item 与 C 族语言类似(C/C++/Java)
-  \pause
+% \item 与 C 族语言类似(C/C++/Java)
+%   \pause
 \item 标识符区分大小，不能以数字开始
   \pause
 \item 变量可以随时声明，用 ~new 关键字创建类的实例
@@ -61,64 +62,71 @@ Circle b = new Circle();
   \end{itemize}
 }
 
-
 \begin{frame}[fragile]
-\frametitle{C\# 语言的语法(续)}
+\frametitle{C\# 程序示例}
 \begin{itemize}
 \item<1-| handout:1> 所有程序逻辑和数据必须包含在类型中，没有全局变量
 
-\item<2-| handout:1> 可执行文件必须有一个 ~\texttt{Main()} 方法，并用 ~\texttt{static} 修饰
+\item<1-| handout:1> 通过 ~using 使用系统类库
+
+\item<1-| handout:1> 可执行文件必须有一个 ~\texttt{Main()} 方法，并用 ~\texttt{static} 修饰
 
   \begin{uncoverenv}<2-| handout:1>
 \begin{lstlisting}
 using System;
-class Hello {
-  static void Main(){
-    Console.WriteLine("Hello World!");
+class MyFirstCSharpClass
+{
+  static void Main()
+  {
+    Console.WriteLine("A simple example");
+    Console.ReadLine(); // read one char
+    return;
   }
 }
 \end{lstlisting}
   \end{uncoverenv}
 
 \end{itemize}
-
-
 \end{frame}
+
+
 \section{基本类型}
+
+% \begin{frame}<0>
+% \frametitle{基本数据类型  (\textit{Primitive Data Types})}
+% \begin{tabular}{l|l|l}
+% \hline
+%   C\#类型 & FCL 类型       & 说明 \\
+% \hline
+%   object  & System.Object  & 所有对象的基类型     \\
+%   string  & System.String  & Unicode 字符序列     \\
+%   bool    & System.Boolean & true 或 ~false       \\
+%   char    & System.Char    & 字符型，2 字节       \\
+%   byte    & System.Byte    & 单字节有符号整数     \\
+%   sbyte   & System.SByte   & 单字节无符号整数     \\
+%   short   & System.Int16   & 2 字节有符号整数     \\
+%   ushort  & System.UInt16  & 2 字节无符号整数     \\
+%   int     & System.Int32   & 4 字节有符号整数     \\
+%   uint    & System.UInt32  & 4 字节无符号整数     \\
+%   long    & System.Int65   & 8 字节有符号整数     \\
+%   ulong   & System.UInt64  & 8 字节无符号整数     \\
+%   float   & System.Single  & 单精度浮点数(4字节)  \\
+%   double  & System.Double  & 双精度浮点数(8字节)  \\
+%   decimal & System.Decimal & 高精度浮点数(16字节) \\
+% \end{tabular}
+% \end{frame}
 
 \begin{frame}
 \frametitle{基本数据类型  (\textit{Primitive Data Types})}
-\begin{tabular}{l|l|l}
-\hline
-  C\#类型 & FCL 类型       & 说明 \\
-\hline
-  object  & System.Object  & 所有对象的基类型     \\
-  string  & System.String  & Unicode 字符序列     \\
-  bool    & System.Boolean & true 或 ~false       \\
-  char    & System.Char    & 字符型，2 字节       \\
-  byte    & System.Byte    & 单字节有符号整数     \\
-  sbyte   & System.SByte   & 单字节无符号整数     \\
-  short   & System.Int16   & 2 字节有符号整数     \\
-  ushort  & System.UInt16  & 2 字节无符号整数     \\
-  int     & System.Int32   & 4 字节有符号整数     \\
-  uint    & System.UInt32  & 4 字节无符号整数     \\
-  long    & System.Int65   & 8 字节有符号整数     \\
-  ulong   & System.UInt64  & 8 字节无符号整数     \\
-  float   & System.Single  & 单精度浮点数(4字节)  \\
-  double  & System.Double  & 双精度浮点数(8字节)  \\
-  decimal & System.Decimal & 高精度浮点数(16字节) \\
-\end{tabular}
-\end{frame}
-
-\begin{frame}
-\frametitle{简单数据类型(Primitive Data Types)}
 \begin{itemize}
 \item 字符串型：string
 \item 布尔型~bool：值为~true~或~false 
 \item 字符型~char：长度为 2 字节(Unicode字符) 
 \item 整数型：\\byte, sbyte, short, ushort, int, uint, long, ulong 
 \item 浮点型：float, double, decimal 
+%\item 引用型：object, reference
 \item 枚举类型：enum
+%\item 结构体型：struct
 \end{itemize}
 \end{frame}
 
@@ -134,7 +142,7 @@ class Hello {
 \begin{frame}[fragile]
 \frametitle{C\# 类型与~FCL 类型}
 \begin{itemize}
-\item C\# 的基本类型直接映射到 ~FCL 类型
+\item C\# 的基本类型实际就是 ~FCL 类型的别名
 \begin{lstlisting}
 System.Int32 x = 100; // int x
 int y = x;
@@ -212,7 +220,7 @@ World!";
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{字符串(续)}
+\frametitle{字符串的操作}
 \begin{itemize}
 \item 通过 ~``\texttt{+}'' 可以直接连接串
 \begin{lstlisting}
@@ -222,30 +230,61 @@ s3 = s1 + s2 ;
 s4 = "20/5 = " + 20/5;
 \end{lstlisting}
   
-  \CJKindent \small 但需要注意，字符串的连接会生成新的串，如果大量操作，会影响效率。
+  \CJKindent \small 但需要注意，字符串的连接会生成新的串，如果大量操作，会影响
+  效率，或用~ System.Text.StringBuilder 。
 
-\item string 类型中提供的其他方法
+\item 通过 ~``=='' 判断是否相等
+\begin{lstlisting}
+string a = "abracadabra";
+string b = "abracadabra";
+Console.WriteLine(a==b); // Prints "True"
+\end{lstlisting}
+\item string 类型中提供的成员
   \begin{itemize}
-    % Split(), 
-  \item 抽取子串 {\color{red}TODO}
-    % IndexOf(),
-  \item 比较字符串 {\color{red}TODO}
-    % CompareTo(),
-  \item 转换大小写
-    % ToLower(), ToUpper()
-  \item 对象的 ToString() 方法
-  \item 成员
-    % Length, 
+  \item 查找字串 \texttt{IndexOf()}
+  \item 比较字符串 \texttt{CompareTo(), Equals()}
+  \item 转换大小写 \texttt{ToLower(), ToUpper()}
+  % \item 对象的 ToString() 方法
+  \item 串的长度 \texttt{Length}
+\begin{lstlisting}
+int x = string.Length;
+int y = "Hello World".Length;
+\end{lstlisting}
   \end{itemize}
 \end{itemize}
 
 \end{frame}
 
-\begin{frame} \frametitle{\texttt{WriteLine} 方法的格式}
-
+\begin{frame}[fragile]
+\frametitle{格式化字符串}
 \CJKindent 
+\begin{itemize}
+\item 通过~ ``{N}'' 表示后面参数次序
+\begin{lstlisting}
+string s1;
+s1 = string.Format("Result is: {0}, {1}", 20, 3.22);
+// "Result is: 20, 3.22"
+
+\end{lstlisting}
+
+\item 自定义的格式
+\begin{lstlisting}
+ s1 = string.Format("{0:0##.##}", 3.223); // "003.22"
+ s1 = string.Format("{0:##%}", 0.45); // "45%"
+\end{lstlisting}
+
+\item 时间日期
+\begin{lstlisting}
+DateTime dt = DateTime.Now;
+s1 = string.Format("{0:yyyy/MM/dd hh:mm:ss}", dt);
+// "2006-08-29 11:40:22"
+s1 = dt.ToString("yyyy-dd-MM"));
+\end{lstlisting}
+
+\end{itemize}
 
 \end{frame}
+
 \begin{frame}[fragile]
 \frametitle{结构体类型}
 \CJKindent 结构体是和类(class)相似的一种简单的封装构造，同样可以包含成员变量和方法。
@@ -267,43 +306,38 @@ struct Point {
   \item 也支持 struct，和 class 类似
   \end{itemize}}
 
-\begin{frame} 
+\begin{frame}[fragile]
 \frametitle{枚举类型}
+\begin{itemize}
+\item 定义常量可以用 \texttt{const} 关键字\\
+  \lstinline|const int x = 100;|
+\item 也可以使用枚举类型
+\begin{lstlisting}
+enum Color
+{Red, Blue=2, Green}
+
+\end{lstlisting}
+\end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{数组}
 \begin{itemize}
-\item 一维数组
-\begin{lstlisting}[escapeinside=<>]
-int[] x; // <声明一个数组变量>
-int[] y = new int[4]; // <创建数组>
-int[] z = new int[] {1,3,5}; // <初始化>
-
-\end{lstlisting}
-  
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{多维数组}
-\begin{itemize}
-\item 矩形多维数组
+\item 一维数组，矩形多维数组
 \begin{lstlisting}[escapeinside=<>,mathescape]
-int[,] y = new int[4,3]; // $4\times3$ <的数组>
+int[] x; // <声明一个数组变量，默认值为 \texttt{null}>
+int[] x = new int[5]; // <创建数组>
+int[] x = new int[] {1,3,5,7,9}; // <初始化>
 
-\end{lstlisting}
-  
-\item 锯齿形多维数组
-\begin{lstlisting}[escapeinside=<>]
-int[][] z = new int[2][];
-     z[0] = new int[3]; // z[0]<长度为3>
-     z[1] = new int[5]; // z[0]<长度为3>
-//z[0]<只是数组变量；>z[0][0]<才是整数>
-
+int[,] y = new int[2,5]; // $2\times5$ <的数组>
 \end{lstlisting}
 \end{itemize}
+
+  \begin{figure}[h] \label<1| handout:1>{fig:cs-array-mul}
+    \centering \input{pgf-dn/cs-array-mul}
+  \end{figure}
+
 \end{frame}
 
 \note{
@@ -313,6 +347,38 @@ int[][] z = new int[2][];
   \item int[,] 和 int[][]不同
   \end{itemize}
 }
+
+\begin{frame}[fragile]
+\frametitle{锯齿形多维数组}
+\begin{itemize}
+\item 锯齿形多维数组
+\begin{lstlisting}[escapeinside=<>]
+int[][] z = new int[3][];
+     z[0] = new int[4]; // z[0]<长度为4>
+     z[1] = new int[3]; // z[1]<长度为3>
+     z[2] = new int[5]; // z[2]<长度为5>
+//z[0]<只是数组变量；>z[0][0]<才是整数>
+
+\end{lstlisting}
+\end{itemize}
+
+  \begin{figure}[h] \label<1| handout:1>{fig:cs-array-rec}
+    \centering \input{pgf-dn/cs-array-rec}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{数组的使用}
+数组类型在类库中称为 ~System.Arrays，提供的方法
+
+\begin{itemize}
+\item Length --- 数组的长度
+\item Clear() --- 将数组清空 (0 或 ~null)
+\item Sort() --- 将数组排序
+\item Reverse() ---- 倒序排列
+\item Find() --- 找到特定的元素
+\end{itemize}
+\end{frame}
 
 \begin{frame}[fragile]
 \frametitle{溢出检查(checked和unchecked)}
@@ -337,15 +403,50 @@ int x = unchecked(i*j);
 \end{frame}
 
 
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{预处理指令}
-% #define/#undef
-% #if/#elif/#else/#endif
-% #line
-% #region/#endregion
-% #error/#warning
+\begin{itemize}
+\item 定义宏(\textit{macro})，检验宏\\
 
-% 命令行 csc /Define:XX hello.cs
+\texttt{\#define, \#undef, \#if, \#else, \#elif, \#endif}
+\cmd{csc /Define:XX hello.cs}
+
+\item 产生编译错误或警告
+
+\texttt{\#error, \#warn}
+
+\begin{lstlisting}
+#if DEBUG && RELEASE
+#error "DEBUG and RELEASE defined simultaneously"
+#endif
+
+#warning "Dont't forget TEST here"
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{预处理指令(续)}
+\begin{itemize}
+\item 定义代码段，用于 Visual Studio 的代码折叠
+
+\texttt{\#region, \#endregion}
+
+\begin{lstlisting}
+#region Test Module
+  ...
+#endregion
+\end{lstlisting}
+\item 改变编译器当前的文件名和行号
+
+\texttt{\#line}
+
+\begin{lstlisting}
+#line 123 "AnotherFile.cs"
+  ...
+#line default // restore 
+\end{lstlisting}
+\end{itemize}
 
 \end{frame}
 \section{流程控制}
@@ -458,7 +559,7 @@ foreach (string x in colors) {
 \end{itemize}
 \end{frame}
 
-\section{异常}
+%\section{异常}
 \begin{frame}[fragile]
 \frametitle{异常处理(try-catch-finally)}
 捕捉和处理可能在运行时发生的错误的技术，常见的异常有整数溢出、下标越界、IO错误等。\pause
