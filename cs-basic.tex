@@ -349,7 +349,7 @@ int[,] y = new int[2,5]; // $2\times5$ <的数组>
 }
 
 \begin{frame}[fragile]
-\frametitle{锯齿形多维数组}
+\frametitle{多维数组}
 \begin{itemize}
 \item 锯齿形多维数组
 \begin{lstlisting}[escapeinside=<>]
@@ -367,17 +367,24 @@ int[][] z = new int[3][];
   \end{figure}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{数组的使用}
-数组类型在类库中称为 ~System.Arrays，提供的方法
+数组类型在类库中称为 ~\texttt{System.Array}，提供的方法
 
 \begin{itemize}
-\item Length --- 数组的长度
-\item Clear() --- 将数组清空 (0 或 ~null)
-\item Sort() --- 将数组排序
-\item Reverse() ---- 倒序排列
-\item Find() --- 找到特定的元素
+\item \texttt{Length} --- 数组的长度
+\item \texttt{Clear()} --- 将数组清空 (0 或 ~null)
+\item \texttt{Sort()} --- 将数组排序
+\item \texttt{Reverse()} ---- 倒序排列
+\item \texttt{Find()} --- 找到特定的元素
 \end{itemize}
+\begin{lstlisting}
+char[] x = new char[] {'b', 'a', 'c'};
+int    y = x.Length;
+System.Array.Sort(x);
+System.Array.Reverse(x);
+\end{lstlisting}
+
 \end{frame}
 
 \begin{frame}[fragile]
@@ -560,9 +567,22 @@ foreach (string x in colors) {
 \end{frame}
 
 %\section{异常}
+\begin{frame}
+\frametitle{错误处理}
+\begin{itemize}
+\item C\# 提供的标准处理方式---异常(\textit{Exception})
+\item 捕捉和处理可能在运行时发生的错误的技术
+\item C\# 中的异常就是一个对象，包含了错误的类型和详细信息
+\item 异常能够给出调用栈的序列，用于分析异常发生的位置
+\item 异常可以被捕获，并加以处理(C\# 的错误处理机制)
+\item 异常可以分类，可以自己创建
+\item 未被捕获的异常将提交给 ~CLR，并中止程序运行
+\end{itemize}
+
+\end{frame}
+
 \begin{frame}[fragile]
-\frametitle{异常处理(try-catch-finally)}
-捕捉和处理可能在运行时发生的错误的技术，常见的异常有整数溢出、下标越界、IO错误等。\pause
+\frametitle{异常处理}
 \begin{itemize}
 \item try 监测异常的发生
 \begin{lstlisting}
@@ -591,7 +611,7 @@ finally { ... }
   \end{itemize}}
 
 \begin{frame}[fragile]
-\frametitle{异常处理举例}
+\frametitle{异常处理示例}
 \begin{lstlisting}
 // using System; using System.IO;
 StreamWriter sw = null;
@@ -604,9 +624,35 @@ catch (FileNotFoundException e) {
   Console.WriteLine("File "
                +e.FileName+" not found.");
 }
-catch (Exception e){ Console.WriteLine(e);}
-finally { if (sw!=null)   sw.Close();     }
+catch (Exception e){
+  Console.WriteLine(e);
+}
+finally {
+  if (sw!=null)   sw.Close();
+}
 
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{抛出异常}
+使用关键字 ~\texttt{throw} 向系统抛出异常。
+\begin{lstlisting}
+try {
+
+  if (Overflow == true)
+    throw new OverflowException();
+
+  if (OutOfBounds == true)
+    throw new IndexOutOfRangeException();
+
+} catch (OverflowException e) {
+   // error handling for overflow
+} catch (IndexOutOfRangeException e) {
+   // error handling for out of range
+} finally {
+   // clean up
+}
 \end{lstlisting}
 \end{frame}
 
@@ -617,6 +663,26 @@ finally { if (sw!=null)   sw.Close();     }
   \item 其他任何错误，都会被更通用的异常类型捕获
   \item finally保证，无论是否发生异常，此处代码都会被执行
   \end{itemize}}
+
+\begin{frame}
+\frametitle{异常的分类}
+\begin{columns}
+  \column{.6\textwidth}
+  \begin{itemize}
+  \item Exception 继承自 ~Object，是异常系统的根
+  \item SystemException 通常由 ~CLR 抛出
+  \item ApplicationException 用于应用程序自定义异常
+  \item 常见异常
+    \begin{itemize}
+    \item FileNotFoundException
+    \item EndOfStreamException
+    \item OverflowException
+    \end{itemize}
+  \end{itemize}
+  \column{.4\textwidth}
+  \input{pgf-dn/cs-exception}
+\end{columns}
+\end{frame}
 
 % Local Variables: 
 % mode: LaTeX
