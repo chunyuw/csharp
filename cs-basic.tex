@@ -5,16 +5,35 @@
 \section{C\# 语言简介}
 
 \begin{frame}
-\frametitle{C\# 语言简介}
+\frametitle{语言简洁}
+
 \begin{itemize}
-\item 开发简单，功能强大，部署简单
-\item<1-| handout:1> 面向对象，一切皆为对象\\语言本身支持抽象类、接口、特性和事件等
-\item<2-| handout:1> 基于组件的开发\\提供内置的版本支持，接口与实现分离，事件的发布与订阅等
-\item<3-| handout:1> 与~Web~开发相结合\\可以将组件转变为~Web~服务，支持远程调用等
-\item<4-| handout:1> 更高的效率\\垃圾自动回收，变量是类型安全的，变量自动初始化等
-\item<4-| handout:1> 支持局部类、泛型等高级特性
+\item C\# 是一种简洁、类型安全的面向对象的语言\par
+\CJKindent 以创建传统的 Windows 客户端应用程序、XML Web services、分布式组件、客户端 - 服务器应用程序、数据库应用程序以及很多其他类型的程序
+\item 语法表现力强，只有不到 90 个关键字，而且简单易学
+\item 还支持泛型方法和类型
+\item 支持封装、继承和多态性概念
+    % * 封装的方法签名（称为委托），它实现了类型安全的事件通知。
+    % * 属性 (Property)，充当私有成员变量的访问器。
+    % * 属性 (Attribute)，提供关于运行时类型的声明性元数据。
+    % * 内联 XML 文档注释。
+\item 支持指针和“不安全”代码的概念
 \end{itemize}
+
 \end{frame}
+
+
+% \begin{frame}
+% \frametitle{C\# 语言简介}
+% \begin{itemize}
+% \item 开发简单，功能强大，部署简单
+% \item<1-| handout:1> 面向对象，一切皆为对象\\语言本身支持抽象类、接口、特性和事件等
+% \item<2-| handout:1> 基于组件的开发\\提供内置的版本支持，接口与实现分离，事件的发布与订阅等
+% \item<3-| handout:1> 与~Web~开发相结合\\可以将组件转变为~Web~服务，支持远程调用等
+% \item<4-| handout:1> 更高的效率\\垃圾自动回收，变量是类型安全的，变量自动初始化等
+% \item<4-| handout:1> 支持局部类、泛型等高级特性
+% \end{itemize}
+% \end{frame}
 
 \note{
   \begin{itemize}
@@ -115,6 +134,25 @@ class MyFirstCSharpClass
 %   decimal & System.Decimal & 高精度浮点数(16字节) \\
 % \end{tabular}
 % \end{frame}
+
+\begin{frame}
+\frametitle{基本操作符}
+\begin{itemize}
+\item 算数运算 \par
+\texttt{$+,-,*,/,\%, +=,-=,*=,/=,++,--$}\par
+指数运算操作符用\texttt{System.Math.Pow()}
+\item 关系运算 \par
+\texttt{$>, >=, <, <=, !=, ==$}
+\item 逻辑运算 \par
+\texttt{\&\& || !}
+\item 位运算 \par
+\texttt{\& | \^}
+\item 其他 \par
+\texttt{?:}
+\end{itemize}
+
+\end{frame}
+
 
 \begin{frame}
 \frametitle{基本数据类型  (\textit{Primitive Data Types})}
@@ -388,7 +426,7 @@ System.Array.Reverse(x);
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{溢出检查(checked和unchecked)}
+\frametitle{溢出检查}
 \begin{itemize}
 \item 进行溢出检查
   \lstset{emph={checked,unchecked}}

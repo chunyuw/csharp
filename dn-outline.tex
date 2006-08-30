@@ -108,13 +108,13 @@ Microsoft .NET 平台利用以互联网为基础的计算和通讯激增的特点，通过先进的软件，
     以及调用这些函数时必须传递哪些参数。与 ~XML, SOAP 一样， WSDL 也已经提交给 ~W3C 进行标准化。}
 
 \item<5-| handout:1> C\# 和 ~CLI\only<5| handout:0>{, \textit{Common Language Infrastructure}}
-  \only<6-| handout:1>{--- .NET 框架的一部分}
+  \only<6-| handout:1>{--- .NET 核心部分}
   \medskip
 
   \only<5| handout:0>{\small Microsoft 为 ~XML Web 服务家族创建的一种编程语言 ~C\#。并且已经提交
-    给 ~ECMA 进行标准化。 Microsoft 还向 ~ECMA 提交了 ~Microsoft .NET 框架的一个子集，叫做公共语言
-    基础结构 (CLI)。这将使其他供应商能够在各种平台上实现 ~CLI，以便用 ~.NET 框架提供的基本体系结构
-    模型所写的软件可以在各种平台上用各种工具来创建。}
+    给 ~ECMA 进行标准化。 Microsoft 还向 ~ECMA 提交了 ~Microsoft .NET 框架的一个子集，叫做公共语言基
+    础结构。这将使其他供应商能够在各种平台上实现 ~CLI，以便用 ~.NET 框架提供的基本体系结构模型所写的
+    软件可以在各种平台上用各种工具来创建。}
 
 \end{itemize}
 \medskip
@@ -128,39 +128,30 @@ Microsoft .NET 平台利用以互联网为基础的计算和通讯激增的特点，通过先进的软件，
 % 对于开发人员而言，丰富的类库，方便的集成，以及发布、部署和维护方便性显得尤为
 % 重要
 
-\begin{frame}
-\frametitle{公共语言基础结构}
-\framesubtitle{实现 ~.NET 平台的基础}
-\begin{block}{\textit{Common Language Infrastructure(CLI)}}
-  \CJKindent CLI 定义了一个与平台无关的虚拟代码执行环境。包括公共中间语言和公
-  共类型系统，相应的语法、语义和部分 ~.NET 框架类库。
-\end{block}
-\begin{itemize}
-\item<2-| handout:1> CLI 中没有指定操作系统，可以在任何的系统或设备上实现
-\item<3-| handout:1> 其他公司也可以根据 ~CLI 标准实现相关技术
-  \begin{itemize}
-  \item Microsoft .NET Framework -- 微软公司自己的实现
-  \end{itemize}
-\item<4-| handout:1> 目前已有的开源 ~.NET 平台
-  \begin{itemize}
-  \item Mono Project --- http://www.mono-project.com
-  \item DotGNU Project --- http://www.dotgnu.org
-  \end{itemize}
-\end{itemize}
-\end{frame}
-
 \begin{frame}[t]
 \frametitle{Web 服务}
 \begin{block}{\textit{Web Services}}
   {\CJKindent Web Services 是可远程访问的应用程序组件，并且响应以 ~HTTP 为主访
     问请求，提供基于文本的信息服务。}
 \end{block}
-\begin{itemize}
-\item 提供了信息发布的标准方式，方便应用程序访问
-\item 信息不再是网页或文件，以根据需要各取所需
-\item 消除了使用不同组件模型、操作系统之间存在的差异
-\item 方便创建基于 ~Web 服务的分布式应用程序
-\end{itemize}
+\begin{onlyenv}<1| handout:1>
+  \begin{columns}
+\column{.6\textwidth}
+    \begin{itemize}
+    \item 提供了信息发布的标准方式，方便应用程序访问
+    \item 信息不再是网页或文件，以根据需要各取所需
+    \item 消除了使用不同组件模型、操作系统之间存在的差异
+    \item 便于创建分布式应用程序
+    \end{itemize}
+    % \end{onlyenv}
+    % \begin{onlyenv}<2| handout:0>
+\column{.4\textwidth}
+    \begin{figure}[htbp]
+      \centering
+      \includegraphics[width=4cm]{web-services}
+    \end{figure}
+  \end{columns}
+\end{onlyenv}
 \end{frame}
 
 \begin{frame}[fragile,t]
@@ -210,11 +201,62 @@ Content-Length: length
 \end{onlyenv}
 \end{frame}
 
+\begin{frame}
+\frametitle{公共语言基础结构}
+\framesubtitle{实现 ~.NET 平台的基础}
+\begin{block}{\textit{Common Language Infrastructure(CLI)}}
+  \CJKindent CLI 定义了一个与平台无关的虚拟代码执行环境。包括公共中间语言和公
+  共类型系统，相应的语法、语义和部分 ~.NET 框架类库。
+\end{block}
+\begin{itemize}
+\item<2-| handout:1> CLI 中没有指定操作系统，可以在任何的系统或设备上实现
+\item<3-| handout:1> 其他公司也可以根据 ~CLI 标准实现相关技术
+  \begin{itemize}
+  \item Microsoft .NET Framework --- 微软公司自己的实现
+  \item Shared Source CLI --- 微软的开源 CLI
+  \end{itemize}
+\item<4-| handout:1> 目前已有的开源 ~.NET 平台
+  \begin{itemize}
+  \item Mono Project --- http://www.mono-project.com
+  \item DotGNU Project --- http://www.dotgnu.org
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{CLI 的内容}
+
+\begin{itemize}
+\CJKindent
+\item 概念和体系结构
+
+描述了 ~CLI 的体系结构，公共类型系统 (CTS)、虚拟执行系统 (VES)和公共语言规范 (CLS)的标准。\pause
+
+\item 元数据的定义和语法
+
+元数据的标准化定义：文件中物力上的布局、逻辑上的内容，以及针对编译器的语法结构。\pause
+
+\item 公共中间语言(CIL)的指令集
+
+类似汇编语言指令的指令集，以及语法结构。\pause
+
+\item 相关文件和库
+\item 针对调试的中间格式
+\item 附件
+
+\end{itemize}
+
+\end{frame}
+
 \section{.NET 框架简介}
 
 \begin{frame}
 \frametitle{Microsoft .NET Framework}
 \framesubtitle{功能丰富的开发平台}
+
+\CJKindent 对开发人员来说 ~.NET 一般就是 .NET Framework，.NET Framework SDK 和 ~Visual Studio .NET
+三个方面。
+
 \begin{itemize}
 \item \large 互联网、分布式应用程序、Windows 应用程序
 \item \large 创建与运行 ~Windows 应用程序的基础
@@ -280,6 +322,7 @@ Content-Length: length
 \frametitle{代码重用和~DLL}
 \begin{itemize}
 \item 代码重用，提高效率，减少二次开发
+\item 动态加载所需组建，减少内存使用
 \item 维护 ~DLL 需要谨慎认真
   \begin{itemize}
   \item 版本唯一，向下兼容，保证代码正确执行
@@ -287,7 +330,7 @@ Content-Length: length
   \item 处理与其他 ~DLL 之前的联系，保持兼容
   \end{itemize}
 \item 当旧版本的 ~DLL 覆盖新的 ~DLL 时，会发生 ~DLL Hell
-\item .NET --- 从设计时起就避免 ~DLL Hell 的发生
+\item DLL Hell --- .NET 的设计动机之一
 \end{itemize}
 \end{frame}
 
@@ -443,6 +486,8 @@ Content-Length: length
 
 \end{frame}
 
+
+
 % \subsection*{托管代码的编译}
 \begin{frame}<0| handout:0>
 \frametitle{CLR 中程序的运行}
@@ -477,6 +522,33 @@ Content-Length: length
 \end{frame}
 
 \begin{frame}
+\frametitle{ .NET PE 文件}
+\begin{block}{\textit{.NET Portable Executable File}}
+\CJKindent \small  为支持 ~CLR 扩展的 ~Windows PE 文件格式。其中包括了 ~PE 文件的头信息，CLR 的头信息，程序的元数据和
+  ~IL 代码以及数据段。
+\end{block}
+\begin{columns}
+  \column{.4\textwidth}
+  \begin{figure}[htbp]
+    \centering
+    \input{pgf-dn/pe-format}
+  \end{figure}
+  \column{.6\textwidth}
+\begin{itemize}
+\item 查看 ~PE 文件内容\\
+{\footnotesize \cmd{dumpbin.exe Hello.exe}}
+\vskip4pt
+\item \textit{Core execution engine} \\
+{\color{red!40!black} \texttt{mscoree.dll}\\
+\texttt{...}\\
+\texttt{$\_$CorExeMain}}
+
+\end{itemize}
+\end{columns}
+
+\end{frame}
+
+\begin{frame}
 \frametitle{托管代码的实时编译}
 \begin{overlayarea}{\textwidth}{1.2cm}
   \begin{itemize}
@@ -497,6 +569,27 @@ Content-Length: length
 \end{figure}
 
 \end{frame}
+
+\begin{frame}
+\frametitle{生成本地镜像}
+\begin{block}{\textit{Native Image Generator}}
+  \CJKindent \small SDK 提供的用于产生本地代码镜像工具 ~ngen.exe，可以将文件一次性转换为本地代码。
+\end{block}
+
+\vskip4pt
+\cmd{csc /t:exe /out:Hello.exe Hello.cs}
+\cmd{ngen Hello.exe}
+\cmd{Hello.exe}
+\vskip4pt
+\begin{itemize}
+\item 可以提高执行效率，防止过多使用 ~JIT 编译器
+\item 产生的本地代码仍然需要 ~CLR 才能运行
+\end{itemize}
+
+\end{frame}
+
+
+
 
 % 程序集
 % 什么是程序集？
@@ -588,9 +681,9 @@ Content-Length: length
 \end{block}
 
 \begin{block}{共享程序集}
-  \CJKindent \small 共享程序集是可被多个应用程序引用的程序集，通常被明确安装在全局程序集缓存 (\textit{Global
-    Assembly Cache, GAC})中。要共享一个程序集，该程序集必须明确为这个目的而创建，这可以通过给其指定加密的增强型名称
-  来实现。
+  \CJKindent \small 共享程序集是可被多个应用程序引用的程序集，通常被明确安装在全局程序集缓
+  存 (\textit{Global Assembly Cache, GAC})中。要共享一个程序集，可以通过给其指定加密的增强型名称来实
+  现。
 \end{block}
 
 \begin{itemize}
@@ -742,64 +835,6 @@ Content-Length: length
   % System.Threading, System.Web, System.Windows, System.XML
 
 \end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{.NET 编程语言}
-\framesubtitle{Microsoft 提供编程语言}
-% 超过20种，同样的开发界面、调试方式、同样的类库
-
-\begin{itemize}
-  \CJKindent
-\item Visual C\# .NET  \par
-  \smallskip \small .NET 平台首推的开发语言
-\item Visual Basic .NET \par
-  \smallskip \small 方便 ~VB 程序员进行 ~.NET 开发
-\item Visual C++ .NET (Managed C++) \par
-  \smallskip \small 同时利用 ~C++ 和 .NET 平台(类库)
-\item Visual J\# .NET (Java) \par
-  \smallskip \small 方便 ~Java 程序员，移植现有 ~Java 项目到 ~.NET 平台
-\item JScript .NET \par
-  \smallskip \small 使用 ~JScript 利用 ~.NET 平台(类库)
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{.NET 编程语言}
-\framesubtitle{其他可以在 ~.NET 平台编译的语言 }
-% 超过20种，同样的开发界面、调试方式、同样的类库
-\begin{columns}[t]
-  \column{.28\textwidth}
-  \begin{itemize}
-    \setlength{\itemsep}{8pt plus 1pt}
-  \item Fortran
-  \item Python
-  \item Perl
-  \item Scheme
-  \item Haskell
-  \item Smalltalk
-  \end{itemize}
-  \column{.28\textwidth}
-  \begin{itemize}
-    \setlength{\itemsep}{8pt plus 1pt}
-  \item F\#
-  \item COBOL
-  \item Mercury
-  \item Mondrian
-  \item Oberon
-  \item Eiffel\#
-  \end{itemize}
-  \column{.44\textwidth}
-  \begin{itemize}
-    \setlength{\itemsep}{8pt plus 1pt}
-  \item Component Pascal
-  \item RPG
-  \item Delta Forth
-  \item Standard ML
-  \item TMT Pascal
-  \item $\ldots$
-  \end{itemize}
-\end{columns}
 \end{frame}
 
 % Local Variables:

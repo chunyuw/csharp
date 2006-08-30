@@ -13,6 +13,7 @@
      "pgf-dn/cts-typesystem"
      "pgf-dn/cts-v-r-types"
      "pgf-dn/clr-compile"
+     "pgf-dn/pe-format"
      "pgf-dn/clr-execute"
      "pgf-dn/fcl-namespaces")))
 

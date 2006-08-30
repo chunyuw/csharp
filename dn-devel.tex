@@ -5,6 +5,109 @@
 %% + 传统的 Windows 开发 和 .NET 中 Windows 开发
 
 \section{.NET 开发工具}
+
+\begin{frame}[fragile]
+\frametitle{传统的 ~Windows 开发}
+
+\CJKindent 创建并显示一个窗口：
+
+\lstset{language=C}
+\begin{lstlisting}
+HWND hwndMain = CreateWindowEx( 0,
+  "MainWinClass", "Main Window", 
+  WS_OVERLAPPEDWINDOW | WS_HSCROLL | 
+  CW_USEDEFAULT, CW_USEDEFAULT, 
+  CW_USEDEFAULT, CW_USEDEFAULT, 
+  (HWND) NULL, (HWND) NULL, 
+  hInstance, NULL);
+
+ShowWindow(hwndMain, SW_SHOWDEFAULT);
+
+UpdateWindow(hwndMain);
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{.NET 中的开发}
+创建并显示一个窗口：
+
+VB.NET
+\lstset{defaultdialect=[Visual]Basic,language=Basic}
+\begin{lstlisting}
+Dim form1 as New Form()
+form1.Text = "New Window"
+form1.Show()
+\end{lstlisting}
+
+C\#
+\lstset{language=CSharp}
+\begin{lstlisting}
+Form form1 = new Form();
+form1.Text = "Main Window";
+form1.Show();
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\frametitle{.NET 编程语言}
+\framesubtitle{Microsoft 提供编程语言}
+% 超过20种，同样的开发界面、调试方式、同样的类库
+
+\begin{itemize}
+  \CJKindent
+\item Visual C\# .NET  \par
+  \smallskip \small .NET 平台首推的开发语言
+\item Visual Basic .NET \par
+  \smallskip \small 方便 ~VB 程序员进行 ~.NET 开发
+\item Visual C++ .NET (Managed C++) \par
+  \smallskip \small 同时利用 ~C++ 和 .NET 平台(类库)
+\item Visual J\# .NET (Java) \par
+  \smallskip \small 方便 ~Java 程序员，移植现有 ~Java 项目到 ~.NET 平台
+\item JScript .NET \par
+  \smallskip \small 使用 ~JScript 利用 ~.NET 平台(类库)
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{.NET 编程语言}
+\framesubtitle{其他可以在 ~.NET 平台编译的语言 }
+% 超过20种，同样的开发界面、调试方式、同样的类库
+\begin{columns}[t]
+  \column{.28\textwidth}
+  \begin{itemize}
+    \setlength{\itemsep}{8pt plus 1pt}
+  \item Fortran
+  \item Python
+  \item Perl
+  \item Scheme
+  \item Haskell
+  \item Smalltalk
+  \end{itemize}
+  \column{.28\textwidth}
+  \begin{itemize}
+    \setlength{\itemsep}{8pt plus 1pt}
+  \item F\#
+  \item COBOL
+  \item Mercury
+  \item Mondrian
+  \item Oberon
+  \item Eiffel\#
+  \end{itemize}
+  \column{.44\textwidth}
+  \begin{itemize}
+    \setlength{\itemsep}{8pt plus 1pt}
+  \item Component Pascal
+  \item RPG
+  \item Delta Forth
+  \item Standard ML
+  \item TMT Pascal
+  \item $\ldots$
+  \end{itemize}
+\end{columns}
+\end{frame}
+
+
 \begin{frame}
 \frametitle{.NET 开发工具}
 
