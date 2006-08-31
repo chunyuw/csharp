@@ -5,15 +5,15 @@
 \section{C\# 语言简介}
 
 \begin{frame}
-\frametitle{语言简洁}
+\frametitle{语言简介}
 
 \begin{itemize}
     \setlength{\itemsep}{6pt plus 1pt}
 \item C\# 是一种简洁、类型安全的面向对象的语言\par
-\smallskip  \CJKindent 可以创建传统的 Windows 客户端应用程序、XML Web services、分布式组
-  件、客户端 - 服务器应用程序、数据库应用程序以及很多其他类型的程序。
-\item 语法表现力强，只有不到 90 个关键字，而且简单易学
-\item 还支持泛型方法和类型
+\smallskip  \CJKindent 可以创建传统的~ Windows 客户端应用程序、XML Web services、分布式组
+  件、客户端---服务器应用程序、数据库应用程序以及很多其他类型的程序。
+\item 语法表现力强，只有不到~ 90 个关键字，而且简单易学
+\item 支持泛型的方法和类型
 \item 支持封装、继承和多态性概念
     % * 封装的方法签名（称为委托），它实现了类型安全的事件通知。
     % * 属性 (Property)，充当私有成员变量的访问器。
@@ -188,6 +188,7 @@ class MyFirstCSharpClass
 System.Int32 x = 100; // int x
 int y = x;
 \end{lstlisting}
+\pause
 \item 因此类型本身也由 ~FCL 提供了一些基本的成员和方法
 
 \begin{lstlisting}
@@ -209,13 +210,14 @@ z = decimal.Remainder(pi,1.3M); // 0.54159265...
 \frametitle{数据的表示}
 
 \begin{itemize}
-\item bool 只能有 ~\lstinline|true| 和 ~\lstinline|false| 两个值
+\item bool 只能有 ~\lstinline|true| 和 ~\lstinline|false| 两个值 \pause
 \item 数字的后缀
   \begin{itemize}
     \lstset{emph={[3]L,M,U,UL,F}}
   \item \lstinline|100, 100U, 100L, 100UL; // int, uint, long, ulong|
   \item \lstinline|2.12F, 2.12, 2.12M;     // float, double, decimal|
   \end{itemize}
+\pause
 \item char 类型表示 ~Unicode 字符 (\lstinline| char c;|)
   \begin{columns}
     \column{.35\textwidth}
@@ -244,8 +246,8 @@ c = char.IsLetterOrDigit(s,1);
 \frametitle{字符串}
 % unicode 字符序列
 \begin{itemize}
-\item C\# 中基本的数据类型， Unicode 字符序列
-\item 在堆中分配，但使用效果和值类型相似
+\item C\# 中基本的数据类型， Unicode 字符序列\pause
+\item 在堆中分配，但使用效果和值类型相似\pause
 \item 使用 ~``\texttt{@}'' 字符修饰，表示{\color<handout:0>{red!65!black}逐字串}(\textit{Verbatim String})
 \begin{lstlisting}
 string s1, s2;
@@ -273,7 +275,7 @@ s4 = "20/5 = " + 20/5;
   
   \CJKindent \small 但需要注意，字符串的连接会生成新的串，如果大量操作，会影响
   效率，或用~ System.Text.StringBuilder 。
-
+\pause
 \item 通过 ~``=='' 判断是否相等
 \begin{lstlisting}
 string a = "abcdefgabcde";
@@ -285,20 +287,20 @@ Console.WriteLine(a==b); // Prints "True"
 
 \begin{frame}[fragile]
 \frametitle{字符串的操作}
-\begin{itemize}
-\item string 类型中提供的成员
+string 类型中提供的成员
+\medskip
   \begin{itemize}
+\setlength{\itemsep}{6pt plus 1pt}
   \item 查找字串 \texttt{IndexOf()}
   \item 比较字符串 \texttt{CompareTo(), Equals()}
   \item 转换大小写 \texttt{ToLower(), ToUpper()}
   % \item 对象的 ToString() 方法
   \item 串的长度 \texttt{Length}
+  \end{itemize}
 \begin{lstlisting}
 int x = string.Length;
 int y = "Hello World".Length;
 \end{lstlisting}
-  \end{itemize}
-\end{itemize}
 
 \end{frame}
 
@@ -313,13 +315,13 @@ s1 = string.Format("Result is: {0}, {1}", 20, 3.22);
 // "Result is: 20, 3.22"
 
 \end{lstlisting}
-
+\pause
 \item 自定义的格式
 \begin{lstlisting}
  s1 = string.Format("{0:0##.##}", 3.223); // "003.22"
  s1 = string.Format("{0:##%}", 0.45); // "45%"
 \end{lstlisting}
-
+\pause
 \item 时间日期
 \begin{lstlisting}
 DateTime dt = DateTime.Now;
@@ -327,9 +329,7 @@ s1 = string.Format("{0:yyyy/MM/dd hh:mm:ss}", dt);
 // "2006-08-29 11:40:22"
 s1 = dt.ToString("yyyy-dd-MM"));
 \end{lstlisting}
-
 \end{itemize}
-
 \end{frame}
 
 \begin{frame}[fragile]
@@ -355,9 +355,14 @@ struct Point {
 
 \begin{frame}[fragile]
 \frametitle{枚举类型}
+枚举类型的一般格式
+\begin{lstlisting}
+[access modifiers] enum <identifier> [:enum-base]
+{ body }
+\end{lstlisting}
+
 \begin{itemize}
     \setlength{\itemsep}{8pt plus 1pt}
-
 \item 枚举类型
 \begin{lstlisting}
 enum Color
@@ -367,13 +372,56 @@ enum Color
 
 \item 改变枚举类型的默认整数
 \begin{lstlisting}
-enum Color:byte
+enum Color:short
 {Red=1, Blue=2, Green=3}
 \end{lstlisting}
-
 \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{使用枚举}
+\begin{itemize}
+\item 枚举可以方便的创建常量
+\item 可以提高程序的可读性
+\item 枚举是一个类型，作为参数可以减少错误发生
+\end{itemize}
+\begin{lstlisting}
+public int GetRGBValue(Color c){
+  switch(c){
+    case Color.Red:   return (0xFF0000);
+    case Color.Green: return (0x00FF00);
+    case Color.Blue:  return (0x0000FF);
+  }
+}
+\end{lstlisting}
 
 \end{frame}
+
+\begin{frame}
+\frametitle{System.Enum 的方法}
+System.Enum 是系统的枚举基类
+\begin{itemize}
+\item Enum.IsDefined() --- 判断字符串是否是某个枚举的成员
+\item Enum.Parse() --- 解析字符串为枚举值
+\item Enum.GetName --- 通过枚举值返回枚举名字字符串
+\end{itemize}
+
+\begin{lstlisting}
+enum Fabric { ... }
+
+string fabStr = "Cotton";
+if (Enum.IsDefiened(typeof(Fabric),fabStr))
+{ 
+  Fabric fab = 
+    (Fabric) Enum.Parse(typeof(Fabric), fabStr);
+  Console.WriteLine("Second is:" + 
+             Enum.GetName(typeof(Fabric), 2));
+}
+\end{lstlisting}
+
+
+\end{frame}
+
 
 \begin{frame}[fragile]
 \frametitle{数组}
@@ -443,7 +491,7 @@ int[][] z = new int[3][];
 
 \begin{frame}[fragile]
 \frametitle{数组的使用}
-数组类型在类库中实际是 ~\texttt{System.Array}
+~\texttt{System.Array} 是类库中数组类型的基类
 
 \begin{itemize}
 \item \texttt{Length} --- 数组的长度
@@ -491,6 +539,7 @@ int x = unchecked(i*j);
 
 \texttt{\#define, \#undef, \#if, \#else, \#elif, \#endif}
 \cmd{csc /Define:XX hello.cs}
+\pause
 
 \item 产生编译错误或警告
 
@@ -518,6 +567,8 @@ int x = unchecked(i*j);
   ...
 #endregion
 \end{lstlisting}
+\pause
+
 \item 改变编译器当前的文件名和行号
 
 \texttt{\#line}

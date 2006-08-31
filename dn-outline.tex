@@ -56,10 +56,11 @@ Microsoft .NET 平台利用以互联网为基础的计算和通讯激增的特点，通过先进的软件，
 设备上进行无缝地开发和运行应用程序。
 
 \begin{itemize}
-\item 提供一个覆盖整个应用范围的、一致的面向对象环境
-\item 简化代码的发布/安装过程，最小化版本冲突问题
-\item 基于公认的标准，提供一个可移植的环境
-\item 提供一个可管理的环境，保证程序的安全执行
+\item 组件化编程，无论模块大小都可以即插即用
+\item 多语言集成，可以二十几种语言协同开发
+\item 通过 ~Web 服务支持分布式计算
+\item 简化开发与部署，避免模块冲突
+\item 更加可靠与安全 
 \end{itemize}
 % 兼容 Win32 API 和 COM
 
@@ -139,7 +140,7 @@ Microsoft .NET 平台利用以互联网为基础的计算和通讯激增的特点，通过先进的软件，
 \column{.6\textwidth}
     \begin{itemize}
     \item 提供了信息发布的标准方式，方便应用程序访问
-    \item 信息不再是网页或文件，以根据需要各取所需
+    \item 信息不再是网页或文件，可以根据需要各取所需
     \item 消除了使用不同组件模型、操作系统之间存在的差异
     \item 便于创建分布式应用程序
     \end{itemize}
@@ -213,7 +214,7 @@ Content-Length: length
 \item<3-| handout:1> 其他公司也可以根据 ~CLI 标准实现相关技术
   \begin{itemize}
   \item Microsoft .NET Framework --- 微软公司自己的实现
-  \item Shared Source CLI --- 微软的开源 CLI
+  \item Shared Source CLI --- 微软的开源 ~CLI
   \end{itemize}
 \item<4-| handout:1> 目前已有的开源 ~.NET 平台
   \begin{itemize}
@@ -230,19 +231,18 @@ Content-Length: length
 \CJKindent
 \item 概念和体系结构
 
-描述了 ~CLI 的体系结构，公共类型系统 (CTS)、虚拟执行系统 (VES)和公共语言规范 (CLS)的标准。\pause
+  描述了 ~CLI 的体系结构，公共类型系统 (CTS)、虚拟执行系统 (VES)和公共语言规范 (CLS)的标准。\pause
 
 \item 元数据的定义和语法
 
-元数据的标准化定义：文件中物力上的布局、逻辑上的内容，以及针对编译器的语法结构。\pause
+  元数据的标准化定义：文件中的物理布局、逻辑内容，以及针对编译器的语法结构。\pause
 
 \item 公共中间语言(CIL)的指令集
 
-类似汇编语言指令的指令集，以及语法结构。\pause
+  类似汇编语言的指令集，指令的语法结构。\pause
 
 \item 相关文件和库
 \item 针对调试的中间格式
-\item 附件
 
 \end{itemize}
 
@@ -254,11 +254,11 @@ Content-Length: length
 \frametitle{Microsoft .NET Framework}
 \framesubtitle{功能丰富的开发平台}
 
-\CJKindent 对开发人员来说 ~.NET 一般就是 .NET Framework，.NET Framework SDK 和 ~Visual Studio .NET
+\CJKindent 对开发人员来说 ~.NET 一般就是~ .NET Framework，.NET Framework SDK 和 ~Visual Studio .NET
 三个方面。
 
 \begin{itemize}
-\item \large 互联网、分布式应用程序、Windows 应用程序
+\item \large 基于互联网的分布式应用程序
 \item \large 创建与运行 ~Windows 应用程序的基础
 \item \large 创建与使用 ~Web Services 的工具
 \item \large 便携设备的开发和运行的环境
@@ -320,15 +320,17 @@ Content-Length: length
 
 \begin{frame}
 \frametitle{代码重用和~DLL}
+\setlength{\itemsep}{6pt plus 1pt}
 \begin{itemize}
-\item 代码重用，提高效率，减少二次开发
-\item 动态加载所需组建，减少内存使用
-\item 维护 ~DLL 需要谨慎认真
+\item 代码重用，提高效率，减少二次开发 \pause
+\item 动态加载需要组件，减少内存使用 \pause
+\item 维护 ~DLL 需要特别的认真仔细 
   \begin{itemize}
   \item 版本唯一，向下兼容，保证代码正确执行
   \item 仔细实现错误检查，无法处理的错误要通过固定的错误码向上提交
   \item 处理与其他 ~DLL 之前的联系，保持兼容
   \end{itemize}
+\pause
 \item 当旧版本的 ~DLL 覆盖新的 ~DLL 时，会发生 ~DLL Hell
 \item DLL Hell --- .NET 的设计动机之一
 \end{itemize}
@@ -351,7 +353,7 @@ Content-Length: length
   关的类、运行、自动内存管理
 \item<3-| handout:1> 提供多种语言都支持的\alert<3| handout:0>{公共类型系统}，定义如何声
   明和管理 ~CLR 中的类型
-\item<4-| handout:1> 支持跨语言集成，允许不同语言生成的代码能够无缝地交互
+\item<4-| handout:1> 支持跨语言集成，允许不同语言之间的交互
 \item<5-| handout:1> 管理类型系统的安全，管理组件的安全
 \item<6-| handout:1> 负责访问其他系统资源，提供 ~Win32 API, COM 等访问接口
 \end{itemize}
@@ -379,7 +381,7 @@ Content-Length: length
 \item<2-| handout:1> 托管代码的运行受 ~CLR 控制，如内存分配、类型检查、安全验证、垃圾回收等
 \item<3-| handout:1> 由公共语言运行时的垃圾回收器进行分配和释放的数据，称为托管数据
 \item<4-| handout:1> 默认情况下，所有 ~C\#, Visual Basic.NET 和 ~JScript.NET 代码都是托管代码
-\item<5-| handout:1> Visual Studio.NET C++ 默认情况下不是，但通过编译器命令行开关 (\texttt{/CLR})，也可以生成托管代码。
+\item<5-| handout:1> Visual Studio.NET C++ 默认情况下不是，但通过编译器命令行开关 (\texttt{/CLR})，也可以生成托管代码
 \end{itemize}
 \end{frame}
 
@@ -508,12 +510,14 @@ Content-Length: length
   \CJKindent MSIL 是与 ~CPU 无关的指令集，它包含加载、存储、初始化和调用对象方法
   的指令，相当于 ~CLR 的汇编语言。
 \end{block}
+\pause
 
 \begin{itemize}
 \item \small .NET 框架程序被编译成生成 ~MSIL 和元数据
 \item \small MSIL，元数据，CTS 结合，允许真正的跨语言集成
 \item \small MSIL 在执行前被转换为机器代码，而不是边解释边执行
 \end{itemize}
+\pause
 
 \begin{figure}[h] \only<1| handout:1>{\label{fig:clr-compile}}
   \centering \input{pgf-dn/clr-compile}
@@ -527,6 +531,7 @@ Content-Length: length
 \CJKindent \small  为支持 ~CLR 扩展的 ~Windows PE 文件格式。其中包括了 ~PE 文件的头信息，CLR 的头信息，程序的元数据和
   ~IL 代码以及数据段。
 \end{block}
+\pause
 \begin{columns}
   \column{.4\textwidth}
   \begin{figure}[htbp]
@@ -534,6 +539,7 @@ Content-Length: length
     \input{pgf-dn/pe-format}
   \end{figure}
   \column{.6\textwidth}
+\pause
 \begin{itemize}
 \item 查看 ~PE 文件内容\\
 {\footnotesize \cmd{dumpbin.exe Hello.exe}}
@@ -575,7 +581,6 @@ Content-Length: length
 \begin{block}{\textit{Native Image Generator}}
   \CJKindent \small SDK 提供的用于产生本地代码镜像工具 ~ngen.exe，可以将文件一次性转换为本地代码。
 \end{block}
-
 \vskip4pt
 \cmd{csc /t:exe /out:Hello.exe Hello.cs}
 \cmd{ngen Hello.exe}
@@ -622,10 +627,11 @@ Content-Length: length
   \CJKindent \small .NET 框架应用程序中，由一个或一组文件构成的，单一功能的
   逻辑单元。程序集是组件复用，实施安全策略的最小单位。
 \end{block}
+\pause
 \begin{itemize}
-\item 程序集可以有一个或多个文件
-\item 程序集都有一个{\color<handout:0>{red!65!black}清单} (\textit{manifest}{})
-\item 清单描述程序集的内容信息
+\item 程序集可以有一个或多个文件 \pause
+\item 程序集都有一个{\color<handout:0>{red!65!black}清单} (\textit{manifest}{}) \pause
+\item 清单描述程序集的内容信息 
   \begin{enumerate}
   \item 程序集的名字
   \item 版本号，形如 ~major.minor.build.revision
@@ -656,16 +662,16 @@ Content-Length: length
 \frametitle{程序集的功能}
 \begin{itemize}
   \setlength{\itemsep}{10pt plus 1pt}
-\item 程序集定义了类型的有效范围， ~CLR 通过程序集查找类
-\item 程序集不需要注册表项， ~CLR 通过一种算法查找程序集
-\item 安装 ~.NET 应用程序，只拷贝它的程序集即可
+\item 程序集定义了类型的有效范围， ~CLR 通过程序集查找类\pause
+\item 程序集不需要注册表项， ~CLR 通过一种算法查找程序集\pause
+\item 安装 ~.NET 应用程序，只拷贝它的程序集即可\pause
   % 安装与卸载 ~.NET 模块不需要修改系统注册表，只需 ~copy or delete
 \item 程序集可以有一个{\color<handout:0>{red!65!black}增强型名称} (\textit{Strong name})，用作共享名称
   \begin{itemize}
   \item 除了三个必须的成员之外，还要有数字签名和相应的公钥
   \item 通过数字签名，可以确保程序集的唯一性，增加安全性
   \end{itemize}
-
+\pause
 \item 允许不同版本的程序集并存，可有效避免 ~DLL Hell
   % 因为程序集需要指定版本号，而程序集的依赖也如此
 \end{itemize}
@@ -679,13 +685,13 @@ Content-Length: length
   \CJKindent \small 专用程序集仅由单一应用程序使用，并且存储在该应用程序的安装目录中（或其子目录中）。要求在使
   用它的应用程序中是唯一的。
 \end{block}
-
+\pause
 \begin{block}{共享程序集}
   \CJKindent \small 共享程序集是可被多个应用程序引用的程序集，通常被明确安装在全局程序集缓
   存 (\textit{Global Assembly Cache, GAC})中。要共享一个程序集，可以通过给其指定加密的增强型名称来实
   现。
 \end{block}
-
+\pause
 \begin{itemize}
 \item 通过区分专用和共享程序集，确定如何{\color<handout:0>{red!65!black}部署} (\textit{Deploy}) 程序集
 \item 根据增强型名称，判断是否接受程序集，或新的版本
@@ -698,20 +704,20 @@ Content-Length: length
 \frametitle{程序集的加载过程}
 \begin{itemize}
   \setlength{\itemsep}{8pt plus 1pt}
-\item 只有在需要的时候加载，程序集可以在本地或网络中
+\item 只有在需要的时候加载，程序集可以在本地或网络中\pause
   % 如果依赖程序集没有调用，不会被加载；
   % 程序集甚至不需在目标机器上
 
-\item CLR 通过特定的规则寻找需要的程序集
+\item CLR 通过特定的规则寻找需要的程序集\pause
 
   \begin{enumerate}
     \setlength{\itemsep}{4pt plus 1pt}
-  \item CLR 检查是否已经被加载，如果已经加载，结束查找
-  \item 在全局程序集缓存(GAC)中查找
-  \item 在程序代码中指定的位置查找
-  \item 如果代码没有指定，在应用程序目录查找
-  \item 根据 ~.NET 的配置，在其他目录或 ~URL 查找
-  \item 如果都未找到，报告错误，结束查找
+  \item CLR 检查是否已经被加载，如果已经加载，结束查找\pause
+  \item 在全局程序集缓存(GAC)中查找\pause
+  \item 在程序代码中指定的位置查找\pause
+  \item 如果代码没有指定，在应用程序目录查找\pause
+  \item 根据 ~.NET 的配置，在其他目录或 ~URL 查找\pause
+  \item 如果都未找到，报告错误，结束查找\pause
   \end{enumerate}
 
 \item 找到程序集后，检查增强名(如果有)，加载并使用
@@ -725,6 +731,7 @@ Content-Length: length
   \CJKindent 应用程序域为安全性、可靠性、版本控制以及卸载程序集提供了隔离边界。应用程序域通常由运行库
   宿主创建，运行库宿主负责在运行应用程序之前引导公共语言运行库。
 \end{block}
+\pause
 \begin{itemize}
 \item 加载 ~CLR 的程序称为{\color<handout:0>{red!65!black}运行库宿主} (\textit{runtime host})
 \item 应用程序域，由运行库宿主创建
@@ -768,23 +775,24 @@ Content-Length: length
 \frametitle{命名空间的结构}
 
 \begin{itemize}
-\item 类库是通过{\color<handout:0>{red!60!black}命名空间} (\textit{namespace})构成的树形结构
-\item 命名空间 ~\texttt{System} 是树形结构的根
-\item 命名空间下可以有{\color<handout:0>{red!60!black}子命名空间}或{\color<handout:0>{red!60!black}类}
-\item 用``\textbf{\texttt{.}}''连接，构成命名空间或类库的完整名字 \\ 如 ~\texttt{System.Data.DataSet}
+\item<1-| handout:1> 类库是通过{\color<handout:0>{red!60!black}命名空间} (\textit{namespace})构成的树形结构
+\item<2-| handout:1> 命名空间 ~\texttt{System} 是树形结构的根
+\item<3-| handout:1> 命名空间下可以有{\color<handout:0>{red!60!black}子命名空间}或{\color<handout:0>{red!60!black}类}
+\item<4-| handout:1> 用``\textbf{\texttt{.}}''连接，构成命名空间或类库的完整名字 \\ 如 ~\texttt{System.Data.DataSet}
 \end{itemize}
 
-\begin{figure}[h] \label<1| handout:1>{fig:fcl-namespaces}
-  \centering \input{pgf-dn/fcl-namespaces}
-\end{figure}
-
+\begin{onlyenv}<1-| handout:1>
+  \begin{figure}[h] \label<1| handout:1>{fig:fcl-namespaces} \centering
+    \input{pgf-dn/fcl-namespaces}
+  \end{figure}
+\end{onlyenv}
 \end{frame}
 
 \begin{frame}
 \frametitle{System 命名空间}
 
 \CJKindent \texttt{\textbf{System}} 是整个类库的根，除了容纳大量的子空间之外，还有很多基本的对象和类型
-
+\pause
 \begin{itemize}
 \item CTS 定义的基本数据类型
   \begin{itemize}
@@ -792,10 +800,14 @@ Content-Length: length
   \item 引用类型，如 ~\texttt{Array}, \texttt{Delegate} 等等
   \item 所有对象的基类 ~\texttt{System.Object}
   \end{itemize}
+\pause
 \item \texttt{\textbf{System.Console}} 类，提供控制台（字符界面）的输入输出功能，如 ~\texttt{WriteLine()},
   \texttt{ReadLine()}等
+\pause
 \item \texttt{\textbf{System.Math}} 类，各种数学函数运算，如 ~\texttt{Sqrt()}, \texttt{Sin()}, \texttt{Ceiling()}, \texttt{Log()}等
+\pause
 \item \texttt{\textbf{System.Enviroment}} 类，用于提供当前运行环境信息，如操作系统、当前目录、内存使用量等
+\pause
 \item \texttt{\textbf{System.Random}} 类，用于产生随机数
 
 \end{itemize}
@@ -810,18 +822,18 @@ Content-Length: length
 
   \small 基本的输入输出，文件、目录以及内存数据流的访问。
   \smallskip
-
+\pause
 \item \texttt{\textbf{System.Net}} --- 网络数据的访问    \smallskip
 
   \small 使用各种网络协议 ~HTTP, FTP, Mail, 基本的 ~Socket 等进行网络数据通信，简化了
   网络应用程序的开发。
   \smallskip
-
+\pause
 \item \texttt{\textbf{System.Text}} --- 文本处理    \smallskip
 
   \small 提供不同编码文本之间的转换功能，文本处理功能，正则表达式搜索及匹配文本等等。
   \smallskip
-
+\pause
 \item \texttt{\textbf{System.Data}} --- ADO.NET 的基础    \smallskip
 
   \small 实现了 ~ADO.NET 的类库，用于访问各种数据源，如

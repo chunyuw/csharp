@@ -162,19 +162,31 @@ class MyClass:FirstIf,AnotherIf
 
 \end{frame}
 
-\section{索引器}
-\begin{frame}
-\frametitle{索引器}
-
-\end{frame}
-
 \section{泛型}
-\begin{frame}
+  \begin{frame}[fragile]
 \frametitle{泛型}
-
+\begin{block}{\textit{Generics}}
+  \CJKindent 泛型就是将类型为参数，可以动态设置的类，类似 ~C++ 中的模板类。
+  泛型是 ~.NET 2.0 的新特性。
+\end{block}
+\pause
+\begin{itemize}
+\item 
+\item 
+\end{itemize}
+\pause
+泛型定义的一般格式
+\begin{lstlisting}
+class identifier<type-param-list> 
+         [where type-param:constraints]
+{ ... }
+\end{lstlisting}
+泛型使用的一般格式
+\begin{lstlisting}
+identifier<type-arg-list>  var-name =
+  new  class-name<type-arg-list>(cons-arg-list);
+\end{lstlisting}
 \end{frame}
-
-
 
 % Local Variables: 
 % mode: LaTeX
