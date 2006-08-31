@@ -47,6 +47,7 @@ C#:  [[http://msdn2.microsoft.com/zh-cn/library/618ayhy6.aspx][C# 程序员参考]]
      + [[file:D:/work/eBook.NET/eBook/Microsoft.Press.Microsoft.Object.Thinking.eBook-LiB.chm][Microsoft.Object.Thinking]]
 *** 委托
 *** 泛型
+     + * [[file:d:/work/eBook.NET/eBook/McGraw.Hill.Osborne.C.Sharp.2.0.The.Complete.Reference.Dec.2005.chm][C.Sharp.2.0.The.Complete.Reference]]
 
 ** [2] 文件 IO 和数据流
 *** XML
