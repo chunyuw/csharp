@@ -2,8 +2,27 @@
 
 % \section{面向对象的设计}
 
-\section{基类的覆盖和访问}
+\section{基类的访问}
 % 继承，封装，重载
+
+\begin{frame}
+\frametitle{基类与派生类的关系}
+\begin{itemize}
+\item 基类中的成员，全部被派生类继承
+\item 而只有 ~private 修饰的成员不可以被访问
+\item 字段可以直接覆盖
+\end{itemize}
+\begin{lstlisting}[escapeinside=<>]
+class Circle {
+  public int R;
+}
+class Ring:Circle {
+  public int R; // hide R in Circle
+  public int r;
+}
+\end{lstlisting}
+
+\end{frame}
 
 
 \begin{frame}[fragile,t]
