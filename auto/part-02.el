@@ -1,4 +1,4 @@
-(TeX-add-style-hook "lesson-02"
+(TeX-add-style-hook "part-02"
  (lambda ()
     (TeX-run-style-hooks
      "preamble"
