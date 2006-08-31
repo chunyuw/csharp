@@ -8,8 +8,10 @@
 \frametitle{语言简洁}
 
 \begin{itemize}
+    \setlength{\itemsep}{6pt plus 1pt}
 \item C\# 是一种简洁、类型安全的面向对象的语言\par
-\CJKindent 以创建传统的 Windows 客户端应用程序、XML Web services、分布式组件、客户端 - 服务器应用程序、数据库应用程序以及很多其他类型的程序
+\smallskip  \CJKindent 可以创建传统的 Windows 客户端应用程序、XML Web services、分布式组
+  件、客户端 - 服务器应用程序、数据库应用程序以及很多其他类型的程序。
 \item 语法表现力强，只有不到 90 个关键字，而且简单易学
 \item 还支持泛型方法和类型
 \item 支持封装、继承和多态性概念
@@ -144,9 +146,9 @@ class MyFirstCSharpClass
 \item 关系运算 \par
 \texttt{$>, >=, <, <=, !=, ==$}
 \item 逻辑运算 \par
-\texttt{\&\& || !}
+\texttt{\&\&, ||, !}
 \item 位运算 \par
-\texttt{\& | \^}
+\texttt{\&, |, \^}
 \item 其他 \par
 \texttt{?:}
 \end{itemize}
@@ -157,6 +159,7 @@ class MyFirstCSharpClass
 \begin{frame}
 \frametitle{基本数据类型  (\textit{Primitive Data Types})}
 \begin{itemize}
+    \setlength{\itemsep}{8pt plus 1pt}
 \item 字符串型：string
 \item 布尔型~bool：值为~true~或~false 
 \item 字符型~char：长度为 2 字节(Unicode字符) 
@@ -273,10 +276,16 @@ s4 = "20/5 = " + 20/5;
 
 \item 通过 ~``=='' 判断是否相等
 \begin{lstlisting}
-string a = "abracadabra";
-string b = "abracadabra";
+string a = "abcdefgabcde";
+string b = "abcdefgabcde";
 Console.WriteLine(a==b); // Prints "True"
 \end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{字符串的操作}
+\begin{itemize}
 \item string 类型中提供的成员
   \begin{itemize}
   \item 查找字串 \texttt{IndexOf()}
@@ -347,28 +356,55 @@ struct Point {
 \begin{frame}[fragile]
 \frametitle{枚举类型}
 \begin{itemize}
-\item 定义常量可以用 \texttt{const} 关键字\\
-  \lstinline|const int x = 100;|
-\item 也可以使用枚举类型
+    \setlength{\itemsep}{8pt plus 1pt}
+
+\item 枚举类型
 \begin{lstlisting}
 enum Color
 {Red, Blue=2, Green}
 
 \end{lstlisting}
+
+\item 改变枚举类型的默认整数
+\begin{lstlisting}
+enum Color:byte
+{Red=1, Blue=2, Green=3}
+\end{lstlisting}
+
 \end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{数组}
+声明数组的一般形式：
+\begin{lstlisting}
+<type><array_type> identifier 
+   = new <type><array_type> [{initializer list}]
+\end{lstlisting}
+\begin{itemize}
+\item 数组类型可以是 ``\texttt{[]}'' ``\texttt{[,]}'' 或 ``\texttt{[][]}''
+\item 可以省略初始化列表，默认值是 ~0 或 ~null
+\item 也可以省略 ~new 表达式，直接通过列表定义
+\end{itemize}
+\begin{lstlisting}[escapeinside=<>]
+int[] x; // <声明一个数组变量，默认值为 \texttt{null}>
+int[] list = new int[5];
+int[] list = new int[] {1,2,3,4,5}; // <初始化>
+int[] list = {1,2,3,4,5}; //<short version>
+\end{lstlisting}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{数组}
 \begin{itemize}
 \item 一维数组，矩形多维数组
 \begin{lstlisting}[escapeinside=<>,mathescape]
-int[] x; // <声明一个数组变量，默认值为 \texttt{null}>
-int[] x = new int[5]; // <创建数组>
-int[] x = new int[] {1,3,5,7,9}; // <初始化>
+int[] x = new int[5]; // <一维数组>
 
-int[,] y = new int[2,5]; // $2\times5$ <的数组>
+int[,] y = new int[2,5]; // $2\times5$ <二维数组>
 \end{lstlisting}
 \end{itemize}
 
@@ -407,7 +443,7 @@ int[][] z = new int[3][];
 
 \begin{frame}[fragile]
 \frametitle{数组的使用}
-数组类型在类库中称为 ~\texttt{System.Array}，提供的方法
+数组类型在类库中实际是 ~\texttt{System.Array}
 
 \begin{itemize}
 \item \texttt{Length} --- 数组的长度
@@ -608,6 +644,7 @@ foreach (string x in colors) {
 \begin{frame}
 \frametitle{错误处理}
 \begin{itemize}
+    \setlength{\itemsep}{8pt plus 1pt}
 \item C\# 提供的标准处理方式---异常(\textit{Exception})
 \item 捕捉和处理可能在运行时发生的错误的技术
 \item C\# 中的异常就是一个对象，包含了错误的类型和详细信息
@@ -724,7 +761,7 @@ try {
 
 % Local Variables: 
 % mode: LaTeX
-% TeX-master: "lesson-02.tex"
+% TeX-master: "part-02.tex"
 % TeX-header-end: "% End-Of-Header$"
 % TeX-trailer-start: "% Start-Of-Trailer$"
 % coding: gb2312-dos

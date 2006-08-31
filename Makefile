@@ -22,7 +22,7 @@ clean:
 	-rm -f $(foreach s,$(CLNSUFFIX),$(wildcard *.$(s)))
 	-rm -f prv_*
 cleanpdf:
-	-rm -f lesson-*.pdf test.pdf z_region.pdf
+	-rm -f part-*.pdf test.pdf z_region.pdf
 cleanoth:
 	-rm -f $(foreach s,$(OTHSUFFIX),$(wildcard *.$(s)))
 	-rm -f z_region.* test.exe
@@ -31,13 +31,13 @@ cleanall: clean cleanpdf cleanoth
 
 .PHONY:	all clean
 
-lesson-01.pdf: $(wildcard dn-*.tex) $(wildcard pgf/*.tex)
-lesson-02.pdf: $(wildcard cs-*.tex)
+part-01.pdf: $(wildcard dn-*.tex) $(wildcard pgf/*.tex)
+part-02.pdf: $(wildcard cs-*.tex)
 
-1: lesson-01.pdf
-2: lesson-02.pdf
-3: lesson-03.pdf
-4: lesson-04.pdf
-5: lesson-05.pdf
-6: lesson-06.pdf
+1: part-01.pdf
+2: part-02.pdf
+3: part-03.pdf
+4: part-04.pdf
+5: part-05.pdf
+6: part-06.pdf
 t: test.pdf

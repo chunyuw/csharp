@@ -1,0 +1,26 @@
+%% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn>
+
+\begin{tikzpicture}[scale=.7,>=stealth,font=\footnotesize]
+\fill[fill=yellow!10,draw=gray,fill opacity=.5, rounded corners] (.5 ,0) rectangle +(7.5,5.5) ;
+
+\node[anchor=center] at (2, 0.5) {ÍÐ¹ÜÕ»};
+\node[anchor=center] at (5.75, 0.5) {ÍÐ¹Ü¶Ñ};
+
+\filldraw[draw=black,fill=blue!20,fill opacity=.4,rounded corners] (1,1) rectangle +(2,4);
+
+\draw (1,4) -- (3,4);
+\draw (1,3) -- (3,3);
+\draw (1,2) -- (3,2);
+
+\filldraw[draw=black,fill=blue!20,fill opacity=.4,dashed,rounded corners] (4,1) rectangle +(3.5,3.5);
+
+\fill[red!40,rounded corners] (4.75, 2) rectangle +(2,1);
+\node[anchor=center, font=\small] (d) at (1.9, 3.5) {y: 100};
+\node[anchor=center, font=\small] at (1.9, 2.5) {o};
+\node[anchor=center, font=\small] at (1.9, 1.5) {x: 100};
+
+\draw (5.75, 2.5) node[anchor=center] (a) {100};
+\draw[->,thick] (2.75,2.5) .. controls (3.45,2.8) and (4.15,2.8) .. (a.west);
+%\draw[->,thick] (2.75,3.5) .. controls +(right:1cm) and + (145:1cm) .. (a.north west);
+
+\end{tikzpicture}

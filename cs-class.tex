@@ -97,11 +97,11 @@ public class YYY { ... }
 
 \begin{onlyenv}<1> 
   \begin{block}{继承}
-    \CJKindent 一个类（派生类）怎样从另一个类（基类）中共享特性和行为的方法。
+    \CJKindent 一个类（派生类）从另一个类（基类）中共享特性和行为的方法。
   \end{block}
 \begin{lstlisting}[escapeinside=<>]
 class Circle { 
-  public int R; 
+  public int R; // <半径>
   public static double pi = 3.1415;
   public double Area(){
     return pi * R * R;
@@ -114,11 +114,13 @@ class Ring : Circle {
 \end{onlyenv}
 \begin{onlyenv}<2>
   \begin{itemize}
+    \setlength{\itemsep}{8pt plus 1pt}
   \item 建立类的层次结构，公用的功能放在基类
   \item 代码重用，基类的字段和代码
+  \item 派生类继承基类的所有成员，但基类可以通过 ~\texttt{private} 限制派生类访问
   \item C\#~只允许单继承，但可实现多个接口(\textit{interface})\par
 \lstinline|public class MyClass:Interface1, Interface2 {...}|
-  \item 通过~\textit{sealed}~修饰的密封类，不能被继承\par
+  \item 通过~\texttt{sealed}~修饰的密封类，不能被继承\par
 \lstinline|public sealed class secret {...}|
   \end{itemize}
 \end{onlyenv}
@@ -150,12 +152,12 @@ class Ring : Circle {
 \end{onlyenv}
 \end{frame}
 
+
 \begin{frame}[fragile]
 \frametitle{静态成员和实例成员}
 \begin{onlyenv}<1>
   \begin{itemize}
   \item 静态成员使用关键字~static~修饰，否则为实例成员
-    \lstset{emph={static}}
 \begin{lstlisting}[escapeinside=<>]
 class Circle {
   // <实例变量>
@@ -168,6 +170,7 @@ class Circle {
   }
 }
 \end{lstlisting}
+
   \end{itemize}
 \end{onlyenv}
 \begin{onlyenv}<2>
@@ -181,7 +184,9 @@ Circle.pi = 3.14159265;   // <访问静态变量>
 \end{lstlisting}
   \item 静态成员和具体实例无关，是类本身的特征
   \item 通过静态变量，可以在类的实例之间共享信息
+
   \item 静态成员在加载类的时候初始化，分配内存空间
+
   \end{itemize}
 \end{onlyenv}
 \end{frame}
@@ -198,27 +203,49 @@ Circle.pi = 3.14159265;   // <访问静态变量>
 \begin{lstlisting}
   const    string url1="www.hit.edu.cn";
   readonly string url2="www.cs.hit.edu.cn";
+
+  readonly DateTime createtime = DateTime.Now;
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}
-\frametitle{方法(methods)}
+\frametitle{方法(\textit{methods})}
 \begin{itemize}
+\setlength{\itemsep}{8pt plus 1pt}
 \item 方法是一个命名的代码块，用于计算或其他操作的函数成员，表示类的行为
 \item 分为实例方法和静态方法，静态方法通过类名访问
-\item 方法可以被声明为 virtual、abstract 或 sealed
-\begin{itemize}
-\item virtual --- 可以被派生类覆盖
-\item abstract --- 没有具体实现，需要派生类实现
-\item sealed --- 不可以被覆盖
-\end{itemize}
+  \begin{itemize}
+  \item Array.Sort()
+  \item Arary.Reverse()
+  \end{itemize}
+% \item 方法可以被声明为 virtual、abstract 或 sealed
+% \begin{itemize}
+% \item virtual --- 可以被派生类覆盖
+% \item abstract --- 没有具体实现，需要派生类实现
+% \item sealed --- 不可以被覆盖
+% \end{itemize}
 \item 方法可以被继承、覆盖和隐藏
 \end{itemize}
 \end{frame}
 
+\begin{frame}
+\frametitle{方法的修饰符}
+\begin{itemize}
+    \setlength{\itemsep}{6pt plus 1pt}
+\item static --- 静态方法，不是类实例一部分
+\item virtual --- 虚方法，可以在子类中被覆盖
+\item override --- (只能)用于覆盖基类中的同名的虚方法
+\item new --- 用于隐藏基类中的方法，无论是否是虚方法
+\item sealed --- 禁止派生类覆盖该类，同时需要 ~override 修饰
+\item abstract --- 只有方法声明，没有具体实现
+\item extern --- 只有方法声明，在外部实现
+\end{itemize}
+\end{frame}
+
+
 \begin{frame}[fragile]
-\frametitle{构造函数(constructors)}
-构造函数是一个（或多个）特殊的方法，用于初始化对象。可以分为静态构造函数
+\frametitle{构造函数(\textit{constructors})}
+\CJKindent 构造函数是一个（或多个）特殊的方法，用于初始化对象。可以分为静态构造函数
 和实例构造函数两种。
 \pause
 \begin{itemize}
@@ -239,7 +266,35 @@ class Circle { public int R;
 }
 
 \begin{frame}[fragile]
-\frametitle{析构函数(destructors)}
+\frametitle{私有构造函数}
+\begin{itemize}
+\item 用 ~private 修饰的构造函数，不允许类以外的成员访问。
+\end{itemize}
+\begin{lstlisting}
+class Conversions{
+  static cmPerInch = 2.54;
+  private static double gmPerPound = 455;
+  public static double inchesToMetric(double inches){ ... }
+  public static double poundsToGrams(double pounds){ ... }
+  private Constructors() {...}
+}
+\end{lstlisting}
+
+\begin{itemize}
+\item 因为 ~private 修饰，无法为类创建实例
+\item 一般用于使用静态方法和成员提供服务的类
+\item 比如 System.Math 类
+\begin{itemize}
+\item System.Math.PI, System.Math.E   --- 静态成员
+\item System.Math.Pow(), System.Math.Sin() --- 静态方法
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{析构函数(\textit{destructors})}
 析构函数是当对象被清除时被调用的特殊方法。
 \begin{itemize}
 \item 名字：以字符“\verb|~|”开始的类名，无返回类型
@@ -257,17 +312,46 @@ class Circle {
 \end{itemize}
 \end{frame}
 
+\begin{frame}[fragile,plain]
+\frametitle{构造函数和析构函数示例}
+\begin{lstlisting}
+using System;
+public class Person {
+  private static int Count = 0;
+  public Person() { 
+    Count++ ;
+    Console.WriteLine("total number is: {0}", Count);
+  }
+  ~Person() { if(Count>0) Count--;}
+}
+
+class test{
+  public static void Main(){
+    Person[] aGroup = new Person[10];
+    for (int i=0;i<10;i++)
+      aGroup[i] = new Person();
+
+    Person  another = new Person();
+    Console.ReadLine();
+  }
+}
+
+\end{lstlisting}
+\end{frame}
+
+
 \begin{frame}[fragile]
-\frametitle{重载(overload)}
+\frametitle{重载(\textit{overload})}
 \begin{block}{方法的重载}
-  \CJKindent 重载，对不同对象，使用相同的方法，进行不同的操作。在同一个类中，定
-  义同一名称的多个成员，被重载的成员方法之间的唯一差别就是具有不同的参数类型和
-  个数。\pause
-  \begin{itemize}
-  \item 索引器、构造函数、操作符都可以重载
-  \item 调用时，C\#会根据参数列表的不同自动选择
-  \end{itemize}
+  \CJKindent 对不同的对象，使用相同的方法，进行不同的操作。在同一个类中，定义同
+  一名称的多个成员，被重载的成员方法之间的唯一差别就是具有不同的参数类型和个
+  数。
 \end{block}
+\pause
+\begin{itemize}
+\item 索引器、构造函数、操作符都可以重载
+\item 调用时，C\#会根据参数列表的不同自动选择
+\end{itemize}
 \pause
 \begin{lstlisting}[escapeinside=<>]
 class Circle{   public int R;
@@ -280,30 +364,94 @@ class Circle{   public int R;
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{特性(properties)}
+\frametitle{操作符重载(\textit{operator overload})}
+C\# 可以对操作符重载，和 ~C++ 中的类似。一般格式为
+\begin{lstlisting}
+public static <return_type> operator <op> (<para_list>)
+{ ... }
+\end{lstlisting}
+\begin{itemize}
+\item 必须使用 ~public 和 ~static 修饰
+\item 返回类型不能是 ~void
+\item 参数个数要匹配
+\end{itemize}
+String 类型之间通过 ~``+'' 的连接操作，就是一种重载：
+\begin{lstlisting}
+string a = "abc";
+string b = "efg";
+string c = a + b;
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile,plain]
+\begin{lstlisting}
+using System;
+class Circle 
+{ public int R;
+  public static Ring operator-(Circle left,Circle right)
+  { Ring result = new Ring();
+    if(left.R > right.R)
+    { result.R = left.R;
+      result.r = right.R;
+    }
+    return result;
+  }
+}
+class Ring:Circle
+{ public int r;
+
+  public static void Main()
+  {
+    Circle a = new Circle(); Circle b = new Circle();
+    a.R = 100;   b.R = 50;
+    Ring c = a - b;
+  }
+}
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{特性(\textit{properties})}
 \begin{onlyenv}<1>
   \begin{block}{特性}
-    对字段提供特定的访问方式，为类提供封装。
+    对字段提供特定的访问方式，为类提供更好封装。
   \end{block}
   \begin{itemize}
   \item 特性的访问是透明的，类似成员变量
   \item get~提供读访问，set~提供写访问
   \item 通过特性可进行完整性检查，类似成员方法
   \end{itemize}
+特性的一般格式：
+\begin{lstlisting}
+[attributes] <modifiter> <data_type> <property_name>
+{  [access modifier] get {  ...
+     return <property_value>
+   }
+   [access modifier] set {  ...  }
+   }
+}
+\end{lstlisting}
 \end{onlyenv}
 \begin{onlyenv}<2>
   \lstset{emph={get,set}}
-\begin{lstlisting}[escapeinside=<>]
+\begin{lstlisting}[escapeinside=`']
 class Circle {
   protected int R;
   public  int Radius {
     get { return R; }
-    set { if(value>0) R=value; }  
+    set { 
+      if(value<0)
+        throw new ArgumentOutOfRangeException(
+             "Radius must be greater than 0.");
+      R = value;    // `set 的参数 ~value'
+    }
   }
 }
 ...
   Circle c = new Circle();
-  c.Radius = 20;
+  c.Radius = 20; 
   Console.WriteLine(c.Radius);
 
 \end{lstlisting}
@@ -311,7 +459,87 @@ class Circle {
 \end{frame}
 
 \begin{frame}
-\frametitle{嵌套类}
+\frametitle{特性的使用}
+\begin{itemize}
+\setlength{\itemsep}{8pt plus 1pt}
+\item 特性的修饰符可以是
+  \begin{itemize}
+  \item static --- 静态的，只和类本身相关
+  \item abstract --- 用在抽象类中
+  \item new, virtal, override --- 继承与覆盖关系
+  \end{itemize}
+\item set 中有一个隐式参数 ~value
+\item set 和 ~get 可以只有一个，也可以有不同的访问限制
+\end{itemize}
+\end{frame}
+
+% 嵌套类
+
+\begin{frame}[fragile]
+\frametitle{索引器 (\textit{indexers})}
+
+\begin{block}{索引器}
+\CJKindent \small 使用数组索引方式访问类成员。使用方法和特性类似，但可以有多个
+参数。
+\end{block}
+\begin{itemize}
+\item 索引器表现和数组类似，通过索引访问
+\item 实现方式和特性类似，可以有 ~get 和 ~set 访问器
+\item 索引器不可以用 ~static 修饰，因为只与实例相关
+\end{itemize}
+
+索引器的一般格式：
+\begin{lstlisting}
+[attribute] <modifier><return_type> this [parameters]
+{  ... }
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{索引器 (\textit{indexers}) 示例}
+通过索引器设置成员变量
+\begin{lstlisting}
+class Ring:Circle{
+  private int r; // and R from Circle
+  public int this[int index] 
+  { set {
+      if (index == 0 )     r = value;
+      else if (index == 1) R = value;
+    }
+  }
+}
+...
+  public static void Main()
+  {
+    Ring x = new Ring();
+    x[0] = 20;
+    x[1] = 40;
+  }
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{索引器的重载}
+\begin{lstlisting}
+class Ring:Circle{
+  private int r; // and R from Circle
+  public int this[ int index ]   { ...  }
+  public int this[ string name ] // by name
+  { set {
+      if (name == "inner" )
+      {  r = value; } 
+      else if (name == "outer") 
+      {  R = value; } 
+    }
+  }
+}
+...
+    Ring x = new Ring();
+    x["inner"] = 20;
+    x["outer"] = 40;
+\end{lstlisting}
+
 
 \end{frame}
 
@@ -345,6 +573,8 @@ class Circle {
 \item 值类型，赋值或传递给一个方法时，生成一个新的实例
 \item 引用类型，赋值或传递给一个方法时，使用当前实例（只传地址）
 \end{itemize}
+\begin{columns}
+\column{.6\textwidth}
 \begin{lstlisting}[escapeinside=<>]
 class Circle { public int R; }
 ...
@@ -352,8 +582,15 @@ class Circle { public int R; }
   c.R = 10;
   Circle d = c;
   d.R = 20;
-  Console.WriteLine(c.R); // <输出为> 20
+  Console.WriteLine(c.R); 
+  // <输出为> 20
 \end{lstlisting}
+\column{.4\textwidth}
+\begin{figure}
+  \centering
+  \input{pgf-dn/cs-v-r-types}
+\end{figure}
+\end{columns}
 \end{frame}
 
 % \begin{frame}
@@ -362,18 +599,53 @@ class Circle { public int R; }
 % \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{值类型和引用类型的区别}
+
+\begin{itemize}
+\item 内存分配
+
+  \CJKindent \small 值类型和引用类型之间的最主要差别就是内存分配。如果没有进行
+  初始化，引用类型默认为 ~null，值类型为 ~0。
+
+\item 内存释放
+
+  \CJKindent \small 变量超出作用域时，值类型自动从栈中释放，而堆中的则不释放，
+  根据垃圾自动回收收集。
+
+\item 变量的赋值
+
+  \CJKindent \small 值类型之间的赋值，直接复制内容({\color<handout:0>{red!65!black}传值})，而引用类型之间只复制引用值({\color<handout:0>{red!65!black}传引用})。
+
+\end{itemize}
+\begin{lstlisting}[escapeinside=<>]
+Struct Circle { public int R; }
+...
+  Circle c = new Circle();
+  c.R = 10;
+  Circle d = c; // <d 的内存在哪儿>
+  d.R = 20;
+  Console.WriteLine(c.R); 
+  // <输出为> 20
+
+\end{lstlisting}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
 \frametitle{类型之间的转换}
 \begin{block}{隐式转换}
   \begin{itemize}
-  \item 当信息不会丢失时 \\如 int$\rightarrow$long 的转换，int$\rightarrow$float 的转换；
-  \item 从派生类到基类的转换
+  \item 当信息不会丢失时，如 ~int$\rightarrow$long，int$\rightarrow$float
+  \item 从派生类到基类的转换，如 ~Ring$\rightarrow$Circle，Ring$\rightarrow$object
   \end{itemize}
 \end{block}
 \pause
 \begin{block}{显式转换}
   \begin{itemize}
   \item 当不能进行隐式转换时，必须使用显式转换
-  \item 使用显式转换，也可以减少错误和异常
+  \item 如果不使用显示转换，系统会发生异常
+  \item 语法类似 ~C 中的强制类型转换
   \end{itemize}
 \end{block}
 \pause
@@ -387,15 +659,37 @@ class Circle { public int R; }
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{装箱(boxing)与拆箱(unboxing)}
-\begin{block}{装箱}
+\frametitle{引用类型之间的转换}
+\begin{itemize}
+\item 任何类型都可以隐式转换为 object
+\item 而再从 object 回到具体类型，需要显示转换
+\item 实现了某种接口的类型，可隐式转换为该接口的引用类型
+\item 转换后的引用可以调用自己的方法，不过可能已经被覆盖
+\end{itemize}
+\begin{lstlisting}
+using System;
+using System.Text;
+class Test {
+  static void Main () {
+    StringBuilder x = new StringBuilder ("hello");
+    StringBuilder y = x;
+    x.Append (" there");
+    Console.WriteLine (y); // prints "hello there"
+  }
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{值类型与引用类型之间的转换}
+\begin{block}{装箱 (\textit{boxing})}
   \begin{itemize}
-  \item 将值类型转换为引用类型的过程
+  \item 将值类型转换为引用类型的隐式过程
   \item 系统为引用类型分配新内存，创建对象，并把值类型的内容复制到新分配的内存中。
   \end{itemize}
 \end{block}
 \pause
-\begin{block}{拆箱}
+\begin{block}{拆箱 (\textit{unboxing})}
   \begin{itemize}
   \item 将引用类型的对象转换为值类型的过程
   \item 拆箱过程必须是显式的
@@ -410,9 +704,157 @@ class Circle { public int R; }
 \end{lstlisting}
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{装箱与拆箱}
+
+\begin{lstlisting}
+class Test {
+  static void Main () {
+    int x = 100;
+    object o = x; // box
+    int y = (int)o; // unbox
+  }
+}
+
+\end{lstlisting}
+  \begin{figure}[htbp]
+    \centering
+    \input{pgf-dn/cs-box-unbox}
+  \end{figure}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\texttt{is} 和 ~\texttt{as} 操作符}
+\begin{itemize}
+\item is 操作符检查变量是否属于指定类型
+\begin{lstlisting}
+int i = 0;
+bool iIsInt = i is int; // true
+
+Ring r = new Ring();
+bool rIsCircle = r is Circle; // true
+\end{lstlisting}
+
+\item as 引用类型的转换，如果转换不成功，赋值为 null
+\begin{lstlisting}
+Ring   r = new Ring();
+Circle o = r as Circle;
+Console.WriteLine("r {0} a Circle", 
+  o == null ? "is not" : "is");
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\texttt{is} 和 ~\texttt{as} 操作符 (续)}
+\begin{itemize}
+\item is 可作用于值类型
+\item as 可减少类型检查的次数
+\end{itemize}
+\begin{lstlisting}
+// use is
+if (o is SomeThing){
+  SomeThing x = (SomeThing) o;
+  ...
+}
+
+// use as
+SomeThing x = o as SomeThing;
+if (o != null){
+  ...
+}
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{方法的参数传递}
+\begin{itemize}
+\item 值类型的参数，默认为{\color<handout:0>{red!65!black}传值}
+\item 引用类型的参数，默认为{\color<handout:0>{red!65!black}传引用}
+\end{itemize}
+\begin{columns}
+  \column{.5\textwidth}
+\lstset{emph={struct}}
+\begin{lstlisting}
+struct P {...}
+
+public void Test(Point m){
+  m.X = -10; m.Y = -10;
+}
+
+  Point p = new Point(10,20);
+  Test(p);
+  // here p == (10,20);
+\end{lstlisting}
+  \column{.5\textwidth}
+\lstset{emph={class}}
+\begin{lstlisting}
+class P {...}
+
+public void Test(Point m){
+  m.X = -10; m.Y = -10;
+}
+
+  Point p = new Point(10,20);
+  Test(p);
+  // here p == (-10,-10);
+\end{lstlisting}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\texttt{ref} 和 ~\texttt{out}}
+\begin{itemize}
+\item out 表示被调用函数通过入口参数，向调用函数返回结果
+\item ref 表示被调用函数使用入口参数的引用
+\item 调用时候也需明确指出 ~ref 和 ~out 参数
+\item 明确使用 ~ref 和 ~out 可以提高代码可读性
+\end{itemize}
+\begin{lstlisting}
+static void FillArray (out double[] prices)
+{  prices = new double[4] { 10,20,30,40 };  }
+static void ChangeValue (ref int x)
+{  x = 10;  }
+
+static void Main()
+{  double[] p;
+   FillArray(out p);
+   
+   int y = 20;
+   ChangeValue (ref y); // y is 10 now 
+}
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{可变长参数}
+\begin{itemize}
+\item 由 ~params 关键字修饰的数组参数，使用时是可变长参数
+\item 使用 ~params 可以避免显示的创建数组、传递数组的过程
+\item params 只能用于最后一个参数
+\end{itemize}
+\begin{lstlisting}
+static double Average (string n, params double[] l)
+{  double total = 0.0;
+   foreach(double x in l)   total += x;
+   return total/l.Length;
+}
+static void Main()
+{  double result;
+   result = Average("Jack", 80.2, 75.8, 92.3);
+   System.Console.WriteLine (result);
+   result = Average("Mike", 79.4, 65.8, 82.3);
+   System.Console.WriteLine (result);
+}
+\end{lstlisting}
+\end{frame}
+
 % Local Variables: 
 % mode: LaTeX
-% TeX-master: "lesson-02.tex"
+% TeX-master: "part-02.tex"
 % TeX-header-end: "% End-Of-Header$"
 % TeX-trailer-start: "% Start-Of-Trailer$"
 % coding: gb2312-dos

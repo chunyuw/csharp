@@ -119,9 +119,11 @@ form1.Show();
   \CJKindent .NET 框架开发工具包，包括了编写、生成、测试和部署 .NET Framework 应用程序所需的工具、文档和示例。
 \end{exampleblock}
 
-\begin{alertblock}{\textit{Visual Studio .NET}}
-  \CJKindent \color{red}{TODO}
-\end{alertblock}
+\begin{block}{\textit{Visual Studio .NET}}
+  \CJKindent Visual Studio 是一套完整的开发工具集，用于生成 ASP.NET Web 应用程序、XML Web Services、
+  桌面应用程序和移动应用程序。Visual Basic、Visual C++、Visual C\# 和 Visual J\# 全都使用相同的集成开发
+  环境。
+\end{block}
 
 \end{frame}
 
@@ -181,6 +183,7 @@ class Hello
 \frametitle{SDK 中的工具 --- \textit{others}}
 
 \begin{itemize}
+    \setlength{\itemsep}{6pt plus 1pt}
 \item vbc.exe --- VB.NET 编译工具
 \item cl.exe  --- C++ 编译工具
 \item al.exe  --- 程序集生成工具
@@ -194,13 +197,79 @@ class Hello
 
 \begin{frame}
 \frametitle{Microsoft Visual Stuio 2005}
-\color{red}{TODO}
+\begin{itemize}
+    \setlength{\itemsep}{8pt plus 1pt}
+\item 多种开发语言共存，使用同样的开发方式
+\item 与 ~MSDN 共享同一个 ~IDE
+\item 动态帮助，代码自动生成
+\item 集成 ~Web 浏览器
+\item 各种设计的图形视图
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Microsoft Visual Stuio 2005}
+\begin{block}{解决方案}
+  \CJKindent \small 解决方案管理 Visual Studio 配置、生成和部署相关项目集的方式。Visual Studio 解决方
+  案可以只包含一个项目，也可以包含由开发小组联合生成的多个项目。复杂的应用程序可能需要多个解决方案。
+\end{block}
+\begin{figure}
+  \centering
+\includegraphics[width=10cm]{vstudio-proj.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Microsoft Visual Stuio 2005}
+新建项目：
+\begin{columns}
+\column{.5\textwidth}
+  \begin{itemize}
+  \item Console Application
+  \item Windows Application
+  \end{itemize}
+\column{.5\textwidth}
+  \begin{itemize}
+  \item Class Library
+  \item Windows Control Library
+  \end{itemize}
+\end{columns}
+\begin{figure}
+  \centering
+  \includegraphics[width=10cm]{vstudio-newp.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Microsoft Visual Stuio 2005}
+\begin{columns}
+\column{.5\textwidth}
+调试的基本功能
+  \begin{itemize}
+  \item 开始运行 F5/Ctrl-F5
+  \item 单步跟踪 F11/F10
+  \item 设置断点 Ctrl-B
+  \item 查看表达式值 Ctrl-D Q
+  \end{itemize}
+常用的工具视图
+  \begin{itemize}
+  \item Solution Explore (Ctrl-W S)
+  \item Property Window (Ctrl-W P)
+  \item ToolBox (Ctrl-W X)
+  \item Class View (Ctrl-W C)
+  \end{itemize}
+\column{.5\textwidth}
+\begin{figure}
+  \centering
+  \includegraphics[width=5cm]{vstudio-debg.png}
+\end{figure}
+\end{columns}
 \end{frame}
 
 
 % Local Variables: 
 % mode: LaTeX
-% TeX-master: "lesson-01.tex"
+% TeX-master: "part-01.tex"
 % TeX-header-end: "% End-Of-Header$"
 % TeX-trailer-start: "% Start-Of-Trailer$"
 % fill-column: 100
