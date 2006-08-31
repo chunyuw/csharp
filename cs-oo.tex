@@ -5,12 +5,13 @@
 \section{基类的访问}
 % 继承，封装，重载
 
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{基类与派生类的关系}
 \begin{itemize}
 \item 基类中的成员，全部被派生类继承
 \item 而只有 ~private 修饰的成员不可以被访问
-\item 字段可以直接覆盖
+\vskip.5cm
+\item 派生类的字段可以直接{\color<handout:0>{red!65!black}隐藏}基类同名字段
 \end{itemize}
 \begin{lstlisting}[escapeinside=<>]
 class Circle {
@@ -21,18 +22,15 @@ class Ring:Circle {
   public int r;
 }
 \end{lstlisting}
-
 \end{frame}
 
-
-\begin{frame}[fragile,t]
-\frametitle{覆盖基类方法}
+\begin{frame}[fragile]
+\frametitle{隐藏基类方法}
 \begin{itemize}
-\item<1-> 使用~new~关键字
-\item<2> 虚方法(virtual)和覆盖(override)
+\item 派生类的方法也可以直接隐藏基类方法，但会有编译警告
+\item 要显示隐藏基类方法，派生类要用 ~new 关键字指出
 \end{itemize}
-\begin{onlyenv}<1>
-  \lstset{emph={new,Area}}
+  \lstset{emph={new}}
 \begin{lstlisting}
 class Circle      { public int R; 
   public static double pi = 3.1415;
@@ -44,8 +42,17 @@ class Ring:Circle { public int r;
     { return pi * R * R - pi * r * r; }
 }
 \end{lstlisting}
-\end{onlyenv}
-\begin{onlyenv}<2>
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{虚方法 (\textit{virtual method})}
+\begin{itemize}
+\item 如果允许派生类{\color<handout:0>{red!65!black}覆盖}基类方法，要用 ~virtual 关键字指出
+\item 同时派生类要用 ~override 指出
+\item 虚方法，也可以使用 ~new 关键字隐藏
+\end{itemize}
   \lstset{emph={virtual,override,Area}}
 \begin{lstlisting}
 class Circle      { public int R; 
@@ -58,46 +65,142 @@ class Ring:Circle { public int r;
     { return pi * R * R - pi * r * r; }
 }
 \end{lstlisting}
-\end{onlyenv}
 \end{frame}
 
-\begin{frame}[fragile,t]
-\frametitle{访问基类成员}
+\begin{frame}[fragile]
+\frametitle{隐藏和覆盖的区别}
 \begin{itemize}
-\item<1-> 使用~this~关键字表示当前类
-\item<2> 使用~base~关键字表示基类
+\item 隐藏方法，在基类中还存在；覆盖的，已经被替换
 \end{itemize}
-\begin{onlyenv}<1>
-  \lstset{emph={this}}
-\begin{lstlisting}
-class Circle {  
-  public int R; 
-  public static double pi = 3.1415;
-  public Circle(int R){ 
-    this.R = R;
-  }
+隐藏基类的方法
+\lstset{emph={new}}
+\begin{lstlisting}[escapeinside=<>]
+using System;
+class A
+{ public void Hello()
+  { Console.WriteLine ("in class A"); }
 }
-\end{lstlisting}
-\end{onlyenv}
-\begin{onlyenv}<2>
-  \lstset{emph={base}}
-\begin{lstlisting}
-class Ring : Circle {
-  public int r;
-  public override double Area(){ 
-    return base.Area() - pi * r * r;
+class B:A
+{ public new void Hello() // new <用于隐藏>
+  { Console.WriteLine ("in class B"); }
+} ...
+  public static void Main()
+  { A a = new B(); // <基类引用>
+    B b = (B) a;   // <派生类引用>
+    a.Hello();     // <``in class A''>
+    b.Hello();     // <``in class B''>
+    Console.ReadLine();
   }
-}
+
 \end{lstlisting}
-\end{onlyenv}
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{隐藏和覆盖的区别(2)}
+覆盖基类的方法
+\lstset{emph={virtual,override}}
+\begin{lstlisting}[escapeinside=<>]
+using System;
+class A
+{ public virtual void Hello()
+  { Console.WriteLine ("in class A"); }
+}
+class B:A
+{ public override void Hello() // new <用于隐藏>
+  { Console.WriteLine ("in class B"); }
+} ...
+  public static void Main()
+  {
+    A a = new B(); // <基类引用>
+    B b = (B) a;   // <派生类引用>
+    a.Hello(); // "in class B" !!
+    b.Hello(); // "in class B"
+    Console.ReadLine();
+  }
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{隐藏和覆盖的区别(3)}
+\begin{columns}
+  \column{.5\textwidth}
+\begin{itemize}
+\item virtual，允许派生类覆盖的虚方法
+\item override，只能用于覆盖虚方法
+\item new 可以隐藏基类方法
+\vskip.5cm
+\item 通过类型转换，可以使用基类型表示对象
+\item 通过基类引用的对象，可以直接访问基类方法
+\end{itemize}
+  \column{.5\textwidth}
+  \begin{figure}
+    \centering
+    \input{pgf-dn/cs-methods}
+  \end{figure}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\texttt{this}关键字访问类成员}
+\begin{itemize}
+\item 使用~this~关键字表示当前类自身
+\end{itemize}
+\lstset{emph={this}}
+\begin{lstlisting}
+using System;
+class Person {
+  string name;
+  public Person (string name) {
+    this.name = name;
+  }
+  public void Introduce(Person a) {
+    if (a!=this)
+      Console.WriteLine("Hello, I'm "+name);
+  }
+}...
+  public static void Main()
+  {
+    Person p = new Person("Zhang");
+    Person q = new Person("Wang");
+    p.Introduce (q);
+  }
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\texttt{base}关键字访问类成员}
+\begin{itemize}
+\item 使用~base~关键字表示基类
+\end{itemize}
+\lstset{emph={base}}
+\begin{lstlisting}
+class Student:Person
+{
+  public Student(string name)
+  { this.name = name; }
+  public new void Introduce (Person a)
+  {
+    base.Introduce (a);
+    Console.WriteLine ("I'm from HIT!");
+  }
+}
+...
+  public static void Main()
+  {
+    Person  p = new Person("Zhang");
+    Student q = new Student("Wang");
+    q.Introduce (p);
+    Console.ReadLine();
+  }
+\end{lstlisting}
+\end{frame}
 
 \begin{frame}[fragile,t]
 \frametitle{命名空间}
 \begin{onlyenv}<1-2>
   \begin{block}{命名空间(namespace)}
-    类、接口、委托等其他类型的一个逻辑上的组合，用来防止名字之间的命名冲突。
+   \CJKindent 类、接口、委托等其他类型的一个逻辑上的组合，用来防止名字之间的命名冲突。
   \end{block}
   \pause
   \begin{itemize}

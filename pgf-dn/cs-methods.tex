@@ -1,1 +1,20 @@
 %% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn>
+
+\begin{tikzpicture}[font=\footnotesize, >=stealth]
+\tikzstyle{cn}=[circle,fill=red!20,draw,minimum size=1cm]
+\draw[fill=blue!20] (0,2.5) rectangle (1.75,4.75);
+\draw (0,3.75) rectangle (1.5,4.75);
+\draw (.875,3) node {派生类~B} (.75,4.25) node {基类~A};
+\draw[font=\scriptsize,dashed] (4,4.25) node[cn,minimum size=1.1cm] (b1h) {Hello};
+\draw[->,dashed] (1.5,4.25) -- node[pos=.6,above] {virtual} (b1h);
+\draw[font=\scriptsize] (4,4.25) node[cn] (b2h) {Hello};
+\draw[->] (1.75,3) -| node[pos=.3,above] {override} (b2h);
+
+\draw[fill=blue!20] (0,0) rectangle (1.75,2.25);
+\draw (0,1.25) rectangle (1.5,2.25);
+\draw (.875,.5) node {派生类~B} (.75,1.75) node {基类~A};
+\draw[font=\scriptsize] (4,1.75) node[cn] (a1h) {Hello};
+\draw[->] (1.5,1.75) -- (a1h);
+\draw[font=\scriptsize] (4,.5) node[cn] (a2h) {Hello};
+\draw[->] (1.75,0.5) -- node[pos=.6,above] {new}(a2h);
+\end{tikzpicture}
