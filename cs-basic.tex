@@ -298,9 +298,31 @@ string 类型中提供的成员
   \item 串的长度 \texttt{Length}
   \end{itemize}
 \begin{lstlisting}
-int x = string.Length;
+string s = "This is a string";
+int x = s.Length;
 int y = "Hello World".Length;
 \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{字符串的操作}
+抽取子串
+\begin{lstlisting}
+string s = "This is a string";
+string t;
+
+t = s.Substring(8); // "a string"
+t = s.Substring(0,4); // "This"
+\end{lstlisting}
+
+定位子串
+\begin{lstlisting}
+string s = "This is a string";
+int i;
+
+i = s.IndexOf("a"); // i=8
+\end{lstlisting}
+
 
 \end{frame}
 
@@ -422,6 +444,7 @@ if (Enum.IsDefiened(typeof(Fabric),fabStr))
 
 \end{frame}
 
+\section{数组}
 
 \begin{frame}[fragile]
 \frametitle{数组}

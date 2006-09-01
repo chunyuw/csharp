@@ -2,11 +2,16 @@
 
 \part{C\# 高级特性}
 
-\section{抽象类和接口}
+\section{抽象类}
 
 \begin{frame}[fragile,t]
 \frametitle{抽象类}
 \begin{onlyenv}<1>
+  \begin{block}{抽象类}
+    \CJKindent 未完全实现的类，只能用于其他类的基类。从抽象类派生的类必须实现其
+    中的抽象方法。
+  \end{block}
+
   \begin{itemize}
   \item 用 abstract 修饰，不能生成实例
   \item 可以只给出方法的声明，无具体实现
@@ -39,15 +44,29 @@ class Circle:Graphics {
 \end{onlyenv}
 \end{frame}
 
+\section{接口}
 \begin{frame}[fragile]
-\frametitle{接口(interface)}
-\begin{onlyenv}<1> 
-  \begin{block}{接口}
-    能声明特性、索引器、事件和方法的特殊结构，只为这些成员提供定义，没有具体
-    实现。
+\frametitle{接口}
+  \begin{block}{\textit{interface}}
+    \CJKindent 能声明特性、索引器、事件和方法的特殊结构，只为这些成员提供定义，
+    没有具体实现。
   \end{block}
-\end{onlyenv}
-\begin{onlyenv}<1-3>
+接口的一般定义
+\begin{lstlisting}
+[attributes]
+[modifiers] interface identifier [:baselist]
+{ interface_body } [;]
+\end{lstlisting}
+\begin{itemize}
+\item 接口声明的语法和类基本相同
+\item 接口实际也是一种类型
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{接口示例}
+
+\begin{onlyenv}<1-2>
   \lstset{emph={interface},emph={[2]Perimeter,Area}}
 \begin{lstlisting}
 public interface IMeasurement{
@@ -56,7 +75,7 @@ public interface IMeasurement{
 }
 \end{lstlisting}
 \end{onlyenv}
-\begin{onlyenv}<2>
+\begin{onlyenv}<1>
   \lstset{emph={[2]Perimeter,Area}}
 \begin{lstlisting}
 class    Circle:IMeasurement {
@@ -71,7 +90,7 @@ class    Circle:IMeasurement {
 }
 \end{lstlisting}
 \end{onlyenv}
-\begin{onlyenv}<3>
+\begin{onlyenv}<2>
   \lstset{emph={[2]Perimeter,Area}}
 \begin{lstlisting}
 class Rectangle:IMeasurement {
@@ -85,108 +104,709 @@ class Rectangle:IMeasurement {
 }
 \end{lstlisting}
 \end{onlyenv}
-\begin{onlyenv}<4>
-  \begin{block}{接口的特点}
-    \begin{itemize}
-    \item 为类提供了蓝图，规范了类之间的交互方式
-    \item 可以继承其他接口
-      \lstset{emph={MyIf},emph={[2]BaseIf}}
-\begin{lstlisting}
-public interface MyIf:BaseIf
-  { ... }
-\end{lstlisting}
-    \item 和抽象类一样，不可以生成实例
-    \item 接口成员默认为 public 和 abstract
-    \end{itemize}
-  \end{block}
-\end{onlyenv}
-\begin{onlyenv}<5>
-  \begin{block}{接口和抽象类的区别}
-    \begin{itemize}
-    \item 只有四种成员，仅提供定义而不实现
-    \item 定义不需要 public 和 abstract，实现不需要 override
-    \item 类只能继承一个类，但可以实现多个接口
-      \lstset{emph={MyClass},emph={[2]FirstIf,AnotherIf}}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{接口的特点}
+\begin{itemize}
+\item 为类提供了蓝图，规范了类之间的交互方式
+\item 可以继承其他接口
+\item 和抽象类一样，不可以生成实例
+\item 接口成员默认为 public 和 abstract
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{接口和抽象类的区别}
+\begin{itemize}
+\item 只有四种成员，仅提供定义而不实现
+\item 定义不需要 public 和 abstract，实现不需要 override
+\item 类只能继承一个类，但可以实现多个接口
+
+  \lstset{emph={MyClass},emph={[2]FirstIf,AnotherIf}}
 \begin{lstlisting}
 class MyClass:FirstIf,AnotherIf
   { ... }
 \end{lstlisting}
-    \end{itemize}
-  \end{block}
-\end{onlyenv}
-\end{frame}
-
-\section{委托和事件}
-% \begin{frame}[fragile]
-% \frametitle{委托(delegate)}
-% \begin{onlyenv}<1>
-%   \begin{block}{委托}
-%     具有特定返回类型和参数列表的方法的引用类型；方法可以有任何名字，可以使静
-%     态或实例方法；对方法实际能进行的操作没有限制。
-%   \end{block}
-%   \begin{itemize}
-%   \item 定义委托后，需要声明及创建委托的实例
-%   \item 通过委托，程序可以在运行时动态的调用不同的方法
-%   \end{itemize}
-% \end{onlyenv}
-% \begin{onlyenv}<2>
-% \begin{lstlisting}[escapeinside=<>]
-% // <定义委托 Compute>
-% delegate int Compute (int a, int b);
-% class Test {
-% public Compute comp;        // <声明委托>
-% public int add (int x, int y)
-% { return x + y; }
-% } ...
-% Test n = new Test();
-% n.comp = new Compute(n.add); // <创建委托实例>
-% int r  = n.comp3 (20,40);    // <调用委托>
-% System.Console.WriteLine (r);
-% \end{lstlisting}
-% \end{onlyenv}
-% \end{frame}
-
-% \begin{frame}[fragile]
-% \frametitle{事件}
-% \begin{itemize}
-% \item ...
-% \end{itemize}
-% \end{frame}
-\begin{frame}
-\frametitle{委托}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{事件}
-
-\end{frame}
-
-\section{泛型}
-  \begin{frame}[fragile]
-\frametitle{泛型}
-\begin{block}{\textit{Generics}}
-  \CJKindent 泛型就是将类型为参数，可以动态设置的类，类似 ~C++ 中的模板类。
-  泛型是 ~.NET 2.0 的新特性。
-\end{block}
-\pause
-\begin{itemize}
-\item 
-\item 
 \end{itemize}
-\pause
-泛型定义的一般格式
+\end{frame}
+
+\begin{frame}
+\frametitle{接口的作用}
+
+\begin{itemize}
+\item 接口规定了类的一种行为方式，规范了类的行为
+\item 实现某一接口的各种类，在这方面的行为是一致的
+\item 通过接口连接的模块，代码之间的耦合度小
+\item 系统提供了大量的现成接口
+\begin{itemize}
+\item System.IComparable --- 其中的 ~CompareTo() 用于比较
+\item System.Collections.ICollection --- 集合操作
+\item System.Collections.IEnumerator --- 迭代操作
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{接口中的特性}
 \begin{lstlisting}
-class identifier<type-param-list> 
-         [where type-param:constraints]
-{ ... }
+using System;
+public interface ISeries {  // An interface property.
+  int next { get; // return the next number in series
+    set; // set next number
+  }
+}
+class ByTwos : ISeries {
+  int val;
+  public ByTwos() { val = 0; }
+
+  // get or set value
+  public int next {
+    get { val += 2;
+          return val;  }
+    set {
+          val = value; }
+  }
+}
+
 \end{lstlisting}
-泛型使用的一般格式
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{接口中的索引器}
 \begin{lstlisting}
-identifier<type-arg-list>  var-name =
-  new  class-name<type-arg-list>(cons-arg-list);
+using System;
+
+public interface ISeries {  // an interface property
+  ...
+  // an interface indexer
+  int this[int index] {
+    get; // return the specified number in series
+  }
+}
+...
+  // get a value using an index
+  public int this[int index] {
+    get {
+      val = 0;
+      for(int i=0; i<index; i++)
+        val += 2;
+      return val;
+    }
+  }
+
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{接口的继承}
+\begin{lstlisting}
+public interface A {
+  void meth1();
+  void meth2();
+}
+
+// B now includes meth1() and meth2() -- it adds meth3().
+public interface B : A {
+  void meth3();
+}
+
+\end{lstlisting}
+\begin{itemize}
+\item 接口中的方法也可以使用 ~new 关键字隐藏
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{显示实现接口}
+ 接口默认是 public，如果需要 ~private 要使用显示实现
+\begin{lstlisting}
+using System;
+interface IEven {
+  bool isOdd(int x);
+  bool isEven(int x); }
+
+class MyClass : IEven {
+  // Explicit implementation. Notice that this 
+  // member is private by default.
+  bool IEven.isOdd(int x) {
+    if((x%2) != 0) return true;
+    else return false;
+  }
+...
+}
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{显示实现消除歧义}
+\begin{lstlisting}
+using System;
+
+interface IMyIF_A {
+  int meth(int x);
+}
+interface IMyIF_B {
+  int meth(int x);
+}
+
+class MyClass : IMyIF_A, IMyIF_B {
+
+  // explicitly implement the two meth()s
+  int IMyIF_A.meth(int x) {
+    return x + x;
+  }
+  int IMyIF_B.meth(int x) {
+    return x * x;
+  }
+...
+}
+\end{lstlisting}
+
+\end{frame}
+
+\section{委托}
+\begin{frame}[fragile]
+\frametitle{委托}
+  \begin{block}{\textit{delegate}}
+    \CJKindent 具有特定返回类型和参数列表的方法的引用类型；方法可以有任何名字，
+    可以使静态或实例方法；对方法实际能进行的操作没有限制。
+  \end{block}
+委托定义的一般格式：
+\begin{lstlisting}
+[modifiers] delegate <name> ([parameter list]);
+\end{lstlisting}
+
+  \begin{itemize}
+  \item 委托也是一种类型，用于包装方法
+  \item 定义委托后，需要声明，并创建委托的实例
+  \item 委托的实例，相当于方法的容器，可以添加或去掉方法
+  \item 调用委托，相当于调用其中的全部方法
+  \item 通过委托，程序可以在运行时动态的调用不同的方法
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{委托示例(1)}
+\begin{lstlisting}[escapeinside=<>]
+// <定义委托 Compute>
+delegate int Compute (int a, int b);
+
+class Test {
+  public Compute comp;        // <声明委托>
+  public int add (int x, int y)
+    { return x + y; }
+}
+...
+  Test n = new Test();
+  n.comp = new Compute(n.add); // <创建委托实例>
+
+  int r  = n.comp3 (20,40);    // <调用委托>
+
+  System.Console.WriteLine (r);
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{委托示例(2)}
+\begin{lstlisting}
+using System;
+delegate string StrMod(string str);
+class DelegateTest {
+  static string replaceSpaces(string a) {
+    Console.WriteLine("Replaces spaces with hyphens.");
+    return a.Replace(' ', '-');   }
+  static string removeSpaces(string a) {
+    string temp = "";  int i;
+    Console.WriteLine("Removing spaces.");
+    for(i=0; i < a.Length; i++)
+      if(a[i] != ' ') temp += a[i];
+    return temp; }
+  static string reverse(string a) {
+    string temp = ""; int i, j;
+    Console.WriteLine("Reversing string.");
+    for(j=0, i=a.Length-1; i >= 0; i--, j++)
+      temp += a[i];
+    return temp;
+}
 \end{lstlisting}
 \end{frame}
+\begin{frame}[fragile]
+\frametitle{委托示例(2续)}
+\begin{lstlisting}
+public static void Main() {
+  // Construct a delegate.
+  StrMod strOp = new StrMod(replaceSpaces);
+  string str;
+
+  // Call methods through the delegate.
+  str = strOp("This is a test.");
+  Console.WriteLine("Resulting string: " + str);
+  Console.WriteLine();
+
+  strOp = new StrMod(removeSpaces);
+  str = strOp("This is a test.");
+  Console.WriteLine("Resulting string: " + str);
+  Console.WriteLine();
+
+  strOp = new StrMod(reverse);
+  str = strOp("This is a test.");
+  Console.WriteLine("Resulting string: " + str);
+}
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\frametitle{委托的优势}
+
+\begin{itemize}
+\setlength{\itemsep}{6pt plus 1pt}
+\item 传统的 ~Microsoft Windows 使用函数指针进行回调
+\item 函数指针指向的地址不一定有效，容易发生错误
+\item C\# 则通过类型安全的委托进行回调
+\item 编译器完成类型检查，确保其中的方法可靠
+\item 不需使用函数指针，易于维护
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{自动类型转换}
+C\# 2.0 中，可以省略 ~new 表达式，直接使用方法名创建委托实例，添加委托
+\begin{lstlisting}
+public static void Main() {
+  // Construct a delegate using method group conversion.
+  StrMod strOp = replaceSpaces; // use method group conversion
+  string str;
+
+  // Call methods through the delegate.
+  str = strOp("This is a test.");
+
+  strOp = removeSpaces; // use method group conversion
+  str = strOp("This is a test.");
+
+  strOp = reverse; // use method group conversion
+  str = strOp("This is a test.");
+}
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{多播委托}
+\begin{lstlisting}
+public static void Main() {
+  // Construct delegates.
+  StrMod strOp;
+  string str = "This is a test";
+
+  // Set up multicast.
+  strOp = replaceSpaces;
+  strOp += reverse;
+
+  // Call multicast.
+  strOp(str);
+
+  strOp -= replaceSpaces;
+  strOp += remove;
+
+  strOp(str);
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{多播委托}
+\begin{itemize}
+\setlength{\itemsep}{4pt plus 1pt}
+\item 多播委托中，委托相当于一个方法的调用列表
+\item 通过 ~\texttt{+}或~\texttt{+,-=} 操作符添加其他的委托(或方法)
+\item 通过 ~\texttt{-}或~\texttt{+,-=} 操作符去掉已有的委托(或方法)
+\item 一般来说多播委托的返回值应该是 ~void，不用参数列表返回参数
+\item 添加和去掉方法的格式比较自由
+\end{itemize}
+\begin{lstlisting}
+  delegate void MyOperation (int i);
+  MyOperation myop = new MyOperation();
+  
+  myop += SomeMethod;
+  myop += new MyOperation(AnotherMethod);
+  ...
+  
+  myop(100);
+  myop -= new MyOperation(SomeMethod);
+  myop -= AnotherMethod;
+
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{匿名方法}
+\begin{block}{\textit{anonymous method}}
+  \CJKindent 匿名方法就是可以执行的一段代码块。
+\end{block}
+匿名方法的一般格式：
+\begin{lstlisting}
+delegate [(parameter-list)] { anonymous-method-block}
+\end{lstlisting}
+\begin{itemize}
+\item C\# 2.0 中使用委托可以创建匿名方法
+\item 主要作用就是简化，不需要分配一个名字的方法
+\end{itemize}
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{匿名方法示例}
+\begin{lstlisting}
+using System;
+
+// Declare a delegate.
+delegate void CountIt();
+
+class AnonMethDemo {
+
+  public static void Main() {
+
+    // Here, the code for counting is passed
+    // as an anonymous method.
+    CountIt count = delegate {
+      for(int i=0; i <= 5; i++)
+        Console.WriteLine(i);
+    }; // notice the semicolon
+
+    count();
+  }
+}
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{带参数的匿名方法}
+\begin{lstlisting}
+using System;
+
+// Notice that CountIt now has a parameter.
+delegate void CountIt(int end);
+
+class AnonMethDemo2 {
+
+  public static void Main() {
+
+    // Here, the ending value for the count
+    // is passed to the anonymous method.
+    CountIt count = delegate (int end) {
+      for(int i=0; i <= end; i++)
+        Console.WriteLine(i);
+    };
+
+    count(3);
+    Console.WriteLine();
+    count(5);
+  }
+}
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{带返回值的匿名方法}
+\begin{lstlisting}
+using System;
+
+// This delegate returns a value.
+delegate int CountIt(int end);
+
+class AnonMethDemo3 {
+
+  public static void Main() {
+    int result;
+
+    // Here, the ending value for the count
+    // is passed to the anonymous method.
+    // A summation of the count is returned.
+    CountIt count = delegate (int end) {
+      int sum = 0;
+
+      for(int i=0; i <= end; i++) {
+        Console.WriteLine(i);
+        sum += i;
+      }
+      return sum; // return a value from an anonymous method
+    };
+
+    result = count(3);
+    Console.WriteLine("Summation of 3 is " + result);
+  }
+}
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{委托的相等性}
+\begin{itemize}
+\item 不同的委托间，判断是否已经调用某个方法，需要判断委托的相等性
+\item 对于单个委托，只需判断类型和委托中的方法
+\item 对于多播委托，还需要判断方法个数和顺序
+\end{itemize}
+\begin{lstlisting}
+  StrMod strOp1;
+  StrMod strOp2;
+  ...
+
+  bool equal = (strOp1 == strOp2);
+
+\end{lstlisting}
+\end{frame}
+
+
+
+\section{事件}
+
+\begin{frame}[fragile]
+\frametitle{事件}
+\begin{block}{\textit{events}}
+  \CJKindent 类中安全的委托成员，~Windows 编程中的事件在 ~C\# 语言中的体现，是
+  程序元素之间通信的动态格式。
+\end{block}
+事件定义的一般格式：
+\begin{lstlisting}
+[modifier] event <delegate type> <event name>;
+\end{lstlisting}
+\begin{itemize}
+\item 事件不是从程序的一部分到另一部分的过程流
+\item 只是建立在程序之间的连接的方法和运行过程中的终结操作
+\item 程序运行期间，时间用于通知感兴趣的客户
+\item 用于 ~C\# 的组件以提供回调功能
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{定义事件}
+\begin{lstlisting}
+using System;
+public delegate void MenuHandler();
+
+public class MenuItem
+{
+  public event MenuHandler MenuSelection;
+  // event: MenuSelection
+
+  string text;
+
+  public MenuItem (string text)
+  { this.text = text; }
+
+  public void Fire()
+  { MenuSelection(); }
+
+  public string Text
+  { get {return text;}
+    set {text = value;} }
+}
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{发布/订阅模式}
+\begin{itemize}
+\item 提供事件的类可以称为事件的提供器或发布器 (\textit{publisher})
+\item 需要被通知的部分可以称为订阅器 (\textit{subscriber})
+\end{itemize}
+\bigskip
+\begin{itemize}
+\setlength{\itemsep}{4pt plus 1pt}
+\item 订阅器通过向事件中添加事件处理方法来达到订阅的目的
+\item 因为时间一般都定义为 ~\texttt{public}，因此任何部分都可以添加
+\item 而因为委托可以添加多个方法，所以可以由多个部分订阅
+\item 而事件发布器通过调用委托，来触发 (\textit{fire}) 事件
+\item 事件的触发实际就是方法的调用过程
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{委托和事件}
+\begin{itemize}
+\setlength{\itemsep}{6pt plus 1pt}
+\item 为什么不直接使用委托呢？
+\item 委托用于事件时，需要声明为 ~\texttt{public}，其他组件才能订阅
+\item 但同时也可以发布，即调用发布器委托
+\item 因此 ~C\# 将委托包装为事件，对外专门用于订阅
+\item 定义为事件后，即使是 ~\texttt{public}，其他组件也只能订阅和删除
+\item 而作为委托的调用，只能由发布器类自己完成
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{事件访问器}
+\CJKindent 添加方法到事件，或从事件中删除的过程时可以定制的。事件访问器就是事
+件的一个变形，用于管理事件的添加和删除。
+
+\begin{lstlisting}
+public delegate void 
+  MenuHandler(object sender, EventArgs e);
+
+public class MenuItem
+{ int numberOfEvents;
+  strng text; 
+
+  private MenuHandler mh = null;  // delegate
+
+  public event MenuHandler MenuSelection // event
+  { add {
+      mh += value; numberOfEvents++;
+    }
+    remove {
+      mh -= value; numberOfEvents--;
+    }
+  } 
+}
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{事件的其他特性}
+\setlength{\itemsep}{6pt plus 1pt}
+\begin{itemize}
+\item 事件可以在接口中，实现接口的类必须实现该事件
+\item 事件可以使抽象 (\texttt{abstract}) 的，有派生类继承并实现
+\item 而事件访问器不可以是抽象的
+\item 事件可以被密封 (\texttt{sealed})，防止被继承
+\item 事件可以是虚的 (\texttt{virtual})，允许派生类的覆盖
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{.NET 中的事件}
+\begin{itemize}
+\item 事件的定义可以是任意的
+\item 但 ~.NET 框架推荐了一种标准，即：
+\begin{lstlisting}
+void Handler (object source, EventArgs arg){
+  // ...
+}
+\end{lstlisting}
+\end{itemize}
+\medskip
+\begin{itemize}
+\item source 用于调用方法把自己 (\texttt{this}) 传给客户
+\item arg 是 ~System.EventArgs 类型的参数
+\item EventArgs 可存放任何信息
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{.NET 事件示例(1)}
+\begin{lstlisting}
+using System;
+class MyEventArgs : EventArgs { public int eventnum; }
+
+delegate void MyEventHandler(object source, MyEventArgs arg);
+
+class MyEvent {   static int count = 0;
+
+  public event MyEventHandler SomeEvent;
+  
+  public void OnSomeEvent() {   // This fires SomeEvent.
+    MyEventArgs arg = new MyEventArgs();
+
+    if(SomeEvent != null) {
+      arg.eventnum = count++;
+      SomeEvent(this, arg);
+    }
+  }
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{.NET 事件示例(2)}
+\begin{lstlisting}
+class X {
+  public void handler(object s, MyEventArgs arg) {..} }
+
+class Y {
+  public void handler(object s, MyEventArgs arg) {..} }
+
+class EventDemo6 {
+  public static void Main() {
+    X ob1 = new X();
+    Y ob2 = new Y();
+    MyEvent evt = new MyEvent();
+
+    // Add handler() to the event list.
+    evt.SomeEvent += ob1.handler;
+    evt.SomeEvent += ob2.handler;
+
+    // Fire the event.
+    evt.OnSomeEvent();
+    evt.OnSomeEvent();
+  }
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{事件与匿名方法}
+\begin{lstlisting}
+using System;
+delegate void MyEventHandler();
+
+class MyEvent {
+  public event MyEventHandler SomeEvent;
+  ...
+  public void OnSomeEvent() {
+    if(SomeEvent != null) SomeEvent();
+  }
+}
+...
+  MyEvent evt = new MyEvent();
+
+  evt.SomeEvent += delegate {
+    Console.WriteLine("Event received.");
+  };
+
+  evt.OnSomeEvent();
+  evt.OnSomeEvent();
+
+\end{lstlisting}
+
+\end{frame}
+
+% \section{泛型}
+%   \begin{frame}[fragile]
+% \frametitle{泛型}
+% \begin{block}{\textit{Generics}}
+%   \CJKindent 泛型就是将类型为参数，可以动态设置的类，类似 ~C++ 中的模板类。
+%   泛型是 ~.NET 2.0 的新特性。
+% \end{block}
+% \pause
+% \begin{itemize}
+% \item 
+% \item 
+% \end{itemize}
+% \pause
+% 泛型定义的一般格式
+% \begin{lstlisting}
+% class identifier<type-param-list> 
+%          [where type-param:constraints]
+% { ... }
+% \end{lstlisting}
+% 泛型使用的一般格式
+% \begin{lstlisting}
+% identifier<type-arg-list>  var-name =
+%   new  class-name<type-arg-list>(cons-arg-list);
+% \end{lstlisting}
+% \end{frame}
 
 % Local Variables: 
 % mode: LaTeX

@@ -73,6 +73,31 @@ public class YYY { ... }
 \end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{条件属性}
+\begin{lstlisting}
+#define DEBUG
+using System;
+using System.Diagnostics;
+class AttriTest
+{ 
+  [Conditional ("TRACE")]
+  public static void ListTrace() 
+  { Console.WriteLine("Trace is On"); }
+
+  [Conditional ("DEBUG")]
+  public static void ListDebug() 
+  { Console.WriteLine("Debug is On"); }
+
+  public static void Main()
+  { ListTrace();
+    ListDebug();
+    Console.ReadLine(); }
+}
+\end{lstlisting}
+\end{frame}
+
+
 \begin{frame}
 \frametitle{访问修饰符}
 
@@ -869,6 +894,31 @@ static void Main()
 }
 \end{lstlisting}
 \end{frame}
+
+\begin{frame}
+\frametitle{结构体和类的比较}
+\begin{tabular}{l|l|l}
+\hline
+  & 结构体& 类\\ \hline
+
+类型的默认访问级别 & internal & internal \\
+数据成员默认访问 & public & private\\
+特性和方法  & private & private\\
+类型  & 值类型 & 引用类型\\
+能否作为基类  & 不能 & 能\\
+构造函数 & 有$^{1}$ & 有 \\
+析构函数 & 无 & 有 \\
+嵌套  & 可以 & 可以\\
+实现接口  & 可以 & 可以\\
+产生和处理事件  & 可以 & 可以\\
+\hline
+\end{tabular}
+\begin{enumerate}
+\item 结构体不能定义无参数的构造函数
+\end{enumerate}
+
+\end{frame}
+
 
 % Local Variables: 
 % mode: LaTeX
