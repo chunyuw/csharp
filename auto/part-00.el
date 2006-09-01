@@ -1,8 +1,7 @@
-(TeX-add-style-hook "part-01"
+(TeX-add-style-hook "part-00"
  (lambda ()
     (TeX-run-style-hooks
      "preamble"
      "author"
-     "dn-outline"
-     "dn-devel")))
+     "dn-intro")))
 

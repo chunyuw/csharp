@@ -3,7 +3,7 @@
 % \section{面向对象的设计}
 
 \section{基类的访问}
-% 继承，封装，重载
+\frame{\tableofcontents[currentsection]}
 
 \begin{frame}[fragile]
 \frametitle{基类与派生类的关系}
@@ -87,8 +87,8 @@ class B:A
   public static void Main()
   { A a = new B(); // <基类引用>
     B b = (B) a;   // <派生类引用>
-    a.Hello();     // <``in class A''>
-    b.Hello();     // <``in class B''>
+    a.Hello();     // "in class A"
+    b.Hello();     // "in class B"
     Console.ReadLine();
   }
 
@@ -197,6 +197,7 @@ class Student:Person
 \end{frame}
 
 \section{命名空间}
+\frame{\tableofcontents[currentsection]}
 
 \begin{frame}[fragile]
 \frametitle{命名空间}
@@ -272,7 +273,7 @@ Animals.Birds.Sparrow s = new Animals.Birds.Sparrow();
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{using 导入命名空间}
+\frametitle{\texttt{using} 导入命名空间}
 
 \begin{itemize}
 \item 使用命名空间(using)

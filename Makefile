@@ -5,7 +5,7 @@ AUTOCI="Batch checkin by Makefile ($(DATE))"
 CLNSUFFIX=" aux log snm toc vrb out out.bak dvi "
 OTHSUFFIX=" nav rel "
 
-all: 1 2
+all: 0 1 2
 
 %.pdf: %.tex preamble.tex
 	@if [ -e $(basename $@).tex ] ; then \
@@ -31,9 +31,11 @@ cleanall: clean cleanpdf cleanoth
 
 .PHONY:	all clean
 
+part-00.pdf: dn-intro.tex
 part-01.pdf: $(wildcard dn-*.tex) $(wildcard pgf/*.tex)
 part-02.pdf: $(wildcard cs-*.tex)
 
+0: part-00.pdf
 1: part-01.pdf
 2: part-02.pdf
 3: part-03.pdf
