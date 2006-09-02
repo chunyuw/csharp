@@ -5,7 +5,7 @@
 
 * Tasks
 ** TODO Slides
-*** TODO .NET Framework
+*** DONE .NET Framework
 *** TODO C# Language
 *** TODO Class Library
 ** TODO Experiment Materials
@@ -171,6 +171,9 @@ C#:  [[http://msdn2.microsoft.com/zh-cn/library/618ayhy6.aspx][C# ³ÌÐòÔ±²Î¿¼]]
 
 
 * Beamer Usage
+
+** pdfbookmark
+  \pdfbookmark[3]{frametitle}{\thepage}
 
 ** frame option
 
