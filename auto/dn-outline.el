@@ -8,12 +8,12 @@
      "fig:clr-compile"
      "fig:clr-execute")
     (TeX-run-style-hooks
-     "pgf-dn/dn-framework"
-     "pgf-dn/clr-compile-exec"
-     "pgf-dn/cts-typesystem"
-     "pgf-dn/cts-v-r-types"
-     "pgf-dn/clr-compile"
-     "pgf-dn/pe-format"
-     "pgf-dn/clr-execute"
-     "pgf-dn/fcl-namespaces")))
+     "pgf/dn-framework"
+     "pgf/clr-compile-exec"
+     "pgf/cts-typesystem"
+     "pgf/cts-v-r-types"
+     "pgf/clr-compile"
+     "pgf/pe-format"
+     "pgf/clr-execute"
+     "pgf/fcl-namespaces")))
 

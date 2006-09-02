@@ -5,9 +5,9 @@ AUTOCI="Batch checkin by Makefile ($(DATE))"
 CLNSUFFIX=" aux log snm toc vrb out out.bak dvi "
 OTHSUFFIX=" nav rel "
 
-all: 2
+all: 2 3
 
-%.pdf: %.tex preamble.tex
+%.pdf: %.tex preamble.tex $(wildcard pgf/*.tex)
 	@if [ -e $(basename $@).tex ] ; then \
 	  if [ -e $(basename $@).out ] ; then gbk2uni $(basename $@) ; fi ; \
 	  pdflatex $(basename $@) ; \
@@ -32,8 +32,9 @@ cleanall: clean cleanpdf cleanoth
 .PHONY:	all clean
 
 part-00.pdf: dn-intro.tex
-part-01.pdf: $(wildcard dn-*.tex) $(wildcard pgf/*.tex)
+part-01.pdf: $(wildcard dn-*.tex) 
 part-02.pdf: $(wildcard cs-*.tex)
+part-03.pdf: $(wildcard io-*.tex)
 
 0: part-00.pdf
 1: part-01.pdf
