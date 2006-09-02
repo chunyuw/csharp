@@ -2,5 +2,7 @@
  (lambda ()
     (TeX-run-style-hooks
      "preamble"
-     "author")))
+     "author"
+     "io-basic"
+     "io-stream")))
 

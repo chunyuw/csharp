@@ -46,14 +46,14 @@
 %% listings setup
 \lstset{basicstyle=\ttfamily\footnotesize,
   keywordstyle=\color[rgb]{0.15,0.25,0.55}\bfseries,
-  %keywordstyle={[2]\color{green!45!black}\bfseries},
-  keywordstyle={[2]\color{ForestGreen!90!black}\bfseries},
+  %keywordstyle=[2]\color{green!45!black}\bfseries,
+  keywordstyle=[2]\color{ForestGreen!90!black}\bfseries,
   identifierstyle=,
   stringstyle=\color[rgb]{0.41,0.13,0.55}\ttfamily,
   commentstyle=\color[rgb]{0.55,0.14,0.14}\sl,
   emphstyle=\color{red!75}\bfseries,
-  emphstyle={[2]\color{DarkMagenta}\bfseries},
-  emphstyle={[3]\bfseries},
+  emphstyle=[2]\color{DarkMagenta}\bfseries,
+  emphstyle=[3]\bfseries,
   frameround=tttt,
   frame=single,
   framerule=1pt,
@@ -68,14 +68,13 @@
   colorlinks=false,
   % bookmarks=true,
   bookmarksopen=true,
-  pdfstartview=FitV,
+  pdfstartview=Fit,             % FitV
   pdfauthor={Chunyu Wang <chunyu@hit.edu.cn>},
   pdftitle={Microsoft .NET Framework},
   pdfsubject={.NET Programming},
   pdfkeywords={.NET, C\#},
   pdffitwindow=true,
-  pdfpagemode=None,
-  % pdfpagemode=FullScreen,
+  pdfpagemode=None,             % FullScreen
   % pdfmenubar=false,
   % pdftoolbar=false,
 }
@@ -89,11 +88,11 @@
 \pgfdeclareimage[mask=cs-mask,width=1.3cm]{cs-logo}{logo/cs-logo}
 \logo{\vbox{\hbox to 1.3cm{\hfil\pgfuseimage{cs-logo}}\vskip0.1cm\hbox{\pgfuseimage{hit-logo}}}}
 
-\input{macros}
-
 \mode<handout> {%
   \hypersetup{pdfpagemode=UseOutlines,pdfstartview=Fit}
 }
+
+\input{macros}
 
 % Local Variables:
 % mode: LaTeX

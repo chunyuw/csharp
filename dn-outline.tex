@@ -127,9 +127,6 @@ Microsoft .NET 平台利用以互联网为基础的计算和通讯激增的特点，通过先进的软件，
 
 \end{frame}
 
-% 对于开发人员而言，丰富的类库，方便的集成，以及发布、部署和维护方便性显得尤为
-% 重要
-
 \begin{frame}[t]
 \frametitle{Web 服务}
 \begin{block}{\textit{Web Services}}
@@ -145,8 +142,6 @@ Microsoft .NET 平台利用以互联网为基础的计算和通讯激增的特点，通过先进的软件，
     \item 消除了使用不同组件模型、操作系统之间存在的差异
     \item 便于创建分布式应用程序
     \end{itemize}
-    % \end{onlyenv}
-    % \begin{onlyenv}<2| handout:0>
 \column{.4\textwidth}
     \begin{figure}[htbp]
       \centering
@@ -313,7 +308,6 @@ Content-Length: length
 \begin{itemize}
 \item 公共语言运行时 --- \textit{Common Language Runtime}
 \item .NET 框架类库 --- \textit{Framework Class Library}
-  % 组成的内容 (文字)
 \end{itemize}
 
 \only<1| handout:1>{\label{fig:dn-framework}}
@@ -597,34 +591,6 @@ Content-Length: length
 
 \end{frame}
 
-
-
-
-% 程序集
-% 什么是程序集？
-
-% 程序集是 .NET 框架应用程序的主要构造块。它是作为一个单一实现单元（包含一个或多
-% 个文件）来创建、标识和部署的功能集合。所有的托管类型和资源都可以被标记为仅在其
-% 实现单元内访问，或者标记为可由该单元以外的代码来访问。
-
-% 程序集通过清单来进行自我说明。清单是每个程序集的不可或缺的组成部分。清单：
-
-% 建立程序集标识（以文本名称的格式）、版本、类别和数字签名（如果要在应用程序之间
-% 共享该程序集）。
-
-% 定义组成程序集实现的文件（通过名称和文件散列）。
-
-% 指定组成程序集的类型和资源，包括哪些是从程序集中导出的。
-
-% 逐条记录编译时对其他程序集的依存。
-
-% 指定程序集正确运行所需要的权限的集合。
-
-% 此信息在运行时用于解析引用、强制版本绑定策略以及验证所加载的程序集的完整性。因
-% 为每一类型都被加载到程序集的上下文中，所以运行时可以确定并定位任何正在运行的对
-% 象的程序集。程序集也是应用了代码访问安全权限的单元。在确定授予其所包含的代码哪
-% 些权限时，每个程序集的标识证据都被认为是独立的。
-
 \begin{frame}
 \frametitle{程序集}
 \begin{block}{\textit{Assembly}}
@@ -709,8 +675,6 @@ Content-Length: length
 \begin{itemize}
   \setlength{\itemsep}{8pt plus 1pt}
 \item 只有在需要的时候加载，程序集可以在本地或网络中\pause
-  % 如果依赖程序集没有调用，不会被加载；
-  % 程序集甚至不需在目标机器上
 
 \item CLR 通过特定的规则寻找需要的程序集\pause
 
@@ -743,6 +707,7 @@ Content-Length: length
 \item 在一个应用程序域中出现的错误不会影响其他应用程序域
 \end{itemize}
 \end{frame}
+
 % \begin{itemize}
 % \item 在一个应用程序中出现的错误不会影响其他应用程序\par
 %   \CJKindent \small 因为类型安全的代码不会导致内存错误，所以使用应用程序域可以确保在一个域中运行的代

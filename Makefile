@@ -5,7 +5,7 @@ AUTOCI="Batch checkin by Makefile ($(DATE))"
 CLNSUFFIX=" aux log snm toc vrb out out.bak dvi "
 OTHSUFFIX=" nav rel "
 
-all: 0 1 2
+all: 2
 
 %.pdf: %.tex preamble.tex
 	@if [ -e $(basename $@).tex ] ; then \
