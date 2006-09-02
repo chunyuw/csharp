@@ -99,11 +99,6 @@ C#:  [[http://msdn2.microsoft.com/zh-cn/library/618ayhy6.aspx][C# 程序员参考]]
 * .NET Framework
 4 lessons
 
-    * [ ] .NET 框架概述 & .NET 历史
-      * .NET Framework Design Goals
-        Section 1.3 in [[file:D:\work\eBook.NET\eBook\Oreilly.Dot.NET.Framework.Essentials.3rd.Edition.eBook-LiB.chm][Dot.NET.Framework.Essentials.3rd.Edition]]
-
-
     * [ ] 组件的使用
     * [ ] 部署和版本控制
       * 应用程序的部署
