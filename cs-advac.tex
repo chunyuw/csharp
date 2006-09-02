@@ -7,7 +7,7 @@
 \end{frame}
 
 \section{抽象类}
-%\frame{\tableofcontents[currentsection]}
+%\frame<handout:0>{\tableofcontents[currentsection]}
 
 \begin{frame}[fragile,t]
 \frametitle{抽象类}
@@ -50,7 +50,7 @@ class Circle:Graphics {
 \end{frame}
 
 \section{接口}
-\frame{\tableofcontents[currentsection]}
+\frame<handout:0>{\tableofcontents[currentsection]}
 
 \begin{frame}[fragile]
 \frametitle{接口}
@@ -73,7 +73,7 @@ class Circle:Graphics {
 \begin{frame}[fragile]
 \frametitle{接口示例}
 
-\begin{onlyenv}<1-2>
+\begin{onlyenv}<1-2| handout:1>
   \lstset{emph={interface},emph={[2]Perimeter,Area}}
 \begin{lstlisting}
 public interface IMeasurement{
@@ -82,7 +82,7 @@ public interface IMeasurement{
 }
 \end{lstlisting}
 \end{onlyenv}
-\begin{onlyenv}<1>
+\begin{onlyenv}<1| handout:1>
   \lstset{emph={[2]Perimeter,Area}}
 \begin{lstlisting}
 class    Circle:IMeasurement {
@@ -97,7 +97,7 @@ class    Circle:IMeasurement {
 }
 \end{lstlisting}
 \end{onlyenv}
-\begin{onlyenv}<2>
+\begin{onlyenv}<2| handout:0>
   \lstset{emph={[2]Perimeter,Area}}
 \begin{lstlisting}
 class Rectangle:IMeasurement {
@@ -280,7 +280,7 @@ class MyClass : IMyIF_A, IMyIF_B {
 \end{frame}
 
 \section{委托}
-\frame{\tableofcontents[currentsection]}
+\frame<handout:0>{\tableofcontents[currentsection]}
 
 \begin{frame}[fragile]
 \frametitle{委托}
@@ -581,7 +581,7 @@ class AnonMethDemo3 {
 
 
 \section{事件}
-\frame{\tableofcontents[currentsection]}
+\frame<handout:0>{\tableofcontents[currentsection]}
 
 \begin{frame}[fragile]
 \frametitle{事件}
