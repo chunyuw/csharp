@@ -20,11 +20,21 @@ MSDN: [[http://msdn2.microsoft.com/en-us/library/ms229335.aspx][.NET FCL]]
 MSDN: [[http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpguide/html/cpconworkingwithbasetypes.asp][Working with Base Types]]
 MSDN: [[http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpguide/html/cpconFormattingTypes.asp][Formatting Types]]
 MSDN: [[http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpguide/html/cpconBasicStringOperations.asp][Basic String Operations]]
-VS.NET: [[http://msdn2.microsoft.com/zh-cn/library/k1s94fta.aspx][Visual Studio 中的 .NET Framework 编程]]
 C#:  [[http://msdn2.microsoft.com/zh-cn/library/618ayhy6.aspx][C# 程序员参考]]
 
-** ...
-** [2] .NET 组建技术
+** 预定义接口
+** 重载{操作符,true,false}
+** 迭代器
+** 标识符
+** 泛型
+     + * [[file:d:/work/eBook.NET/eBook/McGraw.Hill.Osborne.C.Sharp.2.0.The.Complete.Reference.Dec.2005.chm][C.Sharp.2.0.The.Complete.Reference]]
+
+** [2] 文件 IO 和数据流
+*** XML
+     + Chapter 2, [[file:D:/work/eBook.NET/eBook/Apress.Real.World.Dot.NET.Applications.eBook-LiB.chm][Real.World.Dot.NET.Applications]]
+
+** COM 集成 & Office 开发  [[file:d:/work/eBook.NET/eBook/Sams.Microsoft.Visual.C.Sharp.2005.Unleashed.May.2006.chm][Microsoft.Visual.C.Sharp.2005.Unleashed]]
+
 ** [1] C# 语言基础
      + [[file:D:/work/eBook.NET/eBook/Prentice.Hall.Visual.C.Sharp.2005.How.to.Program.2nd.Edition.Dec.2005.chm][Visual.C.Sharp.2005.How.to.Program.2nd.Edition]]
      + [[file:D:/work/eBook.NET/eBook/Sybex.Visual.C.Sharp.Dot.NET.Programming.eBook-LiB.chm][Visual.C.Sharp.Dot.NET.Programming]]
@@ -35,23 +45,6 @@ C#:  [[http://msdn2.microsoft.com/zh-cn/library/618ayhy6.aspx][C# 程序员参考]]
      + [[file:d:/work/eBook.NET/eBook/OReilly.CSharp.In.Nutshell.chm][CSharp.In.Nutshell]]
 
 *** 异常
-
-** [3] C# 类
-     + [[file:D:/work/eBook.NET/eBook/Prentice.Hall.Visual.C.Sharp.2005.How.to.Program.2nd.Edition.Dec.2005.chm][Visual.C.Sharp.2005.How.to.Program.2nd.Edition]]
-     + [[file:D:/work/eBook.NET/eBook/Sybex.Visual.C.Sharp.Dot.NET.Programming.eBook-LiB.chm][Visual.C.Sharp.Dot.NET.Programming]]
-     + [[file:D:/work/eBook.NET/eBook/L-spcs3e.pdf][Professional_C#_3rd]]
-
-   * [ ] 面向对象、抽象建模、对象和类
-     + Chapter 2,3,4 in [[file:D:/work/eBook.NET/eBook/Apress.Beginning.CSharp.Objects.From.Concepts.to.Code.eBook-LiB.chm][Beginning.CSharp.Objects.From.Concepts.to.Code]]
-     + [[file:D:/work/eBook.NET/eBook/Apress.Foundations.of.Object.Oriented.Programming.Using.dot.NET.2.0.Patterns.Oct.2005.pdf][Foundations.of.Object.Oriented.Programming.Using.dot.NET.2.0.Patterns]]
-     + [[file:D:/work/eBook.NET/eBook/Microsoft.Press.Microsoft.Object.Thinking.eBook-LiB.chm][Microsoft.Object.Thinking]]
-*** 委托
-*** 泛型
-     + * [[file:d:/work/eBook.NET/eBook/McGraw.Hill.Osborne.C.Sharp.2.0.The.Complete.Reference.Dec.2005.chm][C.Sharp.2.0.The.Complete.Reference]]
-
-** [2] 文件 IO 和数据流
-*** XML
-     + Chapter 2, [[file:D:/work/eBook.NET/eBook/Apress.Real.World.Dot.NET.Applications.eBook-LiB.chm][Real.World.Dot.NET.Applications]]
 
 ** [2] 其他语言特性
 *** 串行化
@@ -168,6 +161,24 @@ C#:  [[http://msdn2.microsoft.com/zh-cn/library/618ayhy6.aspx][C# 程序员参考]]
 
 * References
 ** [[http://www.microsoft.com/china/MSDN/library/default.mspx][MSDN resources]]
+
+
+* Backup
+
+VS.NET: [[http://msdn2.microsoft.com/zh-cn/library/k1s94fta.aspx][Visual Studio 中的 .NET Framework 编程]]
+
+** [2] .NET 组建技术
+
+** [3] C# 类
+     + [[file:D:/work/eBook.NET/eBook/Prentice.Hall.Visual.C.Sharp.2005.How.to.Program.2nd.Edition.Dec.2005.chm][Visual.C.Sharp.2005.How.to.Program.2nd.Edition]]
+     + [[file:D:/work/eBook.NET/eBook/Sybex.Visual.C.Sharp.Dot.NET.Programming.eBook-LiB.chm][Visual.C.Sharp.Dot.NET.Programming]]
+     + [[file:D:/work/eBook.NET/eBook/L-spcs3e.pdf][Professional_C#_3rd]]
+
+   * [ ] 面向对象、抽象建模、对象和类
+     + Chapter 2,3,4 in [[file:D:/work/eBook.NET/eBook/Apress.Beginning.CSharp.Objects.From.Concepts.to.Code.eBook-LiB.chm][Beginning.CSharp.Objects.From.Concepts.to.Code]]
+     + [[file:D:/work/eBook.NET/eBook/Apress.Foundations.of.Object.Oriented.Programming.Using.dot.NET.2.0.Patterns.Oct.2005.pdf][Foundations.of.Object.Oriented.Programming.Using.dot.NET.2.0.Patterns]]
+     + [[file:D:/work/eBook.NET/eBook/Microsoft.Press.Microsoft.Object.Thinking.eBook-LiB.chm][Microsoft.Object.Thinking]]
+*** 委托
 
 
 * Beamer Usage
