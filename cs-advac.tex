@@ -796,31 +796,33 @@ class MyEvent {
 
 \end{frame}
 
-% \section{泛型}
-%   \begin{frame}[fragile]
-% \frametitle{泛型}
-% \begin{block}{\textit{Generics}}
-%   \CJKindent 泛型就是将类型为参数，可以动态设置的类，类似 ~C++ 中的模板类。
-%   泛型是 ~.NET 2.0 的新特性。
-% \end{block}
-% \pause
-% \begin{itemize}
-% \item 
-% \item 
-% \end{itemize}
-% \pause
-% 泛型定义的一般格式
-% \begin{lstlisting}
-% class identifier<type-param-list> 
-%          [where type-param:constraints]
-% { ... }
-% \end{lstlisting}
-% 泛型使用的一般格式
-% \begin{lstlisting}
-% identifier<type-arg-list>  var-name =
-%   new  class-name<type-arg-list>(cons-arg-list);
-% \end{lstlisting}
-% \end{frame}
+\section{泛型}
+%\frame<handout:0>{\tableofcontents[currentsection]}
+
+\begin{frame}[fragile]
+\frametitle{泛型}
+\begin{block}{\textit{Generics}}
+  \CJKindent 泛型就是类型参数化，可以将类型作为参数，根据需要改变类中成员的类型。
+  泛型是 ~.NET 2.0 的新特性。
+\end{block}
+\pause
+\begin{itemize}
+\item 通过范型，可以保证更好的类型安全
+\item 更高效的重用代码，减少重复开发和代码拷贝
+\end{itemize}
+\pause
+泛型定义的一般格式
+\begin{lstlisting}
+class identifier<type-param-list> 
+         [where type-param:constraints]
+{ ... }
+\end{lstlisting}
+泛型使用的一般格式
+\begin{lstlisting}
+identifier<type-arg-list>  var-name =
+  new  class-name<type-arg-list>(cons-arg-list);
+\end{lstlisting}
+\end{frame}
 
 % Local Variables: 
 % mode: LaTeX
