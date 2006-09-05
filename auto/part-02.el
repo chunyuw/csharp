@@ -4,7 +4,8 @@
      "preamble"
      "author"
      "cs-basic"
-     "cs-class"
      "cs-oo"
-     "cs-advac")))
+     "cs-class"
+     "cs-advac"
+     "cs-predf")))
 

@@ -2,5 +2,6 @@
  (lambda ()
     (TeX-run-style-hooks
      "pgf/cs-v-r-types"
-     "pgf/cs-box-unbox")))
+     "pgf/cs-box-unbox"
+     "pgf/cs-methods")))
 

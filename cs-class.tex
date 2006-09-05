@@ -2,7 +2,7 @@
 
 \part{类}
 \begin{frame}
-\frametitle{C\# 的类}
+\frametitle{Outline}            % {C\# 的类}
 \tableofcontents
 \end{frame}
 
@@ -403,7 +403,7 @@ class Circle{   public int R;
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{操作符重载(\textit{operator overload})}
+\frametitle{重载操作符(\textit{operator overload})}
 C\# 可以对操作符重载，和 ~C++ 中的类似。一般格式为
 \pause
 \begin{lstlisting}
@@ -423,7 +423,6 @@ string a = "abc";
 string b = "efg";
 string c = a + b;
 \end{lstlisting}
-
 \end{frame}
 
 \begin{frame}[fragile,plain]
@@ -453,6 +452,30 @@ class Ring:Circle
 \end{lstlisting}
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{重载~ \texttt{true} 和~ \texttt{false}}
+\begin{lstlisting}
+class Point {
+  int x, y, z; // 3-D coordinates
+  public Point() { x = y = z = 0; }
+  public Point(int i, int j, int k)
+  { x = i; y = j; z = k; }
+
+  public static bool operator true(Point op) {
+    return (op.x!=0) || (op.y!=0) || (op.z!=0);
+  }
+  public static bool operator false(Point op) {
+    return (op.x==0) && (op.y==0) && (op.z==0);
+  }
+}
+...
+    Point a = new Point(5, 6, 7);
+    Point b = new Point(0, 0, 0);
+
+    if(a)  Console.WriteLine("a is true.");
+    if(!b) Console.WriteLine("b is false.");
+\end{lstlisting}
+\end{frame}
 
 \begin{frame}[fragile]
 \frametitle{特性(\textit{properties})}
@@ -923,6 +946,312 @@ static void Main()
 
 \end{frame}
 
+\section{基类的访问}
+
+\begin{frame}[fragile]
+\frametitle{基类与派生类的关系}
+\begin{itemize}
+\item 基类中的成员，全部被派生类继承
+\item 而只有 ~private 修饰的成员不可以被访问
+\vskip.5cm
+\item 派生类的字段可以直接{\color<handout:0>{red!65!black}隐藏}基类同名字段
+\end{itemize}
+\begin{lstlisting}[escapeinside=<>]
+class Circle {
+  public int R;
+}
+class Ring:Circle {
+  public int R; // hide R in Circle
+  public int r;
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{隐藏基类方法}
+\begin{itemize}
+\item 派生类的方法也可以直接隐藏基类方法，但会有编译警告
+\item 要显示隐藏基类方法，派生类要用 ~new 关键字指出
+\end{itemize}
+  \lstset{emph={new}}
+\begin{lstlisting}
+class Circle      { public int R; 
+  public static double pi = 3.1415;
+  public double Area()
+    { return pi * R * R;}
+}
+class Ring:Circle { public int r;
+  public new double Area()
+    { return pi * R * R - pi * r * r; }
+}
+\end{lstlisting}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{虚方法 (\textit{virtual method})}
+\begin{itemize}
+\item 如果允许派生类{\color<handout:0>{red!65!black}覆盖}基类方法，要用 ~virtual 关键字指出
+\item 同时派生类要用 ~override 指出
+\item 虚方法，也可以使用 ~new 关键字隐藏
+\end{itemize}
+  \lstset{emph={virtual,override,Area}}
+\begin{lstlisting}
+class Circle      { public int R; 
+  public static double pi = 3.1415;
+  public virtual double Area()
+    { return pi * R * R; }
+}
+class Ring:Circle { public int r;
+  public override double Area()
+    { return pi * R * R - pi * r * r; }
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{隐藏和覆盖的区别}
+\begin{itemize}
+\item 隐藏方法，在基类中还存在；覆盖的，已经被替换
+\end{itemize}
+隐藏基类的方法
+\lstset{emph={new}}
+\begin{lstlisting}[escapeinside=<>]
+using System;
+class A
+{ public void Hello()
+  { Console.WriteLine ("in class A"); }
+}
+class B:A
+{ public new void Hello() // new <用于隐藏>
+  { Console.WriteLine ("in class B"); }
+} ...
+  public static void Main()
+  { A a = new B(); // <基类引用>
+    B b = (B) a;   // <派生类引用>
+    a.Hello();     // "in class A"
+    b.Hello();     // "in class B"
+    Console.ReadLine();
+  }
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{隐藏和覆盖的区别(2)}
+覆盖基类的方法
+\lstset{emph={virtual,override}}
+\begin{lstlisting}[escapeinside=<>]
+using System;
+class A
+{ public virtual void Hello()
+  { Console.WriteLine ("in class A"); }
+}
+class B:A
+{ public override void Hello() // new <用于隐藏>
+  { Console.WriteLine ("in class B"); }
+} ...
+  public static void Main()
+  {
+    A a = new B(); // <基类引用>
+    B b = (B) a;   // <派生类引用>
+    a.Hello(); // "in class B" !!
+    b.Hello(); // "in class B"
+    Console.ReadLine();
+  }
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{隐藏和覆盖的区别(3)}
+\begin{columns}
+  \column{.5\textwidth}
+\begin{itemize}
+\item virtual，允许派生类覆盖的虚方法
+\item override，只能用于覆盖虚方法
+\item new 可以隐藏基类方法
+\vskip.5cm
+\item 通过类型转换，可以使用基类型表示对象
+\item 通过基类引用的对象，可以直接访问基类方法
+\end{itemize}
+  \column{.5\textwidth}
+  \begin{figure}
+    \centering
+    \input{pgf/cs-methods}
+  \end{figure}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\texttt{this}关键字访问类成员}
+\begin{itemize}
+\item 使用~this~关键字表示当前类自身
+\end{itemize}
+\lstset{emph={this}}
+\begin{lstlisting}
+using System;
+class Person {
+  string name;
+  public Person (string name) {
+    this.name = name;
+  }
+  public void Introduce(Person a) {
+    if (a!=this)
+      Console.WriteLine("Hello, I'm "+name);
+  }
+}...
+  public static void Main()
+  {
+    Person p = new Person("Zhang");
+    Person q = new Person("Wang");
+    p.Introduce (q);
+  }
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\texttt{base}关键字访问类成员}
+\begin{itemize}
+\item 使用~base~关键字表示基类
+\end{itemize}
+\lstset{emph={base}}
+\begin{lstlisting}
+class Student:Person
+{
+  public Student(string name):base(name)
+  {}
+  public new void Introduce (Person a)
+  {
+    base.Introduce (a);
+    Console.WriteLine ("I'm from HIT!");
+  }
+}
+...
+  public static void Main()
+  {
+    Person  p = new Person("Zhang");
+    Student q = new Student("Wang");
+    q.Introduce (p);
+    Console.ReadLine();
+  }
+\end{lstlisting}
+\end{frame}
+
+\section{命名空间}
+
+\begin{frame}[fragile]
+\frametitle{命名空间}
+\begin{block}{命名空间(namespace)}
+  \CJKindent 类、接口、委托等其他类型的一个逻辑上的组合，用来防止名字之间的命名冲突。
+\end{block}
+\pause
+定义命名空间的一般格式
+\begin{lstlisting}
+namespace <name>{
+...
+}
+\end{lstlisting}
+\begin{itemize}
+\item 命名空间用于组织代码，防止名字冲突
+\item 命名空间可以嵌套
+\item 命名空间可以分开定义
+\item 如果没有指定命名空间，默认在 ~\texttt{global} 命名空间中
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{命名空间的声明}
+\begin{lstlisting}
+namespace Counter {
+  // A simple countdown counter.
+  class CountDown {
+    int val;
+
+    public CountDown(int n) {
+      val = n;
+   }
+
+    public void reset(int n) {
+      val = n;
+    }
+    public int count() {
+      if(val > 0) return val--;
+      else return 0;
+    }
+  }
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{命名空间的使用}
+在命名空间外，需要指出全名，使用 ~``.'' 连接
+\begin{lstlisting}
+class NSDemo {
+  public static void Main() {
+    // Notice how CountDown is qualified by Counter.
+    Counter.CountDown cd1 = new Counter.CountDown(10);
+    int i;
+    ...
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{命名空间的嵌套}
+\begin{lstlisting}[escapeinside=<>]
+namespace Animals{
+  namespace Birds{
+    public class Sparrow{
+      // <类的具体实现>
+    }
+  }
+}
+// <名字空间外的使用>
+Animals.Birds.Sparrow s = new Animals.Birds.Sparrow();
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\texttt{using} 导入命名空间}
+
+\begin{itemize}
+\item 使用命名空间(using)
+  \lstset{emph={using}}
+\begin{lstlisting}
+using Animals.Birds;
+...
+  Sparrow s = new Sparrow();
+\end{lstlisting}
+\item 使用别名(alias)，~C\# 2.0 可以使用 ~``::'' 表示命名空间的别名
+  \lstset{emph={using}}
+\begin{lstlisting}
+using b = Animals.Birds;
+...
+  b.Sparrow s = new b.Sparrow();
+  b::Sparrow s = new b::Sparrow();
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{分开定义}
+
+\begin{lstlisting}
+namespace Counter{
+  class a { ... } 
+  class b { ... } 
+}
+...
+namespace Counter{
+  class c { ... } 
+  class d { ... } 
+}
+// Counter have 4 class now
+\end{lstlisting}
+\end{frame}
 
 % Local Variables: 
 % mode: LaTeX

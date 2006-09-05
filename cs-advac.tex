@@ -2,7 +2,7 @@
 
 \part{C\# 高级特性}
 \begin{frame}
-\frametitle{C\# 高级特性}
+\frametitle{Outline}            % {C\# 高级特性}
 \tableofcontents
 \end{frame}
 
@@ -806,17 +806,286 @@ class MyEvent {
 \item 更高效的重用代码，减少重复开发和代码拷贝
 \end{itemize}
 \pause
-泛型定义的一般格式
+泛型类定义的一般格式
+\lstset{emph={<,>}}
 \begin{lstlisting}
 class identifier<type-param-list> 
-         [where type-param:constraints]
 { ... }
 \end{lstlisting}
-泛型使用的一般格式
+泛型类使用的一般格式
 \begin{lstlisting}
 identifier<type-arg-list>  var-name =
-  new  class-name<type-arg-list>(cons-arg-list);
+  new identifier<type-arg-list>(cons-arg-list);
 \end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{泛型的例子}
+\begin{lstlisting}
+class Gen<T> {
+  T ob;
+
+  public Gen(T o) { ob = o; }
+  public T getob() { return ob; }
+  public void showType() {
+    Console.WriteLine("Type of T is " + typeof(T));
+  }
+}
+...
+   Gen<int> iOb = new Gen<int>(102);
+
+   Gen<string> strOb;
+   strOb = new Gen<string>("Generics add power.");
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{约束条件}
+
+\CJKindent 使用约束条件，可以限制泛型中使用的类型，可以通知编译器可用的成员。
+
+类型约束的一般格式：
+\lstset{emph={where}}
+\begin{lstlisting}
+class class-name<type-param> 
+  where type-param : constraints 
+{ ... }
+\end{lstlisting}
+例如
+\begin{lstlisting}
+class Test<T> where T : A {
+  T obj;
+
+  public Test(T o) {
+    obj = o;
+  }
+}
+\end{lstlisting}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{约束的总类}
+\begin{itemize}
+\setlength{\itemsep}{8pt plus 1pt}
+\item 基类约束：在条件表达式中指定基类名字
+\item 接口约束：在条件表达式中指定一个或多个接口名字
+\item 构造函数约束：无参数的构造函数约束，使用 ~\texttt{new()}
+\item 引用类型约束：使用 ~\texttt{class}，限制为引用类型
+\item 值类型约束：使用 ~\texttt{struct}，限制为值类型
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{基类约束}
+\begin{lstlisting}
+class A {
+  public void hello() {
+    Console.WriteLine("Hello");
+  }
+}
+class B : A { }
+
+class Test<T> where T : A {
+  T obj;
+  ...
+  public void sayHello() {
+    // OK to call hello() because it's declared
+    // by the base class A.
+    obj.hello();
+  }
+}
+
+\end{lstlisting}
+
+\begin{itemize}
+\item 基类约束，使泛型类可以访问基类成员，提高了可用性
+\item 只有实现了基类的类才有效，保证了类型安全
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{接口约束}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{构造函数约束}
+\begin{lstlisting}
+class A<T> // where T:new()
+{
+  T a;
+  public A() {
+    a = new T();
+  }
+}
+class test
+{
+  static void Main()
+  {
+    A<int> x = new A<int>();
+    // compiling error
+  }
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{条件表达式的其他用法}
+表示类型之间的继承关系
+\begin{lstlisting}
+class A     { ... }
+class B : A { ... }
+
+class Gen<T, V> where V : T {...}
+...
+  Gen<A, B> x = new Gen<A, B>;
+\end{lstlisting}
+多条约束
+\begin{lstlisting}
+class Gen<T>
+  where T : MyClass, IMyInterface, new() 
+{ }
+
+class Gen<T, V> where T : class
+                where V : struct 
+{ }
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{自动缺省值}
+引用类型和值类型的缺省值分别为 ~\texttt{null} 和 ~\texttt{0}，如果在泛型中初始
+化：
+\begin{lstlisting}[escapeinside='']
+class Test<T> {   T obj;
+  ...
+  public Test() { 
+    obj = null; // '如果是引用类型'
+    obj = 0;    // '如果是值类型'
+  }
+}
+\end{lstlisting}
+
+使用 ~\texttt{default}，自动指定
+\begin{lstlisting}
+...
+  obj = default(T);
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{泛型结构体}
+泛型结构体和泛型类类似：
+\begin{lstlisting}
+struct XY<T> {
+  T x;
+  T y;
+  public XY(T a, T b) {
+    x = a;
+    y = b;
+  }
+}
+\end{lstlisting}
+也可以有约束：
+\begin{lstlisting}
+struct XY<T> where T : struct {
+// ...
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{泛型方法}
+\begin{itemize}
+\item 泛型类中的方法可以使用类形参，自动成为泛型方法
+\item 普通类中，也可以定义泛型方法
+\end{itemize}
+\begin{lstlisting}
+class ArrayUtils {
+  //...
+  public static bool
+  copyInsert<T>(T e, int idx, T[] src, T[] target) {
+
+    for(int i=0, j=0; i < src.Length; i++, j++) {
+      if(i == idx) { target[j] = e;   j++; }
+      target[j] = src[i];  }  // end for
+  return true;
+  }
+}
+\end{lstlisting}
+泛型方法也可以指定约束条件
+\begin{lstlisting}
+... copyInsert<T>(T e, ... ) where T : class {...}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{泛型方法的使用}
+使用时可以隐式指定泛型类型
+\begin{lstlisting}
+  int[] nums = { 1, 2, 3 };
+  int[] nums2 = new int[4];
+
+  ArrayUtils.copyInsert(99, 2, nums, nums2);
+
+  string[] strs = { "Generics", "are", "powerful."};
+  string[] strs2 = new string[4];
+
+  ArrayUtils.copyInsert("in C#", 1, strs, strs2);
+\end{lstlisting}
+当不能自动判断类型时，需要明确指出
+\begin{lstlisting}
+// class B:A ...
+B[] b = { new B(), new B(), new B() };
+A[] a = new A[4];
+
+ArrayUtils.copyInsert<A>(new A(), 1, b, a);
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{泛型委托和泛型接口}
+泛型委托
+\begin{lstlisting}
+delegate T SomeOp<T>(T v);
+...
+  SomeOp<int> intDel = sum;
+\end{lstlisting}
+泛型接口
+\begin{lstlisting}[escapeinside='']
+public interface ISeries<T> {
+  T getNext();
+  void setStart(T v);
+}
+// '继承了泛型接口的类，必须是泛型类'
+class ByTwos<T> : ISeries<T> {
+  T start;
+  T val;
+  // ...
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\frametitle{泛型的限制}
+\begin{itemize}
+\setlength{\itemsep}{8pt plus 1pt}
+\item 特性、操作符、索引器和事件，没有泛型形式，但可以在泛型类中使用类型参数
+\item \texttt{extern} 不能修饰泛型方法，即泛型方法不能外部实现
+\item 指针类型不能用于泛型的参数
+\item 静态成员只相应于具体的泛型类型，而不是泛型类本身
+\end{itemize}
 \end{frame}
 
 % Local Variables: 
