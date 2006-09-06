@@ -16,7 +16,7 @@ all: 2 3 4
 	fi
 
 ci:
-	@svn ci . -m $(AUTOCI)
+	svn ci . -m $(AUTOCI)
 
 clean: 
 	-rm -f $(foreach s,$(CLNSUFFIX),$(wildcard *.$(s)))
