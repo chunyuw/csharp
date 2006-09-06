@@ -1,6 +1,5 @@
 %% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn>
-%% $LastChangedDate$
-%% $Rev$
+%% $Rev$ $LastChangedDate$
 
 %%%% OUTPUT
 %% mpost   cs-logo.mp
