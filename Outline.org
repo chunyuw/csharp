@@ -1,3 +1,6 @@
+## Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn>
+## $Rev$ $LastChangedDate$
+
 #+TITLE:     Slides for ".NET Programming"
 #+AUTHOR:    Chunyu Wang
 #+EMAIL:     chunyu@hit.edu.cn
@@ -293,6 +296,14 @@ VS.NET: [[http://msdn2.microsoft.com/zh-cn/library/k1s94fta.aspx][Visual Studio 
   \usepackage{attachfile}
   \attachfile[author=Chunyu Wang,color=1 .2 .2,description=Source
   file,subject=test,icon=Tag,mimetype=text/plain]{test.tex}
+
+** proc my svn sources
+  rem set ccmd=svn ps Copyright -F COPYING 
+  rem set ccmd=svn ps Author -F AUTHOR 
+  set ccmd=svn propset svn:keywords "LastChangedDate Rev"
+  rem set args=Makefile *.tex auto\*.el figures\* logo\* pgf\*.tex pgf\auto\*.el
+  set args=Makefile *.tex figures\*.txt logo\*.mp logo\Makefile pgf\*.tex
+  for %%i in (%args%) do %ccmd% %%i
 
 * temp data
 
