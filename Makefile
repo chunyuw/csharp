@@ -35,7 +35,7 @@ part-00.pdf: dn-intro.tex
 part-01.pdf: dn-devel.tex dn-outline.tex
 part-02.pdf: cs-basic.tex cs-class.tex cs-oo.tex
 part-03.pdf: cs-advac.tex cs-other.tex
-part-04.pdf: $(wildcard io-*.tex)
+part-04.pdf: $(wildcard lib-*.tex)
 part-05.pdf: 
 part-06.pdf: 
 part-07.pdf: 
