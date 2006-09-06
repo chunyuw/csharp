@@ -20,12 +20,12 @@ ci:
 
 clean: 
 	-rm -f $(foreach s,$(CLNSUFFIX),$(wildcard *.$(s)))
-	-rm -f prv_*
+	-rm -f $(wildcard prv_*)
 cleanpdf:
-	-rm -f part-*.pdf test.pdf z_region.pdf
+	-rm -f $(wildcard part-*.pdf test.pdf z_region.pdf) 
 cleanoth:
 	-rm -f $(foreach s,$(OTHSUFFIX),$(wildcard *.$(s)))
-	-rm -f z_region.* test.exe
+	-rm -f $(wildcard z_region.* test.exe) 
 
 cleanall: clean cleanpdf cleanoth
 
