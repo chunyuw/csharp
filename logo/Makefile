@@ -1,3 +1,6 @@
+## Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn>
+## $LastChangedDate$
+## $Rev$
 
 all: jpg
 

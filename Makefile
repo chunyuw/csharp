@@ -1,4 +1,6 @@
 ## Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn>
+## $LastChangedDate$
+## $Rev$
 
 DATE=$(shell gdate "+%Y%m%d-%H:%M")
 AUTOCI="Batch checkin by Makefile ($(DATE))"
