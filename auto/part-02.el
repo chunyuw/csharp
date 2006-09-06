@@ -5,7 +5,5 @@
      "author"
      "cs-basic"
      "cs-oo"
-     "cs-class"
-     "cs-advac"
-     "cs-predf")))
+     "cs-class")))
 

@@ -254,6 +254,10 @@ VS.NET: [[http://msdn2.microsoft.com/zh-cn/library/k1s94fta.aspx][Visual Studio 
 
 * Other
 
+** graphicsx
+
+  \includegraphics[width=10cm, keepaspectratio,bb=0 -y x 0]{ctp.jpg}
+
 ** listings
 
   \lstinline|SomeCode|

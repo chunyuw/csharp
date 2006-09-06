@@ -1,0 +1,219 @@
+%% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn>
+
+\section{其他}
+% Chapter 19 in "C# 2.0 - The Complete Reference, 2nd Edition"
+
+\begin{frame}[fragile]
+\frametitle{不安全代码 ~\textit{Unsafe Code}}
+% unsafe, pointers
+
+\begin{itemize}
+\item 指不受 ~CLR 完全控制的代码 (\textit{unmanaged code})
+\item 不安全代码中，无法保证类型安全
+\item 对内存操作，需要使用指针 (\textit{pointers})
+\item 编译带有不安全代码的程序，需要使用 ~\texttt{/unsafe} 选项
+\end{itemize}
+
+C\# 中的指针
+\begin{itemize}
+\item 一般形式：\texttt{type* var-name;}
+\item 只有值类型的指针
+\item 指针指向的地址可以是任意的
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{指针的使用}
+指针的声明
+\begin{lstlisting}
+int* i;
+float* p, q;
+\end{lstlisting}
+
+指针的使用
+\begin{lstlisting}[escapeinside=<>]
+int* ip;
+int* ip;
+int* ip;
+int num = 10;
+
+ip = &num; // <取地址>
+num = *ip; // <访问值>
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{不安全代码的使用}
+使用关键字 ~\texttt{unsafe} 标记语句或方法
+\lstset{emph={unsafe}}
+\begin{lstlisting}
+using System;
+class example {
+  unsafe public static void Main() {
+    int count = 99;
+    int* p;
+
+    p = &count;
+
+    Console.WriteLine("Initial value of count is " + *p);
+
+    *p = 10;
+
+    Console.WriteLine("New value of count is " + *p);
+  }
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\texttt{fixed}表达式}
+为防止 ~GC 改变对象地址，可使用 ~fixed 进行限制
+\lstset{emph={fixed}}
+\begin{lstlisting}
+class Test {
+  public int num;
+  public Test(int i) { num = i; }
+}
+...
+  unsafe public static void Main() {
+    Test o = new Test(19);
+
+    fixed (int* p = &o.num) {
+      Console.WriteLine("Initial value of o.num is " + *p);
+      *p = 10; // assign to o.num via p
+      Console.WriteLine("New value of o.num is " + *p);
+    }
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{指针的运算和比较}
+指针移动：\texttt{$++$, $--$, $+$, $-$}
+\begin{lstlisting}
+int* pl;
+pl++;          // Move 4 byte (sizeof(int)=4)
+pl = pl + 1;   // Move 4 byte too
+\end{lstlisting}
+
+指针比较：\texttt{$==$,$<$,$>$,$>=$,$<=$}
+\begin{lstlisting}
+  int[] nums = new int[11];
+  int x;
+
+  fixed (int* start = &nums[0]) {
+    fixed(int* end = &nums[nums.Length-1]) {
+      for(x=0; start+x <= end-x; x++) ;
+    }
+  }
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{可空值类型}
+当需要值类型也可以有 ~\texttt{null} 值时使用
+
+\begin{lstlisting}
+System.Nullable<int> count = null;
+System.Nullable<bool> done;
+
+int? count;
+bool? done = null;
+
+...
+
+if (count != null) { ... }
+if (count.HasValue) { ... } // 
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\textit{null coalescing operator}}
+\begin{lstlisting}
+double? balance = null;
+double  currentBalance;
+
+currentBalance = balance ?? 0.0;
+\end{lstlisting}
+
+\begin{lstlisting}
+double? balance = 123.75;
+double currentBalance;
+
+currentBalance = balance ?? 0.0;
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{部分类 (\textit{partial class})}
+使用 ~\texttt{partial} 修饰，可以将类拆分到多个文件中，由编译器合成到一起
+\lstset{emph={partial}}
+\begin{lstlisting}
+partial class XY {
+  public XY(int a, int b) {
+    x = a; y = b;
+  }
+}
+\end{lstlisting}
+
+\lstset{emph={partial}}
+\begin{lstlisting}
+partial class XY {
+  int x, y;
+  public int X {
+    get { return x; }
+    set { x = value; }
+  }
+  public int Y {
+    get { return y; }
+    set { y = value; }
+  }
+}
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\texttt{extern} 关键字}
+关键字 ~\texttt{extern} 声明外部方法，创建外部程序及别名
+\cmd{csc /t:library test1.cs}
+\cmd{csc /r:Asm1=test1.dll test2.cs}
+
+\begin{lstlisting}
+// extern alias statements must be at the top of the file.
+extern alias Asm1;
+
+using System;
+class Demo {
+  public static void Main() {
+    Asm1::MyNS.MyClass t = new Asm1::MyNS.MyClass();
+  }
+}
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\texttt{lock} 和~ \texttt{volatile}}
+\begin{itemize}
+\item 关键字 ~\texttt{lock} 用于多线程执行时，进入临界区
+\begin{lstlisting}
+lock(obj) { /* critical section */ }
+\end{lstlisting}
+\item 关键字 ~\texttt{volatile} 表示字段可能被多个并发执行线程修改
+\begin{lstlisting}
+public volatile int i;
+\end{lstlisting}
+\end{itemize}
+% using Statement
+\end{frame}
+
+% Local Variables: 
+% mode: LaTeX
+% TeX-master: "part-02.tex"
+% TeX-header-end: "% End-Of-Header$"
+% TeX-trailer-start: "% Start-Of-Trailer$"
+% coding: gb2312-dos
+% End:
+

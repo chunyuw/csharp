@@ -3,6 +3,6 @@
     (TeX-run-style-hooks
      "preamble"
      "author"
-     "io-basic"
-     "io-stream")))
+     "cs-advac"
+     "cs-other")))
 
