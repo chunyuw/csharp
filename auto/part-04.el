@@ -4,5 +4,6 @@
      "preamble"
      "author"
      "io-basic"
+     "io-regexp"
      "io-stream")))
 

@@ -1,0 +1,27 @@
+## Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn>
+
+* notes
+
+** 透明背景的 PNG 文件可以直接使用
+
+  如 vstudio-proj.png web-services.png 使用 pdflatex 编译，只需
+
+    \includegraphics[width=4cm]{web-services}
+    \includegraphics[width=10cm]{vstudio-proj}
+
+  扩展名可以省略。
+
+** PowerPoint 生成透明背景 PDF 文件
+
+  使用 PowerPoint 工具条中的 PDFMaker (目前版本 7.0) 生成 PDF 即可，直接使用
+  Acrobat 打印机不能生成透明背景。
+
+** PowerPoint 页面大小
+
+  - 可以作图前在页面设置中修改
+  - 也可以引入文档时调整大小
+      \includegraphics[scale=0.7]{somefile.pdf}
+
+# Local Variables:
+# mode: org
+# End:
