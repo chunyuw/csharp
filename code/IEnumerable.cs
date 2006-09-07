@@ -25,13 +25,13 @@ public class People : IEnumerable
             _people[i] = pArray[i];
         }
     }
-
+    // 返回 IEnumerator
     public IEnumerator GetEnumerator()
     {
         return new PeopleEnum(_people);
     }
 }
-
+// 实现 IEnumerator 类
 public class PeopleEnum : IEnumerator
 {
     public Person[] _people;
@@ -53,7 +53,7 @@ public class PeopleEnum : IEnumerator
     {
         position = -1;
     }
-
+    // 返回当前的对象
     public object Current
     {
         get
