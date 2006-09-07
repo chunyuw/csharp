@@ -10,11 +10,354 @@
 \section{集合}
 
 \begin{frame}
-\frametitle{集合类~ \texttt{System.Collections}}
+\frametitle{集合~ System.Collections}
+
+\begin{itemize}
+\item 集合，一组对象 (\textit{object}) 的集合
+\item 提供了 ~list, stacks, queues, hash tables 现成的结构
+\item System.Collections.Generic 提供了相应的模板结构
+\item 提供了对集合操作的现成接口，如枚举器、迭代器
+\end{itemize}
 
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{ArrayList}
+\begin{lstlisting}
+using System;
+using System.Collections;
+public class SamplesArrayList  {
+  public static void Main()  {
 
+    ArrayList myAL = new ArrayList();
+    myAL.Add("Hello");
+    myAL.Add("World");
+    myAL.Add("!");
+
+    Console.WriteLine("Count:    {0}", myAL.Count);
+    Console.WriteLine("Capacity: {0}", myAL.Capacity);
+    foreach ( Object obj in myAL )
+      Console.Write( "{0} ", obj );
+  }
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Stack}
+\begin{lstlisting}
+using System;
+using System.Collections;
+public class SamplesStack  {
+  public static void Main()  {
+
+    Stack myStack = new Stack();
+    myStack.Push("Hello");
+    myStack.Push("World");
+    myStack.Push("!");
+    myStack.Pop();
+
+    Console.WriteLine( "Count: {0}", myStack.Count );
+    Console.Write( "Values:" );
+    foreach ( Object obj in myStack )
+      Console.Write( " {0}", obj );
+  }
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\frametitle{IEnumerator 和~ IEnumerable 接口}
+主要用于 ~\texttt{foreach} 循环。
+
+IEnumerator:
+\begin{itemize}
+\item \texttt{object Current \{get;\}} --- 返回当前对象
+\item \texttt{bool MoveNext();} --- 下移一个位置
+\item \texttt{void ReSet();} --- 复位
+\end{itemize}
+IEnumerable:
+\begin{itemize}
+\item \texttt{IEnumerator GetEnumerator();}
+\end{itemize}
+示例：IEnumerable.cs \attachfile[description=IEnumerable]{code/IEnumerable.cs}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{ICollection 接口}
+ICollection 继承自~ IEnumerable，提供了基本的集合操作。
+\begin{itemize}
+\setlength{\itemsep}{8pt plus 1pt}
+\item 特性
+\begin{itemize}
+\setlength{\itemsep}{6pt plus 1pt}
+\item \texttt{int Count \{get;\} --- 当前集合中元素个数}
+\item \texttt{object SyncRoot \{get;\} --- 用于多线程的同步}
+\end{itemize}
+\item 方法
+\begin{itemize}
+\item \texttt{void CopyTo(Array target, int startIdx)}
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{IList 接口}
+IList 接口继承自~ ICollection，提供了基于索引的操作方式。
+\begin{itemize}
+\item 索引器： \texttt{object this[int idx] \{ get; set; \}}
+\begin{lstlisting}
+ArrayList myAL = new ArrayList();
+myAL[0] = "Hello"; myAL[1] = 123;
+\end{lstlisting}
+\item 特性
+\begin{itemize}
+\item \texttt{bool IsFixedSize \{ get; \}}
+\item \texttt{bool IsReadOnly \{ get; \}}
+\end{itemize}
+\item 方法
+\begin{itemize}
+\item \texttt{int Add(object obj)} --- 添加元素
+\item \texttt{void Clear()} --- 删除所有元素
+\item \texttt{void Remove(object obj)} --- 删除第一个 ~\texttt{obj}
+\item \texttt{Contains, IndexOf, Insert, RemoveAt}
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{IDictionary 接口}
+\CJKindent IDictionary 接口继承自~ ICollection，提供了基于键~ (\textit{key}) 的索引方式。
+\begin{itemize}
+\item 索引器：
+  \begin{itemize}
+  \item \texttt{object this[object key] \{ get; set; \}}
+  \end{itemize}
+\item 特性
+\begin{itemize}
+\item \texttt{bool IsFixedSize \{ get; \}}
+\item \texttt{bool IsReadOnly \{ get; \}}
+\item \texttt{ICollection Keys \{ get; \}} --- 返回所有键
+\item \texttt{ICollection Values \{ get; \}} --- 返回所有值
+\end{itemize}
+\item 方法
+\begin{itemize}
+\item \texttt{void Add(object k, object v)}
+\item \texttt{Clear, Contains, Remove, ...}
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{ArrayList 类}
+ArrayList 实现了 ~ICollection, IList, IEnumerable, ICloneable 接口。
+\begin{itemize}
+\item 构造函数
+\begin{itemize}
+\item \texttt{public ArrayList()}
+\item \texttt{public ArrayList(ICollection c)}
+\item \texttt{public ArrayList(int \textit{capacity})}
+\end{itemize}
+\item 特性
+  \begin{itemize}
+  \item \texttt{public virtual int Capacity \{ get; set; \}}
+  \end{itemize}
+\item 方法 
+  \begin{itemize}
+  \item \texttt{public virtual void Sort()}
+  \item \texttt{public virtual void Sort(IComparer \textit{comp})}
+  \item \href{http://msdn2.microsoft.com/en-us/library/system.collections.arraylist_members.aspx}{\beamergotobutton{参考 ~MSDN}}
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Hashtable 类}
+
+\CJKindent Hash table 使用~ \textit{hasing} 技术存储数据。将键转换
+为~\textit{Hash code}，用于数据的索引，决定数据的存储位置。
+
+\begin{itemize}
+\item 键转换为 ~Hash code 的过程是自动的
+\item 访问时也只需使用键本身，不使用 ~Hash dode
+\item 使用 ~Hash table 可以提高字典的访问效率
+\end{itemize}
+
+\CJKindent Hashtable 实现了~ IDictionary, ICollection, IEnumerable,
+ISerializable, IDeserializationCallback, 和 ICloneable 接口。
+\end{frame}
+
+\begin{frame}
+\frametitle{Hashtable 的成员}
+\begin{itemize}
+\item 构造函数
+\begin{itemize}
+\item \small \texttt{public Hashtable()}
+\item \small \texttt{public Hashtable(IDictionary c)}
+\item \small \texttt{public Hashtable(int capacity)}
+\item \small \texttt{public Hashtable(int capacity, float fillRatio)}
+\end{itemize}
+\item 特性
+\begin{itemize}
+\item \small \texttt{public virtual ICollection Keys \{ get; \}}
+\item \small \texttt{public virtual ICollection Values \{ get; \}}
+\end{itemize}
+\item 方法
+\begin{itemize}
+\item \texttt{public virtual bool ContainsKey(object k)}
+\item \texttt{public virtual bool ContainsValue(object v)}
+\item \dots
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile,plain]
+\frametitle{Hashtable 示例}
+\begin{lstlisting}
+using System;
+using System.Collections;
+
+class HashtableDemo {
+  public static void Main() {
+    Hashtable ht = new Hashtable();
+
+    ht.Add("house", "Dwelling");
+    ht.Add("car", "Means of transport");
+    ht.Add("book", "Collection of printed words");
+    ht.Add("apple", "Edible fruit");
+
+    ht["tractor"] = "Farm implement";
+
+    ICollection c = ht.Keys;
+
+    foreach(string str in c)
+      Console.WriteLine(str + ": " + ht[str]);
+  }
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{迭代器 (\textit{Iterators})}
+\begin{itemize}
+\item 用于简化 ~IEnumerator 和 ~IEnumerable
+\item 使用 ~\texttt{yield return} 返回 ~IEnumerable 对象
+\end{itemize}  
+
+\lstset{emph={yield}}
+\begin{lstlisting}
+using System.Collections;
+class MyClass {
+  char[] chrs = { 'A', 'B', 'C', 'D' };
+
+  public IEnumerator GetEnumerator() {
+    foreach(char ch in chrs)
+      yield return ch;
+  }
+}
+...
+  public static void Main() {
+    MyClass mc = new MyClass();
+
+    foreach(char ch in mc)
+      System.Console.Write(ch + " ");
+  }
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{多条 ~\texttt{yield} 语句}
+\CJKindent 关键字 ~\texttt{yield} 自动构造 ~IEnumerator 对象，可使用多次：
+\begin{lstlisting}
+using System;
+using System.Collections;
+class MyClass {
+  ...
+  public IEnumerator GetEnumerator() {
+    yield return 'A';     yield return 'B';
+    yield return 'C';     yield return 'D';
+  }
+}
+...
+  public static void Main() {
+    MyClass mc = new MyClass();
+
+    foreach(char ch in mc)
+      Console.Write(ch + " "); 
+  }
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{终止迭代器}
+使用 ~\texttt{yield break} 可以终止迭代器继续进行
+\begin{lstlisting}
+...
+  public IEnumerator GetEnumerator() {
+    for(int i=0; i < 26; i++) {
+      if(i == 5) yield break; // stop iterator early
+      yield return (char) (ch + i);
+    }
+  }
+...
+
+    foreach(char ch in mc)
+      Console.Write(ch + " ");
+    // output: "A B C D E "
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{命名迭代器}
+通过定义返回 ~IEnumerable 类型的方法来实现：
+\begin{lstlisting}
+public class List
+{
+  public static IEnumerable Power(int number, int exponent)
+  { int counter = 0;
+    int result = 1;
+    while (counter++ < exponent)
+    { result = result * number;
+      yield return result;
+    }
+  }
+  static void Main()
+  { foreach (int i in Power(2, 8))
+    {
+        Console.Write("{0} ", i);
+    }
+  }
+}
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{其他基于对象的集合类}
+\begin{itemize}
+\setlength{\itemsep}{8pt plus 1pt}
+\item \texttt{SortedList} --- 根据键值按循序排列的列表 \par
+\CJKindent \small 实现了~ IDictionary, ICollection, IEnumerable 接口。
+\item \texttt{Stack}      --- 栈 \par
+\CJKindent \small 实现了~ ICollection, IEnumerable接口。
+\begin{itemize}
+\item Posh(), Pop(), Peek(), Contains() \dots
+\end{itemize}
+\item \texttt{Queue}      --- 队列 \par
+\CJKindent \small 实现了~ ICollection, IEnumerable 接口。
+\begin{itemize}
+\item Dequeue(), Enqueue(), Peek(), Contains() \dots
+\end{itemize}
+\item \texttt{BitArray}   --- 按位~ (\textit{bit}) 存储 \par
+\CJKindent \small 实现了~ ICollection, IEnumerable 接口。
+\begin{itemize}
+\item 多种构造函数，便于从其他数据生成
+\item And(), Or(), Not(), Xor(), Set() \dots
+\end{itemize}
+\end{itemize}
+\end{frame}
 
 
 

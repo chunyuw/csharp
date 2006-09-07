@@ -18,7 +18,7 @@
   \end{block}
 
   \begin{itemize}
-  \item 用 abstract 修饰，不能生成实例
+  \item 用~ \texttt{abstract} 修饰，不能生成实例
   \item 可以只给出方法的声明，无具体实现
   \item 而具体实现由派生类完成
   \end{itemize}
@@ -119,7 +119,7 @@ class Rectangle:IMeasurement {
 \item 为类提供了蓝图，规范了类之间的交互方式
 \item 可以继承其他接口
 \item 和抽象类一样，不可以生成实例
-\item 接口成员默认为 public 和 abstract
+\item 接口成员默认为~ public 和~ abstract
 \end{itemize}
 \end{frame}
 
@@ -128,7 +128,7 @@ class Rectangle:IMeasurement {
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
 \item 只有四种成员，仅提供定义而不实现
-\item 定义不需要 public 和 abstract，实现不需要 override
+\item 定义不需要~ public 和~ abstract，实现不需要~ override
 \item 类只能继承一个类，但可以实现多个接口
 
   \lstset{emph={MyClass},emph={[2]FirstIf,AnotherIf}}
@@ -231,7 +231,7 @@ public interface B : A {
 
 \begin{frame}[fragile]
 \frametitle{显示实现接口}
- 接口默认是 public，如果需要 ~private 要使用显示实现
+ 接口默认是~ public，如果需要 ~private 要使用显示实现
 \begin{lstlisting}
 using System;
 interface IEven {
@@ -884,6 +884,10 @@ class Test<T> where T : A {
 
 \begin{frame}[fragile]
 \frametitle{基类约束}
+\begin{itemize}
+\item 基类约束，使泛型类可以访问基类成员，提高了可用性
+\item 只有实现了基类的类才有效，保证了类型安全
+\end{itemize}
 \begin{lstlisting}
 class A {
   public void hello() {
@@ -903,20 +907,22 @@ class Test<T> where T : A {
 }
 
 \end{lstlisting}
-
-\begin{itemize}
-\item 基类约束，使泛型类可以访问基类成员，提高了可用性
-\item 只有实现了基类的类才有效，保证了类型安全
-\end{itemize}
-
 \end{frame}
 
 
 \begin{frame}[fragile]
 \frametitle{接口约束}
+public interface A { ... }
+public interface B { ... }
+
+class Test<T> where T : A, B {
+
+  ...
+
+  }
+}
 
 \end{frame}
-
 
 \begin{frame}[fragile]
 \frametitle{构造函数约束}
@@ -926,6 +932,7 @@ class A<T> // where T:new()
   T a;
   public A() {
     a = new T();
+    // compiling error
   }
 }
 class test
@@ -933,7 +940,6 @@ class test
   static void Main()
   {
     A<int> x = new A<int>();
-    // compiling error
   }
 }
 \end{lstlisting}

@@ -13,6 +13,7 @@
      "times"
      "ccmap"
      "CJK"
+     "attachfile"
      "latex2e"
      "beamer10"
      "beamer"
