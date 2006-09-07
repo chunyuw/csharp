@@ -49,6 +49,43 @@ class Circle:Graphics {
 \end{onlyenv}
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{密封类}
+使用 ~sealed 修饰的类，不可以被继承：
+\begin{lstlisting}
+sealed class A {
+  // ...
+}
+
+// The following class is illegal.
+class B : A { // ERROR! Can't derive class A
+  // ...
+}
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{静态类}
+使用 ~static 修饰的类，不能够被实例化：
+\begin{lstlisting}
+static class NumericFn {
+  static public double reciprocal(double num) {
+    return 1/num;
+  }
+  static public double fracPart(double num) {
+    return num - (int) num;
+  }
+  static public bool isEven(double num) {
+    return (num % 2) == 0 ? true : false;
+  }
+  static public bool isOdd(double num) {
+    return !isEven(num);
+  }
+}
+\end{lstlisting}
+\end{frame}
+
 \section{接口}
 
 \begin{frame}[fragile]

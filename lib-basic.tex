@@ -360,6 +360,102 @@ public class List
 \end{frame}
 
 
+\section{正则表达式}
+
+\begin{frame}
+\frametitle{正则表达式}
+\begin{itemize}
+\setlength{\itemsep}{8pt plus 1pt}
+\item 位于 ~System.Text.RegularExpressions 命名空间
+\item 常用的类
+\begin{itemize}
+\setlength{\itemsep}{6pt plus 1pt}
+\item Regex  --- 用于构造正则表达式对象，也有一些静态方法
+\item Match, MatchCollection \\
+  使用正则表达式进行匹配的结果，或结果集合
+\item Group, GroupCollection \\
+  正则表达式的分组匹配，即正则表达式的一部分
+\item Capture, CaptureCollection \\
+  分组的匹配中，由分组匹配的所有捕获
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{正则表达式示例}
+\begin{lstlisting}
+using System;
+using System.Text.RegularExpressions;
+public class List
+{
+  static void Main()
+  {
+    string s = @"<img\s+src=""(.*?)"">";
+    Regex r = new Regex (s, RegexOptions.IgnoreCase) ;
+    Match m = r.Match("<IMG src=\"http://abc.cn/a.jpg\">");
+
+    for (int i=0; i<m.Groups.Count; i++)
+      Console.WriteLine (m.Groups[i]);
+
+    Console.ReadLine();
+    
+  }
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{特殊字符}
+\begin{tabular}{c|l}
+\hline
+字符 & 说明 \\
+\hline
+\verb|.| & 任何字符，除换行符外 \\
+\verb|* + ?| & 前一部分的重复次数，尽可能多匹配 (\textit{greedy}) \\
+\verb|\| & 转义字符 \\
+\verb|[|\dots\verb|]| & 字符集合，表示其中的任意字符 \\
+\verb|(|\dots\verb|)| & 分组，用于重复、引用等 \\
+\verb|{|n,m\verb|}| & 表示匹配次数 \\
+\verb|$| & 行尾空串 \\
+\verb|^| & 行首空串 \\
+\hline
+\verb|\b| & 单词边界上的空串 \\
+\verb|\s| & 匹配任何空白字符 \\
+\verb|\w| & 匹配任何单词字符 \\
+\verb|\d| & 匹配数字 \\
+\verb|\cC| & 匹配控制字符 ~Ctrl-C \\
+\hline
+\end{tabular}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{分组及引用}
+\begin{tabular}{c|l}
+\hline
+分组 & 使用方式 \\
+\hline
+\verb|(|\dots\verb|)| & 通过数字 ~\verb|\N| 引用 \\
+  & 例如 ~\verb|(\w)\s+\1| \\
+\verb|(?<|\textit{name}\verb|>|\dots\verb|)| & 通过名字 ~\verb|\k<|\textit{name}\verb|>| 引用 \\
+  & 例如 \verb|(?<word>\w)\s+\k<word>| \\
+\hline
+\hline
+替换方式 & 说明 \\
+\hline
+\verb|$|\textit{N} & 按组号替换 \\
+\verb|${|\textit{name}\verb|}| & 按组名字替换 \\
+\hline
+\end{tabular}
+\medskip
+\begin{lstlisting}[escapeinside='']
+String ChangeDateFormat(String input) 
+{ // '将 ~mm/dd/yyyy 替换为 ~yyyy-mm-dd 格式'
+return Regex.Replace(input, 
+@"\b(?<month>\d{1,2})/(?<day>\d{1,2})/(?<year>\d{2,4})\b",
+"${year}-${month}-${day}");
+}
+\end{lstlisting}
+\end{frame}
 
 % Local Variables: 
 % mode: LaTeX

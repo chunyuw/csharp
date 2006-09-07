@@ -4,6 +4,5 @@
      "preamble"
      "author"
      "lib-basic"
-     "lib-regexp"
      "lib-stream")))
 

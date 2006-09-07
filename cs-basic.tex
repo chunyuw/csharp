@@ -182,7 +182,7 @@ class MyFirstCSharpClass
 \note{
   \begin{itemize}
   \item C\# 中有较丰富的数据类型
-  \item 新的内置数据类型 string 和 bool，bool长度为 1 字节，值为 true/false
+  \item 新的内置数据类型 ~string 和 ~bool，bool 长度为 1 字节，值为 true/false
   \item 分别支持 1/2/4/8 字节长的整型
   \item 以及 4/8/16 字节长的浮点型
   \end{itemize}
@@ -299,11 +299,11 @@ string 类型中提供的成员
 \medskip
   \begin{itemize}
 \setlength{\itemsep}{6pt plus 1pt}
-  \item 查找字串 \texttt{IndexOf()}
-  \item 比较字符串 \texttt{CompareTo(), Equals()}
-  \item 转换大小写 \texttt{ToLower(), ToUpper()}
-  % \item 对象的 ToString() 方法
-  \item 串的长度 \texttt{Length}
+  \item 查找字串~ \texttt{IndexOf()}
+  \item 比较字符串~ \texttt{CompareTo(), Equals()}
+  \item 转换大小写~ \texttt{ToLower(), ToUpper()}
+  % \item 对象的~ ToString() 方法
+  \item 串的长度~ \texttt{Length}
   \end{itemize}
 \begin{lstlisting}
 string s = "This is a string";
@@ -479,7 +479,7 @@ int[] list = {1,2,3,4,5}; //<short version>
 \begin{frame}[fragile]
 \frametitle{数组}
 \begin{itemize}
-\item 一维数组，矩形多维数组
+\item 一维数组，矩形多维数组 (\textit{Multidimensional Arrays})
 \begin{lstlisting}[escapeinside=<>,mathescape]
 int[] x = new int[5]; // <一维数组>
 
@@ -504,7 +504,7 @@ int[,] y = new int[2,5]; // $2\times5$ <二维数组>
 \begin{frame}[fragile]
 \frametitle{多维数组}
 \begin{itemize}
-\item 锯齿形多维数组
+\item 锯齿形多维数组 (\textit{Jagged Arrays})
 \begin{lstlisting}[escapeinside=<>]
 int[][] z = new int[3][];
      z[0] = new int[4]; // z[0]<长度为4>
@@ -711,6 +711,30 @@ foreach (string x in colors) {
   \item 使用 foreach 可以省去使用索引变量的麻烦，也不用判断数组的长度
   \end{itemize}
 }
+
+\begin{frame}[fragile]
+\frametitle{foreach 与多维数组}
+\begin{itemize}
+\item foreach 对多维数组迭代，按行依次返回各元素
+\item 不需要嵌套循环，不需要计算大小
+\end{itemize}
+\begin{lstlisting}
+public static void Main() {
+  int sum = 0;
+  int[,] nums = new int[3,5];
+
+  for(int i = 0; i < 3; i++)
+    for(int j=0; j < 5; j++)
+      nums[i,j] = (i+1)*(j+1);
+  
+  // use foreach to display and sum the values
+  foreach(int x in nums) {
+    Console.WriteLine("Value is: " + x);
+    sum += x;
+  }
+\end{lstlisting}
+\end{frame}
+
 
 \begin{frame}
 \frametitle{跳转语句}

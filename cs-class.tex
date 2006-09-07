@@ -436,7 +436,7 @@ class Circle
     if(left.R > right.R)
     { result.R = left.R;
       result.r = right.R;
-    }
+    } else ...
     return result;
   }
 }
@@ -454,7 +454,7 @@ class Ring:Circle
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{重载~ \texttt{true} 和~ \texttt{false}}
+\frametitle{重载~ true 和~ false}
 \begin{lstlisting}
 class Point {
   int x, y, z; // 3-D coordinates
@@ -536,7 +536,7 @@ class Circle {
   \item new, virtal, override --- 继承与覆盖关系
   \end{itemize}
 \item set 中有一个隐式参数 ~value
-\item set 和 ~get 可以只有一个，也可以有不同的访问限制
+\item set 和 ~get 可以只有一个
 \end{itemize}
 \end{frame}
 
@@ -780,8 +780,8 @@ class Test {
 class Test {
   static void Main () {
     int x = 100;
-    object o = x; // box
-    int y = (int)o; // unbox
+    object o = x; // boxing
+    int y = (int)o; // unboxing
   }
 }
 
