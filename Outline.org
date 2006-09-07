@@ -305,6 +305,29 @@ VS.NET: [[http://msdn2.microsoft.com/zh-cn/library/k1s94fta.aspx][Visual Studio 
   set args=Makefile *.tex figures\*.txt logo\*.mp logo\Makefile pgf\*.tex
   for %%i in (%args%) do %ccmd% %%i
 
+** svn commands
+  $ svn diff --revision PREV:COMMITTED foo.c
+  # shows the last change committed to foo.c
+  
+  $ svn log --revision HEAD
+  # shows log message for the latest repository commit
+  
+  $ svn diff --revision HEAD
+  # compares your working file (with local changes) to the latest version
+  # in the repository
+  
+  $ svn diff --revision BASE:HEAD foo.c
+  # compares your ¡°pristine¡± foo.c (no local changes) with the 
+  # latest version in the repository
+  
+  $ svn log --revision BASE:HEAD
+  # shows all commit logs since you last updated
+  
+  $ svn update --revision PREV foo.c
+  # rewinds the last change on foo.c
+  # (foo.c's working revision is decreased)
+
+
 * temp data
 
 ** [[file:cs-basic.tex]]
