@@ -102,6 +102,31 @@ class AttriTest
 \end{lstlisting}
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{访问 ~DLL}
+调用 ~powrprof.dll 中方法执行系统休眠：
+\lstset{emph={DllImport,extern}}
+\begin{lstlisting}
+using System;
+using System.Runtime.InteropServices;
+
+class suspend
+{
+  [DllImport( "powrprof.dll", 
+              EntryPoint="SetSuspendState", 
+              CharSet=CharSet.Ansi )]
+
+  static extern int SetSuspendState(int H, int F, int D);
+    // H=Hibernate, F=ForceCritical, D=DisableWakeEvent
+
+  public static void Main(string[] args)
+  {
+    SetSuspendState(1, 0, 0);
+  }
+}
+\end{lstlisting}
+\end{frame}
+
 
 \begin{frame}
 \frametitle{访问修饰符}
@@ -217,7 +242,6 @@ class Circle {
 Circle c  = new Circle(); // <创建一个实例>
 Circle.pi = 3.14159265;   // <访问静态变量>
       c.R = 100;          // <访问实例变量>
-
 \end{lstlisting}
   \item 静态成员和具体实例无关，是类本身的特征
   \item 通过静态变量，可以在类的实例之间共享信息

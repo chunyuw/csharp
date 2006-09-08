@@ -4,5 +4,6 @@
      "preamble"
      "author"
      "cs-advac"
-     "cs-other")))
+     "cs-other"
+     "lib-basic")))
 
