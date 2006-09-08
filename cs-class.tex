@@ -164,7 +164,7 @@ class Ring : Circle {
 
 \begin{frame}
 \frametitle{类的成员}
-\begin{onlyenv}<1>
+\begin{onlyenv}<1| handout:1>
   \begin{block}{字段 (\textit{fields})}
     描述对象属性的简单数据类型、自定义的结构或其他类。
   \end{block}
@@ -175,7 +175,7 @@ class Ring : Circle {
     对类中字段提供特定的访问方法。
   \end{block}
 \end{onlyenv}
-\begin{onlyenv}<2>
+\begin{onlyenv}<2| handout:2>
   \begin{block}{委托 (\textit{delegates})}
     运行时用来动态调用不同的方法的特殊成员。
   \end{block}
@@ -191,7 +191,7 @@ class Ring : Circle {
 
 \begin{frame}[fragile]
 \frametitle{静态成员和实例成员}
-\begin{onlyenv}<1>
+\begin{onlyenv}<1| handout:1>
   \begin{itemize}
   \item 静态成员使用关键字~static~修饰，否则为实例成员
 \begin{lstlisting}[escapeinside=<>]
@@ -209,7 +209,7 @@ class Circle {
 
   \end{itemize}
 \end{onlyenv}
-\begin{onlyenv}<2>
+\begin{onlyenv}<2| handout:2>
   \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
   \item 静态成员通过类名访问，实例成员通过对象名访问
@@ -1001,22 +1001,25 @@ static void Main()
 
 \begin{frame}
 \frametitle{结构体和类的比较}
-\begin{tabular}{l|l|l}
-\hline
-  & 结构体& 类\\ \hline
+\begin{figure}
+  \centering
+  \begin{tabular}{l|l|l}
+    \hline
+    & 结构体& 类\\ \hline
 
-类型的默认访问级别 & internal & internal \\
-数据成员默认访问 & public & private\\
-特性和方法  & private & private\\
-类型  & 值类型 & 引用类型\\
-能否作为基类  & 不能 & 能\\
-构造函数 & 有$^{1}$ & 有 \\
-析构函数 & 无 & 有 \\
-嵌套  & 可以 & 可以\\
-实现接口  & 可以 & 可以\\
-产生和处理事件  & 可以 & 可以\\
-\hline
-\end{tabular}
+    类型的默认访问级别 & internal & internal \\
+    数据成员默认访问 & public & private\\
+    特性和方法  & private & private\\
+    类型  & 值类型 & 引用类型\\
+    能否作为基类  & 不能 & 能\\
+    构造函数 & 有$^{1}$ & 有 \\
+    析构函数 & 无 & 有 \\
+    嵌套  & 可以 & 可以\\
+    实现接口  & 可以 & 可以\\
+    产生和处理事件  & 可以 & 可以\\
+    \hline
+  \end{tabular}
+\end{figure}
 \begin{enumerate}
 \item 结构体不能定义无参数的构造函数
 \end{enumerate}
@@ -1092,7 +1095,7 @@ class Ring:Circle { public int r;
 \begin{itemize}
 \item 隐藏方法，在基类中还存在；覆盖的，已经被替换
 \end{itemize}
-隐藏基类的方法
+隐藏基类的方法：
 \lstset{emph={new}}
 \begin{lstlisting}[escapeinside=<>]
 using System;
@@ -1117,7 +1120,7 @@ class B:A
 
 \begin{frame}[fragile]
 \frametitle{隐藏和覆盖的区别(2)}
-覆盖基类的方法
+覆盖基类的方法：
 \lstset{emph={virtual,override}}
 \begin{lstlisting}[escapeinside=<>]
 using System;
@@ -1200,9 +1203,8 @@ class Student:Person
   public Student(string name):base(name)
   {}
   public new void Introduce (Person a)
-  {
-    base.Introduce (a);
-    Console.WriteLine ("I'm from HIT!");
+  {   base.Introduce (a);
+      Console.WriteLine ("I'm from HIT!");
   }
 }
 ...

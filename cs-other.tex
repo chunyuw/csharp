@@ -95,7 +95,7 @@ int* pl;
 pl++;          // Move 4 byte (sizeof(int)=4)
 pl = pl + 1;   // Move 4 byte too
 \end{lstlisting}
-
+\pause
 指针比较：\texttt{$==$,$<$,$>$,$>=$,$<=$}
 \begin{lstlisting}
   int[] nums = new int[11];
@@ -130,7 +130,8 @@ if (count.HasValue) { ... } //
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{\textit{null coalescing operator}}
+\frametitle{空值接合操作符 (\textit{null coalescing operator})}
+当可空值为空时，操作符取其后的默认值：
 \begin{lstlisting}
 double? balance = null;
 double  currentBalance;
@@ -138,6 +139,7 @@ double  currentBalance;
 currentBalance = balance ?? 0.0;
 \end{lstlisting}
 
+当可空值不为空时，操作符无效：
 \begin{lstlisting}
 double? balance = 123.75;
 double currentBalance;

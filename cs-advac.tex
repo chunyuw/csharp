@@ -11,7 +11,7 @@
 
 \begin{frame}[fragile,t]
 \frametitle{抽象类}
-\begin{onlyenv}<1>
+\begin{onlyenv}<1| handout:1>
   \begin{block}{抽象类}
     \CJKindent 未完全实现的类，只能用于其他类的基类。从抽象类派生的类必须实现其
     中的抽象方法。
@@ -23,7 +23,7 @@
   \item 而具体实现由派生类完成
   \end{itemize}
 \end{onlyenv}
-\begin{onlyenv}<1-2>
+\begin{onlyenv}<1-2| handout:1-2>
   \lstset{emph={abstract}}
 \begin{lstlisting}
 public abstract class Graphics{
@@ -33,7 +33,7 @@ public abstract class Graphics{
 }
 \end{lstlisting}
 \end{onlyenv}
-\begin{onlyenv}<2>
+\begin{onlyenv}<2| handout:2>
   \lstset{emph={override}}
 \begin{lstlisting}
 class Circle:Graphics {
@@ -327,7 +327,7 @@ class MyClass : IMyIF_A, IMyIF_B {
 委托定义的一般格式：
 \begin{lstlisting}
 [modifiers] delegate <name> ([parameter list]);
-\end{lstlisting}
+\end{lstlisting} \pause
 
   \begin{itemize}
   \item 委托也是一种类型，用于包装方法
@@ -426,7 +426,7 @@ public static void Main() {
 
 \begin{frame}[fragile]
 \frametitle{自动类型转换}
-C\# 2.0 中，可以省略 ~new 表达式，直接使用方法名创建委托实例，添加委托
+\CJKindent C\# 2.0 中，可以省略 ~new 表达式，直接使用方法名创建委托实例，添加委托
 \begin{lstlisting}
 public static void Main() {
   // Construct a delegate using method group conversion.
@@ -473,12 +473,13 @@ public static void Main() {
 \frametitle{多播委托}
 \begin{itemize}
 \setlength{\itemsep}{4pt plus 1pt}
-\item 多播委托中，委托相当于一个方法的调用列表
-\item 通过 ~\texttt{+}或~\texttt{+,-=} 操作符添加其他的委托(或方法)
-\item 通过 ~\texttt{-}或~\texttt{+,-=} 操作符去掉已有的委托(或方法)
-\item 一般来说多播委托的返回值应该是 ~void，不用参数列表返回参数
-\item 添加和去掉方法的格式比较自由
+\item<1-| handout:1> 多播委托中，委托相当于一个方法的调用列表
+\item<2-| handout:1> 通过 ~\texttt{+}或~\texttt{+,-=} 操作符添加其他的委托(或方法)
+\item<2-| handout:1> 通过 ~\texttt{-}或~\texttt{+,-=} 操作符去掉已有的委托(或方法)
+\item<3-| handout:1> 多播委托的返回值应该是 ~void，并且不用参数列表返回数据
+\item<3-| handout:1> 添加和去掉方法的格式比较自由
 \end{itemize}
+\begin{onlyenv}<1-| handout:1>
 \begin{lstlisting}
   delegate void MyOperation (int i);
   MyOperation myop = new MyOperation();
@@ -492,7 +493,7 @@ public static void Main() {
   myop -= AnotherMethod;
 
 \end{lstlisting}
-
+\end{onlyenv}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -551,8 +552,7 @@ class AnonMethDemo2 {
       for(int i=0; i <= end; i++)
         Console.WriteLine(i);
     };
-    count(3);
-    Console.WriteLine();
+
     count(5);
   }
 }
@@ -577,7 +577,7 @@ class AnonMethDemo3 {
         Console.WriteLine(i);
         sum += i;
       }
-      return sum; // return a value from an anonymous method
+      return sum; // here
     };
 
     result = count(3);
@@ -619,6 +619,7 @@ class AnonMethDemo3 {
 \begin{lstlisting}
 [modifier] event <delegate type> <event name>;
 \end{lstlisting}
+\pause
 \begin{itemize}
 \item 事件不是从程序的一部分到另一部分的过程流
 \item 只是建立在程序之间的连接的方法和运行过程中的终结操作
@@ -658,7 +659,7 @@ public class MenuItem
 \item 提供事件的类可以称为事件的提供器或发布器 (\textit{publisher})
 \item 需要被通知的部分可以称为订阅器 (\textit{subscriber})
 \end{itemize}
-\bigskip
+\bigskip \pause
 \begin{itemize}
 \setlength{\itemsep}{4pt plus 1pt}
 \item 订阅器通过向事件中添加事件处理方法来达到订阅的目的
@@ -677,7 +678,7 @@ public class MenuItem
 \item 委托用于事件时，需要声明为 ~\texttt{public}，其他组件才能订阅
 \item 但同时也可以发布，即调用发布器委托
 \item 因此 ~C\# 将委托包装为事件，对外专门用于订阅
-\item 定义为事件后，即使是 ~\texttt{public}，其他组件也只能订阅和删除
+\item 定义为事件后，其他组件也只能订阅和删除
 \item 而作为委托的调用，只能由发布器类自己完成
 \end{itemize}
 \end{frame}
@@ -874,8 +875,8 @@ class Gen<T> {
 类型约束的一般格式：
 \lstset{emph={where}}
 \begin{lstlisting}
-class class-name<type-param> 
-  where type-param : constraints 
+class classname<type_param> 
+  where type_param : constraints 
 { ... }
 \end{lstlisting}
 例如
@@ -893,7 +894,7 @@ class Test<T> where T : A {
 
 
 \begin{frame}[fragile]
-\frametitle{约束的总类}
+\frametitle{约束的种类}
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
 \item 基类约束：在条件表达式中指定基类名字
@@ -982,6 +983,7 @@ class Gen<T, V> where V : T {...}
 ...
   Gen<A, B> x = new Gen<A, B>;
 \end{lstlisting}
+\pause
 多条约束
 \begin{lstlisting}
 class Gen<T>
@@ -1077,7 +1079,7 @@ class ArrayUtils {
 
   ArrayUtils.copyInsert("in C#", 1, strs, strs2);
 \end{lstlisting}
-当不能自动判断类型时，需要明确指出
+\pause 当不能自动判断类型时，需要明确指出
 \begin{lstlisting}
 // class B:A ...
 B[] b = { new B(), new B(), new B() };
