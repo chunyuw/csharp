@@ -292,14 +292,12 @@ class MyClass : IEven {
 \frametitle{显式实现消除歧义}
 \begin{lstlisting}
 using System;
-
 interface IMyIF_A {
   int meth(int x);
 }
 interface IMyIF_B {
   int meth(int x);
 }
-
 class MyClass : IMyIF_A, IMyIF_B {
 
   // explicitly implement the two meth()s
@@ -559,22 +557,16 @@ class AnonMethDemo2 {
 
 \end{frame}
 
-\begin{frame}[fragile]
+\begin{frame}[fragile, plain]
 \frametitle{带返回值的匿名方法}
 \begin{lstlisting}
 using System;
-
-// This delegate returns a value.
-delegate int CountIt(int end);
+delegate int CountIt(int end); // return int
 
 class AnonMethDemo3 {
-
   public static void Main() {
     int result;
 
-    // Here, the ending value for the count
-    // is passed to the anonymous method.
-    // A summation of the count is returned.
     CountIt count = delegate (int end) {
       int sum = 0;
 
@@ -687,7 +679,7 @@ public class MenuItem
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]
+\begin{frame}[fragile,plain]
 \frametitle{事件访问器}
 \CJKindent 添加方法到事件，或从事件中删除的过程时可以定制的。事件访问器就是事
 件的一个变形，用于管理事件的添加和删除。
@@ -776,7 +768,6 @@ class MyEvent {   static int count = 0;
 \begin{lstlisting}
 class X {
   public void handler(object s, MyEventArgs arg) {..} }
-
 class Y {
   public void handler(object s, MyEventArgs arg) {..} }
 
@@ -786,12 +777,10 @@ class EventDemo6 {
     Y ob2 = new Y();
     MyEvent evt = new MyEvent();
 
-    // Add handler() to the event list.
-    evt.SomeEvent += ob1.handler;
+    evt.SomeEvent += ob1.handler; // Add to the list.
     evt.SomeEvent += ob2.handler;
 
-    // Fire the event.
-    evt.OnSomeEvent();
+    evt.OnSomeEvent(); // Fire the event.
     evt.OnSomeEvent();
   }
 }
