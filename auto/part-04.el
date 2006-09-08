@@ -4,5 +4,6 @@
      "preamble"
      "author"
      "lib-basic"
-     "lib-stream")))
+     "lib-stream"
+     "lib-thread")))
 
