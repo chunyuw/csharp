@@ -51,14 +51,14 @@ class Circle:Graphics {
 
 \begin{frame}[fragile]
 \frametitle{密封类}
-使用 ~sealed 修饰的类，不可以被继承：
+使用 ~\texttt{sealed} 修饰的类，不可以被继承：
+\lstset{emph={sealed}}
 \begin{lstlisting}
 sealed class A {
   // ...
 }
 
-// The following class is illegal.
-class B : A { // ERROR! Can't derive class A
+class B : A { // ERROR!
   // ...
 }
 \end{lstlisting}
@@ -67,7 +67,8 @@ class B : A { // ERROR! Can't derive class A
 
 \begin{frame}[fragile]
 \frametitle{静态类}
-使用 ~static 修饰的类，不能够被实例化：
+使用 ~\texttt{static} 修饰的类，不能够被实例化：
+\lstset{emph={static}}
 \begin{lstlisting}
 static class NumericFn {
   static public double reciprocal(double num) {
@@ -106,11 +107,11 @@ static class NumericFn {
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]
+\begin{frame}[fragile,t]
 \frametitle{接口示例}
 
 \begin{onlyenv}<1-2| handout:1>
-  \lstset{emph={interface},emph={[2]Perimeter,Area}}
+  \lstset{emph={interface},emph={[2]Circle}}
 \begin{lstlisting}
 public interface IMeasurement{
   double Area();
@@ -134,7 +135,7 @@ class    Circle:IMeasurement {
 \end{lstlisting}
 \end{onlyenv}
 \begin{onlyenv}<2| handout:0>
-  \lstset{emph={[2]Perimeter,Area}}
+  \lstset{emph={[2]Rectangle}}
 \begin{lstlisting}
 class Rectangle:IMeasurement {
   public int width,height;
@@ -168,9 +169,11 @@ class Rectangle:IMeasurement {
 \item 定义不需要~ public 和~ abstract，实现不需要~ override
 \item 类只能继承一个类，但可以实现多个接口
 
-  \lstset{emph={MyClass},emph={[2]FirstIf,AnotherIf}}
+  \lstset{emph={[2]First,Second}}
 \begin{lstlisting}
-class MyClass:FirstIf,AnotherIf
+public interface First   {...}
+public interface Second {...}
+class MyClass : First, Second
   { ... }
 \end{lstlisting}
 \end{itemize}
@@ -196,18 +199,18 @@ class MyClass:FirstIf,AnotherIf
 
 \begin{frame}[fragile]
 \frametitle{接口中的特性}
+实现一个自动返回序列的特性：
 \begin{lstlisting}
 using System;
 public interface ISeries {  // An interface property.
   int next { get; // return the next number in series
-    set; // set next number
+             set; // set next number
   }
 }
 class ByTwos : ISeries {
   int val;
   public ByTwos() { val = 0; }
 
-  // get or set value
   public int next {
     get { val += 2;
           return val;  }
@@ -262,7 +265,7 @@ public interface B : A {
 
 \end{lstlisting}
 \begin{itemize}
-\item 接口中的方法也可以使用 ~new 关键字隐藏
+\item 接口中的方法也可以使用 ~new 关键字
 \end{itemize}
 \end{frame}
 
@@ -273,8 +276,8 @@ public interface B : A {
 using System;
 interface IEven {
   bool isOdd(int x);
-  bool isEven(int x); }
-
+  bool isEven(int x); 
+}
 class MyClass : IEven {
   // Explicit implementation. Notice that this 
   // member is private by default.
