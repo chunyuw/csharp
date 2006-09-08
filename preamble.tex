@@ -12,8 +12,7 @@
       \vskip2pt\insertnavigation{\paperwidth}\vskip2pt
     \end{beamercolorbox}}%
   \usefonttheme{serif}
-  \setbeamertemplate{background}[grid][step=.5cm]
-}
+  \setbeamertemplate{background}[grid][step=.5cm]}
 
 \usepackage{attachfile}
 \usepackage{CJK,ccmap}
@@ -25,9 +24,10 @@
 \usepackage[latin1]{inputenc}
 \usepackage[english]{babel}
 
+%% attachfile setup %%
 \attachfilesetup{icon=Tag,mimetype=text/plain,subject=Code Example}
 
-%% C# language for listings
+%% C# language for listings %%
 \lstdefinelanguage{CSharp}{%
   morekeywords={abstract, as, base, break, case, catch, checked, class, const,
     continue, default, delegate, do, else, enum, event, explicit, extern,
@@ -72,15 +72,14 @@
   % bookmarks=true,
   bookmarksopen=true,
   pdfstartview=Fit,             % FitV
-  pdfauthor={Chunyu Wang <chunyu@hit.edu.cn>},
-  pdftitle={Microsoft .NET Framework},
-  pdfsubject={.NET Programming},
-  pdfkeywords={.NET, C\#},
   pdffitwindow=true,
   pdfpagemode=None,             % FullScreen
   % pdfmenubar=false,
   % pdftoolbar=false,
-}
+  pdfauthor={Chunyu Wang <chunyu@hit.edu.cn>},
+  pdftitle={Microsoft .NET Framework},
+  pdfsubject={.NET Programming},
+  pdfkeywords={.NET, C\#}}
 
 \graphicspath{{figures/}}
 
@@ -91,22 +90,25 @@
 \pgfdeclareimage[mask=cs-mask,width=1.3cm]{cs-logo}{logo/cs-logo}
 \logo{\vbox{\hbox to 1.3cm{\hfil\pgfuseimage{cs-logo}}\vskip0.1cm\hbox{\pgfuseimage{hit-logo}}}}
 
-\mode<handout> {%
-  \hypersetup{pdfpagemode=UseOutlines,pdfstartview=Fit}
-  % \usepackage{pgfpages}
-  % \pgfpagesuselayout{2 on 1}[a4paper,border shrink=1mm] \nofiles
-}
+\AtBeginSection[]{              % Outline in every section
+  \begin{frame}<handout:0>{Outline}
+    \tableofcontents[currentsection]
+  \end{frame}}
+
+%% graphicx 
+% \DeclareGraphicsExtensions{.png,.jpg,.mps,.pdf,.gif,.tif}
 
 \input{macros}
 
-\AtBeginSection[]{              % Outline in every section
-%\frame<handout:0>{\tableofcontents[currentsection]}
-\begin{frame}<handout:0>{Outline}
-  \tableofcontents[currentsection]
-\end{frame}}
-
-% \DeclareGraphicsExtensions{.png,.jpg,.mps,.pdf,.gif,.tif}
+\mode<handout> {                % handout mode of beamer
+  % \usepackage{pgfpages}         % Ò»Ò³¶àÖ¡
+  % \pgfpagesuselayout{2 on 1}[a4paper,border shrink=1mm]
+  % \nofiles                      % ·ÀÖ¹Ò³Âë´íÎó
+  \hypersetup{%
+    pdfpagemode=UseOutlines,    % ´ò¿ªÊéÇ©
+    pdfstartview=Fit}}
 
 % Local Variables:
 % mode: LaTeX
+% coding: gb2312-dos
 % End:

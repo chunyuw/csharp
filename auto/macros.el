@@ -3,5 +3,6 @@
     (TeX-add-symbols
      "helplines"
      "wraphere"
-     "cmd")))
+     "cmd"
+     "redwarn")))
 

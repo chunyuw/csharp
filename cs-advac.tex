@@ -267,8 +267,8 @@ public interface B : A {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{显示实现接口}
- 接口默认是~ public，如果需要 ~private 要使用显示实现
+\frametitle{显式实现接口}
+ 接口默认是~ public，如果需要 ~private 要使用显式实现
 \begin{lstlisting}
 using System;
 interface IEven {
@@ -289,7 +289,7 @@ class MyClass : IEven {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{显示实现消除歧义}
+\frametitle{显式实现消除歧义}
 \begin{lstlisting}
 using System;
 
@@ -949,6 +949,8 @@ class Test<T> where T : A {
 
 \begin{frame}[fragile]
 \frametitle{接口约束}
+接口约束可以有多个
+\begin{lstlisting}
 public interface A { ... }
 public interface B { ... }
 
@@ -958,7 +960,7 @@ class Test<T> where T : A, B {
 
   }
 }
-
+\end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]

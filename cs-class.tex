@@ -479,13 +479,89 @@ class Point {
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{重载一元操作符}
+\begin{lstlisting}
+public static ThreeD operator -(ThreeD op)
+{
+  ThreeD r = new ThreeD();
+  r.x = -op.x;  r.y = -op.y;  r.z = -op.z;
+  return r;
+}
+\end{lstlisting}
+\medskip
+\begin{lstlisting}
+public static ThreeD operator ++(ThreeD op)
+{
+  op.x++;   op.y++;   op.z++;
+  return op;
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{转换重载}
+\begin{itemize}
+\item 转换~ (\textit{conversion}) 重载允许自己定义类型间的转换
+\item 可以分为隐式和显式重载
+\item 对于同一种类型，不能同时存在隐式和显式重载
+\end{itemize}
+\pause
+转换重载的一般形式
+\lstset{emph={implicit, explicit}}
+\begin{lstlisting}
+public static operator implicit <target>(<source> v)
+  { ... return value; }
+public static operator explicit <target>(<source> v)
+  { ... return value; }
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{转换重载示例}
+\begin{onlyenv}<1| handout:1>
+隐式重载，用于隐式转换：
+\lstset{emph={implicit}}
+\begin{lstlisting}
+...
+  public static implicit operator int(ThreeD p)
+  {
+    int temp = p.x*p.x + p.y*p.y + p.z*p.z;
+    return (int) Math.Sqrt(temp);
+  }
+...
+  Point a = new Point(1,2,3);
+
+  int length = a;
+
+\end{lstlisting}
+\end{onlyenv}
+\begin{onlyenv}<2| handout:2>
+显式重载，用于显式转换：
+\lstset{emph={explicit}}
+\begin{lstlisting}
+...
+  public static explicit operator int(ThreeD p)
+  {
+    int temp = p.x*p.x + p.y*p.y + p.z*p.z;
+    return Math.Sqr (temp);
+  }
+...
+  Point a = new Point(1,2,3);
+
+  int length = (int) a;
+
+\end{lstlisting}
+\end{onlyenv}
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{特性(\textit{properties})}
 \begin{block}{特性}
 \CJKindent 对字段提供特定的访问方式，为类提供更好封装。
 \end{block}
 \begin{itemize}
 \item 特性的访问是透明的，类似成员变量
-\item get~提供读访问，set~提供写访问
+\item get~提供读访问，set~提供写访问，可以有不同的访问权限
 \item 通过特性可进行完整性检查，类似成员方法
 \end{itemize}
 \pause
@@ -681,7 +757,7 @@ class Circle { public int R; }
 \pause
 \item 变量的赋值
 
-  \CJKindent \small 值类型之间的赋值，直接复制内容({\color<handout:0>{red!65!black}传值})，而引用类型之间只复制引用值({\color<handout:0>{red!65!black}传引用})。
+  \CJKindent \small 值类型之间的赋值，直接复制内容({\redwarn传值})，而引用类型之间只复制引用值({\redwarn传引用})。
 \pause
 \end{itemize}
 \begin{lstlisting}[escapeinside=<>]
@@ -711,7 +787,7 @@ struct Circle { public int R; }
 \begin{block}{显式转换}
   \begin{itemize}
   \item 当不能进行隐式转换时，必须使用显式转换
-  \item 如果不使用显示转换，系统会发生异常
+  \item 如果不使用显式转换，系统会发生异常
   \item 语法类似 ~C 中的强制类型转换
   \end{itemize}
 \end{block}
@@ -729,7 +805,7 @@ struct Circle { public int R; }
 \frametitle{引用类型之间的转换}
 \begin{itemize}
 \item 任何类型都可以隐式转换为 object
-\item 而再从 object 回到具体类型，需要显示转换
+\item 而再从 object 回到具体类型，需要显式转换
 \item 实现了某种接口的类型，可隐式转换为该接口的引用类型
 \item 转换后的引用可以调用自己的方法，不过可能已经被覆盖
 \end{itemize}
@@ -840,8 +916,8 @@ if (o != null){
 \begin{frame}[fragile]
 \frametitle{方法的参数传递}
 \begin{itemize}
-\item 值类型的参数，默认为{\color<handout:0>{red!65!black}传值}
-\item 引用类型的参数，默认为{\color<handout:0>{red!65!black}传引用}
+\item 值类型的参数，默认为{\redwarn传值}
+\item 引用类型的参数，默认为{\redwarn传引用}
 \end{itemize}
 \begin{columns}
   \column{.5\textwidth}
@@ -903,7 +979,7 @@ static void Main()
 \frametitle{可变长参数}
 \begin{itemize}
 \item 由 ~params 关键字修饰的数组参数，使用时是可变长参数\pause
-\item 使用 ~params 可以避免显示的创建数组、传递数组的过程\pause
+\item 使用 ~params 可以避免显式的创建数组、传递数组的过程\pause
 \item params 只能用于最后一个参数
 \end{itemize}
 \pause
@@ -955,7 +1031,7 @@ static void Main()
 \item 基类中的成员，全部被派生类继承
 \item 而只有 ~private 修饰的成员不可以被访问
 \vskip.5cm
-\item 派生类的字段可以直接{\color<handout:0>{red!65!black}隐藏}基类同名字段
+\item 派生类的字段可以直接{\redwarn隐藏}基类同名字段
 \end{itemize}
 \begin{lstlisting}[escapeinside=<>]
 class Circle {
@@ -993,7 +1069,7 @@ class Ring:Circle { public int r;
 \begin{frame}[fragile]
 \frametitle{虚方法 (\textit{virtual method})}
 \begin{itemize}
-\item 如果允许派生类{\color<handout:0>{red!65!black}覆盖}基类方法，要用 ~virtual 关键字指出
+\item 如果允许派生类{\redwarn覆盖}基类方法，要用 ~virtual 关键字指出
 \item 同时派生类要用 ~override 指出
 \item 虚方法，也可以使用 ~new 关键字隐藏
 \end{itemize}
@@ -1239,7 +1315,10 @@ using b = Animals.Birds;
 
 \begin{frame}[fragile]
 \frametitle{分开定义}
-
+\begin{itemize}
+\item 同一个命名空间可以分布在不同文件中
+\item 也可以是同一个文件的不同部分
+\end{itemize}
 \begin{lstlisting}
 namespace Counter{
   class a { ... } 
@@ -1256,7 +1335,7 @@ namespace Counter{
 
 % Local Variables: 
 % mode: LaTeX
-% TeX-master: "part-03.tex"
+% TeX-master: "part-02.tex"
 % TeX-header-end: "% End-Of-Header$"
 % TeX-trailer-start: "% Start-Of-Trailer$"
 % coding: gb2312-dos

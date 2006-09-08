@@ -6,7 +6,9 @@ AUTOCI="Batch checkin by Makefile ($(DATE))"
 CLNSUFFIX=" aux log snm toc vrb out out.bak dvi "
 OTHSUFFIX=" nav rel "
 
-all: 2 3 4
+all:
+	@echo "Do nothing default"
+	@echo "Please use 'make N', N=[0-8]"
 
 %.pdf: %.tex preamble.tex $(wildcard pgf/*.tex)
 	@if [ -e $(basename $@).tex ] ; then \

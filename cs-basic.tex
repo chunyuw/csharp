@@ -168,11 +168,11 @@ class MyFirstCSharpClass
 \frametitle{基本数据类型  (\textit{Primitive Data Types})}
 \begin{itemize}
     \setlength{\itemsep}{8pt plus 1pt}
-\item 字符串型：string
-\item 布尔型~bool：值为~true~或~false 
-\item 字符型~char：长度为 2 字节(Unicode字符) 
-\item 整数型：\\byte, sbyte, short, ushort, int, uint, long, ulong 
+\item 布尔型：bool, 值为~ true 或~ false 
+\item 字符型：char, 长度为~ 2 字节的 ~Unicode 字符 
+\item 整数型：byte, sbyte, short, ushort, int, uint, long, ulong 
 \item 浮点型：float, double, decimal 
+\item 字符串型：string
 %\item 引用型：object, reference
 \item 枚举类型：enum
 %\item 结构体型：struct
@@ -210,6 +210,29 @@ decimal z, y, pi = 3.14159265358979323846M;
 y = decimal.Round(pi,3);        // 3.142
 z = decimal.Remainder(pi,1.3M); // 0.54159265...
 
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{基本类型之间的转换}
+\begin{itemize}
+\item 数值之间
+\begin{lstlisting}[escapeinside=<>]
+int  i = 100;  long l = i;       // <隐式转换>
+long l = 100;  int  i = (int) l; // <显示转换>
+\end{lstlisting}
+\pause
+\item 与串之间
+\begin{lstlisting}
+int i = int.Parse("100");  string s =   i.ToString(); 
+char c = char.Parse("A");  string s = 'A'.ToString();
+\end{lstlisting}
+\pause
+\item 与字符之间
+\begin{lstlisting}
+int i = (int) '0';   // 0x30 or 48
+char c = (char) 110; // 'n'
 \end{lstlisting}
 \end{itemize}
 \end{frame}
@@ -256,16 +279,18 @@ c = char.IsLetterOrDigit(s,1);
 \begin{itemize}
 \item C\# 中基本的数据类型， Unicode 字符序列\pause
 \item 在堆中分配，但使用效果和值类型相似\pause
-\item 使用 ~``\texttt{@}'' 字符修饰，表示{\color<handout:0>{red!65!black}逐字串}(\textit{Verbatim String})
+\item 使用 ~``\texttt{@}'' 字符修饰，表示{\redwarn逐字串}(\textit{Verbatim String})
 \begin{lstlisting}
 string s1, s2;
-s1 = "C:\\WINDOWS\\system32";
+s1 =  "C:\\WINDOWS\\system32";
 s2 = @"C:\WINDOWS\system32";
 
-s1 = "Hello \nWorld!";
+s1 =  "Hello \nWorld!";
 s2 = @"Hello
 World!";
 
+s1 =  "cd \"Program Files\"";
+s2 = @"cd ""Program Files""";
 \end{lstlisting}
 \end{itemize}
 \end{frame}
@@ -273,18 +298,19 @@ World!";
 \begin{frame}[fragile]
 \frametitle{字符串的操作}
 \begin{itemize}
-\item 通过 ~``\texttt{+}'' 可以直接连接串
+\item 使用 ~``\texttt{+}'' 可以直接连接串
 \begin{lstlisting}
 s1 = "Hello"; s2 = " World!";
 s3 = s1 + s2 ;
 
-s4 = "20/5 = " + 20/5;
+s4 = "20.0/3 = " + 20.0/3;
+// "20.0/3 = 6.66666666666667"
 \end{lstlisting}
   
   \CJKindent \small 但需要注意，字符串的连接会生成新的串，如果大量操作，会影响
   效率，或用~ System.Text.StringBuilder 。
 \pause
-\item 通过 ~``=='' 判断是否相等
+\item 使用 ~``=='' 判断是否相等
 \begin{lstlisting}
 string a = "abcdefgabcde";
 string b = "abcdefgabcde";
@@ -330,15 +356,13 @@ int i;
 
 i = s.IndexOf("a"); // i=8
 \end{lstlisting}
-
-
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{格式化字符串}
 \CJKindent 
 \begin{itemize}
-\item 通过~ ``{N}'' 表示后面参数次序
+\item 使用~ ``\{N\}'' 表示后面参数次序
 \begin{lstlisting}
 string s1;
 s1 = string.Format("Result is: {0}, {1}", 20, 3.22);
@@ -356,7 +380,7 @@ s1 = string.Format("Result is: {0}, {1}", 20, 3.22);
 \begin{lstlisting}
 DateTime dt = DateTime.Now;
 s1 = string.Format("{0:yyyy/MM/dd hh:mm:ss}", dt);
-// "2006-08-29 11:40:22"
+// "2005-05-12 11:40:22"
 s1 = dt.ToString("yyyy-dd-MM"));
 \end{lstlisting}
 \end{itemize}
@@ -435,21 +459,18 @@ System.Enum 是系统的枚举基类
 \item Enum.Parse() --- 解析字符串为枚举值
 \item Enum.GetName --- 通过枚举值返回枚举名字字符串
 \end{itemize}
-
+\pause
 \begin{lstlisting}
-enum Fabric { ... }
+  string s = "Green";
+  if ( Enum.IsDefined( typeof(Color), s ) )
+  {
+    Color c = 
+      (Color) Enum.Parse (typeof(Color), s);
 
-string fabStr = "Cotton";
-if (Enum.IsDefiened(typeof(Fabric),fabStr))
-{ 
-  Fabric fab = 
-    (Fabric) Enum.Parse(typeof(Fabric), fabStr);
-  Console.WriteLine("Second is:" + 
-             Enum.GetName(typeof(Fabric), 2));
-}
+    Console.WriteLine ("Value 1 is: " +
+      Enum.GetName (typeof (Color), 1));
+  }
 \end{lstlisting}
-
-
 \end{frame}
 
 \section{数组}
@@ -463,18 +484,17 @@ if (Enum.IsDefiened(typeof(Fabric),fabStr))
 \end{lstlisting}
 \begin{itemize}
 \item 数组类型可以是 ``\texttt{[]}'' ``\texttt{[,]}'' 或 ``\texttt{[][]}''
-\item 可以省略初始化列表，默认值是 ~0 或 ~null
+\item 可以省略初始化列表，默认值是 ~{\redwarn\texttt{0}} 或 ~{\redwarn\texttt{null}}
 \item 也可以省略 ~new 表达式，直接通过列表定义
 \end{itemize}
+\pause
 \begin{lstlisting}[escapeinside=<>]
 int[] x; // <声明一个数组变量，默认值为 \texttt{null}>
 int[] list = new int[5];
 int[] list = new int[] {1,2,3,4,5}; // <初始化>
 int[] list = {1,2,3,4,5}; //<short version>
 \end{lstlisting}
-
 \end{frame}
-
 
 \begin{frame}[fragile]
 \frametitle{数组}
@@ -485,12 +505,11 @@ int[] x = new int[5]; // <一维数组>
 
 int[,] y = new int[2,5]; // $2\times5$ <二维数组>
 \end{lstlisting}
-\end{itemize}
+\end{itemize} \pause
 
-  \begin{figure}[h] \label<1| handout:1>{fig:cs-array-mul}
-    \centering \input{pgf/cs-array-mul}
+  \begin{figure}[h] \label<1| handout:1>{fig:cs-array-mul} \centering
+    \input{pgf/cs-array-mul}
   \end{figure}
-
 \end{frame}
 
 \note{
@@ -513,7 +532,7 @@ int[][] z = new int[3][];
 //z[0]<只是数组变量；>z[0][0]<才是整数>
 
 \end{lstlisting}
-\end{itemize}
+\end{itemize} \pause
 
   \begin{figure}[h] \label<1| handout:1>{fig:cs-array-rec}
     \centering \input{pgf/cs-array-rec}
@@ -627,7 +646,7 @@ int x = unchecked(i*j);
   }
 \end{lstlisting}
     \pause
-  \item 判断条件的值必须是 bool 型的 true 或 false
+  \item 判断条件的值必须是~ \texttt{bool} 型的~ \texttt{true} 或~ \texttt{false}
 \begin{lstlisting}[escapeinside=<>]
   int i = 1;
   if (i) { ... }
@@ -678,7 +697,7 @@ switch(Score/10){
   \begin{itemize}
   \item case 语句之间
   \item 如果语句为空，可以自动进入下一个 case 语句
-  \item 如果不空必须显示使用 goto case xx; 语句
+  \item 如果不空必须显式使用 goto case xx; 语句
   \end{itemize}
 }
 \begin{frame}[fragile]
@@ -739,10 +758,10 @@ public static void Main() {
 \begin{frame}
 \frametitle{跳转语句}
 \begin{itemize}
-\item break \\用来退出 while, do-while, for 和 foreach 循环以及 swich 分支语句等；
-\item continue \\用来中断循环的当前迭代，并继续循环；
-\item goto \\任意跳转；
-\item return \\返回方法的调用；
+\item break \\用来退出循环或~ swich 分支语句等
+\item continue \\用来中断循环的当前迭代，并继续循环
+\item goto \\任意跳转
+\item return \\返回方法的调用
 \end{itemize}
 \end{frame}
 
