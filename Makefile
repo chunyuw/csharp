@@ -42,6 +42,8 @@ ps:
 	svn ps Author $(Author) $(TXTFILES) $(BINFILES)
 	svn ps Copyright $(Copyright) $(TXTFILES) $(BINFILES)
 
+s: $(shell ls -t -1 *.pdf |head -1) ; start $^
+
 $(NUMTARGT): %: part-0%.pdf
 
 .PHONY: all ci clean cleanall cleanpdf encrypt ps $(shell seq 0 8)
