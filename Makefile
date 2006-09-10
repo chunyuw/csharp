@@ -4,10 +4,10 @@
 PWD=cy.net
 DATE=$(shell gdate "+%Y%m%d-%H:%M")
 AUTOCI="Batch checkin by Makefile ($(DATE))"
-CLNSUFFIX=aux log snm toc vrb out out.bak dvi nav
 TXTFILES=Makefile *.tex pgf/*.tex pgf/auto/*.el Outline.org auto/*.el code/*.cs logo/Makefile logo/*.mp figures/*.txt
 BINFILES=figures/*.jpg figures/*.png figures/*.pdf figures/*.ppt
 #OUTPUT=-output-directory=out
+CLNSUFFIX=aux log snm toc vrb out out.bak dvi nav
 
 all:
 	@echo "Do nothing, except the following:"
@@ -35,7 +35,7 @@ clean:
 .SUFFIXES: .tex .pdf
 
 ps:
-	svn propset svn:eol-style CRLF $(TXTFILES)
+	svn propset svn:eol-style CRLF auto/*.el pgf/auto/*.el
 	svn propset svn:keywords Rev $(TXTFILES)
 	svn propset Author "Chunyu Wang <chunyu@hit.edu.cn>" $(TXTFILES) $(BINFILES)
 	svn propset Copyright "Copyright (C) 2006 Chunyu Wang." $(TXTFILES) $(BINFILES)
