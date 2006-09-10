@@ -166,10 +166,10 @@ class MyFirstCSharpClass
 \frametitle{基本数据类型  (\textit{Primitive Data Types})}
 \begin{itemize}
     \setlength{\itemsep}{8pt plus 1pt}
-\item 布尔型：bool, 值为~ true 或~ false 
-\item 字符型：char, 长度为~ 2 字节的 ~Unicode 字符 
-\item 整数型：byte, sbyte, short, ushort, int, uint, long, ulong 
-\item 浮点型：float, double, decimal 
+\item 布尔型：bool, 值为~ true 或~ false
+\item 字符型：char, 长度为~ 2 字节的 ~Unicode 字符
+\item 整数型：byte, sbyte, short, ushort, int, uint, long, ulong
+\item 浮点型：float, double, decimal
 \item 字符串型：string
 %\item 引用型：object, reference
 \item 枚举类型：enum
@@ -223,7 +223,7 @@ long l = 100;  int  i = (int) l; // <显示转换>
 \pause
 \item 与串之间
 \begin{lstlisting}
-int i = int.Parse("100");  string s =   i.ToString(); 
+int i = int.Parse("100");  string s =   i.ToString();
 char c = char.Parse("A");  string s = 'A'.ToString();
 \end{lstlisting}
 \pause
@@ -304,7 +304,7 @@ s3 = s1 + s2 ;
 s4 = "20.0/3 = " + 20.0/3;
 // "20.0/3 = 6.66666666666667"
 \end{lstlisting}
-  
+
   \CJKindent \small 但需要注意，字符串的连接会生成新的串，如果大量操作，会影响
   效率，或用~ System.Text.StringBuilder 。
 \pause
@@ -358,7 +358,7 @@ i = s.IndexOf("a"); // i=8
 
 \begin{frame}[fragile]
 \frametitle{格式化字符串}
-\CJKindent 
+\CJKindent
 \begin{itemize}
 \item 使用~ ``\{N\}'' 表示后面参数次序
 \begin{lstlisting}
@@ -462,7 +462,7 @@ System.Enum 是系统的枚举基类
   string s = "Green";
   if ( Enum.IsDefined( typeof(Color), s ) )
   {
-    Color c = 
+    Color c =
       (Color) Enum.Parse (typeof(Color), s);
 
     Console.WriteLine ("Value 1 is: " +
@@ -477,7 +477,7 @@ System.Enum 是系统的枚举基类
 \frametitle{数组}
 声明数组的一般形式：
 \begin{lstlisting}
-<type><array_type> identifier 
+<type><array_type> identifier
    = new <type><array_type> [{initializer list}]
 \end{lstlisting}
 \begin{itemize}
@@ -568,7 +568,7 @@ int x = checked(i*j);
 //<发生运行时异常：>System.OverflowException
 
 \end{lstlisting}
-  
+
 \item 不进行溢出检查
 \begin{lstlisting}[escapeinside=<>]
 int i = 1000000, j = 1000000;
@@ -624,7 +624,7 @@ int x = unchecked(i*j);
 \begin{lstlisting}
 #line 123 "AnotherFile.cs"
   ...
-#line default // restore 
+#line default // restore
 \end{lstlisting}
 \end{itemize}
 
@@ -663,12 +663,12 @@ int x = unchecked(i*j);
 int Score; string r;
 switch(Score/10){
   case 10:
-  case 9:  
+  case 9:
     r = "A"; break;
-  case 8:  
+  case 8:
     r = "B"; break;
   ...
-  default: 
+  default:
     r = "E"; break;
 }
 
@@ -678,12 +678,12 @@ switch(Score/10){
 int Score; string r;
 switch(Score/10){
   case 10:
-    r = "A+"; 
+    r = "A+";
     goto case 9;
-  case 9:  
+  case 9:
     r = "A"; break;
   ...
-  default: 
+  default:
     r = "E"; break;
 }
 
@@ -742,7 +742,7 @@ public static void Main() {
   for(int i = 0; i < 3; i++)
     for(int j=0; j < 5; j++)
       nums[i,j] = (i+1)*(j+1);
-  
+
   // use foreach to display and sum the values
   foreach(int x in nums) {
     Console.WriteLine("Value is: " + x);
@@ -788,7 +788,7 @@ try { ... }
   \pause
 \item catch 捕获并处理异常
 \begin{lstlisting}[escapeinside=<>]
-catch (SomeException e) { 
+catch (SomeException e) {
   // <处理> SomeException <类型的异常> e
 }
 
@@ -815,7 +815,7 @@ StreamWriter sw = null;
 try {
   sw = new StreamWriter(
     new FileStream("T.txt",FileMode.Open));
-  sw.WriteLine ("Hello World");           
+  sw.WriteLine ("Hello World");
 }
 catch (FileNotFoundException e) {
   Console.WriteLine("File "
@@ -881,7 +881,7 @@ try {
 \end{columns}
 \end{frame}
 
-% Local Variables: 
+% Local Variables:
 % mode: LaTeX
 % TeX-master: "part-02.tex"
 % TeX-header-end: "% End-Of-Header$"

@@ -11,11 +11,11 @@
 \lstset{language=C}
 \begin{lstlisting}
 HWND hwndMain = CreateWindowEx( 0,
-  "MainWinClass", "Main Window", 
-  WS_OVERLAPPEDWINDOW | WS_HSCROLL | 
-  CW_USEDEFAULT, CW_USEDEFAULT, 
-  CW_USEDEFAULT, CW_USEDEFAULT, 
-  (HWND) NULL, (HWND) NULL, 
+  "MainWinClass", "Main Window",
+  WS_OVERLAPPEDWINDOW | WS_HSCROLL |
+  CW_USEDEFAULT, CW_USEDEFAULT,
+  CW_USEDEFAULT, CW_USEDEFAULT,
+  (HWND) NULL, (HWND) NULL,
   hInstance, NULL);
 
 ShowWindow(hwndMain, SW_SHOWDEFAULT);
@@ -156,7 +156,7 @@ form1.Show();
 \begin{exampleblock}{MSIL 的反编译工具 ~ildasm.exe}
   \uncover<1-| handout:1>{  \texttt{csc /target:exe     /out:Hello.exe MyHello.cs}\\}
   \uncover<2-| handout:1>{  \texttt{ildasm Hello.exe}\\
-  }  
+  }
 \end{exampleblock}
 \begin{onlyenv}<1| handout:0>
 \begin{lstlisting}
@@ -264,7 +264,7 @@ class Hello
 \end{frame}
 
 
-% Local Variables: 
+% Local Variables:
 % mode: LaTeX
 % TeX-master: "part-01.tex"
 % TeX-header-end: "% End-Of-Header$"

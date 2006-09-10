@@ -164,7 +164,7 @@ ArrayList 实现了 ~ICollection, IList, IEnumerable, ICloneable 接口。
   \begin{itemize}
   \item \texttt{public virtual int Capacity \{ get; set; \}}
   \end{itemize}
-\item 方法 
+\item 方法
   \begin{itemize}
   \item \texttt{public virtual void Sort()}
   \item \texttt{public virtual void Sort(IComparer \textit{comp})}
@@ -245,7 +245,7 @@ class HashtableDemo {
 \begin{itemize}
 \item 用于简化 ~IEnumerator 和 ~IEnumerable
 \item 使用 ~\texttt{yield return} 返回 ~IEnumerable 对象
-\end{itemize}  
+\end{itemize}
 
 \lstset{emph={yield}}
 \begin{lstlisting}
@@ -286,7 +286,7 @@ class MyClass {
     MyClass mc = new MyClass();
 
     foreach(char ch in mc)
-      Console.Write(ch + " "); 
+      Console.Write(ch + " ");
   }
 \end{lstlisting}
 \end{frame}
@@ -399,7 +399,7 @@ public class List
       Console.WriteLine (m.Groups[i]);
 
     Console.ReadLine();
-    
+
   }
 }
 \end{lstlisting}
@@ -449,16 +449,16 @@ public class List
 \end{tabular}
 \medskip
 \begin{lstlisting}[escapeinside='']
-String ChangeDateFormat(String input) 
+String ChangeDateFormat(String input)
 { // '将 ~mm/dd/yyyy 替换为 ~yyyy-mm-dd 格式'
-return Regex.Replace(input, 
+return Regex.Replace(input,
 @"\b(?<month>\d{1,2})/(?<day>\d{1,2})/(?<year>\d{2,4})\b",
 "${year}-${month}-${day}");
 }
 \end{lstlisting}
 \end{frame}
 
-% Local Variables: 
+% Local Variables:
 % mode: LaTeX
 % TeX-master: "part-04.tex"
 % TeX-header-end: "% End-Of-Header$"

@@ -85,13 +85,13 @@ public class YYY { ... }
 using System;
 using System.Diagnostics;
 class AttriTest
-{ 
+{
   [Conditional ("TRACE")]
-  public static void ListTrace() 
+  public static void ListTrace()
   { Console.WriteLine("Trace is On"); }
 
   [Conditional ("DEBUG")]
-  public static void ListDebug() 
+  public static void ListDebug()
   { Console.WriteLine("Debug is On"); }
 
   public static void Main()
@@ -112,8 +112,8 @@ using System.Runtime.InteropServices;
 
 class suspend
 {
-  [DllImport( "powrprof.dll", 
-              EntryPoint="SetSuspendState", 
+  [DllImport( "powrprof.dll",
+              EntryPoint="SetSuspendState",
               CharSet=CharSet.Ansi )]
 
   static extern int SetSuspendState(int H, int F, int D);
@@ -160,7 +160,7 @@ class suspend
 \pause
 
 \begin{lstlisting}[escapeinside=<>]
-class Circle { 
+class Circle {
   public int R; // <半径>
   public static double pi = 3.1415;
   public double Area(){
@@ -222,9 +222,9 @@ class Ring : Circle {
 \begin{lstlisting}[escapeinside=<>]
 class Circle {
   // <实例变量>
-  public int R; 
+  public int R;
   // <静态变量>
-  public static double pi = 3.14159; 
+  public static double pi = 3.14159;
   // <实例方法>
   public double Perimeter(){
     return 2 * pi * R;
@@ -342,11 +342,11 @@ class Conversions{
   private Constructors() {...}
 }
 \end{lstlisting}
-\pause 
+\pause
 \begin{itemize}
 \item 因为 ~private 修饰，无法为类创建实例
-\item 一般用于使用静态方法和成员提供服务的类 
-\pause 
+\item 一般用于使用静态方法和成员提供服务的类
+\pause
 \item 比如 System.Math 类
 \begin{itemize}
 \item System.Math.PI, System.Math.E   --- 静态成员
@@ -366,7 +366,7 @@ class Conversions{
 class Circle {
   public int R;
   public Circle() { R=1;}
-  ~Circle() { /* <析构函数体> */  } 
+  ~Circle() { /* <析构函数体> */  }
 }
 \end{lstlisting}
   \pause
@@ -382,7 +382,7 @@ class Circle {
 using System;
 public class Person {
   private static int Count = 0;
-  public Person() { 
+  public Person() {
     Count++ ;
     Console.WriteLine("total number is: {0}", Count);
   }
@@ -453,7 +453,7 @@ string c = a + b;
 \begin{frame}[fragile,plain]
 \begin{lstlisting}
 using System;
-class Circle 
+class Circle
 { public int R;
   public static Ring operator-(Circle left,Circle right)
   { Ring result = new Ring();
@@ -609,7 +609,7 @@ class Circle {
   protected int R;
   public  int Radius {
     get { return R; }
-    set { 
+    set {
       if(value<0)
         throw new ArgumentOutOfRangeException(
              "Radius must be greater than 0.");
@@ -619,7 +619,7 @@ class Circle {
 }
 ...
   Circle c = new Circle();
-  c.Radius = 20; 
+  c.Radius = 20;
   Console.WriteLine(c.Radius);
 
 \end{lstlisting}
@@ -669,7 +669,7 @@ class Circle {
 \begin{lstlisting}
 class Ring:Circle{
   private int r; // and R from Circle
-  public int this[int index] 
+  public int this[int index]
   { set {
       if (index == 0 )     r = value;
       else if (index == 1) R = value;
@@ -695,9 +695,9 @@ class Ring:Circle{
   public int this[ string name ] // by name
   { set {
       if (name == "inner" )
-      {  r = value; } 
-      else if (name == "outer") 
-      {  R = value; } 
+      {  r = value; }
+      else if (name == "outer")
+      {  R = value; }
     }
   }
 }
@@ -749,7 +749,7 @@ class Circle { public int R; }
   c.R = 10;
   Circle d = c;
   d.R = 20;
-  Console.WriteLine(c.R); 
+  Console.WriteLine(c.R);
   // <输出为> 20
 \end{lstlisting}
 \column{.4\textwidth}
@@ -791,7 +791,7 @@ struct Circle { public int R; }
   c.R = 10;
   Circle d = c; // <d 的内存在哪儿>
   d.R = 20;
-  Console.WriteLine(c.R); 
+  Console.WriteLine(c.R);
   // <输出为> 20
 
 \end{lstlisting}
@@ -909,7 +909,7 @@ bool rIsCircle = r is Circle; // true
 \begin{lstlisting}
 Ring   r = new Ring();
 Circle o = r as Circle;
-Console.WriteLine("r {0} a Circle", 
+Console.WriteLine("r {0} a Circle",
   o == null ? "is not" : "is");
 \end{lstlisting}
 \end{itemize}
@@ -991,9 +991,9 @@ static void ChangeValue (ref int x)
 static void Main()
 {  double[] p;
    FillArray(out p);
-   
+
    int y = 20;
-   ChangeValue (ref y); // y is 10 now 
+   ChangeValue (ref y); // y is 10 now
 }
 \end{lstlisting}
 \end{frame}
@@ -1079,7 +1079,7 @@ class Ring:Circle {
 \end{itemize}
   \lstset{emph={new}}
 \begin{lstlisting}
-class Circle      { public int R; 
+class Circle      { public int R;
   public static double pi = 3.1415;
   public double Area()
     { return pi * R * R;}
@@ -1102,7 +1102,7 @@ class Ring:Circle { public int r;
 \end{itemize}
   \lstset{emph={virtual,override,Area}}
 \begin{lstlisting}
-class Circle      { public int R; 
+class Circle      { public int R;
   public static double pi = 3.1415;
   public virtual double Area()
     { return pi * R * R; }
@@ -1347,19 +1347,19 @@ using b = Animals.Birds;
 \end{itemize}
 \begin{lstlisting}
 namespace Counter{
-  class a { ... } 
-  class b { ... } 
+  class a { ... }
+  class b { ... }
 }
 ...
 namespace Counter{
-  class c { ... } 
-  class d { ... } 
+  class c { ... }
+  class d { ... }
 }
 // Counter have 4 class now
 \end{lstlisting}
 \end{frame}
 
-% Local Variables: 
+% Local Variables:
 % mode: LaTeX
 % TeX-master: "part-02.tex"
 % TeX-header-end: "% End-Of-Header$"

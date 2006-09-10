@@ -276,10 +276,10 @@ public interface B : A {
 using System;
 interface IEven {
   bool isOdd(int x);
-  bool isEven(int x); 
+  bool isEven(int x);
 }
 class MyClass : IEven {
-  // Explicit implementation. Notice that this 
+  // Explicit implementation. Notice that this
   // member is private by default.
   bool IEven.isOdd(int x) {
     if((x%2) != 0) return true;
@@ -483,11 +483,11 @@ public static void Main() {
 \begin{lstlisting}
   delegate void MyOperation (int i);
   MyOperation myop = new MyOperation();
-  
+
   myop += SomeMethod;
   myop += new MyOperation(AnotherMethod);
   ...
-  
+
   myop(100);
   myop -= new MyOperation(SomeMethod);
   myop -= AnotherMethod;
@@ -689,12 +689,12 @@ public class MenuItem
 件的一个变形，用于管理事件的添加和删除。
 
 \begin{lstlisting}
-public delegate void 
+public delegate void
   MenuHandler(object sender, EventArgs e);
 
 public class MenuItem
 { int numberOfEvents;
-  strng text; 
+  strng text;
 
   private MenuHandler mh = null;  // delegate
 
@@ -705,7 +705,7 @@ public class MenuItem
     remove {
       mh -= value; numberOfEvents--;
     }
-  } 
+  }
 }
 
 \end{lstlisting}
@@ -754,7 +754,7 @@ delegate void MyEventHandler(object source, MyEventArgs arg);
 class MyEvent {   static int count = 0;
 
   public event MyEventHandler SomeEvent;
-  
+
   public void OnSomeEvent() {   // This fires SomeEvent.
     MyEventArgs arg = new MyEventArgs();
 
@@ -835,7 +835,7 @@ class MyEvent {
 泛型类定义的一般格式
 \lstset{emph={<,>}}
 \begin{lstlisting}
-class identifier<type-param-list> 
+class identifier<type-param-list>
 { ... }
 \end{lstlisting}
 泛型类使用的一般格式
@@ -875,8 +875,8 @@ class Gen<T> {
 类型约束的一般格式：
 \lstset{emph={where}}
 \begin{lstlisting}
-class classname<type_param> 
-  where type_param : constraints 
+class classname<type_param>
+  where type_param : constraints
 { ... }
 \end{lstlisting}
 例如
@@ -987,11 +987,11 @@ class Gen<T, V> where V : T {...}
 多条约束
 \begin{lstlisting}
 class Gen<T>
-  where T : MyClass, IMyInterface, new() 
+  where T : MyClass, IMyInterface, new()
 { }
 
 class Gen<T, V> where T : class
-                where V : struct 
+                where V : struct
 { }
 
 \end{lstlisting}
@@ -1004,7 +1004,7 @@ class Gen<T, V> where T : class
 \begin{lstlisting}[escapeinside='']
 class Test<T> {   T obj;
   ...
-  public Test() { 
+  public Test() {
     obj = null; // '如果是引用类型'
     obj = 0;    // '如果是值类型'
   }
@@ -1123,7 +1123,7 @@ class ByTwos<T> : ISeries<T> {
 \end{itemize}
 \end{frame}
 
-% Local Variables: 
+% Local Variables:
 % mode: LaTeX
 % TeX-master: "part-03.tex"
 % TeX-header-end: "% End-Of-Header$"
