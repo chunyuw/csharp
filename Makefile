@@ -21,8 +21,9 @@ all:
 	@echo "    make encrypt"
 	@echo "    make cpdf|clean|cleanall"
 
-$(PDFTARGT): %.pdf: %.tex preamble.tex $(wildcard pgf/*.tex)
+$(PDFTARGT): %.pdf: %.tex $(wildcard pgf/*.tex)
 	-@gbk2uni -s $(basename $@) ; pdflatex $(OUTPUT) $<
+	@echo $^
 
 encrypt: $(foreach s,$(wildcard part-*.pdf),en-$(s))
 
@@ -49,11 +50,3 @@ $(NUMTARGT): %: part-0%.pdf
 .SUFFIXES: .tex .pdf
 
 include .mk.dep
-
-
-%.d	: %.tex
-	$(get_dependencies) ; echo $$deps ; \
-
-define get_dependencies
-	deps=`perl -ne '($$_)=/^[^%]*\\\(?:include|input)\{(.*?)\}/;@_=split /,/;foreach $$t (@_) {print "$$t.tex "}' $<`
-endef
