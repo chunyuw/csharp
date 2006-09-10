@@ -1,38 +1,34 @@
 ## Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn>
 ## $Rev$
 
+PWD=cy.net
 DATE=$(shell gdate "+%Y%m%d-%H:%M")
 AUTOCI="Batch checkin by Makefile ($(DATE))"
-CLNSUFFIX=" aux log snm toc vrb out out.bak dvi "
-OTHSUFFIX=" nav rel "
+CLNSUFFIX=" aux log snm toc vrb out out.bak dvi nav "
+#OUTPUT="-output-directory=out"
 
 all:
-	@echo "Do nothing default"
-	@echo "Please use 'make N', N=[0-8]"
+	@echo "Do nothing default. Please use 'make N', N=[0-8]"
+	@echo $(PATH)
 
 %.pdf: %.tex preamble.tex $(wildcard pgf/*.tex)
-	@if [ -e $(basename $@).tex ] ; then \
-	  if [ -e $(basename $@).out ] ; then gbk2uni $(basename $@) ; fi ; \
-	  pdflatex $(basename $@) ; \
-	else \
-	  echo "$@ doesn't exist" ; \
-	fi
+	-@gbk2uni -s $(basename $@)
+	pdflatex $(OUTPUT) $<
 
+encrypt: $(foreach s,$(wildcard part-*.pdf),en-$(s))
+en-%.pdf: %.pdf
+	pdftk $< output $@ owner_pw $(PWD) allow printing
 ci:
-	svn ci . -m $(AUTOCI)
+	svn commit . -m $(AUTOCI)
 
+cleanall: cpdf clean
+cpdf:
+	@rm -f $(wildcard en-part-*.pdf part-*.pdf test.pdf z_region.pdf)
 clean: 
-	-rm -f $(foreach s,$(CLNSUFFIX),$(wildcard *.$(s)))
-	-rm -f $(wildcard prv_*)
-cleanpdf:
-	-rm -f $(wildcard part-*.pdf test.pdf z_region.pdf) 
-cleanoth:
-	-rm -f $(foreach s,$(OTHSUFFIX),$(wildcard *.$(s)))
-	-rm -f $(wildcard z_region.* test.exe) 
+	-rm -f $(foreach s,$(CLNSUFFIX),$(wildcard *.$(s))) $(wildcard test.exe z_region.*) 
 
-cleanall: clean cleanpdf cleanoth
-
-.PHONY:	all clean
+.PHONY:	all ci clean cleanall cleanpdf encrypt $(shell seq 0 8)
+.SUFFIXES: .tex .pdf
 
 part-00.pdf: dn-intro.tex
 part-01.pdf: dn-devel.tex dn-outline.tex
