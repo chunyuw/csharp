@@ -49,3 +49,11 @@ $(NUMTARGT): %: part-0%.pdf
 .SUFFIXES: .tex .pdf
 
 include .mk.dep
+
+
+%.d	: %.tex
+	$(get_dependencies) ; echo $$deps ; \
+
+define get_dependencies
+	deps=`perl -ne '($$_)=/^[^%]*\\\(?:include|input)\{(.*?)\}/;@_=split /,/;foreach $$t (@_) {print "$$t.tex "}' $<`
+endef
