@@ -12,15 +12,17 @@ PDFTARGT  = $(NUMTARGT:%=part-0%.pdf)
 
 AUTOCSTR  = Batch checkin by Makefile ($(shell $(DATE) "+%Y%m%d-%H:%M"))
 ifeq ($(shell uname -s),"windows32") 
-  DATE = gdate
+  DATE    = gdate
 else 
-  DATE = date
+  DATE    = date
 endif
 
 ifneq ($(strip $(wildcard *.pdf)),)
   SHOWPDF = start $(shell ls -t -1 $(wildcard *.pdf) |head -1)
+  CURRPDF = $(wildcard *.pdf)
 else
   SHOWPDF = @echo "no pdf files"
+  CURRPDF = no-this-file
 endif
 
 PASSWORD  = cy.net
@@ -56,6 +58,9 @@ ps:
 	svn ps Copyright $(Copyright) $(TXTFILES) $(BINFILES)
 
 s:; $(SHOWPDF)
+
+rar:; winrar -m5 a dotnet.rar $(CURRPDF)
+7z:;  7z -mx9 a dotnet.7z $(CURRPDF)
 
 .PHONY: all ci clean cleanall cpdf encrypt ps s $(shell seq 0 8)
 
