@@ -21,9 +21,8 @@ all:
 	@echo "    make encrypt"
 	@echo "    make cpdf|clean|cleanall"
 
-$(PDFTARGT): %.pdf: %.tex $(wildcard pgf/*.tex)
+$(PDFTARGT): %.pdf: %.tex preamble.tex $(wildcard pgf/*.tex)
 	-@gbk2uni -s $(basename $@) ; pdflatex $(OUTPUT) $<
-	@echo $^
 
 encrypt: $(foreach s,$(wildcard part-*.pdf),en-$(s))
 
