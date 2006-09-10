@@ -8,8 +8,10 @@ CLNSUFFIX=" aux log snm toc vrb out out.bak dvi nav "
 #OUTPUT="-output-directory=out"
 
 all:
-	@echo "Do nothing default. Please use 'make N', N=[0-8]"
-	@echo $(PATH)
+	@echo "Do nothing, except the following:"
+	@echo "  make [0-8]"
+	@echo "  make encrypt"
+	@echo "  make cpdf|clean|cleanall"
 
 %.pdf: %.tex preamble.tex $(wildcard pgf/*.tex)
 	-@gbk2uni -s $(basename $@)
