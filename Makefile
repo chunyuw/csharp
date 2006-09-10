@@ -4,8 +4,10 @@
 PWD=cy.net
 DATE=$(shell gdate "+%Y%m%d-%H:%M")
 AUTOCI="Batch checkin by Makefile ($(DATE))"
-CLNSUFFIX=" aux log snm toc vrb out out.bak dvi nav "
-#OUTPUT="-output-directory=out"
+CLNSUFFIX=aux log snm toc vrb out out.bak dvi nav
+TXTFILES=Makefile *.tex pgf/*.tex pgf/auto/*.el Outline.org auto/*.el code/*.cs logo/Makefile logo/*.mp
+BINFILES=figures/*.jpg figures/*.png figures/*.pdf figures/*.ppt
+#OUTPUT=-output-directory=out
 
 all:
 	@echo "Do nothing, except the following:"
@@ -29,8 +31,14 @@ cpdf:
 clean: 
 	-rm -f $(foreach s,$(CLNSUFFIX),$(wildcard *.$(s))) $(wildcard test.exe z_region.*) 
 
-.PHONY:	all ci clean cleanall cleanpdf encrypt $(shell seq 0 8)
+.PHONY: all ci clean cleanall cleanpdf encrypt $(shell seq 0 8)
 .SUFFIXES: .tex .pdf
+
+ps:
+	svn propset svn:eol-style CRLF $(TXTFILES)
+	svn propset svn:keywords Rev $(TXTFILES)
+	svn propset Author "Chunyu Wang <chunyu@hit.edu.cn>." $(TXTFILES) $(BINFILES)
+	svn propset Copyright "Copyright (C) 2006 Chunyu Wang." $(TXTFILES) $(BINFILES)
 
 part-00.pdf: dn-intro.tex
 part-01.pdf: dn-devel.tex dn-outline.tex
