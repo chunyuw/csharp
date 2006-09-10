@@ -23,7 +23,7 @@ ci:
 
 cleanall: cpdf clean
 cpdf:
-	@rm -f $(wildcard en-part-*.pdf part-*.pdf test.pdf z_region.pdf)
+	-rm -f $(wildcard en-part-*.pdf part-*.pdf test.pdf z_region.pdf)
 clean: 
 	-rm -f $(foreach s,$(CLNSUFFIX),$(wildcard *.$(s))) $(wildcard test.exe z_region.*) 
 
