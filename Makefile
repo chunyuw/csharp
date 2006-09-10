@@ -3,17 +3,29 @@
 
 Author    = "Chunyu Wang <chunyu@hit.edu.cn>"
 Copyright = "Copyright (C) 2006 Chunyu Wang."
-PASSWORD  = cy.net
 
-AUTOCSTR  = Batch checkin by Makefile ($(shell gdate "+%Y%m%d-%H:%M"))
 TXTFILES  = Makefile *.tex pgf/*.tex pgf/auto/*.el Outline.org auto/*.el code/*.cs logo/Makefile logo/*.mp figures/*.txt
 BINFILES  = figures/*.jpg figures/*.png figures/*.pdf figures/*.ppt
-#OUTPUT   = -output-directory=out
-
-CLSUFFIX  = aux log snm toc vrb out out.bak dvi nav
 
 NUMTARGT  = $(shell seq 0 8)
 PDFTARGT  = $(NUMTARGT:%=part-0%.pdf)
+
+AUTOCSTR  = Batch checkin by Makefile ($(shell $(DATE) "+%Y%m%d-%H:%M"))
+ifeq ($(shell uname),"windows32") 
+  DATE = gdate
+else 
+  DATE = date
+endif
+
+ifneq ($(strip $(wildcard *.pdf)),)
+  SHOWPDF = start $(shell ls -t -1 $(wildcard *.pdf) |head -1)
+else
+  SHOWPDF = @echo "no pdf files"
+endif
+
+PASSWORD  = cy.net
+
+CLSUFFIX  = aux log snm toc vrb out out.bak dvi nav
 
 all:
 	@echo "Use the following command:"
@@ -22,9 +34,9 @@ all:
 	@echo "    make cpdf|clean|cleanall"
 
 $(PDFTARGT): %.pdf: %.tex preamble.tex author.tex
-	-@gbk2uni -s $(basename $@) ; pdflatex $(OUTPUT) $<
+	-@gbk2uni -s $(basename $@) ; pdflatex $<
 
-encrypt: $(foreach s,$(wildcard part-*.pdf),en-$(s))
+encrypt: $(foreach x,$(wildcard part-*.pdf),en-$(x))
 
 en-%.pdf: %.pdf ; pdftk $< output $@ owner_pw $(PASSWORD) allow printing
 
@@ -42,7 +54,7 @@ ps:
 	svn ps Author $(Author) $(TXTFILES) $(BINFILES)
 	svn ps Copyright $(Copyright) $(TXTFILES) $(BINFILES)
 
-s: $(shell ls -t -1 *.pdf |head -1) ; start $^
+s:; $(SHOWPDF)
 
 $(NUMTARGT): %: part-0%.pdf
 
