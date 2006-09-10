@@ -46,7 +46,7 @@ s: $(shell ls -t -1 *.pdf |head -1) ; start $^
 
 $(NUMTARGT): %: part-0%.pdf
 
-.PHONY: all ci clean cleanall cleanpdf encrypt ps s $(shell seq 0 8)
+.PHONY: all ci clean cleanall cpdf encrypt ps s $(shell seq 0 8)
 
 .SUFFIXES: .tex .pdf
 
