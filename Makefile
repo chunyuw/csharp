@@ -33,6 +33,7 @@ all:
 	@echo "    make encrypt"
 	@echo "    make cpdf|clean|cleanall"
 
+$(NUMTARGT): %: part-0%.pdf
 $(PDFTARGT): %.pdf: %.tex preamble.tex author.tex
 	-@gbk2uni -s $(basename $@) ; pdflatex $<
 
@@ -55,8 +56,6 @@ ps:
 	svn ps Copyright $(Copyright) $(TXTFILES) $(BINFILES)
 
 s:; $(SHOWPDF)
-
-$(NUMTARGT): %: part-0%.pdf
 
 .PHONY: all ci clean cleanall cpdf encrypt ps s $(shell seq 0 8)
 
