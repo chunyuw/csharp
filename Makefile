@@ -37,7 +37,7 @@ clean:
 ps:
 	svn propset svn:eol-style CRLF $(TXTFILES)
 	svn propset svn:keywords Rev $(TXTFILES)
-	svn propset Author "Chunyu Wang <chunyu@hit.edu.cn>." $(TXTFILES) $(BINFILES)
+	svn propset Author "Chunyu Wang <chunyu@hit.edu.cn>" $(TXTFILES) $(BINFILES)
 	svn propset Copyright "Copyright (C) 2006 Chunyu Wang." $(TXTFILES) $(BINFILES)
 
 part-00.pdf: dn-intro.tex
