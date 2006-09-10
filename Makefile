@@ -1,13 +1,16 @@
 ## Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn>
 ## $Rev$
 
-PWD=cy.net
-DATE=$(shell gdate "+%Y%m%d-%H:%M")
-AUTOCI="Batch checkin by Makefile ($(DATE))"
+Author="Chunyu Wang <chunyu@hit.edu.cn>"
+Copyright="Copyright (C) 2006 Chunyu Wang."
+PASSWORD=cy.net
+
+AUTOCSTR=Batch checkin by Makefile ($(shell gdate "+%Y%m%d-%H:%M"))
 TXTFILES=Makefile *.tex pgf/*.tex pgf/auto/*.el Outline.org auto/*.el code/*.cs logo/Makefile logo/*.mp figures/*.txt
 BINFILES=figures/*.jpg figures/*.png figures/*.pdf figures/*.ppt
 #OUTPUT=-output-directory=out
-CLNSUFFIX=aux log snm toc vrb out out.bak dvi nav
+
+CLSUFFIX=aux log snm toc vrb out out.bak dvi nav
 
 all:
 	@echo "Do nothing, except the following:"
@@ -21,24 +24,23 @@ all:
 
 encrypt: $(foreach s,$(wildcard part-*.pdf),en-$(s))
 en-%.pdf: %.pdf
-	pdftk $< output $@ owner_pw $(PWD) allow printing
+	pdftk $< output $@ owner_pw $(PASSWORD) allow printing
 ci:
-	svn commit . -m $(AUTOCI)
+	svn commit . -m "$(AUTOCSTR)"
 
 cleanall: cpdf clean
 cpdf:
 	-rm -f $(wildcard en-part-*.pdf part-*.pdf test.pdf z_region.pdf)
 clean: 
-	-rm -f $(foreach s,$(CLNSUFFIX),$(wildcard *.$(s))) $(wildcard test.exe z_region.*) 
-
-.PHONY: all ci clean cleanall cleanpdf encrypt $(shell seq 0 8)
-.SUFFIXES: .tex .pdf
-
+	-rm -f $(foreach s,$(CLSUFFIX),$(wildcard *.$(s))) $(wildcard test.exe z_region.*) 
 ps:
-	svn propset svn:eol-style CRLF auto/*.el pgf/auto/*.el
-	svn propset svn:keywords Rev $(TXTFILES)
-	svn propset Author "Chunyu Wang <chunyu@hit.edu.cn>" $(TXTFILES) $(BINFILES)
-	svn propset Copyright "Copyright (C) 2006 Chunyu Wang." $(TXTFILES) $(BINFILES)
+	svn ps svn:eol-style CRLF auto/*.el pgf/auto/*.el
+	svn ps svn:keywords Rev $(TXTFILES)
+	svn ps Author $(Author) $(TXTFILES) $(BINFILES)
+	svn ps Copyright $(Copyright) $(TXTFILES) $(BINFILES)
+
+.PHONY: all ci clean cleanall cleanpdf encrypt ps $(shell seq 0 8)
+.SUFFIXES: .tex .pdf
 
 part-00.pdf: dn-intro.tex
 part-01.pdf: dn-devel.tex dn-outline.tex
