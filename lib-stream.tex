@@ -3,6 +3,75 @@
 
 \section{文件和数据流}
 
+\begin{frame}
+\frametitle{数据流}
+\begin{block}{\textit{Stream}}
+  \CJKindent C\# 将 ~I/O 抽象成数据流的形式，屏蔽了不同 ~I/O 设备之间的差异，提
+  供一致的面向流的行为方式，并通过抽象类 ~\texttt{Stream} 体现。
+\end{block}
+\begin{itemize}
+\item 这些类都在 ~System.IO 命名空间中
+\item 流的基本操作
+\begin{itemize}
+\item 从流读取：从流到数据结构的数据传输
+\item 向流写入：从数据源到流的数据传输
+\item 支持查找：对流内的当前位置进行的查询和修改
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{\texttt{Stream} 类}
+
+抽象类 ~Stream 提供了对流的基本操作：
+\begin{itemize}
+\item void \textbf{Close}() --- 关闭数据流
+\item void \textbf{Flush}() --- 将缓冲中的数据写入设备
+\item int \textbf{ReadByte}() --- 读取一个用整数表示的字节
+\item int \textbf{Read}(byte[] buf, int offset, int numBytes) \\
+  将读入的字节写入 ~buf 缓冲中
+\item long \textbf{Seek}(long offset, SeekOrigin origin)  \\
+  在数据流中设置当前位置
+\item void \textbf{WriteByte}(byte b) -- 向流中写入一个字节
+\item void \textbf{Write}(byte[] buf, int offset, int numBytes) \\
+  将 ~buf 中的数据写入流
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{\texttt{Stream} 类的特性}
+Stream 的派生类中，不一定都支持所有的操作，可如下判断：
+\begin{itemize}
+\item bool CanRead --- 是否可以读取
+\item bool CanWrite --- 是否可以写入
+\item bool CanSeak --- 是否支持定位
+\item bool CanTimeout --- 是否会有超时
+\item long Length --- 流的长度
+\item long Position --- 目前在流中的位置，可以修改
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{基本的~I/O 字节流类}
+\color{red}
+
+Stream 是抽象类，如下几个是它的直接
+
+\begin{tabular}[htbp]{l|l}
+\hline
+基本 ~I/O 流类 & 功能 \\
+\hline
+BufferedStream & \small 用于给其他的流添加缓冲，提高性能 \\
+CryptoStream & \small 在 ~System.Security.Cryptography 中，用于加密 \\
+MemoryStream & \small 在内存中直接访问所封装的数据 \\
+NetworkStream & \small 在 ~System.Net.Sockets 中，用于封装网络连接上的流 \\
+\hline
+\end{tabular}
+
+\end{frame}
+
+
 \section{网络通信}
 
 % Local Variables:
