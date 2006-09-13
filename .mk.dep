@@ -2,9 +2,9 @@
 
 part-00.pdf: $(wildcard pgf/*.tex) dn-intro.tex
 part-01.pdf: $(wildcard pgf/*.tex) dn-outline.tex dn-devel.tex
-part-02.pdf: $(wildcard pgf/*.tex) cs-basic.tex cs-class.tex
-part-03.pdf: $(wildcard pgf/*.tex) cs-advac.tex cs-other.tex
-part-04.pdf: $(wildcard lib-*.tex)
+part-02.pdf: $(wildcard pgf/cs-*.tex) cs-basic.tex cs-class.tex
+part-03.pdf: $(wildcard pgf/cs-*.tex) cs-advac.tex cs-other.tex
+part-04.pdf: $(wildcard lib-*.tex) $(wildcard pgf/lib-*.tex)
 part-05.pdf: 
 part-06.pdf: 
 part-07.pdf: 
