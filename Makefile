@@ -66,6 +66,6 @@ rar:; winrar -m5 a dotnet.rar $(CURRPDF)
 
 .PHONY: all ci clean cleanall cpdf encrypt ps s st $(shell seq 0 8)
 
-.SUFFIXES: .tex .pdf
+.SUFFIXES: .tex .pdf .dvi .ps .eps .jpg .png
 
 include .mk.dep
