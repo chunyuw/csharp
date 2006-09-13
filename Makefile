@@ -45,9 +45,9 @@ en-%.pdf: %.pdf ; pdftk $< output $@ owner_pw $(PASSWORD) allow printing
 
 cleanall: cpdf clean
 
-cpdf:;  -rm -f $(wildcard en-part-*.pdf part-*.pdf test.pdf z_region.pdf)
+cpdf:;  -$(RM) $(wildcard en-part-*.pdf part-*.pdf test.pdf z_region.pdf)
 
-clean:; -rm -f $(foreach s,$(CLSUFFIX),$(wildcard *.$(s))) $(wildcard test.exe */z_region*)
+clean:; -$(RM) $(foreach s,$(CLSUFFIX),$(wildcard *.$(s))) $(wildcard test.exe */z_region*)
 
 st:;    @svn st .
 
