@@ -21,7 +21,7 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{\texttt{Stream} 类}
+\frametitle{Stream 类}
 
 抽象类 ~Stream 提供了对流的基本操作：
 \begin{itemize}
@@ -39,7 +39,7 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{\texttt{Stream} 类的特性}
+\frametitle{Stream 类的特性}
 Stream 的派生类中，不一定都支持所有的操作，可如下判断：
 \begin{itemize}
 \item bool CanRead --- 是否可以读取
@@ -66,10 +66,83 @@ BufferedStream & \small 用于给其他的流添加缓冲，提高性能 \\
 CryptoStream & \small 在 ~System.Security.Cryptography 中，用于加密 \\
 MemoryStream & \small 在内存中直接访问所封装的数据 \\
 NetworkStream & \small 在 ~System.Net.Sockets 中，用于封装网络连接上的流 \\
+FileStream & \small 基本的文件操作类 \\
 \hline
 \end{tabular}
 
 \end{frame}
+
+\begin{frame}
+\frametitle{FileStream 类}
+\CJKindent FileStream 是对文件进行读取、写入和关闭操作，对管道、标准输入输出等设备的操作。
+\begin{figure}
+  \centering
+  \input{pgf/lib-filestream}
+\end{figure}
+\begin{itemize}
+\item FileMode 指定文件的打开方式
+\item FileAccess 指定文件的访问方式
+\item FileShare 指定文件的共享方式
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{FileStream 示例}
+\lstset{emph={WriteByte,ReadByte,Position,Length}}
+\begin{lstlisting}[escapeinside=<>]
+FileStream fs = new FileStream (@"C:\abc.txt", 
+    FileMode.OpenOrCreate, FileAccess.ReadWrite);
+byte[] data = new byte[5]{65,66,67,68,69}; // ABCDE
+
+foreach (byte b in data){
+  fs.WriteByte(b);}
+
+fs.Position = 0; 
+
+for (int i=0; i<fs.Length; i++)
+  Console.Write((char) fs.ReadByte());
+
+fs.Close();
+\end{lstlisting}
+\begin{itemize}
+\item \texttt{fs.Position} 直接定位当前位置
+\item \texttt{fs.Length} 直接取得文件长度
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{MemoryStream 类}
+\CJKindent MemoryStream 主要用于临时数据存储，在内存中使用流的方式处理数据。
+\begin{lstlisting}[escapeinside=<>]
+// <使用> MemoryStream <缓冲一个文件>
+FileStream fsIn = new FileStream(...);
+
+MemoryStream ms = new MemoryStream();
+int oneByte;
+
+while ((oneByte = fsIn.ReadeByte()) != -1){
+  ms.WriteByte ((byte)oneByte);
+}
+fsIn.Close();
+
+// <流> ms <中的内容和文件一样，但效率更高>
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\frametitle{BufferedStream 类}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{字符流 (\textit{Chararcter Stream})}
+
+
+\end{frame}
+
 
 
 \section{网络通信}

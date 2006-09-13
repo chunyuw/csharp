@@ -47,7 +47,7 @@ cleanall: cpdf clean
 
 cpdf:;  -rm -f $(wildcard en-part-*.pdf part-*.pdf test.pdf z_region.pdf)
 
-clean:; -rm -f $(foreach s,$(CLSUFFIX),$(wildcard *.$(s))) $(wildcard test.exe z_region.*) 
+clean:; -rm -f $(foreach s,$(CLSUFFIX),$(wildcard *.$(s))) $(wildcard test.exe z_region.* pgf/z_region*)
 
 ci:;    svn commit . -m "$(AUTOCSTR)"
 
