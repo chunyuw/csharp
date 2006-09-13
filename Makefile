@@ -10,7 +10,7 @@ BINFILES  = figures/*.jpg figures/*.png figures/*.pdf figures/*.ppt
 NUMTARGT  = $(shell seq 0 8)
 PDFTARGT  = $(NUMTARGT:%=part-0%.pdf)
 
-AUTOCSTR  = Batch checkin by Makefile ($(shell $(DATE) "+%Y%m%d-%H:%M"))
+AUTOCSTR  = Batch checkin by Makefile ($(shell $(DATE) "+%Y-%m-%d %H:%M"))
 ifeq ($(shell uname -s),"windows32") 
   DATE    = gdate
 else 
