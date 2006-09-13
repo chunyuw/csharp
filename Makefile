@@ -49,6 +49,8 @@ cpdf:;  -rm -f $(wildcard en-part-*.pdf part-*.pdf test.pdf z_region.pdf)
 
 clean:; -rm -f $(foreach s,$(CLSUFFIX),$(wildcard *.$(s))) $(wildcard test.exe */z_region*)
 
+st:;    @svn st .
+
 ci:;    svn commit . -m "$(AUTOCSTR)"
 
 ps:
@@ -62,7 +64,7 @@ s:; $(SHOWPDF)
 rar:; winrar -m5 a dotnet.rar $(CURRPDF)
 7z:;  7z -mx9 a dotnet.7z $(CURRPDF)
 
-.PHONY: all ci clean cleanall cpdf encrypt ps s $(shell seq 0 8)
+.PHONY: all ci clean cleanall cpdf encrypt ps s st $(shell seq 0 8)
 
 .SUFFIXES: .tex .pdf
 
