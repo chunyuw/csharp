@@ -1,5 +1,4 @@
-## Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn>
-## $Rev$
+## Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> ## $Rev$
 
 Author    = "Chunyu Wang <chunyu@hit.edu.cn>"
 Copyright = "Copyright (C) 2006 Chunyu Wang."
