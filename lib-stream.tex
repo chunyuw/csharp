@@ -74,7 +74,7 @@ FileStream & \small 基本的文件操作类 \\
 
 \begin{frame}
 \frametitle{FileStream 类}
-\CJKindent FileStream 是对文件进行读取、写入和关闭操作，对管道、标准输入输出等设备的操作。
+{\CJKindent FileStream 是对文件进行读取、写入和关闭操作，对管道、标准输入输出等设备的操作。}
 \begin{figure}
   \centering
   \input{pgf/lib-filestream}
@@ -89,7 +89,7 @@ FileStream & \small 基本的文件操作类 \\
 \begin{frame}[fragile]
 \frametitle{FileStream 示例}
 \lstset{emph={WriteByte,ReadByte,Position,Length}}
-\begin{lstlisting}[escapeinside=<>]
+\begin{lstlisting}
 FileStream fs = new FileStream (@"C:\abc.txt", 
     FileMode.OpenOrCreate, FileAccess.ReadWrite);
 byte[] data = new byte[5]{65,66,67,68,69}; // ABCDE
@@ -130,37 +130,203 @@ fsIn.Close();
 \end{lstlisting}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{BufferedStream 类}
+\CJKindent BufferedStream 通过提供默认 ~4096 字节的缓冲，提高 ~I/O 的效率。这
+几个 ~Stream 类都是基于字节的，即字节流 ~(\textit{Byte Stream})。
+\begin{lstlisting}
+Stream fs = new FileStream(@"C:\temp.txt"
+    FileMode.OpenOrCreate, FileAccess.Write);
 
+BufferedStream bs = new BufferedStream(fs);
+
+byte[] data = new byte[5]{65,66,67,68,69}; // ABCDE
+
+foreach (byte b in data){
+  bs.WriteByte(b);}
+
+bs.Close();
+fs.Close();
+
+\end{lstlisting}
 \end{frame}
 
 \begin{frame}
-\frametitle{TextReader/TextWriter}
-
+\frametitle{抽象类~ TextReader/TextWriter}
+\CJKindent 用于处理文本而不是原始字节的抽象类。
+\medskip
+\begin{itemize}
+\setlength{\itemsep}{6pt plus 1pt}
+\item TextReader 类
+\begin{itemize}
+\setlength{\itemsep}{4pt plus 1pt}
+\item Peek(), Read(), ReadBlock(), ReadLine(), ReadToEnd()
+\item Dispose(), Close()
+\end{itemize}
+\item TextWriter 类
+\begin{itemize}
+\setlength{\itemsep}{4pt plus 1pt}
+\item Write(), WriteLine(), Flush(), Dispose()
+\item Encoding, NewLine
+\end{itemize}
+\end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
+\frametitle{StreamReader/StreamWriter}
+\CJKindent 继承自 ~TextReader/TextWriter 用于处理流上的字符的类，即字符流~
+(\textit{Character Stream})。对于文件来说，处理基于 ~FileStream 的字符数据。
+\medskip
+
+多种构造函数，多种方式创建实例：
+\lstset{emph={[4]path,s,append,e}}
+\begin{lstlisting}
+public StreamWriter(string path)
+public StreamWriter(stream    s)
+
+public StreamWriter(string path, bool append)
+public StreamWriter(stream    s, bool append)
+
+public StreamWriter(string path, bool append, Encoding e)
+public StreamWriter(stream    s, bool append, Encoding e)
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{字符流示例}
+\begin{lstlisting}
+FileStream fs = new FileStream(...); // Open a text file
+StreamReader reader = new StreamReader(fs);
+
+char[] buff = new char[4];
+int count = reader.Read(buff,0,buff.Length);
+
+string cup = reader.ReadToEnd();
+
+fs.Position = 0;
+
+string line = null;
+while((line = reader.ReadLine() != null){
+  Console.WriteLine(line);
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{编码转换的示例}
+\begin{lstlisting}
+using System; using System.IO; using System.Text;
+public class Convert
+{ static void Main()
+  {
+  StreamReader sr = new 
+   StreamReader("G.txt",Encoding.GetEncoding("gb2312"));
+
+  StreamWriter sw = new 
+   StreamWriter("B.txt",false,Encoding.GetEncoding("big5"));
+
+  string str = null;
+  
+  while((str = sr.ReadLine()) != null)
+  { sw.WriteLine (str); }
+
+  sr.Close(); sw.Close();
+  }
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{StringReader/StringWriter}
+\CJKindent 通过 ~StringBuilder 存储的内存字符流，操作方式和流相同，但可以通过
+~GetStringBuilder 获取 ~StringBuilder 对象。
 
+\begin{lstlisting}
+StringWriter writer = new StringWriter();
+
+writer.WriteLine("Hello world!");
+writer.WriteLine("Some Text");
+
+StringBuilder s = writer.GetStringBuilder();
+
+s.Append("Some Other Text");
+Console.WriteLine(s.ToString());
+
+\end{lstlisting}
 \end{frame}
 
-\begin{frame}
-\frametitle{BinaryReader/BinaryWriter}
 
+\begin{frame}[fragile]
+\frametitle{BinaryReader/BinaryWriter}
+\CJKindent 用于处理值类型的数据的数据流，读写的数据使用计算机内部的二进制格式。
+
+\begin{columns}[t]
+  \column{.5\textwidth}
+  \begin{itemize}
+  \item BinaryWriter 重载各种数据的写操作\lstset{emph={[4]val}}
+\begin{lstlisting}
+void Write(byte   val)
+void Write(sbyte  val)
+void Write(int    val)
+void Write(int[]  val)
+void Write(double val)
+void Write(char[] val)
+void Write(string val)
+...
+\end{lstlisting}
+  \end{itemize}
+  \column{.5\textwidth}
+  \begin{itemize}
+  \item BinaryReader 提供不同读操作的方法
+\begin{lstlisting}
+bool   ReadBoolean()
+byte   ReadByte()
+sbyte  ReadSByte()
+int    ReadInt32()
+ulong  ReadUInt64()
+double ReadDouble()
+float  ReadSingle()
+...
+\end{lstlisting}
+  \end{itemize}
+\end{columns}
 \end{frame}
 
 \begin{frame}
 \frametitle{Stream 之间的区别}
 \begin{itemize}
-\item Byte-Oriented File I/O
-\item Character-Based File I/O
-\item Binary Data I/O
+\setlength{\itemsep}{6pt plus 1pt}
+\item Stream 是流类型的抽象基类
+\item TextReader/TextWriter 是处理字符(文本)的抽象基类
+\item 基于字节的流类型：{\small FileStream, BufferedStream, MemoryStream}
+\item 基于字符的流类型：{\small StreamReader/StreamWriter, StringReader/StringWriter}
+\item 基于数据的流类型：{\small BinaryReader/BinaryWriter}
+\end{itemize}
+\begin{figure}
+  \centering
+  \input{pgf/lib-streamtree}
+\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Console I/O}
+\CJKindent Console I/O 定义在 ~System 命名空间中，提供基本的控制台操作。
+\begin{itemize}
+\item 标准 ~I/O 流 ~Console.In, Console.Out, Console.Error
+\begin{lstlisting}
+Console.In.ReadLine();   // TextReader
+Console.Out.WriteLine(); // TextWriter
+\end{lstlisting}
+\item Console 类提供静态的方法，直接访问标准 ~I/O 流\\
+Read(), ReadLine(), Write(), WriteLine()
+
+\item static ConsoleKeyInfo \textbf{ReadKey}() \\
+ConsoleKeyInfo 提供基本的按键信息，如所按的键值和 ~\texttt{ALT, CTRL, SHIFT} 等
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Console I/O}
+\frametitle{}
 
 \end{frame}
 
