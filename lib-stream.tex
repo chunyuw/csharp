@@ -326,16 +326,33 @@ ConsoleKeyInfo 提供基本的按键信息，如所按的键值和 ~\texttt{ALT, CTRL, SHIFT} 等
 \end{frame}
 
 \begin{frame}
-\frametitle{}
+\frametitle{目录和文件}
+\CJKindent System.IO 命名空间中还有用于操作文件和目录的类。
+\begin{itemize}
+\item DirectoryInfo 类，Directory 类
+\begin{itemize}
+\item Create(), Delete() --- 创建删除目录
+\item GetDirectories(), GetFiles() --- 得到文件目录列表
+\end{itemize}
+\item FileInfo 类，File 类
+\begin{itemize}
+\item Open(), Create(), OpenWrite() --- 返回 ~FileStream 对象
+\item OpenText(), CreateText() --- 返回 StreamWriter 对象
+\end{itemize}
+\item Path 类
+\begin{itemize}
+\item GetDirectoryName(), GetFullFileName() \dots
+\end{itemize}
+\end{itemize}
 
 \end{frame}
 
-
 \section{串行化}
 
+\begin{frame}
+\frametitle{穿行化}
 
-
-\section{网络通信}
+\end{frame}
 
 
 
