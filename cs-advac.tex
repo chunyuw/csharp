@@ -530,7 +530,7 @@ public static void Main() {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{委托的协变性~ (\textit{Covariance})}
+\frametitle{委托的协变~ (\textit{Covariance})}
 \begin{lstlisting}
 class Mammals {}
 class Dogs : Mammals{}
@@ -543,7 +543,7 @@ class Program
   public static Dogs SecondHandler()
     { return null; }
 
-  static void Main()
+  static void Main() 
     {
       HandlerMethod handler1 = FirstHandler;
       HandlerMethod handler2 = SecondHandler;
@@ -553,25 +553,60 @@ class Program
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{委托的逆变性~ (\textit{Contravariance})}
+\frametitle{委托的逆变~ (\textit{Contravariance})}
 \begin{lstlisting}
-System.DateTime lastActivity;
-public Form1()
+class Animals{}
+class Dogs : Animals{}
+ 
+class Program
 {
-    InitializeComponent();
-
-    lastActivity = new System.DateTime();
-    this.textBox1.KeyDown += this.MultiHandler;
-    this.button1.MouseClick += this.MultiHandler;
-
-}
-
-private void 
-MultiHandler(object sender, System.EventArgs e)
-{
-    lastActivity = System.DateTime.Now;
+  public delegate void HandlerMethods(Dogs d);
+ 
+  public static void FirstMethod(Animals elephant)
+    {...}
+  public static void SecondMethod(Dogs sheepdogs)
+    {...}
+ 
+  static void Main()
+    {
+      HandlerMethods handler1 = FirstMethiod;
+      HandlerMethods handler2 = SecondMethod;
+    }
 }
 \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{委托的逆变(示例2)}
+\begin{lstlisting}
+System.DateTime lastActivity;
+public Form1() // Form1 Constructor
+{ InitializeComponent();
+  lastActivity = new System.DateTime();
+
+  //works with KeyEventArgs
+  this.textBox1.KeyDown   += this.MultiHandler;
+
+  //works with MouseEventArgs
+  this.button1.MouseClick += this.MultiHandler;
+}
+private void
+MultiHandler(object sender, System.EventArgs e)
+{
+  lastActivity = System.DateTime.Now;
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\frametitle{Covariance and Contravariance}
+\begin{itemize}
+\setlength{\itemsep}{8pt plus 1pt}
+\item Covariance permits a method to have a \redwarn{more derived} return type
+  than what is defined in the delegate.
+\item Contravariance permits a method with parameter types that are
+  \redwarn{less derived} than in the delegate type.
+\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
