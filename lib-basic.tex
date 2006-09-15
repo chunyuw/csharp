@@ -13,10 +13,10 @@
 
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
-\item 集合，一组对象 (\textit{object}) 的集合
-\item 提供了 ~list, stacks, queues, hash tables 现成的结构
-\item System.Collections.Generic 提供了相应的模板结构
+\item 集合，即一组对象~ (\textit{object})
+\item 提供了 ~list, stacks, queues, hash tables 现成的集合结构
 \item 提供了对集合操作的现成接口，如枚举器、迭代器
+\item System.Collections.Generic 提供了相应的模板结构
 \end{itemize}
 
 \end{frame}
@@ -53,8 +53,7 @@ public class SamplesStack  {
 
     Stack myStack = new Stack();
     myStack.Push("Hello");
-    myStack.Push("World");
-    myStack.Push("!");
+    myStack.Push("World!");
     myStack.Pop();
 
     Console.WriteLine( "Count: {0}", myStack.Count );

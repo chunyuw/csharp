@@ -66,8 +66,8 @@ class example {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{\texttt{fixed}表达式}
-为防止 ~GC 改变对象地址，可使用 ~fixed 进行限制
+\frametitle{\texttt{fixed} 表达式}
+为防止 ~GC 改变对象地址，可使用 ~\texttt{fixed} 进行限制
 \lstset{emph={fixed}}
 \begin{lstlisting}
 class Test {
@@ -75,14 +75,14 @@ class Test {
   public Test(int i) { num = i; }
 }
 ...
-  unsafe public static void Main() {
-    Test o = new Test(19);
+unsafe public static void Main() {
+  Test o = new Test(19);
 
-    fixed (int* p = &o.num) {
-      Console.WriteLine("Initial value of o.num is " + *p);
-      *p = 10; // assign to o.num via p
-      Console.WriteLine("New value of o.num is " + *p);
-    }
+  fixed (int* p = &o.num) {
+    Console.WriteLine("Initial value of o.num is " + *p);
+    *p = 10; // assign to o.num via p
+    Console.WriteLine("New value of o.num is " + *p);  }
+}
 \end{lstlisting}
 \end{frame}
 
@@ -111,9 +111,9 @@ pl = pl + 1;   // Move 4 byte too
 
 \begin{frame}[fragile]
 \frametitle{可空值类型}
-当需要值类型也可以有 ~\texttt{null} 值时使用
+当需要值类型也可以 ~\texttt{null} 时，使用可空值类型
 
-\begin{lstlisting}
+\begin{lstlisting}[escapeinside='']
 System.Nullable<int> count = null;
 System.Nullable<bool> done;
 
@@ -123,7 +123,7 @@ bool? done = null;
 ...
 
 if (count != null) { ... }
-if (count.HasValue) { ... } //
+if (count.HasValue) { ... } // '可空值的特性'
 \end{lstlisting}
 
 \end{frame}
@@ -138,7 +138,7 @@ double  currentBalance;
 currentBalance = balance ?? 0.0;
 \end{lstlisting}
 
-当可空值不为空时，操作符无效：
+当可空值不为空时，取变量自身的值：
 \begin{lstlisting}
 double? balance = 123.75;
 double currentBalance;

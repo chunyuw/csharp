@@ -602,10 +602,18 @@ MultiHandler(object sender, System.EventArgs e)
 \frametitle{Covariance and Contravariance}
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
-\item Covariance permits a method to have a \redwarn{more derived} return type
+\item Covariance permits a method to have a {\redwarn more derived} return type
   than what is defined in the delegate.
+\begin{itemize}
+\item 返回类型可以不同
+\item 方法的返回类型是委托的派生类
+\end{itemize}
 \item Contravariance permits a method with parameter types that are
-  \redwarn{less derived} than in the delegate type.
+  {\redwarn less derived} than in the delegate type.
+\begin{itemize}
+\item 参数类型可以不同
+\item 方法的参数类型是委托的基类
+\end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -767,26 +775,26 @@ public class MenuItem
 \frametitle{发布/订阅模式}
 \begin{itemize}
 \item 提供事件的类可以称为事件的提供器或发布器 (\textit{publisher})
-\item 需要被通知的部分可以称为订阅器 (\textit{subscriber})
+\item 需要被通知的组件可以称为订阅器 (\textit{subscriber})
 \end{itemize}
 \bigskip \pause
 \begin{itemize}
 \setlength{\itemsep}{4pt plus 1pt}
 \item 订阅器通过向事件中添加事件处理方法来达到订阅的目的
-\item 因为时间一般都定义为 ~\texttt{public}，因此任何部分都可以添加
-\item 而因为委托可以添加多个方法，所以可以由多个部分订阅
-\item 而事件发布器通过调用委托，来触发 (\textit{fire}) 事件
-\item 事件的触发实际就是方法的调用过程
+\item 因为事件一般都为 ~\texttt{public}，因此任何组件都可以订阅
+\item 而因为委托可以添加多个方法，所以同一时间可由多个组件订阅
+\item 而事件发布器通过调用委托，来触发 ~(\textit{fire}) 事件
+\item 事件的触发实际就是委托调用的过程
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{委托和事件}
+为什么不直接使用委托呢？
 \begin{itemize}
 \setlength{\itemsep}{6pt plus 1pt}
-\item 为什么不直接使用委托呢？
 \item 委托用于事件时，需要声明为 ~\texttt{public}，其他组件才能订阅
-\item 但同时也可以发布，即调用发布器委托
+\item 但同时也可以发布，即委托的调用，不够安全
 \item 因此 ~C\# 将委托包装为事件，对外专门用于订阅
 \item 定义为事件后，其他组件也只能订阅和删除
 \item 而作为委托的调用，只能由发布器类自己完成
@@ -795,9 +803,9 @@ public class MenuItem
 
 \begin{frame}[fragile,plain]
 \frametitle{事件访问器}
-\CJKindent 添加方法到事件，或从事件中删除的过程时可以定制的。事件访问器就是事
-件的一个变形，用于管理事件的添加和删除。
-
+\CJKindent 添加方法到事件，或从事件中删除的过程是可以定制的，如通过{\redwarn 事
+件访问器}添加和删除事件。
+\lstset{emph={add,remove}, emph={[2]MenuSelection}}
 \begin{lstlisting}
 public delegate void
   MenuHandler(object sender, EventArgs e);
@@ -808,13 +816,11 @@ public class MenuItem
 
   private MenuHandler mh = null;  // delegate
 
-  public event MenuHandler MenuSelection // event
-  { add {
-      mh += value; numberOfEvents++;
-    }
+  public event MenuHandler MenuSelection 
+  { // event accessor
+    add { mh += value; numberOfEvents++; }
     remove {
-      mh -= value; numberOfEvents--;
-    }
+          mh -= value; numberOfEvents--; }
   }
 }
 
@@ -826,17 +832,17 @@ public class MenuItem
 \setlength{\itemsep}{6pt plus 1pt}
 \begin{itemize}
 \item 事件可以在接口中，实现接口的类必须实现该事件
-\item 事件可以使抽象 (\texttt{abstract}) 的，有派生类继承并实现
-\item 而事件访问器不可以是抽象的
-\item 事件可以被密封 (\texttt{sealed})，防止被继承
-\item 事件可以是虚的 (\texttt{virtual})，允许派生类的覆盖
+\item 事件可以是抽象~ (\texttt{abstract}) 的，由派生类继承并实现
+\item 事件访问器不可以是抽象的
+\item 事件可以被密封~ (\texttt{sealed})，防止被继承
+\item 事件可以是虚的~ (\texttt{virtual})，允许派生类的覆盖
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{.NET 中的事件}
 \begin{itemize}
-\item 事件的定义可以是任意的
+\item 定义事件，可以使用任意的返回值类型和参数类型
 \item 但 ~.NET 框架推荐了一种标准，即：
 \begin{lstlisting}
 void Handler (object source, EventArgs arg){
@@ -847,8 +853,8 @@ void Handler (object source, EventArgs arg){
 \medskip
 \begin{itemize}
 \item source 用于调用方法把自己 (\texttt{this}) 传给客户
-\item arg 是 ~System.EventArgs 类型的参数
-\item EventArgs 可存放任何信息
+\item arg 是 ~System.EventArgs 类或其派生类型的参数
+\item 自定义的 ~EventArgs 可存放任何信息
 \end{itemize}
 
 \end{frame}
@@ -1222,7 +1228,7 @@ class ByTwos<T> : ISeries<T> {
 \end{lstlisting}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{泛型的限制}
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
@@ -1230,6 +1236,15 @@ class ByTwos<T> : ISeries<T> {
 \item \texttt{extern} 不能修饰泛型方法，即泛型方法不能外部实现
 \item 指针类型不能用于泛型的参数
 \item 静态成员只相应于具体的泛型类型，而不是泛型类本身
+\begin{lstlisting}
+class Gen<T> {
+  public static T x;
+}
+...
+    Gen<int>.x    = 10;
+    Gen<double>.x = 5.5;
+    Gen<Circle>.x = new Circle();
+\end{lstlisting}
 \end{itemize}
 \end{frame}
 
