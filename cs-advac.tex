@@ -31,7 +31,7 @@ public abstract class Graphics{
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{抽象类}
+\frametitle{抽象方法}
 \lstset{emph={abstract}}
 \begin{lstlisting}
 public abstract class Graphics{
@@ -53,6 +53,32 @@ class Circle:Graphics {
 }
 \end{lstlisting}
 \end{frame}
+
+\begin{frame}[fragile]
+\frametitle{抽象特性}
+\lstset{emph={abstract}}
+\begin{lstlisting}
+public abstract class Shape {
+  private string m_id;
+  public Shape(string s)    { Id = s; }
+  public string Id
+    { get { return m_id; }
+      set { m_id = value; } }
+
+  public abstract double Area
+    { get; }
+}
+\end{lstlisting}
+\lstset{emph={override}}
+\begin{lstlisting}
+public class Square : Shape {
+...
+ public override double Area
+ { get { return m_side * m_side; } }
+}
+\end{lstlisting}
+\end{frame}
+
 
 \begin{frame}[fragile]
 \frametitle{密封类}
@@ -501,6 +527,51 @@ public static void Main() {
 
 \end{lstlisting}
 \end{onlyenv}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{委托的协变性~ (\textit{Covariance})}
+\begin{lstlisting}
+class Mammals {}
+class Dogs : Mammals{}
+
+class Program
+{ public delegate Mammals HandlerMethod();
+
+  public static Mammals FirstHandler()  
+    { return null; }
+  public static Dogs SecondHandler()
+    { return null; }
+
+  static void Main()
+    {
+      HandlerMethod handler1 = FirstHandler;
+      HandlerMethod handler2 = SecondHandler;
+    }
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{委托的逆变性~ (\textit{Contravariance})}
+\begin{lstlisting}
+System.DateTime lastActivity;
+public Form1()
+{
+    InitializeComponent();
+
+    lastActivity = new System.DateTime();
+    this.textBox1.KeyDown += this.MultiHandler;
+    this.button1.MouseClick += this.MultiHandler;
+
+}
+
+private void 
+MultiHandler(object sender, System.EventArgs e)
+{
+    lastActivity = System.DateTime.Now;
+}
+\end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
