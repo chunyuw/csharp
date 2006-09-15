@@ -8,11 +8,11 @@
 
 \section{抽象类}
 
-\begin{frame}[fragile,t]
+\begin{frame}[fragile]
 \frametitle{抽象类}
 \begin{block}{抽象类}
-  \CJKindent 未完全实现的类，只能用于其他类的基类。从抽象类派生的类必须实现其中
-  的抽象方法。
+  \CJKindent 未完全实现的类，其中的方法和特性等可以只声明不实现。只能用于其他类
+  的基类，其派生类可以是抽象类，否则必须实现其中的抽象方法。
 \end{block}
 \pause
 \begin{itemize}
@@ -30,7 +30,7 @@ public abstract class Graphics{
 \end{lstlisting}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{抽象类}
 \lstset{emph={abstract}}
 \begin{lstlisting}
@@ -59,11 +59,11 @@ class Circle:Graphics {
 使用 ~\texttt{sealed} 修饰的类，不可以被继承：
 \lstset{emph={sealed}}
 \begin{lstlisting}
-sealed class A {
+public sealed class A {
   // ...
 }
 
-class B : A { // ERROR!
+public class B : A { // ERROR!
   // ...
 }
 \end{lstlisting}
@@ -73,9 +73,9 @@ class B : A { // ERROR!
 \begin{frame}[fragile]
 \frametitle{静态类}
 使用 ~\texttt{static} 修饰的类，不能够被实例化：
-\lstset{emph={static}}
-\begin{lstlisting}
-static class NumericFn {
+%\lstset{emph={static}}
+\begin{lstlisting}[escapeinside=<>]
+public static class NumericFn {
   static public double reciprocal(double num) {
     return 1/num;
   }
