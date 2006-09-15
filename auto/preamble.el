@@ -20,6 +20,5 @@
      "13pt"
      "cjk"
      "table"
-     "handout"
      "macros")))
 
