@@ -1031,8 +1031,7 @@ static void Main()
     & 结构体& 类\\ \hline
 
     类型的默认访问级别 & internal & internal \\
-    数据成员默认访问 & public & private\\
-    特性和方法  & private & private\\
+    成员的默认访问级别 & private & private\\
     类型  & 值类型 & 引用类型\\
     能否作为基类  & 不能 & 能\\
     构造函数 & 有$^{1}$ & 有 \\
@@ -1054,10 +1053,10 @@ static void Main()
 \begin{frame}[fragile]
 \frametitle{基类与派生类的关系}
 \begin{itemize}
-\item 基类中的成员，全部被派生类继承
-\item 而只有 ~private 修饰的成员不可以被访问
+\item 基类中的成员，除 ~sealed 成员，全部被派生类继承
+\item 有 ~private 修饰的成员不可以被派生类访问
 \vskip.5cm
-\item 派生类的字段可以直接{\redwarn隐藏}基类同名字段
+\item 派生类的字段可以直接{\redwarn隐藏}基类同名字段，或使用 ~new 关键字
 \end{itemize}
 \begin{lstlisting}[escapeinside=<>]
 class Circle {
