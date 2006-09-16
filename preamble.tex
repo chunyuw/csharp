@@ -1,9 +1,9 @@
 %% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> %% $Rev$
 
-%\documentclass[13pt,cjk,xcolor=svgnames,table,ignorenonframetext]{beamer}
+\documentclass[13pt,cjk,xcolor=svgnames,table]{beamer}
+% \documentclass[a4paper]{article}
+% \usepackage[noxcolor]{beamerarticle}
 
-\documentclass[a4paper]{article}
-\usepackage[noxcolor]{beamerarticle}
 \mode<article>{%
   \usepackage[svgnames]{xcolor}
   \usepackage{fullpage}
@@ -54,25 +54,32 @@
   morestring=[b]"}
 
 %% listings setup
-\lstset{basicstyle=\ttfamily\footnotesize,
-  keywordstyle=\color[rgb]{0.15,0.25,0.55}\bfseries,
-  %keywordstyle=[2]\color{green!45!black}\bfseries,
-  keywordstyle=[2]\color{ForestGreen!90!black}\bfseries,
-  identifierstyle=,
-  stringstyle=\color[rgb]{0.41,0.13,0.55}\ttfamily,
-  commentstyle=\color[rgb]{0.55,0.14,0.14}\sl,
-  emphstyle=\color{red!75}\bfseries,
-  emphstyle=[2]\color{DarkMagenta}\bfseries,
-  emphstyle=[3]\bfseries,
-  emphstyle=[4]\sl,
-  frameround=tttt,
-  frame=single,
-  framerule=1pt,
-  rulecolor=\color[rgb]{0.18,0.55,0.34},
-  backgroundcolor=\color{red!10}, %\color[rgb]{0.94,0.85,0.71},
-  escapebegin=\CJKfamily{kai}\sl\color[rgb]{0.55,0.14,0.14},
-  escapeend=,
-  language=CSharp}
+\mode<presentation> {%
+  \lstset{basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color[rgb]{0.15,0.25,0.55}\bfseries,
+    keywordstyle=[2]\color{ForestGreen!90!black}\bfseries,
+    identifierstyle=,
+    stringstyle=\color[rgb]{0.41,0.13,0.55}\ttfamily,
+    commentstyle=\color[rgb]{0.55,0.14,0.14}\sl,
+    emphstyle=\color{red!75}\bfseries,
+    emphstyle=[2]\color{DarkMagenta}\bfseries,
+    emphstyle=[3]\bfseries,
+    emphstyle=[4]\sl,
+    frameround=tttt,
+    frame=single,
+    framerule=1pt,
+    rulecolor=\color[rgb]{0.18,0.55,0.34},
+    backgroundcolor=\color{red!10}, %\color[rgb]{0.94,0.85,0.71},
+    escapebegin=\CJKfamily{kai}\sl\color[rgb]{0.55,0.14,0.14},
+    escapeend=,
+    language=CSharp}}
+\mode<article>{%
+  \lstset{basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\bfseries, keywordstyle=[2]\bfseries, commentstyle=\sl,
+    emphstyle=\bfseries, emphstyle=[2]\bfseries, emphstyle=[3]\bfseries, emphstyle=[4]\sl,
+    frame=single, framerule=0pt, backgroundcolor=\color{black!10},
+    escapebegin=\CJKfamily{kai}\sl, escapeend=,
+    language=CSharp}}
 
 %% hyperref setup
 \hypersetup{%

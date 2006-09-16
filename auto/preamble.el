@@ -18,11 +18,11 @@
      "fullpage"
      "xcolor"
      "svgnames"
-     "beamerarticle"
-     "noxcolor"
      "latex2e"
-     "art10"
-     "article"
-     "a4paper"
+     "beamer10"
+     "beamer"
+     "13pt"
+     "cjk"
+     "table"
      "macros")))
 
