@@ -1,4 +1,4 @@
-## Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn>
+## Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> ## $Rev$
 
 part-00.pdf: $(wildcard pgf/*.tex) dn-intro.tex
 part-01.pdf: $(wildcard pgf/*.tex) dn-outline.tex dn-devel.tex

@@ -3,7 +3,9 @@
 Author    = "Chunyu Wang <chunyu@hit.edu.cn>"
 Copyright = "Copyright (C) 2006 Chunyu Wang."
 
-TXTFILES  = Makefile *.tex pgf/*.tex pgf/auto/*.el Outline.org auto/*.el code/*.cs logo/Makefile logo/*.mp figures/*.txt
+TEXFILES  = *.tex pgf/*.tex 
+PRGFILES  = Makefile .mk.dep auto/*.el pgf/auto/*.el logo/Makefile logo/*.mp
+TXTFILES  = $(TEXFILES) $(PRGFILES) Outline.org code/*.cs figures/*.txt .dired
 BINFILES  = figures/*.jpg figures/*.png figures/*.pdf figures/*.ppt
 
 NUMTARGT  = $(shell seq 0 8)
