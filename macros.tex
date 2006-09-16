@@ -15,6 +15,8 @@
   (\x,0) -- +(up:1pt) ++(down:4pt) node {$\x$}
   (0,\x) -- +(right:1pt) ++(left:3pt) node {$\x$};}
 
+\def\rowstroke{++(0cm,.8cm) -- +(1.5,0)} % used in pgf/clr-execute.tex
+
 \def\wraphere{\tikz \draw[color=red!60!black,thick,->] (0ex,1.2ex) .. controls +(-10:1.2ex) and +(40:.2ex) .. (0,0);\\}
 
 \def\cmd#1{\par\texttt{C:$\backslash> $\ {}#1}\par}
