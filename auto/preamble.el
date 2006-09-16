@@ -14,7 +14,6 @@
      "ccmap"
      "CJK"
      "attachfile"
-     "hyperref"
      "fullpage"
      "xcolor"
      "svgnames"

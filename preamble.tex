@@ -7,10 +7,9 @@
 \mode<article>{%
   \usepackage[svgnames]{xcolor}
   \usepackage{fullpage}
-  \usepackage{hyperref}
-  \hypersetup{CJKbookmarks=true}}
+}
 
-\mode<presentation> {%
+\mode<presentation>{%
   \usetheme{Warsaw}
   \setbeamertemplate{background canvas}[vertical shading][bottom=red!10,top=blue!10]
   \setbeamercovered{transparent}
@@ -54,7 +53,7 @@
   morestring=[b]"}
 
 %% listings setup
-\mode<presentation> {%
+\mode<presentation>{%
   \lstset{basicstyle=\ttfamily\footnotesize,
     keywordstyle=\color[rgb]{0.15,0.25,0.55}\bfseries,
     keywordstyle=[2]\color{ForestGreen!90!black}\bfseries,
@@ -91,6 +90,7 @@
   pdfpagemode=None,             % FullScreen
   % pdfmenubar=false,
   % pdftoolbar=false,
+  CJKbookmarks=true,
   pdfauthor={Chunyu Wang <chunyu@hit.edu.cn>},
   pdftitle={Microsoft .NET Framework},
   pdfsubject={.NET Programming},
