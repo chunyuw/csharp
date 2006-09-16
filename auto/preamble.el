@@ -14,11 +14,12 @@
      "ccmap"
      "CJK"
      "attachfile"
+     "xcolor"
+     "svgnames"
+     "beamerarticle"
      "latex2e"
-     "beamer10"
-     "beamer"
-     "13pt"
-     "cjk"
-     "table"
+     "art10"
+     "article"
+     "a4paper"
      "macros")))
 
