@@ -32,7 +32,7 @@ CLSUFFIX  = aux log snm toc vrb out out.bak dvi nav
 
 all:
 	@echo "Usage:"
-	@echo "    make [0-8] | s(how) | encrypt"
+	@echo "    make [0-8] | s | encrypt"
 	@echo "    make cpdf | clean | cleanall"
 	@echo "    make ci | st | ps | rar | 7z"
 
@@ -60,12 +60,12 @@ ps:
 	svn ps Author $(Author) $(TXTFILES) $(BINFILES)
 	svn ps Copyright $(Copyright) $(TXTFILES) $(BINFILES)
 
-show s:; $(SHOWPDF)
+s:; $(SHOWPDF)
 
 rar:; winrar -m5 a dotnet.rar $(CURRPDF)
 7z:;  7z -mx9 a dotnet.7z $(CURRPDF)
 
-.PHONY: all ci clean cleanall cpdf encrypt ps s show st $(shell seq 0 8)
+.PHONY: all ci clean cleanall cpdf encrypt ps s st $(shell seq 0 8)
 
 .SUFFIXES: .tex .pdf .dvi .ps .eps .jpg .png
 
