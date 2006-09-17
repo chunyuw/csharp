@@ -1,7 +1,7 @@
 Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> $Rev$
 
 Local Variables:
-dired-omit-files: "^\\(part-0[01235678].tex\\|cs-\\|dn-\\|txt\\|Makefile\\|auto\\|figures\\|logo\\|res\\|macros\\|author\\|\\.\\)\\|\\.\\(aux\\|nav\\|out\\|snm\\|rel\\|toc\\|log\\|vrb\\)$"
+dired-omit-files: "^\\(part-0[012378].tex\\|cs-\\|dn-\\|txt\\|Makefile\\|auto\\|figures\\|logo\\|res\\|macros\\|author\\|\\.\\)\\|\\.\\(aux\\|nav\\|out\\|snm\\|rel\\|toc\\|log\\|vrb\\)$"
 dired-omit-files-p: t
 End:
 
