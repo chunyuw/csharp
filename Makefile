@@ -70,3 +70,7 @@ rar:; winrar -m5 a dotnet.rar $(CURRPDF)
 .SUFFIXES: .tex .pdf .dvi .ps .eps .jpg .png
 
 include .mk.dep
+
+# Local Variables:
+# mode: makefile-gmake
+# End:
