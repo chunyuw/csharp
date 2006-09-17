@@ -8,13 +8,11 @@
 * Tasks
 ** TODO Slides
 *** DONE .NET Framework
-*** TODO C# Language
+*** DONE C# Language
 *** TODO Class Library
 ** TODO Experiment Materials
 ** TODO Oral Pratice
 ** TODO Supporting Site
-
-
 
 * What's going on
 
@@ -26,35 +24,16 @@ MSDN: [[http://msdn2.microsoft.com/zh-cn/library/system.text.encoding.aspx][Syst
 MSDN: [[http://msdn2.microsoft.com/zh-cn/library/k3352a4t.aspx][文件和流 I/O]]
 C#:  [[http://msdn2.microsoft.com/zh-cn/library/618ayhy6.aspx][C# 程序员参考]]
 
-** 面向对象基础
 ** 预定义接口
-** 重载{操作符,true,false}
 ** 迭代器
-** 标识符
 ** [2] 文件 IO 和数据流
 *** XML
      + Chapter 2, [[file:D:/work/eBook.NET/eBook/Apress.Real.World.Dot.NET.Applications.eBook-LiB.chm][Real.World.Dot.NET.Applications]]
 
 ** COM 集成 & Office 开发  [[file:d:/work/eBook.NET/eBook/Sams.Microsoft.Visual.C.Sharp.2005.Unleashed.May.2006.chm][Microsoft.Visual.C.Sharp.2005.Unleashed]]
 
-** [1] C# 语言基础
-     + [[file:D:/work/eBook.NET/eBook/Prentice.Hall.Visual.C.Sharp.2005.How.to.Program.2nd.Edition.Dec.2005.chm][Visual.C.Sharp.2005.How.to.Program.2nd.Edition]]
-     + [[file:D:/work/eBook.NET/eBook/Sybex.Visual.C.Sharp.Dot.NET.Programming.eBook-LiB.chm][Visual.C.Sharp.Dot.NET.Programming]]
-     + [[file:D:/work/eBook.NET/eBook/L-spcs3e.pdf][Professional_C#_3rd]]
-     + * [[file:d:/work/eBook.NET/eBook/McGraw.Hill.Osborne.C.Sharp.2.0.The.Complete.Reference.Dec.2005.chm][C.Sharp.2.0.The.Complete.Reference]]
-     + * [[file:d:/work/eBook.NET/eBook/OReilly.Learning.C.Sharp.2005.2nd.Edition.Feb.2006.chm][Learning.C.Sharp.2005.2nd.Edition]]
-     + * [[file:d:/work/eBook.NET/eBook/Sams.Microsoft.Visual.C.Sharp.2005.Unleashed.May.2006.chm][Microsoft.Visual.C.Sharp.2005.Unleashed]]
-     + [[file:d:/work/eBook.NET/eBook/OReilly.CSharp.In.Nutshell.chm][CSharp.In.Nutshell]]
-
-*** 异常
-
 ** [2] 其他语言特性
 *** 串行化
-*** 属性
-    + [[file:D:/work/eBook.NET/eBook/Apress.Applied.Dot.NET.Attributes.eBook-LiB.chm][Applied.Dot.NET.Attributes]]
-
-*** 不安全代码
-
 ** [2] 网络编程
    + [[file:D:/work/eBook.NET/eBook/Microsoft.Press.Microsoft.Network.Programming.For.The.Microsoft.Dot.NET.Framework.eBook-LiB.chm][Network.Programming.For.The.Microsoft.Dot.NET.Framework]]
 
@@ -165,6 +144,24 @@ C#:  [[http://msdn2.microsoft.com/zh-cn/library/618ayhy6.aspx][C# 程序员参考]]
 
 
 * Backup
+
+** 重载{操作符,true,false}
+** 面向对象基础
+** [1] C# 语言基础
+     + [[file:D:/work/eBook.NET/eBook/Prentice.Hall.Visual.C.Sharp.2005.How.to.Program.2nd.Edition.Dec.2005.chm][Visual.C.Sharp.2005.How.to.Program.2nd.Edition]]
+     + [[file:D:/work/eBook.NET/eBook/Sybex.Visual.C.Sharp.Dot.NET.Programming.eBook-LiB.chm][Visual.C.Sharp.Dot.NET.Programming]]
+     + [[file:D:/work/eBook.NET/eBook/L-spcs3e.pdf][Professional_C#_3rd]]
+     + * [[file:d:/work/eBook.NET/eBook/McGraw.Hill.Osborne.C.Sharp.2.0.The.Complete.Reference.Dec.2005.chm][C.Sharp.2.0.The.Complete.Reference]]
+     + * [[file:d:/work/eBook.NET/eBook/OReilly.Learning.C.Sharp.2005.2nd.Edition.Feb.2006.chm][Learning.C.Sharp.2005.2nd.Edition]]
+     + * [[file:d:/work/eBook.NET/eBook/Sams.Microsoft.Visual.C.Sharp.2005.Unleashed.May.2006.chm][Microsoft.Visual.C.Sharp.2005.Unleashed]]
+     + [[file:d:/work/eBook.NET/eBook/OReilly.CSharp.In.Nutshell.chm][CSharp.In.Nutshell]]
+
+*** 属性
+    + [[file:D:/work/eBook.NET/eBook/Apress.Applied.Dot.NET.Attributes.eBook-LiB.chm][Applied.Dot.NET.Attributes]]
+
+*** 不安全代码
+
+*** 异常
 
 ** 泛型
      + * [[file:d:/work/eBook.NET/eBook/McGraw.Hill.Osborne.C.Sharp.2.0.The.Complete.Reference.Dec.2005.chm][C.Sharp.2.0.The.Complete.Reference]]
