@@ -4,7 +4,7 @@ Author    = "Chunyu Wang <chunyu@hit.edu.cn>"
 Copyright = "Copyright (C) 2006 Chunyu Wang."
 
 TEXFILES  = *.tex pgf/*.tex 
-PRGFILES  = Makefile .mk.dep auto/*.el pgf/auto/*.el logo/Makefile logo/*.mp
+PRGFILES  = Makefile .mk.dep auto/*.el logo/Makefile logo/*.mp
 TXTFILES  = $(TEXFILES) $(PRGFILES) Outline.org code/*.cs figures/*.txt .dired
 BINFILES  = figures/*.jpg figures/*.png figures/*.pdf figures/*.ppt
 
@@ -55,7 +55,7 @@ st:;    @svn st .
 ci:;    svn commit . -m "$(AUTOCSTR)"
 
 ps:
-	svn ps svn:eol-style CRLF auto/*.el pgf/auto/*.el
+	svn ps svn:eol-style CRLF auto/*.el
 	svn ps svn:keywords Rev $(TXTFILES)
 	svn ps Author $(Author) $(TXTFILES) $(BINFILES)
 	svn ps Copyright $(Copyright) $(TXTFILES) $(BINFILES)
