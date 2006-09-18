@@ -13,7 +13,7 @@
 % http://msdn2.microsoft.com/zh-cn/library/6kac2kdh.aspx
 \begin{itemize}
 \item 提高性能，可以将任务分解在多个线程中
-\item 提高响应能力，如在通过网络发送文件的同时，接受键盘输入
+\item 提高响应能力，如在通过网络发送文件时，接受键盘输入
 \end{itemize}
 \medskip
 \begin{itemize}
@@ -22,6 +22,12 @@
 \item 多线程之间可能发生死锁，使用时需要注意
 \end{itemize}
 \end{frame}
+
+\begin{frame}
+\frametitle{线程的状态}
+% lib-thstate.jpg
+\end{frame}
+
 
 \begin{frame}
 \frametitle{System.Threading 命名空间}
@@ -41,15 +47,17 @@ Thread 类的构造函数：
 
 \begin{itemize}
 \item public Thread(ThreadStart) --- 创建一个线程
-\item ThreadStart --- 委托，表示此线程开始执行时要调用的方法
-\item ParameterizedThreadStart --- 允许对象在线程启动时传递给线程的委托
-\item 此外还可以指定一个整数限制堆栈大小
+  \begin{itemize}
+  \item ThreadStart --- 委托，表示此线程开始执行时要调用的方法
+  \item ParameterizedThreadStart --- 允许对象在线程启动时传递给线程的委托
+  \item 此外还可以指定一个整数限制堆栈大小
+  \end{itemize}
 \end{itemize}
 
 线程创建后，通过 ~Start 方法开始线程的运行
 \begin{itemize}
 \item void Start() --- 开始执行线程
-\item void Start(Object) --- 开始执行线程，并提供一个参数
+\item void Start(object) --- 开始执行线程，并提供一个参数
 \end{itemize}
 线程一旦终止，它就无法通过再次调用 Start 来重新启动。
 
@@ -59,29 +67,21 @@ Thread 类的构造函数：
 \frametitle{创建并运行线程}
 \begin{lstlisting}
 using System;  using System.Threading;
-
 public class ThreadExample {
   public static void ThreadProc() {
     for (int i = 0; i < 10; i++) {
       Console.WriteLine("ThreadProc: {0}", i);
       Thread.Sleep(0); }
   }
-
   public static void Main() {
-    Console.WriteLine("Main thread: Start a second thread.");
     Thread t = new Thread(new ThreadStart(ThreadProc));
     t.Start();
-    //Thread.Sleep(0);
 
     for (int i = 0; i < 4; i++) {
       Console.WriteLine("Main thread: Do some work.");
       Thread.Sleep(0);
     }
-
-    Console.WriteLine("Main thread: Call Join(), to wait until ThreadProc ends.");
     t.Join();
-    Console.WriteLine("Main thread: ThreadProc.Join has returned.  Press Enter to end program.");
-    Console.ReadLine();
   }
 }
 \end{lstlisting}
@@ -113,15 +113,67 @@ public class ThreadExample {
 \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{创建多个线程}
+通过创建多个 ~Thread 实例即可：
+\begin{lstlisting}[escapeinside='']
+...
+  public static void Main() {
+    Thread t1 = new Thread(new ThreadStart(ThreadProc));
+    Thread t2 = new Thread(ThreadProc)); //'自动转换'
+    Thread t3 = new Thread(ThreadProc));
 
+    t1.Start();
+    t2.Start();
+    t3.Start();
+
+    for (int i = 0; i < 4; i++) {
+      Console.WriteLine("Main thread: Do some work.");
+      Thread.Sleep(0);
+    }
+  }
+\end{lstlisting}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{判断线程的结束}
+通过读取 ~IsAlive 特性的值：
+\lstset{emph={IsAlive}}
+\begin{lstlisting}
+  Thread t1, t2, t3; // new Thread(...)
+  ...
+  t1.Start(); t2.Start(); t3.Start();
 
+  do {
+    Console.WriteLine("Waiting thread");
+    Thread.Sleep(100);
+  } while (t1.IsAlive && t2.IsAlive && t3.IsAlive);
+
+\end{lstlisting}
 \end{frame}
+
+\begin{frame}[fragile]
+\frametitle{通过 ~Join 方法等待线程结束}
+\begin{itemize}
+\item 挂起调用进程，直到线程结束
+\item 可以设置一定的等待时间
+\item 可用于线程间的等待
+\end{itemize}
+\lstset{emph={Join}}
+\begin{lstlisting}
+  Thread t1, t2, t3; // new Thread(...)
+  ...
+  t1.Start(); t2.Start(); t3.Start();
+
+  t1.Join();  Console.WriteLine("Child #1 joined.");
+
+  t2.Join();  Console.WriteLine("Child #2 joined.");
+
+  t3.Join();  Console.WriteLine("Child #3 joined.");
+
+\end{lstlisting}
+\end{frame}
+
 
 \begin{frame}
 \frametitle{线程状态}
@@ -130,27 +182,151 @@ public class ThreadExample {
 
 \begin{frame}
 \frametitle{传递线程参数}
+\begin{lstlisting}
+  public static void ThreadProc(object o) {
+    for (int i = 0; i < (int)o; i++) {
+      Console.WriteLine("ThreadProc: {0}", i);
+      Thread.Sleep(0); }
+  }
+...
+    Thread t = new Thread(ThreadProc);
+    // new ParameterizedThreadStart(ThreadProc)
 
+    t.Start(20);
+...
+\end{lstlisting}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{线程的优先级}
+\begin{itemize}
+\item 通过线程的 ~Priority 特性设置优先级
+\item 值为枚举型 ~ThreadPriority 之一
+\begin{itemize}
+\item ThreadPriority.Highest
+\item ThreadPriority.AboveNormal
+\item ThreadPriority.Normal
+\item ThreadPriority.BelowNormal
+\item ThreadPriority.Lowest
+\end{itemize}
+\item 高优先级得到更多的 ~CPU 时间，但具体调度算法随操作系统而不同
+\end{itemize}
+\begin{lstlisting}
+  Thread t1, t2; // new Thread(...)
+  ...
+  t1.Priority = ThreadPriority.AboveNormal;
+  t2.Priority = ThreadPriority.Normal;
+  t3.Priority = ThreadPriority.BelowNormal;
+  ...
+  t1.Start(); t2.Start(); t3.Start();
 
+\end{lstlisting}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{线程同步}
 % lock, Wait(), Pulse(), PulseAll()
+\begin{itemize}
+\item 当同一资源只能被一个线程使用时，需要使用同步技术
+\item 使用 ~\texttt{lock} 进行同步非常容易
+\item 也可以使用功能更全的 ~Monitor 类来实现
+\end{itemize}
+\lstset{emph={lock}}
+\begin{lstlisting}
+class SumArray {
+  int sum;
+  public int sumIt(int[] nums) {
+    lock(this) { // lock the entire method
+      sum = 0;
+      for(int i=0; i < nums.Length; i++) {
+        sum += nums[i];
+        Console.WriteLine("Running total for " +
+               Thread.CurrentThread.Name + " is " + sum);
+        Thread.Sleep(10);
+      }
+      return sum;
+    }
+  }
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\frametitle{Monitor 类}
+\begin{itemize}
+\item Monitor 中用于控制进入临界区的静态方法：
+  \begin{itemize}
+  \item static void Enter(object s) --- 如果获得对象 ~s，进入临界区，否则阻塞
+  \item static void Exit(object s) --- 释放对象 ~s，退出临界区
+  \end{itemize}
+\item   实际上~C\# 中的 ~lock 语句就是通过这两个方法实现的\medskip \pause
+
+\item   此外 ~Monitor 还提供了一个不会被阻塞的方法：
+  \begin{itemize}
+  \item static bool TryEnter(object s)
+
+    TryEnter 如果获得 ~s，返回 ~\texttt{true}，并进入临界区；否则直接返回 ~\texttt{false}。因此
+    可以通过判断其返回值，在未获得 ~s 时进行一些必要的操作。
+
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{进程之间的交互运行}
+\begin{itemize}
+\setlength{\itemsep}{6pt plus 1pt}
+\item 线程的 ~WaitSleepJoin 状态用来互相等待
+  \begin{itemize}
+  \item static bool Wait(object s) --- 释放 ~s，并等待其他线程通知\\
+    \smallskip \CJKindent 当线程调用 Wait 时，它释放对象的锁并进入对象的等待队列，直到它们接收到由锁
+    的所有者发送的 ~Pulse 或~PulseAll 的信号为止。\smallskip
+  \item static void Pulse(object s) / static void PulseAll(object s) \\
+    \smallskip \CJKindent 通知其他等待线程，资源 ~s 状态即将改变。如果发送了 ~Pulse，则只影响位于等待
+    队列最前面的线程。如果发送了 ~PulseAll，则将影响正等待该对象的所有线程。
+  \end{itemize}
+\pause
+\item 只有锁的当前所有者可以使用 ~Pulse 向等待对象发出信号
+\item 如果锁的持有者不调用 ~Pulse，Wait 将无限期地阻止
+\item 如果没有调用 ~Wait 的等待线程，Pulse 的信号将被忽略
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile,plain]
+\frametitle{交互示例}
+\lstset{emph={Wait,Pulse,lock}}
+\begin{lstlisting}[escapeinside='']
+class MonitorSample {
+  public Queue q = new Queue(); 
+  public void run1() { // for thread 1
+    int counter = 0;
+    lock(q) {
+      while(counter < 1000) {
+        Monitor.Wait(q);    // '释放并等待'
+        q.Enqueue(counter++);
+        Monitor.Pulse(q); } // '通知'
+    }
+  }
+  public void run2() { // for thread 2
+    lock(q) {
+      Monitor.Pulse(q);
+      while(Monitor.Wait(q,1000)) {
+        int counter = (int)q.Dequeue();
+        Monitor.Pulse(q); } //end of while
+    }
+  }
+}
+\end{lstlisting}
 \end{frame}
 
 \begin{frame}
 \frametitle{Mutex 类}
-
+% http://msdn2.microsoft.com/zh-cn/library/system.threading.mutex.aspx
 \end{frame}
 
 \begin{frame}
 \frametitle{Semaphore 类}
-
+% http://msdn2.microsoft.com/zh-cn/library/system.threading.semaphore.aspx
 \end{frame}
 
 
@@ -159,10 +335,6 @@ public class ThreadExample {
 
 \end{frame}
 
-\begin{frame}
-\frametitle{Monitor 类}
-
-\end{frame}
 
 \begin{frame}
 \frametitle{Interlocked 类}
