@@ -11,7 +11,7 @@
   是操作系统线程的包装器，由操作系统创建和运行。
 \end{block}
 \begin{itemize}
-\item 提高性能，可以将任务分解在多个线程中
+\item 使用线程，可以提高性能，将任务分解在多个线程中
 \item 提高响应能力，如在通过网络发送文件时，接受键盘输入
 \item 方便移植到多处理器的计算机上
 \end{itemize}
@@ -33,10 +33,9 @@
 \frametitle{System.Threading 命名空间}
 \begin{itemize}
 \setlength{\itemsep}{6pt plus 1pt}
-\item .NET 的线程类在 System.Threading 命名空间
-\item Thread 类用于创建线程，设置优先级，挂起、激活或终止线程等
-\item ThreadPool 类提供线程池，可用于发送工作项、处理异步 I/O等
-\item Monitor 提供同步对对象的访问的机制
+\item Thread 类用于创建和管理线程，设置优先级等
+\item ThreadPool 类提供预先分配的线程池，可直接使用
+\item Monitor 类负责线程的同步，实现对象的访问的机制
 \item Mutex 一个同步基元，也可用于进程间同步
 \item Semaphore 限制可同时访问某一资源或资源池的线程数
 \item Timer 提供以指定的时间间隔执行方法的机制
@@ -63,7 +62,7 @@ public delegate void ParameterizedThreadStart(object obj);
 \end{lstlisting}
 
 \begin{itemize}
-\item ThreadStart --- 表示此线程开始执行时要调用的方法
+\item ThreadStart --- 表示此线程开始执行时要调用的委托
 \item ParameterizedThreadStart --- 同上，但可有一个参数
 \item int n --- 限制线程堆栈大小的整数
 \end{itemize}
@@ -87,7 +86,7 @@ public sealed class Thread
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{创建并运行线程示例}
+\frametitle{创建并运行线程}
 \begin{lstlisting}[escapeinside='']
 using System;  using System.Threading;
 public class ThreadExample {
@@ -105,7 +104,6 @@ public class ThreadExample {
       Console.WriteLine("Main thread: Do some work.");
       Thread.Sleep(0);
     }
-    t.Join();
   }
 }
 \end{lstlisting}
@@ -214,6 +212,7 @@ public sealed class Thread {
   // '如果等待时间结束，则返回，值为 false'
 }
 \end{lstlisting}
+\pause
 使用 ~Join 等待线程结束，将进入 ~WaitSleepJoin 状态：
 \lstset{emph={Join}}
 \begin{lstlisting}
@@ -232,7 +231,7 @@ public sealed class Thread {
 
 \begin{frame}[fragile]
 \frametitle{挂起线程}
-Thread 定义用于挂起~ (\textit{suspend}) 和恢复~ (\textit{resume}) 线程的两个方法: 
+用于挂起~ (\textit{suspend}) 和恢复~ (\textit{resume}) 线程的两个方法: 
 \begin{lstlisting}
 public sealed class Thread{
   public void Resume();
@@ -262,8 +261,8 @@ public sealed class Thread {
 }
 \end{lstlisting}
 \begin{itemize}
-\item int 值表示毫秒数
-\item TimeSpan 可以更方便的表示时间
+\item int 值表示毫秒数，为 ~0 时可用于线程切换
+\item TimeSpan 可以方便的表示时间段
 \begin{itemize}
 \item TimeSpan.Infinite --- 无限
 \item TimeSpan.FromDays(2) --- 2 天
@@ -274,7 +273,7 @@ public sealed class Thread {
 
 \begin{frame}[fragile]
 \frametitle{中止线程执行}
-Thread 类中的中止方法：
+Thread 类的中止方法：
 \begin{lstlisting}
 public sealed class Thread {
   public void Abort();
@@ -285,7 +284,7 @@ public sealed class Thread {
 \begin{itemize}
 \item 被中止的线程会发生 ~ThreadAbortException 异常
 \item 线程中的即使 ~catch 该异常，也会被中止，除非调用 ~Thread.ResetAbort()
-\item 该异常的 ~ExceptionState 即 ~stateInfo 参数
+\item 该异常的成员 ~ExceptionState 即 ~stateInfo 参数
 \item WaitSleepJoin 状态的线程可以被中止，但 ~Suspended 的不可以
 \end{itemize}
 \end{frame}
@@ -342,6 +341,24 @@ public enum ThreadPriority {
 \end{lstlisting}
 \end{frame}
 
+\begin{frame}
+\frametitle{线程同步}
+\begin{block}{\textit{Synchronizing Threads}}
+确保多个线程对共享资源进行互斥访问的技术。
+\end{block}
+\begin{itemize}
+\item 互斥锁~(\textit{Mutex})
+\item 信号量~(\textit{Semaphore})
+\item 临界区~(\textit{Critical region})
+\item 线程安全~(\textit{thread-safe})
+\end{itemize}
+\medskip
+\begin{itemize}
+\item Monitor 类用于线程的同步
+\item Mutex 和 ~Semaphore 类可用于线程和进程的同步
+\end{itemize}
+\end{frame}
+
 \begin{frame}[fragile]
 \frametitle{线程同步}
 % lock, Wait(), Pulse(), PulseAll()
@@ -351,68 +368,230 @@ public enum ThreadPriority {
 \item 也可以使用功能更全的 ~Monitor 类来实现
 \end{itemize}
 \lstset{emph={lock}}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Monitor 类}
+静态类 ~Monitor 中用于控制进入临界区的方法：
 \begin{lstlisting}
-class SumArray {
-  int sum;
-  public int sumIt(int[] nums) {
-    lock(this) { // lock the entire method
-      sum = 0;
-      for(int i=0; i < nums.Length; i++) {
-        sum += nums[i];
-        Console.WriteLine("Running total for " +
-               Thread.CurrentThread.Name + " is " + sum);
-        Thread.Sleep(10);
-      }
-      return sum;
+public static class Monitor {
+  public static void Enter(object obj);
+  public static void Exit(object obj);
+ 
+  public static bool TryEnter(object obj);
+  public static bool TryEnter(object obj, int ms);
+  // other members
+}
+\end{lstlisting}
+
+\begin{itemize}
+\item Monitor 类使用某个对象 ~obj 作为临界条件
+\item Enter 方法如果得到 ~obj，进入临界区，否则被阻塞 ~(\textit{blocked})
+\item Exit 方法释放 ~obj，退出临界区
+\item TryEnter 如果没有得到 ~obj，不会被阻塞，但返回 ~\texttt{false}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{使用 ~Monitor 同步示例}
+\lstset{emph={Enter,Exit}}
+\begin{lstlisting}
+public class MyClass {
+  public void DoSomething() 
+  {...}
+}
+...
+  MyClass obj = new MyClass();
+  ...
+
+  Monitor.Enter(obj);
+  obj.DoSomething(); // thread-safe
+  Monitor.Exit(obj);
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{保护静态成员}
+\begin{itemize}
+\item 静态成员是相应于类的，但所有对象都可以访问
+\item 针对对象的线程安全无法直接保护静态字段和方法
+\item 通过 ~\texttt{typeof} 操作符返回类的类型对象，作为临界条件
+\end{itemize}
+\lstset{emph={typeof}}
+\begin{lstlisting}
+public class MyClass{
+  static public void DoSomething();
+  {...}
+}
+...
+  Monitor.Enter(typeof(MyClass));
+  MyClass.DoSomething();
+  Monitor.Exit(typeof(MyClass));
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{错误处理}
+\begin{itemize}
+\item 临界区内发生异常，如果没有释放临界条件就可能发生死锁
+\item 要使用 ~\texttt{try/finally} 语句来避免
+\end{itemize}
+\lstset{emph={finally, Exit}}
+\begin{lstlisting}
+  Monitor.Enter(obj);
+  try{
+    obj.DoSomething();
+  }
+  // catch if needed
+  finally{
+    Monitor.Exit(obj);
+  }
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{使用~\texttt{lock} 简化~Monitor}
+\begin{itemize}
+\item 编译器会将加锁语句~(\texttt{lock}) 翻译为带有异常处理的 ~Monitor 语句
+\end{itemize}
+\begin{lstlisting}
+  MyClass obj = new MyClass();
+  ...
+  // for objects
+  lock(obj)
+  {
+    obj.DoSomething();
+  }
+
+  // for static memebers
+  lock(typeof(MyClass))
+  {
+    MyClass.DoSomething();
+  }
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{同时需要多个锁}
+\begin{itemize}
+\item 多个 ~\texttt{lock} 语句表示需要多个临界条件
+\begin{lstlisting}
+  MyClass obj1 = new MyClass();
+  MyClass obj2 = new MyClass();
+  MyClass obj3 = new MyClass();
+  
+  lock (obj1)
+  lock (obj2)
+  lock (obj3)
+  {
+    // Use the objects
+  }
+\end{lstlisting}
+\item 如果线程间加锁顺序不同，会发生死锁
+\item 需要多个锁，最好使用 ~\texttt{WaitHandle} 类
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{封装 ~Monitor}
+\begin{itemize}
+\item 在对象内部，使用 ~this 关键字可以对自己加锁
+\end{itemize}
+\lstset{emph={lock,this}}
+\begin{lstlisting}
+public class MyClass{
+  public void DoSomething(){
+    lock(this){
+      //Do something
+    }
+  }
+}
+  MyClass obj = new MyClass();
+  ...
+  obj.DoSomething();  
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Monitor 和泛型}
+\begin{lstlisting}
+public class MyClass<T>
+{ T m_T;
+  public void SomeMethod() {
+    lock(this) {
     }
   }
 }
 \end{lstlisting}
-\end{frame}
-
-\begin{frame}
-\frametitle{Monitor 类}
 \begin{itemize}
-\item Monitor 中用于控制进入临界区的静态方法：
-  \begin{itemize}
-  \item static void Enter(object s) --- 如果获得对象 ~s，进入临界区，否则阻塞
-  \item static void Exit(object s) --- 释放对象 ~s，退出临界区
-  \end{itemize}
-\item   实际上~C\# 中的 ~lock 语句就是通过这两个方法实现的\medskip \pause
-
-\item   此外 ~Monitor 还提供了一个不会被阻塞的方法：
-  \begin{itemize}
-  \item static bool TryEnter(object s)
-
-    TryEnter 如果获得 ~s，返回 ~\texttt{true}，并进入临界区；否则直接返回 ~\texttt{false}。因此
-    可以通过判断其返回值，在未获得 ~s 时进行一些必要的操作。
-
-  \end{itemize}
+\item 如果想对类型参数加锁，需要限制为引用类型
 \end{itemize}
+\begin{lstlisting}
+public class MyClass<T> where T : class
+{ ... }
+public class MyClass<T> where T : OtherClass
+{ ... }
+\end{lstlisting}
 \end{frame}
 
-\begin{frame}
-\frametitle{进程之间的交互运行}
+\begin{frame}[fragile]
+\frametitle{线程间的等待}
+\begin{itemize}
+\item 当得到锁后，又想暂停运行，需要暂时释放锁
+\item 其他线程完成临界区任务后，需要通知暂停的线程
+\item Monitor 中提供了如下方法：
+\begin{lstlisting}
+public static class Monitor {
+  public static bool Wait(object obj);
+  public static bool Wait(object obj, int ms);
+  public static bool Wait(object obj, TimeSpan t);
+  
+  public static void Pulse(object obj);
+  public static void PulseAll(object obj);
+}
+\end{lstlisting}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{线程间的等待}
 \begin{itemize}
 \setlength{\itemsep}{6pt plus 1pt}
-\item 线程的 ~WaitSleepJoin 状态用来互相等待
-  \begin{itemize}
-  \item static bool Wait(object s) --- 释放 ~s，并等待其他线程通知\\
-    \smallskip \CJKindent 当线程调用 Wait 时，它释放对象的锁并进入对象的等待队列，直到它们接收到由锁
-    的所有者发送的 ~Pulse 或~PulseAll 的信号为止。\smallskip
-  \item static void Pulse(object s) / static void PulseAll(object s) \\
-    \smallskip \CJKindent 通知其他等待线程，资源 ~s 状态即将改变。如果发送了 ~Pulse，则只影响位于等待
-    队列最前面的线程。如果发送了 ~PulseAll，则将影响正等待该对象的所有线程。
-  \end{itemize}
-\pause
-\item 只有锁的当前所有者可以使用 ~Pulse 向等待对象发出信号
-\item 如果锁的持有者不调用 ~Pulse，Wait 将无限期地阻止
-\item 如果没有调用 ~Wait 的等待线程，Pulse 的信号将被忽略
+\item Wait 方法释放锁对象 ~obj，进入 ~WaitSleepJoin 状态等待通知
+\item Pulse 方法通知 ~obj 对象的等待队列头的线程，锁对象状态即将改变；此时该线程将从 ~WaitSleepJoin
+  状态变为 ~Blocked 状态，等待锁对象 ~obj 被释放
+\item PulseAll 方法同上，但影响 ~obj 对象等待队列的所有线程
+\item 只有锁的占有者才可以调用 ~Wait、~Pulse 或 ~PulseAll 方法
 \end{itemize}
+\begin{columns}
+\column{.5\textwidth}
+\begin{lstlisting}
+void Lock_Wait(object obj) {
+  lock(obj){
+    ... // Do some work
+    Monitor.Wait(obj);
+    ... // And some others
+  }
+}
+\end{lstlisting}
+\column{.5\textwidth}
+\begin{lstlisting}
+void Lock_Pulse(object obj) {
+  lock(obj){
+    ... // Do some work
+    Monitor.Pulse(obj);
+    ... // And some others
+  }
+}
+\end{lstlisting}
+\end{columns}
 \end{frame}
 
 \begin{frame}[fragile,plain]
-\frametitle{交互示例}
+\frametitle{等待示例}
 \lstset{emph={Wait,Pulse,lock}}
 \begin{lstlisting}[escapeinside='']
 class MonitorSample {
@@ -438,43 +617,216 @@ class MonitorSample {
 \end{lstlisting}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{Mutex 类}
 % http://msdn2.microsoft.com/zh-cn/library/system.threading.mutex.aspx
+\begin{itemize}
+\item 用于定义互斥锁~(\textit{mutex})
+\item 调用~ WaitOne 方法获得锁，进入临界区，否则被阻塞
+\item ReleaseMutex 方法用于释放锁
+\end{itemize}
+
+\begin{lstlisting}
+public sealed class Mutex : WaitHandle{
+  public Mutex();
+  public Mutex(bool initOwned);
+  public Mutex(bool initOwned, string name);
+  public void ReleaseMutex();
+
+  public static Mutex OpenExisting(string name);
+  
+  // other members
+}
+
+public abstract class WaitHandle{
+  public virtual bool WaitOne();
+  public virtual void Close();
+  // other members  
+}
+\end{lstlisting}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
+\frametitle{Mutex 的使用}
+\lstset{emph={WaitOne,ReleaseMutex}}
+\begin{lstlisting}
+public class MutexDemo: IDisposable {
+  Mutex m = new Mutex();
+  string s;
+  public string Str
+  { 
+    set { 
+      m.WaitOne();
+      s = value;
+      m.ReleaseMutex(); }
+
+    get { 
+      m.WaitOne();
+      string temp = s;
+      m.ReleaseMutex();
+      return temp; } 
+  }
+  public void Dispose()
+  { m.Close(); }
+}
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
 \frametitle{Semaphore 类}
 % http://msdn2.microsoft.com/zh-cn/library/system.threading.semaphore.aspx
+\begin{itemize}
+\item C\# 2.0 新增的 ~Semaphore 类，用于限制访问临界资源的线程数
+\item 初始化信号量时，可指定已占用的信号量和最大数量
+\item Release 方法可以释放一个或多个信号量
+\end{itemize}
+\begin{lstlisting}
+public sealed class Semaphore : WaitHandle {
+  public Semaphore (int init, int max);
+  public Semaphore (int init, int max, string name);
+  public int Release();
+  public int Release(int releaseCount);
+
+  public static Semaphore OpenExisting(string name);
+}
+\end{lstlisting}
 \end{frame}
 
-
-\begin{frame}
-\frametitle{线程终止}
-
-\end{frame}
-
-
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{Interlocked 类}
+\begin{itemize}
+\item 静态类~Interlocked 为多个线程共享的变量提供原子操作
+\item 简化对单个变量访问的线程安全问题
+\end{itemize}
+\begin{lstlisting}[escapeinside='']
+public static class Interlocked {
+  public static int Increment(ref int loc);
+  public static int Decrement(ref int loc);
+  public static int Add(ref int loc, int val);
 
+  public static int Exchange(ref int loc, int val);
+  // other memebers for '\texttt{\bfseries double, float, long} \dots' 
+}
+\end{lstlisting}
+\begin{itemize}
+\item 例如，对静态变量的修改：
+\lstset{emph={Interlocked,Increment}}
+\begin{lstlisting}
+public class SomeClass {
+  public static int count = 0;
+} ...
+  Interlocked.Increment(ref SomeClass.count);
+...
+\end{lstlisting}
+\end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
+\frametitle{.NET 多线程服务}
+\begin{itemize}
+\item 线程相关的静态变量
+\begin{lstlisting}
+  [ThreadStatic]
+  static string m_MyString;
+\end{lstlisting}
+\item 线程本地存储 ~TLS (\textit{Thread Local Storage})
+\begin{lstlisting}
+public sealed class Thread {
+  public static LocalDataStoreSlot AllocateDataSlot();
+  public static LocalDataStoreSlot 
+                      AllocateNamedDataSlot(string n);
+  public static LocalDataStoreSlot
+                      GetNamedDataSlot(string name);
+}
+\end{lstlisting}
+\item 线程池 ~(\textit{Thread Pool})
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{ThreadPool 类}
 % http://msdn2.microsoft.com/zh-cn/library/0ka9477y.aspx
+\begin{itemize}
+\item 每个进程都有一个线程池，由 ~.NET 分配和管理
+\item 线程池中的线程，不需要创建，可以直接使用
+\item 通过静态类 ~ThreadPoll 来使用线程池
+\end{itemize}
+\begin{lstlisting}
+public static class ThreadPool{
+  public static bool QueueUserWorkItem(WaitCallback c);
+  public static bool
+           QueueUserWorkItem(WaitCallback c, object s);
+  // other memebers
+}
+public delegate void WaitCallback (Object s);
+\end{lstlisting}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
+\frametitle{线程池的使用}
+\begin{itemize}
+\item 线程池线程 ~IsThreadPooThread 为 true
+\end{itemize}
+\lstset{emph={QueueUserWorkItem}}
+\begin{lstlisting}
+  void MyWork(object state){
+    // check out
+    Thread c = Thread.CurrentThread;
+    Debug.Assert(c.IsThreadPooThread);
+    int threadID = c.ManagedThreadId;
+    Trace.WriteLine("Called on thread: " + threadID);
+
+    // Do my work ...
+  }
+
+  ThreadPool.QueueUserWorkItem(MyWork);
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
 \frametitle{Timer 类}
+\begin{itemize}
+\item Timer 类用于定时执行某一任务
+\item Timer 类使用线程池线程
+\end{itemize}
+\begin{lstlisting}
+public sealed class Timer {
+  public Timer(TimerCallback callback,
+               object state,
+               long dueTime, 
+               long period);
 
+  public bool Change(int d, int p);
+
+  public void Dispose();
+}
+public delegate void TimerCallback(object state);
+\end{lstlisting}
 \end{frame}
 
-\begin{frame}
-\frametitle{线程相关的异常}
+\begin{frame}[fragile]
+\frametitle{Timer 的使用}
+\begin{lstlisting}
+using System;  using System.Threading;
+class prog
+{
+  public static int counter = 0;
+  public static Timer T;
 
+  public static void run(object o)
+  { Console.WriteLine (counter++); }
+
+  static void Main()
+  {
+    T = new Timer (run, null, 0, 1000);
+    Thread.Sleep (4000);
+    T.Dispose(); T=null;
+  }
+}
+\end{lstlisting}
 \end{frame}
-
 
 % Local Variables:
 % mode: LaTeX
