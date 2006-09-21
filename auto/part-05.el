@@ -2,5 +2,6 @@
  (lambda ()
     (TeX-run-style-hooks
      "preamble"
-     "author")))
+     "author"
+     "gui-forms")))
 

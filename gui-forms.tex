@@ -6,6 +6,267 @@
 \tableofcontents
 \end{frame}
 
+\begin{frame}
+\frametitle{.NET 图形界面设计}
+\begin{itemize}
+\setlength{\itemsep}{8pt plus 1pt}
+\item .NET 提供了丰富的类库进行图形界面的设计
+\begin{itemize}
+\item System.Windows.Forms --- Windows 窗体设计
+\item System.Web.UIWebControls --- Web 表单设计
+\item System.Web.UIMobileControls --- 智能设备窗体的设计
+\end{itemize}
+\item 各种控件的使用方式灵活，如直接使用或继承后定制
+\item 由于 ~C\# 语言的特点，使图形界面编程非常简单
+\item 方便有效的工具，如 ~Visual Studio 2005 
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{控件都是类}
+\begin{itemize}
+\item .NET 中的控件实际就是不同的类
+  \begin{itemize}
+  \item 窗体类 ~Form，按钮类 ~Button，文本框类 ~TextBox
+  \end{itemize}
+\item 通过类的成员和方法控制和使用控件
+\begin{lstlisting}
+using System.Windows.Forms;
+using System.Drawing;
+...
+  TextBox userName = new TextBox();
+  
+  userName.Name = "InputForUserName";
+  userName.Location = new Point(64,88);
+  userName.Size = new Size(200,20);
+  userName.Text = "Enter your name here!";
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{窗体类(Form)}
+\begin{itemize}
+\item Form 类可以直接生成实例使用
+\item \cmd{csc /t:winexe form.cs}
+\end{itemize}
+\begin{columns}[t]
+\column{.6\textwidth}
+\lstset{emph={Form}}
+\begin{lstlisting}
+// form.cs
+using System;
+using System.Windows.Forms;
+using System.Drawing;
+
+class test
+{
+  static void Main()
+  {
+    Form frmMain = new Form();
+    frmMain.Text = "Hello World";
+    Application.Run(frmMain);
+  }
+}
+\end{lstlisting}
+\column{.4\textwidth}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{gui-form1}
+\end{figure}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{控件的继承}
+\begin{itemize}
+\item 通过继承，可以扩展现有控件，自己定制 ~(\textit{Customize})
+\item 例如，派生的 ~MyForm 窗体，包含一个 ~TextBox 成员：
+\lstset{emph={MyForm}}
+\begin{lstlisting}
+class MyForm : Form {
+  TextBox userName;
+  
+  public MyForm() // Constructor
+  { userName = new TextBox();
+
+    userName.Name = "InputForUserName";
+    userName.Location = new Point(64,88);
+    userName.Size = new Size(200,20);
+    userName.Text = "Enter your name here!";
+  }
+}
+...
+  Application.Run(new MyForm());
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{控件之间的关系}
+\begin{itemize}
+\item 仅仅作为成员的控件，.NET 无法显示出来
+\item 需要将其放入控件的{\redwarn控件容器} ~Controls 成员中
+\item 通过控件容器，实现了控件之间的容纳关系
+%\item System.Windows.Forms.Control.ControlCollection 的实例
+\end{itemize}
+\begin{columns}[t]
+  \column{.4\textwidth}
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{gui-contains1}
+  \end{figure}
+  \column{.6\textwidth}
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{gui-contains2}
+  \end{figure}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{控件容器}
+\begin{itemize}
+\item System.Windows.Forms.Control.ControlCollection 的实例
+\item 实现了 ~ICollection, IList, IEnumerable 等接口
+\item 使用 ~Add, Remove 的方法，添加、删除控件
+\end{itemize}
+\begin{lstlisting}
+  // init button1 and groupBox1, then 
+  this.Controls.Add(this.button1);
+  this.Controls.Add(this.groupBox1);
+
+  //init radioButton1 and radioButton2, then
+  this.groupBox1.Controls.Add(this.radioButton2);
+  this.groupBox1.Controls.Add(this.radioButton1);
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{访问控件}
+\begin{itemize}
+\item 最方便的办法就是为控件制定一个变量
+\item 或者通过 ~Controls 容器，逐个遍历
+\end{itemize}
+
+\begin{lstlisting}
+class MyForm : Form {
+  TextBox userName;
+  
+  public MyForm() // Constructor
+  { userName = new TextBox();
+    userName.Name = "InputForUserName";
+    userName.Location = new Point(64,88);
+    userName.Size = new Size(200,20);
+    userName.Text = "Enter your name here!";
+
+    this.Controls.Add(userName);
+  }
+} ...
+  Application.Run(new MyForm());
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{控件的成员}
+\begin{itemize}
+\item 所有的控件都继承自 ~Control 类
+\item Control 类为所有控件定义了共有的特征
+\end{itemize}
+\begin{figure}[htbp]
+  \centering
+  \input{pgf/gui-controls}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{常用特性}
+
+\end{frame}
+
+
+常用方法
+
+常用事件
+
+% 控件的使用
+% % 继承或者直接使用，生成实例
+% % 设置相关的属性
+
+% 常用控件 --- Button
+% TextBox
+% ...
+
+事件的处理
+
+使用句柄函数
+
+事件处理参数 EventArgs
+
+组件
+
+组件的使用
+
+Visual Studio 的使用
+
+使用 Visual Studio 修改控件的特性
+
+Visual Studio 自动生成的代码
+
+应用程序的运行
+
+具体的控件
+
+
+% \begin{frame}[fragile]
+% \frametitle{窗体类的成员}
+% \begin{itemize}
+% \item Form 类成员众多，用于设置窗体的各个方面
+% \item 成员特性：
+% \begin{lstlisting}
+% public class Form : ContainerControl{
+%   public string Name { get; set; }
+%   public Size Size { get; set; }
+%   public override string Text { get; set; }
+% }
+% \end{lstlisting}
+% \item 公共方法：
+% \begin{lstlisting}
+%   public void Activate();
+%   public void Close();
+% \end{lstlisting}
+% \item 可用的事件：
+% \begin{lstlisting}
+%   public event EventHandler Click;
+%   public event EventHandler Activated;
+%   public event KeyPressEventHandler KeyPress;
+% \end{lstlisting}
+% \end{itemize}
+% \end{frame}
+
+% \begin{frame}[fragile]
+% \frametitle{处理事件}
+% \lstset{emph={Click, clk_handler}}
+% \begin{lstlisting}
+% using System;
+% using System.Windows.Forms;
+% using System.Drawing;
+
+% class test
+% { static void Main()
+%   { Form frmMain = new Form();
+%     frmMain.Text = "Hello World";
+
+%     frmMain.Click += clk_handler;
+
+%     Application.Run(frmMain);
+%   }
+
+%   static void clk_handler(object s, EventArgs e)
+%   {   ((Form)s).Close();     }
+% }
+% \end{lstlisting}
+% \end{frame}
 
 % Local Variables:
 % mode: LaTeX
