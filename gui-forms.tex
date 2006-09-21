@@ -22,6 +22,18 @@
 \end{itemize}
 \end{frame}
 
+\begin{frame}
+\frametitle{使用控件}
+\begin{itemize}
+\setlength{\itemsep}{8pt plus 1pt}
+\item 图形界面的编程，就是用利用各种控件类的实例
+\item 由~ CLR 根据控件类型，完成图形界面底层的细节
+\item 生成并利用实例的代码，在设计时和运行时是一样的
+\item 直接修改控件的特性，即完成控件的设置
+\item 对事件的响应，可使用事件句柄或覆盖相应的基类方法
+\end{itemize}
+\end{frame}
+
 \begin{frame}[fragile]
 \frametitle{控件都是类}
 \begin{itemize}
@@ -45,9 +57,36 @@ using System.Drawing;
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{控件基类~(\textit{Control})}
+所有的控件都继承自 ~System.Windows.Forms.Control 类。
+\begin{itemize}
+\item Control 类主要用于实现控件的基本功能
+\item Control 类有 ~200 多个成员，其中包括各种特性和事件
+\item 通过 ~Control 类，控件之间可以共享共有的行为
+\item 也可以通过{\redwarn覆盖}(\textit{override})，实现自己的行为
+\end{itemize}
+\begin{figure}[htbp]
+  \centering
+  \input{pgf/gui-controls}
+\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{控件的使用方式}
+\begin{itemize}
+\item 直接使用，通过类库提供的类，生成默认的实例
+\item 扩展使用，通过继承类库的类，生成可定制的实例
+\end{itemize}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{gui-usecontrl}
+\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]
 \frametitle{窗体类(Form)}
 \begin{itemize}
-\item Form 类可以直接生成实例使用
+\item 直接使用 Form 类的实例
 \item \cmd{csc /t:winexe form.cs}
 \end{itemize}
 \begin{columns}[t]
@@ -78,7 +117,7 @@ class test
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{控件的继承}
+\frametitle{继承窗体类}
 \begin{itemize}
 \item 通过继承，可以扩展现有控件，自己定制 ~(\textit{Customize})
 \item 例如，派生的 ~MyForm 窗体，包含一个 ~TextBox 成员：
@@ -105,10 +144,9 @@ class MyForm : Form {
 \begin{frame}
 \frametitle{控件之间的关系}
 \begin{itemize}
-\item 仅仅作为成员的控件，.NET 无法显示出来
-\item 需要将其放入控件的{\redwarn控件容器} ~Controls 成员中
+\item 仅仅作为成员的控件，CLR 无法显示出来
+\item 需要将其放入~Form 的{\redwarn控件容器} ~Controls 中
 \item 通过控件容器，实现了控件之间的容纳关系
-%\item System.Windows.Forms.Control.ControlCollection 的实例
 \end{itemize}
 \begin{columns}[t]
   \column{.4\textwidth}
@@ -167,17 +205,7 @@ class MyForm : Form {
 \end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile]
-\frametitle{控件的成员}
-\begin{itemize}
-\item 所有的控件都继承自 ~Control 类
-\item Control 类为所有控件定义了共有的特征
-\end{itemize}
-\begin{figure}[htbp]
-  \centering
-  \input{pgf/gui-controls}
-\end{figure}
-\end{frame}
+
 
 \begin{frame}
 \frametitle{常用特性}
