@@ -24,6 +24,9 @@ MSDN: [[http://msdn2.microsoft.com/zh-cn/library/system.text.encoding.aspx][Syst
 MSDN: [[http://msdn2.microsoft.com/zh-cn/library/k3352a4t.aspx][文件和流 I/O]]
 C#:  [[http://msdn2.microsoft.com/zh-cn/library/618ayhy6.aspx][C# 程序员参考]]
 
+** API Quick Reference, Part IV in [[file:d:/work/eBook.NET/eBook/OReilly.CSharp.In.Nutshell.chm][CSharp.In.Nutshell]]
+
+
 ** 预定义接口
 ** 迭代器
 ** [2] 文件 IO 和数据流
