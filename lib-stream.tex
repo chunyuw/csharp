@@ -346,13 +346,167 @@ ConsoleKeyInfo 提供基本的按键信息，如所按的键值和 ~\texttt{ALT, CTRL, SHIFT} 等
 
 \end{frame}
 
-\section{串行化}
+\section{串行化和反射}
 
 \begin{frame}
 \frametitle{串行化}
+\begin{block}{\textit{Serialization}}
+\CJKindent 将对象或对象的集合转换为特定的格式，适于网络传递，存储在文件、数据
+库内的过程，成为对象的串行化。逆串行化~(\textit{Deserialization})过程正好相反，
+将所存储的内容，转换回原来的对象或对象的集合。
+\end{block}
+.NET 支持三种主要的串行化：
+\begin{itemize}
+\item 二进制串行化，转换为二进制流~(BinaryFormatter 类)
+\item SOAP 串行化，转换为~SOAP 标准格式~(SoapFormatter 类)
+\item XML 串行化，转换为~XML 格式~(XmlSerializer 类)
+\end{itemize}
 \end{frame}
 
-\section{反射}
+\begin{frame}[fragile]
+\frametitle{二进制串行化}
+\begin{itemize}
+\item 使用 ~BinaryFormatter 
+\item 定义在 ~System.Runtime.Serialization.Formatters.Binary
+\end{itemize}
+\begin{lstlisting}
+  Circle c = new Circle();
+  FileStream fstream = 
+    new FileStream("data.out",FileMode.Create);
+ 
+  BinaryFormatter bf = new BinaryFormatter();
+  bf.Serialize(fstream,c);
+  fstream.Close();
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{SOAP 串行化}
+\begin{itemize}
+\item 使用 ~SoapFormatter
+\item 定义在 ~System.Runtime.Serialization.Formatters.Soap
+\end{itemize}
+\begin{lstlisting}
+using System.Runtime.Serialization.Formatters.Soap;
+[Serializable]
+public class MyClass{
+  public int a,b;
+}
+  MyClass obj = new MyClass();
+  obj.a = 123;  obj.b = 456;
+  IFormatter f = new SoapFormatter();
+  Stream s =  new FileStream("data.xml",FileMode.Create);
+  using (s) {
+    f.Serialize(s , obj)
+  }
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{串行化的过程}
+\begin{itemize}
+\item 串行化时，根据对象的引用关系，构建一个对象图
+\item 依次将该对象包括的全部成员对象串行化，完成深拷贝
+\item 串行化发生前后会引发~OnSerializing 和~OnSerialized 事件
+\item 串行化是基于对象的，因此不包括静态成员
+\medskip \pause
+\item 串行化通过不同~Formatter 完成，有共同的接口~IFormatter
+\begin{lstlisting}
+public interface IFormatter {
+  object Deserialize(Stream s);
+  void   Serialize(Stream s, object graph);
+  // other members
+}
+\end{lstlisting}
+\item C\# 2.0 还提供了泛型接口 ~IGenericFormatter
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{可串行化属性}
+\begin{itemize}
+\item 串行化的类必须使用~\texttt{[Serializable]} 属性
+\item 不希望串行化的成员，需要用~\texttt{[NonSerialized]} 属性
+\item 可串行化属性无法通过继承得到
+\end{itemize}
+\begin{lstlisting}
+[Serializable]
+public class MyClass {
+  public string str;
+  public int i;
+
+  [NonSerialized]
+  int m;
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{不可串行化的成员}
+\begin{itemize}
+\item 未被串行化的成员，在逆串行化时，恢复为该类型的默认值
+\item 但可以通过~IDeserializationCallback 接口进行定制
+\begin{lstlisting}
+public interface IDeserializationCallback {
+  void OnDeserialization(object sender);
+}
+\end{lstlisting}
+\end{itemize}
+\begin{lstlisting}
+[Serializable]
+public class MyClass:IDeserializationCallback {
+  [NonSerialized]
+  IDbConnection m_Connection;
+  ...
+  public void OnDeserialization(object sender){
+    m_Connection = new SqlConnection();
+    m_Connection.ConnectionString = "...";
+    m_Connection.Open();
+  }
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{串行化和事件}
+\begin{itemize}
+\item 串行化事件：OnSerializing, OnSerialized
+\item 逆串行化事件：OnDeSerializing, OnDeSerialized
+\item 事件处理的方法，在被串行化的对象中实现
+\item 事件的类型：
+\begin{lstlisting}
+void EVENTNAME(StreamingContext context);
+\end{lstlisting}
+\end{itemize}
+\begin{lstlisting}
+public class Chair {
+  [OnDeserialized]
+  void OnDeserialized(StreamingContext context) {
+    if(Val = "abc") Val = "efg";
+  }
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{串行化多个对象}
+\begin{itemize}
+\item 依次放入数据流，依次从数据流中读出即可
+\end{itemize}
+\begin{lstlisting}[escapeinside=<>]
+ClassA obj1 = new ClassA();
+ClassB obj2 = new ClassB();
+
+formatter.Serialize(stream, obj1);
+formatter.Serialize(stream, obj2);
+
+   <\dots{} \dots{} \dots>
+
+ClassA a = (ClassA) formatter.Deserialize(stream);
+ClassB b = (ClassB) formatter.Deserialize(stream);
+\end{lstlisting}
+\end{frame}
+
 
 \begin{frame}
 \frametitle{反射~(\textit{Reflection})}
@@ -364,11 +518,110 @@ ConsoleKeyInfo 提供基本的按键信息，如所按的键值和 ~\texttt{ALT, CTRL, SHIFT} 等
 \end{itemize}
 \end{frame}
 
-\begin{frame}
-\frametitle{MemberInfo 类}
-
+\begin{frame}[fragile]
+\frametitle{得到类型信息}
+\lstset{emph={Type,GetTypes}}
+\begin{lstlisting}
+using System.Reflection;
+public static void Main()
+{
+   Assembly a = Assembly.Load( "Mscorlib" );
+   Type[] types = a.GetTypes( );
+   foreach ( Type t in types )
+   {
+      Console.WriteLine( "Type is {0}", t );
+   }
+   Console.WriteLine(
+      "{0} types found", types.Length );
+}
+\end{lstlisting}
+程序输出：\scriptsize
+\begin{verbatim}
+Type is System.Object
+Type is System.__Canon
+Type is System.ICloneable
+Type is System.Collections.IEnumerable
+Type is System.Collections.IList
+...
+\end{verbatim}
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{得到成员信息}
+\lstset{emph={MemberInfo,GetMembers}}
+\begin{lstlisting}
+public static void Main( )
+{ Type theType = Type.GetType("System.Int16");
+  MemberInfo[] mbrInfoArray = theType.GetMembers();
+
+  foreach (MemberInfo m in mbrInfoArray )
+  { Console.WriteLine("{0} is a {1}", m, m.MemberType); }
+}
+\end{lstlisting}
+程序输出：\scriptsize
+\begin{verbatim}
+System.String ToString() is a Method
+Int16 Parse(System.String) is a Method
+Boolean TryParse(System.String, Int16 ByRef) is a Method
+Int16 MaxValue is a Field
+Int16 MinValue is a Field
+...
+\end{verbatim}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{得到特定的成员信息}
+\lstset{emph={FindMembers}}
+\begin{lstlisting}
+public static void Main( )
+{ Type theType = 
+          Type.GetType("System.Reflection.Assembly");
+  
+  MemberInfo[] mbrInfoArray =
+   theType.FindMembers(MemberTypes.Method,
+      BindingFlags.Public|BindingFlags.Static,
+      Type.FilterName, "Get*" );
+
+  foreach(MemberInfo m in mbrInfoArray)
+    Console.WriteLine("{0} is a {1}", m, m.MemberType);
+}
+\end{lstlisting}
+程序输出：\scriptsize
+\begin{verbatim}
+System.Reflection.Assembly GetAssembly(System.Type) is a Method
+System.Reflection.Assembly GetExecutingAssembly() is a Method
+System.Reflection.Assembly GetCallingAssembly() is a Method
+System.Reflection.Assembly GetEntryAssembly() is a Method
+\end{verbatim}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{后期绑定~(Late Binding)}
+\begin{itemize}
+\item 通过后期绑定，可以在运行时动态调用具体方法
+\end{itemize}
+\lstset{emph={Invoke}}
+\begin{lstlisting}
+Type theMathType = Type.GetType( "System.Math" );
+Type[] p = new Type[1];
+p[0] = Type.GetType( "System.Double" );
+
+MethodInfo CosineInfo =
+   theMathType.GetMethod( "Cos", p );
+
+Object[] parameters = new Object[1];
+parameters[0] = 45 * ( Math.PI / 180 );
+
+Object returnVal =
+   CosineInfo.Invoke( theMathType, parameters );
+
+Console.WriteLine(
+   "The cosine of a 45 degree angle {0}",
+   returnVal );
+\end{lstlisting}
+\end{frame}
 
 % Local Variables:
 % mode: LaTeX

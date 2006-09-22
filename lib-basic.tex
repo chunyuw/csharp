@@ -14,9 +14,9 @@
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
 \item 集合，即一组对象~ (\textit{object})
-\item 提供了 ~list, stacks, queues, hash tables 现成的集合结构
-\item 提供了对集合操作的现成接口，如枚举器、迭代器
-\item System.Collections.Generic 提供了相应的模板结构
+\item .NET 提供了 ~Lists, Stacks, Queues, Hash Tables 等集合结构
+\item 提供了对集合操作的接口，如枚举器、迭代器
+\item System.Collections.Generic 提供了相应的泛型结构
 \end{itemize}
 
 \end{frame}
@@ -359,24 +359,105 @@ public class List
 \end{frame}
 
 \begin{frame}
-\frametitle{System.Collections.Specialized}
-
+\frametitle{专用集合}
+\begin{itemize}
+\setlength{\itemsep}{5pt plus 1pt}
+\item System.Collections.Specialized 中定义了一些专门的集合类
+\item 在特定类型的上有一定的优化
+\item \texttt{CollectionsUtil} 创建忽略字符串大小写的集合
+\item \texttt{ListDictionary} 使用单链接列表实现~ IDictionary
+\item \texttt{NameValueCollection} 关联 ~String 键和~ Object 值的集合
+\item \texttt{OrderedDictionary} 表示根据索引排序的键/值对的集合
+\item \texttt{StringCollection} 表示字符串集合
+\item \texttt{StringDictionary} 将键和值强类型化为字符串的哈希表
+\end{itemize}
 \end{frame}
 
+\begin{frame}
+\frametitle{泛型接口}
+\begin{itemize}
+\item ICollection$<$T$>$ 操作泛型集合
+\item IComparer$<$T$>$ 比较两个对象
+\item IDictionary$<$TK, TV$>$ 键/值对的泛型集合
+\item IEnumerable$<$T$>$ 泛型枚举接口
+\item IEnumerator$<$T$>$ 泛型集合上迭代
+\item IEqualityComparer$<$T$>$ 支持对象的相等比较
+\item IList$<$T$>$ 按照索引单独访问
+\end{itemize}
+\end{frame}
 
+\begin{frame}[fragile]
+\frametitle{泛型集合类}
+\begin{itemize}
+\item List$<$T$>$ 泛型列表
+\item Queue$<$T$>$ 泛型队列
+\item Stack$<$T$>$ 泛型栈
+\item LinkedList$<$T$>$ 泛型双向链
+\begin{lstlisting}
+public LinkedList()
+public LinkedList(IEnumerable<T> c)
+
+public LinkedListNode<T> Next { get; }
+public LinkedListNode<T> Previous { get; }
+public LinkedList<T> List { get; }
+public T Value { get; set; }
+
+public int Count { get; }
+public LinkedListNode<T> First { get; }
+public LinkedListNode<T> Last { get; }
+\end{lstlisting}
+\end{itemize}
+\end{frame}
 
 \section{文本处理}
 
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{StringBuilder 类}
-
+可变字符串类 StringBuilder：
+\begin{lstlisting}
+public sealed class StringBuilder {
+  public method StringBuilder();  
+  public method StringBuilder(int capacity);  
+  public method StringBuilder(int capacity, int maxCapacity);  
+  
+  public method StringBuilder(string value);  
+  public method StringBuilder(string value, int capacity);  
+}
+\end{lstlisting}
+\begin{itemize}
+\item capacity --- 串的长度
+\item maxCapicity --- 串的最大长度
+\item 如果没有指定最大长度，会自动成倍增加
+\end{itemize}
 \end{frame}
 
-\begin{frame}
-\frametitle{文本的编码}
-
+\begin{frame}[fragile]
+\frametitle{StringBuilder 的成员}
+\begin{itemize}
+\item 成员特性
+\end{itemize}
+\begin{lstlisting}
+  public field int Capacity{set; get; } 
+  public field int Length{set; get; } 
+  public field int MaxCapacity{get; } 
+\end{lstlisting}
+\begin{itemize}
+\item 成员方法
+\begin{itemize}
+\item Append()
+\item AppendFormat()
+\item Insert()
+\item Replace()
+\item Remove()
+\end{itemize}
+\end{itemize}
 \end{frame}
 
+
+% \begin{frame}
+% \frametitle{文本的编码}
+
+% \end{frame}
 
 % Cookbook Regular Expressions, C# in a Nutshell
 
@@ -473,6 +554,82 @@ return Regex.Replace(input,
 "${year}-${month}-${day}");
 }
 \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{正则表达式示例}
+\begin{itemize}
+\item 交换前两个单词
+\begin{lstlisting}
+string t1 = "the quick brown fox";
+string p1 = @"(\S+)(\s+)(\S+)";
+Regex x1 = new Regex(p1);
+string r1 = x1.Replace(t1, "$3$2$1", 1);
+\end{lstlisting}
+\item 匹配~ "keyword = value" 模式
+\begin{lstlisting}
+string t2 = "myval = 3";
+string p2 = @"(\w+)\s*=\s*(.*)\s*$";
+Match m2 = Regex.Match(t2, p2);
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{正则表达式示例}
+\begin{itemize}
+\item 匹配至少 ~40 字符的行
+\begin{lstlisting}
+string t3 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+string p3 = ".{40,}";
+Match m3 = Regex.Match(t3, p3);
+\end{lstlisting}
+\item 替换用户名
+\begin{lstlisting}
+string t4 =
+  @"C:\Documents and Settings\user1\Desktop\";
+string r4 = Regex.Replace(t4,
+                   @"\\user1\\",
+                   @"\\user2\\");
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{正则表达式示例}
+\begin{itemize}
+\item 查找所有字母大写的单词
+\begin{lstlisting}
+string t5 = "This IS a Test OF ALL Caps";
+string p5 = @"(\b[^\Wa-z0-9_]+\b)";
+MatchCollection mc5 = Regex.Matches(t5, p5);
+\end{lstlisting}
+\item 查找所有首字母大写的单词
+\begin{lstlisting}
+string t6 = "This is A Test of Initial Caps";
+string p6 = @"(\b[^\Wa-z0-9_][^\WA-Z0-9_]*\b)";
+MatchCollection mc6 = Regex.Matches(t6, p6);
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{正则表达式示例}
+\begin{itemize}
+\item 查找 ~HTML 中的连接
+\begin{lstlisting}
+string t7 = @"
+<html>
+<a href=""http://a.b.c/news/first.htm"">first tag text</a>
+<a href=""http://a.b.c/news/next.htm"">next tag text</a>
+</html>
+";
+string p7 = @"<A[^>]*?HREF\s*=\s*[""']?"
+  + @"([^'"" >]+?)[ '""]?>";
+MatchCollection mc7 = 
+    Regex.Matches(t7, p7, RegexOptions.Singleline);
+\end{lstlisting}
+\end{itemize}
 \end{frame}
 
 % Local Variables:
