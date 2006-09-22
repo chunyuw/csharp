@@ -204,47 +204,447 @@ class MyForm : Form {
 \end{lstlisting}
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{修改控件行为}
+\begin{itemize}
+\item 修改控件上默认的方法来修改默认行为
+\item 扩展的 ~NumericTextBox 只能输入数字
+\end{itemize}
+\lstset{emph={override}}
+\begin{lstlisting}
+public class NumericTextBox : TextBox
+{
+  protected override void OnKeyPress(KeyPressEventArgs e)
+  {
+    base.OnKeyPress(e);
+    if(!char.IsControl(e.KeyChar) && 
+       !char.IsDigit(e.KeyChar)) {
+      e.Handled = true;
+    }
+  }
+}
+\end{lstlisting}
+\end{frame}
 
+\begin{frame}
+\frametitle{使用~ Visual Studio}
+\begin{itemize}
+\item 使用 ~Visual Studio 进行图形界面的设计非常方便
+\item 可以通过拖动控件的方式完成设计，修改属性也很方便
+\item Visual Studio 中用于图形设计的新项目模板
+\begin{itemize}
+\item Windows Application
+\item Windows Control Library
+\end{itemize}
+\end{itemize}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{gui-newproj}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{添加和修改控件}
+\begin{itemize}
+\item 添加控件只需从工具条拖动到窗口
+\item 修改控件，通过特性窗口直接修改
+\end{itemize}
+\begin{columns}
+  \column{.65\textwidth}
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{gui-controls}
+  \end{figure}
+  \column{.35\textwidth}
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{gui-properties}
+  \end{figure}
+\end{columns}
+\end{frame}
+
+\begin{frame}
+\frametitle{智能标签}
+\begin{itemize}
+\item Visual Studio 还为部分控件提供了智能标签~(\textit{Smart Tag})
+\item 提供了一些简单任务的快捷方式，直接编辑
+\end{itemize}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=.8\textwidth]{gui-smarttag}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{自动生成的代码}
+\begin{itemize}
+\item 当创建一个 ~Windows Application 后，Visual Studio 会自动生成三个源码文件
+\begin{itemize}
+\item Program.cs --- 程序的入口函数所在文件
+\item Form1.Designer.cs --- 主窗口的派生类，及各种控件的初始化
+\item Form1.cs --- 主窗口的构造函数
+\end{itemize}
+\end{itemize}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=.5\textwidth]{gui-slnwin}
+\end{figure}
+\end{frame}
 
 \begin{frame}[fragile]
-\frametitle{修改控件的特性}
+\frametitle{自动生成的组件代码}
 \begin{itemize}
-\item 
+\item 使用 ~InitializeComponent 方法放置组件初始化的代码
 \end{itemize}
+\lstset{emph={partial,InitializeComponent}}
+\begin{lstlisting}
+namespace TestWin
+{ partial class Form1
+  { private System.ComponentModel.IContainer 
+      components = null;
 
+    protected override void Dispose(bool disposing)
+    { ... }
+
+    private void InitializeComponent()
+    { this.components = new 
+              System.ComponentModel.Container();
+      this.AutoScaleMode = 
+              System.Windows.Forms.AutoScaleMode.Font;
+      this.Text = "Form1";
+    }
+  }
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{主函数代码}
+\begin{itemize}
+\item STAThread 表示线程模式，用于和~COM 交互
+\item Application.Run() 开始运行标准应用程序消息循环
+\end{itemize}
+\begin{lstlisting}
+[STAThread]
+static void Main()
+{
+  Application.EnableVisualStyles();
+  Application.SetCompatibleTextRenderingDefault(false);
+  Application.Run(new Form1());
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{窗口的显示}
+\begin{itemize}
+\item Application.Run 是应用程序入口中标准的显示方法
+\item Form.Show() --- 显示窗体，立即返回，主函数继续运行
+\item Form.ShowDialog() --- 显示窗体，主函数暂停，等待其退出
+\end{itemize}
+\begin{columns}
+  \column{.5\textwidth}
+\begin{lstlisting}
+static void Main()
+{
+  Form m1 = new Form();
+  Form m2 = new Form();
+  m1.Show();
+  m2.Show();
+  Thread.Sleep(1000);
+}
+\end{lstlisting}
+  \column{.5\textwidth}
+\begin{lstlisting}
+static void Main()
+{
+  Form m1 = new Form();
+  Form m2 = new Form();
+  m1.ShowDialog();
+  m2.ShowDialog();
+
+}
+
+\end{lstlisting}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{处理事件 --- 覆盖基类方法}
+通过覆盖基类方法，处理事件
+\lstset{emph={override}}
+\begin{lstlisting}
+public class NumericTextBox : TextBox
+{
+  protected override void OnKeyPress(KeyPressEventArgs e)
+  {
+    base.OnKeyPress(e);
+    if(!char.IsControl(e.KeyChar) && 
+       !char.IsDigit(e.KeyChar)) {
+      e.Handled = true;
+    }
+  }
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{处理事件 --- 句柄函数}
+使用句柄函数处理事件：
+\lstset{emph={Click, clk_handler}}
+\begin{lstlisting}
+using System;
+using System.Windows.Forms;
+using System.Drawing;
+class test
+{ 
+  static void Main()
+  { Form frmMain = new Form();
+    frmMain.Text = "Hello World";
+
+    frmMain.Click += clk_handler;
+
+    Application.Run(frmMain);
+  }
+
+  static void clk_handler(object s, EventArgs e)
+  {   ((Form)s).Close();     }
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{统一处理事件}
+\begin{itemize}
+\item 使用句柄函数，可以一处定义，多处使用
+\item 提供统一的处理方式
+\end{itemize}
+\begin{lstlisting}
+private void clk_handler(object s, EventArgs e){
+  Control ctrl = (Control) s;
+  MessageBox.Show("You Clicked: " + ctrl.Name);
+}
+...
+  Button1.Click  += clk_handler;
+  TextBox1.Click += clk_handler;
+  Label1.Click   += clk_handler;
+\end{lstlisting}
 \end{frame}
 
 
-常用特性、方法、事件
+\begin{frame}
+\frametitle{常用的控件特性}
+\begin{itemize}
+\item Control 类提供了大量的特性和事件
+\end{itemize}
+\begin{tabular}{l|l}
+\hline
+特 性 & 说 明 \\
+\hline
+Name, Tag & 名字和相关的数据对象 \\
+Controls & 控件的容器 \\
+Parent & 所在容器 \\
+\hline
+Size, Location & 控件的大小，位置 \\
+Anchor, Cock & 控件锚定和停靠的方向 \\
+BackColor, ForeColor & 前景色和背景色 \\
+\hline
+Text & 控件相关的文本，如标题、按钮文字等 \\
+Font & 默认的字体 \\
+\hline
+TabIndex, TabStop & 按 ~TAB 建的顺序和焦点 \\
+MouseButton & 鼠标的按键 \\
+MousePosition & 鼠标的位置 \\
+Cursor & 光标的形状 \\
+\hline
+\end{tabular}
+\end{frame}
 
-% 控件的使用
-% % 继承或者直接使用，生成实例
-% % 设置相关的属性
+\begin{frame}[fragile]
+\frametitle{使用举例}
+\begin{itemize}
+\item 控件的停靠 ~(\textit{Dock})
+\begin{lstlisting}
+TextBox1.Dock = DockStyle.Top;
+\end{lstlisting}
+\item 控件的锚定 ~(\textit{Anchor})
+\begin{lstlisting}
+Pnl.Anchor = (AnchorStyle.Bottom|AnchorStyle.Left);
+\end{lstlisting}
+\item 设置 ~TAB 键顺序
+\begin{lstlisting}
+TextBox1.TabIndex = 1;
+Button1.TabIndex  = 2;
+TextBox2.TabIndex = 3;
+Button2.TabIndex  = 4;
+\end{lstlisting}
+\end{itemize}
+\end{frame}
 
-% 常用控件 --- Button
-% TextBox
-% ...
+\begin{frame}
+\frametitle{常用的控件方法}
+\begin{figure}
+  \centering
+  \begin{tabular}{l|l}
+    \hline
+    方 法 & 说 明 \\
+    \hline
+    Focus() & 获取焦点 \\
+    DoDragDrop() & 开始拖放操作 \\
+    Hide() & 对用户隐藏控件 \\
+    \hline
+    Contains() & 判断是否为控件 \\
+    Dispose() & 释放所有资源 \\
+    Scale() & 缩放控件和任何子控件 \\
+    \hline
+    OnClick() & 引发~Click事件 \\
+    OnEnter() & 引发~Enter事件 \\
+    \hline
+  \end{tabular}
+\end{figure}
+\end{frame}
 
-事件的处理
+\begin{frame}[fragile]
+\frametitle{常用的控件事件}
+\begin{itemize}
+\item 事件的委托类型
+\end{itemize}
+\lstset{emph={EventArgs}}
+\begin{lstlisting}
+delegate void EventHandler(object sender, EventArgs e)
+\end{lstlisting}
+其中的~\texttt{EventArgs} 对不同的事件稍有不同：
+\begin{figure}[htbp]
+  \centering
+  \begin{tabular}{l|l}
+    \hline
+    事件 & 事件参数 \\
+    \hline
+    Click, DoubleClick & EventArgs \\
+    MouseEnter, MouseLeave & EventArgs \\
+    MouseHover, MouseWheel & EventArgs \\
+    MouseDown, MouseUp & MouseEventArgs \\
+    KeyUp, KeyDown & KeyEventArgs \\
+    KeyPress & KeyPressEventArgs \\
+    \hline
+  \end{tabular}
+\end{figure}
+\end{frame}
 
-使用句柄函数
+\begin{frame}
+\frametitle{EventArgs 类}
+\begin{itemize}
+\item EventArgs 类是事件数据类的基类
+\item .NET 推荐使用的事件处理参数
+\item 利用系统提供的派生类，可以得到事件的信息
+\end{itemize}
+\medskip
 
-事件处理参数 EventArgs
+例如，MouseEventArgs 的成员特性：
 
-组件
+\begin{tabular}{l|l}
+\hline
+成员特性 & 说明 \\  
+\hline
+Button & 枚举~MouseButtons 的值~Left, Middle, Right, None \\
+Clicks & 鼠标的点击次数 \\
+Delta & 鼠标滚轮旋转次数，正数向前，负数向后 \\
+X, Y & 鼠标相对于容器的坐标位置，即控件的 MousePosition \\
+\hline
+\end{tabular}
+\end{frame}
 
-组件的使用
+\begin{frame}[fragile]
+\frametitle{使用举例}
+\begin{itemize}
+\item 当鼠标经过时，改变文本框的背景颜色
+\end{itemize}
+\begin{lstlisting}
+  TextBox txtBox = new TextBox(); // and other settings
+  txtBox.MouseEnter += OnMouseEnter;
+  txtBox.MouseLeave += OnMouseLeave;
 
-Visual Studio 的使用
+void OnMouseEnter(object s, EventArgs e){
+  Control ctrl = (Control) s;
+  ctrl.BackColor = Color.Red;
+}
 
-使用 Visual Studio 修改控件的特性
+void OnMouseLeave(object s, EventArgs e){
+  Control ctrl = (Control) s;
+  ctrl.BackColor = Color.White;
+}
 
-Visual Studio 自动生成的代码
+\end{lstlisting}
+\end{frame}
 
-应用程序的运行
+\begin{frame}
+\frametitle{丰富的控件}
+\begin{itemize}
+\item 类库中的控件种类繁多，十分丰富
+\end{itemize}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=.9\textwidth]{gui-allctrl}
+\end{figure}
+\end{frame}
 
-具体的控件
+\begin{frame}
+\frametitle{组件~(\textit{Component})}
+\begin{itemize}
+\item 窗体上除了可以放置控件之外，还可以使用组件
+\item 组件就是不可见的控件 ~(\textit{invisible controls})
+\begin{itemize}
+\item 显示帮助窗口的组件，系统托盘中显示图标的组件
+\item 定时器 ~Timer，数据库连接 ~SqlConnection
+\end{itemize}
+\item 组件和控件的使用基本类似，但不占用窗体空间
+\item 在 ~Visual Studio 中显示在设计窗口之下
+\end{itemize}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=.6\textwidth]{gui-compnts}
+\end{figure}
+\end{frame}
 
+\begin{frame}[fragile]
+\frametitle{组件的使用}
+\begin{itemize}
+\item Timer 的使用示例
+\end{itemize}
+\begin{lstlisting}
+public class TimerTest {
+  static Timer myTimer = new Timer();
+  private static void run(object s, EventArgs e) {
+    MessageBox.Show ("Hello");
+  }
+ 
+  public static void Main() {
+    myTimer.Tick += new EventHandler(run);
+ 
+    myTimer.Interval = 1000;
+    myTimer.Start();
+ 
+    while(true) Application.DoEvents();
+  }
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{组件和控件的区别}
+\begin{itemize}
+\setlength{\itemsep}{6pt plus 1pt}
+\item 一般将组件称为不可见的控件
+\item 但实际，控件是组件的一种，控件类继承自组件类
+\item 组件不需要放入 ~Controls 容器中
+\item 组件如果使用了非托管的资源，需要显式的释放
+\item Visual Studio 会自动分配一个组件容器
+\begin{lstlisting}
+private
+  System.ComponentModel.IContainer components = null;
+\end{lstlisting}
+\end{itemize}
+\end{frame}
 
 % \begin{frame}[fragile]
 % \frametitle{窗体类的成员}
@@ -272,29 +672,63 @@ Visual Studio 自动生成的代码
 % \end{itemize}
 % \end{frame}
 
-% \begin{frame}[fragile]
-% \frametitle{处理事件}
-% \lstset{emph={Click, clk_handler}}
-% \begin{lstlisting}
-% using System;
-% using System.Windows.Forms;
-% using System.Drawing;
+\begin{frame}[fragile]
+\frametitle{MDI 窗体}
+\begin{itemize}
+\item 实现 MDI (\textit{Multi-Document Interface}) 窗口非常简单
+  \begin{itemize}
+  \item 设置父窗体的 ~IsMdiContainer 为 \texttt{true}
+  \item 设置子窗体的 ~MdiParent 为父窗体即可
+  \end{itemize}
+\end{itemize}
+\begin{columns}
+  \column{.6\textwidth}
+\begin{lstlisting}
+Form f1 = new Form();
+Form f2 = new Form();
 
-% class test
-% { static void Main()
-%   { Form frmMain = new Form();
-%     frmMain.Text = "Hello World";
+f1.IsMdiContainer = true;
+f2.MdiParent = f1;
+f2.Show();
 
-%     frmMain.Click += clk_handler;
+Application.Run(f1);
+\end{lstlisting}
+  \column{.4\textwidth}
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{gui-mdi}
+  \end{figure}
+\end{columns}
+\end{frame}
 
-%     Application.Run(frmMain);
-%   }
+\begin{frame}[fragile]
+\frametitle{菜单的使用}
+\begin{columns}
+\column{.5\textwidth}
+  \begin{itemize}
+  \item 将控件 ~MenuStrip 拖到窗体
+  \item 按提示输入想要的菜单项
+  \item 选中菜单项，在事件工具栏中选择句柄函数
+  \item Visual Studio 自动生成代码
+  \end{itemize}
+\column{.5\textwidth}
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{gui-menu}
+  \end{figure}
+\end{columns}
+\begin{lstlisting}
+private MenuStrip menuStrip1;
+private ToolStripMenuItem openToolStripMenuItem;
+...
+openToolStripMenuItem.Size = new Size(152, 22);
+openToolStripMenuItem.Text = "Open";
+openToolStripMenuItem.Click += 
+   new System.EventHandler(this.openToolStripMenuItem_Click);
+\end{lstlisting}
+\end{frame}
 
-%   static void clk_handler(object s, EventArgs e)
-%   {   ((Form)s).Close();     }
-% }
-% \end{lstlisting}
-% \end{frame}
+% 具体的控件
 
 % Local Variables:
 % mode: LaTeX
