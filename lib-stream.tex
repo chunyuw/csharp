@@ -43,7 +43,7 @@ Stream 的派生类中，不一定都支持所有的操作，可如下判断：
 \begin{itemize}
 \item bool CanRead --- 是否可以读取
 \item bool CanWrite --- 是否可以写入
-\item bool CanSeak --- 是否支持定位
+\item bool CanSeek --- 是否支持定位
 \item bool CanTimeout --- 是否会有超时
 \item long Length --- 流的长度
 \item long Position --- 目前在流中的位置，可以修改
@@ -193,6 +193,7 @@ public StreamWriter(stream    s, bool append, Encoding e)
 
 \begin{frame}[fragile]
 \frametitle{字符流示例}
+\lstset{emph={Read,ReadToEnd}}
 \begin{lstlisting}
 FileStream fs = new FileStream(...); // Open a text file
 StreamReader reader = new StreamReader(fs);
@@ -352,14 +353,34 @@ ConsoleKeyInfo 提供基本的按键信息，如所按的键值和 ~\texttt{ALT, CTRL, SHIFT} 等
 \frametitle{串行化}
 \begin{block}{\textit{Serialization}}
 \CJKindent 将对象或对象的集合转换为特定的格式，适于网络传递，存储在文件、数据
-库内的过程，成为对象的串行化。逆串行化~(\textit{Deserialization})过程正好相反，
-将所存储的内容，转换回原来的对象或对象的集合。
+库内的过程，成为对象的串行化。逆串行化 ~(\textit{Deserialization}) 过程正好相反，
+将所存储的内容，转换回原来的对象。
 \end{block}
 .NET 支持三种主要的串行化：
 \begin{itemize}
 \item 二进制串行化，转换为二进制流~(BinaryFormatter 类)
 \item SOAP 串行化，转换为~SOAP 标准格式~(SoapFormatter 类)
 \item XML 串行化，转换为~XML 格式~(XmlSerializer 类)
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{串行化的过程}
+\begin{itemize}
+\item 串行化时，根据对象的引用关系，构建一个对象图
+\item 依次将该对象包括的全部成员对象串行化，完成深拷贝
+\item 串行化发生前后会引发~OnSerializing 和~OnSerialized 事件
+\item 串行化是基于对象的，因此不包括静态成员
+\medskip \pause
+\item 串行化通过不同~Formatter 完成，有共同的接口~IFormatter
+\begin{lstlisting}
+public interface IFormatter {
+  object Deserialize(Stream s);
+  void   Serialize(Stream s, object graph);
+  // other members
+}
+\end{lstlisting}
+\item C\# 2.0 还提供了泛型接口 ~IGenericFormatter
 \end{itemize}
 \end{frame}
 
@@ -403,26 +424,6 @@ public class MyClass{
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{串行化的过程}
-\begin{itemize}
-\item 串行化时，根据对象的引用关系，构建一个对象图
-\item 依次将该对象包括的全部成员对象串行化，完成深拷贝
-\item 串行化发生前后会引发~OnSerializing 和~OnSerialized 事件
-\item 串行化是基于对象的，因此不包括静态成员
-\medskip \pause
-\item 串行化通过不同~Formatter 完成，有共同的接口~IFormatter
-\begin{lstlisting}
-public interface IFormatter {
-  object Deserialize(Stream s);
-  void   Serialize(Stream s, object graph);
-  // other members
-}
-\end{lstlisting}
-\item C\# 2.0 还提供了泛型接口 ~IGenericFormatter
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
 \frametitle{可串行化属性}
 \begin{itemize}
 \item 串行化的类必须使用~\texttt{[Serializable]} 属性
@@ -452,6 +453,7 @@ public interface IDeserializationCallback {
 }
 \end{lstlisting}
 \end{itemize}
+\lstset{emph={[3]IDeserializationCallback,OnDeserialization}}
 \begin{lstlisting}
 [Serializable]
 public class MyClass:IDeserializationCallback {
@@ -491,17 +493,21 @@ public class Chair {
 \begin{frame}[fragile]
 \frametitle{串行化多个对象}
 \begin{itemize}
-\item 依次放入数据流，依次从数据流中读出即可
+\item 依次放入数据流进行串行化
 \end{itemize}
-\begin{lstlisting}[escapeinside=<>]
+\begin{lstlisting}
 ClassA obj1 = new ClassA();
 ClassB obj2 = new ClassB();
 
 formatter.Serialize(stream, obj1);
 formatter.Serialize(stream, obj2);
 
-   <\dots{} \dots{} \dots>
-
+\end{lstlisting}
+\begin{itemize}
+\item 逆串行化，依次从数据流中读出即可
+\end{itemize}
+\begin{lstlisting}[escapeinside=<>]
+// <\dots{} \dots{}>
 ClassA a = (ClassA) formatter.Deserialize(stream);
 ClassB b = (ClassB) formatter.Deserialize(stream);
 \end{lstlisting}
@@ -511,6 +517,7 @@ ClassB b = (ClassB) formatter.Deserialize(stream);
 \begin{frame}
 \frametitle{反射~(\textit{Reflection})}
 \begin{itemize}
+\setlength{\itemsep}{6pt plus 1pt}
 \item 查看元数据，用于辅助工具的显示功能等
 \item 类型发现，用户定制脚本和代码交互
 \item 后期绑定，基于类型发现的动态执行方法、设置特性等
@@ -519,10 +526,10 @@ ClassB b = (ClassB) formatter.Deserialize(stream);
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{得到类型信息}
+\frametitle{获得类型信息}
 \lstset{emph={Type,GetTypes}}
 \begin{lstlisting}
-using System.Reflection;
+using System; using System.Reflection;
 public static void Main()
 {
    Assembly a = Assembly.Load( "Mscorlib" );
@@ -547,7 +554,7 @@ Type is System.Collections.IList
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{得到成员信息}
+\frametitle{获得成员信息}
 \lstset{emph={MemberInfo,GetMembers}}
 \begin{lstlisting}
 public static void Main( )
@@ -571,7 +578,7 @@ Int16 MinValue is a Field
 
 
 \begin{frame}[fragile]
-\frametitle{得到特定的成员信息}
+\frametitle{获得特定的成员信息}
 \lstset{emph={FindMembers}}
 \begin{lstlisting}
 public static void Main( )
@@ -598,11 +605,11 @@ System.Reflection.Assembly GetEntryAssembly() is a Method
 
 
 \begin{frame}[fragile]
-\frametitle{后期绑定~(Late Binding)}
+\frametitle{后期绑定~(\textit{Late Binding})}
 \begin{itemize}
 \item 通过后期绑定，可以在运行时动态调用具体方法
 \end{itemize}
-\lstset{emph={Invoke}}
+\lstset{emph={Invoke,GetMethod}}
 \begin{lstlisting}
 Type theMathType = Type.GetType( "System.Math" );
 Type[] p = new Type[1];

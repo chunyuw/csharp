@@ -58,8 +58,8 @@ using System.Drawing;
 \begin{itemize}
 \item Control 类主要用于实现控件的基本功能
 \item Control 类有 ~200 多个成员，其中包括各种特性和事件
-\item 通过 ~Control 类，控件之间可以共享共有的行为
-\item 也可以通过{\redwarn覆盖}(\textit{override})，实现自己的行为
+\item 通过 ~Control 类，控件之间可以共享相同的行为
+\item 也可以通过{\redwarn覆盖}(\textit{override})，实现自己的不同行为
 \end{itemize}
 \begin{figure}[htbp]
   \centering
@@ -80,9 +80,9 @@ using System.Drawing;
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{窗体类(Form)}
+\frametitle{窗体类(\textit{Form})}
 \begin{itemize}
-\item 直接使用 Form 类的实例
+\item 直接使用 ~Form 类的实例
 \item \cmd{csc /t:winexe form.cs}
 \end{itemize}
 \begin{columns}[t]
@@ -366,7 +366,7 @@ static void Main()
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{处理事件 --- 覆盖基类方法}
+\frametitle{处理事件~ --- 覆盖基类方法}
 通过覆盖基类方法，处理事件
 \lstset{emph={override}}
 \begin{lstlisting}
@@ -385,7 +385,7 @@ public class NumericTextBox : TextBox
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{处理事件 --- 句柄函数}
+\frametitle{处理事件~ --- 句柄函数}
 使用句柄函数处理事件：
 \lstset{emph={Click, clk_handler}}
 \begin{lstlisting}

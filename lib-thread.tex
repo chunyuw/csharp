@@ -34,7 +34,6 @@
 \end{figure}
 \end{frame}
 
-
 \begin{frame}
 \frametitle{System.Threading 命名空间}
 \begin{itemize}
@@ -42,13 +41,11 @@
 \item Thread 类用于创建和管理线程，设置优先级等
 \item ThreadPool 类提供预先分配的线程池，可直接使用
 \item Monitor 类负责线程的同步，实现对象的访问的机制
-\item Mutex 一个同步基元，也可用于进程间同步
-\item Semaphore 限制可同时访问某一资源或资源池的线程数
+\item Mutex 实现一个同步基元，也可用于进程间同步
+\item Semaphore 限制可同时访问某一资源的线程数
 \item Timer 提供以指定的时间间隔执行方法的机制
 \end{itemize}
 \end{frame}
-
-
 
 \begin{frame}[fragile]
 \frametitle{Thread 类}
@@ -213,7 +210,7 @@ Thread 中定义的 ~Join 方法：
 \begin{lstlisting}[escapeinside='']
 public sealed class Thread {
   public void Join ();
-  public bool Join (int millisecondsTimeout);
+  public bool Join (int ms);
   public bool Join (TimeSpan timeout);
   // '如果等待时间结束，则返回，值为 false'
 }
@@ -260,7 +257,7 @@ public sealed class Thread{
 \end{itemize}
 \begin{lstlisting}
 public sealed class Thread {
-  public static void Sleep (int millisecondsTimeout);
+  public static void Sleep (int ms);
   public static void Sleep (TimeSpan timeout);
 
   public static void SpinWait(int iterations);
@@ -273,7 +270,7 @@ public sealed class Thread {
 \item TimeSpan.Infinite --- 无限
 \item TimeSpan.FromDays(2) --- 2 天
 \end{itemize}
-\item SpinWait 导致线程等待由 iterations 参数定义的时间量
+\item SpinWait 导致线程等待由 ~iterations 参数定义的时间量
 \end{itemize}
 \end{frame}
 
@@ -291,12 +288,13 @@ public sealed class Thread {
 \item 被中止的线程会发生 ~ThreadAbortException 异常
 \item 线程中的即使 ~catch 该异常，也会被中止，除非调用 ~Thread.ResetAbort()
 \item 该异常的成员 ~ExceptionState 即 ~stateInfo 参数
-\item WaitSleepJoin 状态的线程可以被中止，但 ~Suspended 的不可以
+\item WaitSleepJoin 状态的线程可被中止，但 ~Suspended 不可以
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile,plain]
 \frametitle{线程中止的示例}
+\lstset{emph={ExceptionState,Abort}}
 \begin{lstlisting}
 ...
   public static void DoWork()
@@ -332,11 +330,10 @@ public enum ThreadPriority {
   Lowest, BelowNormal, Normal, AboveNormal, Highest
 }
 \end{lstlisting}
-
 \begin{itemize}
-\item 高优先级得到更多的 ~CPU 时间，但具体调度算法随操作系统而不同
+\item 高优先级得到更多的 ~CPU 时间
+\item 具体调度算法随操作系统而不同
 \end{itemize}
-
 \begin{lstlisting}
   Thread t1, t2; // new Thread(...)
   ...
@@ -350,18 +347,13 @@ public enum ThreadPriority {
 \begin{frame}
 \frametitle{线程同步}
 \begin{block}{\textit{Synchronizing Threads}}
-确保多个线程对共享资源进行互斥访问的技术。
+\CJKindent 确保多个线程对共享资源进行互斥访问的技术。
 \end{block}
 \begin{itemize}
 \item 互斥锁~(\textit{Mutex})
 \item 信号量~(\textit{Semaphore})
 \item 临界区~(\textit{Critical region})
-\item 线程安全~(\textit{thread-safe})
-\end{itemize}
-\medskip
-\begin{itemize}
-\item Monitor 类用于线程的同步
-\item Mutex 和 ~Semaphore 类可用于线程和进程的同步
+\item 线程安全~(\textit{Thread-safe})
 \end{itemize}
 \end{frame}
 
@@ -373,7 +365,11 @@ public enum ThreadPriority {
 \item 使用 ~\texttt{lock} 进行同步非常容易
 \item 也可以使用功能更全的 ~Monitor 类来实现
 \end{itemize}
-\lstset{emph={lock}}
+\medskip
+\begin{itemize}
+\item Monitor 类用于线程的同步
+\item Mutex 和 ~Semaphore 类可用于线程和进程的同步
+\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -527,6 +523,7 @@ public class MyClass<T>
 { T m_T;
   public void SomeMethod() {
     lock(this) {
+      // some thing here
     }
   }
 }
@@ -623,7 +620,7 @@ class MonitorSample {
 \end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile]
+\begin{frame}[fragile,plain]
 \frametitle{Mutex 类}
 % http://msdn2.microsoft.com/zh-cn/library/system.threading.mutex.aspx
 \begin{itemize}
@@ -683,7 +680,7 @@ public class MutexDemo: IDisposable {
 \frametitle{Semaphore 类}
 % http://msdn2.microsoft.com/zh-cn/library/system.threading.semaphore.aspx
 \begin{itemize}
-\item C\# 2.0 新增的 ~Semaphore 类，用于限制访问临界资源的线程数
+\item C\# 2.0 的 ~Semaphore 类，用于限制访问临界资源的线程数
 \item 初始化信号量时，可指定已占用的信号量和最大数量
 \item Release 方法可以释放一个或多个信号量
 \end{itemize}
@@ -756,7 +753,7 @@ public sealed class Thread {
 \begin{itemize}
 \item 每个进程都有一个线程池，由 ~.NET 分配和管理
 \item 线程池中的线程，不需要创建，可以直接使用
-\item 通过静态类 ~ThreadPoll 来使用线程池
+\item 通过静态类 ~ThreadPool 来使用线程池
 \end{itemize}
 \begin{lstlisting}
 public static class ThreadPool{
@@ -772,7 +769,7 @@ public delegate void WaitCallback (Object s);
 \begin{frame}[fragile]
 \frametitle{线程池的使用}
 \begin{itemize}
-\item 线程池线程 ~IsThreadPooThread 为 true
+\item 线程池线程特性 ~IsThreadPoolThread 为 true
 \end{itemize}
 \lstset{emph={QueueUserWorkItem}}
 \begin{lstlisting}

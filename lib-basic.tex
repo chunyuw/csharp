@@ -66,24 +66,6 @@ public class SamplesStack  {
 \end{frame}
 
 \begin{frame}
-\frametitle{IEnumerator 和~ IEnumerable 接口}
-主要用于 ~\texttt{foreach} 循环。
-
-IEnumerator:
-\begin{itemize}
-\item \texttt{object Current \{get;\}} --- 返回当前对象
-\item \texttt{bool MoveNext();} --- 下移一个位置
-\item \texttt{void ReSet();} --- 复位
-\end{itemize}
-IEnumerable:
-\begin{itemize}
-\item \texttt{IEnumerator GetEnumerator();}
-\end{itemize}
-示例：IEnumerable.cs \attachfile[description=IEnumerable]{code/IEnumerable.cs}
-\end{frame}
-
-
-\begin{frame}
 \frametitle{ICollection 接口}
 ICollection 继承自~ IEnumerable，提供了基本的集合操作。
 \begin{itemize}
@@ -179,12 +161,12 @@ ArrayList 实现了 ~ICollection, IList, IEnumerable, ICloneable 接口。
 
 \begin{itemize}
 \item 键转换为 ~Hash code 的过程是自动的
-\item 访问时也只需使用键本身，不使用 ~Hash dode
+\item 访问时也只需使用键本身，不使用 ~Hash code
 \item 使用 ~Hash table 可以提高字典的访问效率
 \end{itemize}
 
 \CJKindent Hashtable 实现了~ IDictionary, ICollection, IEnumerable,
-ISerializable, IDeserializationCallback, 和 ICloneable 接口。
+ISerializable, IDeserializationCallback, 和~ICloneable 接口。
 \end{frame}
 
 \begin{frame}
@@ -236,6 +218,100 @@ class HashtableDemo {
   }
 }
 \end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\frametitle{其他集合类}
+\begin{itemize}
+\setlength{\itemsep}{8pt plus 1pt}
+\item \texttt{SortedList} --- 根据键值按循序排列的列表 \par
+\CJKindent \small 实现了~ IDictionary, ICollection, IEnumerable 接口。
+\item \texttt{Stack}      --- 栈 \par
+\CJKindent \small 实现了~ ICollection, IEnumerable接口。
+\begin{itemize}
+\item Posh(), Pop(), Peek(), Contains() \dots
+\end{itemize}
+\item \texttt{Queue}      --- 队列 \par
+\CJKindent \small 实现了~ ICollection, IEnumerable 接口。
+\begin{itemize}
+\item Dequeue(), Enqueue(), Peek(), Contains() \dots
+\end{itemize}
+\item \texttt{BitArray}   --- 按位~ (\textit{bit}) 存储 \par
+\CJKindent \small 实现了~ ICollection, IEnumerable 接口。
+\begin{itemize}
+\item 多种构造函数，便于从其他数据生成
+\item And(), Or(), Not(), Xor(), Set() \dots
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{专用集合}
+\begin{itemize}
+\setlength{\itemsep}{5pt plus 1pt}
+\item System.Collections.Specialized 中定义了一些专门的集合类
+\item 在特定类型的上有一定的优化
+\bigskip
+\item \texttt{CollectionsUtil} 创建忽略字符串大小写的集合
+\item \texttt{ListDictionary} 使用单链接列表实现~ IDictionary
+\item \texttt{NameValueCollection} 关联 ~String 键和~ Object 值的集合
+\item \texttt{OrderedDictionary} 根据索引排序的字典
+\item \texttt{StringCollection} 字符串集合
+\item \texttt{StringDictionary} 将键和值强类型化为字符串的哈希表
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{泛型接口}
+\begin{itemize}
+\item ICollection$<$T$>$ 操作泛型集合
+\item IComparer$<$T$>$ 比较两个对象
+\item IDictionary$<$TK, TV$>$ 键/值对的泛型集合
+\item IEnumerable$<$T$>$ 泛型枚举接口
+\item IEnumerator$<$T$>$ 泛型集合上迭代接口
+\item IEqualityComparer$<$T$>$ 对象的相等比较
+\item IList$<$T$>$ 按照索引单独访问
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{泛型集合类}
+\begin{itemize}
+\item List$<$T$>$ 泛型列表
+\item Queue$<$T$>$ 泛型队列
+\item Stack$<$T$>$ 泛型栈
+\item LinkedList$<$T$>$ 泛型双向链
+\begin{lstlisting}
+public LinkedList()
+public LinkedList(IEnumerable<T> c)
+
+public LinkedListNode<T> Next { get; }
+public LinkedListNode<T> Previous { get; }
+public LinkedList<T> List { get; }
+public T Value { get; set; }
+
+public int Count { get; }
+public LinkedListNode<T> First { get; }
+public LinkedListNode<T> Last { get; }
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{IEnumerator 和~ IEnumerable 接口}
+主要用于 ~\texttt{foreach} 循环。
+
+IEnumerator:
+\begin{itemize}
+\item \texttt{object Current \{get;\}} --- 返回当前对象
+\item \texttt{bool MoveNext();} --- 下移一个位置
+\item \texttt{void ReSet();} --- 复位
+\end{itemize}
+IEnumerable:
+\begin{itemize}
+\item \texttt{IEnumerator GetEnumerator();}
+\end{itemize}
+示例：IEnumerable.cs \attachfile[description=IEnumerable]{code/IEnumerable.cs}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -332,88 +408,11 @@ public class List
 \end{lstlisting}
 \end{frame}
 
-
-\begin{frame}
-\frametitle{其他集合类}
-\begin{itemize}
-\setlength{\itemsep}{8pt plus 1pt}
-\item \texttt{SortedList} --- 根据键值按循序排列的列表 \par
-\CJKindent \small 实现了~ IDictionary, ICollection, IEnumerable 接口。
-\item \texttt{Stack}      --- 栈 \par
-\CJKindent \small 实现了~ ICollection, IEnumerable接口。
-\begin{itemize}
-\item Posh(), Pop(), Peek(), Contains() \dots
-\end{itemize}
-\item \texttt{Queue}      --- 队列 \par
-\CJKindent \small 实现了~ ICollection, IEnumerable 接口。
-\begin{itemize}
-\item Dequeue(), Enqueue(), Peek(), Contains() \dots
-\end{itemize}
-\item \texttt{BitArray}   --- 按位~ (\textit{bit}) 存储 \par
-\CJKindent \small 实现了~ ICollection, IEnumerable 接口。
-\begin{itemize}
-\item 多种构造函数，便于从其他数据生成
-\item And(), Or(), Not(), Xor(), Set() \dots
-\end{itemize}
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{专用集合}
-\begin{itemize}
-\setlength{\itemsep}{5pt plus 1pt}
-\item System.Collections.Specialized 中定义了一些专门的集合类
-\item 在特定类型的上有一定的优化
-\item \texttt{CollectionsUtil} 创建忽略字符串大小写的集合
-\item \texttt{ListDictionary} 使用单链接列表实现~ IDictionary
-\item \texttt{NameValueCollection} 关联 ~String 键和~ Object 值的集合
-\item \texttt{OrderedDictionary} 表示根据索引排序的键/值对的集合
-\item \texttt{StringCollection} 表示字符串集合
-\item \texttt{StringDictionary} 将键和值强类型化为字符串的哈希表
-\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{泛型接口}
-\begin{itemize}
-\item ICollection$<$T$>$ 操作泛型集合
-\item IComparer$<$T$>$ 比较两个对象
-\item IDictionary$<$TK, TV$>$ 键/值对的泛型集合
-\item IEnumerable$<$T$>$ 泛型枚举接口
-\item IEnumerator$<$T$>$ 泛型集合上迭代
-\item IEqualityComparer$<$T$>$ 支持对象的相等比较
-\item IList$<$T$>$ 按照索引单独访问
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{泛型集合类}
-\begin{itemize}
-\item List$<$T$>$ 泛型列表
-\item Queue$<$T$>$ 泛型队列
-\item Stack$<$T$>$ 泛型栈
-\item LinkedList$<$T$>$ 泛型双向链
-\begin{lstlisting}
-public LinkedList()
-public LinkedList(IEnumerable<T> c)
-
-public LinkedListNode<T> Next { get; }
-public LinkedListNode<T> Previous { get; }
-public LinkedList<T> List { get; }
-public T Value { get; set; }
-
-public int Count { get; }
-public LinkedListNode<T> First { get; }
-public LinkedListNode<T> Last { get; }
-\end{lstlisting}
-\end{itemize}
-\end{frame}
-
 \section{文本处理}
 
 \begin{frame}[fragile]
 \frametitle{StringBuilder 类}
-可变字符串类 StringBuilder：
+可变字符串类~ StringBuilder：
 \begin{lstlisting}
 public sealed class StringBuilder {
   public method StringBuilder();  
@@ -587,10 +586,10 @@ Match m3 = Regex.Match(t3, p3);
 \item 替换用户名
 \begin{lstlisting}
 string t4 =
-  @"C:\Documents and Settings\user1\Desktop\";
+    @"C:\Documents and Settings\user1\Desktop";
 string r4 = Regex.Replace(t4,
-                   @"\\user1\\",
-                   @"\\user2\\");
+                          @"\\user1\\",
+                          @"\\user2\\");
 \end{lstlisting}
 \end{itemize}
 \end{frame}
@@ -617,6 +616,7 @@ MatchCollection mc6 = Regex.Matches(t6, p6);
 \frametitle{正则表达式示例}
 \begin{itemize}
 \item 查找 ~HTML 中的连接
+\end{itemize}
 \begin{lstlisting}
 string t7 = @"
 <html>
@@ -629,7 +629,6 @@ string p7 = @"<A[^>]*?HREF\s*=\s*[""']?"
 MatchCollection mc7 = 
     Regex.Matches(t7, p7, RegexOptions.Singleline);
 \end{lstlisting}
-\end{itemize}
 \end{frame}
 
 % Local Variables:
