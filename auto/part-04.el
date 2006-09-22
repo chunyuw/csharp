@@ -5,5 +5,6 @@
      "author"
      "lib-basic"
      "lib-stream"
-     "lib-thread")))
+     "lib-thread"
+     "gui-forms")))
 
