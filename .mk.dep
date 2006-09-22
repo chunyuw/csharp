@@ -5,9 +5,9 @@ part-01.pdf: $(wildcard pgf/*.tex) dn-outline.tex dn-devel.tex
 part-02.pdf: $(wildcard pgf/cs-*.tex) cs-basic.tex cs-class.tex
 part-03.pdf: $(wildcard pgf/cs-*.tex) cs-advac.tex cs-other.tex
 part-04.pdf: $(wildcard lib-*.tex) $(wildcard pgf/lib-*.tex)
-part-05.pdf: $(wildcard gui-*.tex) $(wildcard pgf/gui-*.tex)
-part-06.pdf: $(wildcard ado-*.tex) $(wildcard pgf/ado-*.tex)
-part-07.pdf: $(wildcard asp-*.tex) $(wildcard pgf/asp-*.tex)
+part-05.pdf: $(wildcard ado-*.tex) $(wildcard pgf/ado-*.tex)
+part-06.pdf: $(wildcard asp-*.tex) $(wildcard pgf/asp-*.tex)
+part-07.pdf: 
 part-08.pdf: 
 
 # Local Variables:
