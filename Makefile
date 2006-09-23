@@ -3,10 +3,11 @@
 Author    = "Chunyu Wang <chunyu@hit.edu.cn>"
 Copyright = "Copyright (C) 2006 Chunyu Wang."
 
-TEXFILES  = *.tex pgf/*.tex 
-PRGFILES  = Makefile .mk.dep auto/*.el logo/Makefile logo/*.mp
-TXTFILES  = $(TEXFILES) $(PRGFILES) Outline.org code/*.cs figures/*.txt .dired lab/*.cs
-BINFILES  = figures/*.jpg figures/*.png figures/*.pdf figures/*.ppt lab/*.doc lab/*.pdf
+PRGFILES  = {.,logo}/Makefile .mk.dep auto/*.el logo/*.mp
+TXTFILES  = {.,pgf,res}/*.tex $(PRGFILES) Outline.org {code,lab}/*.cs {figures,res}/*.txt .dired 
+BINFILES  = figures/*.{jpg,png,pdf,ppt} logo/*.jpg lab/*.{doc,pdf} res/*.doc
+
+test:; ls $(TXTFILES)
 
 NUMTARGT  = $(shell seq 0 8)
 PDFTARGT  = $(NUMTARGT:%=part-0%.pdf)
