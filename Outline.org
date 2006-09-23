@@ -10,9 +10,8 @@
 *** DONE .NET Framework
 *** DONE C# Language
 *** TODO Class Library
-** TODO Experiment Materials
-** TODO Oral Pratice
-** TODO Supporting Site
+** DONE Experiment Materials
+** DONE Supporting Site
 
 * What's going on
 
@@ -26,24 +25,10 @@ C#:  [[http://msdn2.microsoft.com/zh-cn/library/618ayhy6.aspx][C# 程序员参考]]
 
 ** API Quick Reference, Part IV in [[file:d:/work/eBook.NET/eBook/OReilly.CSharp.In.Nutshell.chm][CSharp.In.Nutshell]]
 
-
-** 预定义接口
-** 迭代器
-** [2] 文件 IO 和数据流
-*** XML
-     + Chapter 2, [[file:D:/work/eBook.NET/eBook/Apress.Real.World.Dot.NET.Applications.eBook-LiB.chm][Real.World.Dot.NET.Applications]]
-
 ** COM 集成 & Office 开发  [[file:d:/work/eBook.NET/eBook/Sams.Microsoft.Visual.C.Sharp.2005.Unleashed.May.2006.chm][Microsoft.Visual.C.Sharp.2005.Unleashed]]
 
-** [2] 其他语言特性
-*** 串行化
 ** [2] 网络编程
    + [[file:D:/work/eBook.NET/eBook/Microsoft.Press.Microsoft.Network.Programming.For.The.Microsoft.Dot.NET.Framework.eBook-LiB.chm][Network.Programming.For.The.Microsoft.Dot.NET.Framework]]
-
-** [2] 多线程
-** [2] 图形界面
-   + Chapter 3, [[file:D:/work/eBook.NET/eBook/Oreilly.Visual.C.Sharp.2005.A.Developers.Notebook.Apr.2005.eBook-LiB.chm][Visual.C.Sharp.2005.A.Developers.Notebook.Apr.2005]]
-   + [[file:d:/work/eBook.NET/eBook/Apress.Pro.dot.NET.2.0.Windows.Forms.and.Custom.Controls.in.C.Sharp.Dec.2005.pdf][dot.NET.2.0.Windows.Forms.and.Custom.Controls.in.C.Sharp]]
 
 ** [?] 应用程序的部署
    + [[file:D:/work/eBook.NET/eBook/Microsoft.Press.Deploying.Dot.NET.Applications.A.Lifecycle.Guide.eBook-LiB.chm][Deploying.Dot.NET.Applications.A.Lifecycle.Guide]]
@@ -147,6 +132,19 @@ C#:  [[http://msdn2.microsoft.com/zh-cn/library/618ayhy6.aspx][C# 程序员参考]]
 
 
 * Backup
+
+** 预定义接口
+** 迭代器
+** [2] 文件 IO 和数据流
+*** XML
+     + Chapter 2, [[file:D:/work/eBook.NET/eBook/Apress.Real.World.Dot.NET.Applications.eBook-LiB.chm][Real.World.Dot.NET.Applications]]
+
+** [2] 其他语言特性
+*** 串行化
+** [2] 多线程
+** [2] 图形界面
+   + Chapter 3, [[file:D:/work/eBook.NET/eBook/Oreilly.Visual.C.Sharp.2005.A.Developers.Notebook.Apr.2005.eBook-LiB.chm][Visual.C.Sharp.2005.A.Developers.Notebook.Apr.2005]]
+   + [[file:d:/work/eBook.NET/eBook/Apress.Pro.dot.NET.2.0.Windows.Forms.and.Custom.Controls.in.C.Sharp.Dec.2005.pdf][dot.NET.2.0.Windows.Forms.and.Custom.Controls.in.C.Sharp]]
 
 ** 重载{操作符,true,false}
 ** 面向对象基础

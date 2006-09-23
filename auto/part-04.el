@@ -4,7 +4,7 @@
      "preamble"
      "author"
      "lib-basic"
-     "lib-stream"
      "lib-thread"
+     "lib-stream"
      "lib-forms")))
 
