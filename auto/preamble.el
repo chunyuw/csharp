@@ -10,7 +10,8 @@
      "helplines"
      "wraphere"
      "cmd"
-     "redwarn")
+     "redwarn"
+     "xnode")
     (TeX-run-style-hooks
      "babel"
      "english"
@@ -33,6 +34,5 @@
      "beamer"
      "13pt"
      "cjk"
-     "table"
-     "macros")))
+     "table")))
 

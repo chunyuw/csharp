@@ -112,8 +112,6 @@
 %% graphicx 
 % \DeclareGraphicsExtensions{.png,.jpg,.mps,.pdf,.gif,.tif}
 
-\input{macros}
-
 \mode<handout> {                % handout mode of beamer
   % \usepackage{pgfpages}         % Ò»Ò³¶àÖ¡
   % \pgfpagesuselayout{2 on 1}[a4paper,border shrink=1mm]
@@ -141,6 +139,8 @@
 \def\wraphere{\tikz \draw[color=red!60!black,thick,->] (0ex,1.2ex) .. controls +(-10:1.2ex) and +(40:.2ex) .. (0,0);\\}
 \def\cmd#1{\par\texttt{C:$\backslash> $\ {}#1}\par}
 \def\redwarn{\color<handout:0>{red!65!black}}
+\def\xnode #1#2#3{node[style=outnode] (#1) {} +(up:.2cm) node {#2} %
+  ++(down:.18cm) node[style=innode] (#3) {} node {Controls Collection}}
 
 % Local Variables:
 % mode: LaTeX
