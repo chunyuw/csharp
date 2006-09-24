@@ -1,14 +1,15 @@
 %% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> %% $Rev: 236 $
 
 \begin{tikzpicture}[font=\sffamily\scriptsize]
+\tikzstyle{shnode}=[fill=black!80, fill opacity=.2, minimum width=2.5cm, minimum height=.9cm]
 \tikzstyle{outnode}=[fill=red!60!yellow!20, draw=black, fill opacity=.8, minimum width=2.5cm, minimum height=.9cm]
-\tikzstyle{innode}=[rounded corners, fill=blue!20, minimum width=2.4cm, minimum height=.35cm]
+\tikzstyle{innode}=[rounded corners, fill=blue!20, draw=black!40, thin, minimum width=2.4cm, minimum height=.35cm]
 
-\draw (3,  4.5) \xnode {a1} {Form Class}        {a11};
-\draw (1.5,  3) \xnode {b1} {GroupBox Class}    {b11};
-\draw (4.5,  3) \xnode {b2} {Button Class}      {b21};
-\draw (.5, 1.5) \xnode {c1} {RadioButton Class} {c11};
-\draw (3.5,1.5) \xnode {c2} {RadioButton Class} {c21};
+\draw \xnode {(3,  4.5)} {a1} {Form Class}        {a11};
+\draw \xnode {(1.5,  3)} {b1} {GroupBox Class}    {b11};
+\draw \xnode {(4.5,  3)} {b2} {Button Class}      {b21};
+\draw \xnode {(.5, 1.5)} {c1} {RadioButton Class} {c11};
+\draw \xnode {(3.5,1.5)} {c2} {RadioButton Class} {c21};
 
 \draw[thick] (a11.south) -- ++(down:.35cm) -| (b1.north);
 \draw[thick] (a11.south)    ++(down:.35cm) -| (b2.north);

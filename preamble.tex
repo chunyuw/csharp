@@ -139,8 +139,8 @@
 \def\wraphere{\tikz \draw[color=red!60!black,thick,->] (0ex,1.2ex) .. controls +(-10:1.2ex) and +(40:.2ex) .. (0,0);\\}
 \def\cmd#1{\par\texttt{C:$\backslash> $\ {}#1}\par}
 \def\redwarn{\color<handout:0>{red!65!black}}
-\def\xnode #1#2#3{node[style=outnode] (#1) {} +(up:.2cm) node {#2} %
-  ++(down:.18cm) node[style=innode] (#3) {} node {Controls Collection}}
+\def\xnode #1#2#3#4{#1 +(.1,-.1) node[style=shnode] {} #1 node[style=outnode] (#2) {} +(up:.2cm) node {#3} %
+  ++(down:.18cm) node[style=innode] (#4) {} node {Controls Collection}}
 
 % Local Variables:
 % mode: LaTeX
