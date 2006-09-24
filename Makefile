@@ -36,8 +36,8 @@ all:
 	@echo "    make ci | st | ps | rar | 7z"
 
 $(NUMTARGT): %: part-0%.pdf
-$(PDFTARGT): %.pdf: %.tex preamble.tex author.tex
-	-@gbk2uni -s $(basename $@) ; pdflatex $<
+
+$(PDFTARGT): %.pdf: %.tex preamble.tex author.tex ; -@gbk2uni -s $(basename $@) ; pdflatex $<
 
 encrypt: $(foreach x,$(wildcard part-*.pdf),en-$(x))
 
