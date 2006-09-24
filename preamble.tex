@@ -3,15 +3,15 @@
 \documentclass[13pt,cjk,xcolor=svgnames,table]{beamer}
 %\documentclass[a4paper]{article}  \usepackage[noxcolor]{beamerarticle}
 
-\mode<handout>{                 % print only handout
+\mode<handout>{%                % print only handout
   \RequirePackage{ifthen}
   \newboolean{handoutprint}\setboolean{handoutprint}{true}} % false
 
-\mode<article>{%
+\mode<article>{%                % article only
   \usepackage[svgnames]{xcolor}
   \usepackage{fullpage}}
 
-\mode<presentation>{%
+\mode<presentation>{%           % presentation only
   \usetheme{Warsaw}
   \setbeamertemplate{background canvas}[vertical shading][bottom=red!10,top=blue!10]
   \setbeamercovered{transparent}
@@ -54,7 +54,7 @@
   morecomment=[s]{/*}{*/},
   morestring=[b]"}
 
-%% listings setup
+%% listings setup %%
 \mode<presentation>{%
   \lstset{basicstyle=\ttfamily\footnotesize,
     keywordstyle=\color[rgb]{0.15,0.25,0.55}\bfseries,
@@ -81,7 +81,7 @@
     frame=single, framerule=0pt, backgroundcolor=\color{black!10},
     escapebegin=\CJKfamily{kai}\sl, escapeend=, language=CSharp}}
 
-%% hyperref setup
+%% hyperref setup %%
 \hypersetup{%
   colorlinks=false,
   % bookmarks=true,
@@ -99,7 +99,7 @@
 
 \graphicspath{{figures/}}
 
-%% logo definition
+%% logo definition %%
 \pgfdeclaremask{hit-mask}{logo/hit-mask}
 \pgfdeclareimage[mask=hit-mask,width=1.3cm]{hit-logo}{logo/hit-logol}
 \pgfdeclaremask{cs-mask}{logo/cs-mask}
@@ -121,7 +121,7 @@
   \ifhandoutprint                 % print only handout
     \usepackage{pgfpages}         % “ª“≥∂‡÷°
     \pgfpagesuselayout{2 on 1}[a4paper,border shrink=1mm]
-    % \nofiles                      % ∑¿÷π“≥¬Î¥ÌŒÛ
+    % \nofiles                    % ∑¿÷π“≥¬Î¥ÌŒÛ
     \lstset{basicstyle=\ttfamily\footnotesize, keywordstyle=\bfseries,
       keywordstyle=[2]\bfseries, commentstyle=\sl, emphstyle=\bfseries,
       emphstyle=[2]\bfseries, emphstyle=[3]\bfseries, emphstyle=[4]\sl,
