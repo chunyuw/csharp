@@ -1,8 +1,11 @@
 %% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> %% $Rev$
 
 \documentclass[13pt,cjk,xcolor=svgnames,table]{beamer}
-% \documentclass[a4paper]{article}
-% \usepackage[noxcolor]{beamerarticle}
+%\documentclass[a4paper]{article}  \usepackage[noxcolor]{beamerarticle}
+
+\mode<handout>{                 % print only handout
+  \RequirePackage{ifthen}
+  \newboolean{handoutprint}\setboolean{handoutprint}{true}} % false
 
 \mode<article>{%
   \usepackage[svgnames]{xcolor}
@@ -114,31 +117,30 @@
 \mode<handout> {                % handout mode of beamer
   \hypersetup{%
     pdfpagemode=UseOutlines,    % ¥Úø™ È«©
-    pdfstartview=Fit}}
-
-% \mode<handout> {                % print only handout
-%   \usepackage{pgfpages}         % “ª“≥∂‡÷°
-%   \pgfpagesuselayout{2 on 1}[a4paper,border shrink=1mm]
-%   % \nofiles                      % ∑¿÷π“≥¬Î¥ÌŒÛ
-%   \lstset{basicstyle=\ttfamily\footnotesize, keywordstyle=\bfseries,
-%     keywordstyle=[2]\bfseries, commentstyle=\sl, emphstyle=\bfseries,
-%     emphstyle=[2]\bfseries, emphstyle=[3]\bfseries, emphstyle=[4]\sl,
-%     frame=none, framerule=0pt, backgroundcolor=\color{black!7},
-%     escapebegin=\CJKfamily{kai}\sl, escapeend=, language=CSharp}
-%   \setbeamertemplate{background canvas}{}
-%   \setbeamertemplate{headline}{}
-%   \setbeamertemplate{footline}{}
-%   \setbeamertemplate{background}{}
-%   \setbeamertemplate{frametitle}[default][left]
-%   \setbeamercolor{frametitle}{fg=black,bg=white}
-%   \setbeamertemplate{blocks}[default]
-%   \setbeamercolor{block title}{bg=black!10,fg=black}
-%   \setbeamercolor{block body}{bg=black!5,fg=black}
-%   \setbeamercolor{block title example}{bg=blue!10,fg=black}
-%   \setbeamercolor{block body example}{bg=blue!5,fg=black}
-%   \setbeamercolor{block title alerted}{bg=red!10,fg=black}
-%   \setbeamercolor{block body alerted}{bg=red!5,fg=black}
-%   \logo{}}
+    pdfstartview=Fit}
+  \ifhandoutprint                 % print only handout
+    \usepackage{pgfpages}         % “ª“≥∂‡÷°
+    \pgfpagesuselayout{2 on 1}[a4paper,border shrink=1mm]
+    % \nofiles                      % ∑¿÷π“≥¬Î¥ÌŒÛ
+    \lstset{basicstyle=\ttfamily\footnotesize, keywordstyle=\bfseries,
+      keywordstyle=[2]\bfseries, commentstyle=\sl, emphstyle=\bfseries,
+      emphstyle=[2]\bfseries, emphstyle=[3]\bfseries, emphstyle=[4]\sl,
+      frame=none, framerule=0pt, backgroundcolor=\color{black!7},
+      escapebegin=\CJKfamily{kai}\sl, escapeend=, language=CSharp}
+    \setbeamertemplate{background canvas}{}
+    \setbeamertemplate{background}{}
+    \setbeamertemplate{headline}{}
+    \setbeamertemplate{footline}{}
+    \setbeamertemplate{frametitle}[default][left]
+    \setbeamercolor{frametitle}{fg=black,bg=white}
+    \setbeamertemplate{blocks}[default]
+    \setbeamercolor{block title}{bg=black!10,fg=black}
+    \setbeamercolor{block body}{bg=black!5,fg=black}
+    \setbeamercolor{block title example}{bg=blue!10,fg=black}
+    \setbeamercolor{block body example}{bg=blue!5,fg=black}
+    \setbeamercolor{block title alerted}{bg=red!10,fg=black}
+    \setbeamercolor{block body alerted}{bg=red!5,fg=black}
+    \logo{} \fi}
 
 % for CJK fonts
 \newcommand{\song}{\CJKfamily{song}}

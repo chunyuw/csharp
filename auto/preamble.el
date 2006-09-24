@@ -13,6 +13,7 @@
      "redwarn"
      "xnode")
     (TeX-run-style-hooks
+     "pgfpages"
      "babel"
      "english"
      "inputenc"
@@ -29,6 +30,7 @@
      "fullpage"
      "xcolor"
      "svgnames"
+     "ifthen"
      "latex2e"
      "beamer10"
      "beamer"
