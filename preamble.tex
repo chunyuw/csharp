@@ -72,12 +72,11 @@
     escapeend=,
     language=CSharp}}
 \mode<article>{%
-  \lstset{basicstyle=\ttfamily\footnotesize,
-    keywordstyle=\bfseries, keywordstyle=[2]\bfseries, commentstyle=\sl,
-    emphstyle=\bfseries, emphstyle=[2]\bfseries, emphstyle=[3]\bfseries, emphstyle=[4]\sl,
+  \lstset{basicstyle=\ttfamily\footnotesize, keywordstyle=\bfseries,
+    keywordstyle=[2]\bfseries, commentstyle=\sl, emphstyle=\bfseries,
+    emphstyle=[2]\bfseries, emphstyle=[3]\bfseries, emphstyle=[4]\sl,
     frame=single, framerule=0pt, backgroundcolor=\color{black!10},
-    escapebegin=\CJKfamily{kai}\sl, escapeend=,
-    language=CSharp}}
+    escapebegin=\CJKfamily{kai}\sl, escapeend=, language=CSharp}}
 
 %% hyperref setup
 \hypersetup{%
@@ -113,12 +112,33 @@
 % \DeclareGraphicsExtensions{.png,.jpg,.mps,.pdf,.gif,.tif}
 
 \mode<handout> {                % handout mode of beamer
-  % \usepackage{pgfpages}         % “ª“≥∂‡÷°
-  % \pgfpagesuselayout{2 on 1}[a4paper,border shrink=1mm]
-  % \nofiles                      % ∑¿÷π“≥¬Î¥ÌŒÛ
   \hypersetup{%
     pdfpagemode=UseOutlines,    % ¥Úø™ È«©
     pdfstartview=Fit}}
+
+% \mode<handout> {                % print only handout
+%   \usepackage{pgfpages}         % “ª“≥∂‡÷°
+%   \pgfpagesuselayout{2 on 1}[a4paper,border shrink=1mm]
+%   % \nofiles                      % ∑¿÷π“≥¬Î¥ÌŒÛ
+%   \lstset{basicstyle=\ttfamily\footnotesize, keywordstyle=\bfseries,
+%     keywordstyle=[2]\bfseries, commentstyle=\sl, emphstyle=\bfseries,
+%     emphstyle=[2]\bfseries, emphstyle=[3]\bfseries, emphstyle=[4]\sl,
+%     frame=none, framerule=0pt, backgroundcolor=\color{black!7},
+%     escapebegin=\CJKfamily{kai}\sl, escapeend=, language=CSharp}
+%   \setbeamertemplate{background canvas}{}
+%   \setbeamertemplate{headline}{}
+%   \setbeamertemplate{footline}{}
+%   \setbeamertemplate{background}{}
+%   \setbeamertemplate{frametitle}[default][left]
+%   \setbeamercolor{frametitle}{fg=black,bg=white}
+%   \setbeamertemplate{blocks}[default]
+%   \setbeamercolor{block title}{bg=black!10,fg=black}
+%   \setbeamercolor{block body}{bg=black!5,fg=black}
+%   \setbeamercolor{block title example}{bg=blue!10,fg=black}
+%   \setbeamercolor{block body example}{bg=blue!5,fg=black}
+%   \setbeamercolor{block title alerted}{bg=red!10,fg=black}
+%   \setbeamercolor{block body alerted}{bg=red!5,fg=black}
+%   \logo{}}
 
 % for CJK fonts
 \newcommand{\song}{\CJKfamily{song}}
