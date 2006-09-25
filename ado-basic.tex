@@ -6,6 +6,53 @@
 \tableofcontents
 \end{frame}
 
+\begin{frame}
+\frametitle{ADO.NET 基础}
+\begin{block}{\textit{Active Data Object .NET}}
+  \CJKindent 由公共语言运行时 ~(\textit{CLR}) 管理的数据管理库，利用 ~XML 在应
+  用程序之间进行数据交换。
+\end{block}
+\begin{itemize}
+\item 便于创建高效、可靠基于 ~Internet 数据库应用程序
+\item 应用程序根据需要连接数据库，如读取或更新时
+\item 利于分布式数据访问，节省资源
+\item 托管环境中运行，由 ~CLR 负责资源管理
+\item 利用 ~XML 多种方式传递数据，便于数据交换
+\item Visual Stuido 提供可视化数据组件
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Microsoft 数据访问技术回顾}
+\begin{itemize}
+\setlength{\itemsep}{8pt plus 1pt}
+\item Open Database Connectivity (ODBC)
+ % 第一个规范的数据访问技术
+ % 只能访问关系数据，无法兼容非关系数据
+\item Data Access Object (DAO)
+ % 一组访问数据库的 ~COM 接口，直接访问数据库
+ % 便于访问 ~Access, FoxPro, SQL Server
+\item Microsoft Foundation Classes (MFC) ODBC and DAO classes
+ % C++ 类库，但不够灵活，效率也不理想，因为层次太多
+\item Remote Data Objects (RDO)
+ % 层次多，效率低，因为仍使用 ~ODBC，使用受到限制
+\item Object Linking and Embedding Database (OLE DB)
+ % 支持多种数据源，使用灵活
+ % 必须安装 ~OLE DB Provider，使用较复杂
+\item ActiveX Data Objects (ADO)
+ % 使用 ~COM 包装，使用较简单
+ % 效率较高，使用较灵活
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{ADO.NET 类库}
+% in System.Data.dll assembly
+
+\end{frame}
+
+
+
 
 % Local Variables:
 % mode: LaTeX
