@@ -185,6 +185,29 @@ VS.NET: [[http://msdn2.microsoft.com/zh-cn/library/k1s94fta.aspx][Visual Studio 
 
 * Beamer Usage
 
+** wallpaper package
+  for background pictures
+  \usepackage{wallpaper}
+  \setbeamercolor{background canvas}{bg=}
+  \ULCornerWallPaper{0.2}{logo/hit-logo} % 0.2 是缩放比例
+
+** logo
+  \logo{
+  \begin{picture}(100,150)
+  \put(0,150){\includegraphics[]{pdf}}
+  \end{picture}}
+  
+  \logo{\pgfputat{\pgfxy(5,5)}{\includegraphics[]{pdf}}}
+
+** chinese names (in CJK enviroment)
+  \newtheorem{theorem}{定理}
+  \newtheorem{definition}{定义}
+  \newtheorem{lemma}{引理}
+  \newtheorem{corollary}{推论}
+  \newtheorem{proposition}{命题}
+  \newtheorem{example}{例}
+  \newtheorem{remark}{注}
+
 ** pdfbookmark
   \pdfbookmark[3]{frametitle}{\thepage}
 
