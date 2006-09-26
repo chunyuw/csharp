@@ -185,6 +185,32 @@ VS.NET: [[http://msdn2.microsoft.com/zh-cn/library/k1s94fta.aspx][Visual Studio 
 
 * Beamer Usage
 
+** 
+
+** font examples
+\begin{frame}[t]
+\frametitle{test}
+
+\textrm{This is Rom style --- 1 2 3 4.}\\
+\emph{This is Emph style --- 1 2 3 4.}\\
+\textbf{This is Bold style --- 1 2 3 4.}\\
+\textit{This is Ital style --- 1 2 3 4.}\\
+\textsl{This is Slan style --- 1 2 3 4.}\\
+\textsf{This is SSrf style --- 1 2 3 4.}\\
+\textsc{This is caps style --- 1 2 3 4.}\\
+\texttt{This is Type style --- 1 2 3 4.}\\
+{\tiny This is tiny size.}\\
+{\scriptsize This is scriptsize.}\\
+{\footnotesize This is footnotesize.}\\
+{\small This is small size.}\\
+{\normalsize This is normalsize.}\\
+{\large This is large size.}\\
+{\Large This is Large size.}\\
+{\LARGE This is LARGE size.}\\
+{\huge This is huge size.}\\
+{\Huge This is Huge size.}\\
+\end{frame}
+
 ** wallpaper package
   for background pictures
   \usepackage{wallpaper}
