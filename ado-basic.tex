@@ -46,11 +46,144 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{ADO.NET 类库}
-% in System.Data.dll assembly
-
+\frametitle{数据提供器~(\textit{Data Provider})}
+\begin{itemize}
+\item 应用程序访问数据库依赖于 ~\textit{.NET Framework data provider}
+\item 客户程序和数据提供器，运行在 ~CLR 上
+\item 数据提供器可能依赖其它程序
+\end{itemize}
+\begin{center}
+  \includegraphics[scale=.5]{ado-provider}
+\end{center}
 \end{frame}
 
+\begin{frame}
+\frametitle{数据提供器的功能}
+\begin{itemize}
+\item Connection 建立和释放连接，可用于启动事务
+\item Command 执行 ~SQL 语句或存储过程
+\item DataReader 只读、顺序的~(\textit{Sequential}) 直接访问库中数据
+\item DataAdapter 创建并组装 ~DataSet 实例
+\end{itemize}
+\begin{center}
+  \input{pgf/ado-inprov}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\frametitle{提供器的命名空间}
+% in System.Data.dll assembly
+\begin{itemize}
+\setlength{\itemsep}{8pt plus 1pt}
+\item 特定的数据提供器，位于不同的命名空间
+\begin{itemize}
+\setlength{\itemsep}{6pt plus 1pt}
+\item System.Data.Odbc
+\item System.Data.OleDb
+\item System.Data.OracleClient
+\item System.Data.SqlClient
+\end{itemize}
+\item 公共的数据提供器
+  \begin{itemize}
+  \item System.Data.Common
+  \smallskip
+  \item 为其它提供器提供共享的类和抽象基类
+  \item 提供了通用编码的实现方式
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{使用~ Connection 和 ~Command 对象}
+\begin{itemize}
+\item 通过连接串，生成实例
+\begin{lstlisting}
+  SqlConnection Cn = new SqlConnection(
+                      "Data Source=localhost;" +
+                      "Integrated Security=SSPI;" +
+                      "Initial Catalog=example");
+  Cn.Open();
+\end{lstlisting}
+\item 使用连接对象的 ~CreateCommand 方法得到
+\begin{lstlisting}
+  SqlCommand Cmd = Cn.CreateCommand();
+\end{lstlisting}
+\begin{itemize}
+\item ExecuteReader 方法，返回~DataReader，用于访问 ~SQL 结果
+\item ExecuteScalar 方法，从数据库中检索单个值，如一个聚合值
+\item ExecuteNonQuery 方法，返回受影响的行数，如 ~INSERT, DELETE, UPDATE 等操作
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{DataReader 访问数据}
+\begin{itemize}
+\item DataReader 常用来读取查询结果
+\item 每次只能访问一行，而且只能向前移动
+\item 速度快，内存使用较少
+\end{itemize}
+\begin{lstlisting}
+public class SqlDataReader {
+  public override void Close()
+  public override bool IsClosed { get; }
+
+  public override bool Read();
+  public override bool NextResult();
+
+  public override float GetFloat(int i);
+  public override string GetString(int i);
+  // ... ...
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{使用 ~DataReader}
+\lstset{emph={ExecuteReader,Read}}
+\begin{lstlisting}
+using System.Data.SqlClient;
+public static void Main()
+{ 
+  SqlConnection Cn = new SqlConnection("...");
+  SqlCommand Cmd = Cn.CreateCommand();
+  Cmd.CommandText = "SELECT Name, Age FROM Employees";
+  Cn.Open();
+
+  SqlDataReader Rdr = Cmd.ExecuteReader();
+  while (Rdr.Read())
+  { System.Console.WriteLine("Name: {0}, Age: {1}",
+                   Rdr.GetString(0), Rdr.GetInt32(1));
+  }
+
+  Rdr.Close(); Cn.Close();
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{访问 ~DataReader 的列数据}
+\begin{itemize}
+\item DataReader 提供了多种不同的方法取得当前行的数据
+\end{itemize}
+\begin{lstlisting}[escapeinside=<>]
+Cmd.CommandText = "SELECT Name, Age FROM Employees";
+Rdr = cmd.ExecuteReader();
+Rdr.Read();
+string name; int age;
+
+age  = (int) rdr.GetValue(1); // <第 ~1 列的数据>
+name = rdr.GetString(0);      // <第 ~0 列，不需类型转换>
+name = (string) rdr.["Name"]; // <通过索引器>
+name = (string) rdr.[0];      // <通过索引器>
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\frametitle{使用 ~DataSet}
+
+\end{frame}
 
 
 

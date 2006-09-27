@@ -3,5 +3,5 @@
     (TeX-run-style-hooks
      "preamble"
      "author"
-     "gui-forms")))
+     "ado-basic")))
 
