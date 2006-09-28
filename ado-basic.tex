@@ -32,7 +32,7 @@
 \item Data Access Object (DAO)
  % 一组访问数据库的 ~COM 接口，直接访问数据库
  % 便于访问 ~Access, FoxPro, SQL Server
-\item Microsoft Foundation Classes (MFC) ODBC and DAO classes
+\item MFC ODBC and DAO classes
  % C++ 类库，但不够灵活，效率也不理想，因为层次太多
 \item Remote Data Objects (RDO)
  % 层次多，效率低，因为仍使用 ~ODBC，使用受到限制
@@ -43,6 +43,8 @@
  % 使用 ~COM 包装，使用较简单
  % 效率较高，使用较灵活
 \end{itemize}
+\bigskip
+\pause 数据库的访问、管理等，是企业应用程序开发中的核心问题。
 \end{frame}
 
 \begin{frame}
@@ -94,30 +96,74 @@
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{使用~ Connection 和 ~Command 对象}
+\frametitle{建立连接}
 \begin{itemize}
-\item 通过连接串，生成实例
+\item 程序使用数据库前，必须建立一个连接
+\item 使用 ~Connection 类对象新建连接
+\end{itemize}
+\medskip
+\begin{itemize}
+\item OLE DB Provider
 \begin{lstlisting}
-  SqlConnection Cn = new SqlConnection(
-                      "Data Source=localhost;" +
-                      "Integrated Security=SSPI;" +
-                      "Initial Catalog=example");
-  Cn.Open();
+OleDbConnection conn = null;
+conn = new OleDbConnection(
+       "Provider=Microsoft.Jet.OLEDB.4.0;" +
+       "User Id=;Password=;" +
+       "Data Source=D:\\Northwind.mdb");
+conn.Open();
 \end{lstlisting}
-\item 使用连接对象的 ~CreateCommand 方法得到
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{连接串~(\textit{Connection String})}
+\begin{itemize}
+\item 形如~attribute=value 的``属性名---值''对
+\item 不同的提供器的属性名不同，常见的属性名
+\begin{itemize}
+\item Provider, Data Source, Inintial Catalog
+\item User ID, Password, Persist Security Info \dots
+\end{itemize}
+\item 也可以使用 ConnectionStringBuilder 类构造
 \begin{lstlisting}
-  SqlCommand Cmd = Cn.CreateCommand();
+SqlConnectionStringBuilder s = 
+  new SqlConnectionStringBuilder();
+s.DataSource = "MYSERVER";
+s.UserID     = "admin";
+s.Password   = "secret";
+// ...
+
+SqlConnection conn = new 
+  SqlConnection(s.ConnectionString);
+conn.Open();
 \end{lstlisting}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{使用命令对象~(\textit{Command})}
+\begin{itemize}
+\item 连接对象的 ~CreateCommand 方法得到命令对象
+\begin{lstlisting}
+  SqlConnection conn = new SqlConnection("...");
+  conn.Open();
+
+  SqlCommand cmd = conn.CreateCommand();
+  cmd.CommandText = "SELECT * FROM users;"
+\end{lstlisting}
+\item 常用方法
 \begin{itemize}
 \item ExecuteReader 方法，返回~DataReader，用于访问 ~SQL 结果
 \item ExecuteScalar 方法，从数据库中检索单个值，如一个聚合值
 \item ExecuteNonQuery 方法，返回受影响的行数，如 ~INSERT, DELETE, UPDATE 等操作
 \end{itemize}
+\item 命令对象还可用于执行{\redwarn存储过程}以及设置参数等
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{DataReader 访问数据}
+\frametitle{DataReader}
 \begin{itemize}
 \item DataReader 常用来读取查询结果
 \item 每次只能访问一行，而且只能向前移动
@@ -181,10 +227,272 @@ name = (string) rdr.[0];      // <通过索引器>
 \end{frame}
 
 \begin{frame}
-\frametitle{使用 ~DataSet}
-
+\frametitle{数据集~(\textit{DataSet})}
+\begin{block}{\textit{DataSet}}
+\CJKindent ADO.NET 的主要部件，作为从数据库中取出的数据在内存的缓存。由多个
+~DataTable 组成，并可通过~ DataRelation 相互关联；并且可用 ~UniqueConstraint
+或 ~ForeignKeyConstraint 加强数据完整性。
+\end{block}
+\begin{center}
+  \input{pgf/ado-dsgraph}
+\end{center}
 \end{frame}
 
+\begin{frame}
+\frametitle{数据集的特点}
+\begin{itemize}
+\setlength{\itemsep}{6pt plus 1pt}
+\item 数据集相当于内存中的简化的数据库
+\begin{itemize}
+\item 数据来自数据源，可以随意更改
+\item 可以将数据的更改更新到数据源
+\item 可被串行化，可用于保存或通过网络传输
+\end{itemize}
+\item 数据集的组成
+\end{itemize}
+\begin{center}
+  \input{pgf/ado-dstree}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{使用 ~DataSet 类}
+\begin{center}
+  
+\begin{itemize}
+\item 数据集~ DynamicDS 中的 ~Customer 表
+\end{itemize}
+  \begin{tabular}{|l|l|l|l|}
+    \hline
+    \textbf{OrderID} & \textbf{FirstName} & \textbf{LastName} & \textbf{Date} \\
+    \hline
+    101 & John & Doe & 2006-9-1 \\
+    \hline
+    \dots & \dots & \dots & \dots \\
+    \hline
+  \end{tabular}
+\end{center}
+\begin{lstlisting}
+DataSet ds = new DataSet("DynamicDS");
+ds.Tables.Add("Customer");
+
+ds.Tables["Customer"].Columns.Add("OrderID", 
+                        Type.GetType("System.Int32"));
+ds.Tables["Customer"].Columns.Add("FirstName", 
+                        Type.GetType("System.String"));
+ds.Tables["Customer"].Columns.Add("Date",
+                        Type.GetType("System.DateTime"));
+
+ds.Tables.Add("Order"); // another table
+// ...
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\frametitle{DataSet 成员}
+\begin{itemize}
+\setlength{\itemsep}{8pt plus 1pt}
+\item Clear 方法，清除所有数据表中的数据
+\item Clone 方法，复制数据集的结构、模式等，数据除外
+\item Copy 方法，复制结构和全部数据
+\item Merge 方法，合并两个数据集
+\item GetXml 方法，返回所有数据的 ~XML 表示形式
+\item ReadXml 方法，从 ~XML 数据中读取数据
+\item \texttt{\dots}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{DataTable 类}
+\begin{itemize}
+\setlength{\itemsep}{8pt plus 1pt}
+\item DataTable 的列
+\begin{itemize}
+\setlength{\itemsep}{4pt plus 1pt}
+\item 通过集合类型 ~DataColumnCollection 表示
+\item 通过特性 ~Columns 访问
+\item 描述表的定义，列的类型、约束等
+\end{itemize}
+\item DataTable 的行
+\begin{itemize}
+\setlength{\itemsep}{4pt plus 1pt}
+\item 通过集合类型 ~DataRowCollection 表示
+\item 通过特性 ~Rows 访问
+\item 存储表的数据，一行一条记录
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{使用 ~DataTable 类示例}
+\begin{lstlisting}
+// ds is DataSet
+DataTable myTable = ds.Tables["OrderDetail"];
+
+foreach (DataColumn c in myTable.Columns)
+{
+   Console.Write(c.ColumnName + "\t");
+}
+Console.WriteLine("");
+
+foreach (DataRow r in myTable.Rows){
+  foreach (DataColumn c in myTable.Columns){
+     Console.Write(r[c] + "\t");
+  }
+  Console.WriteLine("");
+}
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{修改 ~DataTable 中的数据}
+\begin{itemize}
+\item 使用 ~DataRow 对象添加或修改记录
+\item AcceptChanges, RejectChanges 等方法控制对数据的修改
+\end{itemize}
+\begin{lstlisting}
+DataTable tb = ds.Tables["Customer"];
+DataRow  row = tb.NewRow();
+row["OrderId"] = 102; row["FirstName"]="Mike"; ...
+
+tb.Rows.Add(row);   tb.AcceptChanges();
+
+DataRow r = tb.Rows[0];
+r["FirstName"] = "Joe";
+r.Delete();
+tb.RejectChanges();
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{定义主键~(\textit{Primary Key})}
+\begin{itemize}
+\item 特性 ~PrimaryKey 可用于设置或获取表的主键
+\item 设置主键只需赋值 ~DataColumn 数组
+\end{itemize}
+\begin{lstlisting}
+workTable.PrimaryKey = new DataColumn[] 
+                {workTable.Columns["CustLName"],
+                workTable.Columns["CustFName"]};
+
+// Or 
+
+DataColumn[] myKey = new DataColumn[2]; 
+myKey[0] = workTable.Columns["CustLName"]; 
+myKey[1] = workTable.Columns["CustFName"];
+workTable.PrimaryKey = myKey; 
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{约束~(\textit{Constraint})}
+\begin{itemize}
+\item UniqueConstraint
+\end{itemize}
+\begin{lstlisting}
+DataColumn[] myColumns = new DataColumn[2];
+myColumns[0] = myTable.Columns["id"];
+myColumns[1] = myTable.Columns["Name"];
+UniqueConstraint myUC = 
+  new UniqueConstraint("idNameCstrnt", myColumns, false);
+myTable.Constraints.Add(myUniqueConstraint);
+\end{lstlisting}
+\begin{itemize}
+\item ForeignKeyConstraint
+\end{itemize}
+\begin{lstlisting}
+ForeignKeyConstraint custOrderFK = 
+  new ForeignKeyConstraint ("Order_OrderDetail", 
+      m_ds.Tables["Order"].Columns["OrderID"],       
+      m_ds.Tables["OrderDetail"].Columns["fk_OrderID"]));
+
+custOrderFK.DeleteRule = Rule.None;
+
+custDS.Tables["OrderDetail"].Constraints.Add(custOrderFK); 
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{从数据库中导入数据}
+\begin{itemize}
+\item 首先创建 ~DataAdapter 和 ~DataSet
+\item 通过 ~DataAdapter 的 ~Fill 方法填充 ~DataTable
+\item 多次 ~Fill 可以添加并填充多个数据表
+\end{itemize}
+\lstset{emph={DataSet, Fill, SqlDataAdapter}}
+\begin{lstlisting}[escapeinside=<>]
+SqlCommand cmd = conn.CreateCommand();
+cmd.CommandText = "SELECT Name, Age FROM Employees";
+
+SqlDataAdapter da = new SqlDataAdapter();
+da.SelectCommand = cmd;
+
+DataSet ds = new DataSet();
+
+da.Fill(ds, "NamesAndAges"); // <会自动执行 ~cmd>
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\frametitle{更新数据库}
+\begin{itemize}
+\item DataAdapter 加载数据后，所有更新都发生在数据集中
+\item 要更新数据源，需要使用~ DataAdapter 的相应方法
+  \begin{itemize}
+  \item Update 方法检查相应的数据集
+  \item InsertCommand, DeleteCommand, UpdateCommand 更新DBMS
+  \end{itemize}
+\end{itemize}
+\begin{center}
+  \input{pgf/ado-update}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{更新数据库示例}
+\lstset{emph={Update,UpdateCommand}}
+\begin{lstlisting}
+SqlDataAdapter dataAdpater = new SqlDataAdapter(
+   "SELECT ID, Name FROM Categories", connection);
+
+dataAdpater.UpdateCommand = new SqlCommand(
+   "UPDATE Categories SET Name = @Name " +
+   "WHERE ID = @ID" , connection);
+// then parameters setup
+
+DataSet dataSet = new DataSet();
+dataAdpater.Fill(dataSet, "Categories");   
+
+DataRow row = dataSet.Tables["Categories"].Rows[0];
+row ["Name"] = "New Category";
+
+dataAdpater.Update(dataSet, "Categories");
+\end{lstlisting}
+参考~\href{http://msdn2.microsoft.com/zh-cn/library/33y2221y.aspx}
+{\beamergotobutton{\scriptsize 代码完整版}}
+\end{frame}
+
+\begin{frame}
+\frametitle{连接模型和无连接模型}
+\begin{itemize}
+  \setlength{\itemsep}{8pt plus 1pt}
+\item 连接模型
+  \begin{itemize}
+    \setlength{\itemsep}{6pt plus 1pt}
+  \item 使用 ~DataReader 访问数据库，需要始终保持数据库的连接
+  \item 内存的使用较少，适合大数据量的处理
+  \end{itemize}
+\item 无连接模型
+  \begin{itemize}
+    \setlength{\itemsep}{6pt plus 1pt}
+  \item 使用 ~DataAdapter 填充数据表后，自动断开连接
+  \item 需要的时候会自动连接，比如更新数据源
+  \item 方便随时更新数据库
+  \end{itemize}
+\end{itemize}
+\end{frame}
 
 
 % Local Variables:

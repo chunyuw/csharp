@@ -5,7 +5,7 @@ Copyright = "Copyright (C) 2006 Chunyu Wang."
 
 PRGFILES  = {.,logo}/Makefile .mk.dep auto/*.el logo/*.mp
 TXTFILES  = {.,pgf,res}/*.tex $(PRGFILES) Outline.org {code,lab}/*.cs {figures,res}/*.txt .dired 
-BINFILES  = figures/*.{jpg,png,pdf,ppt} logo/*.jpg lab/*.{doc,pdf} res/*.doc
+BINFILES  = figures/*.{jpg,png,pdf,ppt,vsd} logo/*.jpg lab/*.{doc,pdf} res/*.doc
 
 NUMTARGT  = $(shell seq 0 8)
 PDFTARGT  = $(NUMTARGT:%=part-0%.pdf)
