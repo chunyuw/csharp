@@ -163,6 +163,29 @@ conn.Open();
 \end{frame}
 
 \begin{frame}[fragile]
+\frametitle{参数化命令}
+\begin{itemize}
+\item 构造带参数的命令串
+\begin{lstlisting}
+SqlCommand cmd = new SqlCommand(
+  "UPDATE accounts SET balance=@amount WHERE id=@id",
+   conn);
+\end{lstlisting}
+\item 向参数对象添加参数
+\begin{lstlisting}
+cmd.Parameters.Add("@amount", SqlDbType.Money);
+cmd.Parameters.Add("@id", SqlDbType.Char);
+\end{lstlisting}
+\item 运行时参数赋值
+\begin{lstlisting}
+cmd.Parameters["@amount"].Value = 100;
+cmd.Parameters["@id"].Value = "aabbcc";
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
 \frametitle{DataReader}
 \begin{itemize}
 \item DataReader 常用来读取查询结果
@@ -493,6 +516,66 @@ dataAdpater.Update(dataSet, "Categories");
   \end{itemize}
 \end{itemize}
 \end{frame}
+
+\begin{frame}
+\frametitle{ADO.NET 和 ~XML}
+\begin{itemize}
+\item ADO.NET 和 ~XML 紧密集成
+\item DataSet 提供了多种~XML 数据的处理方法
+\item DataSet 可以作为 ~XML 和关系数据的转换中介
+\end{itemize}
+\begin{center}
+  \includegraphics[width=\textwidth]{ado-xml}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{使用 ~XML 保存数据和模式}
+\begin{itemize}
+\item 分别保存 ~XML 数据和模式
+\end{itemize}
+\lstset{emph={WriteXmlSchema,WriteXml}}
+\begin{lstlisting}
+DataSet ds = new DataSet("films");
+DataTable da = ds.Table.Add("Movies");
+...
+da.Fill(dt);
+
+ds.WriteXmlSchema("C:\\movies_schema.xsd");
+ds.WriteXml("C:\\movies_data.xml");
+
+\end{lstlisting}
+\begin{itemize}
+\item 将模式和数据保存在一个 ~XML 文件中
+\end{itemize}
+\begin{lstlisting}
+
+ds.WriteXml("all.xml",XmlWriteMode.WriteSchema);
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{从 ~XML 恢复 DataSet}
+\begin{itemize}
+\item 使用已有的 ~XML 模式构造 ~DataSet
+\end{itemize}
+\begin{lstlisting}
+DataSet ds = new DataSet();
+ds.ReadXmlSchema ("d:\\movie_schema.xsd");
+
+DataTable tb = ds.Table[0];
+\end{lstlisting}
+\begin{itemize}
+\item 从 ~XML 读入数据
+\end{itemize}
+\begin{lstlisting}
+DataSet ds = new DataSet();
+ds.ReadXml("C:\\movie_data.xml");
+
+\end{lstlisting}
+\end{frame}
+
 
 
 % Local Variables:
