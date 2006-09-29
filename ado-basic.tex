@@ -579,7 +579,7 @@ ds.ReadXml("C:\\movie_data.xml");
 \end{frame}
 
 
-\section{数据绑定}
+%\section{数据绑定}
 
 \begin{frame}
 \frametitle{窗体控件的数据绑定}
@@ -598,7 +598,7 @@ ds.ReadXml("C:\\movie_data.xml");
 \begin{frame}[fragile]
 \frametitle{简单数据绑定}
 \begin{itemize}
-\item 通过集合特性 ~DataBindings，所有控件都能使用单值数据绑定
+\item 通过集合 ~DataBindings，所有控件都能使用单值数据绑定
 \item 将数据源于控件的一个或多个属性链接
 \end{itemize}
 \begin{lstlisting}
@@ -638,6 +638,69 @@ MultipleControlBinding_Load(object sender, EventArgs e)
 }
 \end{lstlisting}
 \end{frame}
+
+\begin{frame}[fragile]
+\frametitle{与列表控件的复杂绑定}
+\begin{itemize}
+\item 当控件包含数据源及其成员或特性时，使用复杂绑定
+\begin{itemize}
+\item 如 ListBox, CheckedListBox, DataGrid, DataGridView 等
+\end{itemize}
+\item 复杂绑定允许控件绑定到数据集上，同时显示多个数据
+\item 控件至少需要设置 ~DataSource 和 ~DisplayMember 两个属性
+\end{itemize}
+\lstset{emph={DataSource, DisplayMember}}
+\begin{lstlisting}
+da.Fill(ds, "movies);
+DataTable dt = ds.Tables[0];
+
+listBox1.DataSource = ds;
+listBox1.DisplayMember = "movies.Title";
+
+// optional property
+listBox1.ValueMember = "movies.ID";
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{绑定管理器}
+\begin{itemize}
+\item 数据源都有一个绑定管理器，负责跟踪数据源的所有连接
+\item 如果数据源更新，管理器负责更新相应控件
+\item 如果控件有更改，负责改变数据源中的数据
+\item 管理器的成员
+\begin{itemize}
+\item Binding 类，维护控件特性和某对象特性之间的简单绑定
+\item CurrencyManager 类，管理 ~Binding 对象的列表
+\item PropertyManager 类\\维护对象的特性与数据绑定控件特性之间的 ~Binding
+\item BindingContext 类\\链接到特定控件的 ~BindingManagerBase 集合上
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{BindingManagerBase 浏览列表}
+\begin{itemize}
+\item 在数据源列表元素间移动，同时更新列表绑定的控件内容
+\end{itemize}
+\begin{lstlisting}
+listBox1.DataSource = ds;
+listBox1.DisplayMember = "movies.Title";
+
+txtStudio.DataBinding.Add("text",ds,"movies.studio");
+
+BindingManagerBase bmb;
+bmb = this.BindingContext[ds,"movies"];
+bmb.PositionChanged += bmb_PositionChanged;
+
+private bmb_PositionChanged(object s, EventArgs e){
+  bmb.Position++;
+}
+\end{lstlisting}
+\end{frame}
+
+
+
 
 % Local Variables:
 % mode: LaTeX
