@@ -6,6 +6,8 @@
 \tableofcontents
 \end{frame}
 
+\section{ADO.NET 基础}
+
 \begin{frame}
 \frametitle{ADO.NET 基础}
 \begin{block}{\textit{Active Data Object .NET}}
@@ -577,6 +579,65 @@ ds.ReadXml("C:\\movie_data.xml");
 \end{frame}
 
 
+\section{数据绑定}
+
+\begin{frame}
+\frametitle{窗体控件的数据绑定}
+\begin{block}{数据绑定}
+  \CJKindent 数据绑定是一种将控件内容与底层数据源链接的方式，对中间数据源的改动
+  会自动反映到与之绑定的数据控件上，而对数据控件的修改也能自动回送给中间数据源。
+\end{block}
+\begin{itemize}
+\setlength{\itemsep}{8pt plus 1pt}
+\item 中间数据源不是外部的数据库
+\item 控件不能通过活动的连接直接与数据源绑定
+\item 绑定只限于数据的内存表示，如数据集等
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{简单数据绑定}
+\begin{itemize}
+\item 通过集合特性 ~DataBindings，所有控件都能使用单值数据绑定
+\item 将数据源于控件的一个或多个属性链接
+\end{itemize}
+\begin{lstlisting}
+txtUnitCost.DataBindings.Add("Text", dt, "UnitCost");
+\end{lstlisting}
+\begin{itemize}
+\item 将 ~DataTable dt 中 ~UnitCost 列的第一个值显示在文本框中
+\item 参数的含义：
+\begin{itemize}
+  \item \verb|"Text"| --- 特性的名字，.NET 使用反射找到相应特性
+  \item \verb|dt| --- 数据源，如 ~DataTable
+  \item \verb|"UnitCost"| --- 数据源中的字段名
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{简单数据绑定示例}
+\begin{lstlisting}
+private void
+MultipleControlBinding_Load(object sender, EventArgs e)
+{
+  // Get the data object.
+  DataTable dt = Program.StoreDB.GetProducts();
+
+  // Use complex binding.
+  cboModelName.DataSource = dt;
+  cboModelName.DisplayMember = "ModelName";
+
+  // Use simple binding.
+  lblModelNumber.DataBindings.Add(
+                              "Text", dt, "ModelNumber");
+  lblUnitCost.DataBindings.Add(
+                              "Text", dt, "UnitCost");
+  lblDescription.DataBindings.Add(
+                              "Text", dt, "Description");
+}
+\end{lstlisting}
+\end{frame}
 
 % Local Variables:
 % mode: LaTeX
