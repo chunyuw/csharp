@@ -376,6 +376,7 @@ foreach (DataRow r in myTable.Rows){
 \item 使用 ~DataRow 对象添加或修改记录
 \item AcceptChanges, RejectChanges 等方法控制对数据的修改
 \end{itemize}
+\lstset{emph={AcceptChanges,RejectChanges}}
 \begin{lstlisting}
 DataTable tb = ds.Tables["Customer"];
 DataRow  row = tb.NewRow();
@@ -396,6 +397,7 @@ tb.RejectChanges();
 \item 特性 ~PrimaryKey 可用于设置或获取表的主键
 \item 设置主键只需赋值 ~DataColumn 数组
 \end{itemize}
+\lstset{emph={PrimaryKey}}
 \begin{lstlisting}
 workTable.PrimaryKey = new DataColumn[] 
                 {workTable.Columns["CustLName"],
@@ -416,6 +418,7 @@ workTable.PrimaryKey = myKey;
 \begin{itemize}
 \item UniqueConstraint
 \end{itemize}
+\lstset{emph={UniqueConstraint}}
 \begin{lstlisting}
 DataColumn[] myColumns = new DataColumn[2];
 myColumns[0] = myTable.Columns["id"];
@@ -427,6 +430,7 @@ myTable.Constraints.Add(myUniqueConstraint);
 \begin{itemize}
 \item ForeignKeyConstraint
 \end{itemize}
+\lstset{emph={ForeignKeyConstraint}}
 \begin{lstlisting}
 ForeignKeyConstraint custOrderFK = 
   new ForeignKeyConstraint ("Order_OrderDetail", 
