@@ -484,7 +484,7 @@ void EVENTNAME(StreamingContext context);
 public class Chair {
   [OnDeserialized]
   void OnDeserialized(StreamingContext context) {
-    if(Val = "abc") Val = "efg";
+    if(Val == "abc") Val = "efg";
   }
 }
 \end{lstlisting}
