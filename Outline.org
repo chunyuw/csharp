@@ -5,177 +5,14 @@
 #+EMAIL:     chunyu@hit.edu.cn
 #+STARTUP:   nofold
 
-* What's going on
-
-CREATING A DATABASE WITH MICROSOFT ACCESS
-  Chapter 9, Section 3, [[file:d:/work/eBook.NET/eBook/Course.Technology.PTR.Microsoft.Visual.C.Sharp.2005.Express.Edition.Programming.for.the.Absolute.Beginner.Dec.2005.chm][Microsoft Visual C# 2005 Express Edition Programming for the Absolute Beginner]]
-
-MSDN: [[http://msdn2.microsoft.com/en-us/library/ms229335.aspx][.NET FCL]]
-MSDN: [[http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpguide/html/cpconworkingwithbasetypes.asp][Working with Base Types]]
-MSDN: [[http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpguide/html/cpconFormattingTypes.asp][Formatting Types]]
-MSDN: [[http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpguide/html/cpconBasicStringOperations.asp][Basic String Operations]]
-MSDN: [[http://msdn2.microsoft.com/zh-cn/library/system.text.encoding.aspx][System.Text.Encoding]]
-MSDN: [[http://msdn2.microsoft.com/zh-cn/library/k3352a4t.aspx][文件和流 I/O]]
-C#:   [[http://msdn2.microsoft.com/zh-cn/library/618ayhy6.aspx][MSDN C# 程序员参考]]
-
-** API Quick Reference, Part IV in [[file:d:/work/eBook.NET/eBook/OReilly.CSharp.In.Nutshell.chm][CSharp.In.Nutshell]]
-
-** COM 集成 & Office 开发  [[file:d:/work/eBook.NET/eBook/Sams.Microsoft.Visual.C.Sharp.2005.Unleashed.May.2006.chm][Microsoft.Visual.C.Sharp.2005.Unleashed]]
-
-** [2] 网络编程
-   + [[file:D:/work/eBook.NET/eBook/Microsoft.Press.Microsoft.Network.Programming.For.The.Microsoft.Dot.NET.Framework.eBook-LiB.chm][Network.Programming.For.The.Microsoft.Dot.NET.Framework]]
-
-** [?] 应用程序的部署
-   + [[file:D:/work/eBook.NET/eBook/Microsoft.Press.Deploying.Dot.NET.Applications.A.Lifecycle.Guide.eBook-LiB.chm][Deploying.Dot.NET.Applications.A.Lifecycle.Guide]]
-
-
-** [2] ASP.NET
-   * ASP.NET 基础
-     + Chapter 5, [[file:D:/work/eBook.NET/eBook/Addison.Wesley.Understanding.dot.NET.2nd.Edition.May.2006.chm][Wesley.Understanding.dot.NET.2nd.Edition]]
-   * Web 开发
-     + Chapter 4, [[file:D:/work/eBook.NET/eBook/Oreilly.Visual.C.Sharp.2005.A.Developers.Notebook.Apr.2005.eBook-LiB.chm][Visual.C.Sharp.2005.A.Developers.Notebook.Apr.2005]]
-     + [[file:D:/work/eBook.NET/eBook/Apress.ASP.Dot.NET.2.0.Revealed.eBook-LiB.chm][ASP.Dot.NET.2.0.Revealed]]
-
-   * Web Service 
-     + [[file:D:/work/eBook.NET/eBook/Microsoft.Press.Programming.Microsoft.Dot.NET.XML.Web.Services.eBook-LiB.chm][Programming.Microsoft.Dot.NET.XML.Web.Services]]
- 
-** [2] ADO.NET
-   * ADO.NET 基础
-     + Chapter 6, [[file:D:/work/eBook.NET/eBook/Addison.Wesley.Understanding.dot.NET.2nd.Edition.May.2006.chm][Wesley.Understanding.dot.NET.2nd.Edition]]
-   * ADO.NET 开发
-     + Chapter 5, [[file:D:/work/eBook.NET/eBook/Oreilly.Visual.C.Sharp.2005.A.Developers.Notebook.Apr.2005.eBook-LiB.chm][Visual.C.Sharp.2005.A.Developers.Notebook.Apr.2005]]
-     + [[file:D:/work/eBook.NET/eBook/Apress.Applied.ADO.Dot.NET-Building.Data-Driven.Solutions.eBook-LiB.chm][Applied.ADO.Dot.NET-Building.Data-Driven.Solutions]]
- 
-** 其他
-   * 编译策略 [[file:D:/work/eBook.NET/eBook/Apress.Debugging.Strategies.for.Dot.NET.Developers.eBook-LiB.chm][Debugging.Strategies.for.Dot.NET.Developers]]
-   * 优化效率 [[file:D:/work/eBook.NET/eBook/Apress.Maximizing.Dot.NET.Performance.eBook-LiB.chm][Maximizing.Dot.NET.Performance]]
-   * Compact Framework [[file:D:/work/eBook.NET/eBook/Apress.The.Definitive.Guide.to.the.Dot.NET.Compact.Framework.eBook-LiB.chm][The.Definitive.Guide.to.the.Dot.NET.Compact.Framework]]
-     
-
 * .NET Framework
-4 lessons
 
-    * [ ] 组件的使用
-    * [ ] 部署和版本控制
-      * 应用程序的部署
-        All in [[file:file:D:\work\eBook.NET\eBook\Microsoft.Press.Deploying.Dot.NET.Applications.A.Lifecycle.Guide.eBook-LiB][Deploying.Dot.NET.Applications]]
-			
-    * [X] 公共类型系统
-      * Type Safty
-      * Static Dynamic Type
-	Chapter 2 in [[file:D:\work\eBook.NET\eBook\Wrox.Professional.dot.NET.Framework.2.0.Apr.2006.chm][Professional.dot.NET.Framework.2.0]]
-      * Types and Objects
-
-    * [X] 公共语言运行环境
-    * [ ] 受管开发环境
-    * [X] 受管代码的执行
-    * [ ] app domain
-    * [ ] 垃圾回收
-    * [ ] Visual Studio
-    * [ ] 开发工具 SDK
-      * Visual Studio 2005
-        Chapter 2 in [[file:D:\work\eBook.NET\eBook\Oreilly.Visual.C.Sharp.2005.A.Developers.Notebook.Apr.2005.eBook-LiB.chm][Visual.C.Sharp.2005.A.Developers.Notebook]]
-	Chapter 2 in [[file:D:\work\eBook.NET\eBook\Prentice.Hall.Visual.C.Sharp.2005.How.to.Program.2nd.Edition.Dec.2005.chm][Visual.C.Sharp.2005.How.to.Program]]
-	[[file:d:/work/eBook.NET/eBook/Apress.Pro.Visual.Studio.2005.Team.System.May.2006.pdf][Visual.Studio.2005.Team.System]]
-	[[file:d:/work/eBook.NET/eBook/Course.Technology.PTR.Microsoft.Visual.C.Sharp.2005.Express.Edition.Programming.for.the.Absolute.Beginner.Dec.2005.chm][Microsoft.Visual.C.Sharp.2005.Express.Edition.Programming.for.the.Absolute.Beginner]]
-
-    * [ ] .NET 语言
-      * Core Features and Languages
-        Chapter 3 [[file:D:\work\eBook.NET\eBook\Oreilly.Dot.NET.Framework.Essentials.3rd.Edition.eBook-LiB.chm][Dot.NET.Framework.Essentials.3rd.Edition]]
-
-* C# Language
-8 lessons
-
-  * [ ] Execption
-     Chapter 3 in [[file:D:\work\eBook.NET\eBook\Wrox.Professional.dot.NET.Framework.2.0.Apr.2006.chm][Professional.dot.NET.Framework.2.0]]
-
-
-** 语言基础
-** 类
-** 类型之间的转换
-** 类型系统
-** 封装、继承、多态
-** 接口、抽象类
-** 委托、事件、索引器
-** 串行化
-** 组件开发
-
-* Class Library
-8 lessons
-
-** Streams
-** Collections
-** System.Text
-** GUI
-** Network
-** Threads
-** ADO.NET
-** System.Drawing
-** Remoting / Web Service
-** ASP.NET
-
-
-* Experiment
-** [大纲] 构建一个简单的.NET应用程序
-** [大纲] 通过ASP.NET页面来调用组件
-** [大纲] 建立简单的Chat服务器
-** [大纲] 建立日期/时间的客户/服务器应用程序
-** [大纲] 通过使用远程服务机制构建一个产品订单
-
-* References
-** [[http://www.microsoft.com/china/MSDN/library/default.mspx][MSDN resources]]
-
-
-* Backup
-
-** 预定义接口
-** 迭代器
-** [2] 文件 IO 和数据流
-*** XML
-     + Chapter 2, [[file:D:/work/eBook.NET/eBook/Apress.Real.World.Dot.NET.Applications.eBook-LiB.chm][Real.World.Dot.NET.Applications]]
-
-** [2] 其他语言特性
-*** 串行化
-** [2] 多线程
-** [2] 图形界面
-   + Chapter 3, [[file:D:/work/eBook.NET/eBook/Oreilly.Visual.C.Sharp.2005.A.Developers.Notebook.Apr.2005.eBook-LiB.chm][Visual.C.Sharp.2005.A.Developers.Notebook.Apr.2005]]
-   + [[file:d:/work/eBook.NET/eBook/Apress.Pro.dot.NET.2.0.Windows.Forms.and.Custom.Controls.in.C.Sharp.Dec.2005.pdf][dot.NET.2.0.Windows.Forms.and.Custom.Controls.in.C.Sharp]]
-
-** 重载{操作符,true,false}
-** 面向对象基础
-** [1] C# 语言基础
-     + [[file:D:/work/eBook.NET/eBook/Prentice.Hall.Visual.C.Sharp.2005.How.to.Program.2nd.Edition.Dec.2005.chm][Visual.C.Sharp.2005.How.to.Program.2nd.Edition]]
-     + [[file:D:/work/eBook.NET/eBook/Sybex.Visual.C.Sharp.Dot.NET.Programming.eBook-LiB.chm][Visual.C.Sharp.Dot.NET.Programming]]
-     + [[file:D:/work/eBook.NET/eBook/L-spcs3e.pdf][Professional_C#_3rd]]
-     + * [[file:d:/work/eBook.NET/eBook/McGraw.Hill.Osborne.C.Sharp.2.0.The.Complete.Reference.Dec.2005.chm][C.Sharp.2.0.The.Complete.Reference]]
-     + * [[file:d:/work/eBook.NET/eBook/OReilly.Learning.C.Sharp.2005.2nd.Edition.Feb.2006.chm][Learning.C.Sharp.2005.2nd.Edition]]
-     + * [[file:d:/work/eBook.NET/eBook/Sams.Microsoft.Visual.C.Sharp.2005.Unleashed.May.2006.chm][Microsoft.Visual.C.Sharp.2005.Unleashed]]
-     + [[file:d:/work/eBook.NET/eBook/OReilly.CSharp.In.Nutshell.chm][CSharp.In.Nutshell]]
-
-*** 属性
-    + [[file:D:/work/eBook.NET/eBook/Apress.Applied.Dot.NET.Attributes.eBook-LiB.chm][Applied.Dot.NET.Attributes]]
-
-*** 不安全代码
-
-*** 异常
-
-** 泛型
-     + * [[file:d:/work/eBook.NET/eBook/McGraw.Hill.Osborne.C.Sharp.2.0.The.Complete.Reference.Dec.2005.chm][C.Sharp.2.0.The.Complete.Reference]]
-
-VS.NET: [[http://msdn2.microsoft.com/zh-cn/library/k1s94fta.aspx][Visual Studio 中的 .NET Framework 编程]]
-
-** [2] .NET 组建技术
-
-** [3] C# 类
-     + [[file:D:/work/eBook.NET/eBook/Prentice.Hall.Visual.C.Sharp.2005.How.to.Program.2nd.Edition.Dec.2005.chm][Visual.C.Sharp.2005.How.to.Program.2nd.Edition]]
-     + [[file:D:/work/eBook.NET/eBook/Sybex.Visual.C.Sharp.Dot.NET.Programming.eBook-LiB.chm][Visual.C.Sharp.Dot.NET.Programming]]
-     + [[file:D:/work/eBook.NET/eBook/L-spcs3e.pdf][Professional_C#_3rd]]
-
-   * [ ] 面向对象、抽象建模、对象和类
-     + Chapter 2,3,4 in [[file:D:/work/eBook.NET/eBook/Apress.Beginning.CSharp.Objects.From.Concepts.to.Code.eBook-LiB.chm][Beginning.CSharp.Objects.From.Concepts.to.Code]]
-     + [[file:D:/work/eBook.NET/eBook/Apress.Foundations.of.Object.Oriented.Programming.Using.dot.NET.2.0.Patterns.Oct.2005.pdf][Foundations.of.Object.Oriented.Programming.Using.dot.NET.2.0.Patterns]]
-     + [[file:D:/work/eBook.NET/eBook/Microsoft.Press.Microsoft.Object.Thinking.eBook-LiB.chm][Microsoft.Object.Thinking]]
-*** 委托
+  * [ ] 组件的使用
+  * [ ] 部署和版本控制
+    + 应用程序的部署 [[file:file:D:\work\eBook.NET\eBook\Microsoft.Press.Deploying.Dot.NET.Applications.A.Lifecycle.Guide.eBook-LiB][Deploying.Dot.NET.Applications]]
+  * [ ] 受管开发环境
+  * [ ] app domain
+  * [ ] 垃圾回收
 
 
 * Beamer Usage
@@ -372,27 +209,6 @@ VS.NET: [[http://msdn2.microsoft.com/zh-cn/library/k1s94fta.aspx][Visual Studio 
   $ svn update --revision PREV foo.c
   # rewinds the last change on foo.c
   # (foo.c's working revision is decreased)
-
-
-* temp data
-
-** [[file:cs-basic.tex]]
-  | C\#类型 | FCL 类型       | 说明                 |
-  | object  | System.Object  | 所有对象的基类型     |
-  | string  | System.String  | Unicode 字符序列     |
-  | bool    | System.Boolean | true 或 ~false       |
-  | char    | System.Char    | 字符型，2 字节       |
-  | byte    | System.Byte    | 单字节有符号整数     |
-  | sbyte   | System.SByte   | 单字节无符号整数     |
-  | short   | System.Int16   | 2 字节有符号整数     |
-  | ushort  | System.UInt16  | 2 字节无符号整数     |
-  | int     | System.Int32   | 4 字节有符号整数     |
-  | uint    | System.UInt32  | 4 字节无符号整数     |
-  | long    | System.Int65   | 8 字节有符号整数     |
-  | ulong   | System.UInt64  | 8 字节无符号整数     |
-  | float   | System.Single  | 单精度浮点数(4字节)  |
-  | double  | System.Double  | 双精度浮点数(8字节)  |
-  | decimal | System.Decimal | 高精度浮点数(16字节) |
 
 
 # Local Variables:
