@@ -1,11 +1,28 @@
 %% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> %% $Rev$
 
-\documentclass[13pt,cjk,xcolor=svgnames,table]{beamer}
-%\documentclass[a4paper]{article}  \usepackage[noxcolor]{beamerarticle}
+% ,----[ 输出说明 ]
+% |
+% | 文档可以使用 beamer 文档类输出幻灯片，也可以使用 article 文档类输出内容。
+% |
+% |   * 使用 beamer 时，可以有两种输出模式：
+% |     - 默认的 beamer 模式；
+% |     - 可选的一般 handout 模式，使用 handout 选项；
+% |     - 用于打印的 handout 模式，使用 handout 选项，设置 handoutprint 为 true；
+% |
+% |   * 使用 article 时，也可输出全部内容：
+% |     - 需要加载 beamerarticle 宏包。
+% |
+% `----
 
-\mode<handout>{%                % print only handout
-  \RequirePackage{ifthen}
-  \newboolean{handoutprint}\setboolean{handoutprint}{false}} % true
+\documentclass[13pt,cjk,xcolor=svgnames,table]{beamer} % 或使用 handout 选项
+
+%\documentclass[a4paper]{article}                      % article only
+%\usepackage[noxcolor]{beamerarticle}
+
+\mode<handout>{%                % 用于打印的 handout 模式 (每页A4两帧)
+  \RequirePackage{ifthen}       %
+  \newboolean{handoutprint}     % 将该变量置为 true 即可
+  \setboolean{handoutprint}{false}} % true
 
 \mode<article>{%                % article only
   \usepackage[svgnames]{xcolor}
@@ -167,4 +184,5 @@
 % Local Variables:
 % mode: LaTeX
 % coding: gb2312-dos
+% fill-column: 100
 % End:
