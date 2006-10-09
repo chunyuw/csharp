@@ -5,6 +5,9 @@
 #+EMAIL:     chunyu@hit.edu.cn
 #+STARTUP:   nofold
 
+* TODO
+  - 使用资源
+
 * .NET Framework
 
   * [ ] 组件的使用
