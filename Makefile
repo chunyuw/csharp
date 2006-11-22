@@ -32,7 +32,7 @@ CLSUFFIX  = aux log snm toc vrb out out.bak dvi nav
 all:
 	@echo "Usage:"
 	@echo "    make [0-8] | s | encrypt"
-	@echo "    make cpdf | clean | cleanall"
+	@echo "    make cpdf | clean | cleanall | distclean"
 	@echo "    make ci | st | ps | rar | 7z"
 
 $(NUMTARGT): %: part-0%.pdf
