@@ -43,11 +43,15 @@ encrypt: $(foreach x,$(wildcard part-*.pdf),en-$(x))
 
 en-%.pdf: %.pdf ; pdftk $< output $@ owner_pw $(PASSWORD) allow printing
 
+distclean: cleanall tclean
+
 cleanall: cpdf clean
 
 cpdf:;  -$(RM) $(wildcard en-part-*.pdf part-*.pdf test.pdf z_region.pdf)
 
 clean:; -$(RM) $(foreach s,$(CLSUFFIX),$(wildcard *.$(s))) $(wildcard test.exe */z_region*)
+
+tclean:; -$(RM) $(foreach s,test z_region,$(wildcard $(s).* */$(s).*))
 
 st:;    @svn st .
 
