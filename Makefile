@@ -66,7 +66,7 @@ ps:
 s:; $(SHOWPDF)
 
 rar:; winrar -m5 a dotnet.rar $(CURRPDF)
-7z:;  7z -mx9 a dotnet.7z $(CURRPDF)
+7z:;  7z    -mx9 a dotnet.7z  $(CURRPDF)
 
 .PHONY: all ci clean cleanall cpdf encrypt ps s st $(shell seq 0 8)
 
