@@ -1,15 +1,32 @@
 ## Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> ## $Rev$
 
-all: jpg
+CLOGO  = cs-logo
+BLOGO  = hit-logo hit-name
 
-jpg: eps
-	convert cs-logo.2 cs-logo.jpg
-	convert cs-logo.3 -blur 0x01 cs-mask.jpg
+all: $(addsuffix .pdf,$(CLOGO) $(BLOGO))
+
+$(addsuffix .pdf,$(CLOGO)): %.pdf: %.mp ; mpost $< ; epstopdf $(basename $<).1
+
+$(addsuffix .pbm,$(BLOGO)): %.pbm: %.pbm.gz ; gunzip -c $< > $@ # ;7z x -y $<
+$(addsuffix .eps,$(BLOGO)): %.eps: %.pbm    ; potrace -c -C "#707070" $<
+$(addsuffix .pdf,$(BLOGO)): %.pdf: %.eps    ; epstopdf $<
+
+cpdf: ;-@rm -fv $(wildcard *.pdf)
+clean: ;-@rm -fv $(wildcard cs-logo.1 *.log *.mpo *.tmp *.pbm *.eps)
+cleanall: clean cpdf
+
+## pbm to eps (bitmap image to vector graph)
+## $ potrace -c -C "#606060" -W 8.4cm -o logo.eps logo.pbm 
+##
+## eps color setting:
+##   /b{0.500 setgray z fill}D
+##   /b{0.625 0.625 0 setrgbcolor z fill}D
+
+
+# jpg: eps
+# 	convert cs-logo.2 cs-logo.jpg
+# 	convert cs-logo.3 -blur 0x01 cs-mask.jpg
 #	convert cs-logo.1 -background transparent -fuzz 5% -transparent white cs-logo.png
 #	composite -dissolve 60% -gravity center hit-logo.jpg -size 685x581 null: hit-logo-light.jpg
-
-eps: cs-logo.mp
-	mpost $<
-
-clean:
-	rm -f cs-logo.1 cs-logo.2 cs-logo.3 *.log
+# eps: cs-logo.mp
+# 	mpost $<

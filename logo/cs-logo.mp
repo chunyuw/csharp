@@ -1,12 +1,12 @@
 %% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> %% $Rev$
 
 %%%% OUTPUT
-%% mpost   cs-logo.mp
-%% convert cs-logo.1 cs-logo.jpg
-%% convert cs-logo.3 -blur 0x01 cs-mask.jpg
-%% convert cs-logo.1 -background transparent -transparent white cs-logo.png
+%% mptopdf cs-logo.mp
 
-u = 2cm;
+input mp-tool ;
+input mp-spec ;
+
+u = 1cm;
 
 pair m[];
 m1 :=   (-2u, 2u);     m2 := (-2u,-2u);     m3 := (-1.5u,-2u);
@@ -24,7 +24,7 @@ pen pp; pp := makepen p shifted (-0.5,-0.5) xscaled 1.2u yscaled 1u;
 
 def cslogo(expr a,b,c) = 
   begingroup
-    bboxmargin := 10bp;
+    % bboxmargin := 10bp;
     intrim linejoin := mitered;
     intrim linecap  := squared;
     pickup pp;
@@ -36,22 +36,21 @@ def cslogo(expr a,b,c) =
 
     currentpicture := currentpicture shifted (4u,4u) slanted 0.5 yscaled 0.9;
 
-    % just for enlarge boundingbox
-    pickup po;
-    draw bbox currentpicture withcolor white;
+    setbounds currentpicture to boundingbox currentpicture enlarged .1u;
+
   endgroup
 enddef;
 
-beginfig(1) 			% dark color
-  cslogo(.675[green,black],(1,1,0),.625[blue,black]);
-endfig;
-
-beginfig(2)			% light color
+beginfig(1)			% light color
   cslogo(.675[green,white],(1,1,.5),.625[blue,white]);
 endfig;
 
-beginfig(3)			% logo mask
-  cslogo(black,black,black);
-endfig;
+% beginfig(2) 			% dark color
+%   cslogo(.675[green,black],(1,1,0),.625[blue,black]);
+% endfig;
+
+% beginfig(3)			% logo mask
+%   cslogo(black,black,black);
+% endfig;
 
 end
