@@ -7,13 +7,15 @@ all: $(addsuffix .pdf,$(CLOGO) $(BLOGO))
 
 $(addsuffix .pdf,$(CLOGO)): %.pdf: %.mp ; mpost $< ; epstopdf $(basename $<).1
 
-$(addsuffix .pbm,$(BLOGO)): %.pbm: %.pbm.gz ; gunzip -c $< > $@ # ;7z x -y $<
+$(addsuffix .pbm,$(BLOGO)): %.pbm: %.pbm.gz ; gunzip -c $< > $@
 $(addsuffix .eps,$(BLOGO)): %.eps: %.pbm    ; potrace -c -C "#707070" $<
 $(addsuffix .pdf,$(BLOGO)): %.pdf: %.eps    ; epstopdf $<
 
 cpdf: ;-@rm -fv $(wildcard *.pdf)
 clean: ;-@rm -fv $(wildcard cs-logo.1 *.log *.mpo *.tmp *.pbm *.eps)
 cleanall: clean cpdf
+
+## 7z x -y $<
 
 ## pbm to eps (bitmap image to vector graph)
 ## $ potrace -c -C "#606060" -W 8.4cm -o logo.eps logo.pbm 
