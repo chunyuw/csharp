@@ -4,8 +4,8 @@ Author    = "Chunyu Wang <chunyu@hit.edu.cn>"
 Copyright = "Copyright (C) 2006 Chunyu Wang."
 
 PRGFILES  = {.,logo}/Makefile auto/*.el logo/*.mp
-TXTFILES  = {.,pgf,res}/*.tex $(PRGFILES) Outline.org {code,lab}/*.cs {figures,res}/*.txt .dired 
-BINFILES  = figures/*.{jpg,png,pdf,ppt,vsd} logo/*.gz lab/*.{doc,pdf} res/*.doc
+TXTFILES  = {.,pgf}/*.tex $(PRGFILES) Outline.org code/*.cs figures/*.txt .dired 
+BINFILES  = figures/*.{jpg,png,pdf} logo/*.gz res/*.7z
 
 NUMTARGT  = $(shell seq 0 8)
 PDFTARGT  = $(NUMTARGT:%=part-0%.pdf)
