@@ -10,6 +10,8 @@ BINFILES  = figures/*.{jpg,png,pdf} logo/*.gz res/*.7z
 NUMTARGT  = $(shell seq 0 8)
 PDFTARGT  = $(NUMTARGT:%=part-0%.pdf)
 
+SUBDIRS   = logo
+
 AUTOCSTR  = Batch checkin by Makefile ($(shell $(DATE) "+%Y-%m-%d %H:%M") on $(shell uname -n))
 ifeq ($(shell uname -s),"windows32") 
   DATE    = gdate
@@ -43,9 +45,11 @@ encrypt: $(foreach x,$(wildcard part-*.pdf),en-$(x))
 
 en-%.pdf: %.pdf ; pdftk $< output $@ owner_pw $(PASSWORD) allow printing
 
+$(SUBDIRS): ; $(MAKE) -C $@
+
 distclean: cleanall tclean
 
-cleanall: cpdf clean
+cleanall: cpdf clean cleanlogo
 
 cpdf:;  -$(RM) $(wildcard en-part-*.pdf part-*.pdf test.pdf z_region.pdf)
 
@@ -68,7 +72,7 @@ s:; $(SHOWPDF)
 rar:; winrar -m5 a dotnet.rar $(CURRPDF)
 7z:;  7z    -mx9 a dotnet.7z  $(CURRPDF)
 
-.PHONY: all ci clean cleanall cpdf encrypt ps s st $(shell seq 0 8)
+.PHONY: all ci clean cleanall cpdf encrypt ps s st $(shell seq 0 8)  $(SUBDIRS)
 
 .SUFFIXES: .tex .pdf .dvi .ps .eps .jpg .png
 
