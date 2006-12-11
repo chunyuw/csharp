@@ -1,9 +1,10 @@
 ## Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> ## $Rev$
 
 CLOGO  = cs-logo
-BLOGO  = hit-logo hit-name
+BLOGO  = $(basename $(basename $(wildcard *.pbm.gz)))
 
-all: $(addsuffix .pdf,$(CLOGO) $(BLOGO))
+all: cs-logo.pdf hit-logo.pdf
+#all: $(addsuffix .pdf,$(CLOGO) $(BLOGO))
 
 $(addsuffix .pdf,$(CLOGO)): %.pdf: %.mp ; mpost $< ; epstopdf $(basename $<).1
 
