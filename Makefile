@@ -3,14 +3,12 @@
 Author    = "Chunyu Wang <chunyu@hit.edu.cn>"
 Copyright = "Copyright (C) 2006 Chunyu Wang."
 
-PRGFILES  = {.,logo}/Makefile auto/*.el logo/*.mp
+PRGFILES  = Makefile auto/*.el
 TXTFILES  = {.,pgf}/*.tex $(PRGFILES) Outline.org code/*.cs figures/*.txt .dired 
-BINFILES  = figures/*.{jpg,png,pdf} logo/*.gz res/*.7z
+BINFILES  = figures/*.{jpg,png,pdf} res/*.7z
 
 NUMTARGT  = $(shell seq 0 8)
 PDFTARGT  = $(NUMTARGT:%=part-0%.pdf)
-
-SUBDIRS   = logo
 
 AUTOCSTR  = Batch checkin by Makefile ($(shell $(DATE) "+%Y-%m-%d %H:%M") on $(shell uname -n))
 ifeq ($(shell uname -s),"windows32") 
@@ -45,11 +43,9 @@ encrypt: $(foreach x,$(wildcard part-*.pdf),en-$(x))
 
 en-%.pdf: %.pdf ; pdftk $< output $@ owner_pw $(PASSWORD) allow printing
 
-$(SUBDIRS): ; $(MAKE) -C $@
-
 distclean: cleanall tclean
 
-cleanall: cpdf clean cleanlogo
+cleanall: cpdf clean
 
 cpdf:;  -$(RM) $(wildcard en-part-*.pdf part-*.pdf test.pdf z_region.pdf)
 

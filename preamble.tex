@@ -123,8 +123,9 @@
 % \pgfdeclareimage[mask=cs-mask,width=1.3cm]{cs-logo}{logo/cs-logo}
 %\logo{\vbox{\hbox to 1.3cm{\hfil\pgfuseimage{cs-logo}}\vskip0.1cm\hbox{\pgfuseimage{hit-logo}}}}
 
-\logo{\vbox{\hbox to 1.3cm{\includegraphics[width=1.3cm]{cs-logo}}
- \vskip0.1cm\hbox to 1.3cm{\includegraphics[width=1.3cm]{hit-logo}}}}
+\pgfdeclareimage[width=1.3cm]{logo-cs}{figures/logo-cs}
+\pgfdeclareimage[width=1.3cm]{logo-hit}{figures/logo-hit}
+\logo{\vbox{\hbox to 1.3cm{\pgfuseimage{logo-cs}}\vskip0.1cm\hbox to 1.3cm{\pgfuseimage{logo-hit}}}}
 
 \AtBeginSection[]{              % Outline in every section
   \begin{frame}<handout:0>{Outline}
