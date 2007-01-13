@@ -51,7 +51,7 @@ cpdf:;  -$(RM) $(wildcard en-part-*.pdf part-*.pdf test.pdf z_region.pdf)
 
 clean:; -$(RM) $(foreach s,$(CLSUFFIX),$(wildcard *.$(s))) $(wildcard test.exe */z_region*)
 
-tclean:; -$(RM) $(foreach s,test z_region,$(wildcard $(s).* */$(s).*))
+tclean:; -$(RM) -rf $(foreach s,test z_region,$(wildcard $(s).* */$(s).*))
 
 st:;    @svn st .
 
