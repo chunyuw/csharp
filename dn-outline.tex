@@ -602,7 +602,7 @@ Content-Length: length
   \begin{enumerate}
   \item 程序集的名字
   \item 版本号，形如 ~major.minor.build.revision
-  \item 支持的语言
+  \item 区域性信息(如支持的语言等)
   \item 程序集其他文件列表
   \item 所依赖的其他程序集及版本号
   \end{enumerate}
@@ -635,7 +635,7 @@ Content-Length: length
   % 安装与卸载 ~.NET 模块不需要修改系统注册表，只需 ~copy or delete
 \item 程序集可以有一个{\color<handout:0>{red!65!black}增强型名称} (\textit{Strong name})，用作共享名称
   \begin{itemize}
-  \item 除了三个必须的成员之外，还要有数字签名和相应的公钥
+  \item 除了三个必须的成员(程序集名，版本号和区域性信息)之外，还要有数字签名和相应的公钥
   \item 通过数字签名，可以确保程序集的唯一性，增加安全性
   \end{itemize}
 \pause
