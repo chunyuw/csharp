@@ -15,7 +15,7 @@
 \begin{itemize}
     \setlength{\itemsep}{6pt plus 1pt}
 \item C\# 是一种简洁、类型安全的面向对象的语言\par
-\smallskip  \CJKindent 可以创建传统的~ Windows 客户端应用程序、XML Web services、分布式组
+\smallskip  \CJKindent 可以创建传统的~ Windows 客户端应用程序、XML Web Services、分布式组
   件、客户端---服务器应用程序、数据库应用程序以及很多其他类型的程序。
 \item 语法表现力强，只有不到~ 90 个关键字，而且简单易学
 \item 支持泛型的方法和类型
@@ -260,11 +260,11 @@ c = char.Parse("K");
     \column{.55\textwidth}
 \begin{lstlisting}
 string s = "123abcd?";
-c = char.IsLetter(s,3);
-c = char.IsNumber(s,3);
-c = char.IsLower(s,0);
-c = char.IsPunctuation(s,7);
-c = char.IsLetterOrDigit(s,1);
+char.IsLetter(s,3);
+char.IsNumber(s,3);
+char.IsLower(s,0);
+char.IsPunctuation(s,7);
+char.IsLetterOrDigit(s,1);
 \end{lstlisting}
   \end{columns}
 \end{itemize}
@@ -378,7 +378,7 @@ s1 = string.Format("Result is: {0}, {1}", 20, 3.22);
 DateTime dt = DateTime.Now;
 s1 = string.Format("{0:yyyy/MM/dd hh:mm:ss}", dt);
 // "2005-05-12 11:40:22"
-s1 = dt.ToString("yyyy-dd-MM"));
+s1 = dt.ToString("yyyy-dd-MM");
 \end{lstlisting}
 \end{itemize}
 \end{frame}
@@ -454,7 +454,7 @@ System.Enum 是系统的枚举基类
 \begin{itemize}
 \item Enum.IsDefined() --- 判断字符串是否是某个枚举的成员
 \item Enum.Parse() --- 解析字符串为枚举值
-\item Enum.GetName --- 通过枚举值返回枚举名字字符串
+\item Enum.GetName() --- 通过枚举值返回枚举名字字符串
 \end{itemize}
 \pause
 \begin{lstlisting}
