@@ -1133,10 +1133,10 @@ class B:A
   { Console.WriteLine ("in class B"); }
 } ...
   public static void Main()
-  { A a = new B(); // <基类引用>
-    B b = (B) a;   // <派生类引用>
-    a.Hello();     // "in class A"
+  { B b = new B(); // <基类引用>
+    A a = (A) b;   // <派生类引用>
     b.Hello();     // "in class B"
+    a.Hello();     // "in class A"
     Console.ReadLine();
   }
 
@@ -1154,15 +1154,15 @@ class A
   { Console.WriteLine ("in class A"); }
 }
 class B:A
-{ public override void Hello() // new <用于隐藏>
+{ public override void Hello() // override <用于覆盖>
   { Console.WriteLine ("in class B"); }
 } ...
   public static void Main()
   {
-    A a = new B(); // <基类引用>
-    B b = (B) a;   // <派生类引用>
-    a.Hello(); // "in class B" !!
+    B b = new B(); // <基类引用>
+    A a = (A) b;   // <派生类引用>
     b.Hello(); // "in class B"
+    a.Hello(); // "in class B" !!
     Console.ReadLine();
   }
 
