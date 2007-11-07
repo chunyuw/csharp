@@ -595,9 +595,9 @@ public static operator explicit <target>(<source> v)
 \begin{lstlisting}
 [attributes] <modifiter> <data_type> <property_name>
 {  [access modifier] get {  ...
-     return <property_value>
+     return <property_value>;
    }
-   [access modifier] set {  ...  }
+   [access modifier] set {  ...  
    }
 }
 \end{lstlisting}
@@ -659,7 +659,8 @@ class Circle {
 
 索引器的一般格式：
 \begin{lstlisting}
-[attribute] <modifier><return_type> this [parameters]
+[attribute]
+<modifier><return_type> this [parameters]
 {  ... }
 \end{lstlisting}
 
@@ -1019,7 +1020,7 @@ static void Main()
 {  double result;
    result = Average("Jack", 80.2, 75.8, 92.3);
    System.Console.WriteLine (result);
-   result = Average("Mike", 79.4, 65.8, 82.3);
+   result = Average("Mike", 79.4, 65.8);
    System.Console.WriteLine (result);
 }
 \end{lstlisting}
