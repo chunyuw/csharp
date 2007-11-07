@@ -72,7 +72,7 @@ public class YYY { ... }
 
 \begin{itemize}
 \item 属性也可以对类的成员起作用
-\item 遵行 ~CLR 的编译器会将属性信息写入元数据中
+\item 遵循 ~CLR 的编译器会将属性信息写入元数据中
 \item .NET 框架中定义了几百个预定义的属性，功能繁多
 \end{itemize}
 \end{frame}
@@ -138,8 +138,8 @@ class suspend
 \hline
     private       & 仅用于嵌套类，其容器类可访问\\
     protected     & 仅用于嵌套类，其容器类和派生类可访问\\
+    protected internal &仅用于嵌套类，当前程序集或派生类可访问\\
     internal      & 当前程序集内可访问\\
-    protected internal & 当前程序集或派生类可访问\\
     public        & 任何程序集中都可以访问\\ \hline
   \end{tabular}
 \bigskip \pause
@@ -296,7 +296,7 @@ Circle.pi = 3.14159265;   // <访问静态变量>
 \item virtual --- 虚方法，可以在子类中被覆盖
 \item override --- (只能)用于覆盖基类中的同名的虚方法
 \item new --- 用于隐藏基类中的方法，无论是否是虚方法
-\item sealed --- 禁止派生类覆盖该类，同时需要 ~override 修饰
+\item sealed --- 禁止派生类覆盖该方法，同时需要 ~override 修饰
 \item abstract --- 只有方法声明，没有具体实现
 \item extern --- 只有方法声明，在外部实现
 \end{itemize}
@@ -493,16 +493,19 @@ class Point {
   }
 }
 ...
-    Point a = new Point(5, 6, 7);
-    Point b = new Point(0, 0, 0);
+    Point p = new Point(5, 6, 7);
 
-    if(a)  Console.WriteLine("a is true.");
-    if(!b) Console.WriteLine("b is false.");
+    if(p)  Console.WriteLine("p is true.");
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{重载一元操作符}
+\begin{lstlisting}
+class ThreeD
+{ int x, y, z;  }
+\end{lstlisting}
+\medskip
 \begin{lstlisting}
 public static ThreeD operator -(ThreeD op)
 {
@@ -546,15 +549,15 @@ public static operator explicit <target>(<source> v)
 \lstset{emph={implicit}}
 \begin{lstlisting}
 ...
-  public static implicit operator int(ThreeD p)
+  public static implicit operator double(ThreeD p)
   {
-    int temp = p.x*p.x + p.y*p.y + p.z*p.z;
-    return (int) Math.Sqrt(temp);
+    double temp = p.x*p.x + p.y*p.y + p.z*p.z;
+    return Math.Sqrt(temp);
   }
 ...
   Point a = new Point(1,2,3);
 
-  int length = a;
+  double length = a;
 
 \end{lstlisting}
 \end{onlyenv}
@@ -563,15 +566,15 @@ public static operator explicit <target>(<source> v)
 \lstset{emph={explicit}}
 \begin{lstlisting}
 ...
-  public static explicit operator int(ThreeD p)
+  public static explicit operator double(ThreeD p)
   {
-    int temp = p.x*p.x + p.y*p.y + p.z*p.z;
-    return Math.Sqr (temp);
+    double temp = p.x*p.x + p.y*p.y + p.z*p.z;
+    return Math.Sqrt(temp);
   }
 ...
   Point a = new Point(1,2,3);
 
-  int length = (int) a;
+  double length = (double) a;
 
 \end{lstlisting}
 \end{onlyenv}
@@ -736,8 +739,8 @@ class Ring:Circle{
 \begin{frame}[fragile]
 \frametitle{值类型与引用类型}
 \begin{itemize}
-\item 值类型，赋值或传递给一个方法时，生成一个新的实例
-\item 引用类型，赋值或传递给一个方法时，使用当前实例（只传地址）
+\item 值类型，赋值或传递给一个方法时，复制实例的内容
+\item 引用类型，赋值或传递给一个方法时，使用当前实例，即仅传引用(地址)
 \end{itemize}
 \begin{columns}
 \column{.6\textwidth}
@@ -946,7 +949,7 @@ if (o != null){
   \column{.5\textwidth}
 \lstset{emph={struct}}
 \begin{lstlisting}
-struct P {...}
+struct Point {...}
 
 public void Test(Point m){
   m.X = -10; m.Y = -10;
@@ -959,7 +962,7 @@ public void Test(Point m){
   \column{.5\textwidth}
 \lstset{emph={class}}
 \begin{lstlisting}
-class P {...}
+class Point {...}
 
 public void Test(Point m){
   m.X = -10; m.Y = -10;
