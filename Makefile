@@ -59,9 +59,9 @@ ci:;    svn commit . -m "$(AUTOCSTR)"
 
 ps:
 	svn ps svn:eol-style CRLF auto/*.el
-	svn ps svn:keywords Rev $(TXTFILES)
 	svn ps Author $(Author) $(TXTFILES) $(BINFILES)
 	svn ps Copyright $(Copyright) $(TXTFILES) $(BINFILES)
+#svn pd svn:keywords Rev $(TXTFILES)
 
 s:; $(SHOWPDF)
 
