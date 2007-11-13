@@ -1,7 +1,7 @@
 ## Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> ## $Rev$
 
 Author    = "Chunyu Wang <chunyu@hit.edu.cn>"
-Copyright = "Copyright (C) 2006 Chunyu Wang."
+Copyright = "Copyright (C) 2006-2007 Chunyu Wang."
 
 PRGFILES  = Makefile auto/*.el
 TXTFILES  = {.,pgf}/*.tex $(PRGFILES) Outline.org code/*.cs figures/*.txt .dired 
