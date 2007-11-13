@@ -123,22 +123,23 @@ public static class NumericFn {
 \begin{itemize}
 \item 在类内部定义的类
 \begin{lstlisting}[escapeinside=<>]
-public class OuterClass        //<称为外部类>
+public class OuterClass     //<称为外部类>
 {  ...
   public class NestedClass  //<称为内嵌类>
   {  // Insert code to implement NestedClass.
   }
-  ...
-  NestedClass x = new NestedClass();
+  public void func()
+  { ... NestedClass x = new NestedClass(); ... }
 }
 ...
-OuterClass.NestedClass y = new OuterClass.NestedClass();
+  OuterClass.NestedClass y = new OuterClass.NestedClass();
 \end{lstlisting}
-\item 在外部类中访问内嵌类，和自己的成员一样
+\item 在外部类中直接使用内嵌类
 \item 在外部类外面访问类，使用全名~OuterClass.NestedClass
 \item 访问权限由~OuterClass 和~NestedClass 共同决定
 \end{itemize}
 \end{frame}
+
 \section{接口}
 
 \begin{frame}[fragile]
@@ -592,7 +593,7 @@ public static void Main() {
 \item<1-| handout:1> 多播委托中，委托相当于一个方法的调用列表
 \item<2-| handout:1> 通过 ~\texttt{+}或~\texttt{+=} 操作符添加其他的委托(或方法)
 \item<2-| handout:1> 通过 ~\texttt{-}或~\texttt{-=} 操作符去掉已有的委托(或方法)
-\item<3-| handout:1> 多播委托的返回值应该是 ~void，并且不用参数列表返回数据
+\item<3-| handout:1> 多播委托的返回值应该是 ~void
 \item<3-| handout:1> 添加和去掉方法的格式比较自由
 \end{itemize}
 \begin{onlyenv}<1-| handout:1>
