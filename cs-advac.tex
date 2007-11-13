@@ -189,6 +189,11 @@ class Rectangle:IMeasurement {
 \item 为类提供了蓝图，规范了类之间的交互方式
 \item 通过继承其他接口，可是实现接口的重用
 \item 和抽象类一样，不可以生成实例
+\item 接口也是一种类型，可以定义变量，访问子类对象
+\begin{lstlisting}
+Shape x = new Recangle();
+x.Area(); // x可以直接访问Area()方法
+\end{lstlisting}
 \item 接口成员默认为~ public 和~ abstract
 \end{itemize}
 \end{frame}
@@ -198,6 +203,9 @@ class Rectangle:IMeasurement {
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
 \item 只有四种成员，仅提供定义而不实现
+  \begin{itemize}
+  \item 特性、索引器、事件和方法
+  \end{itemize}
 \item 定义不需要~ public 和~ abstract，实现不需要~ override
 \item 类只能继承一个类，但可以实现多个接口
 
@@ -280,6 +288,54 @@ public interface ISeries {  // an interface property
 
 \end{lstlisting}
 
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{接口示例}
+
+\begin{itemize}
+\item 线性表类~LinkedList 和接口~Linkable (程序~LinkedList.cs)
+\begin{lstlisting}[escapeinside=<>]
+interface Linkable {
+  Linkable Next { get; set; }  
+}
+
+class LinkedList  { // <使用> Linkable <接口>
+  Linkable head;
+  public Linkable Head { get { return head; } }
+
+  public void insertAtHead(Linkable node) { ... }
+  public void insertAtTail(Linkable node) { ... }
+  public Linkable removeFromHead()        { ... }
+  public Linkable removeFromTail()        { ... }
+}
+
+class XXX: Linkable { // <实现> Linkable <接口>
+...
+}
+\end{lstlisting}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{接口示例(2)}
+\begin{itemize}
+\item System.Collections.IEnumerable 接口 (程序~IEnumerable.cs)
+\begin{lstlisting}[escapeinside=<>]
+interface IEnumerable 
+{
+  IEnumerator GetEnumerator();
+}
+interface IEnumerator
+{
+  object Current { get; }
+  bool MoveNext();
+  void Reset();
+}
+\end{lstlisting}
+\item 常用于~foreach 循环的迭代
+\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]

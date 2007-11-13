@@ -3,87 +3,91 @@ using System.Collections;
 
 public class Person
 {
-    public Person(string fName, string lName)
-    {
-        this.firstName = fName;
-        this.lastName = lName;
-    }
+  public Person(string fName, string lName)
+  {
+    this.firstName = fName;
+    this.lastName = lName;
+  }
 
-    public string firstName;
-    public string lastName;
+  public string firstName;
+  public string lastName;
+
+  public override string ToString()
+  {
+    return firstName + " " + lastName;
+  }
 }
 
 public class People : IEnumerable
 {
-    private Person[] _people;
-    public People(Person[] pArray)
-    {
-        _people = new Person[pArray.Length];
+  private Person[] _people;
+  public People(Person[] pArray)
+  {
+    _people = new Person[pArray.Length];
 
-        for (int i = 0; i < pArray.Length; i++)
-        {
-            _people[i] = pArray[i];
-        }
-    }
-    // 返回 IEnumerator
-    public IEnumerator GetEnumerator()
+    for (int i = 0; i < pArray.Length; i++)
     {
-        return new PeopleEnum(_people);
+      _people[i] = pArray[i];
     }
+  }
+  // 返回 IEnumerator
+  public IEnumerator GetEnumerator()
+  {
+    return new PeopleEnum(_people);
+  }
 }
 // 实现 IEnumerator 类
 public class PeopleEnum : IEnumerator
 {
-    public Person[] _people;
+  public Person[] _people;
 
-    int position = -1;
+  int position = -1;
 
-    public PeopleEnum(Person[] list)
-    {
-        _people = list;
-    }
+  public PeopleEnum(Person[] list)
+  {
+    _people = list;
+  }
 
-    public bool MoveNext()
-    {
-        position++;
-        return (position < _people.Length);
-    }
+  public bool MoveNext()
+  {
+    position++;
+    return (position < _people.Length);
+  }
 
-    public void Reset()
+  public void Reset()
+  {
+    position = -1;
+  }
+  // 返回当前的对象
+  public object Current
+  {
+    get
     {
-        position = -1;
+      try
+      {
+	return _people[position];
+      }
+      catch (IndexOutOfRangeException)
+      {
+	throw new InvalidOperationException();
+      }
     }
-    // 返回当前的对象
-    public object Current
-    {
-        get
-        {
-            try
-            {
-                return _people[position];
-            }
-            catch (IndexOutOfRangeException)
-            {
-                throw new InvalidOperationException();
-            }
-        }
-    }
+  }
 }
 
 class App
 {
-    static void Main()
-    {
-        Person[] peopleArray = new Person[3]
-        {
-            new Person("John", "Smith"),
-            new Person("Jim", "Johnson"),
-            new Person("Sue", "Rabon"),
-        };
+  static void Main()
+  {
+    Person[] peopleArray = new Person[3]
+      {
+	new Person("John", "Smith"),
+	new Person("Jim", "Johnson"),
+	new Person("Sue", "Rabon"),
+      };
 
-        People peopleList = new People(peopleArray);
-        foreach (Person p in peopleList)
-            Console.WriteLine(p.firstName + " " + p.lastName);
-
-    }
+    People peopleList = new People(peopleArray);
+    foreach (Person p in peopleList)
+      Console.WriteLine(p);
+  }
 }
