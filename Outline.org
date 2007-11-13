@@ -1,4 +1,4 @@
-## Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> ## $Rev$
+## Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> ##
 
 #+TITLE:     Slides for ".NET Programming"
 #+AUTHOR:    Chunyu Wang
