@@ -12,12 +12,12 @@
 \frametitle{抽象类}
 \begin{block}{抽象类}
   \CJKindent 未完全实现的类，其中的方法和特性等可以只声明不实现。只能用于其他类
-  的基类，其派生类可以是抽象类，否则必须实现其中的抽象方法。
+  的基类，其派生类可以是抽象类，否则必须实现继承来的抽象方法。
 \end{block}
 \pause
 \begin{itemize}
-\item 用~ \texttt{abstract} 修饰，不能生成实例
-\item 可以只给出方法的声明，无具体实现
+\item 抽象类不能生成实例，需要~\texttt{abstract} 修饰
+\item 抽象方法只给出方法的声明，无具体实现，也需要~\texttt{abstract}
 \item 而具体实现由派生类完成
 \end{itemize}
 \lstset{emph={abstract}}
@@ -79,7 +79,6 @@ public class Square : Shape {
 \end{lstlisting}
 \end{frame}
 
-
 \begin{frame}[fragile]
 \frametitle{密封类}
 使用 ~\texttt{sealed} 修饰的类，不可以被继承：
@@ -98,11 +97,12 @@ public class B : A { // ERROR!
 
 \begin{frame}[fragile]
 \frametitle{静态类}
-使用 ~\texttt{static} 修饰的类，不能够被实例化：
+使用 ~\texttt{static} 修饰的类，只有静态成员，不能被实例化：
 %\lstset{emph={static}}
 \begin{lstlisting}[escapeinside=<>]
 public static class NumericFn {
-  static public double reciprocal(double num) {
+  public static double PI = 3.1415;
+  public static double reciprocal(double num) {
     return 1/num;
   }
   static public double fracPart(double num) {
@@ -111,9 +111,8 @@ public static class NumericFn {
   static public bool isEven(double num) {
     return (num % 2) == 0 ? true : false;
   }
-  static public bool isOdd(double num) {
-    return !isEven(num);
-  }
+  static public bool isOdd(double num) { ... }
+  ...
 }
 \end{lstlisting}
 \end{frame}
@@ -135,8 +134,11 @@ public class OuterClass     //<称为外部类>
   OuterClass.NestedClass y = new OuterClass.NestedClass();
 \end{lstlisting}
 \item 在外部类中直接使用内嵌类
-\item 在外部类外面访问类，使用全名~OuterClass.NestedClass
-\item 访问权限由~OuterClass 和~NestedClass 共同决定
+\item 在外部类外面访问类，使用全名
+  \begin{itemize}
+  \item ~\texttt{OuterClass.NestedClass}
+  \end{itemize}
+\item 访问权限由~\texttt{OuterClass} 和~\texttt{NestedClass} 共同决定
 \end{itemize}
 \end{frame}
 
@@ -145,7 +147,7 @@ public class OuterClass     //<称为外部类>
 \begin{frame}[fragile]
 \frametitle{接口}
   \begin{block}{\textit{interface}}
-    \CJKindent 能声明特性、索引器、事件和方法的特殊结构，只为这些成员提供定义，
+    \CJKindent 能声明特性、索引器、事件和方法的特殊结构，只为这些成员提供声明，
     没有具体实现。
   \end{block}
 接口的一般定义
