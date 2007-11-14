@@ -444,7 +444,7 @@ class MyClass : IMyIF_A, IMyIF_B {
   \end{block}
 委托定义的一般格式：
 \begin{lstlisting}
-[modifiers] delegate <name> ([parameter list]);
+[modifiers] delegate <returntype> <name> ([parameter list]);
 \end{lstlisting} \pause
 
   \begin{itemize}
@@ -820,7 +820,7 @@ class AnonMethDemo3 {
 \end{block}
 事件定义的一般格式：
 \begin{lstlisting}
-[modifier] event <delegate type> <event name>;
+[modifier] event <delegatetype> <eventname>;
 \end{lstlisting}
 \pause
 \begin{itemize}
@@ -920,7 +920,7 @@ public class MenuItem
 \item 事件可以是抽象~ (\texttt{abstract}) 的，由派生类继承并实现
 \item 事件访问器不可以是抽象的
 \item 事件可以被密封~ (\texttt{sealed})，防止被继承
-\item 事件可以是虚的~ (\texttt{virtual})，允许派生类的覆盖
+\item 事件可以是虚的~ (\texttt{virtual})，允许派生类的覆盖~(\texttt{override})
 \end{itemize}
 \end{frame}
 
@@ -1244,7 +1244,7 @@ struct XY<T> where T : struct {
 \begin{frame}[fragile]
 \frametitle{泛型方法}
 \begin{itemize}
-\item 泛型类中的方法可以使用类形参，自动成为泛型方法
+\item 泛型类中的方法可以使用类的形参，自动成为泛型方法
 \item 普通类中，也可以定义泛型方法
 \end{itemize}
 \begin{lstlisting}
