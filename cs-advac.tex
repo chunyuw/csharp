@@ -249,23 +249,22 @@ class MyClass : First, Second
 \end{itemize}
 \end{frame}
 
-\begin{frame}
-\frametitle{接口的作用}
-
-\begin{itemize}
-\setlength{\itemsep}{8pt plus 1pt}
-\item 接口规定了类的一种行为方式，规范了类的行为
-\item 实现某一接口的各种类，在这方面的行为是一致的
-\item 通过接口连接的模块，代码之间的耦合度小
-\item 系统提供了大量的现成接口
-\begin{itemize}
-\setlength{\itemsep}{6pt plus 1pt}
-\item System.IComparable --- 其中的 ~CompareTo() 用于比较
-\item System.Collections.ICollection --- 集合操作
-\item System.Collections.IEnumerator --- 迭代操作
-\end{itemize}
-\end{itemize}
-\end{frame}
+% \begin{frame}
+% \frametitle{接口的作用}
+% \begin{itemize}
+% \setlength{\itemsep}{8pt plus 1pt}
+% \item 接口规定了类的一种行为方式，规范了类的行为
+% \item 实现某一接口的各种类，在这方面的行为是一致的
+% \item 通过接口连接的模块，代码之间的耦合度小
+% \item 系统提供了大量的现成接口
+% \begin{itemize}
+% \setlength{\itemsep}{6pt plus 1pt}
+% \item System.IComparable --- 其中的 ~CompareTo() 用于比较
+% \item System.Collections.ICollection --- 集合操作
+% \item System.Collections.IEnumerator --- 迭代操作
+% \end{itemize}
+% \end{itemize}
+% \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{接口中的特性}
@@ -325,6 +324,7 @@ public interface ISeries {  // an interface property
 
 \begin{itemize}
 \item 线性表类~LinkedList 和接口~Linkable (程序~LinkedList.cs)
+\attachfile[description=Interface example]{code/LinkedList.cs}
 \begin{lstlisting}[escapeinside=<>]
 interface Linkable {
   Linkable Next { get; set; }  
