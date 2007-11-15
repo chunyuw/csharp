@@ -262,7 +262,7 @@ class HashtableDemo {
 \end{frame}
 
 \begin{frame}
-\frametitle{泛型接口}
+\frametitle{泛型集合接口}
 \begin{itemize}
 \item ICollection$<$T$>$ 操作泛型集合
 \item IComparer$<$T$>$ 比较两个对象
@@ -299,7 +299,7 @@ public LinkedListNode<T> Last { get; }
 
 \begin{frame}
 \frametitle{IEnumerator 和~ IEnumerable 接口}
-主要用于 ~\texttt{foreach} 循环。
+主要用于 ~\texttt{foreach} 循环，对集合进行迭代
 
 IEnumerator:
 \begin{itemize}
@@ -481,7 +481,7 @@ public sealed class StringBuilder {
 
 \begin{frame}[fragile]
 \frametitle{正则表达式示例}
-\begin{lstlisting}
+\begin{lstlisting}[escapeinside='']
 using System;
 using System.Text.RegularExpressions;
 public class List
@@ -493,17 +493,16 @@ public class List
     Match m = r.Match("<IMG src=\"http://abc.cn/a.jpg\">");
 
     for (int i=0; i<m.Groups.Count; i++)
-      Console.WriteLine (m.Groups[i]);
+      Console.WriteLine (m.Groups[i]);  // 'http://abc.cn/a.jpg'
 
     Console.ReadLine();
-
   }
 }
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{特殊字符}
+\frametitle{特殊字符和普通字符}
 \begin{tabular}{c|l}
 \hline
 字符 & 说明 \\
@@ -519,8 +518,8 @@ public class List
 \hline
 \verb|\b| & 单词边界上的空串 \\
 \verb|\s| & 匹配任何空白字符 \\
-\verb|\w| & 匹配任何单词字符 \\
-\verb|\d| & 匹配数字 \\
+\verb|\w| & 匹配任何单词 \\
+\verb|\d| & 匹配一个数字 \\
 \verb|\cC| & 匹配控制字符 ~Ctrl-C \\
 \hline
 \end{tabular}
@@ -564,6 +563,7 @@ string t1 = "the quick brown fox";
 string p1 = @"(\S+)(\s+)(\S+)";
 Regex x1 = new Regex(p1);
 string r1 = x1.Replace(t1, "$3$2$1", 1);
+       // "quick the brown fox"
 \end{lstlisting}
 \item 匹配~ "keyword = value" 模式
 \begin{lstlisting}
@@ -594,30 +594,33 @@ string r4 = Regex.Replace(t4,
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]
-\frametitle{正则表达式示例}
-\begin{itemize}
-\item 查找所有字母大写的单词
-\begin{lstlisting}
-string t5 = "This IS a Test OF ALL Caps";
-string p5 = @"(\b[^\Wa-z0-9_]+\b)";
-MatchCollection mc5 = Regex.Matches(t5, p5);
-\end{lstlisting}
-\item 查找所有首字母大写的单词
-\begin{lstlisting}
-string t6 = "This is A Test of Initial Caps";
-string p6 = @"(\b[^\Wa-z0-9_][^\WA-Z0-9_]*\b)";
-MatchCollection mc6 = Regex.Matches(t6, p6);
-\end{lstlisting}
-\end{itemize}
-\end{frame}
+% \begin{frame}[fragile]
+% \frametitle{正则表达式示例}
+% \begin{itemize}
+% \item 查找所有字母大写的单词
+% \begin{lstlisting}
+% string t5 = "This IS a Test OF ALL Caps";
+% string p5 = @"(\b[^\Wa-z0-9_]+\b)";
+% MatchCollection mc5 = Regex.Matches(t5, p5);
+% foreach (Match x in mc5)
+%    Console.WriteLine(x.Groups[0].Value);
+%    // IS OF ALL
+% \end{lstlisting}
+% \item 查找所有首字母大写的单词
+% \begin{lstlisting}
+% string t6 = "This is A Test of Initial Caps";
+% string p6 = @"(\b[A-Z][^\WA-Z0-9_]*\b)";
+% MatchCollection mc6 = Regex.Matches(t6, p6);
+% \end{lstlisting}
+% \end{itemize}
+% \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{正则表达式示例}
 \begin{itemize}
-\item 查找 ~HTML 中的连接
+\item 查找 ~HTML 中的~URL 链接
 \end{itemize}
-\begin{lstlisting}
+\begin{lstlisting}[escapeinside=!!]
 string t7 = @"
 <html>
 <a href=""http://a.b.c/news/first.htm"">first tag text</a>
@@ -627,7 +630,12 @@ string t7 = @"
 string p7 = @"<A[^>]*?HREF\s*=\s*[""']?"
   + @"([^'"" >]+?)[ '""]?>";
 MatchCollection mc7 = 
-    Regex.Matches(t7, p7, RegexOptions.Singleline);
+    Regex.Matches(t7, p7, RegexOptions.Singleline
+                         |RegexOptions.IgnoreCase);
+foreach (Match x in mc7)
+  Console.WriteLine(x.Groups[1].Value);
+   // !http://a.b.c/news/first.htm!
+   // !http://a.b.c/news/next.htm!
 \end{lstlisting}
 \end{frame}
 
