@@ -76,6 +76,7 @@ public delegate void ParameterizedThreadStart(object obj);
 \begin{lstlisting}
 public sealed class Thread
 {
+  ...
   public void Start();
   public void Start(object obj);
 
@@ -413,25 +414,25 @@ public class MyClass {
 \end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile]
-\frametitle{保护静态成员}
-\begin{itemize}
-\item 静态成员是相应于类的，但所有对象都可以访问
-\item 针对对象的线程安全无法直接保护静态字段和方法
-\item 通过 ~\texttt{typeof} 操作符返回类的类型对象，作为临界条件
-\end{itemize}
-\lstset{emph={typeof}}
-\begin{lstlisting}
-public class MyClass{
-  static public void DoSomething();
-  {...}
-}
-...
-  Monitor.Enter(typeof(MyClass));
-  MyClass.DoSomething();
-  Monitor.Exit(typeof(MyClass));
-\end{lstlisting}
-\end{frame}
+% \begin{frame}[fragile]
+% \frametitle{保护静态成员}
+% \begin{itemize}
+% \item 静态成员是相应于类的，但所有对象都可以访问
+% \item 针对对象的线程安全无法直接保护静态字段和方法
+% \item 通过 ~\texttt{typeof} 操作符返回类的类型对象，作为临界条件
+% \end{itemize}
+% \lstset{emph={typeof}}
+% \begin{lstlisting}
+% public class MyClass{
+%   static public void DoSomething();
+%   {...}
+% }
+% ...
+%   Monitor.Enter(typeof(MyClass));
+%   MyClass.DoSomething();
+%   Monitor.Exit(typeof(MyClass));
+% \end{lstlisting}
+% \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{错误处理}
@@ -516,28 +517,28 @@ public class MyClass{
 \end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile]
-\frametitle{Monitor 和泛型}
-\begin{lstlisting}
-public class MyClass<T>
-{ T m_T;
-  public void SomeMethod() {
-    lock(this) {
-      // some thing here
-    }
-  }
-}
-\end{lstlisting}
-\begin{itemize}
-\item 如果想对类型参数加锁，需要限制为引用类型
-\end{itemize}
-\begin{lstlisting}
-public class MyClass<T> where T : class
-{ ... }
-public class MyClass<T> where T : OtherClass
-{ ... }
-\end{lstlisting}
-\end{frame}
+% \begin{frame}[fragile]
+% \frametitle{Monitor 和泛型}
+% \begin{lstlisting}
+% public class MyClass<T>
+% { T m_T;
+%   public void SomeMethod() {
+%     lock(this) {
+%       // some thing here
+%     }
+%   }
+% }
+% \end{lstlisting}
+% \begin{itemize}
+% \item 如果想对类型参数加锁，需要限制为引用类型
+% \end{itemize}
+% \begin{lstlisting}
+% public class MyClass<T> where T : class
+% { ... }
+% public class MyClass<T> where T : OtherClass
+% { ... }
+% \end{lstlisting}
+% \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{线程间的等待}
