@@ -4,73 +4,46 @@ using System.Collections;
 public class Person
 {
   public Person(string fName, string lName)
-  {
-    this.firstName = fName;
+  { this.firstName = fName;
     this.lastName = lName;
   }
 
-  public string firstName;
-  public string lastName;
+  public string firstName, lastName;
 
   public override string ToString()
-  {
-    return firstName + " " + lastName;
-  }
+  { return firstName + " " + lastName; }
 }
 
-public class People : IEnumerable
+public class People : IEnumerable, IEnumerator
 {
   private Person[] _people;
+
   public People(Person[] pArray)
-  {
-    _people = new Person[pArray.Length];
-
+  { _people = new Person[pArray.Length];
     for (int i = 0; i < pArray.Length; i++)
-    {
-      _people[i] = pArray[i];
-    }
+    { _people[i] = pArray[i]; }
   }
-  // 返回 IEnumerator
-  public IEnumerator GetEnumerator()
-  {
-    return new PeopleEnum(_people);
-  }
-}
-// 实现 IEnumerator 类
-public class PeopleEnum : IEnumerator
-{
-  public Person[] _people;
 
+  // 实现 IEnumerable, 返回 IEnumerator
+  public IEnumerator GetEnumerator()
+  {   return this;  }
+
+  // 实现 IEnumerator
   int position = -1;
 
-  public PeopleEnum(Person[] list)
-  {
-    _people = list;
-  }
-
   public bool MoveNext()
-  {
-    position++;
+  { position++;
     return (position < _people.Length);
   }
 
   public void Reset()
-  {
-    position = -1;
-  }
-  // 返回当前的对象
-  public object Current
-  {
-    get
-    {
-      try
-      {
-	return _people[position];
-      }
+  { position = -1;  }
+
+  public object Current    // 返回当前的对象
+  { get {
+      try  {  return _people[position];  }
       catch (IndexOutOfRangeException)
-      {
-	throw new InvalidOperationException();
-      }
+      {  throw new InvalidOperationException();  }
     }
   }
 }
