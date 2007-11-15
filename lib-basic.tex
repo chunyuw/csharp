@@ -317,14 +317,14 @@ IEnumerable:
 \begin{frame}[fragile]
 \frametitle{迭代器 (\textit{Iterators})}
 \begin{itemize}
-\item 用于简化 ~IEnumerator 和 ~IEnumerable
-\item 使用 ~\texttt{yield return} 返回 ~IEnumerable 对象
+\item 用于简化 ~IEnumerable 和 ~IEnumerator
+\item 使用 ~\texttt{yield return} 返回 ~IEnumerator 对象
 \end{itemize}
 
 \lstset{emph={yield}}
 \begin{lstlisting}
 using System.Collections;
-class MyClass {
+class MyClass:IEnumerable {
   char[] chrs = { 'A', 'B', 'C', 'D' };
 
   public IEnumerator GetEnumerator() {
@@ -348,7 +348,7 @@ class MyClass {
 \begin{lstlisting}
 using System;
 using System.Collections;
-class MyClass {
+class MyClass:IEnumerable {
   ...
   public IEnumerator GetEnumerator() {
     yield return 'A';     yield return 'B';
