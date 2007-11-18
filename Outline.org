@@ -17,6 +17,17 @@
   * [ ] app domain
   * [ ] 垃圾回收
 
+* .NET Development
+
+** Excel Development
+
+*** 在项目中添加引用
+  菜单：Project->添加引用(R), Com, Microsoft Office Excel 11.0 Object
+
+*** Application 对象
+*** Workbook 对象
+*** Worksheet 对象
+*** Range 对象
 
 * Beamer Usage
 
