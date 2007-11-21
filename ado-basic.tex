@@ -10,7 +10,7 @@
 
 \begin{frame}
 \frametitle{ADO.NET 基础}
-\begin{block}{\textit{Active Data Object .NET}}
+\begin{block}{\textit{ActiveX Data Object .NET}}
   \CJKindent 由公共语言运行时 ~(\textit{CLR}) 管理的数据管理库，利用 ~XML 在应
   用程序之间进行数据交换。
 \end{block}
@@ -245,8 +245,8 @@ string name; int age;
 
 age  = (int) rdr.GetValue(1); // <第 ~1 列的数据>
 name = rdr.GetString(0);      // <第 ~0 列，不需类型转换>
-name = (string) rdr.["Name"]; // <通过索引器>
-name = (string) rdr.[0];      // <通过索引器>
+name = (string) rdr["Name"];  // <通过索引器>
+name = (string) rdr[0];       // <通过索引器>
 
 \end{lstlisting}
 \end{frame}

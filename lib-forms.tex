@@ -9,8 +9,8 @@
 \item .NET 提供了丰富的类库进行图形界面的设计
 \begin{itemize}
 \item System.Windows.Forms --- Windows 窗体设计
-\item System.Web.UIWebControls --- Web 表单设计
-\item System.Web.UIMobileControls --- 智能设备窗体的设计
+\item System.Web.UI.WebControls --- Web 表单设计
+\item System.Web.UI.MobileControls --- 智能设备窗体的设计
 \end{itemize}
 \item 各种控件的使用方式灵活，如直接使用或继承后定制
 \item 由于 ~C\# 语言的特点，使图形界面编程非常简单
@@ -440,7 +440,7 @@ Controls & 控件的容器 \\
 Parent & 所在容器 \\
 \hline
 Size, Location & 控件的大小，位置 \\
-Anchor, Cock & 控件锚定和停靠的方向 \\
+Anchor, Dock & 控件锚定和停靠的方向 \\
 BackColor, ForeColor & 前景色和背景色 \\
 \hline
 Text & 控件相关的文本，如标题、按钮文字等 \\
@@ -606,6 +606,8 @@ void OnMouseLeave(object s, EventArgs e){
 \item Timer 的使用示例
 \end{itemize}
 \begin{lstlisting}
+using System; using System.Windows.Forms;
+
 public class TimerTest {
   static Timer myTimer = new Timer();
   private static void run(object s, EventArgs e) {
