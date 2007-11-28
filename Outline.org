@@ -7,6 +7,11 @@
 
 * TODO
   - 使用资源
+  - 项目开发
+  - VSTO, Office 开发
+  - WWF, WCF 等
+  - .NET 3.0
+  - LINQ
 
 * .NET Framework
 
