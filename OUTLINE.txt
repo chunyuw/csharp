@@ -247,5 +247,6 @@
 
 
 # Local Variables:
+# mode: org
 # org-export-html-style: "<link rel=\"stylesheet\" type=\"text/css\" href=\"res/org.css\">"
 # End:
