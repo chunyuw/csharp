@@ -13,6 +13,16 @@
   - .NET 3.0
   - LINQ
 
+* Visual Studio
+
+** Text Editor 
+*** Guide Line
+    -  Close Visual Studio.
+    -  Open regedit (Start  Run  type regedit).
+    -  Navigate to HKEY_CURRENT_USER\Software\Microsoft\VisualStudio\<7.1>\Text Editor.
+    -  Right-click on the Text Editor key and choose New  String Value and name it "Guides".
+    -  Set the value of the guides to RGB(128, 128, 128) 4, 16.
+
 * .NET Framework
 
   * [ ] 组件的使用
