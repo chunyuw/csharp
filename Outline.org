@@ -11,7 +11,13 @@
   - VSTO, Office 开发
   - WWF, WCF 等
   - .NET 3.0
-  - LINQ
+  - LINQ / C# 3.0
+  - ASP.NET
+  - Silverlight
+
+* TODO Unfinished Files
+  - [[lib-others.tex]]     其他类库
+  - [[dev-vsto.tex]]       Office 开发
 
 * Visual Studio
 
