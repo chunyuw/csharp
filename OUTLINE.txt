@@ -33,7 +33,7 @@
 
   * [ ] 组件的使用
   * [ ] 部署和版本控制
-    + 应用程序的部署 [[file:file:D:\work\eBook.NET\eBook\Microsoft.Press.Deploying.Dot.NET.Applications.A.Lifecycle.Guide.eBook-LiB][Deploying.Dot.NET.Applications]]
+	+ 应用程序的部署 [[file:D:\work\eBook.NET\eBook\Microsoft.Press.Deploying.Dot.NET.Applications.A.Lifecycle.Guide.eBook-LiB][Deploying.Dot.NET.Applications]]
   * [ ] 受管开发环境
   * [ ] app domain
   * [ ] 垃圾回收

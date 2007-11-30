@@ -78,7 +78,7 @@ part-02.pdf: $(wildcard  cs-*.tex pgf/cs-*.tex)
 part-03.pdf: $(wildcard  cs-*.tex pgf/cs-*.tex)
 part-04.pdf: $(wildcard lib-*.tex pgf/lib-*.tex)
 part-05.pdf: $(wildcard ado-*.tex pgf/ado-*.tex)
-part-06.pdf: $(wildcard asp-*.tex pgf/asp-*.tex)
+part-06.pdf: $(wildcard dev-*.tex pgf/dev-*.tex)
 part-07.pdf: 
 part-08.pdf: $(wildcard *.tex pgf/*.tex)
 
