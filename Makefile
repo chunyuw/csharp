@@ -1,8 +1,5 @@
 ## Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> ##
 
-Author    = "Chunyu Wang <chunyu@hit.edu.cn>"
-Copyright = "Copyright (C) 2006-2007 Chunyu Wang."
-
 PRGFILES  = Makefile auto/*.el
 TXTFILES  = {.,pgf}/*.tex $(PRGFILES) OUTLINE.txt code/*.cs figures/*.txt .dired 
 BINFILES  = figures/*.{jpg,png,pdf} res/*.7z
@@ -28,6 +25,9 @@ endif
 PASSWORD  = cy.net
 
 CLSUFFIX  = aux log snm toc vrb out out.bak dvi nav
+
+Author    = "Chunyu Wang <chunyu@hit.edu.cn>"
+Copyright = "Copyright (C) $(shell seq -s, 2006 $(shell $(DATE) +%Y)) Chunyu Wang."
 
 all:
 	@echo "Usage:"
