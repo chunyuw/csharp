@@ -16,8 +16,8 @@
   - Silverlight
 
 * TODO Unfinished Files
-  - [[lib-others.tex]]     其他类库
-  - [[dev-vsto.tex]]       Office 开发
+  - [[file:lib-others.tex][其他类库]]
+  - [[file:dev-vsto.tex][Office 开发]]
 
 * Visual Studio
 
