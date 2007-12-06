@@ -27,7 +27,7 @@ PASSWORD  = cy.net
 CLSUFFIX  = aux log snm toc vrb out out.bak dvi nav
 
 Author    = "Chunyu Wang <chunyu@hit.edu.cn>"
-Copyright = "Copyright (C) $(shell seq -s, 2006 $(shell $(DATE) +%Y)) Chunyu Wang."
+Copyright = "Copyright (C) $(shell seq -s, 2006 $(shell $(DATE) +%Y)) "$(Author)"."
 
 all:
 	@echo "Usage:"
