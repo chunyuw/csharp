@@ -433,23 +433,23 @@ private void clk_handler(object s, EventArgs e){
 % \rowcolors[]{1}{blue!20}{blue!10}
 \begin{tabular}{l|l}
 \hline
-特 性 & 说 明 \\
+特 性                & 说 明                              \\
 \hline
-Name, Tag & 名字和相关的数据对象 \\
-Controls & 控件的容器 \\
-Parent & 所在容器 \\
+Name, Tag            & 名字和相关的数据对象               \\
+Controls             & 控件的容器                         \\
+Parent               & 所在容器                           \\
 \hline
-Size, Location & 控件的大小，位置 \\
-Anchor, Dock & 控件锚定和停靠的方向 \\
-BackColor, ForeColor & 前景色和背景色 \\
+Size, Location       & 控件的大小，位置                   \\
+Anchor, Dock         & 控件锚定和停靠的方向               \\
+BackColor, ForeColor & 前景色和背景色                     \\
 \hline
-Text & 控件相关的文本，如标题、按钮文字等 \\
-Font & 默认的字体 \\
+Text                 & 控件相关的文本，如标题、按钮文字等 \\
+Font                 & 默认的字体                         \\
 \hline
-TabIndex, TabStop & 按 ~TAB 建的顺序和焦点 \\
-MouseButton & 鼠标的按键 \\
-MousePosition & 鼠标的位置 \\
-Cursor & 光标的形状 \\
+TabIndex, TabStop    & 按 ~TAB 建的顺序和焦点             \\
+MouseButton          & 鼠标的按键                         \\
+MousePosition        & 鼠标的位置                         \\
+Cursor               & 光标的形状                         \\
 \hline
 \end{tabular}
 \end{frame}
@@ -481,18 +481,18 @@ Button2.TabIndex  = 4;
   \centering
   \begin{tabular}{l|l}
     \hline
-    方 法 & 说 明 \\
+    方 法        & 说 明                \\
     \hline
-    Focus() & 获取焦点 \\
-    DoDragDrop() & 开始拖放操作 \\
-    Hide() & 对用户隐藏控件 \\
+    Focus()      & 获取焦点             \\
+    DoDragDrop() & 开始拖放操作         \\
+    Hide()       & 对用户隐藏控件       \\
     \hline
-    Contains() & 判断是否为控件 \\
-    Dispose() & 释放所有资源 \\
-    Scale() & 缩放控件和任何子控件 \\
+    Contains()   & 判断是否为控件       \\
+    Dispose()    & 释放所有资源         \\
+    Scale()      & 缩放控件和任何子控件 \\
     \hline
-    OnClick() & 引发~Click事件 \\
-    OnEnter() & 引发~Enter事件 \\
+    OnClick()    & 引发~Click事件       \\
+    OnEnter()    & 引发~Enter事件       \\
     \hline
   \end{tabular}
 \end{figure}
@@ -512,14 +512,14 @@ delegate void EventHandler(object sender, EventArgs e)
   \centering
   \begin{tabular}{l|l}
     \hline
-    事件 & 事件参数 \\
+    事件                   & 事件参数          \\
     \hline
-    Click, DoubleClick & EventArgs \\
-    MouseEnter, MouseLeave & EventArgs \\
-    MouseHover, MouseWheel & EventArgs \\
-    MouseDown, MouseUp & MouseEventArgs \\
-    KeyUp, KeyDown & KeyEventArgs \\
-    KeyPress & KeyPressEventArgs \\
+    Click, DoubleClick     & EventArgs         \\
+    MouseEnter, MouseLeave & EventArgs         \\
+    MouseHover, MouseWheel & EventArgs         \\
+    MouseDown, MouseUp     & MouseEventArgs    \\
+    KeyUp, KeyDown         & KeyEventArgs      \\
+    KeyPress               & KeyPressEventArgs \\
     \hline
   \end{tabular}
 \end{figure}
@@ -538,12 +538,12 @@ delegate void EventHandler(object sender, EventArgs e)
 
 \begin{tabular}{l|l}
 \hline
-成员特性 & 说明 \\  
+成员特性 & 说明                                             \\  
 \hline
-Button & 枚举~MouseButtons 的值~Left, Middle, Right, None \\
-Clicks & 鼠标的点击次数 \\
-Delta & 鼠标滚轮旋转次数，正数向前，负数向后 \\
-X, Y & 鼠标相对于容器的坐标位置，即控件的 MousePosition \\
+Button   & 枚举~MouseButtons 的值~Left, Middle, Right, None \\
+Clicks   & 鼠标的点击次数                                   \\
+Delta    & 鼠标滚轮旋转次数，正数向前，负数向后             \\
+X, Y     & 鼠标相对于容器的坐标位置，即控件的 MousePosition \\
 \hline
 \end{tabular}
 \end{frame}

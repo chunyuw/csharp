@@ -134,14 +134,15 @@ class suspend
 \bigskip \pause
 
 \begin{tabular}[tb]{l|l}
-\hline 修饰符 & 访问权限\\
-\hline
-    private       & 仅用于嵌套类，其容器类可访问\\
-    protected     & 仅用于嵌套类，其容器类和派生类可访问\\
-    protected internal &仅用于嵌套类，当前程序集或派生类可访问\\
-    internal      & 当前程序集内可访问\\
-    public        & 任何程序集中都可以访问\\ \hline
-  \end{tabular}
+  \hline 修饰符      & 访问权限                               \\
+  \hline
+  private            & 仅用于嵌套类，其容器类可访问           \\
+  protected          & 仅用于嵌套类，其容器类和派生类可访问   \\
+  protected internal & 仅用于嵌套类，当前程序集或派生类可访问 \\
+  internal           & 当前程序集内可访问                     \\
+  public             & 任何程序集中都可以访问                 \\
+  \hline
+\end{tabular}
 \bigskip \pause
 
 \begin{itemize}
@@ -725,11 +726,11 @@ class Ring:Circle{
 \begin{block}{为派生类提供的底层服务}
   \usebeamerfont{table}
   \begin{tabular}{l|l}
-    Equals()      & 确定两个对象实例是否相等\\
-    GetHashCode() & 生成对象相对应的数字以支持哈希表\\
-    ToString()    & 生成描述类的实例的可读文本字符串\\
-    GetType()     & 获取当前实例的类型\\
-    Finalize()    & 在自动回收对象之前执行清理操作\\
+    Equals()      & 确定两个对象实例是否相等         \\
+    GetHashCode() & 生成对象相对应的数字以支持哈希表 \\
+    ToString()    & 生成描述类的实例的可读文本字符串 \\
+    GetType()     & 获取当前实例的类型               \\
+    Finalize()    & 在自动回收对象之前执行清理操作   \\
   \end{tabular}
   \normalfont
 \end{block}
@@ -1031,17 +1032,17 @@ static void Main()
   \centering
   \begin{tabular}{l|l|l}
     \hline
-    & 结构体& 类\\ \hline
-
+                       & 结构体   & 类       \\
+    \hline
     类型的默认访问级别 & internal & internal \\
-    成员的默认访问级别 & private & private\\
-    类型  & 值类型 & 引用类型\\
-    能否作为基类  & 不能 & 能\\
-    构造函数 & 有$^{1}$ & 有 \\
-    析构函数 & 无 & 有 \\
-    嵌套  & 可以 & 可以\\
-    实现接口  & 可以 & 可以\\
-    产生和处理事件  & 可以 & 可以\\
+    成员的默认访问级别 & private  & private  \\
+    类型               & 值类型   & 引用类型 \\
+    能否作为基类       & 不能     & 能       \\
+    构造函数           & 有$^{1}$ & 有       \\
+    析构函数           & 无       & 有       \\
+    嵌套               & 可以     & 可以     \\
+    实现接口           & 可以     & 可以     \\
+    产生和处理事件     & 可以     & 可以     \\
     \hline
   \end{tabular}
 \end{figure}

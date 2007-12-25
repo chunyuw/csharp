@@ -505,22 +505,22 @@ public class List
 \frametitle{特殊字符和普通字符}
 \begin{tabular}{c|l}
 \hline
-字符 & 说明 \\
+字符                  & 说明                                               \\
 \hline
-\verb|.| & 任何字符，除换行符外 \\
-\verb|* + ?| & 前一部分的重复次数，尽可能多匹配 (\textit{greedy}) \\
-\verb|\| & 转义字符 \\
-\verb|[|\dots\verb|]| & 字符集合，表示其中的任意字符 \\
-\verb|(|\dots\verb|)| & 分组，用于重复、引用等 \\
-\verb|{|n,m\verb|}| & 表示匹配次数 \\
-\verb|$| & 行尾空串 \\
-\verb|^| & 行首空串 \\
+\verb|.|              & 任何字符，除换行符外                               \\
+\verb|* + ?|          & 前一部分的重复次数，尽可能多匹配 (\textit{greedy}) \\
+\verb|\|              & 转义字符                                           \\
+\verb|[|\dots\verb|]| & 字符集合，表示其中的任意字符                       \\
+\verb|(|\dots\verb|)| & 分组，用于重复、引用等                             \\
+\verb|{|n,m\verb|}|   & 表示匹配次数                                       \\
+\verb|$|              & 行尾空串                                           \\
+\verb|^|              & 行首空串                                           \\
 \hline
-\verb|\b| & 单词边界上的空串 \\
-\verb|\s| & 匹配任何空白字符 \\
-\verb|\w| & 匹配任何单词 \\
-\verb|\d| & 匹配一个数字 \\
-\verb|\cC| & 匹配控制字符 ~Ctrl-C \\
+\verb|\b|             & 单词边界上的空串                                   \\
+\verb|\s|             & 匹配任何空白字符                                   \\
+\verb|\w|             & 匹配任何单词                                       \\
+\verb|\d|             & 匹配一个数字                                       \\
+\verb|\cC|            & 匹配控制字符 ~Ctrl-C                               \\
 \hline
 \end{tabular}
 \end{frame}
@@ -529,18 +529,18 @@ public class List
 \frametitle{分组及引用}
 \begin{tabular}{c|l}
 \hline
-分组 & 使用方式 \\
+分组                                         & 使用方式                                       \\
 \hline
-\verb|(|\dots\verb|)| & 通过数字 ~\verb|\N| 引用 \\
-  & 例如 ~\verb|(\w)\s+\1| \\
+\verb|(|\dots\verb|)|                        & 通过数字 ~\verb|\N| 引用                       \\
+                                             & 例如 ~\verb|(\w)\s+\1|                         \\
 \verb|(?<|\textit{name}\verb|>|\dots\verb|)| & 通过名字 ~\verb|\k<|\textit{name}\verb|>| 引用 \\
-  & 例如 \verb|(?<word>\w)\s+\k<word>| \\
+                                             & 例如 \verb|(?<word>\w)\s+\k<word>|             \\
 \hline
 \hline
-替换方式 & 说明 \\
+替换方式                                     & 说明                                           \\
 \hline
-\verb|$|\textit{N} & 按组号替换 \\
-\verb|${|\textit{name}\verb|}| & 按组名字替换 \\
+\verb|$|\textit{N}                           & 按组号替换                                     \\
+\verb|${|\textit{name}\verb|}|               & 按组名字替换                                   \\
 \hline
 \end{tabular}
 \medskip
