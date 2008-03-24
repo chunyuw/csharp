@@ -29,6 +29,8 @@ CLSUFFIX  = aux log snm toc vrb out out.bak dvi nav
 Author    = "Chunyu Wang <chunyu@hit.edu.cn>"
 Copyright = "Copyright (C) $(shell seq -s, 2006 $(shell $(DATE) +%Y)) "$(Author)"."
 
+BUILDDIR  = zbuild
+
 all:
 	@echo "Usage:"
 	@echo "    make [0-8] | s | encrypt"
@@ -37,7 +39,10 @@ all:
 
 $(NUMTARGT): %: part-0%.pdf
 
-$(PDFTARGT): %.pdf: %.tex preamble.tex author.tex ; -@gbk2uni -s $(basename $@) ; pdflatex $<
+$(PDFTARGT): %.pdf: %.tex preamble.tex author.tex 
+	-@gbk2uni -s $(BUILDDIR)/$(basename $@)
+	pdflatex -output-directory=$(BUILDDIR) $<
+	-@mv -f $(BUILDDIR)/$@ ./m$@
 
 encrypt: $(foreach x,$(wildcard part-*.pdf),en-$(x))
 
