@@ -112,10 +112,9 @@ Microsoft .NET 平台利用以互联网为基础的计算和通讯激增的特点，通过先进的软件，
   \only<6-| handout:1>{--- .NET 核心部分}
   \medskip
 
-  \only<5| handout:0>{\small Microsoft 为 ~XML Web 服务家族创建的一种编程语言 ~C\#。并且已经提交
-    给 ~ECMA 进行标准化。 Microsoft 还向 ~ECMA 提交了 ~Microsoft .NET 框架的一个子集，叫做公共语言基
-    础结构。这将使其他供应商能够在各种平台上实现 ~CLI，以便用 ~.NET 框架提供的基本体系结构模型所写的
-    软件可以在各种平台上用各种工具来创建。}
+  \only<5| handout:0>{\small 都已成为~ECMA 标准化的规范。Microsoft 为 ~XML Web 服务家族创建的一种编程
+    语言 ~C\#，和~Microsoft .NET 框架的一个子集，叫做公共语言基础结构。这将使其他供应商能够在各种平台
+    上实现 ~CLI，以便用 ~.NET 框架提供的基本体系结构模型所写的软件可以在各种平台上用各种工具来创建。}
 
 \end{itemize}
 \medskip
@@ -341,25 +340,57 @@ Content-Length: length
 \begin{frame}
 \frametitle{.NET 框架的各个版本}
 
-\begin{columns}
+\begin{columns}[t]
 \column{.58\textwidth}
-\begin{itemize}
+\begin{itemize}[<+->]
 \item .NET Framework 1.0 (2002-2-13)
+
+\only<.>{ \CJKindent 初次发布，支持的系统包括 Win 98, NT 4.0, 2000, XP。}
+
 \item .NET Framework 1.1 (2003-4-3)
+
+\only<.>{
 \begin{itemize}
-\item ASP.NET
-\item .NET Compact Framework
-\item Visual Studio 2003
-\end{itemize}
-\item .NET Framework 2.0
+\item<.-> ASP.NET, ADO.NET
+\item<.-> .NET Compact Framework
+\item<.-> 包含在~ Visual Studio 2003 中
+\end{itemize}}
+
+\item .NET Framework 2.0 (2006-1-22)
+
+\only<.>{
 \begin{itemize}
-\item Visual Studio 2005
-\item Microsoft SQL Server 2005
-\item 
-\end{itemize}
-\item .NET Framework 3.0
-\item .NET Framework 3.5
+\item<.-> 语言的改进，如支持范型等
+\item<.-> 控件的增加和改进
+\item<.-> 免费的~SDK 下载
+\item<.-> 随~Visual Studio 2005, Microsoft SQL Server 2005 一起发布
+\end{itemize}}
+
+\item .NET Framework 3.0 (2006-11-21)
+
+\only<.>{
+\begin{itemize}
+\item<.-> 仍然使用 ~2.0 的框架，但增加了新成员 ~WPF, WCF, WF 和 CardSpace
+\item<.-> 是 ~Windows Vista 和 ~Windows Server 2008 的一部分
+\end{itemize}}
+
+\item .NET Framework 3.5 (2007-11-19)
+
+\only<.>{
+\begin{itemize}
+\item<.-> 语言的改进，C\# 3.0 和~VB.NET 9.0
+\item<.-> LINQ(Language Integrated Query)
+\item<.-> ASP.NET AJAX
+\end{itemize}}
+
 \item Future .NET Framework 4.0
+
+\only<.>{
+\begin{itemize}
+\item<.-> $\cdots \cdots \cdots \cdots$
+\item<.-> $\cdots \cdots \cdots \cdots$
+\item<.-> $\cdots \cdots \cdots \cdots$
+\end{itemize}}
 \end{itemize}
 
 \column{.41\textwidth}
