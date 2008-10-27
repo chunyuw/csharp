@@ -320,23 +320,56 @@ Content-Length: length
 \centering \input{pgf/dn-framework}
 \end{frame}
 
+% \begin{frame}
+% \frametitle{代码重用和~DLL}
+% \setlength{\itemsep}{6pt plus 1pt}
+% \begin{itemize}
+% \item 代码重用，提高效率，减少二次开发 \pause
+% \item 动态加载需要组件，减少内存使用 \pause
+% \item 维护 ~DLL 需要特别的认真仔细
+%   \begin{itemize}
+%   \item 版本唯一，向下兼容，保证代码正确执行
+%   \item 仔细实现错误检查，无法处理的错误要通过固定的错误码向上提交
+%   \item 处理与其他 ~DLL 之前的联系，保持兼容
+%   \end{itemize}
+% \pause
+% \item 当旧版本的 ~DLL 覆盖新的 ~DLL 时，会发生 ~DLL Hell
+% \item 解决 ~DLL Hell --- .NET 的设计动机之一
+% \end{itemize}
+% \end{frame}
+
 \begin{frame}
-\frametitle{代码重用和~DLL}
-\setlength{\itemsep}{6pt plus 1pt}
+\frametitle{.NET 框架的各个版本}
+
+\begin{columns}
+\column{.58\textwidth}
 \begin{itemize}
-\item 代码重用，提高效率，减少二次开发 \pause
-\item 动态加载需要组件，减少内存使用 \pause
-\item 维护 ~DLL 需要特别的认真仔细
-  \begin{itemize}
-  \item 版本唯一，向下兼容，保证代码正确执行
-  \item 仔细实现错误检查，无法处理的错误要通过固定的错误码向上提交
-  \item 处理与其他 ~DLL 之前的联系，保持兼容
-  \end{itemize}
-\pause
-\item 当旧版本的 ~DLL 覆盖新的 ~DLL 时，会发生 ~DLL Hell
-\item 解决 ~DLL Hell --- .NET 的设计动机之一
+\item .NET Framework 1.0 (2002-2-13)
+\item .NET Framework 1.1 (2003-4-3)
+\begin{itemize}
+\item ASP.NET
+\item .NET Compact Framework
+\item Visual Studio 2003
 \end{itemize}
+\item .NET Framework 2.0
+\begin{itemize}
+\item Visual Studio 2005
+\item Microsoft SQL Server 2005
+\item 
+\end{itemize}
+\item .NET Framework 3.0
+\item .NET Framework 3.5
+\item Future .NET Framework 4.0
+\end{itemize}
+
+\column{.41\textwidth}
+\begin{figure}
+\centerline{\includegraphics[width=4cm]{otl-dotnet}}
+\end{figure}
+\end{columns}
+
 \end{frame}
+
 
 \section{公共语言运行时}
 
