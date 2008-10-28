@@ -25,6 +25,7 @@
      "CJK"
      "attachfile"
      "fullpage"
+     "amssymb"
      "xcolor"
      "svgnames"
      "ifthen"
