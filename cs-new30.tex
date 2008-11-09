@@ -204,15 +204,33 @@ public static class ExtIMath
 \end{lstlisting}
 \end{frame}
 
-
-
-\begin{frame}
-\frametitle{对象与集合初始化器(\textit{Object and collection initializers})}
-
+\begin{frame}[fragile]
+\frametitle{对象初始化器(\textit{Object initializers})}
+\begin{lstlisting}
+public class Point
+{  int x, y;
+   public int X { get { return x; } set { x = value; } }
+   public int Y { get { return y; } set { y = value; } }
+}
+\end{lstlisting}
+\begin{itemize}
+\item 创建对象的同时，为对象初始化成员
+\begin{lstlisting}
+var a = new Point { X = 0, Y = 1 };
+\end{lstlisting}
+\item 等同于
+\begin{lstlisting}
+var a = new Point();
+a.X = 0;
+a.Y = 1;
+\end{lstlisting}
+\end{itemize}
 \end{frame}
 
+
+
 \begin{frame}[fragile]
-\frametitle{匿名类}
+\frametitle{匿名类型 (\textit{Anonymous types})}
 \begin{lstlisting}[escapeinside=<>]
 new { <$p_1$> = <$e_1$>, <$p_2$> = <$e_2$> <\ldots>}
 \end{lstlisting}
