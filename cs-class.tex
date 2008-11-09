@@ -814,7 +814,7 @@ struct Circle { public int R; }
 \begin{block}{显式转换}
   \begin{itemize}
   \item 当不能进行隐式转换时，必须使用显式转换
-  \item 如果不使用显式转换，系统会发生异常
+  \item 如果不使用显式转换，系统会发生编译错误
   \item 语法类似 ~C 中的强制类型转换
   \end{itemize}
 \end{block}
@@ -1077,7 +1077,7 @@ class Ring:Circle {
 \frametitle{隐藏基类方法}
 \begin{itemize}
 \item 派生类的方法也可以直接隐藏基类方法，但会有编译警告
-\item 要显示隐藏基类方法，派生类要用 ~new 关键字指出
+\item 要显式隐藏基类方法，派生类要用 ~new 关键字指出
 \end{itemize}
   \lstset{emph={new}}
 \begin{lstlisting}
@@ -1095,7 +1095,12 @@ class Ring:Circle { public int r;
 \end{frame}
 
 \begin{frame}
-\frametitle{多态}
+\frametitle{多态性(\textit{Polymorphism})}
+
+\begin{block}{多态性(\textit{Polymorphism})}
+  \CJKindent 多态性就是多种表现形式，具体来说，可以用"一个对外接口，多个内在实现方法"表示。
+\end{block}
+
   \begin{itemize}
     \setlength{\itemsep}{8pt plus 1pt}
   \item 同一个对象中，同一个名字的不同成员
@@ -1123,7 +1128,7 @@ class A {
 \end{lstlisting}
 \column{.4\textwidth}
 \begin{lstlisting}
-class B extends A {
+class B : A {
   public int x = 5;
 }
 \end{lstlisting}
@@ -1154,8 +1159,8 @@ class A {
 \end{lstlisting}
 \column{.4\textwidth}
 \begin{lstlisting}
-class B extends A {
-  void func()
+class B : A {
+  public void func()
   { WriteLine("B"); }
 }
 \end{lstlisting}

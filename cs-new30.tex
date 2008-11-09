@@ -1,0 +1,242 @@
+%% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> %%
+
+\section{C\# 3.0}
+
+\begin{frame}[fragile]
+\frametitle{隐含类型局部变量\textit{Implicitly typed local variables}}
+
+\begin{itemize}
+\item 关键字~\texttt{var} 可用于声明局部变量
+\item 具体类型由编译器根据初始化表达式推断
+\begin{lstlisting}
+  var i = 5;
+  var s = "Hello";
+  var d = 1.0;
+  var numbers = new int[] {1, 2, 3};
+  var orders = new Dictionary<int,Order>();
+\end{lstlisting}
+\item 上面的声明等价于
+\begin{lstlisting}
+  int i = 5;
+  string s = "Hello";
+  double d = 1.0;
+  int[] numbers = new int[] {1, 2, 3};
+  Dictionary<int,Order> 
+      orders = new Dictionary<int,Order>();
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{隐含类型局部变量(2)}
+\begin{itemize}
+\item 隐式类型必须初始化，用于编译器推断类型
+\item 初始化时，值不能是~\texttt{null}
+\item 如下的几种声明，编译器无法推断类型
+\begin{lstlisting}[escapeinside=<>]
+var x;                // <错误，没有初始化>
+var y = {1, 2, 3};    // <错误，没有数组声明>
+var z = null;         // <错误，null 无法推断类型>
+\end{lstlisting}
+\item 数组的隐含类型可以再简化
+\begin{lstlisting}
+var a = new[] { "hello", null, " world" }; //string[]
+var b = new[] { new[] {1,2,3,4},
+                new[] {5,6,7,8}         }; //int[][]
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{隐含类型局部变量(3)}
+
+关键字~\texttt{var} 可用于以下情况
+\begin{itemize}
+\item 局部变量
+\item 在~\texttt{for} 的初始化语句中
+\begin{lstlisting}
+for(var x = 1; x < 10; x++) { ... }
+\end{lstlisting}
+\item 在~\texttt{foreach} 的初始化语句中
+\begin{lstlisting}
+foreach(var item in list){...}
+\end{lstlisting}
+\item 在~\texttt{using} 语句中
+\begin{lstlisting}
+using (var f = new StreamReader("...")) {...}
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{扩展方法 (\textit{Extension Methods})}
+\begin{block}{\textit{Extension Methods}}
+\CJKindent 定义在静态类中的特殊方法，可以在不改变现有代码的情况下，扩展为已有类型的实例方法。
+\end{block}
+
+\begin{itemize}
+\item 通过编译技术，将实例方法转换为静态方法
+\item 必须在静态类中实现，且不能是嵌套类或泛型类
+\item 该方法的第一个参数必须有~\texttt{this} 修饰
+\end{itemize}
+
+\lstset{emph={this}}
+\begin{lstlisting}
+public static class Extensions{
+  public static void Foo(this string s) { ... }
+}
+...
+  String s = "Hello,World";
+  s.Foo();
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{扩展方法的示例}
+\begin{itemize}
+\item 为~\texttt{int} 类型添加方法 \texttt{Square())}
+\end{itemize}
+\lstset{emph={this,static}}
+\lstset{emph={[2]Square}}
+\begin{lstlisting}
+class Program
+{
+    static void Main(string[] args)
+    {
+        int i = 6;
+        Console.WriteLine(i.Square());
+    }
+}
+
+static class Extensions
+{
+    public static int Square(this int i)
+    {
+        return i * i;
+    }
+}
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{扩展方法的示例(续)}
+
+\begin{itemize}
+\item 编译之后的~IL 代码
+\end{itemize}
+\lstset{emph={[2]CSharp,Extensions,Square}}
+\begin{lstlisting}
+.method private hidebysig 
+          static void Main(string[] args) cil managed
+{
+  .entrypoint
+  // Code size 16 (0x10)
+  .maxstack  1
+  .locals init ([0] int32 i)
+  IL_0000: nop
+  IL_0001: ldc.i4.6
+  IL_0002: stloc.0
+  IL_0003: ldloc.0
+  IL_0004: call int32 CSharp.Extensions::Square(int32)
+  IL_0009: call void [mscorlib]System.Console::WriteLine(int32)
+  IL_000e: nop
+  IL_000f: ret
+} // end of method Program::Main
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{扩展方法的示例(续)}
+\begin{itemize}
+\item 相当于静态类函数在对象上的调用
+\end{itemize}
+\lstset{emph={Square}}
+\begin{lstlisting}
+class Program
+{
+    static void Main(string[] args)
+    {
+        int i = 6;
+        Console.WriteLine(Extensions.Square(i));
+    }
+}
+
+static class Extensions
+{
+    public static int Square(this int i)
+    {
+        return i * i;
+    }
+}
+
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{接口的扩展函数}
+\begin{itemize}
+\item 对接口的扩展与对类型的相同
+\item 但显然不能直接在接口上调用扩展函数
+\item 只能理解为，所有实现了该接口的对象上增加了扩展函数
+\end{itemize}
+\lstset{emph={this}}
+\lstset{emph={[2]IMath}}
+\begin{lstlisting}
+public interface IMath
+{ int Add(int x, int y);   }
+class MyCalc : IMath
+{ public int Add(int x, int y)  { return x + y; } }
+
+public static class ExtIMath
+{
+  public static int Subtract(this IMath itf, int x, int y)
+  { return x - y; }
+}
+...  // in Main()
+  MyCalc c = new MyCalc();
+  Console.WriteLine("1 + 2 = {0}", c.Add(1, 2));
+  Console.WriteLine("1 - 2 = {0}", c.Subtract(1, 2));
+\end{lstlisting}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{对象与集合初始化器(\textit{Object and collection initializers})}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{匿名类}
+\begin{lstlisting}[escapeinside=<>]
+new { <$p_1$> = <$e_1$>, <$p_2$> = <$e_2$> <\ldots>}
+\end{lstlisting}
+
+\begin{lstlisting}[escapeinside=<>]
+class __Anonymous1
+{
+  private <$T_1$> <$f_1$>;
+  private <$T_2$> <$f_2$>;
+  <\ldots>  
+  public <$T_1$> <$p_1$> { get { return <$f_1$>; } set { <$f_1$> = value; } }
+  public <$T_2$> <$p_2$> { get { return <$f_2$>; } set { <$f_2$> = value; } }
+  <\ldots>
+}
+
+\end{lstlisting}
+\end{frame}
+
+
+% Local Variables:
+% mode: LaTeX
+% TeX-master: "part-03.tex"
+% TeX-header-end: "% End-of-Header$"
+% TeX-trailer-start: "% Start-of-Trailer$"
+% coding: gbk-dos
+% End:
+
