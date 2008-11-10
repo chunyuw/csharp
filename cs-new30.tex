@@ -3,7 +3,7 @@
 \section{C\# 3.0}
 
 \begin{frame}[fragile]
-\frametitle{隐含类型局部变量~(\textit{Implicitly typed local variables})}
+\frametitle{隐含类型局部变量~(\textit{Implicitly typed local variable})}
 
 \begin{itemize}
 \item 关键字~\texttt{var} 可用于声明局部变量
@@ -15,6 +15,7 @@
   var numbers = new int[] {1, 2, 3};
   var orders = new Dictionary<int,Order>();
 \end{lstlisting}
+\pause
 \item 上面的声明等价于
 \begin{lstlisting}
   int i = 5;
@@ -38,11 +39,14 @@ var x;                // <错误，没有初始化>
 var y = {1, 2, 3};    // <错误，没有数组声明>
 var z = null;         // <错误，null 无法推断类型>
 \end{lstlisting}
+\pause
 \item 数组的隐含类型可以再简化
 \begin{lstlisting}
-var a = new[] { "hello", null, " world" }; //string[]
+var a = new[] { "hello", null, " world" }; //<string>[]
 var b = new[] { new[] {1,2,3,4},
-                new[] {5,6,7,8}         }; //int[][]
+                new[] {5,6,7,8}         }; //<int>[][]
+
+var x = new[] { 1, "one", 2, "two" };      //<Error>
 \end{lstlisting}
 \end{itemize}
 \end{frame}
@@ -51,7 +55,7 @@ var b = new[] { new[] {1,2,3,4},
 \frametitle{隐含类型局部变量~(3)}
 
 关键字~\texttt{var} 可用于以下情况
-\begin{itemize}
+\begin{itemize}[<+->]
 \item 局部变量
 \item 在~\texttt{for} 的初始化语句中
 \begin{lstlisting}
@@ -68,23 +72,21 @@ using (var f = new StreamReader("...")) {...}
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]
-\frametitle{隐含类型数组~(\textit{Implicitly typed arrays})}
-\begin{itemize}
-\item 由编译器推断数组类型
-\end{itemize}
-\begin{lstlisting}[escapeinside=<>]
-var a = new[] { 1, 10, 100, 1000 };       // <int>[]
-var b = new[] { 1, 1.5, 2, 2.5 };         // <double>[]
-var c = new[] { "hello", null, "world" }; // <string>[]
-r
-var d = new[] { 1, "one", 2, "two" };     // <Error>
-\end{lstlisting}
-\end{frame}
-
+% \begin{frame}[fragile]
+% \frametitle{隐含类型数组~(\textit{Implicitly typed arrays})}
+% \begin{itemize}
+% \item 由编译器推断数组类型
+% \end{itemize}
+% \begin{lstlisting}[escapeinside=<>]
+% var a = new[] { 1, 10, 100, 1000 };       // <int>[]
+% var b = new[] { 1, 1.5, 2, 2.5 };         // <double>[]
+% var c = new[] { "hello", null, "world" }; // <string>[]
+% var d = new[] { 1, "one", 2, "two" };     // <Error>
+% \end{lstlisting}
+% \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{扩展方法~(\textit{Extension Methods})}
+\frametitle{扩展方法~(\textit{Extension Method})}
 \begin{block}{\textit{Extension Methods}}
 \CJKindent 定义在静态类中的特殊方法，可以在不改变现有代码的情况下，扩展为已有类型的实例方法。
 \end{block}
@@ -110,7 +112,7 @@ public static class Extensions{
 \begin{frame}[fragile]
 \frametitle{扩展方法的示例}
 \begin{itemize}
-\item 为~\texttt{int} 类型添加方法 \texttt{Square())}
+\item 为~\texttt{int} 类型添加方法 \texttt{Square()}
 \end{itemize}
 \lstset{emph={this,static}}
 \lstset{emph={[2]Square}}
@@ -219,7 +221,7 @@ public static class ExtIMath
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{对象初始化器~(\textit{Object initializers})}
+\frametitle{对象初始化器~(\textit{Object initializer})}
 \begin{lstlisting}
 public class Point
 {  int x, y;
@@ -242,21 +244,18 @@ a.Y = 1;
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{自动特性~(\textit{Automatic Properties})}
-  \CJKindent 在创建特性的同时，自动创建私有字段。“私有字段$+$公有特性”可以为对
-  象提供良好的封装性。
-
+\frametitle{自动特性~(\textit{Automatic Propertie})}
 \begin{itemize}
 \item 未使用自动特性
 \begin{lstlisting}
 class Person
-{
-  private string _Name;
+{ private string _Name;
   public  string  Name
   { get { return _name; }
     set { _name = value; } }
 }
 \end{lstlisting}
+\pause
 \item 使用自动特性
 \begin{lstlisting}
 class Person
@@ -264,14 +263,17 @@ class Person
   public string Name { get; set; }
 }
 \end{lstlisting}
+\pause
+\item 在创建特性的同时，自动创建私有字段
+\item “私有字段$+$公有特性”可以为对象提供良好的封装性。
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{自动特性}
-\begin{itemize}
+\begin{itemize}[<+->]
 \setlength{\itemsep}{6pt plus 1pt}
-\item 产生的私有成员名字由编译器生成，程序中不可访问
+\item 私有成员的名字由编译器生成，程序中不可访问
 \item 不能通过自动特性创建只读或只写的特性
 \begin{lstlisting}[escapeinside=<>]
 public int MyReadOnlyProp  { get; } // <只读特性? 错误>
@@ -297,7 +299,7 @@ public int MyWriteOnlyProp { set; } // <只写特性? 错误>
 
 \begin{frame}[fragile]
 \frametitle{匿名类型}
-\begin{block}{\textit{Anonymous types}}
+\begin{block}{\textit{Anonymous Type}}
   \CJKindent 匿名类型提供了一种方便的方法，可用来将一组只读属性封装到单个对象
   中，而无需首先显式定义一个类型。
 \end{block}
@@ -379,7 +381,7 @@ foreach (var v in productQuery)
                                   v.Color, v.Price);
 }
 \end{lstlisting}
-\begin{itemize}
+\begin{itemize}[<+->]
 \item 常用在查询表达式(LINQ)的~\texttt{select}子句中，以便返回源序列中每个对象的属性子集
 \item 匿名类型是直接从对象派生的引用类型，不能强制转换为除~\texttt{object}以外的任何接口或类型
 \item 有方法范围限制，若要向方法边界外部传递，必须强制转换为对象，且会使匿名类型的强类型化无效
@@ -398,7 +400,11 @@ foreach (var v in productQuery)
 \begin{itemize}
 \item \textit{Lambda} 表达式\footnote{美国数学家~Alonzo Church 在~1936 年将其概念化}最早可见于~LISP 语言
 \item 创建内联函数(\textit{inline method})的直接方法
-\item 主要用于简化委托的使用，方便事件处理函数的创建
+\item 主要用于简化委托的使用
+\begin{itemize}
+\item 事件处理函数的创建
+\item 查询表达式的创建
+\end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -485,11 +491,10 @@ Func<double,int> f3 = x => x + 1; // Error
 \begin{lstlisting}[escapeinside='']
 static void Main()
 {
-  // '数据'
   int[] scores = { 90, 71, 82, 93, 75, 82 };
 
-  // '在查询中使用'
-  int highScoreCount = scores.Where(n => n > 80).Count();
+  // 'LINQ的查询表达式函数'
+  int highScoreCount = scores.Where(n => n>80).Count();
 
   Console.WriteLine("{0} scores are greater than 80",
                                          highScoreCount);
@@ -503,7 +508,7 @@ static void Main()
 \begin{itemize}
 \item 在事件处理中使用
 \end{itemize}
-\begin{lstlisting}
+\begin{lstlisting}[escapeinside='']
 public partial class Form1 : Form
 {
   public Form1()
@@ -512,6 +517,7 @@ public partial class Form1 : Form
 
       this.Click +=
            (s, e) => {MessageBox.Show("Hello World!");};
+                                       // '显示消息窗口'
     }
 }
 \end{lstlisting}
