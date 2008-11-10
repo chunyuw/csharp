@@ -21,7 +21,7 @@
   string s = "Hello";
   double d = 1.0;
   int[] numbers = new int[] {1, 2, 3};
-  Dictionary<int,Order> 
+  Dictionary<int,Order>
       orders = new Dictionary<int,Order>();
 \end{lstlisting}
 \end{itemize}
@@ -143,7 +143,7 @@ static class Extensions
 \end{itemize}
 \lstset{emph={[2]CSharp,Extensions,Square}}
 \begin{lstlisting}
-.method private hidebysig 
+.method private hidebysig
           static void Main(string[] args) cil managed
 {
   .entrypoint
@@ -250,7 +250,7 @@ a.Y = 1;
 \item 未使用自动特性
 \begin{lstlisting}
 class Person
-{ 
+{
   private string _Name;
   public  string  Name
   { get { return _name; }
@@ -306,11 +306,11 @@ public int MyWriteOnlyProp { set; } // <只写特性? 错误>
 \item 这些属性的类型由编译器推断
 \pause
 \begin{lstlisting}
-var myCar = new { Color = "Bright Pink", 
-                  Make = "Saab", 
+var myCar = new { Color = "Bright Pink",
+                  Make = "Saab",
                   CurrentSpeed = 55 };
 
-Console.WriteLine("My car is a {0} {1}.", 
+Console.WriteLine("My car is a {0} {1}.",
                             myCar.Color, myCar.Make);
 \end{lstlisting}
 \end{itemize}
@@ -329,7 +329,7 @@ class __Anonymous1
 {
   private <$T_1$> <$f_1$>;
   private <$T_2$> <$f_2$>;
-  <\ldots>  
+  <\ldots>
   public <$T_1$> <$p_1$> { get { return <$f_1$>; } set { <$f_1$> = value; } }
   public <$T_2$> <$p_2$> { get { return <$f_2$>; } set { <$f_2$> = value; } }
   <\ldots>
@@ -369,13 +369,13 @@ p3.Equals(p4)= False\\
 \begin{frame}[fragile]
 \frametitle{匿名类型的使用}
 \begin{lstlisting}
-var productQuery = 
+var productQuery =
     from prod in products
     select new { prod.Color, prod.Price };
 
 foreach (var v in productQuery)
 {
-    Console.WriteLine("Color={0}, Price={1}", 
+    Console.WriteLine("Color={0}, Price={1}",
                                   v.Color, v.Price);
 }
 \end{lstlisting}
@@ -462,23 +462,26 @@ Func<double,int> f3 = x => x + 1; // Error
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{\textit{Lambda} 表达式的使用 (1)}
+\frametitle{\textit{Lambda} 表达式的使用~(1)}
 \begin{lstlisting}[escapeinside='']
   string[] list = new string[] { "abc", "12", "java" };
-  
+
   string[] ll=Array.FindAll(list,
       delegate(string s) { return s.IndexOf("a") >= 0;}
       );
   // '或使用更方便的\textit{Lambda}表达式'
   string[] ll=Array.FindAll(list, s=>(s.IndexOf("a")>=0));
-  
+
   foreach (string var in ll)
       Console.WriteLine(var);
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{\textit{Lambda} 表达式的使用 (2)}
+\frametitle{\textit{Lambda} 表达式的使用~(2)}
+\begin{itemize}
+\item 在查询表达式中使用
+\end{itemize}
 \begin{lstlisting}[escapeinside='']
 static void Main()
 {
@@ -488,9 +491,28 @@ static void Main()
   // '在查询中使用'
   int highScoreCount = scores.Where(n => n > 80).Count();
 
-  Console.WriteLine("{0} scores are greater than 80", 
+  Console.WriteLine("{0} scores are greater than 80",
                                          highScoreCount);
-  // Outputs: 4 scores are greater than 80            
+  // '输出：4 scores are greater than 80'
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\textit{Lambda} 表达式的使用~(3)}
+\begin{itemize}
+\item 在事件处理中使用
+\end{itemize}
+\begin{lstlisting}
+public partial class Form1 : Form
+{
+  public Form1()
+    {
+      InitializeComponent();
+
+      this.Click +=
+           (s, e) => {MessageBox.Show("Hello World!");};
+    }
 }
 \end{lstlisting}
 \end{frame}
