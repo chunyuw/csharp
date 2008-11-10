@@ -3,7 +3,7 @@
 \section{C\# 3.0}
 
 \begin{frame}[fragile]
-\frametitle{隐含类型局部变量~\textit{Implicitly typed local variables}}
+\frametitle{隐含类型局部变量~(\textit{Implicitly typed local variables})}
 
 \begin{itemize}
 \item 关键字~\texttt{var} 可用于声明局部变量
@@ -28,7 +28,7 @@
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{隐含类型局部变量(2)}
+\frametitle{隐含类型局部变量~(2)}
 \begin{itemize}
 \item 隐式类型必须初始化，用于编译器推断类型
 \item 初始化时，值不能是~\texttt{null}
@@ -48,7 +48,7 @@ var b = new[] { new[] {1,2,3,4},
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{隐含类型局部变量(3)}
+\frametitle{隐含类型局部变量~(3)}
 
 关键字~\texttt{var} 可用于以下情况
 \begin{itemize}
@@ -66,6 +66,20 @@ foreach(var item in list){...}
 using (var f = new StreamReader("...")) {...}
 \end{lstlisting}
 \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{隐含类型数组~(\textit{Implicitly typed arrays})}
+\begin{itemize}
+\item 由编译器推断数组类型
+\end{itemize}
+\begin{lstlisting}[escapeinside=<>]
+var a = new[] { 1, 10, 100, 1000 };       // <int>[]
+var b = new[] { 1, 1.5, 2, 2.5 };         // <double>[]
+var c = new[] { "hello", null, "world" }; // <string>[]
+r
+var d = new[] { 1, "one", 2, "two" };     // <Error>
+\end{lstlisting}
 \end{frame}
 
 
@@ -227,14 +241,89 @@ a.Y = 1;
 \end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{自动特性~(\textit{Automatic Properties})}
+  \CJKindent 在创建特性的同时，自动创建私有字段。“私有字段$+$公有特性”可以为对
+  象提供良好的封装性。
+
+\begin{itemize}
+\item 未使用自动特性
+\begin{lstlisting}
+class Person
+{ 
+  private string _Name;
+  public  string  Name
+  { get { return _name; }
+    set { _name = value; } }
+}
+\end{lstlisting}
+\item 使用自动特性
+\begin{lstlisting}
+class Person
+{
+  public string Name { get; set; }
+}
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{自动特性}
+\begin{itemize}
+\setlength{\itemsep}{6pt plus 1pt}
+\item 产生的私有成员名字由编译器生成，程序中不可访问
+\item 不能通过自动特性创建只读或只写的特性
+\begin{lstlisting}[escapeinside=<>]
+public int MyReadOnlyProp  { get; } // <只读特性? 错误>
+public int MyWriteOnlyProp { set; } // <只写特性? 错误>
+\end{lstlisting}
+\item 读写访问器可以有不同的访问权限
+\lstset{emph={[2]protected,set}}
+\begin{lstlisting}
+  public string PetName { get; protected set; }
+\end{lstlisting}
+等同于
+\lstset{emph={[2]protected,set}}
+\begin{lstlisting}
+  private string _petName
+  public  string PetName
+  { get { return _petName; }
+    protected set { _petName = value; }
+  }
+\end{lstlisting}
+\end{itemize}
+\end{frame}
 
 
 \begin{frame}[fragile]
-\frametitle{匿名类型~(\textit{Anonymous types})}
+\frametitle{匿名类型}
+\begin{block}{\textit{Anonymous types}}
+  \CJKindent 匿名类型提供了一种方便的方法，可用来将一组只读属性封装到单个对象
+  中，而无需首先显式定义一个类型。
+\end{block}
+\begin{itemize}
+\item 类型名由编译器生成，并且不能在源代码级使用
+\item 这些属性的类型由编译器推断
+\pause
+\begin{lstlisting}
+var myCar = new { Color = "Bright Pink", 
+                  Make = "Saab", 
+                  CurrentSpeed = 55 };
+
+Console.WriteLine("My car is a {0} {1}.", 
+                            myCar.Color, myCar.Make);
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{匿名类型}
+\begin{itemize}
+\item 匿名类的定义
 \begin{lstlisting}[escapeinside=<>]
 new { <$p_1$> = <$e_1$>, <$p_2$> = <$e_2$> <\ldots>}
 \end{lstlisting}
-
+\item 编译器自动生成的内部类型
 \begin{lstlisting}[escapeinside=<>]
 class __Anonymous1
 {
@@ -245,7 +334,164 @@ class __Anonymous1
   public <$T_2$> <$p_2$> { get { return <$f_2$>; } set { <$f_2$> = value; } }
   <\ldots>
 }
+\end{lstlisting}
+\end{itemize}
+\end{frame}
 
+\begin{frame}[fragile]
+\frametitle{匿名类型的相等性}
+\lstset{basicstyle=\ttfamily\scriptsize}
+\begin{lstlisting}
+class Person {
+  public int Age { get; set; }
+  public string Name { get; set; } }
+static void Main(string[] args) {
+  var p1 = new { Name = "IORI", Age = 27 };
+  var p2 = new { Name = "IORI", Age = 27 };
+  var p3 = new { Name = "GUOJUN", Age = 27 };
+  var p4 = new Person { Name = "GUOJUN", Age = 27 };
+
+  Console.WriteLine("p1.ToString()= {0}", p1.ToString());
+  Console.WriteLine("p1.Equals(p2)= {0}", p1.Equals(p2));
+  Console.WriteLine("p1.Equals(p3)= {0}", p1.Equals(p3));
+  Console.WriteLine("p3.Equals(p4)= {0}", p3.Equals(p4));
+  Console.WriteLine("(p1 == p2)= {0}", p1 == p2);
+}
+\end{lstlisting}
+\scriptsize
+p1.ToString()= \{ Name = IORI, Age = 27 \}\\
+p1.Equals(p2)= True\\
+p1.Equals(p3)= False\\
+p3.Equals(p4)= False\\
+(p1 == p2)= False\\
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{匿名类型的使用}
+\begin{lstlisting}
+var productQuery = 
+    from prod in products
+    select new { prod.Color, prod.Price };
+
+foreach (var v in productQuery)
+{
+    Console.WriteLine("Color={0}, Price={1}", 
+                                  v.Color, v.Price);
+}
+\end{lstlisting}
+\begin{itemize}
+\item 常用在查询表达式(LINQ)的~\texttt{select}子句中，以便返回源序列中每个对象的属性子集
+\item 匿名类型是直接从对象派生的引用类型，不能强制转换为除~\texttt{object}以外的任何接口或类型
+\item 有方法范围限制，若要向方法边界外部传递，必须强制转换为对象，且会使匿名类型的强类型化无效
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\textit{Lambda} 表达式}
+\begin{block}{\textit{Lambda expression}}
+\CJKindent 用于创建匿名函数的简便方式，可以包含表达式和语句。
+\end{block}
+一般格式：
+\begin{lstlisting}[escapeinside=<>]
+   ( <parameters> ) => <expression>
+\end{lstlisting}
+\begin{itemize}
+\item \textit{Lambda} 表达式\footnote{美国数学家~Alonzo Church 在~1936 年将其概念化}最早可见于~LISP 语言
+\item 创建内联函数(\textit{inline method})的直接方法
+\item 主要用于简化委托的使用，方便事件处理函数的创建
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\textit{Lambda} 表达式示例}
+\begin{itemize}
+\item 使用~\textit{Lambda} 表达式
+\begin{lstlisting}
+   delegate int Del(int i);
+   Del compute = x => x * x;
+   int j = compute(5); //j = 25
+\end{lstlisting}
+\item 使用匿名方法
+\begin{lstlisting}
+   delegate int Del(int i);
+   Del compute = delegate (int x) { return x * x; };
+   int j = compute(5); //j = 25
+\end{lstlisting}
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\textit{Lambda} 表达式的种类}
+\begin{itemize}
+\item 隐式类型
+\begin{lstlisting}
+x => x + 1             // expression body
+x => { return x + 1; } // statement body
+\end{lstlisting}
+\item 显示类型
+\begin{lstlisting}
+(int x) => x + 1
+(int x) => { return x + 1; }
+\end{lstlisting}
+\item 参数个数
+\begin{lstlisting}
+() => Console.WriteLine()
+(x, y) => x * y
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\textit{Lambda} 表达式的转换}
+\begin{itemize}
+\item \textit{Lambda} 表达式的类型和委托类型相符，可以进行转换
+\begin{lstlisting}
+delegate R Func<A,R>(A arg);
+
+Func<int,int>    f1 = x => x + 1; // Ok
+Func<int,double> f2 = x => x + 1; // Ok
+
+Func<double,int> f3 = x => x + 1; // Error
+\end{lstlisting}
+\begin{itemize}
+\item \texttt{f3} 中给定~\texttt{x} 为~\texttt{double}，编译器推断得到~\texttt{x+1} 也为~\texttt{double}，因此不能隐式转换
+  为~\texttt{int} 型
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\textit{Lambda} 表达式的使用 (1)}
+\begin{lstlisting}[escapeinside='']
+  string[] list = new string[] { "abc", "12", "java" };
+  
+  string[] ll=Array.FindAll(list,
+      delegate(string s) { return s.IndexOf("a") >= 0;}
+      );
+  // '或使用更方便的\textit{Lambda}表达式'
+  string[] ll=Array.FindAll(list, s=>(s.IndexOf("a")>=0));
+  
+  foreach (string var in ll)
+      Console.WriteLine(var);
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\textit{Lambda} 表达式的使用 (2)}
+\begin{lstlisting}[escapeinside='']
+static void Main()
+{
+  // '数据'
+  int[] scores = { 90, 71, 82, 93, 75, 82 };
+
+  // '在查询中使用'
+  int highScoreCount = scores.Where(n => n > 80).Count();
+
+  Console.WriteLine("{0} scores are greater than 80", 
+                                         highScoreCount);
+  // Outputs: 4 scores are greater than 80            
+}
 \end{lstlisting}
 \end{frame}
 

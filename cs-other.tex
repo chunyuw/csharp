@@ -24,21 +24,33 @@ C\# 中的指针
 
 \begin{frame}[fragile]
 \frametitle{指针的使用}
-指针的声明
+\begin{itemize}
+\item 指针的声明
 \begin{lstlisting}[escapeinside=<>]
-int* i;
-float* p, q; // <注意~p, q 都是指针>
+int*    i;
+float*  p1, p2;   // <注意，p1, p2 都是指针>
+int    *p1,*p2;   // <错误，C\#中无效的语法>
 \end{lstlisting}
 
-指针的使用
+\item 指针的使用
 \begin{lstlisting}[escapeinside=<>]
-int* ip;
-int num = 10;
-
-ip = &num; // <取地址>
-num = *ip; // <访问值>
+int*  ip;
+int   num = 10;
+ip  = &num; // <取地址>
+num = *ip;  // <访问值>
 \end{lstlisting}
+
+\item 指针的类型
+\begin{lstlisting}[escapeinside=<>]
+int*   p   // <指向整数的指针>
+int**  p   // <指向整数的指针的指针>
+int*[] p   // <指向整数的指针的一维数组>
+char*  p   // <指向字符的指针>
+void*  p   // <指向未知类型的指针>
+\end{lstlisting}
+\end{itemize}
 \end{frame}
+
 
 \begin{frame}[fragile]
 \frametitle{不安全代码的使用}
@@ -124,6 +136,22 @@ if (count != null) { ... }
 if (count.HasValue) { ... } // '可空值的特性'
 \end{lstlisting}
 
+\CJKindent 在处理数据库和其他包含不可赋值的元素的数据类型时，将 null 赋值给数值
+类型或布尔型的功能特别有用。例如，数据库中的布尔型字段可以存储
+值 true 或 false，或者，该字段也可以未定义。
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{可空值类型}
+\begin{itemize}
+\item 可空值类型表示可被赋值为~\texttt{null} 值的值类型变量
+\item 语法~\texttt{T?} 是~\lstinline|Nullable<T>| 的简写，\texttt{T} 为值类型，两种形式可以互换
+\item 使用~\texttt{HasValue} 和~\texttt{Value} 只读属性测试是否为空和检索值
+\begin{itemize}
+\item 布尔值~\texttt{HasValue} 表示是否包含有效值
+\item 如果已赋值，则~\texttt{Value} 属性返回该值，否则将引发异常 System.InvalidOperationException 
+\end{itemize}
+\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -172,6 +200,31 @@ partial class XY {
 
 \end{lstlisting}
 \end{frame}
+
+\begin{frame}[fragile]
+\frametitle{部分方法 (\textit{partial method})}
+\begin{itemize}
+\item 定义在部分类中，如果没有实现则不会被编译
+\item 必须是私有的，不能返回值，不能有输出参数
+\item 常用于处理轻量级事件
+\end{itemize}
+\lstset{emph={partial}}
+\lstset{emph={[2]VerifyDuplicates}}
+\begin{lstlisting}[escapeinside=<>]
+partial class CarLocator
+{
+  public bool CarAvailableInZipCode(string zipCode)
+  {
+    VerifyDuplicates(zipCode);
+    <$\ldots$>
+    return true;
+  }
+
+  partial void VerifyDuplicates(string make);
+}
+\end{lstlisting}
+\end{frame}
+
 
 \begin{frame}[fragile]
 \frametitle{\texttt{extern} 关键字}
