@@ -325,6 +325,7 @@ public interface ISeries {  // an interface property
 \begin{itemize}
 \item 线性表类~LinkedList 和接口~Linkable (程序~LinkedList.cs)
 \attachfile[description=Interface example]{code/LinkedList.cs}
+
 \begin{lstlisting}[escapeinside=<>]
 interface Linkable {
   Linkable Next { get; set; }  
@@ -340,9 +341,7 @@ class LinkedList  { // <使用> Linkable <接口>
   public Linkable removeFromTail()        { ... }
 }
 
-class XXX: Linkable { // <实现> Linkable <接口>
-...
-}
+class XXX: Linkable { ... } // <实现> Linkable <接口>
 \end{lstlisting}
 \end{itemize}
 
