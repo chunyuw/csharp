@@ -156,13 +156,13 @@ ArrayList 实现了 ~ICollection, IList, IEnumerable, ICloneable 接口。
 \begin{frame}
 \frametitle{Hashtable 类}
 
-\CJKindent Hash table 使用~ \textit{hasing} 技术存储数据。将键转换
+\CJKindent Hashtable 使用~ \textit{Hashing} 技术存储数据。将键转换
 为~\textit{Hash code}，用于数据的索引，决定数据的存储位置。
 
 \begin{itemize}
 \item 键转换为 ~Hash code 的过程是自动的
 \item 访问时也只需使用键本身，不使用 ~Hash code
-\item 使用 ~Hash table 可以提高字典的访问效率
+\item 使用 ~Hashtable 可以提高字典的访问效率
 \end{itemize}
 
 \CJKindent Hashtable 实现了~ IDictionary, ICollection, IEnumerable,
@@ -264,6 +264,7 @@ class HashtableDemo {
 \begin{frame}
 \frametitle{泛型集合接口}
 \begin{itemize}
+\setlength{\itemsep}{7pt plus 1pt}
 \item ICollection$<$T$>$ 操作泛型集合
 \item IComparer$<$T$>$ 比较两个对象
 \item IDictionary$<$TK, TV$>$ 键/值对的泛型集合
@@ -299,7 +300,9 @@ public LinkedListNode<T> Last { get; }
 
 \begin{frame}
 \frametitle{IEnumerator 和~ IEnumerable 接口}
-主要用于 ~\texttt{foreach} 循环，对集合进行迭代
+
+主要用于对集合进行迭代，如~\texttt{foreach} 循环等。
+\vskip8pt
 
 IEnumerator:
 \begin{itemize}
@@ -307,16 +310,21 @@ IEnumerator:
 \item \texttt{bool MoveNext();} --- 下移一个位置
 \item \texttt{void ReSet();} --- 复位
 \end{itemize}
+\vskip4pt
+
 IEnumerable:
 \begin{itemize}
 \item \texttt{IEnumerator GetEnumerator();}
 \end{itemize}
+\vskip8pt
+
 示例：IEnumerable.cs \attachfile[description=IEnumerable]{code/IEnumerable.cs}
 \end{frame}
 
 \begin{frame}
 \frametitle{IEnumerator$<$T$>$ 和~ IEnumerable$<$T$>$ 接口}
 在命名空间~System.Collections.Generic 中
+\vskip8pt
 
 IEnumerator$<$T$>$:
 \begin{itemize}
@@ -324,6 +332,8 @@ IEnumerator$<$T$>$:
 \item \texttt{bool MoveNext();} --- 下移一个位置
 \item \texttt{void ReSet();} --- 复位
 \end{itemize}
+\vskip4pt 
+
 IEnumerable:
 \begin{itemize}
 \item \texttt{IEnumerator$<$T$>$ GetEnumerator();}
@@ -370,8 +380,7 @@ class MyClass:IEnumerable {
     yield return 'A';     yield return 'B';
     yield return 'C';     yield return 'D';
   }
-}
-...
+} ...
   public static void Main() {
     MyClass mc = new MyClass();
 
@@ -564,13 +573,11 @@ static void ImmediateExecution()
               where i < 10 select i).ToList<int>();
 }
 \end{lstlisting}
-\begin{itemize}
 \item IEnumerable$<$T$>$ 的扩展方法
 \begin{itemize}
 \item System.Linq.Enumerable.ToArray$<$T$>$
 \item System.Linq.Enumerable.ToList$<$T$>$
 \item System.Linq.Enumerable.ToDictionary$<$T,K$>$
-\end{itemize}
 \end{itemize}
 \end{itemize}
 \end{frame}
