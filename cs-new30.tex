@@ -123,9 +123,9 @@ class Program
     {
         int i = 6;
         Console.WriteLine(i.Square());
+        // i.Square().Square();
     }
 }
-
 static class Extensions
 {
     public static int Square(this int i)
@@ -170,7 +170,7 @@ static class Extensions
 \begin{itemize}
 \item 相当于静态类函数在对象上的调用
 \end{itemize}
-\lstset{emph={Square}}
+\lstset{emph={[2]Square}}
 \begin{lstlisting}
 class Program
 {
@@ -178,9 +178,9 @@ class Program
     {
         int i = 6;
         Console.WriteLine(Extensions.Square(i));
+        // Extensions.Square(Extensions.Square(i))
     }
 }
-
 static class Extensions
 {
     public static int Square(this int i)

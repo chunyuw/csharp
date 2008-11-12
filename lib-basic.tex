@@ -6,7 +6,7 @@
 \tableofcontents
 \end{frame}
 
-\section{集合}
+\section{集合和~LINQ 简介}
 
 \begin{frame}
 \frametitle{集合~ System.Collections}
@@ -314,6 +314,22 @@ IEnumerable:
 示例：IEnumerable.cs \attachfile[description=IEnumerable]{code/IEnumerable.cs}
 \end{frame}
 
+\begin{frame}
+\frametitle{IEnumerator$<$T$>$ 和~ IEnumerable$<$T$>$ 接口}
+在命名空间~System.Collections.Generic 中
+
+IEnumerator$<$T$>$:
+\begin{itemize}
+\item \texttt{T Current \{get;\}} --- 返回当前对象
+\item \texttt{bool MoveNext();} --- 下移一个位置
+\item \texttt{void ReSet();} --- 复位
+\end{itemize}
+IEnumerable:
+\begin{itemize}
+\item \texttt{IEnumerator$<$T$>$ GetEnumerator();}
+\end{itemize}
+\end{frame}
+
 \begin{frame}[fragile]
 \frametitle{迭代器 (\textit{Iterators})}
 \begin{itemize}
@@ -407,6 +423,158 @@ public class List
 }
 \end{lstlisting}
 \end{frame}
+
+\begin{frame}
+\frametitle{LINQ 简介}
+
+\begin{block}{\textit{LINQ}}
+  \CJKindent 语言集成查询(\textit{Language INtegrated Query}) 是一组技术的名
+  称，建立在将查询功能直接集成到~.NET 语言的基础上。
+\end{block}
+
+\begin{itemize}
+\item 以查询的方式检索数据源
+\item 通过一致的模型使用多种数据源
+\end{itemize}
+
+\begin{figure}[htbp]
+  \centering \includegraphics[width=6.4cm]{linq-arch}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{LINQ 表达式}
+\begin{itemize}
+\item 类似于~SQL 语句的查询表达式
+\end{itemize}
+\begin{lstlisting}
+static void Main(string[] args) {
+
+  string[] names = {"Burke", "Connor", "Frank", 
+                    "Everett", "Albert", "George", 
+                    "Harris", "David" };
+
+  IEnumerable<string> query = from s in names
+                              where s.Length == 5
+                              orderby s
+                              select s.ToUpper();
+  
+  foreach(string item in query)
+    Console.WriteLine(item);
+}
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{LINQ 表达式}
+
+\begin{lstlisting}
+  var query = from s in names
+              where s.Length == 5
+              orderby s
+              select s.ToUpper();
+\end{lstlisting}
+\pause
+
+等价于如下基于方法的查询：
+\begin{lstlisting}
+  var query = names.Where(s => s.Length == 5)
+                   .OrderBy(s => s)
+                   .Select(s => s.ToUpper());
+\end{lstlisting}
+\pause
+
+即使用静态类~System.Linq.Enumerable 的三个扩展方法
+\begin{lstlisting}
+var query = Enumerable.Select(
+            Enumerable.OrderBy(
+            Enumerable.Where(names, 
+                             s => s.Length ==5),
+                             s => s),
+                             s => s.ToUpper());
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Enumerable~的扩展方法}
+
+\CJKindent 其中用到的是静态类~System.Linq.Enumerable 中对接口 IEnumerable$<$T$>$ 的几个扩展方法
+
+\lstset{emph={[2]Where,OrderBy,Select}}
+\begin{lstlisting}
+public static IEnumerable<T> Where<T>(
+  this IEnumerable<T> source, Func<T, bool> predicate) {
+    foreach (T item in source)
+      if (predicate(item)) yield return item;
+}
+\end{lstlisting}
+\lstset{emph={[2]Where,OrderBy,Select}}
+\begin{lstlisting}
+public static IOrderedEnumerable<T> OrderBy<T, K>(
+    this IEnumerable<T> source, Func<T, K> keySelector)
+{  ...  }
+\end{lstlisting}
+\lstset{emph={[2]Where,OrderBy,Select}}
+\begin{lstlisting}
+public static IEnumerable<R> Select<T, R>(
+    this IEnumerable<T> source, Func<T, R> selector)
+{  ...  }
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{LINQ 表达式的延迟执行}
+\begin{itemize}
+\item LINQ 的结果存储的是查询表达式，并没有实际的执行
+\item 在对结果取值时，才触发表达式的执行，即延迟执行
+\end{itemize}
+\begin{lstlisting}[escapeinside='']
+static void QueryOverInts()
+{ int[] numbers = { 10, 20, 30, 40, 1, 2, 3, 8 };
+
+  var subset = from i in numbers where i < 10 select i;
+
+  foreach (var i in subset) // 'LINQ表达式被求值'
+    Console.WriteLine("{0} < 10", i);
+
+  numbers[0] = 4;
+  foreach (var j in subset) // 'LINQ表达式被再次求值'
+    Console.WriteLine("{0} < 10", j);
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{强制立即执行}
+\begin{itemize}
+\item 对查询表达式取值，触发~LINQ 的执行
+\item 也可以通过~ToArray$<$T$>$() 或~ToList$<$T$>$() 等方法
+\begin{lstlisting}[escapeinside='']
+static void ImmediateExecution()
+{ int[] numbers = { 10, 20, 30, 40, 1, 2, 3, 8 };
+
+  int[] toArray =       // '立即执行，并转换为数组'
+             (from i in numbers 
+              where i < 10 select i).ToArray<int>();
+
+  List<int> toList =    // '立即执行，并转换为集合'
+             (from i in numbers
+              where i < 10 select i).ToList<int>();
+}
+\end{lstlisting}
+\begin{itemize}
+\item IEnumerable$<$T$>$ 的扩展方法
+\begin{itemize}
+\item System.Linq.Enumerable.ToArray$<$T$>$
+\item System.Linq.Enumerable.ToList$<$T$>$
+\item System.Linq.Enumerable.ToDictionary$<$T,K$>$
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\end{frame}
+
 
 \section{文本处理}
 
