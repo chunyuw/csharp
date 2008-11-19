@@ -49,14 +49,50 @@
 \pause 数据库的访问、管理等，是企业应用程序开发中的核心问题。
 \end{frame}
 
+\begin{frame}
+\frametitle{ADO.NET 命名空间}
+
+\begin{itemize}
+\item ADO.NET 是 ~FCL 的一部分
+\item 包含在程序集 ~System.Data.dll 中
+\end{itemize}
+
+\begin{tabular}{l|l}
+\hline
+\textbf{Namespaces} & \textbf{Description} \\
+\hline
+\small System.Data & 实现 ~ADO.NET 的类、接口、委托类型等 \\
+\small System.Data.Common & 不同数据提供程序共享的类 \\
+\small System.Data.Odbc & ODBC 数据提供程序 \\
+\small System.Data.OleDb & OLE DB 数据提供程序 \\
+\small System.Data.OracleClient & Oracle 数据提供程序 \\
+\small System.Data.SqlClient & SQL Server 数据提供程序 \\
+\small System.Data.Sql & 用于支持 ~SQL Server 的功能类库 \\
+\hline
+\end{tabular}
+\end{frame}
+
+\begin{frame}
+\frametitle{ADO.NET 的结构}
+
+\begin{itemize}
+\item 两个核心组件：\textit{Data Provider} 和 ~\textit{Dataset}
+\end{itemize}
+
+\begin{center}
+  \includegraphics[scale=.46]{ado-arch}
+\end{center}
+
+\end{frame}
+
 \section{Data Provider}
 
 \begin{frame}
-\frametitle{数据提供器~(\textit{Data Provider})}
+\frametitle{数据提供程序 ~(\textit{Data Provider})}
 \begin{itemize}
 \item 应用程序访问数据库依赖于 ~\textit{.NET Framework data provider}
-\item 客户程序和数据提供器，运行在 ~CLR 上
-\item 数据提供器可能依赖其它程序
+\item 客户程序和数据提供程序，运行在 ~CLR 上
+\item 数据提供程序可能依赖其它程序
 \end{itemize}
 \begin{center}
   \includegraphics[scale=.5]{ado-provider}
@@ -64,11 +100,11 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{数据提供器的功能}
+\frametitle{数据提供程序的功能}
 \begin{itemize}
 \item Connection 建立和释放连接，可用于启动事务
 \item Command 执行 ~SQL 语句或存储过程
-\item DataReader 只读、顺序的~(\textit{Sequential}) 直接访问库中数据
+\item DataReader 只读、顺序的 ~(\textit{Sequential}) 直接访问库中数据
 \item DataAdapter 创建并组装 ~DataSet 实例
 \end{itemize}
 \begin{center}
@@ -77,11 +113,11 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{提供器的命名空间}
+\frametitle{提供程序的命名空间}
 % in System.Data.dll assembly
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
-\item 特定的数据提供器，位于不同的命名空间
+\item 特定的数据提供程序，位于不同的命名空间
 \begin{itemize}
 \setlength{\itemsep}{6pt plus 1pt}
 \item System.Data.Odbc
@@ -89,41 +125,105 @@
 \item System.Data.OracleClient
 \item System.Data.SqlClient
 \end{itemize}
-\item 公共的数据提供器
+\item 公共的数据提供程序
   \begin{itemize}
   \item System.Data.Common
   \smallskip
-  \item 为其它提供器提供共享的类和抽象基类
+  \item 与其它提供程序共享的类和抽象基类
   \item 提供了通用编码的实现方式
   \end{itemize}
 \end{itemize}
 \end{frame}
 
+\begin{frame}
+\frametitle{SQL Server 的数据提供程序}
+
+\begin{itemize}
+\item System.Data.SqlClient 中
+\item 在 ~.NET 上直接访问 ~SQL Server
+\end{itemize}
+
+  \begin{tabular}{l|l}
+    \hline
+    \textbf{Classes} & \textbf{Description} \\
+    \hline
+    \texttt{SqlConnection} & 建立与 ~SQL Server 的连接 \\
+    \texttt{SqlCommand} & 用于执行的 ~SQL 查询、语句或存储过程 \\
+    \texttt{SqlDataAdapter} & 建立数据源和 ~\textit{datasets} 之间的关系 \\
+    \texttt{SqlDataReader} & 用于只读的、向前的数据库访问 \\
+    \texttt{SqlError} & 获取 ~SQL Server 中的出错或警告信息 \\
+    \texttt{SqlException} & 数据库相关的异常 \\
+    \texttt{SqlParameter} & 表示查询中的参数 \\
+    \texttt{SqlTransaction} & 表示 ~SQL Server 的事务 \\
+    \hline
+  \end{tabular}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{OLE DataBase 的数据提供程序}
+
+\begin{itemize}
+\item System.Data.OleDb 中
+\item 在 ~.NET 上，通过 ~OLE 驱动访问其他数据库
+\end{itemize}
+
+  \begin{tabular}{l|l}
+    \hline
+    \textbf{Classes} & \textbf{Description} \\
+    \hline
+    \texttt{OleDbConnection} & 建立与数据库的连接 \\
+    \texttt{OleDbCommand} & 用于执行的 ~SQL 查询、语句或存储过程 \\
+    \texttt{OleDbDataAdapter} & 建立数据源和 ~\textit{datasets} 之间的关系 \\
+    \texttt{OleDbDataReader} & 用于只读的、向前的数据库访问 \\
+    \texttt{OleDbError} & 获取数据库中的出错或警告信息 \\
+    \texttt{OleDbException} & 数据库相关的异常 \\
+    \texttt{OleDbParameter} & 表示查询中的参数 \\
+    \texttt{OleDbTransaction} & 表示数据库的事务 \\
+    \hline
+  \end{tabular}
+
+\end{frame}
+
+
 \begin{frame}[fragile]
 \frametitle{建立连接}
 \begin{itemize}
 \item 程序使用数据库前，必须建立一个连接
-\item 使用 ~Connection 类对象新建连接
-\end{itemize}
-\medskip
-\begin{itemize}
-\item OLE DB Provider
+\item 使用 ~Connection 类对象新建连接，如使用 ~OLE DB
 \begin{lstlisting}
+using System.Data.OleDb;
+...
 OleDbConnection conn = null;
 conn = new OleDbConnection(
        "Provider=Microsoft.Jet.OLEDB.4.0;" +
        "User Id=;Password=;" +
        "Data Source=D:\\Northwind.mdb");
 conn.Open();
+...
+conn.Close(); // or conn.Dispose()
 \end{lstlisting}
+
+\begin{itemize}
+\item 常用的 ~Provider 参数
+
+\begin{tabular}{l|l}
+\hline
+  \small Microsoft.Jet.OLEDB.4.0 & 访问 ~Access \\
+  DB2OLEDB & 访问 ~DB2 \\
+  MSDAORA & 访问 ~Oracle \\
+  MSDASQL & 访问 ~ODBC \\
+\hline
+\end{tabular}
+\end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{连接串~(\textit{Connection String})}
+\frametitle{连接串 ~(\textit{Connection String})}
 \begin{itemize}
-\item 形如~attribute=value 的``属性名---值''对
-\item 不同的提供器的属性名不同，常见的属性名
+\item 形如 ~attribute=value 的``属性名---值''对
+\item 不同的提供程序的属性名不同，常见的属性名
 \begin{itemize}
 \item Provider, Data Source, Inintial Catalog
 \item User ID, Password, Persist Security Info \dots
@@ -145,9 +245,12 @@ conn.Open();
 \end{frame}
 
 
+\section{Execute Command}
+
 \begin{frame}[fragile]
-\frametitle{使用命令对象~(\textit{Command})}
+\frametitle{创建命令对象 ~(\textit{Command})}
 \begin{itemize}
+\item 当建立了与数据库的连接后，需要使用命令与数据库交互
 \item 连接对象的 ~CreateCommand 方法得到命令对象
 \begin{lstlisting}
   SqlConnection conn = new SqlConnection("...");
@@ -156,15 +259,66 @@ conn.Open();
   SqlCommand cmd = conn.CreateCommand();
   cmd.CommandText = "SELECT * FROM users;"
 \end{lstlisting}
-\item 常用方法
-\begin{itemize}
-\item ExecuteReader 方法，返回~DataReader，用于访问 ~SQL 结果
-\item ExecuteScalar 方法，从数据库中检索单个值，如一个聚合值
-\item ExecuteNonQuery 方法，返回受影响的行数，如 ~INSERT, DELETE, UPDATE 等操作
-\end{itemize}
-\item 命令对象还可用于执行{\redwarn存储过程}以及设置参数等
+\item 或直接创建命令对象，然后和连接关联
+\begin{lstlisting}
+  SqlConnection conn = new SqlConnection("...");
+  conn.Open();
+
+  SqlCommand cmd = new SqlCommand();
+  cmd.CommandText = "SELECT * FROM users;"
+  cmd.Connection = conn;
+\end{lstlisting}
 \end{itemize}
 \end{frame}
+
+\begin{frame}[fragile]
+\frametitle{命令的执行}
+通过调用命令对象的执行方法
+
+\begin{itemize}
+\item \small ExecuteReader() 返回 ~DataReader，用于访问 ~SQL 结果
+\item \small ExecuteScalar() 从数据库中检索单个值，如一个聚合值
+\item \small ExecuteNonQuery() 返回受影响的行数，如 ~INSERT, UPDATE 等
+\item \small ExecuteXmlReader() 返回 ~SQL Server 的 ~XML 数据
+\end{itemize}
+\begin{lstlisting}
+SqlConnection conn = new SqlConnection(...);
+string sql = @"select count(*) from employees";
+
+SqlCommand cmd = new SqlCommand(sql, conn);
+conn.Open();
+
+int count = (int) cmd.ExecuteScalar();
+...
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{ExecuteNonQuery 示例}
+
+\end{frame}
+
+
+% \begin{frame}[fragile]
+% \frametitle{使用命令对象 ~(\textit{Command})}
+% \begin{itemize}
+% \item 连接对象的 ~CreateCommand 方法得到命令对象
+% \begin{lstlisting}
+%   SqlConnection conn = new SqlConnection("...");
+%   conn.Open();
+
+%   SqlCommand cmd = conn.CreateCommand();
+%   cmd.CommandText = "SELECT * FROM users;"
+% \end{lstlisting}
+% \item 常用方法
+% \begin{itemize}
+% \item ExecuteReader 方法，返回 ~DataReader，用于访问 ~SQL 结果
+% \item ExecuteScalar 方法，从数据库中检索单个值，如一个聚合值
+% \item ExecuteNonQuery 方法，返回受影响的行数，如 ~INSERT, DELETE, UPDATE 等操作
+% \end{itemize}
+% \item 命令对象还可用于执行{\redwarn存储过程}以及设置参数等
+% \end{itemize}
+% \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{参数化命令}
@@ -252,13 +406,13 @@ name = (string) rdr[0];       // <通过索引器>
 \end{lstlisting}
 \end{frame}
 
-\section{Data Set}
+ \section{Data Set}
 
 \begin{frame}
-\frametitle{数据集~(\textit{DataSet})}
+\frametitle{数据集 ~(\textit{DataSet})}
 \begin{block}{\textit{DataSet}}
 \CJKindent ADO.NET 的主要部件，作为从数据库中取出的数据在内存的缓存。由多个
-~DataTable 组成，并可通过~ DataRelation 相互关联；并且可用 ~UniqueConstraint
+ ~DataTable 组成，并可通过 ~ DataRelation 相互关联；并且可用 ~UniqueConstraint
 或 ~ForeignKeyConstraint 加强数据完整性。
 \end{block}
 \begin{center}
@@ -288,7 +442,7 @@ name = (string) rdr[0];       // <通过索引器>
 \begin{center}
   
 \begin{itemize}
-\item 数据集~ DynamicDS 中的 ~Customer 表
+\item 数据集 ~ DynamicDS 中的 ~Customer 表
 \end{itemize}
   \begin{tabular}{|l|l|l|l|}
     \hline
@@ -395,7 +549,7 @@ tb.RejectChanges();
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{定义主键~(\textit{Primary Key})}
+\frametitle{定义主键 ~(\textit{Primary Key})}
 \begin{itemize}
 \item 特性 ~PrimaryKey 可用于设置或获取表的主键
 \item 设置主键只需赋值 ~DataColumn 数组
@@ -417,7 +571,7 @@ workTable.PrimaryKey = myKey;
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{约束~(\textit{Constraint})}
+\frametitle{约束 ~(\textit{Constraint})}
 \begin{itemize}
 \item UniqueConstraint
 \end{itemize}
@@ -471,7 +625,7 @@ da.Fill(ds, "NamesAndAges"); // <会自动执行 ~cmd>
 \frametitle{更新数据库}
 \begin{itemize}
 \item DataAdapter 加载数据后，所有更新都发生在数据集中
-\item 要更新数据源，需要使用~ DataAdapter 的相应方法
+\item 要更新数据源，需要使用 ~ DataAdapter 的相应方法
   \begin{itemize}
   \item Update 方法检查相应的数据集
   \item InsertCommand, DeleteCommand, UpdateCommand 更新DBMS
@@ -502,7 +656,7 @@ row ["Name"] = "New Category";
 
 dataAdpater.Update(dataSet, "Categories");
 \end{lstlisting}
-参考~\href{http://msdn2.microsoft.com/zh-cn/library/33y2221y.aspx}
+参考 ~\href{http://msdn2.microsoft.com/zh-cn/library/33y2221y.aspx}
 {\beamergotobutton{\scriptsize 代码完整版}}
 \end{frame}
 
@@ -530,7 +684,7 @@ dataAdpater.Update(dataSet, "Categories");
 \frametitle{ADO.NET 和 ~XML}
 \begin{itemize}
 \item ADO.NET 和 ~XML 紧密集成
-\item DataSet 提供了多种~XML 数据的处理方法
+\item DataSet 提供了多种 ~XML 数据的处理方法
 \item DataSet 可以作为 ~XML 和关系数据的转换中介
 \end{itemize}
 \begin{center}
