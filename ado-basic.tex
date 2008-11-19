@@ -185,7 +185,6 @@
 
 \end{frame}
 
-
 \begin{frame}[fragile]
 \frametitle{建立连接}
 \begin{itemize}
@@ -244,9 +243,6 @@ conn.Open();
 \end{itemize}
 \end{frame}
 
-
-\section{Execute Command}
-
 \begin{frame}[fragile]
 \frametitle{创建命令对象 ~(\textit{Command})}
 \begin{itemize}
@@ -283,7 +279,7 @@ conn.Open();
 \end{itemize}
 \begin{lstlisting}
 SqlConnection conn = new SqlConnection(...);
-string sql = @"select count(*) from employees";
+string sql = "SELECT Count(*) FROM employees";
 
 SqlCommand cmd = new SqlCommand(sql, conn);
 conn.Open();
@@ -292,12 +288,6 @@ int count = (int) cmd.ExecuteScalar();
 ...
 \end{lstlisting}
 \end{frame}
-
-\begin{frame}[fragile]
-\frametitle{ExecuteNonQuery 示例}
-
-\end{frame}
-
 
 % \begin{frame}[fragile]
 % \frametitle{使用命令对象 ~(\textit{Command})}
@@ -347,7 +337,7 @@ cmd.Parameters["@id"].Value = "aabbcc";
 \begin{itemize}
 \item DataReader 常用来读取查询结果
 \item 每次只能访问一行，而且只能向前移动
-\item 速度快，内存使用较少
+\item 速度快，内存使用较少，无缓冲
 \end{itemize}
 \begin{lstlisting}
 public class SqlDataReader {
@@ -406,7 +396,93 @@ name = (string) rdr[0];       // <通过索引器>
 \end{lstlisting}
 \end{frame}
 
- \section{Data Set}
+\begin{frame}[fragile]
+\frametitle{DataReader 示例}
+%\lstset{showstringspaces=false}
+\begin{lstlisting}
+using System; using System.Data;
+using System.Data.SqlClient;
+
+namespace Chapter05 {
+  class OrdinalIndexer {
+    static void Main(string[] args) {
+      string connStr = "server = .\sqlexpress;
+                        integrated security = true;
+                        database = northwind";
+
+      string sql = "SELECT companyname, contactname
+          FROM customers WHERE contactname LIKE 'M%'";
+
+      SqlConnection conn = new SqlConnection(connStr);
+
+      Console.WriteLine("\t{0} {1}",
+                        "Company Name".PadRight(25),
+                        "Contact Name".PadRight(20));
+...
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{DataReader 示例(续)}
+\begin{lstlisting}[escapeinside=<>]
+...
+      try {
+        conn.Open();
+        SqlCommand cmd = new SqlCommand(sql, conn);
+
+        SqlDataReader rdr = cmd.ExecuteReader(); //<创建>
+
+        while (rdr.Read()) {                     //<遍历>
+          Console.WriteLine(" {0} | {1}",
+                         rdr[0].ToString().PadLeft(25),
+                         rdr[1].ToString().PadLeft(20));
+        }
+        rdr.Close();
+      } catch(Exception e) { 
+          Console.WriteLine("Error:"+e);
+      } finally { conn.Close(); }
+
+    } // <\texttt{Main()}>
+  }   // <\texttt{class} OrdinalIndexer>
+}     // <\texttt{namespace} Chapter05>
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\frametitle{DataReader 示例(续)}
+运行结果：
+
+\begin{center}
+  \includegraphics[width=\textwidth]{ado-rdr}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{多结果集}
+\begin{itemize}
+\item NextResult() 方法可以用来访问多个结果集
+\end{itemize}
+\begin{lstlisting}
+string sql1="SELECT companyname, contactname
+            FROM customers WHERE companyname like 'A%';";
+string sql2="SELECT firstname, lastname FROM employees;";
+
+string sql = sql1 + sql2;
+SqlCommand cmd = new SqlCommand(sql, conn);
+SqlDataReader rdr = cmd.ExecuteReader();
+
+do {
+  while (rdr.Read())
+  { Console.WriteLine("{0} : {1}", rdr[0], rdr[1]); }
+
+  Console.WriteLine("Next Result Set");
+
+}while(rdr.NextResult());
+\end{lstlisting}
+\end{frame}
+
+\section{Data Set}
 
 \begin{frame}
 \frametitle{数据集 ~(\textit{DataSet})}
@@ -446,7 +522,7 @@ name = (string) rdr[0];       // <通过索引器>
 \end{itemize}
   \begin{tabular}{|l|l|l|l|}
     \hline
-    \textbf{OrderID} & \textbf{FirstName} & \textbf{LastName} & \textbf{Date} \\
+    \footnotesize \textbf{OrderID} & \footnotesize \textbf{FirstName} & \footnotesize \textbf{LastName} & \footnotesize \textbf{Date} \\
     \hline
     101              & John               & Doe               & 2006-9-1      \\
     \hline
@@ -621,6 +697,32 @@ da.Fill(ds, "NamesAndAges"); // <会自动执行 ~cmd>
 \end{lstlisting}
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{填充并使用数据集~~\attachfile[description=Populate DataSet]{code/PopDataSet.cs}}
+\begin{lstlisting}[escapeinside='']
+string sql = "select productname,unitprice
+         from products where unitprice < 20";
+
+SqlConnection conn = new SqlConnection(connString);
+SqlDataAdapter da = new SqlDataAdapter(sql, conn);
+...
+DataSet ds = new DataSet();
+da.Fill(ds, "products"); //'表名~products'
+\end{lstlisting}
+\pause
+\begin{lstlisting}[escapeinside='']
+DataTable dt = ds.Tables["products"]; //'访问表'
+
+foreach (DataRow row in dt.Rows){     //'访问行'
+
+  foreach (DataColumn col in dt.Columns)
+    Console.WriteLine(row[col]);      //'访问数据'
+
+  Console.WriteLine("".PadLeft(20, '='));
+}
+\end{lstlisting}
+\end{frame}
+
 \begin{frame}
 \frametitle{更新数据库}
 \begin{itemize}
@@ -658,6 +760,44 @@ dataAdpater.Update(dataSet, "Categories");
 \end{lstlisting}
 参考 ~\href{http://msdn2.microsoft.com/zh-cn/library/33y2221y.aspx}
 {\beamergotobutton{\scriptsize 代码完整版}}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{增加数据示例~~\attachfile[description=Update DataBase]{code/PersistAdd.cs}}
+\begin{lstlisting}
+string qry="select firstname,lastname from employees";
+string ins="insert into employees( firstname, lastname)
+                           values(@firstname,@lastname)";
+
+SqlDataAdapter da = new SqlDataAdapter();
+da.SelectCommand = new SqlCommand(qry, conn);
+DataSet ds = new DataSet();
+da.Fill(ds, "employees");
+
+DataTable dt = ds.Tables["employees"];
+DataRow newRow = dt.NewRow();
+newRow["firstname"] = "Roy";
+newRow["lastname"] = "Beatty";
+dt.Rows.Add(newRow);
+...
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{增加数据示例(续)}
+\begin{lstlisting}[escapeinside='']
+...
+SqlCommand cmd = new SqlCommand(ins, conn);
+
+//'设置参数类型'
+cmd.Parameters.Add("@firstname",
+                 SqlDbType.NVarChar, 10, "firstname");
+cmd.Parameters.Add("@lastname",
+                 SqlDbType.NVarChar, 20,  "lastname");
+
+da.InsertCommand = cmd;
+da.Update(ds, "employees");
+\end{lstlisting}
 \end{frame}
 
 \begin{frame}
@@ -811,7 +951,7 @@ MultipleControlBinding_Load(object sender, EventArgs e)
 \end{itemize}
 \lstset{emph={DataSource, DisplayMember}}
 \begin{lstlisting}
-da.Fill(ds, "movies);
+da.Fill(ds, "movies");
 DataTable dt = ds.Tables[0];
 
 listBox1.DataSource = ds;
