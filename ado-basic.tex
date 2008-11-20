@@ -766,8 +766,6 @@ dataAdpater.Update(dataSet, "Categories");
 \frametitle{增加数据示例~~\attachfile[description=Update DataBase]{code/PersistAdd.cs}}
 \begin{lstlisting}
 string qry="select firstname,lastname from employees";
-string ins="insert into employees( firstname, lastname)
-                           values(@firstname,@lastname)";
 
 SqlDataAdapter da = new SqlDataAdapter();
 da.SelectCommand = new SqlCommand(qry, conn);
@@ -787,6 +785,9 @@ dt.Rows.Add(newRow);
 \frametitle{增加数据示例(续)}
 \begin{lstlisting}[escapeinside='']
 ...
+string ins="insert into employees( firstname, lastname)
+                           values(@firstname,@lastname)";
+
 SqlCommand cmd = new SqlCommand(ins, conn);
 
 //'设置参数类型'
