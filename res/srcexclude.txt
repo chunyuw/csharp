@@ -1,0 +1,10 @@
+.svn
+res
+auto
+.dired
+part-06.tex
+part-07.tex
+part-08.tex
+OUTLINE.txt
+mpart-*.pdf
+z_region.*

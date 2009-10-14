@@ -73,6 +73,9 @@ s:; $(SHOWPDF)
 rar:; winrar -m5 a dotnet.rar $(CURRPDF)
 7z:;  7z    -mx9 a dotnet.7z  $(CURRPDF)
 
+# DIRNAME = dotnet
+# src:; (cd ..; 7z a $(DIRNAME)-src.7z $(DIRNAME) -xr@$(DIRNAME)/res/srcexclude.txt)
+
 .PHONY: all ci clean cleanall cpdf encrypt ps s st $(shell seq 0 8)  $(SUBDIRS)
 
 .SUFFIXES: .tex .pdf .dvi .ps .eps .jpg .png
