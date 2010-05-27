@@ -35,7 +35,7 @@ all:
 	@echo "Usage:"
 	@echo "    make [0-8] | s | encrypt"
 	@echo "    make cpdf | clean | cleanall | distclean"
-	@echo "    make ci | st | ps | rar | 7z"
+	@echo "    make ci | st | rar | 7z"
 
 $(NUMTARGT): %: part-0%.pdf
 
@@ -58,15 +58,9 @@ clean:; -$(RM) $(foreach s,$(CLSUFFIX),$(wildcard *.$(s))) $(wildcard test.exe *
 
 tclean:; -$(RM) -rf $(foreach s,test z_region,$(wildcard $(s).* */$(s).*))
 
-st:;    @svn st .
+st:;    @git st .
 
-ci:;    svn commit . -m "$(AUTOCSTR)"
-
-ps:
-	svn ps svn:eol-style CRLF auto/*.el
-	svn ps Author $(Author) $(TXTFILES) $(BINFILES)
-	svn ps Copyright $(Copyright) $(TXTFILES) $(BINFILES)
-#svn ps svn:keywords Rev $(TXTFILES)
+ci:;    git commit -m "$(AUTOCSTR)" .
 
 s:; $(SHOWPDF)
 
@@ -76,7 +70,7 @@ rar:; winrar -m5 a dotnet.rar $(CURRPDF)
 # DIRNAME = dotnet
 # src:; (cd ..; 7z a $(DIRNAME)-src.7z $(DIRNAME) -xr@$(DIRNAME)/res/srcexclude.txt)
 
-.PHONY: all ci clean cleanall cpdf encrypt ps s st $(shell seq 0 8)  $(SUBDIRS)
+.PHONY: all ci clean cleanall cpdf encrypt s st $(shell seq 0 8)  $(SUBDIRS)
 
 .SUFFIXES: .tex .pdf .dvi .ps .eps .jpg .png
 
