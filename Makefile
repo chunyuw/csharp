@@ -35,7 +35,7 @@ all:
 	@echo "Usage:"
 	@echo "    make [0-8] | s | encrypt"
 	@echo "    make cpdf | clean | cleanall | distclean"
-	@echo "    make ci | st | rar | 7z"
+	@echo "    make ci | st | push | rar | 7z"
 
 $(NUMTARGT): %: part-0%.pdf
 
@@ -61,6 +61,8 @@ tclean:; -$(RM) -rf $(foreach s,test z_region,$(wildcard $(s).* */$(s).*))
 st:;    @git st .
 
 ci:;    git commit -m "$(AUTOCSTR)" .
+
+push:;	git push
 
 s:; $(SHOWPDF)
 
