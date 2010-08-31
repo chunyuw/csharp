@@ -21,7 +21,6 @@
      "tikz"
      "listings"
      "times"
-     "ccmap"
      "CJK"
      "attachfile"
      "fullpage"
