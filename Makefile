@@ -40,7 +40,7 @@ all:
 $(NUMTARGT): %: part-0%.pdf
 
 $(PDFTARGT): %.pdf: %.tex preamble.tex author.tex 
-	-@gbk2uni -s $(BUILDDIR)/$(basename $@)
+	-@res/gbk2uni -s $(BUILDDIR)/$(basename $@)
 	pdflatex -output-directory=$(BUILDDIR) $<
 	-@mv -f $(BUILDDIR)/$@ ./m$@
 
