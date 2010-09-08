@@ -710,8 +710,8 @@ Content-Length: length
 \frametitle{程序集的功能}
 \begin{itemize}
   \setlength{\itemsep}{10pt plus 1pt}
-\item 程序集定义了类型的有效范围， ~CLR 通过程序集查找类\pause
-\item 程序集不需要注册表项， ~CLR 通过一种算法查找程序集\pause
+\item 程序集定义了类型的有效范围， ~CLR 通过程序集查找类
+\item 程序集不需要注册表项， ~CLR 通过一种算法查找程序集
 \item 安装 ~.NET 应用程序，只拷贝它的程序集即可\pause
   % 安装与卸载 ~.NET 模块不需要修改系统注册表，只需 ~copy or delete
 \item 程序集可以有一个{\color<handout:0>{red!65!black}增强型名称} (\textit{Strong name})，用作共享名称
@@ -719,7 +719,7 @@ Content-Length: length
   \item 除了三个必须的成员(程序集名，版本号和区域性信息)之外，还要有数字签名和相应的公钥
   \item 通过数字签名，可以确保程序集的唯一性，增加安全性
   \end{itemize}
-\pause
+
 \item 允许不同版本的程序集并存，可有效避免 ~DLL Hell
   % 因为程序集需要指定版本号，而程序集的依赖也如此
 \end{itemize}
@@ -752,18 +752,18 @@ Content-Length: length
 \frametitle{程序集的加载过程}
 \begin{itemize}
   \setlength{\itemsep}{8pt plus 1pt}
-\item 只有在需要的时候加载，程序集可以在本地或网络中\pause
+\item 只有在需要的时候加载，程序集可以在本地或网络中
 
-\item CLR 通过特定的规则寻找需要的程序集\pause
+\item CLR 通过特定的规则寻找需要的程序集
 
   \begin{enumerate}
     \setlength{\itemsep}{4pt plus 1pt}
-  \item CLR 检查是否已经被加载，如果已经加载，结束查找\pause
-  \item 在全局程序集缓存(GAC)中查找\pause
-  \item 在程序代码中指定的位置查找\pause
-  \item 如果代码没有指定，在应用程序目录查找\pause
-  \item 根据 ~.NET 的配置，在其他目录或 ~URL 查找\pause
-  \item 如果都未找到，报告错误，结束查找\pause
+  \item CLR 检查是否已经被加载，如果已经加载，结束查找
+  \item 在全局程序集缓存(GAC)中查找
+  \item 在程序代码中指定的位置查找
+  \item 如果代码没有指定，在应用程序目录查找
+  \item 根据 ~.NET 的配置，在其他目录或 ~URL 查找
+  \item 如果都未找到，报告错误，结束查找
   \end{enumerate}
 
 \item 找到程序集后，检查增强名(如果有)，加载并使用
