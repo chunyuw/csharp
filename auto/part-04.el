@@ -3,8 +3,5 @@
     (TeX-run-style-hooks
      "preamble"
      "author"
-     "lib-basic"
-     "lib-thread"
-     "lib-stream"
-     "lib-forms")))
+     "lib-stream")))
 
