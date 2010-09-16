@@ -35,7 +35,7 @@ all:
 	@echo "Usage:"
 	@echo "    make [0-8] | s | encrypt"
 	@echo "    make cpdf | clean | cleanall | distclean"
-	@echo "    make ci | st | push | rar | 7z"
+	@echo "    make ci | st | push | pull | rar | 7z"
 
 $(NUMTARGT): %: part-0%.pdf
 
@@ -63,6 +63,7 @@ st:;    @git st .
 ci:;    git commit -m "$(AUTOCSTR)" .
 
 push:;	git push
+pull:;	git pull
 
 s:; $(SHOWPDF)
 
