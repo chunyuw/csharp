@@ -1107,8 +1107,8 @@ class Ring:Circle { public int r;
   \item 同一个类中，方法的重载
   \item 子类与父类之间
     \begin{itemize}
-    \item 同名字段的覆盖
-    \item 同名方法的覆盖
+    \item 同名字段的隐藏
+    \item 同名方法的覆盖与隐藏
     \end{itemize}
   \item 运行时，使用同一个名字，动态访问不同的成员
   \end{itemize}
@@ -1117,7 +1117,7 @@ class Ring:Circle { public int r;
 \begin{frame}[fragile]
 \frametitle{多态举例(1)}
 \begin{itemize}
-\item 字段的覆盖
+\item 字段的隐藏
 \end{itemize}
 \begin{columns}
 \column{.4\textwidth}
@@ -1147,7 +1147,7 @@ class B : A {
 \begin{frame}[fragile]
 \frametitle{多态举例(2)}
 \begin{itemize}
-\item 方法的覆盖
+\item 方法的隐藏
 \end{itemize}
 \begin{columns}
 \column{.4\textwidth}
