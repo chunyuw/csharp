@@ -878,7 +878,7 @@ public class MenuItem
 \begin{itemize}
 \setlength{\itemsep}{6pt plus 1pt}
 \item 委托用于事件时，需要声明为 ~\texttt{public}，其他组件才能订阅
-\item 但同时也可以发布，即委托的调用，不够安全
+\item 但同时也可以触发，即委托的调用，不够安全
 \item 因此 ~C\# 将委托包装为事件，对外专门用于订阅
 \item 定义为事件后，其他组件也只能订阅和删除
 \item 而作为委托的调用，只能由发布器类自己完成
