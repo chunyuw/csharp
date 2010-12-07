@@ -1,28 +1,17 @@
 (TeX-add-style-hook "preamble"
  (lambda ()
     (TeX-add-symbols
-     "song"
-     "fs"
-     "kai"
-     "hei"
-     "li"
-     "you"
      "helplines"
      "wraphere"
      "cmd"
      "redwarn"
-     "xnode")
+     "xnode"
+     "CJKindent")
     (TeX-run-style-hooks
      "pgfpages"
-     "babel"
-     "english"
-     "inputenc"
-     "latin1"
      "tikz"
      "listings"
-     "times"
-     "CJK"
-     "attachfile"
+     "xeCJK"
      "fullpage"
      "amssymb"
      "xcolor"
@@ -32,6 +21,6 @@
      "beamer10"
      "beamer"
      "13pt"
-     "cjk"
-     "table")))
+     "table"
+     "xetex")))
 

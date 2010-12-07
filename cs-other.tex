@@ -1,60 +1,60 @@
 %% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> %%
 
-\section{ÆäËû}
+\section{å…¶ä»–}
 % Chapter 19 in "C# 2.0 - The Complete Reference, 2nd Edition"
 
 \begin{frame}[fragile]
-\frametitle{²»°²È«´úÂë ~\textit{Unsafe Code}}
+\frametitle{ä¸å®‰å…¨ä»£ç  ~\textit{Unsafe Code}}
 % unsafe, pointers
 
 \begin{itemize}
-\item Ö¸²»ÊÜ ~CLR ÍêÈ«¿ØÖÆµÄ´úÂë (\textit{unmanaged code})
-\item ²»°²È«´úÂëÖĞ£¬ÎŞ·¨±£Ö¤ÀàĞÍ°²È«
-\item ¶ÔÄÚ´æ²Ù×÷£¬ĞèÒªÊ¹ÓÃÖ¸Õë (\textit{pointers})
-\item ±àÒë´øÓĞ²»°²È«´úÂëµÄ³ÌĞò£¬ĞèÒªÊ¹ÓÃ ~\texttt{/unsafe} Ñ¡Ïî
+\item æŒ‡ä¸å— ~CLR å®Œå…¨æ§åˆ¶çš„ä»£ç  (\textit{unmanaged code})
+\item ä¸å®‰å…¨ä»£ç ä¸­ï¼Œæ— æ³•ä¿è¯ç±»å‹å®‰å…¨
+\item å¯¹å†…å­˜æ“ä½œï¼Œéœ€è¦ä½¿ç”¨æŒ‡é’ˆ (\textit{pointers})
+\item ç¼–è¯‘å¸¦æœ‰ä¸å®‰å…¨ä»£ç çš„ç¨‹åºï¼Œéœ€è¦ä½¿ç”¨ ~\texttt{/unsafe} é€‰é¡¹
 \end{itemize}
 
-C\# ÖĞµÄÖ¸Õë
+C\# ä¸­çš„æŒ‡é’ˆ
 \begin{itemize}
-\item Ò»°ãĞÎÊ½£º\texttt{type* varname;}
-\item Ö»ÓĞÖµÀàĞÍµÄÖ¸Õë
-\item Ö¸ÕëÖ¸ÏòµÄµØÖ·¿ÉÒÔÊÇÈÎÒâµÄ
+\item ä¸€èˆ¬å½¢å¼ï¼š\texttt{type* varname;}
+\item åªæœ‰å€¼ç±»å‹çš„æŒ‡é’ˆ
+\item æŒ‡é’ˆæŒ‡å‘çš„åœ°å€å¯ä»¥æ˜¯ä»»æ„çš„
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ö¸ÕëµÄÊ¹ÓÃ}
+\frametitle{æŒ‡é’ˆçš„ä½¿ç”¨}
 \begin{itemize}
-\item Ö¸ÕëµÄÉùÃ÷
+\item æŒ‡é’ˆçš„å£°æ˜
 \begin{lstlisting}[escapeinside=<>]
 int*    i;
-float*  p1, p2;   // <×¢Òâ£¬p1, p2 ¶¼ÊÇÖ¸Õë>
-int    *p1,*p2;   // <´íÎó£¬C\#ÖĞÎŞĞ§µÄÓï·¨>
+float*  p1, p2;   // <æ³¨æ„ï¼Œp1, p2 éƒ½æ˜¯æŒ‡é’ˆ>
+int    *p1,*p2;   // <é”™è¯¯ï¼ŒC\#ä¸­æ— æ•ˆçš„è¯­æ³•>
 \end{lstlisting}
 
-\item Ö¸ÕëµÄÊ¹ÓÃ
+\item æŒ‡é’ˆçš„ä½¿ç”¨
 \begin{lstlisting}[escapeinside=<>]
 int*  ip;
 int   num = 10;
-ip  = &num; // <È¡µØÖ·>
-num = *ip;  // <·ÃÎÊÖµ>
+ip  = &num; // <å–åœ°å€>
+num = *ip;  // <è®¿é—®å€¼>
 \end{lstlisting}
 
-\item Ö¸ÕëµÄÀàĞÍ
+\item æŒ‡é’ˆçš„ç±»å‹
 \begin{lstlisting}[escapeinside=<>]
-int*   p   // <Ö¸ÏòÕûÊıµÄÖ¸Õë>
-int**  p   // <Ö¸ÏòÕûÊıµÄÖ¸ÕëµÄÖ¸Õë>
-int*[] p   // <Ö¸ÏòÕûÊıµÄÖ¸ÕëµÄÒ»Î¬Êı×é>
-char*  p   // <Ö¸Ïò×Ö·ûµÄÖ¸Õë>
-void*  p   // <Ö¸ÏòÎ´ÖªÀàĞÍµÄÖ¸Õë>
+int*   p   // <æŒ‡å‘æ•´æ•°çš„æŒ‡é’ˆ>
+int**  p   // <æŒ‡å‘æ•´æ•°çš„æŒ‡é’ˆçš„æŒ‡é’ˆ>
+int*[] p   // <æŒ‡å‘æ•´æ•°çš„æŒ‡é’ˆçš„ä¸€ç»´æ•°ç»„>
+char*  p   // <æŒ‡å‘å­—ç¬¦çš„æŒ‡é’ˆ>
+void*  p   // <æŒ‡å‘æœªçŸ¥ç±»å‹çš„æŒ‡é’ˆ>
 \end{lstlisting}
 \end{itemize}
 \end{frame}
 
 
 \begin{frame}[fragile]
-\frametitle{²»°²È«´úÂëµÄÊ¹ÓÃ}
-Ê¹ÓÃ¹Ø¼ü×Ö ~\texttt{unsafe} ±ê¼ÇÓï¾ä»ò·½·¨
+\frametitle{ä¸å®‰å…¨ä»£ç çš„ä½¿ç”¨}
+ä½¿ç”¨å…³é”®å­— ~\texttt{unsafe} æ ‡è®°è¯­å¥æˆ–æ–¹æ³•
 \lstset{emph={unsafe}}
 \begin{lstlisting}
 using System;
@@ -76,8 +76,8 @@ class example {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{\texttt{fixed} ±í´ïÊ½}
-Îª·ÀÖ¹ ~GC ¸Ä±ä¶ÔÏóµØÖ·£¬¿ÉÊ¹ÓÃ ~\texttt{fixed} ½øĞĞÏŞÖÆ
+\frametitle{\texttt{fixed} è¡¨è¾¾å¼}
+ä¸ºé˜²æ­¢ ~GC æ”¹å˜å¯¹è±¡åœ°å€ï¼Œå¯ä½¿ç”¨ ~\texttt{fixed} è¿›è¡Œé™åˆ¶
 \lstset{emph={fixed}}
 \begin{lstlisting}
 class Test {
@@ -97,15 +97,15 @@ unsafe public static void Main() {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ö¸ÕëµÄÔËËãºÍ±È½Ï}
-Ö¸ÕëÒÆ¶¯£º\texttt{$++$, $--$, $+$, $-$}
+\frametitle{æŒ‡é’ˆçš„è¿ç®—å’Œæ¯”è¾ƒ}
+æŒ‡é’ˆç§»åŠ¨ï¼š\texttt{$++$, $--$, $+$, $-$}
 \begin{lstlisting}
 int* pl;
 pl++;          // Move 4 byte (sizeof(int)=4)
 pl = pl + 1;   // Move 4 byte too
 \end{lstlisting}
 \pause
-Ö¸Õë±È½Ï£º\texttt{$==$,$<$,$>$,$>=$,$<=$}
+æŒ‡é’ˆæ¯”è¾ƒï¼š\texttt{$==$,$<$,$>$,$>=$,$<=$}
 \begin{lstlisting}
   int[] nums = new int[11];
   int x;
@@ -120,8 +120,8 @@ pl = pl + 1;   // Move 4 byte too
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{¿É¿ÕÖµÀàĞÍ}
-µ±ĞèÒªÖµÀàĞÍÒ²¿ÉÒÔ ~\texttt{null} Ê±£¬Ê¹ÓÃ¿É¿ÕÖµÀàĞÍ
+\frametitle{å¯ç©ºå€¼ç±»å‹}
+å½“éœ€è¦å€¼ç±»å‹ä¹Ÿå¯ä»¥ ~\texttt{null} æ—¶ï¼Œä½¿ç”¨å¯ç©ºå€¼ç±»å‹
 
 \begin{lstlisting}[escapeinside='']
 System.Nullable<int> count = null;
@@ -133,30 +133,30 @@ bool? done = null;
 ...
 
 if (count != null) { ... }
-if (count.HasValue) { ... } // '¿É¿ÕÖµµÄÌØĞÔ'
+if (count.HasValue) { ... } // 'å¯ç©ºå€¼çš„ç‰¹æ€§'
 \end{lstlisting}
 
-\CJKindent ÔÚ´¦ÀíÊı¾İ¿âºÍÆäËû°üº¬²»¿É¸³ÖµµÄÔªËØµÄÊı¾İÀàĞÍÊ±£¬½« null ¸³Öµ¸øÊıÖµ
-ÀàĞÍ»ò²¼¶ûĞÍµÄ¹¦ÄÜÌØ±ğÓĞÓÃ¡£ÀıÈç£¬Êı¾İ¿âÖĞµÄ²¼¶ûĞÍ×Ö¶Î¿ÉÒÔ´æ´¢
-Öµ true »ò false£¬»òÕß£¬¸Ã×Ö¶ÎÒ²¿ÉÒÔÎ´¶¨Òå¡£
+\CJKindent åœ¨å¤„ç†æ•°æ®åº“å’Œå…¶ä»–åŒ…å«ä¸å¯èµ‹å€¼çš„å…ƒç´ çš„æ•°æ®ç±»å‹æ—¶ï¼Œå°† null èµ‹å€¼ç»™æ•°å€¼
+ç±»å‹æˆ–å¸ƒå°”å‹çš„åŠŸèƒ½ç‰¹åˆ«æœ‰ç”¨ã€‚ä¾‹å¦‚ï¼Œæ•°æ®åº“ä¸­çš„å¸ƒå°”å‹å­—æ®µå¯ä»¥å­˜å‚¨
+å€¼ true æˆ– falseï¼Œæˆ–è€…ï¼Œè¯¥å­—æ®µä¹Ÿå¯ä»¥æœªå®šä¹‰ã€‚
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{¿É¿ÕÖµÀàĞÍ}
+\frametitle{å¯ç©ºå€¼ç±»å‹}
 \begin{itemize}
-\item ¿É¿ÕÖµÀàĞÍ±íÊ¾¿É±»¸³ÖµÎª~\texttt{null} ÖµµÄÖµÀàĞÍ±äÁ¿
-\item Óï·¨~\texttt{T?} ÊÇ~\lstinline|Nullable<T>| µÄ¼òĞ´£¬\texttt{T} ÎªÖµÀàĞÍ£¬Á½ÖÖĞÎÊ½¿ÉÒÔ»¥»»
-\item Ê¹ÓÃ~\texttt{HasValue} ºÍ~\texttt{Value} Ö»¶ÁÊôĞÔ²âÊÔÊÇ·ñÎª¿ÕºÍ¼ìË÷Öµ
+\item å¯ç©ºå€¼ç±»å‹è¡¨ç¤ºå¯è¢«èµ‹å€¼ä¸º~\texttt{null} å€¼çš„å€¼ç±»å‹å˜é‡
+\item è¯­æ³•~\texttt{T?} æ˜¯~\lstinline|Nullable<T>| çš„ç®€å†™ï¼Œ\texttt{T} ä¸ºå€¼ç±»å‹ï¼Œä¸¤ç§å½¢å¼å¯ä»¥äº’æ¢
+\item ä½¿ç”¨~\texttt{HasValue} å’Œ~\texttt{Value} åªè¯»å±æ€§æµ‹è¯•æ˜¯å¦ä¸ºç©ºå’Œæ£€ç´¢å€¼
 \begin{itemize}
-\item ²¼¶ûÖµ~\texttt{HasValue} ±íÊ¾ÊÇ·ñ°üº¬ÓĞĞ§Öµ
-\item Èç¹ûÒÑ¸³Öµ£¬Ôò~\texttt{Value} ÊôĞÔ·µ»Ø¸ÃÖµ£¬·ñÔò½«Òı·¢Òì³£ System.InvalidOperationException 
+\item å¸ƒå°”å€¼~\texttt{HasValue} è¡¨ç¤ºæ˜¯å¦åŒ…å«æœ‰æ•ˆå€¼
+\item å¦‚æœå·²èµ‹å€¼ï¼Œåˆ™~\texttt{Value} å±æ€§è¿”å›è¯¥å€¼ï¼Œå¦åˆ™å°†å¼•å‘å¼‚å¸¸ System.InvalidOperationException 
 \end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{¿ÕÖµ½ÓºÏ²Ù×÷·û (\textit{null coalescing operator})}
-µ±¿É¿ÕÖµÎª¿ÕÊ±£¬²Ù×÷·ûÈ¡ÆäºóµÄÄ¬ÈÏÖµ£º
+\frametitle{ç©ºå€¼æ¥åˆæ“ä½œç¬¦ (\textit{null coalescing operator})}
+å½“å¯ç©ºå€¼ä¸ºç©ºæ—¶ï¼Œæ“ä½œç¬¦å–å…¶åçš„é»˜è®¤å€¼ï¼š
 \begin{lstlisting}
 double? balance = null;
 double  currentBalance;
@@ -164,7 +164,7 @@ double  currentBalance;
 currentBalance = balance ?? 0.0;
 \end{lstlisting}
 
-µ±¿É¿ÕÖµ²»Îª¿ÕÊ±£¬È¡±äÁ¿×ÔÉíµÄÖµ£º
+å½“å¯ç©ºå€¼ä¸ä¸ºç©ºæ—¶ï¼Œå–å˜é‡è‡ªèº«çš„å€¼ï¼š
 \begin{lstlisting}
 double? balance = 123.75;
 double currentBalance;
@@ -174,8 +174,8 @@ currentBalance = balance ?? 0.0;
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{²¿·ÖÀà (\textit{partial class})}
-Ê¹ÓÃ ~\texttt{partial} ĞŞÊÎ£¬¿ÉÒÔ½«ÀàµÄ¶¨Òå²ğ·Öµ½¶à¸öÎÄ¼şÖĞ
+\frametitle{éƒ¨åˆ†ç±» (\textit{partial class})}
+ä½¿ç”¨ ~\texttt{partial} ä¿®é¥°ï¼Œå¯ä»¥å°†ç±»çš„å®šä¹‰æ‹†åˆ†åˆ°å¤šä¸ªæ–‡ä»¶ä¸­
 \lstset{emph={partial}}
 \begin{lstlisting}
 partial class XY {
@@ -202,11 +202,11 @@ partial class XY {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{²¿·Ö·½·¨ (\textit{partial method})}
+\frametitle{éƒ¨åˆ†æ–¹æ³• (\textit{partial method})}
 \begin{itemize}
-\item ¶¨ÒåÔÚ²¿·ÖÀàÖĞ£¬Èç¹ûÃ»ÓĞÊµÏÖÔò²»»á±»±àÒë
-\item ±ØĞëÊÇË½ÓĞµÄ£¬²»ÄÜ·µ»ØÖµ£¬²»ÄÜÓĞÊä³ö²ÎÊı
-\item ³£ÓÃÓÚ´¦ÀíÇáÁ¿¼¶ÊÂ¼ş
+\item å®šä¹‰åœ¨éƒ¨åˆ†ç±»ä¸­ï¼Œå¦‚æœæ²¡æœ‰å®ç°åˆ™ä¸ä¼šè¢«ç¼–è¯‘
+\item å¿…é¡»æ˜¯ç§æœ‰çš„ï¼Œä¸èƒ½è¿”å›å€¼ï¼Œä¸èƒ½æœ‰è¾“å‡ºå‚æ•°
+\item å¸¸ç”¨äºå¤„ç†è½»é‡çº§äº‹ä»¶
 \end{itemize}
 \lstset{emph={partial}}
 \lstset{emph={[2]VerifyDuplicates}}
@@ -227,8 +227,8 @@ partial class CarLocator
 
 
 \begin{frame}[fragile]
-\frametitle{\texttt{extern} ¹Ø¼ü×Ö}
-¹Ø¼ü×Ö ~\texttt{extern} ÉùÃ÷Íâ²¿·½·¨£¬´´½¨Íâ²¿³ÌĞò¼°±ğÃû
+\frametitle{\texttt{extern} å…³é”®å­—}
+å…³é”®å­— ~\texttt{extern} å£°æ˜å¤–éƒ¨æ–¹æ³•ï¼Œåˆ›å»ºå¤–éƒ¨ç¨‹åºåŠåˆ«å
 \cmd{csc /t:library test1.cs}
 \cmd{csc /r:Asm1=test1.dll test2.cs}
 
@@ -247,13 +247,13 @@ class Demo {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{\texttt{lock} ºÍ~ \texttt{volatile}}
+\frametitle{\texttt{lock} å’Œ~ \texttt{volatile}}
 \begin{itemize}
-\item ¹Ø¼ü×Ö ~\texttt{lock} ÓÃÓÚ¶àÏß³ÌÖ´ĞĞÊ±£¬½øÈëÁÙ½çÇø
+\item å…³é”®å­— ~\texttt{lock} ç”¨äºå¤šçº¿ç¨‹æ‰§è¡Œæ—¶ï¼Œè¿›å…¥ä¸´ç•ŒåŒº
 \begin{lstlisting}
 lock(obj) { /* critical section */ }
 \end{lstlisting}
-\item ¹Ø¼ü×Ö ~\texttt{volatile} ±íÊ¾×Ö¶Î¿ÉÄÜ±»¶à¸ö²¢·¢Ö´ĞĞÏß³ÌĞŞ¸Ä
+\item å…³é”®å­— ~\texttt{volatile} è¡¨ç¤ºå­—æ®µå¯èƒ½è¢«å¤šä¸ªå¹¶å‘æ‰§è¡Œçº¿ç¨‹ä¿®æ”¹
 \begin{lstlisting}
 public volatile int i;
 \end{lstlisting}
@@ -266,6 +266,6 @@ public volatile int i;
 % TeX-master: "part-03.tex"
 % TeX-header-end: "% End-of-Header$"
 % TeX-trailer-start: "% Start-of-Trailer$"
-% coding: gbk-dos
+% coding: utf-8
 % End:
 

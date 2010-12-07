@@ -1,27 +1,27 @@
 %% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> %%
 
-% ,----[ Êä³öËµÃ÷ ]
+% ,----[ è¾“å‡ºè¯´æ˜ ]
 % |
-% | ÎÄµµ¿ÉÒÔÊ¹ÓÃ beamer ÎÄµµÀàÊä³ö»ÃµÆÆ¬£¬Ò²¿ÉÒÔÊ¹ÓÃ article ÎÄµµÀàÊä³öÄÚÈİ¡£
+% | æ–‡æ¡£å¯ä»¥ä½¿ç”¨ beamer æ–‡æ¡£ç±»è¾“å‡ºå¹»ç¯ç‰‡ï¼Œä¹Ÿå¯ä»¥ä½¿ç”¨ article æ–‡æ¡£ç±»è¾“å‡ºå†…å®¹ã€‚
 % |
-% |   * Ê¹ÓÃ beamer Ê±£¬¿ÉÒÔÓĞÁ½ÖÖÊä³öÄ£Ê½£º
-% |     - Ä¬ÈÏµÄ beamer Ä£Ê½£»
-% |     - ¿ÉÑ¡µÄÒ»°ã handout Ä£Ê½£¬Ê¹ÓÃ handout Ñ¡Ïî£»
-% |     - ÓÃÓÚ´òÓ¡µÄ handout Ä£Ê½£¬Ê¹ÓÃ handout Ñ¡Ïî£¬ÉèÖÃ handoutprint Îª true£»
+% |   * ä½¿ç”¨ beamer æ—¶ï¼Œå¯ä»¥æœ‰ä¸¤ç§è¾“å‡ºæ¨¡å¼ï¼š
+% |     - é»˜è®¤çš„ beamer æ¨¡å¼ï¼›
+% |     - å¯é€‰çš„ä¸€èˆ¬ handout æ¨¡å¼ï¼Œä½¿ç”¨ handout é€‰é¡¹ï¼›
+% |     - ç”¨äºæ‰“å°çš„ handout æ¨¡å¼ï¼Œä½¿ç”¨ handout é€‰é¡¹ï¼Œè®¾ç½® handoutprint ä¸º trueï¼›
 % |
-% |   * Ê¹ÓÃ article Ê±£¬Ò²¿ÉÊä³öÈ«²¿ÄÚÈİ£º
-% |     - ĞèÒª¼ÓÔØ beamerarticle ºê°ü¡£
+% |   * ä½¿ç”¨ article æ—¶ï¼Œä¹Ÿå¯è¾“å‡ºå…¨éƒ¨å†…å®¹ï¼š
+% |     - éœ€è¦åŠ è½½ beamerarticle å®åŒ…ã€‚
 % |
 % `----
 
-\documentclass[13pt,cjk,xcolor=svgnames,table]{beamer} % »òÊ¹ÓÃ handout Ñ¡Ïî
+\documentclass[13pt,xcolor=svgnames,table,xetex]{beamer} % æˆ–ä½¿ç”¨ handout é€‰é¡¹
 
 %\documentclass[a4paper]{article}                      % article only
 %\usepackage[noxcolor]{beamerarticle}
 
-\mode<handout>{%                % ÓÃÓÚ´òÓ¡µÄ handout Ä£Ê½ (Ã¿Ò³A4Á½Ö¡)
+\mode<handout>{%                % ç”¨äºæ‰“å°çš„ handout æ¨¡å¼ (æ¯é¡µA4ä¸¤å¸§)
   \RequirePackage{ifthen}       %
-  \newboolean{handoutprint}     % ½«¸Ã±äÁ¿ÖÃÎª true ¼´¿É
+  \newboolean{handoutprint}     % å°†è¯¥å˜é‡ç½®ä¸º true å³å¯
   \setboolean{handoutprint}{false}} % true
 
 \mode<article>{%                % article only
@@ -40,17 +40,19 @@
   \usefonttheme{serif}
   \setbeamertemplate{background}[grid][step=.5cm]}
 
-\usepackage{attachfile}
-\usepackage{CJK}
-\usepackage{times}
+\usepackage{xeCJK}
+\setCJKmainfont[BoldFont=é»‘ä½“,ItalicFont=æ¥·ä½“]{æ¥·ä½“}
+\setCJKsansfont{é»‘ä½“}
+\setCJKmonofont{ä»¿å®‹}
+
 \usepackage{listings}
 \usepackage{tikz}
 \usetikzlibrary{shapes,trees}
-\usepackage[latin1]{inputenc}
-\usepackage[english]{babel}
+%\usepackage[english]{babel}
 
 %% attachfile setup %%
-\attachfilesetup{icon=Tag,mimetype=text/plain,subject=Code Example}
+% \usepackage{attachfile} % only work for pdflatex
+% \attachfilesetup{icon=Tag,mimetype=text/plain,subject=Code Example}
 
 %% C# language for listings %%
 \lstdefinelanguage{CSharp}{%
@@ -89,7 +91,7 @@
     framerule=1pt,
     rulecolor=\color[rgb]{0.18,0.55,0.34},
     backgroundcolor=\color{red!10}, %\color[rgb]{0.94,0.85,0.71},
-    escapebegin=\CJKfamily{kai}\sl\color[rgb]{0.55,0.14,0.14},
+    escapebegin=\sl\color[rgb]{0.55,0.14,0.14},
     escapeend=,
     language=CSharp}}
 \mode<article>{%
@@ -97,7 +99,7 @@
     keywordstyle=[2]\bfseries, commentstyle=\sl, emphstyle=\bfseries,
     emphstyle=[2]\bfseries, emphstyle=[3]\bfseries, emphstyle=[4]\sl,
     frame=none, framerule=0pt, backgroundcolor=\color{black!7},
-    escapebegin=\CJKfamily{kai}\sl, escapeend=, language=CSharp}}
+    escapebegin=\sl, escapeend=, language=CSharp}}
 
 %% hyperref setup %%
 \hypersetup{%
@@ -110,7 +112,7 @@
   % pdfmenubar=false,
   % pdftoolbar=false,
   CJKbookmarks=true,
-  pdfauthor={Chunyu Wang <chunyu@hit.edu.cn>},
+  % pdfauthor={Chunyu Wang <chunyu@hit.edu.cn>},
   pdftitle={Microsoft .NET Framework},
   pdfsubject={.NET Programming},
   pdfkeywords={.NET, C\#}}
@@ -126,7 +128,8 @@
 
 \pgfdeclareimage[width=1.3cm]{logo-cs}{figures/logo-cs}
 \pgfdeclareimage[width=1.3cm]{logo-hit}{figures/logo-hit}
-\logo{\vbox{\hbox to 1.3cm{\pgfuseimage{logo-cs}}\vskip0.1cm\hbox to 1.3cm{\pgfuseimage{logo-hit}}}}
+%LOGO:
+%\logo{\vbox{\hbox to 1.3cm{\pgfuseimage{logo-cs}}\vskip0.1cm\hbox to 1.3cm{\pgfuseimage{logo-hit}}}}
 
 \AtBeginSection[]{              % Outline in every section
   \begin{frame}<handout:0>{Outline}
@@ -138,17 +141,17 @@
 
 \mode<handout> {                % handout mode of beamer
   \hypersetup{%
-    pdfpagemode=UseOutlines,    % ´ò¿ªÊéÇ©
+    pdfpagemode=UseOutlines,    % æ‰“å¼€ä¹¦ç­¾
     pdfstartview=Fit}
   \ifhandoutprint                 % print only handout
-    \usepackage{pgfpages}         % Ò»Ò³¶àÖ¡
+    \usepackage{pgfpages}         % ä¸€é¡µå¤šå¸§
     \pgfpagesuselayout{2 on 1}[a4paper,border shrink=1mm]
-    % \nofiles                    % ·ÀÖ¹Ò³Âë´íÎó
+    % \nofiles                    % é˜²æ­¢é¡µç é”™è¯¯
     \lstset{basicstyle=\ttfamily\footnotesize, keywordstyle=\bfseries,
       keywordstyle=[2]\bfseries, commentstyle=\sl, emphstyle=\bfseries,
       emphstyle=[2]\bfseries, emphstyle=[3]\bfseries, emphstyle=[4]\sl,
       frame=none, framerule=0pt, backgroundcolor=\color{black!7},
-      escapebegin=\CJKfamily{kai}\sl, escapeend=, language=CSharp}
+      escapebegin=\sl, escapeend=, language=CSharp}
     \setbeamertemplate{background canvas}{}
     \setbeamertemplate{background}{}
     \setbeamertemplate{headline}{}
@@ -164,14 +167,6 @@
     \setbeamercolor{block body alerted}{bg=red!5,fg=black}
     \logo{} \fi}
 
-% for CJK fonts
-\newcommand{\song}{\CJKfamily{song}}
-\newcommand{\fs}{\CJKfamily{fs}}
-\newcommand{\kai}{\CJKfamily{kai}}
-\newcommand{\hei}{\CJKfamily{hei}}
-\newcommand{\li}{\CJKfamily{li}}
-\newcommand{\you}{\CJKfamily{you}}
-
 % macro definitions
 \def\helplines{%
   \draw[->] (0,0)--(9,0);  \draw[->] (0,0)--(0,7.2);
@@ -185,9 +180,10 @@
 \def\redwarn{\color<handout:0>{red!65!black}}
 \def\xnode #1#2#3#4{#1 +(.1,-.1) node[style=shnode] {} #1 node[style=outnode] (#2) {} +(up:.2cm) node {#3} %
   ++(down:.18cm) node[style=innode] (#4) {} node {Controls Collection}}
+\def\CJKindent{\parindent 2em}
 
 % Local Variables:
 % mode: LaTeX
-% coding: gbk-dos
+% coding: utf-8
 % fill-column: 100
 % End:

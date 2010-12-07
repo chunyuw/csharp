@@ -1,43 +1,43 @@
 %% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> %%
 
-\section{Í¼ĞÎ½çÃæ}
+\section{å›¾å½¢ç•Œé¢}
 
 \begin{frame}
-\frametitle{.NET Í¼ĞÎ½çÃæÉè¼Æ}
+\frametitle{.NET å›¾å½¢ç•Œé¢è®¾è®¡}
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
-\item .NET Ìá¹©ÁË·á¸»µÄÀà¿â½øĞĞÍ¼ĞÎ½çÃæµÄÉè¼Æ
+\item .NET æä¾›äº†ä¸°å¯Œçš„ç±»åº“è¿›è¡Œå›¾å½¢ç•Œé¢çš„è®¾è®¡
 \begin{itemize}
-\item System.Windows.Forms --- Windows ´°ÌåÉè¼Æ
-\item System.Web.UI.WebControls --- Web ±íµ¥Éè¼Æ
-\item System.Web.UI.MobileControls --- ÖÇÄÜÉè±¸´°ÌåµÄÉè¼Æ
+\item System.Windows.Forms --- Windows çª—ä½“è®¾è®¡
+\item System.Web.UI.WebControls --- Web è¡¨å•è®¾è®¡
+\item System.Web.UI.MobileControls --- æ™ºèƒ½è®¾å¤‡çª—ä½“çš„è®¾è®¡
 \end{itemize}
-\item ¸÷ÖÖ¿Ø¼şµÄÊ¹ÓÃ·½Ê½Áé»î£¬ÈçÖ±½ÓÊ¹ÓÃ»ò¼Ì³Ğºó¶¨ÖÆ
-\item ÓÉÓÚ ~C\# ÓïÑÔµÄÌØµã£¬Ê¹Í¼ĞÎ½çÃæ±à³Ì·Ç³£¼òµ¥
-\item ·½±ãÓĞĞ§µÄ¹¤¾ß£¬Èç ~Visual Studio 2008 
+\item å„ç§æ§ä»¶çš„ä½¿ç”¨æ–¹å¼çµæ´»ï¼Œå¦‚ç›´æ¥ä½¿ç”¨æˆ–ç»§æ‰¿åå®šåˆ¶
+\item ç”±äº ~C\# è¯­è¨€çš„ç‰¹ç‚¹ï¼Œä½¿å›¾å½¢ç•Œé¢ç¼–ç¨‹éå¸¸ç®€å•
+\item æ–¹ä¾¿æœ‰æ•ˆçš„å·¥å…·ï¼Œå¦‚ ~Visual Studio 2008 
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Ê¹ÓÃ¿Ø¼ş}
+\frametitle{ä½¿ç”¨æ§ä»¶}
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
-\item Í¼ĞÎ½çÃæµÄ±à³Ì£¬¾ÍÊÇÓÃÀûÓÃ¸÷ÖÖ¿Ø¼şÀàµÄÊµÀı
-\item ÓÉ~ CLR ¸ù¾İ¿Ø¼şÀàĞÍ£¬Íê³ÉÍ¼ĞÎ½çÃæµ×²ãµÄÏ¸½Ú
-\item Éú³É²¢ÀûÓÃÊµÀıµÄ´úÂë£¬ÔÚÉè¼ÆÊ±ºÍÔËĞĞÊ±ÊÇÒ»ÑùµÄ
-\item Ö±½ÓĞŞ¸Ä¿Ø¼şµÄÌØĞÔ£¬¼´Íê³É¿Ø¼şµÄÉèÖÃ
-\item ¶ÔÊÂ¼şµÄÏìÓ¦£¬¿ÉÊ¹ÓÃÊÂ¼ş¾ä±ú»ò¸²¸ÇÏàÓ¦µÄ»ùÀà·½·¨
+\item å›¾å½¢ç•Œé¢çš„ç¼–ç¨‹ï¼Œå°±æ˜¯ç”¨åˆ©ç”¨å„ç§æ§ä»¶ç±»çš„å®ä¾‹
+\item ç”±~ CLR æ ¹æ®æ§ä»¶ç±»å‹ï¼Œå®Œæˆå›¾å½¢ç•Œé¢åº•å±‚çš„ç»†èŠ‚
+\item ç”Ÿæˆå¹¶åˆ©ç”¨å®ä¾‹çš„ä»£ç ï¼Œåœ¨è®¾è®¡æ—¶å’Œè¿è¡Œæ—¶æ˜¯ä¸€æ ·çš„
+\item ç›´æ¥ä¿®æ”¹æ§ä»¶çš„ç‰¹æ€§ï¼Œå³å®Œæˆæ§ä»¶çš„è®¾ç½®
+\item å¯¹äº‹ä»¶çš„å“åº”ï¼Œå¯ä½¿ç”¨äº‹ä»¶å¥æŸ„æˆ–è¦†ç›–ç›¸åº”çš„åŸºç±»æ–¹æ³•
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{¿Ø¼ş¶¼ÊÇÀà}
+\frametitle{æ§ä»¶éƒ½æ˜¯ç±»}
 \begin{itemize}
-\item .NET ÖĞµÄ¿Ø¼şÊµ¼Ê¾ÍÊÇ²»Í¬µÄÀà
+\item .NET ä¸­çš„æ§ä»¶å®é™…å°±æ˜¯ä¸åŒçš„ç±»
   \begin{itemize}
-  \item ´°ÌåÀà ~Form£¬°´Å¥Àà ~Button£¬ÎÄ±¾¿òÀà ~TextBox
+  \item çª—ä½“ç±» ~Formï¼ŒæŒ‰é’®ç±» ~Buttonï¼Œæ–‡æœ¬æ¡†ç±» ~TextBox
   \end{itemize}
-\item Í¨¹ıÀàµÄ³ÉÔ±ºÍ·½·¨¿ØÖÆºÍÊ¹ÓÃ¿Ø¼ş
+\item é€šè¿‡ç±»çš„æˆå‘˜å’Œæ–¹æ³•æ§åˆ¶å’Œä½¿ç”¨æ§ä»¶
 \begin{lstlisting}
 using System.Windows.Forms;
 using System.Drawing;
@@ -53,13 +53,13 @@ using System.Drawing;
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{¿Ø¼ş»ùÀà~(\textit{Control})}
-ËùÓĞµÄ¿Ø¼ş¶¼¼Ì³Ğ×Ô ~System.Windows.Forms.Control Àà¡£
+\frametitle{æ§ä»¶åŸºç±»~(\textit{Control})}
+æ‰€æœ‰çš„æ§ä»¶éƒ½ç»§æ‰¿è‡ª ~System.Windows.Forms.Control ç±»ã€‚
 \begin{itemize}
-\item Control ÀàÖ÷ÒªÓÃÓÚÊµÏÖ¿Ø¼şµÄ»ù±¾¹¦ÄÜ
-\item Control ÀàÓĞ ~200 ¶à¸ö³ÉÔ±£¬ÆäÖĞ°üÀ¨¸÷ÖÖÌØĞÔºÍÊÂ¼ş
-\item Í¨¹ı ~Control Àà£¬¿Ø¼şÖ®¼ä¿ÉÒÔ¹²ÏíÏàÍ¬µÄĞĞÎª
-\item Ò²¿ÉÒÔÍ¨¹ı{\redwarn¸²¸Ç}(\textit{override})£¬ÊµÏÖ×Ô¼ºµÄ²»Í¬ĞĞÎª
+\item Control ç±»ä¸»è¦ç”¨äºå®ç°æ§ä»¶çš„åŸºæœ¬åŠŸèƒ½
+\item Control ç±»æœ‰ ~200 å¤šä¸ªæˆå‘˜ï¼Œå…¶ä¸­åŒ…æ‹¬å„ç§ç‰¹æ€§å’Œäº‹ä»¶
+\item é€šè¿‡ ~Control ç±»ï¼Œæ§ä»¶ä¹‹é—´å¯ä»¥å…±äº«ç›¸åŒçš„è¡Œä¸º
+\item ä¹Ÿå¯ä»¥é€šè¿‡{\redwarn è¦†ç›–}(\textit{override})ï¼Œå®ç°è‡ªå·±çš„ä¸åŒè¡Œä¸º
 \end{itemize}
 \begin{figure}[htbp]
   \centering
@@ -68,21 +68,22 @@ using System.Drawing;
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{¿Ø¼şµÄÊ¹ÓÃ·½Ê½}
+\frametitle{æ§ä»¶çš„ä½¿ç”¨æ–¹å¼}
 \begin{itemize}
-\item Ö±½ÓÊ¹ÓÃ£¬Í¨¹ıÀà¿âÌá¹©µÄÀà£¬Éú³ÉÄ¬ÈÏµÄÊµÀı
-\item À©Õ¹Ê¹ÓÃ£¬Í¨¹ı¼Ì³ĞÀà¿âµÄÀà£¬Éú³É¿É¶¨ÖÆµÄÊµÀı
+\item ç›´æ¥ä½¿ç”¨ï¼Œé€šè¿‡ç±»åº“æä¾›çš„ç±»ï¼Œç”Ÿæˆé»˜è®¤çš„å®ä¾‹
+\item æ‰©å±•ä½¿ç”¨ï¼Œé€šè¿‡ç»§æ‰¿ç±»åº“çš„ç±»ï¼Œç”Ÿæˆå¯å®šåˆ¶çš„å®ä¾‹
 \end{itemize}
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=\textwidth]{gui-usecontrl}
+  %\includegraphics[width=\textwidth, angle=270]{gui-usecontrl}
+  \includegraphics[width=\textwidth]{gui-usecontrl-png}
 \end{figure}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{´°ÌåÀà(\textit{Form})}
+\frametitle{çª—ä½“ç±»(\textit{Form})}
 \begin{itemize}
-\item Ö±½ÓÊ¹ÓÃ ~Form ÀàµÄÊµÀı
+\item ç›´æ¥ä½¿ç”¨ ~Form ç±»çš„å®ä¾‹
 \item \cmd{csc /t:winexe form.cs}
 \end{itemize}
 \begin{columns}[t]
@@ -113,10 +114,10 @@ class test
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{¼Ì³Ğ´°ÌåÀà}
+\frametitle{ç»§æ‰¿çª—ä½“ç±»}
 \begin{itemize}
-\item Í¨¹ı¼Ì³Ğ£¬¿ÉÒÔÀ©Õ¹ÏÖÓĞ¿Ø¼ş£¬×Ô¼º¶¨ÖÆ ~(\textit{Customize})
-\item ÀıÈç£¬ÅÉÉúµÄ ~MyForm ´°Ìå£¬°üº¬Ò»¸ö ~TextBox ³ÉÔ±£º
+\item é€šè¿‡ç»§æ‰¿ï¼Œå¯ä»¥æ‰©å±•ç°æœ‰æ§ä»¶ï¼Œè‡ªå·±å®šåˆ¶ ~(\textit{Customize})
+\item ä¾‹å¦‚ï¼Œæ´¾ç”Ÿçš„ ~MyForm çª—ä½“ï¼ŒåŒ…å«ä¸€ä¸ª ~TextBox æˆå‘˜ï¼š
 \lstset{emph={MyForm}}
 \begin{lstlisting}
 class MyForm : Form {
@@ -138,11 +139,11 @@ class MyForm : Form {
 \end{frame}
 
 \begin{frame}
-\frametitle{¿Ø¼şÖ®¼äµÄ¹ØÏµ}
+\frametitle{æ§ä»¶ä¹‹é—´çš„å…³ç³»}
 \begin{itemize}
-\item ½ö½ö×÷Îª³ÉÔ±µÄ¿Ø¼ş£¬CLR ÎŞ·¨ÏÔÊ¾³öÀ´
-\item ĞèÒª½«Æä·ÅÈë~Form µÄ{\redwarn¿Ø¼şÈİÆ÷} ~Controls ÖĞ
-\item Í¨¹ı¿Ø¼şÈİÆ÷£¬ÊµÏÖÁË¿Ø¼şÖ®¼äµÄÈİÄÉ¹ØÏµ
+\item ä»…ä»…ä½œä¸ºæˆå‘˜çš„æ§ä»¶ï¼ŒCLR æ— æ³•æ˜¾ç¤ºå‡ºæ¥
+\item éœ€è¦å°†å…¶æ”¾å…¥~Form çš„{\redwarn æ§ä»¶å®¹å™¨} ~Controls ä¸­
+\item é€šè¿‡æ§ä»¶å®¹å™¨ï¼Œå®ç°äº†æ§ä»¶ä¹‹é—´çš„å®¹çº³å…³ç³»
 \end{itemize}
 \begin{columns}[t]
   \column{.4\textwidth}
@@ -156,11 +157,11 @@ class MyForm : Form {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{¿Ø¼şÈİÆ÷}
+\frametitle{æ§ä»¶å®¹å™¨}
 \begin{itemize}
-\item System.Windows.Forms.Control.ControlCollection µÄÊµÀı
-\item ÊµÏÖÁË ~ICollection, IList, IEnumerable µÈ½Ó¿Ú
-\item Ê¹ÓÃ ~Add, Remove µÄ·½·¨£¬Ìí¼Ó¡¢É¾³ı¿Ø¼ş
+\item System.Windows.Forms.Control.ControlCollection çš„å®ä¾‹
+\item å®ç°äº† ~ICollection, IList, IEnumerable ç­‰æ¥å£
+\item ä½¿ç”¨ ~Add, Remove çš„æ–¹æ³•ï¼Œæ·»åŠ ã€åˆ é™¤æ§ä»¶
 \end{itemize}
 \begin{lstlisting}
   // init button1 and groupBox1, then 
@@ -174,10 +175,10 @@ class MyForm : Form {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{·ÃÎÊ¿Ø¼ş}
+\frametitle{è®¿é—®æ§ä»¶}
 \begin{itemize}
-\item Ê¹ÓÃ³ÉÔ±±äÁ¿£¬Ö±½Ó·ÃÎÊ¿Ø¼şµÄÊµÀı
-\item Í¨¹ı¿Ø¼şµÄ ~Controls ÈİÆ÷£¬Öğ¸ö±éÀú
+\item ä½¿ç”¨æˆå‘˜å˜é‡ï¼Œç›´æ¥è®¿é—®æ§ä»¶çš„å®ä¾‹
+\item é€šè¿‡æ§ä»¶çš„ ~Controls å®¹å™¨ï¼Œé€ä¸ªéå†
 \end{itemize}
 \begin{lstlisting}
 class MyForm : Form {
@@ -198,10 +199,10 @@ class MyForm : Form {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ĞŞ¸Ä¿Ø¼şĞĞÎª}
+\frametitle{ä¿®æ”¹æ§ä»¶è¡Œä¸º}
 \begin{itemize}
-\item ĞŞ¸Ä¿Ø¼şÉÏÄ¬ÈÏµÄ·½·¨À´ĞŞ¸ÄÄ¬ÈÏĞĞÎª
-\item À©Õ¹µÄ ~NumericTextBox Ö»ÄÜÊäÈëÊı×Ö
+\item ä¿®æ”¹æ§ä»¶ä¸Šé»˜è®¤çš„æ–¹æ³•æ¥ä¿®æ”¹é»˜è®¤è¡Œä¸º
+\item æ‰©å±•çš„ ~NumericTextBox åªèƒ½è¾“å…¥æ•°å­—
 \end{itemize}
 \lstset{emph={override}}
 \begin{lstlisting}
@@ -220,11 +221,11 @@ public class NumericTextBox : TextBox
 \end{frame}
 
 \begin{frame}
-\frametitle{Ê¹ÓÃ~ Visual Studio}
+\frametitle{ä½¿ç”¨~ Visual Studio}
 \begin{itemize}
-\item Ê¹ÓÃ ~Visual Studio ½øĞĞÍ¼ĞÎ½çÃæµÄÉè¼Æ·Ç³£·½±ã
-\item ¿ÉÒÔÍ¨¹ıÍÏ¶¯¿Ø¼şµÄ·½Ê½Íê³ÉÉè¼Æ£¬ĞŞ¸ÄÊôĞÔÒ²ºÜ·½±ã
-\item Visual Studio ÖĞÓÃÓÚÍ¼ĞÎÉè¼ÆµÄĞÂÏîÄ¿Ä£°å
+\item ä½¿ç”¨ ~Visual Studio è¿›è¡Œå›¾å½¢ç•Œé¢çš„è®¾è®¡éå¸¸æ–¹ä¾¿
+\item å¯ä»¥é€šè¿‡æ‹–åŠ¨æ§ä»¶çš„æ–¹å¼å®Œæˆè®¾è®¡ï¼Œä¿®æ”¹å±æ€§ä¹Ÿå¾ˆæ–¹ä¾¿
+\item Visual Studio ä¸­ç”¨äºå›¾å½¢è®¾è®¡çš„æ–°é¡¹ç›®æ¨¡æ¿
 \begin{itemize}
 \item Windows Application
 \item Windows Control Library
@@ -237,10 +238,10 @@ public class NumericTextBox : TextBox
 \end{frame}
 
 \begin{frame}
-\frametitle{Ìí¼ÓºÍĞŞ¸Ä¿Ø¼ş}
+\frametitle{æ·»åŠ å’Œä¿®æ”¹æ§ä»¶}
 \begin{itemize}
-\item Ìí¼Ó¿Ø¼şÖ»Ğè´Ó¹¤¾ßÌõÍÏ¶¯µ½´°¿Ú
-\item ĞŞ¸Ä¿Ø¼ş£¬Í¨¹ıÌØĞÔ´°¿ÚÖ±½ÓĞŞ¸Ä
+\item æ·»åŠ æ§ä»¶åªéœ€ä»å·¥å…·æ¡æ‹–åŠ¨åˆ°çª—å£
+\item ä¿®æ”¹æ§ä»¶ï¼Œé€šè¿‡ç‰¹æ€§çª—å£ç›´æ¥ä¿®æ”¹
 \end{itemize}
 \begin{columns}
   \column{.65\textwidth}
@@ -257,10 +258,10 @@ public class NumericTextBox : TextBox
 \end{frame}
 
 \begin{frame}
-\frametitle{ÖÇÄÜ±êÇ©}
+\frametitle{æ™ºèƒ½æ ‡ç­¾}
 \begin{itemize}
-\item Visual Studio »¹Îª²¿·Ö¿Ø¼şÌá¹©ÁËÖÇÄÜ±êÇ©~(\textit{Smart Tag})
-\item Ìá¹©ÁËÒ»Ğ©¼òµ¥ÈÎÎñµÄ¿ì½İ·½Ê½£¬Ö±½Ó±à¼­
+\item Visual Studio è¿˜ä¸ºéƒ¨åˆ†æ§ä»¶æä¾›äº†æ™ºèƒ½æ ‡ç­¾~(\textit{Smart Tag})
+\item æä¾›äº†ä¸€äº›ç®€å•ä»»åŠ¡çš„å¿«æ·æ–¹å¼ï¼Œç›´æ¥ç¼–è¾‘
 \end{itemize}
 \begin{figure}[htbp]
   \centering
@@ -269,13 +270,13 @@ public class NumericTextBox : TextBox
 \end{frame}
 
 \begin{frame}
-\frametitle{×Ô¶¯Éú³ÉµÄ´úÂë}
+\frametitle{è‡ªåŠ¨ç”Ÿæˆçš„ä»£ç }
 \begin{itemize}
-\item µ±´´½¨Ò»¸ö ~Windows Application ºó£¬Visual Studio »á×Ô¶¯Éú³ÉÈı¸öÔ´ÂëÎÄ¼ş
+\item å½“åˆ›å»ºä¸€ä¸ª ~Windows Application åï¼ŒVisual Studio ä¼šè‡ªåŠ¨ç”Ÿæˆä¸‰ä¸ªæºç æ–‡ä»¶
 \begin{itemize}
-\item Program.cs --- ³ÌĞòµÄÈë¿Úº¯ÊıËùÔÚÎÄ¼ş
-\item Form1.Designer.cs --- Ö÷´°¿ÚµÄÅÉÉúÀà£¬¼°¸÷ÖÖ¿Ø¼şµÄ³õÊ¼»¯
-\item Form1.cs --- Ö÷´°¿ÚµÄ¹¹Ôìº¯Êı
+\item Program.cs --- ç¨‹åºçš„å…¥å£å‡½æ•°æ‰€åœ¨æ–‡ä»¶
+\item Form1.Designer.cs --- ä¸»çª—å£çš„æ´¾ç”Ÿç±»ï¼ŒåŠå„ç§æ§ä»¶çš„åˆå§‹åŒ–
+\item Form1.cs --- ä¸»çª—å£çš„æ„é€ å‡½æ•°
 \end{itemize}
 \end{itemize}
 \begin{figure}[htbp]
@@ -285,9 +286,9 @@ public class NumericTextBox : TextBox
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{×Ô¶¯Éú³ÉµÄ×é¼ş´úÂë}
+\frametitle{è‡ªåŠ¨ç”Ÿæˆçš„ç»„ä»¶ä»£ç }
 \begin{itemize}
-\item Ê¹ÓÃ ~InitializeComponent ·½·¨·ÅÖÃ×é¼ş³õÊ¼»¯µÄ´úÂë
+\item ä½¿ç”¨ ~InitializeComponent æ–¹æ³•æ”¾ç½®ç»„ä»¶åˆå§‹åŒ–çš„ä»£ç 
 \end{itemize}
 \lstset{emph={partial,InitializeComponent}}
 \begin{lstlisting}
@@ -312,10 +313,10 @@ namespace TestWin
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ö÷º¯Êı´úÂë}
+\frametitle{ä¸»å‡½æ•°ä»£ç }
 \begin{itemize}
-\item STAThread ±íÊ¾Ïß³ÌÄ£Ê½£¬ÓÃÓÚºÍ~COM ½»»¥
-\item Application.Run() ¿ªÊ¼ÔËĞĞ±ê×¼Ó¦ÓÃ³ÌĞòÏûÏ¢Ñ­»·
+\item STAThread è¡¨ç¤ºçº¿ç¨‹æ¨¡å¼ï¼Œç”¨äºå’Œ~COM äº¤äº’
+\item Application.Run() å¼€å§‹è¿è¡Œæ ‡å‡†åº”ç”¨ç¨‹åºæ¶ˆæ¯å¾ªç¯
 \end{itemize}
 \begin{lstlisting}
 [STAThread]
@@ -329,11 +330,11 @@ static void Main()
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{´°¿ÚµÄÏÔÊ¾}
+\frametitle{çª—å£çš„æ˜¾ç¤º}
 \begin{itemize}
-\item Application.Run ÊÇÓ¦ÓÃ³ÌĞòÈë¿ÚÖĞ±ê×¼µÄÏÔÊ¾·½·¨
-\item Form.Show() --- ÏÔÊ¾´°Ìå£¬Á¢¼´·µ»Ø£¬Ö÷º¯Êı¼ÌĞøÔËĞĞ
-\item Form.ShowDialog() --- ÏÔÊ¾´°Ìå£¬Ö÷º¯ÊıÔİÍ££¬µÈ´ıÆäÍË³ö
+\item Application.Run æ˜¯åº”ç”¨ç¨‹åºå…¥å£ä¸­æ ‡å‡†çš„æ˜¾ç¤ºæ–¹æ³•
+\item Form.Show() --- æ˜¾ç¤ºçª—ä½“ï¼Œç«‹å³è¿”å›ï¼Œä¸»å‡½æ•°ç»§ç»­è¿è¡Œ
+\item Form.ShowDialog() --- æ˜¾ç¤ºçª—ä½“ï¼Œä¸»å‡½æ•°æš‚åœï¼Œç­‰å¾…å…¶é€€å‡º
 \end{itemize}
 \begin{columns}
   \column{.5\textwidth}
@@ -363,8 +364,8 @@ static void Main()
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{´¦ÀíÊÂ¼ş~ --- ¸²¸Ç»ùÀà·½·¨}
-Í¨¹ı¸²¸Ç»ùÀà·½·¨£¬´¦ÀíÊÂ¼ş
+\frametitle{å¤„ç†äº‹ä»¶~ --- è¦†ç›–åŸºç±»æ–¹æ³•}
+é€šè¿‡è¦†ç›–åŸºç±»æ–¹æ³•ï¼Œå¤„ç†äº‹ä»¶
 \lstset{emph={override}}
 \begin{lstlisting}
 public class NumericTextBox : TextBox
@@ -382,8 +383,8 @@ public class NumericTextBox : TextBox
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{´¦ÀíÊÂ¼ş~ --- ¾ä±úº¯Êı}
-Ê¹ÓÃ¾ä±úº¯Êı´¦ÀíÊÂ¼ş£º
+\frametitle{å¤„ç†äº‹ä»¶~ --- å¥æŸ„å‡½æ•°}
+ä½¿ç”¨å¥æŸ„å‡½æ•°å¤„ç†äº‹ä»¶ï¼š
 \lstset{emph={Click, clk_handler}}
 \begin{lstlisting}
 using System;
@@ -407,10 +408,10 @@ class test
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Í³Ò»´¦ÀíÊÂ¼ş}
+\frametitle{ç»Ÿä¸€å¤„ç†äº‹ä»¶}
 \begin{itemize}
-\item Ê¹ÓÃ¾ä±úº¯Êı£¬¿ÉÒÔÒ»´¦¶¨Òå£¬¶à´¦Ê¹ÓÃ
-\item Ìá¹©Í³Ò»µÄ´¦Àí·½Ê½
+\item ä½¿ç”¨å¥æŸ„å‡½æ•°ï¼Œå¯ä»¥ä¸€å¤„å®šä¹‰ï¼Œå¤šå¤„ä½¿ç”¨
+\item æä¾›ç»Ÿä¸€çš„å¤„ç†æ–¹å¼
 \end{itemize}
 \begin{lstlisting}
 private void clk_handler(object s, EventArgs e){
@@ -426,46 +427,46 @@ private void clk_handler(object s, EventArgs e){
 
 
 \begin{frame}
-\frametitle{³£ÓÃµÄ¿Ø¼şÌØĞÔ}
+\frametitle{å¸¸ç”¨çš„æ§ä»¶ç‰¹æ€§}
 \begin{itemize}
-\item Control ÀàÌá¹©ÁË´óÁ¿µÄÌØĞÔºÍÊÂ¼ş
+\item Control ç±»æä¾›äº†å¤§é‡çš„ç‰¹æ€§å’Œäº‹ä»¶
 \end{itemize}
 % \rowcolors[]{1}{blue!20}{blue!10}
 \begin{tabular}{l|l}
 \hline
-ÌØ ĞÔ                & Ëµ Ã÷                              \\
+ç‰¹ æ€§                & è¯´ æ˜                              \\
 \hline
-Name, Tag            & Ãû×ÖºÍÏà¹ØµÄÊı¾İ¶ÔÏó               \\
-Controls             & ¿Ø¼şµÄÈİÆ÷                         \\
-Parent               & ËùÔÚÈİÆ÷                           \\
+Name, Tag            & åå­—å’Œç›¸å…³çš„æ•°æ®å¯¹è±¡               \\
+Controls             & æ§ä»¶çš„å®¹å™¨                         \\
+Parent               & æ‰€åœ¨å®¹å™¨                           \\
 \hline
-Size, Location       & ¿Ø¼şµÄ´óĞ¡£¬Î»ÖÃ                   \\
-Anchor, Dock         & ¿Ø¼şÃª¶¨ºÍÍ£¿¿µÄ·½Ïò               \\
-BackColor, ForeColor & Ç°¾°É«ºÍ±³¾°É«                     \\
+Size, Location       & æ§ä»¶çš„å¤§å°ï¼Œä½ç½®                   \\
+Anchor, Dock         & æ§ä»¶é”šå®šå’Œåœé çš„æ–¹å‘               \\
+BackColor, ForeColor & å‰æ™¯è‰²å’ŒèƒŒæ™¯è‰²                     \\
 \hline
-Text                 & ¿Ø¼şÏà¹ØµÄÎÄ±¾£¬Èç±êÌâ¡¢°´Å¥ÎÄ×ÖµÈ \\
-Font                 & Ä¬ÈÏµÄ×ÖÌå                         \\
+Text                 & æ§ä»¶ç›¸å…³çš„æ–‡æœ¬ï¼Œå¦‚æ ‡é¢˜ã€æŒ‰é’®æ–‡å­—ç­‰ \\
+Font                 & é»˜è®¤çš„å­—ä½“                         \\
 \hline
-TabIndex, TabStop    & °´ ~TAB ½¨µÄË³ĞòºÍ½¹µã             \\
-MouseButton          & Êó±êµÄ°´¼ü                         \\
-MousePosition        & Êó±êµÄÎ»ÖÃ                         \\
-Cursor               & ¹â±êµÄĞÎ×´                         \\
+TabIndex, TabStop    & æŒ‰ ~TAB å»ºçš„é¡ºåºå’Œç„¦ç‚¹             \\
+MouseButton          & é¼ æ ‡çš„æŒ‰é”®                         \\
+MousePosition        & é¼ æ ‡çš„ä½ç½®                         \\
+Cursor               & å…‰æ ‡çš„å½¢çŠ¶                         \\
 \hline
 \end{tabular}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ê¹ÓÃ¾ÙÀı}
+\frametitle{ä½¿ç”¨ä¸¾ä¾‹}
 \begin{itemize}
-\item ¿Ø¼şµÄÍ£¿¿ ~(\textit{Dock})
+\item æ§ä»¶çš„åœé  ~(\textit{Dock})
 \begin{lstlisting}
 TextBox1.Dock = DockStyle.Top;
 \end{lstlisting}
-\item ¿Ø¼şµÄÃª¶¨ ~(\textit{Anchor})
+\item æ§ä»¶çš„é”šå®š ~(\textit{Anchor})
 \begin{lstlisting}
 Pnl.Anchor = (AnchorStyle.Bottom|AnchorStyle.Left);
 \end{lstlisting}
-\item ÉèÖÃ ~TAB ¼üË³Ğò
+\item è®¾ç½® ~TAB é”®é¡ºåº
 \begin{lstlisting}
 TextBox1.TabIndex = 1;
 Button1.TabIndex  = 2;
@@ -476,43 +477,43 @@ Button2.TabIndex  = 4;
 \end{frame}
 
 \begin{frame}
-\frametitle{³£ÓÃµÄ¿Ø¼ş·½·¨}
+\frametitle{å¸¸ç”¨çš„æ§ä»¶æ–¹æ³•}
 \begin{figure}
   \centering
   \begin{tabular}{l|l}
     \hline
-    ·½ ·¨        & Ëµ Ã÷                \\
+    æ–¹ æ³•        & è¯´ æ˜                \\
     \hline
-    Focus()      & »ñÈ¡½¹µã             \\
-    DoDragDrop() & ¿ªÊ¼ÍÏ·Å²Ù×÷         \\
-    Hide()       & ¶ÔÓÃ»§Òş²Ø¿Ø¼ş       \\
+    Focus()      & è·å–ç„¦ç‚¹             \\
+    DoDragDrop() & å¼€å§‹æ‹–æ”¾æ“ä½œ         \\
+    Hide()       & å¯¹ç”¨æˆ·éšè—æ§ä»¶       \\
     \hline
-    Contains()   & ÅĞ¶ÏÊÇ·ñÎª¿Ø¼ş       \\
-    Dispose()    & ÊÍ·ÅËùÓĞ×ÊÔ´         \\
-    Scale()      & Ëõ·Å¿Ø¼şºÍÈÎºÎ×Ó¿Ø¼ş \\
+    Contains()   & åˆ¤æ–­æ˜¯å¦ä¸ºæ§ä»¶       \\
+    Dispose()    & é‡Šæ”¾æ‰€æœ‰èµ„æº         \\
+    Scale()      & ç¼©æ”¾æ§ä»¶å’Œä»»ä½•å­æ§ä»¶ \\
     \hline
-    OnClick()    & Òı·¢~ClickÊÂ¼ş       \\
-    OnEnter()    & Òı·¢~EnterÊÂ¼ş       \\
+    OnClick()    & å¼•å‘~Clickäº‹ä»¶       \\
+    OnEnter()    & å¼•å‘~Enteräº‹ä»¶       \\
     \hline
   \end{tabular}
 \end{figure}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{³£ÓÃµÄ¿Ø¼şÊÂ¼ş}
+\frametitle{å¸¸ç”¨çš„æ§ä»¶äº‹ä»¶}
 \begin{itemize}
-\item ÊÂ¼şµÄÎ¯ÍĞÀàĞÍ
+\item äº‹ä»¶çš„å§”æ‰˜ç±»å‹
 \end{itemize}
 \lstset{emph={EventArgs}}
 \begin{lstlisting}
 delegate void EventHandler(object sender, EventArgs e)
 \end{lstlisting}
-ÆäÖĞµÄ~\texttt{EventArgs} ¶Ô²»Í¬µÄÊÂ¼şÉÔÓĞ²»Í¬£º
+å…¶ä¸­çš„~\texttt{EventArgs} å¯¹ä¸åŒçš„äº‹ä»¶ç¨æœ‰ä¸åŒï¼š
 \begin{figure}[htbp]
   \centering
   \begin{tabular}{l|l}
     \hline
-    ÊÂ¼ş                   & ÊÂ¼ş²ÎÊı          \\
+    äº‹ä»¶                   & äº‹ä»¶å‚æ•°          \\
     \hline
     Click, DoubleClick     & EventArgs         \\
     MouseEnter, MouseLeave & EventArgs         \\
@@ -526,32 +527,32 @@ delegate void EventHandler(object sender, EventArgs e)
 \end{frame}
 
 \begin{frame}
-\frametitle{EventArgs Àà}
+\frametitle{EventArgs ç±»}
 \begin{itemize}
-\item EventArgs ÀàÊÇÊÂ¼şÊı¾İÀàµÄ»ùÀà
-\item .NET ÍÆ¼öÊ¹ÓÃµÄÊÂ¼ş´¦Àí²ÎÊı
-\item ÀûÓÃÏµÍ³Ìá¹©µÄÅÉÉúÀà£¬¿ÉÒÔµÃµ½ÊÂ¼şµÄĞÅÏ¢
+\item EventArgs ç±»æ˜¯äº‹ä»¶æ•°æ®ç±»çš„åŸºç±»
+\item .NET æ¨èä½¿ç”¨çš„äº‹ä»¶å¤„ç†å‚æ•°
+\item åˆ©ç”¨ç³»ç»Ÿæä¾›çš„æ´¾ç”Ÿç±»ï¼Œå¯ä»¥å¾—åˆ°äº‹ä»¶çš„ä¿¡æ¯
 \end{itemize}
 \medskip
 
-ÀıÈç£¬MouseEventArgs µÄ³ÉÔ±ÌØĞÔ£º
+ä¾‹å¦‚ï¼ŒMouseEventArgs çš„æˆå‘˜ç‰¹æ€§ï¼š
 
 \begin{tabular}{l|l}
 \hline
-³ÉÔ±ÌØĞÔ & ËµÃ÷                                             \\  
+æˆå‘˜ç‰¹æ€§ & è¯´æ˜                                             \\  
 \hline
-Button   & Ã¶¾Ù~MouseButtons µÄÖµ~Left, Middle, Right, None \\
-Clicks   & Êó±êµÄµã»÷´ÎÊı                                   \\
-Delta    & Êó±ê¹öÂÖĞı×ª´ÎÊı£¬ÕıÊıÏòÇ°£¬¸ºÊıÏòºó             \\
-X, Y     & Êó±êÏà¶ÔÓÚÈİÆ÷µÄ×ø±êÎ»ÖÃ£¬¼´¿Ø¼şµÄ MousePosition \\
+Button   & æšä¸¾~MouseButtons çš„å€¼~Left, Middle, Right, None \\
+Clicks   & é¼ æ ‡çš„ç‚¹å‡»æ¬¡æ•°                                   \\
+Delta    & é¼ æ ‡æ»šè½®æ—‹è½¬æ¬¡æ•°ï¼Œæ­£æ•°å‘å‰ï¼Œè´Ÿæ•°å‘å             \\
+X, Y     & é¼ æ ‡ç›¸å¯¹äºå®¹å™¨çš„åæ ‡ä½ç½®ï¼Œå³æ§ä»¶çš„ MousePosition \\
 \hline
 \end{tabular}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ê¹ÓÃ¾ÙÀı}
+\frametitle{ä½¿ç”¨ä¸¾ä¾‹}
 \begin{itemize}
-\item µ±Êó±ê¾­¹ıÊ±£¬¸Ä±äÎÄ±¾¿òµÄ±³¾°ÑÕÉ«
+\item å½“é¼ æ ‡ç»è¿‡æ—¶ï¼Œæ”¹å˜æ–‡æœ¬æ¡†çš„èƒŒæ™¯é¢œè‰²
 \end{itemize}
 \begin{lstlisting}
   TextBox txtBox = new TextBox(); // and other settings
@@ -572,9 +573,9 @@ void OnMouseLeave(object s, EventArgs e){
 \end{frame}
 
 \begin{frame}
-\frametitle{·á¸»µÄ¿Ø¼ş}
+\frametitle{ä¸°å¯Œçš„æ§ä»¶}
 \begin{itemize}
-\item Àà¿âÖĞµÄ¿Ø¼şÖÖÀà·±¶à£¬Ê®·Ö·á¸»
+\item ç±»åº“ä¸­çš„æ§ä»¶ç§ç±»ç¹å¤šï¼Œååˆ†ä¸°å¯Œ
 \end{itemize}
 \begin{figure}[htbp]
   \centering
@@ -583,16 +584,16 @@ void OnMouseLeave(object s, EventArgs e){
 \end{frame}
 
 \begin{frame}
-\frametitle{×é¼ş~(\textit{Component})}
+\frametitle{ç»„ä»¶~(\textit{Component})}
 \begin{itemize}
-\item ´°ÌåÉÏ³ıÁË¿ÉÒÔ·ÅÖÃ¿Ø¼şÖ®Íâ£¬»¹¿ÉÒÔÊ¹ÓÃ×é¼ş
-\item ×é¼ş¾ÍÊÇ²»¿É¼ûµÄ¿Ø¼ş ~(\textit{invisible controls})
+\item çª—ä½“ä¸Šé™¤äº†å¯ä»¥æ”¾ç½®æ§ä»¶ä¹‹å¤–ï¼Œè¿˜å¯ä»¥ä½¿ç”¨ç»„ä»¶
+\item ç»„ä»¶å°±æ˜¯ä¸å¯è§çš„æ§ä»¶ ~(\textit{invisible controls})
 \begin{itemize}
-\item ÏÔÊ¾°ïÖú´°¿ÚµÄ×é¼ş£¬ÏµÍ³ÍĞÅÌÖĞÏÔÊ¾Í¼±êµÄ×é¼ş
-\item ¶¨Ê±Æ÷ ~Timer£¬Êı¾İ¿âÁ¬½Ó ~SqlConnection
+\item æ˜¾ç¤ºå¸®åŠ©çª—å£çš„ç»„ä»¶ï¼Œç³»ç»Ÿæ‰˜ç›˜ä¸­æ˜¾ç¤ºå›¾æ ‡çš„ç»„ä»¶
+\item å®šæ—¶å™¨ ~Timerï¼Œæ•°æ®åº“è¿æ¥ ~SqlConnection
 \end{itemize}
-\item ×é¼şºÍ¿Ø¼şµÄÊ¹ÓÃ»ù±¾ÀàËÆ£¬µ«²»Õ¼ÓÃ´°Ìå¿Õ¼ä
-\item ÔÚ ~Visual Studio ÖĞÏÔÊ¾ÔÚÉè¼Æ´°¿ÚÖ®ÏÂ
+\item ç»„ä»¶å’Œæ§ä»¶çš„ä½¿ç”¨åŸºæœ¬ç±»ä¼¼ï¼Œä½†ä¸å ç”¨çª—ä½“ç©ºé—´
+\item åœ¨ ~Visual Studio ä¸­æ˜¾ç¤ºåœ¨è®¾è®¡çª—å£ä¹‹ä¸‹
 \end{itemize}
 \begin{figure}[htbp]
   \centering
@@ -601,9 +602,9 @@ void OnMouseLeave(object s, EventArgs e){
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{×é¼şµÄÊ¹ÓÃ}
+\frametitle{ç»„ä»¶çš„ä½¿ç”¨}
 \begin{itemize}
-\item Timer µÄÊ¹ÓÃÊ¾Àı
+\item Timer çš„ä½¿ç”¨ç¤ºä¾‹
 \end{itemize}
 \begin{lstlisting}
 using System; using System.Windows.Forms;
@@ -627,14 +628,14 @@ public class TimerTest {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{×é¼şºÍ¿Ø¼şµÄÇø±ğ}
+\frametitle{ç»„ä»¶å’Œæ§ä»¶çš„åŒºåˆ«}
 \begin{itemize}
 \setlength{\itemsep}{6pt plus 1pt}
-\item Ò»°ã½«×é¼ş³ÆÎª²»¿É¼ûµÄ¿Ø¼ş
-\item µ«Êµ¼Ê£¬¿Ø¼şÊÇ×é¼şµÄÒ»ÖÖ£¬¿Ø¼şÀà¼Ì³Ğ×Ô×é¼şÀà
-\item ×é¼ş²»ĞèÒª·ÅÈë ~Controls ÈİÆ÷ÖĞ
-\item ×é¼şÈç¹ûÊ¹ÓÃÁË·ÇÍĞ¹ÜµÄ×ÊÔ´£¬ĞèÒªÏÔÊ½µÄÊÍ·Å
-\item Visual Studio »á×Ô¶¯·ÖÅäÒ»¸ö×é¼şÈİÆ÷
+\item ä¸€èˆ¬å°†ç»„ä»¶ç§°ä¸ºä¸å¯è§çš„æ§ä»¶
+\item ä½†å®é™…ï¼Œæ§ä»¶æ˜¯ç»„ä»¶çš„ä¸€ç§ï¼Œæ§ä»¶ç±»ç»§æ‰¿è‡ªç»„ä»¶ç±»
+\item ç»„ä»¶ä¸éœ€è¦æ”¾å…¥ ~Controls å®¹å™¨ä¸­
+\item ç»„ä»¶å¦‚æœä½¿ç”¨äº†éæ‰˜ç®¡çš„èµ„æºï¼Œéœ€è¦æ˜¾å¼çš„é‡Šæ”¾
+\item Visual Studio ä¼šè‡ªåŠ¨åˆ†é…ä¸€ä¸ªç»„ä»¶å®¹å™¨
 \begin{lstlisting}
 private
   System.ComponentModel.IContainer components = null;
@@ -643,10 +644,10 @@ private
 \end{frame}
 
 % \begin{frame}[fragile]
-% \frametitle{´°ÌåÀàµÄ³ÉÔ±}
+% \frametitle{çª—ä½“ç±»çš„æˆå‘˜}
 % \begin{itemize}
-% \item Form Àà³ÉÔ±ÖÚ¶à£¬ÓÃÓÚÉèÖÃ´°ÌåµÄ¸÷¸ö·½Ãæ
-% \item ³ÉÔ±ÌØĞÔ£º
+% \item Form ç±»æˆå‘˜ä¼—å¤šï¼Œç”¨äºè®¾ç½®çª—ä½“çš„å„ä¸ªæ–¹é¢
+% \item æˆå‘˜ç‰¹æ€§ï¼š
 % \begin{lstlisting}
 % public class Form : ContainerControl{
 %   public string Name { get; set; }
@@ -654,12 +655,12 @@ private
 %   public override string Text { get; set; }
 % }
 % \end{lstlisting}
-% \item ¹«¹²·½·¨£º
+% \item å…¬å…±æ–¹æ³•ï¼š
 % \begin{lstlisting}
 %   public void Activate();
 %   public void Close();
 % \end{lstlisting}
-% \item ¿ÉÓÃµÄÊÂ¼ş£º
+% \item å¯ç”¨çš„äº‹ä»¶ï¼š
 % \begin{lstlisting}
 %   public event EventHandler Click;
 %   public event EventHandler Activated;
@@ -669,12 +670,12 @@ private
 % \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{MDI ´°Ìå}
+\frametitle{MDI çª—ä½“}
 \begin{itemize}
-\item ÊµÏÖ MDI (\textit{Multi-Document Interface}) ´°¿Ú·Ç³£¼òµ¥
+\item å®ç° MDI (\textit{Multi-Document Interface}) çª—å£éå¸¸ç®€å•
   \begin{itemize}
-  \item ÉèÖÃ¸¸´°ÌåµÄ ~IsMdiContainer Îª \texttt{true}
-  \item ÉèÖÃ×Ó´°ÌåµÄ ~MdiParent Îª¸¸´°Ìå¼´¿É
+  \item è®¾ç½®çˆ¶çª—ä½“çš„ ~IsMdiContainer ä¸º \texttt{true}
+  \item è®¾ç½®å­çª—ä½“çš„ ~MdiParent ä¸ºçˆ¶çª—ä½“å³å¯
   \end{itemize}
 \end{itemize}
 \begin{columns}
@@ -698,14 +699,14 @@ Application.Run(f1);
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{²Ëµ¥µÄÊ¹ÓÃ}
+\frametitle{èœå•çš„ä½¿ç”¨}
 \begin{columns}
 \column{.5\textwidth}
   \begin{itemize}
-  \item ½«¿Ø¼ş ~MenuStrip ÍÏµ½´°Ìå
-  \item °´ÌáÊ¾ÊäÈëÏëÒªµÄ²Ëµ¥Ïî
-  \item Ñ¡ÖĞ²Ëµ¥Ïî£¬ÔÚÊÂ¼ş¹¤¾ßÀ¸ÖĞÑ¡Ôñ¾ä±úº¯Êı
-  \item Visual Studio ×Ô¶¯Éú³É´úÂë
+  \item å°†æ§ä»¶ ~MenuStrip æ‹–åˆ°çª—ä½“
+  \item æŒ‰æç¤ºè¾“å…¥æƒ³è¦çš„èœå•é¡¹
+  \item é€‰ä¸­èœå•é¡¹ï¼Œåœ¨äº‹ä»¶å·¥å…·æ ä¸­é€‰æ‹©å¥æŸ„å‡½æ•°
+  \item Visual Studio è‡ªåŠ¨ç”Ÿæˆä»£ç 
   \end{itemize}
 \column{.5\textwidth}
   \begin{figure}[htbp]
@@ -724,13 +725,13 @@ openToolStripMenuItem.Click +=
 \end{lstlisting}
 \end{frame}
 
-% ¾ßÌåµÄ¿Ø¼ş
+% å…·ä½“çš„æ§ä»¶
 
 % Local Variables:
 % mode: LaTeX
 % TeX-master: "part-04.tex"
 % TeX-header-end: "% End-of-Header$"
 % TeX-trailer-start: "% Start-of-Trailer$"
-% coding: gbk-dos
+% coding: utf-8
 % End:
 

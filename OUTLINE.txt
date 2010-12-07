@@ -6,18 +6,19 @@
 #+STARTUP:   nofold
 
 * TODO
-  - Ê¹ÓÃ×ÊÔ´
-  - ÏîÄ¿¿ª·¢
-  - VSTO, Office ¿ª·¢
-  - WWF, WCF µÈ
+  - \attachfile in *.tex has been disabled for xelatex.
+  - ä½¿ç”¨èµ„æº
+  - é¡¹ç›®å¼€å‘
+  - VSTO, Office å¼€å‘
+  - WWF, WCF ç­‰
   - .NET 3.0
   - LINQ / C# 3.0
   - ASP.NET
   - Silverlight
 
 * TODO Unfinished Files
-  - [[file:lib-others.tex][ÆäËûÀà¿â]]
-  - [[file:dev-vsto.tex][Office ¿ª·¢]]
+  - [[file:lib-others.tex][å…¶ä»–ç±»åº“]]
+  - [[file:dev-vsto.tex][Office å¼€å‘]]
 
 * Visual Studio
 
@@ -31,24 +32,24 @@
 
 * .NET Framework
 
-  * [ ] ×é¼şµÄÊ¹ÓÃ
-  * [ ] ²¿ÊğºÍ°æ±¾¿ØÖÆ
-	+ Ó¦ÓÃ³ÌĞòµÄ²¿Êğ [[file:D:\work\eBook.NET\eBook\Microsoft.Press.Deploying.Dot.NET.Applications.A.Lifecycle.Guide.eBook-LiB][Deploying.Dot.NET.Applications]]
-  * [ ] ÊÜ¹Ü¿ª·¢»·¾³
+  * [ ] ç»„ä»¶çš„ä½¿ç”¨
+  * [ ] éƒ¨ç½²å’Œç‰ˆæœ¬æ§åˆ¶
+	+ åº”ç”¨ç¨‹åºçš„éƒ¨ç½² [[file:D:\work\eBook.NET\eBook\Microsoft.Press.Deploying.Dot.NET.Applications.A.Lifecycle.Guide.eBook-LiB][Deploying.Dot.NET.Applications]]
+  * [ ] å—ç®¡å¼€å‘ç¯å¢ƒ
   * [ ] app domain
-  * [ ] À¬»ø»ØÊÕ
+  * [ ] åƒåœ¾å›æ”¶
 
 * .NET Development
 
 ** Excel Development
 
-*** ÔÚÏîÄ¿ÖĞÌí¼ÓÒıÓÃ
-  ²Ëµ¥£ºProject->Ìí¼ÓÒıÓÃ(R), Com, Microsoft Office Excel 11.0 Object
+*** åœ¨é¡¹ç›®ä¸­æ·»åŠ å¼•ç”¨
+  èœå•ï¼šProject->æ·»åŠ å¼•ç”¨(R), Com, Microsoft Office Excel 11.0 Object
 
-*** Application ¶ÔÏó
-*** Workbook ¶ÔÏó
-*** Worksheet ¶ÔÏó
-*** Range ¶ÔÏó
+*** Application å¯¹è±¡
+*** Workbook å¯¹è±¡
+*** Worksheet å¯¹è±¡
+*** Range å¯¹è±¡
 
 * Beamer Usage
 
@@ -86,7 +87,7 @@
   for background pictures
   \usepackage{wallpaper}
   \setbeamercolor{background canvas}{bg=}
-  \ULCornerWallPaper{0.2}{logo/hit-logo} % 0.2 ÊÇËõ·Å±ÈÀı
+  \ULCornerWallPaper{0.2}{logo/hit-logo} % 0.2 æ˜¯ç¼©æ”¾æ¯”ä¾‹
 
 ** logo
   \logo{
@@ -97,34 +98,34 @@
   \logo{\pgfputat{\pgfxy(5,5)}{\includegraphics[]{pdf}}}
 
 ** chinese names (in CJK enviroment)
-  \newtheorem{theorem}{¶¨Àí}
-  \newtheorem{definition}{¶¨Òå}
-  \newtheorem{lemma}{ÒıÀí}
-  \newtheorem{corollary}{ÍÆÂÛ}
-  \newtheorem{proposition}{ÃüÌâ}
-  \newtheorem{example}{Àı}
-  \newtheorem{remark}{×¢}
+  \newtheorem{theorem}{å®šç†}
+  \newtheorem{definition}{å®šä¹‰}
+  \newtheorem{lemma}{å¼•ç†}
+  \newtheorem{corollary}{æ¨è®º}
+  \newtheorem{proposition}{å‘½é¢˜}
+  \newtheorem{example}{ä¾‹}
+  \newtheorem{remark}{æ³¨}
 
 ** pdfbookmark
   \pdfbookmark[3]{frametitle}{\thepage}
 
 ** frame option
 
-  fragile    Öğ×Ö»·¾³
-  shrink     ×Ô¶¯ËõĞ¡
-  squeeze    ×Ô¶¯¼·Ñ¹ĞĞ¼ä¿Õ°×
+  fragile    é€å­—ç¯å¢ƒ
+  shrink     è‡ªåŠ¨ç¼©å°
+  squeeze    è‡ªåŠ¨æŒ¤å‹è¡Œé—´ç©ºç™½
 
 
 ** \color
 
   \color{red!50!green!20!blue}
   \color{DarkSlateGray!25}
-  \color{-green!40!yellow}       ²¹É«
-  \color[wave]{485}		 ²¨³¤(nm)
+  \color{-green!40!yellow}       è¡¥è‰²
+  \color[wave]{485}		 æ³¢é•¿(nm)
   \color[rgb]{.1,.2,.3}		 RGB
 
 
-  \rowcolors{ÆğÊ¼ĞĞÊé}{ÆæÊıĞĞ}{Å¼ÊıĞĞ}
+  \rowcolors{èµ·å§‹è¡Œä¹¦}{å¥‡æ•°è¡Œ}{å¶æ•°è¡Œ}
   \rowcolors{3}{OddColor}{EvenColor}
 
 ** QUOTE *allowframebreaks*
@@ -157,13 +158,13 @@
      \begin{overlayarea}{width}{height} ... \end{overlayarea}
   + overprint 
 
-  + \llap{} ÖØµşÍ¼Ïñ
+  + \llap{} é‡å å›¾åƒ
 
 ** QUOTE overlays
 
-  + \onslide<n>         Òş²ØÄÚÈİÕ¼¿Õ¼ä£¬ÊÇ·ñ±»¸²¸Ç     \uncover<n>
-  + \onslide+<n>        Òş²ØÄÚÈİÕ¼¿Õ¼ä£¬ÊÇ·ñ¿É¼û       \visible<n>
-  + \onslide*<n>{text}  Òş²ØÄÚÈİ²»Õ¼¿Õ¼ä£¬²»´æÔÚ       \only<n>{text}
+  + \onslide<n>         éšè—å†…å®¹å ç©ºé—´ï¼Œæ˜¯å¦è¢«è¦†ç›–     \uncover<n>
+  + \onslide+<n>        éšè—å†…å®¹å ç©ºé—´ï¼Œæ˜¯å¦å¯è§       \visible<n>
+  + \onslide*<n>{text}  éšè—å†…å®¹ä¸å ç©ºé—´ï¼Œä¸å­˜åœ¨       \only<n>{text}
 
   + \pause
   + \only<n>
@@ -191,7 +192,7 @@
   \setlength{\partopsep}{0pt}
   \setlength{\itemsep}{0pt plus 1pt}
 
-  ×¢Òâ£¬ÒªĞ´ÔÚµ±Ç°µÄ itemize »·¾³Ö®ÖĞ
+  æ³¨æ„ï¼Œè¦å†™åœ¨å½“å‰çš„ itemize ç¯å¢ƒä¹‹ä¸­
 
   \topsep: Space between first item and preceding paragraph.
   \partopsep: Extra space added to \topsep when environment starts a new
@@ -204,9 +205,9 @@
 ** macro
  \medskip, \bigskip
 
-** PPT Í¼±äÍ¸Ã÷±³¾° PDF
+** PPT å›¾å˜é€æ˜èƒŒæ™¯ PDF
 
-  PPTÖĞ»­µÄÍ¼Æ¬£¬Í¨¹ı PDFMaker(7.0) ×ª»»Îª PDF ÎÄ¼ş£¬¿ÉÒÔÊµÏÖÍ¸Ã÷±³¾°¡£
+  PPTä¸­ç”»çš„å›¾ç‰‡ï¼Œé€šè¿‡ PDFMaker(7.0) è½¬æ¢ä¸º PDF æ–‡ä»¶ï¼Œå¯ä»¥å®ç°é€æ˜èƒŒæ™¯ã€‚
   \includegraphics[width=4cm, height=3.5cm]{top500sys.pdf}\hspace{1cm}
   \includegraphics[scale=0.6]{top500sys.pdf}\hspace{1cm}
 
@@ -235,7 +236,7 @@
   # in the repository
   
   $ svn diff --revision BASE:HEAD foo.c
-  # compares your ¡°pristine¡± foo.c (no local changes) with the 
+  # compares your â€œpristineâ€ foo.c (no local changes) with the 
   # latest version in the repository
   
   $ svn log --revision BASE:HEAD
@@ -249,4 +250,5 @@
 # Local Variables:
 # mode: org
 # org-export-html-style: "<link rel=\"stylesheet\" type=\"text/css\" href=\"res/org.css\">"
+# coding: utf-8
 # End:

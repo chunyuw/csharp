@@ -1,16 +1,16 @@
 %% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> %%
 
-\part{Àà}
+\part{ç±»}
 \begin{frame}
-\frametitle{Outline}            % {C\# µÄÀà}
+\frametitle{Outline}            % {C\# çš„ç±»}
 \tableofcontents
 \end{frame}
 
-\section{ÀàµÄ»ù±¾×é³É}
+\section{ç±»çš„åŸºæœ¬ç»„æˆ}
 
 \begin{frame}[fragile]
-\frametitle{ÀàµÄ¶¨Òå}
-Àà¶¨ÒåµÄÒ»°ã¸ñÊ½£º
+\frametitle{ç±»çš„å®šä¹‰}
+ç±»å®šä¹‰çš„ä¸€èˆ¬æ ¼å¼ï¼š
 \begin{lstlisting}
 [attribute]
 [modifiers] class identifier [:baselist]
@@ -19,14 +19,14 @@
 }[;]
 \end{lstlisting}
 \begin{itemize}
-\item attribute --- ÀàµÄÊôĞÔ
-\item modifiers --- ÀàµÄĞŞÊÎ·û
-\item baselist  --- »ùÀàºÍÊµÏÖµÄ½Ó¿Ú
+\item attribute --- ç±»çš„å±æ€§
+\item modifiers --- ç±»çš„ä¿®é¥°ç¬¦
+\item baselist  --- åŸºç±»å’Œå®ç°çš„æ¥å£
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ò»¸ö¼òµ¥µÄÀı×Ó}
+\frametitle{ä¸€ä¸ªç®€å•çš„ä¾‹å­}
 \lstset{emph={new}}
 \begin{lstlisting}
 class Circle {
@@ -48,17 +48,17 @@ class test {
 
 \note{
   \begin{itemize}
-  \item ÕâÀïÊÇÒ»¸öÀàµÄÀı×Ó£¬Ò²ÊÇÒ»¸öÓ¦ÓÃ³ÌĞòµÄÀı×Ó
-  \item class À´¶¨ÒåÀà£¬new ¹Ø¼ü×Ö´´½¨ÊµÀı
-  \item C\#ÖĞ£¬Ã»ÓĞÈ«¾ÖµÄº¯ÊıºÍ±äÁ¿£¬¶¼±ØĞë·ÅÔÚÀàÖĞ£¬¼´Ê¹ÊÇ Main()º¯Êı
-  \item Main() º¯Êı±ØĞëÊÇ static µÄ£¬¶øÇÒÊ××ÖÄ¸´óĞ´
+  \item è¿™é‡Œæ˜¯ä¸€ä¸ªç±»çš„ä¾‹å­ï¼Œä¹Ÿæ˜¯ä¸€ä¸ªåº”ç”¨ç¨‹åºçš„ä¾‹å­
+  \item class æ¥å®šä¹‰ç±»ï¼Œnew å…³é”®å­—åˆ›å»ºå®ä¾‹
+  \item C\#ä¸­ï¼Œæ²¡æœ‰å…¨å±€çš„å‡½æ•°å’Œå˜é‡ï¼Œéƒ½å¿…é¡»æ”¾åœ¨ç±»ä¸­ï¼Œå³ä½¿æ˜¯ Main()å‡½æ•°
+  \item Main() å‡½æ•°å¿…é¡»æ˜¯ static çš„ï¼Œè€Œä¸”é¦–å­—æ¯å¤§å†™
   \end{itemize}}
 
 
 \begin{frame}[fragile]
-\frametitle{ÀàµÄÊôĞÔ}
-\CJKindent ÊôĞÔ(\textit{attribute})ÊÇ¿ÉÑ¡µÄ£¬¿ÉÒÔÓĞÒ»¸ö»ò¶à¸ö£¬ÓÃ¶ººÅ·Ö¸î²¢·Å
-ÔÚÖĞÀ¨ºÅÖĞ¡£
+\frametitle{ç±»çš„å±æ€§}
+\CJKindent å±æ€§(\textit{attribute})æ˜¯å¯é€‰çš„ï¼Œå¯ä»¥æœ‰ä¸€ä¸ªæˆ–å¤šä¸ªï¼Œç”¨é€—å·åˆ†å‰²å¹¶æ”¾
+åœ¨ä¸­æ‹¬å·ä¸­ã€‚
 
 \begin{lstlisting}
 [ClassDesc(Author="Jack")]
@@ -71,14 +71,14 @@ public class YYY { ... }
 \pause
 
 \begin{itemize}
-\item ÊôĞÔÒ²¿ÉÒÔ¶ÔÀàµÄ³ÉÔ±Æğ×÷ÓÃ
-\item ×ñÑ­ ~CLR µÄ±àÒëÆ÷»á½«ÊôĞÔĞÅÏ¢Ğ´ÈëÔªÊı¾İÖĞ
-\item .NET ¿ò¼ÜÖĞ¶¨ÒåÁË¼¸°Ù¸öÔ¤¶¨ÒåµÄÊôĞÔ£¬¹¦ÄÜ·±¶à
+\item å±æ€§ä¹Ÿå¯ä»¥å¯¹ç±»çš„æˆå‘˜èµ·ä½œç”¨
+\item éµå¾ª ~CLR çš„ç¼–è¯‘å™¨ä¼šå°†å±æ€§ä¿¡æ¯å†™å…¥å…ƒæ•°æ®ä¸­
+\item .NET æ¡†æ¶ä¸­å®šä¹‰äº†å‡ ç™¾ä¸ªé¢„å®šä¹‰çš„å±æ€§ï¼ŒåŠŸèƒ½ç¹å¤š
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ìõ¼şÊôĞÔ}
+\frametitle{æ¡ä»¶å±æ€§}
 \begin{lstlisting}
 #define DEBUG
 using System;
@@ -102,8 +102,8 @@ class AttriTest
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{·ÃÎÊ ~DLL}
-µ÷ÓÃ ~powrprof.dll ÖĞ·½·¨Ö´ĞĞÏµÍ³ĞİÃß£º
+\frametitle{è®¿é—® ~DLL}
+è°ƒç”¨ ~powrprof.dll ä¸­æ–¹æ³•æ‰§è¡Œç³»ç»Ÿä¼‘çœ ï¼š
 \lstset{emph={DllImport,extern}}
 \begin{lstlisting}
 using System;
@@ -128,104 +128,104 @@ class suspend
 
 
 \begin{frame}
-\frametitle{·ÃÎÊĞŞÊÎ·û}
+\frametitle{è®¿é—®ä¿®é¥°ç¬¦}
 
-{\CJKindent C\# ÖĞÍ¨¹ıÀà»òÀà³ÉÔ±µÄ·ÃÎÊÏŞÖÆ£¬ÄÜ¹»ÍêÈ«¿ØÖÆË­ÄÜÊ¹ÓÃÀà»òÀàµÄ³ÉÔ±¡£}
+{\CJKindent C\# ä¸­é€šè¿‡ç±»æˆ–ç±»æˆå‘˜çš„è®¿é—®é™åˆ¶ï¼Œèƒ½å¤Ÿå®Œå…¨æ§åˆ¶è°èƒ½ä½¿ç”¨ç±»æˆ–ç±»çš„æˆå‘˜ã€‚}
 \bigskip \pause
 
 \begin{tabular}[tb]{l|l}
-  \hline ĞŞÊÎ·û      & ·ÃÎÊÈ¨ÏŞ                               \\
+  \hline ä¿®é¥°ç¬¦      & è®¿é—®æƒé™                               \\
   \hline
-  private            & ½öÓÃÓÚÇ¶Ì×Àà£¬ÆäÈİÆ÷Àà¿É·ÃÎÊ           \\
-  protected          & ½öÓÃÓÚÇ¶Ì×Àà£¬ÆäÈİÆ÷ÀàºÍÅÉÉúÀà¿É·ÃÎÊ   \\
-  protected internal & ½öÓÃÓÚÇ¶Ì×Àà£¬µ±Ç°³ÌĞò¼¯»òÅÉÉúÀà¿É·ÃÎÊ \\
-  internal           & µ±Ç°³ÌĞò¼¯ÄÚ¿É·ÃÎÊ                     \\
-  public             & ÈÎºÎ³ÌĞò¼¯ÖĞ¶¼¿ÉÒÔ·ÃÎÊ                 \\
+  private            & ä»…ç”¨äºåµŒå¥—ç±»ï¼Œå…¶å®¹å™¨ç±»å¯è®¿é—®           \\
+  protected          & ä»…ç”¨äºåµŒå¥—ç±»ï¼Œå…¶å®¹å™¨ç±»å’Œæ´¾ç”Ÿç±»å¯è®¿é—®   \\
+  protected internal & ä»…ç”¨äºåµŒå¥—ç±»ï¼Œå½“å‰ç¨‹åºé›†æˆ–æ´¾ç”Ÿç±»å¯è®¿é—® \\
+  internal           & å½“å‰ç¨‹åºé›†å†…å¯è®¿é—®                     \\
+  public             & ä»»ä½•ç¨‹åºé›†ä¸­éƒ½å¯ä»¥è®¿é—®                 \\
   \hline
 \end{tabular}
 \bigskip \pause
 
 \begin{itemize}
-\item Èç¹ûÊ¡ÂÔ£¬Ä¬ÈÏµÄ·ÃÎÊÈ¨ÏŞÎª ~internal
-\item ÅÉÉúÀàºÍ»ùÀàÒªÓĞÏàÍ¬µÄ·ÃÎÊÈ¨ÏŞ
+\item å¦‚æœçœç•¥ï¼Œé»˜è®¤çš„è®¿é—®æƒé™ä¸º ~internal
+\item æ´¾ç”Ÿç±»å’ŒåŸºç±»è¦æœ‰ç›¸åŒçš„è®¿é—®æƒé™
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÀàµÄ¼Ì³Ğ}
+\frametitle{ç±»çš„ç»§æ‰¿}
 
-  \begin{block}{¼Ì³Ğ}
-    \CJKindent Ò»¸öÀà£¨ÅÉÉúÀà£©´ÓÁíÒ»¸öÀà£¨»ùÀà£©ÖĞ¹²ÏíÌØĞÔºÍĞĞÎªµÄ·½·¨¡£
+  \begin{block}{ç»§æ‰¿}
+    \CJKindent ä¸€ä¸ªç±»ï¼ˆæ´¾ç”Ÿç±»ï¼‰ä»å¦ä¸€ä¸ªç±»ï¼ˆåŸºç±»ï¼‰ä¸­å…±äº«ç‰¹æ€§å’Œè¡Œä¸ºçš„æ–¹æ³•ã€‚
   \end{block}
 \pause
 
 \begin{lstlisting}[escapeinside=<>]
 class Circle {
-  public int R; // <°ë¾¶>
+  public int R; // <åŠå¾„>
   public static double pi = 3.1415;
   public double Area(){
     return pi * R * R;
   }
 }
 class Ring : Circle {
-  public int r; // <ÄÚ°ë¾¶>
+  public int r; // <å†…åŠå¾„>
 }
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÀàµÄ¼Ì³Ğ}
+\frametitle{ç±»çš„ç»§æ‰¿}
   \begin{itemize}
     \setlength{\itemsep}{8pt plus 1pt}
-  \item ½¨Á¢ÀàµÄ²ã´Î½á¹¹£¬¹«ÓÃµÄ¹¦ÄÜ·ÅÔÚ»ùÀà\pause
-  \item ´úÂëÖØÓÃ£¬»ùÀàµÄ×Ö¶ÎºÍ´úÂë\pause
-  \item ÅÉÉúÀà¼Ì³Ğ»ùÀàµÄËùÓĞ³ÉÔ±£¬µ«»ùÀà¿ÉÒÔÍ¨¹ı ~\texttt{private} ÏŞÖÆÅÉÉúÀà·ÃÎÊ\pause
-  \item C\#~Ö»ÔÊĞíµ¥¼Ì³Ğ£¬µ«¿ÉÊµÏÖ¶à¸ö½Ó¿Ú(\textit{interface})\par
+  \item å»ºç«‹ç±»çš„å±‚æ¬¡ç»“æ„ï¼Œå…¬ç”¨çš„åŠŸèƒ½æ”¾åœ¨åŸºç±»\pause
+  \item ä»£ç é‡ç”¨ï¼ŒåŸºç±»çš„å­—æ®µå’Œä»£ç \pause
+  \item æ´¾ç”Ÿç±»ç»§æ‰¿åŸºç±»çš„æ‰€æœ‰æˆå‘˜ï¼Œä½†åŸºç±»å¯ä»¥é€šè¿‡ ~\texttt{private} é™åˆ¶æ´¾ç”Ÿç±»è®¿é—®\pause
+  \item C\#~åªå…è®¸å•ç»§æ‰¿ï¼Œä½†å¯å®ç°å¤šä¸ªæ¥å£(\textit{interface})\par
 \lstinline|public class MyClass:Interface1, Interface2 {...}|\pause
-  \item Í¨¹ı~\texttt{sealed}~ĞŞÊÎµÄÃÜ·âÀà£¬²»ÄÜ±»¼Ì³Ğ\par
+  \item é€šè¿‡~\texttt{sealed}~ä¿®é¥°çš„å¯†å°ç±»ï¼Œä¸èƒ½è¢«ç»§æ‰¿\par
 \lstinline|public sealed class secret {...}|
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{ÀàµÄ³ÉÔ±}
+\frametitle{ç±»çš„æˆå‘˜}
 \begin{onlyenv}<1| handout:1>
-  \begin{block}{×Ö¶Î (\textit{fields})}
-    ÃèÊö¶ÔÏóÊôĞÔµÄ¼òµ¥Êı¾İÀàĞÍ¡¢×Ô¶¨ÒåµÄ½á¹¹»òÆäËûÀà¡£
+  \begin{block}{å­—æ®µ (\textit{fields})}
+    æè¿°å¯¹è±¡å±æ€§çš„ç®€å•æ•°æ®ç±»å‹ã€è‡ªå®šä¹‰çš„ç»“æ„æˆ–å…¶ä»–ç±»ã€‚
   \end{block}
-  \begin{block}{·½·¨ (\textit{methods})}
-    ¶ÔÏóÖĞÖ´ĞĞ¼ÆËã»òÆäËû²Ù×÷µÄº¯Êı³ÉÔ±¡£
+  \begin{block}{æ–¹æ³• (\textit{methods})}
+    å¯¹è±¡ä¸­æ‰§è¡Œè®¡ç®—æˆ–å…¶ä»–æ“ä½œçš„å‡½æ•°æˆå‘˜ã€‚
   \end{block}
-  \begin{block}{ÌØĞÔ (\textit{properties})}
-    ¶ÔÀàÖĞ×Ö¶ÎÌá¹©ÌØ¶¨µÄ·ÃÎÊ·½·¨¡£
+  \begin{block}{ç‰¹æ€§ (\textit{properties})}
+    å¯¹ç±»ä¸­å­—æ®µæä¾›ç‰¹å®šçš„è®¿é—®æ–¹æ³•ã€‚
   \end{block}
 \end{onlyenv}
 \begin{onlyenv}<2| handout:2>
-  \begin{block}{Î¯ÍĞ (\textit{delegates})}
-    ÔËĞĞÊ±ÓÃÀ´¶¯Ì¬µ÷ÓÃ²»Í¬µÄ·½·¨µÄÌØÊâ³ÉÔ±¡£
+  \begin{block}{å§”æ‰˜ (\textit{delegates})}
+    è¿è¡Œæ—¶ç”¨æ¥åŠ¨æ€è°ƒç”¨ä¸åŒçš„æ–¹æ³•çš„ç‰¹æ®Šæˆå‘˜ã€‚
   \end{block}
-  \begin{block}{ÊÂ¼ş (\textit{events})}
-    ½¨Á¢³ÌĞòÖ®¼äµÄÁ¬½Ó·½·¨ºÍÔËĞĞ¹ı³ÌµÄÖÕ½á²Ù×÷¡£
+  \begin{block}{äº‹ä»¶ (\textit{events})}
+    å»ºç«‹ç¨‹åºä¹‹é—´çš„è¿æ¥æ–¹æ³•å’Œè¿è¡Œè¿‡ç¨‹çš„ç»ˆç»“æ“ä½œã€‚
   \end{block}
-  \begin{block}{Ë÷ÒıÆ÷ (\textit{indexers})}
-    Í¨¹ı·½À¨ºÅµÄÓï·¨·ÃÎÊ³ÉÔ±µÄ·½·¨¡£
+  \begin{block}{ç´¢å¼•å™¨ (\textit{indexers})}
+    é€šè¿‡æ–¹æ‹¬å·çš„è¯­æ³•è®¿é—®æˆå‘˜çš„æ–¹æ³•ã€‚
   \end{block}
 \end{onlyenv}
 \end{frame}
 
 
 \begin{frame}[fragile]
-\frametitle{¾²Ì¬³ÉÔ±ºÍÊµÀı³ÉÔ±}
+\frametitle{é™æ€æˆå‘˜å’Œå®ä¾‹æˆå‘˜}
 \begin{onlyenv}<1| handout:1>
   \begin{itemize}
-  \item ¾²Ì¬³ÉÔ±Ê¹ÓÃ¹Ø¼ü×Ö~static~ĞŞÊÎ£¬·ñÔòÎªÊµÀı³ÉÔ±
+  \item é™æ€æˆå‘˜ä½¿ç”¨å…³é”®å­—~static~ä¿®é¥°ï¼Œå¦åˆ™ä¸ºå®ä¾‹æˆå‘˜
 \begin{lstlisting}[escapeinside=<>]
 class Circle {
-  // <ÊµÀı±äÁ¿>
+  // <å®ä¾‹å˜é‡>
   public int R;
-  // <¾²Ì¬±äÁ¿>
+  // <é™æ€å˜é‡>
   public static double pi = 3.14159;
-  // <ÊµÀı·½·¨>
+  // <å®ä¾‹æ–¹æ³•>
   public double Perimeter(){
     return 2 * pi * R;
   }
@@ -237,27 +237,27 @@ class Circle {
 \begin{onlyenv}<2| handout:2>
   \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
-  \item ¾²Ì¬³ÉÔ±Í¨¹ıÀàÃû·ÃÎÊ£¬ÊµÀı³ÉÔ±Í¨¹ı¶ÔÏóÃû·ÃÎÊ
+  \item é™æ€æˆå‘˜é€šè¿‡ç±»åè®¿é—®ï¼Œå®ä¾‹æˆå‘˜é€šè¿‡å¯¹è±¡åè®¿é—®
 \begin{lstlisting}[escapeinside=<>]
-Circle c  = new Circle(); // <´´½¨Ò»¸öÊµÀı>
-Circle.pi = 3.14159265;   // <·ÃÎÊ¾²Ì¬±äÁ¿>
-      c.R = 100;          // <·ÃÎÊÊµÀı±äÁ¿>
+Circle c  = new Circle(); // <åˆ›å»ºä¸€ä¸ªå®ä¾‹>
+Circle.pi = 3.14159265;   // <è®¿é—®é™æ€å˜é‡>
+      c.R = 100;          // <è®¿é—®å®ä¾‹å˜é‡>
 \end{lstlisting}
-  \item ¾²Ì¬³ÉÔ±ºÍ¾ßÌåÊµÀıÎŞ¹Ø£¬ÊÇÀà±¾ÉíµÄÌØÕ÷
-  \item Í¨¹ı¾²Ì¬±äÁ¿£¬¿ÉÒÔÔÚÀàµÄÊµÀıÖ®¼ä¹²ÏíĞÅÏ¢
-  \item ¾²Ì¬³ÉÔ±ÔÚ¼ÓÔØÀàµÄÊ±ºò³õÊ¼»¯£¬·ÖÅäÄÚ´æ¿Õ¼ä
+  \item é™æ€æˆå‘˜å’Œå…·ä½“å®ä¾‹æ— å…³ï¼Œæ˜¯ç±»æœ¬èº«çš„ç‰¹å¾
+  \item é€šè¿‡é™æ€å˜é‡ï¼Œå¯ä»¥åœ¨ç±»çš„å®ä¾‹ä¹‹é—´å…±äº«ä¿¡æ¯
+  \item é™æ€æˆå‘˜åœ¨åŠ è½½ç±»çš„æ—¶å€™åˆå§‹åŒ–ï¼Œåˆ†é…å†…å­˜ç©ºé—´
   \end{itemize}
 \end{onlyenv}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{³£Á¿ºÍÖ»¶Á±äÁ¿}
+\frametitle{å¸¸é‡å’Œåªè¯»å˜é‡}
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
-\item ·Ö±ğÊ¹ÓÃ~const~ºÍ~readonly~ĞŞÊÎ
-\item ³£Á¿ÔÚ±àÒëÊ±³õÊ¼»¯£¬Ö»¶Á±äÁ¿ÔÚÔËĞĞÊ±³õÊ¼»¯
-\item ³õÊ¼»¯Ö®ºó£¬¶¼²»¿ÉÒÔ±»ĞŞ¸Ä
-\item ÒıÓÃÀàĞÍÖ»ÄÜÊ¹ÓÃÖ»¶Á±äÁ¿£¬ÒòÎªÎŞ·¨ÔÚ±àÒëÊ±³õÊ¼»¯
+\item åˆ†åˆ«ä½¿ç”¨~const~å’Œ~readonly~ä¿®é¥°
+\item å¸¸é‡åœ¨ç¼–è¯‘æ—¶åˆå§‹åŒ–ï¼Œåªè¯»å˜é‡åœ¨è¿è¡Œæ—¶åˆå§‹åŒ–
+\item åˆå§‹åŒ–ä¹‹åï¼Œéƒ½ä¸å¯ä»¥è¢«ä¿®æ”¹
+\item å¼•ç”¨ç±»å‹åªèƒ½ä½¿ç”¨åªè¯»å˜é‡ï¼Œå› ä¸ºæ— æ³•åœ¨ç¼–è¯‘æ—¶åˆå§‹åŒ–
 \end{itemize}
 \lstset{emph={readonly,const}}
 \begin{lstlisting}
@@ -268,70 +268,70 @@ Circle.pi = 3.14159265;   // <·ÃÎÊ¾²Ì¬±äÁ¿>
 \end{lstlisting}
 \end{frame}
 
-\section{ÀàµÄ·½·¨}
+\section{ç±»çš„æ–¹æ³•}
 \begin{frame}
-\frametitle{·½·¨(\textit{methods})}
+\frametitle{æ–¹æ³•(\textit{methods})}
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
-\item ·½·¨ÊÇÒ»¸öÃüÃûµÄ´úÂë¿é£¬ÓÃÓÚ¼ÆËã»òÆäËû²Ù×÷µÄº¯Êı³ÉÔ±£¬±íÊ¾ÀàµÄĞĞÎª
-\item ·ÖÎªÊµÀı·½·¨ºÍ¾²Ì¬·½·¨£¬¾²Ì¬·½·¨Í¨¹ıÀàÃû·ÃÎÊ
+\item æ–¹æ³•æ˜¯ä¸€ä¸ªå‘½åçš„ä»£ç å—ï¼Œç”¨äºè®¡ç®—æˆ–å…¶ä»–æ“ä½œçš„å‡½æ•°æˆå‘˜ï¼Œè¡¨ç¤ºç±»çš„è¡Œä¸º
+\item åˆ†ä¸ºå®ä¾‹æ–¹æ³•å’Œé™æ€æ–¹æ³•ï¼Œé™æ€æ–¹æ³•é€šè¿‡ç±»åè®¿é—®
   \begin{itemize}
   \item Array.Sort()
   \item Array.Reverse()
   \end{itemize}
-% \item ·½·¨¿ÉÒÔ±»ÉùÃ÷Îª virtual¡¢abstract »ò sealed
+% \item æ–¹æ³•å¯ä»¥è¢«å£°æ˜ä¸º virtualã€abstract æˆ– sealed
 % \begin{itemize}
-% \item virtual --- ¿ÉÒÔ±»ÅÉÉúÀà¸²¸Ç
-% \item abstract --- Ã»ÓĞ¾ßÌåÊµÏÖ£¬ĞèÒªÅÉÉúÀàÊµÏÖ
-% \item sealed --- ²»¿ÉÒÔ±»¸²¸Ç
+% \item virtual --- å¯ä»¥è¢«æ´¾ç”Ÿç±»è¦†ç›–
+% \item abstract --- æ²¡æœ‰å…·ä½“å®ç°ï¼Œéœ€è¦æ´¾ç”Ÿç±»å®ç°
+% \item sealed --- ä¸å¯ä»¥è¢«è¦†ç›–
 % \end{itemize}
-\item ·½·¨¿ÉÒÔ±»¼Ì³Ğ¡¢¸²¸ÇºÍÒş²Ø
+\item æ–¹æ³•å¯ä»¥è¢«ç»§æ‰¿ã€è¦†ç›–å’Œéšè—
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{·½·¨µÄĞŞÊÎ·û}
+\frametitle{æ–¹æ³•çš„ä¿®é¥°ç¬¦}
 \begin{itemize}
     \setlength{\itemsep}{6pt plus 1pt}
-\item static --- ¾²Ì¬·½·¨£¬²»ÊÇÀàÊµÀıÒ»²¿·Ö
-\item virtual --- Ğé·½·¨£¬¿ÉÒÔÔÚ×ÓÀàÖĞ±»¸²¸Ç
-\item override --- (Ö»ÄÜ)ÓÃÓÚ¸²¸Ç»ùÀàÖĞµÄÍ¬ÃûµÄĞé·½·¨
-\item new --- ÓÃÓÚÒş²Ø»ùÀàÖĞµÄ·½·¨£¬ÎŞÂÛÊÇ·ñÊÇĞé·½·¨
-\item sealed --- ½ûÖ¹ÅÉÉúÀà¸²¸Ç¸Ã·½·¨£¬Í¬Ê±ĞèÒª ~override ĞŞÊÎ
-\item abstract --- Ö»ÓĞ·½·¨ÉùÃ÷£¬Ã»ÓĞ¾ßÌåÊµÏÖ
-\item extern --- Ö»ÓĞ·½·¨ÉùÃ÷£¬ÔÚÍâ²¿ÊµÏÖ
+\item static --- é™æ€æ–¹æ³•ï¼Œä¸æ˜¯ç±»å®ä¾‹ä¸€éƒ¨åˆ†
+\item virtual --- è™šæ–¹æ³•ï¼Œå¯ä»¥åœ¨å­ç±»ä¸­è¢«è¦†ç›–
+\item override --- (åªèƒ½)ç”¨äºè¦†ç›–åŸºç±»ä¸­çš„åŒåçš„è™šæ–¹æ³•
+\item new --- ç”¨äºéšè—åŸºç±»ä¸­çš„æ–¹æ³•ï¼Œæ— è®ºæ˜¯å¦æ˜¯è™šæ–¹æ³•
+\item sealed --- ç¦æ­¢æ´¾ç”Ÿç±»è¦†ç›–è¯¥æ–¹æ³•ï¼ŒåŒæ—¶éœ€è¦ ~override ä¿®é¥°
+\item abstract --- åªæœ‰æ–¹æ³•å£°æ˜ï¼Œæ²¡æœ‰å…·ä½“å®ç°
+\item extern --- åªæœ‰æ–¹æ³•å£°æ˜ï¼Œåœ¨å¤–éƒ¨å®ç°
 \end{itemize}
 \end{frame}
 
 
 \begin{frame}[fragile]
-\frametitle{¹¹Ôìº¯Êı(\textit{constructors})}
-\begin{block}{¹¹Ôìº¯Êı}
-  \CJKindent ¹¹Ôìº¯ÊıÊÇÒ»¸ö£¨»ò¶à¸ö£©ÌØÊâµÄ·½·¨£¬ÓÃÓÚ³õÊ¼»¯¶ÔÏó¡£¿ÉÒÔ·ÖÎª¾²Ì¬¹¹
-  Ôìº¯ÊıºÍÊµÀı¹¹Ôìº¯ÊıÁ½ÖÖ¡£
+\frametitle{æ„é€ å‡½æ•°(\textit{constructors})}
+\begin{block}{æ„é€ å‡½æ•°}
+  \CJKindent æ„é€ å‡½æ•°æ˜¯ä¸€ä¸ªï¼ˆæˆ–å¤šä¸ªï¼‰ç‰¹æ®Šçš„æ–¹æ³•ï¼Œç”¨äºåˆå§‹åŒ–å¯¹è±¡ã€‚å¯ä»¥åˆ†ä¸ºé™æ€æ„
+  é€ å‡½æ•°å’Œå®ä¾‹æ„é€ å‡½æ•°ä¸¤ç§ã€‚
 \end{block}
 \pause \medskip
 \begin{itemize}
-\item ¹¹Ôìº¯ÊıÃû×ÖÓëÀàÃûÏàÍ¬£¬µ«ÎŞ·µ»ØÀàĞÍ
+\item æ„é€ å‡½æ•°åå­—ä¸ç±»åç›¸åŒï¼Œä½†æ— è¿”å›ç±»å‹
 \begin{lstlisting}[escapeinside=<>]
 class Circle { public int R;
-  // <³õÊ¼»¯Îªµ¥Î»Ô²£¬ÊµÀı¹¹Ôìº¯Êı>
+  // <åˆå§‹åŒ–ä¸ºå•ä½åœ†ï¼Œå®ä¾‹æ„é€ å‡½æ•°>
   public Circle() { R=1;}    }
 \end{lstlisting}
   \pause \medskip
-\item ¾²Ì¬¹¹Ôìº¯Êı(ÓÃstaticĞŞÊÎ)£¬ÔÚ¼ÓÔØÀàÊ±µ÷ÓÃ£¬ÓÃÓÚ³õÊ¼»¯¾²Ì¬±äÁ¿
+\item é™æ€æ„é€ å‡½æ•°(ç”¨staticä¿®é¥°)ï¼Œåœ¨åŠ è½½ç±»æ—¶è°ƒç”¨ï¼Œç”¨äºåˆå§‹åŒ–é™æ€å˜é‡
 \end{itemize}
 \end{frame}
 \note{
   \begin{itemize}
-  \item ¹¹Ôìº¯ÊıµÄ¶¨Òå²»ÊÇ±ØĞëµÄ
+  \item æ„é€ å‡½æ•°çš„å®šä¹‰ä¸æ˜¯å¿…é¡»çš„
   \end{itemize}
 }
 
 \begin{frame}[fragile]
-\frametitle{Ë½ÓĞ¹¹Ôìº¯Êı}
+\frametitle{ç§æœ‰æ„é€ å‡½æ•°}
 \begin{itemize}
-\item ÓÃ ~private ĞŞÊÎµÄ¹¹Ôìº¯Êı£¬²»ÔÊĞíÀàÒÔÍâµÄ³ÉÔ±·ÃÎÊ¡£
+\item ç”¨ ~private ä¿®é¥°çš„æ„é€ å‡½æ•°ï¼Œä¸å…è®¸ç±»ä»¥å¤–çš„æˆå‘˜è®¿é—®ã€‚
 \end{itemize}
 \begin{lstlisting}
 class Conversions{
@@ -344,13 +344,13 @@ class Conversions{
 \end{lstlisting}
 \pause
 \begin{itemize}
-\item ÒòÎª ~private ĞŞÊÎ£¬ÎŞ·¨ÎªÀà´´½¨ÊµÀı
-\item Ò»°ãÓÃÓÚÊ¹ÓÃ¾²Ì¬·½·¨ºÍ³ÉÔ±Ìá¹©·şÎñµÄÀà
+\item å› ä¸º ~private ä¿®é¥°ï¼Œæ— æ³•ä¸ºç±»åˆ›å»ºå®ä¾‹
+\item ä¸€èˆ¬ç”¨äºä½¿ç”¨é™æ€æ–¹æ³•å’Œæˆå‘˜æä¾›æœåŠ¡çš„ç±»
 \pause
-\item ±ÈÈç System.Math Àà
+\item æ¯”å¦‚ System.Math ç±»
 \begin{itemize}
-\item System.Math.PI, System.Math.E   --- ¾²Ì¬³ÉÔ±
-\item System.Math.Pow(), System.Math.Sin() --- ¾²Ì¬·½·¨
+\item System.Math.PI, System.Math.E   --- é™æ€æˆå‘˜
+\item System.Math.Pow(), System.Math.Sin() --- é™æ€æ–¹æ³•
 \end{itemize}
 \end{itemize}
 
@@ -358,26 +358,26 @@ class Conversions{
 
 
 \begin{frame}[fragile]
-\frametitle{Îö¹¹º¯Êı(\textit{destructors})}
-Îö¹¹º¯ÊıÊÇµ±¶ÔÏó±»Çå³ıÊ±±»µ÷ÓÃµÄÌØÊâ·½·¨¡£
+\frametitle{ææ„å‡½æ•°(\textit{destructors})}
+ææ„å‡½æ•°æ˜¯å½“å¯¹è±¡è¢«æ¸…é™¤æ—¶è¢«è°ƒç”¨çš„ç‰¹æ®Šæ–¹æ³•ã€‚
 \begin{itemize}
-\item Ãû×Ö£ºÒÔ×Ö·û¡°\verb|~|¡±¿ªÊ¼µÄÀàÃû£¬ÎŞ·µ»ØÀàĞÍ
+\item åå­—ï¼šä»¥å­—ç¬¦â€œ\verb|~|â€å¼€å§‹çš„ç±»åï¼Œæ— è¿”å›ç±»å‹
 \begin{lstlisting}[escapeinside=<>]
 class Circle {
   public int R;
   public Circle() { R=1;}
-  ~Circle() { /* <Îö¹¹º¯ÊıÌå> */  }
+  ~Circle() { /* <ææ„å‡½æ•°ä½“> */  }
 }
 \end{lstlisting}
   \pause
-\item ÓÉÓÚ ~C\# µÄ×Ô¶¯À¬»ø»ØÊÕ£¬Ò»°ã²»ĞèÒª×Ô¼º´´½¨Îö¹¹º¯Êı
+\item ç”±äº ~C\# çš„è‡ªåŠ¨åƒåœ¾å›æ”¶ï¼Œä¸€èˆ¬ä¸éœ€è¦è‡ªå·±åˆ›å»ºææ„å‡½æ•°
   \pause
-\item ¹¹Ôìº¯ÊıºÍÎö¹¹º¯ÊıµÄ¶¨Òå¶¼²»ÊÇ±ØĞëµÄ
+\item æ„é€ å‡½æ•°å’Œææ„å‡½æ•°çš„å®šä¹‰éƒ½ä¸æ˜¯å¿…é¡»çš„
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile,plain]
-\frametitle{¹¹Ôìº¯ÊıºÍÎö¹¹º¯ÊıÊ¾Àı}
+\frametitle{æ„é€ å‡½æ•°å’Œææ„å‡½æ•°ç¤ºä¾‹}
 \begin{lstlisting}
 using System;
 public class Person {
@@ -405,15 +405,15 @@ class test{
 
 
 \begin{frame}[fragile]
-\frametitle{ÖØÔØ(\textit{overload})}
-\begin{block}{·½·¨µÄÖØÔØ}
-  \CJKindent ¶Ô²»Í¬µÄ¶ÔÏó£¬Ê¹ÓÃÏàÍ¬µÄ·½·¨½øĞĞ²Ù×÷¡£ÔÚÍ¬Ò»¸öÀàÖĞ£¬¶¨ÒåÍ¬Ò»Ãû³ÆµÄ
-  ¶à¸ö³ÉÔ±£¬±»ÖØÔØµÄ³ÉÔ±·½·¨Ö®¼äµÄÎ¨Ò»²î±ğ¾ÍÊÇ¾ßÓĞ²»Í¬µÄ²ÎÊıÀàĞÍºÍ¸öÊı¡£
+\frametitle{é‡è½½(\textit{overload})}
+\begin{block}{æ–¹æ³•çš„é‡è½½}
+  \CJKindent å¯¹ä¸åŒçš„å¯¹è±¡ï¼Œä½¿ç”¨ç›¸åŒçš„æ–¹æ³•è¿›è¡Œæ“ä½œã€‚åœ¨åŒä¸€ä¸ªç±»ä¸­ï¼Œå®šä¹‰åŒä¸€åç§°çš„
+  å¤šä¸ªæˆå‘˜ï¼Œè¢«é‡è½½çš„æˆå‘˜æ–¹æ³•ä¹‹é—´çš„å”¯ä¸€å·®åˆ«å°±æ˜¯å…·æœ‰ä¸åŒçš„å‚æ•°ç±»å‹å’Œä¸ªæ•°ã€‚
 \end{block}
 \pause
 \begin{itemize}
-\item Ë÷ÒıÆ÷¡¢¹¹Ôìº¯Êı¡¢²Ù×÷·û¶¼¿ÉÒÔÖØÔØ
-\item µ÷ÓÃÊ±£¬C\#»á¸ù¾İ²ÎÊıÁĞ±íµÄ²»Í¬×Ô¶¯Ñ¡Ôñ
+\item ç´¢å¼•å™¨ã€æ„é€ å‡½æ•°ã€æ“ä½œç¬¦éƒ½å¯ä»¥é‡è½½
+\item è°ƒç”¨æ—¶ï¼ŒC\#ä¼šæ ¹æ®å‚æ•°åˆ—è¡¨çš„ä¸åŒè‡ªåŠ¨é€‰æ‹©
 \end{itemize}
 \pause
 \begin{lstlisting}[escapeinside=<>]
@@ -427,8 +427,8 @@ class Circle{   public int R;
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÖØÔØ²Ù×÷·û(\textit{operator overload})}
-C\# ¿ÉÒÔ¶Ô²Ù×÷·ûÖØÔØ£¬ºÍ ~C++ ÖĞµÄÀàËÆ¡£Ò»°ã¸ñÊ½Îª
+\frametitle{é‡è½½æ“ä½œç¬¦(\textit{operator overload})}
+C\# å¯ä»¥å¯¹æ“ä½œç¬¦é‡è½½ï¼Œå’Œ ~C++ ä¸­çš„ç±»ä¼¼ã€‚ä¸€èˆ¬æ ¼å¼ä¸º
 \pause
 \begin{lstlisting}
 public static <return_type> operator <op> (<para_list>)
@@ -436,12 +436,12 @@ public static <return_type> operator <op> (<para_list>)
 \end{lstlisting}
 \pause
 \begin{itemize}
-\item ±ØĞëÊ¹ÓÃ ~public ºÍ ~static ĞŞÊÎ
-\item ·µ»ØÀàĞÍ²»ÄÜÊÇ ~void
-\item ²ÎÊı¸öÊıÒªÆ¥Åä
+\item å¿…é¡»ä½¿ç”¨ ~public å’Œ ~static ä¿®é¥°
+\item è¿”å›ç±»å‹ä¸èƒ½æ˜¯ ~void
+\item å‚æ•°ä¸ªæ•°è¦åŒ¹é…
 \end{itemize}
 \pause
-String ÀàĞÍÖ®¼äÍ¨¹ı ~``+'' µÄÁ¬½Ó²Ù×÷£¬¾ÍÊÇÒ»ÖÖÖØÔØ£º
+String ç±»å‹ä¹‹é—´é€šè¿‡ ~``+'' çš„è¿æ¥æ“ä½œï¼Œå°±æ˜¯ä¸€ç§é‡è½½ï¼š
 \begin{lstlisting}
 string a = "abc";
 string b = "efg";
@@ -477,7 +477,7 @@ class Ring:Circle
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÖØÔØ~ true ºÍ~ false}
+\frametitle{é‡è½½~ true å’Œ~ false}
 \begin{lstlisting}
 class Point {
   int x, y, z; // 3-D coordinates
@@ -500,7 +500,7 @@ class Point {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÖØÔØÒ»Ôª²Ù×÷·û}
+\frametitle{é‡è½½ä¸€å…ƒæ“ä½œç¬¦}
 \begin{lstlisting}
 class ThreeD
 { int x, y, z;  }
@@ -525,14 +525,14 @@ public static ThreeD operator ++(ThreeD op)
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{×ª»»ÖØÔØ}
+\frametitle{è½¬æ¢é‡è½½}
 \begin{itemize}
-\item ×ª»»~ (\textit{conversion}) ÖØÔØÔÊĞí×Ô¼º¶¨ÒåÀàĞÍ¼äµÄ×ª»»
-\item ¿ÉÒÔ·ÖÎªÒşÊ½ºÍÏÔÊ½ÖØÔØ
-\item ¶ÔÓÚÍ¬Ò»ÖÖÀàĞÍ£¬²»ÄÜÍ¬Ê±´æÔÚÒşÊ½ºÍÏÔÊ½ÖØÔØ
+\item è½¬æ¢~ (\textit{conversion}) é‡è½½å…è®¸è‡ªå·±å®šä¹‰ç±»å‹é—´çš„è½¬æ¢
+\item å¯ä»¥åˆ†ä¸ºéšå¼å’Œæ˜¾å¼é‡è½½
+\item å¯¹äºåŒä¸€ç§ç±»å‹ï¼Œä¸èƒ½åŒæ—¶å­˜åœ¨éšå¼å’Œæ˜¾å¼é‡è½½
 \end{itemize}
 \pause
-×ª»»ÖØÔØµÄÒ»°ãĞÎÊ½
+è½¬æ¢é‡è½½çš„ä¸€èˆ¬å½¢å¼
 \lstset{emph={implicit, explicit}}
 \begin{lstlisting}
 public static operator implicit <target>(<source> v)
@@ -543,9 +543,9 @@ public static operator explicit <target>(<source> v)
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{×ª»»ÖØÔØÊ¾Àı}
+\frametitle{è½¬æ¢é‡è½½ç¤ºä¾‹}
 \begin{onlyenv}<1| handout:1>
-ÒşÊ½ÖØÔØ£¬ÓÃÓÚÒşÊ½×ª»»£º
+éšå¼é‡è½½ï¼Œç”¨äºéšå¼è½¬æ¢ï¼š
 \lstset{emph={implicit}}
 \begin{lstlisting}
 ...
@@ -562,7 +562,7 @@ public static operator explicit <target>(<source> v)
 \end{lstlisting}
 \end{onlyenv}
 \begin{onlyenv}<2| handout:2>
-ÏÔÊ½ÖØÔØ£¬ÓÃÓÚÏÔÊ½×ª»»£º
+æ˜¾å¼é‡è½½ï¼Œç”¨äºæ˜¾å¼è½¬æ¢ï¼š
 \lstset{emph={explicit}}
 \begin{lstlisting}
 ...
@@ -581,17 +581,17 @@ public static operator explicit <target>(<source> v)
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÌØĞÔ(\textit{properties})}
-\begin{block}{ÌØĞÔ}
-\CJKindent ¶Ô×Ö¶ÎÌá¹©ÌØ¶¨µÄ·ÃÎÊ·½Ê½£¬ÎªÀàÌá¹©¸üºÃ·â×°¡£
+\frametitle{ç‰¹æ€§(\textit{properties})}
+\begin{block}{ç‰¹æ€§}
+\CJKindent å¯¹å­—æ®µæä¾›ç‰¹å®šçš„è®¿é—®æ–¹å¼ï¼Œä¸ºç±»æä¾›æ›´å¥½å°è£…ã€‚
 \end{block}
 \begin{itemize}
-\item ÌØĞÔµÄ·ÃÎÊÊÇÍ¸Ã÷µÄ£¬ÀàËÆ³ÉÔ±±äÁ¿
-\item get~Ìá¹©¶Á·ÃÎÊ£¬set~Ìá¹©Ğ´·ÃÎÊ£¬¿ÉÒÔÓĞ²»Í¬µÄ·ÃÎÊÈ¨ÏŞ
-\item Í¨¹ıÌØĞÔ¿É½øĞĞÍêÕûĞÔ¼ì²é£¬ÀàËÆ³ÉÔ±·½·¨
+\item ç‰¹æ€§çš„è®¿é—®æ˜¯é€æ˜çš„ï¼Œç±»ä¼¼æˆå‘˜å˜é‡
+\item get~æä¾›è¯»è®¿é—®ï¼Œset~æä¾›å†™è®¿é—®ï¼Œå¯ä»¥æœ‰ä¸åŒçš„è®¿é—®æƒé™
+\item é€šè¿‡ç‰¹æ€§å¯è¿›è¡Œå®Œæ•´æ€§æ£€æŸ¥ï¼Œç±»ä¼¼æˆå‘˜æ–¹æ³•
 \end{itemize}
 \pause
-ÌØĞÔµÄÒ»°ã¸ñÊ½£º
+ç‰¹æ€§çš„ä¸€èˆ¬æ ¼å¼ï¼š
 \begin{lstlisting}
 [attributes] <modifiter> <data_type> <property_name>
 {  [access modifier] get {  ...
@@ -604,7 +604,7 @@ public static operator explicit <target>(<source> v)
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÌØĞÔ(\textit{properties})}
+\frametitle{ç‰¹æ€§(\textit{properties})}
   \lstset{emph={get,set}}
 \begin{lstlisting}[escapeinside=`']
 class Circle {
@@ -615,7 +615,7 @@ class Circle {
       if(value<0)
         throw new ArgumentOutOfRangeException(
              "Radius must be greater than 0.");
-      R = value;    // `set µÄ²ÎÊı ~value'
+      R = value;    // `set çš„å‚æ•° ~value'
     }
   }
 }
@@ -628,36 +628,36 @@ class Circle {
 \end{frame}
 
 \begin{frame}
-\frametitle{ÌØĞÔµÄÊ¹ÓÃ}
+\frametitle{ç‰¹æ€§çš„ä½¿ç”¨}
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
-\item ÌØĞÔµÄĞŞÊÎ·û¿ÉÒÔÊÇ
+\item ç‰¹æ€§çš„ä¿®é¥°ç¬¦å¯ä»¥æ˜¯
   \begin{itemize}
-  \item static --- ¾²Ì¬µÄ£¬Ö»ºÍÀà±¾ÉíÏà¹Ø
-  \item abstract --- ÓÃÔÚ³éÏóÀàÖĞ
-  \item new, virtal, override --- ¼Ì³ĞÓë¸²¸Ç¹ØÏµ
+  \item static --- é™æ€çš„ï¼Œåªå’Œç±»æœ¬èº«ç›¸å…³
+  \item abstract --- ç”¨åœ¨æŠ½è±¡ç±»ä¸­
+  \item new, virtal, override --- ç»§æ‰¿ä¸è¦†ç›–å…³ç³»
   \end{itemize}
-\item set ÖĞÓĞÒ»¸öÒşÊ½²ÎÊı ~value
-\item set ºÍ ~get ¿ÉÒÔÖ»ÓĞÒ»¸ö
+\item set ä¸­æœ‰ä¸€ä¸ªéšå¼å‚æ•° ~value
+\item set å’Œ ~get å¯ä»¥åªæœ‰ä¸€ä¸ª
 \end{itemize}
 \end{frame}
 
-% Ç¶Ì×Àà
+% åµŒå¥—ç±»
 
 \begin{frame}[fragile]
-\frametitle{Ë÷ÒıÆ÷ (\textit{indexers})}
+\frametitle{ç´¢å¼•å™¨ (\textit{indexers})}
 
-\begin{block}{Ë÷ÒıÆ÷}
-\CJKindent \small Ê¹ÓÃÊı×éË÷Òı·½Ê½·ÃÎÊÀà³ÉÔ±¡£Ê¹ÓÃ·½·¨ºÍÌØĞÔÀàËÆ£¬µ«¿ÉÒÔÓĞ¶à¸ö
-²ÎÊı¡£
+\begin{block}{ç´¢å¼•å™¨}
+\CJKindent \small ä½¿ç”¨æ•°ç»„ç´¢å¼•æ–¹å¼è®¿é—®ç±»æˆå‘˜ã€‚ä½¿ç”¨æ–¹æ³•å’Œç‰¹æ€§ç±»ä¼¼ï¼Œä½†å¯ä»¥æœ‰å¤šä¸ª
+å‚æ•°ã€‚
 \end{block}
 \begin{itemize}
-\item Ë÷ÒıÆ÷±íÏÖºÍÊı×éÀàËÆ£¬Í¨¹ıË÷Òı·ÃÎÊ
-\item ÊµÏÖ·½Ê½ºÍÌØĞÔÀàËÆ£¬¿ÉÒÔÓĞ ~get ºÍ ~set ·ÃÎÊÆ÷
-\item Ë÷ÒıÆ÷²»¿ÉÒÔÓÃ ~static ĞŞÊÎ£¬ÒòÎªÖ»ÓëÊµÀıÏà¹Ø
+\item ç´¢å¼•å™¨è¡¨ç°å’Œæ•°ç»„ç±»ä¼¼ï¼Œé€šè¿‡ç´¢å¼•è®¿é—®
+\item å®ç°æ–¹å¼å’Œç‰¹æ€§ç±»ä¼¼ï¼Œå¯ä»¥æœ‰ ~get å’Œ ~set è®¿é—®å™¨
+\item ç´¢å¼•å™¨ä¸å¯ä»¥ç”¨ ~static ä¿®é¥°ï¼Œå› ä¸ºåªä¸å®ä¾‹ç›¸å…³
 \end{itemize}
 
-Ë÷ÒıÆ÷µÄÒ»°ã¸ñÊ½£º
+ç´¢å¼•å™¨çš„ä¸€èˆ¬æ ¼å¼ï¼š
 \begin{lstlisting}
 [attribute]
 <modifier><return_type> this [parameters]
@@ -667,8 +667,8 @@ class Circle {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ë÷ÒıÆ÷ (\textit{indexers}) Ê¾Àı}
-Í¨¹ıË÷ÒıÆ÷ÉèÖÃ³ÉÔ±±äÁ¿
+\frametitle{ç´¢å¼•å™¨ (\textit{indexers}) ç¤ºä¾‹}
+é€šè¿‡ç´¢å¼•å™¨è®¾ç½®æˆå‘˜å˜é‡
 \begin{lstlisting}
 class Ring:Circle{
   private int r; // and R from Circle
@@ -690,7 +690,7 @@ class Ring:Circle{
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ë÷ÒıÆ÷µÄÖØÔØ}
+\frametitle{ç´¢å¼•å™¨çš„é‡è½½}
 \begin{lstlisting}
 class Ring:Circle{
   private int r; // and R from Circle
@@ -713,24 +713,24 @@ class Ring:Circle{
 
 \end{frame}
 
-\section{ÀàĞÍ×ª»»}
+\section{ç±»å‹è½¬æ¢}
 
 \setbeamerfont{table}{size=\small}
 \begin{frame}
-\frametitle{ËùÓĞÀàµÄ»ùÀà ~System.Object}
+\frametitle{æ‰€æœ‰ç±»çš„åŸºç±» ~System.Object}
 \begin{itemize}
-\item C\#ÖĞµÄËùÓĞÀàĞÍÖ±½Ó»ò¼ä½ÓµÄ»ùÀà£¬Ò²ÊÇ .NET Framework ÖĞËùÓĞÀàµÄ×îÖÕ»ùÀà
-\item ×Ô¶¨ÒåµÄÀà£¬¶¼¶Ô ~Object ÒşÊ½¼Ì³Ğ£¬²»ĞèÒªÔÚÀàµÄ¶¨ÒåÖĞÉùÃ÷
+\item C\#ä¸­çš„æ‰€æœ‰ç±»å‹ç›´æ¥æˆ–é—´æ¥çš„åŸºç±»ï¼Œä¹Ÿæ˜¯ .NET Framework ä¸­æ‰€æœ‰ç±»çš„æœ€ç»ˆåŸºç±»
+\item è‡ªå®šä¹‰çš„ç±»ï¼Œéƒ½å¯¹ ~Object éšå¼ç»§æ‰¿ï¼Œä¸éœ€è¦åœ¨ç±»çš„å®šä¹‰ä¸­å£°æ˜
 \end{itemize}
 \pause
-\begin{block}{ÎªÅÉÉúÀàÌá¹©µÄµ×²ã·şÎñ}
+\begin{block}{ä¸ºæ´¾ç”Ÿç±»æä¾›çš„åº•å±‚æœåŠ¡}
   \usebeamerfont{table}
   \begin{tabular}{l|l}
-    Equals()      & È·¶¨Á½¸ö¶ÔÏóÊµÀıÊÇ·ñÏàµÈ         \\
-    GetHashCode() & Éú³É¶ÔÏóÏà¶ÔÓ¦µÄÊı×ÖÒÔÖ§³Ö¹şÏ£±í \\
-    ToString()    & Éú³ÉÃèÊöÀàµÄÊµÀıµÄ¿É¶ÁÎÄ±¾×Ö·û´® \\
-    GetType()     & »ñÈ¡µ±Ç°ÊµÀıµÄÀàĞÍ               \\
-    Finalize()    & ÔÚ×Ô¶¯»ØÊÕ¶ÔÏóÖ®Ç°Ö´ĞĞÇåÀí²Ù×÷   \\
+    Equals()      & ç¡®å®šä¸¤ä¸ªå¯¹è±¡å®ä¾‹æ˜¯å¦ç›¸ç­‰         \\
+    GetHashCode() & ç”Ÿæˆå¯¹è±¡ç›¸å¯¹åº”çš„æ•°å­—ä»¥æ”¯æŒå“ˆå¸Œè¡¨ \\
+    ToString()    & ç”Ÿæˆæè¿°ç±»çš„å®ä¾‹çš„å¯è¯»æ–‡æœ¬å­—ç¬¦ä¸² \\
+    GetType()     & è·å–å½“å‰å®ä¾‹çš„ç±»å‹               \\
+    Finalize()    & åœ¨è‡ªåŠ¨å›æ”¶å¯¹è±¡ä¹‹å‰æ‰§è¡Œæ¸…ç†æ“ä½œ   \\
   \end{tabular}
   \normalfont
 \end{block}
@@ -738,10 +738,10 @@ class Ring:Circle{
 
 
 \begin{frame}[fragile]
-\frametitle{ÖµÀàĞÍÓëÒıÓÃÀàĞÍ}
+\frametitle{å€¼ç±»å‹ä¸å¼•ç”¨ç±»å‹}
 \begin{itemize}
-\item ÖµÀàĞÍ£¬¸³Öµ»ò´«µİ¸øÒ»¸ö·½·¨Ê±£¬¸´ÖÆÊµÀıµÄÄÚÈİ
-\item ÒıÓÃÀàĞÍ£¬¸³Öµ»ò´«µİ¸øÒ»¸ö·½·¨Ê±£¬Ê¹ÓÃµ±Ç°ÊµÀı£¬¼´½ö´«ÒıÓÃ(µØÖ·)
+\item å€¼ç±»å‹ï¼Œèµ‹å€¼æˆ–ä¼ é€’ç»™ä¸€ä¸ªæ–¹æ³•æ—¶ï¼Œå¤åˆ¶å®ä¾‹çš„å†…å®¹
+\item å¼•ç”¨ç±»å‹ï¼Œèµ‹å€¼æˆ–ä¼ é€’ç»™ä¸€ä¸ªæ–¹æ³•æ—¶ï¼Œä½¿ç”¨å½“å‰å®ä¾‹ï¼Œå³ä»…ä¼ å¼•ç”¨(åœ°å€)
 \end{itemize}
 \begin{columns}
 \column{.6\textwidth}
@@ -753,7 +753,7 @@ class Circle { public int R; }
   Circle d = c;
   d.R = 20;
   Console.WriteLine(c.R);
-  // <Êä³öÎª> 20
+  // <è¾“å‡ºä¸º> 20
 \end{lstlisting}
 \column{.4\textwidth}
 \begin{figure}
@@ -764,27 +764,27 @@ class Circle { public int R; }
 \end{frame}
 
 % \begin{frame}
-% \frametitle{ÀàĞÍµÄ²ã´Î½á¹¹}
-% \color[rgb]{1,0,0} 31Ò³²ã´Î½á¹¹Í¼
+% \frametitle{ç±»å‹çš„å±‚æ¬¡ç»“æ„}
+% \color[rgb]{1,0,0} 31é¡µå±‚æ¬¡ç»“æ„å›¾
 % \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÖµÀàĞÍºÍÒıÓÃÀàĞÍµÄÇø±ğ}
+\frametitle{å€¼ç±»å‹å’Œå¼•ç”¨ç±»å‹çš„åŒºåˆ«}
 
 \begin{itemize}
-\item ÄÚ´æ·ÖÅä
+\item å†…å­˜åˆ†é…
 
-  \CJKindent \small ÖµÀàĞÍºÍÒıÓÃÀàĞÍÖ®¼äµÄ×îÖ÷Òª²î±ğ¾ÍÊÇÄÚ´æ·ÖÅä¡£Èç¹ûÃ»ÓĞ½øĞĞ
-  ³õÊ¼»¯£¬ÒıÓÃÀàĞÍÄ¬ÈÏÎª ~null£¬ÖµÀàĞÍÎª ~0¡£
+  \CJKindent \small å€¼ç±»å‹å’Œå¼•ç”¨ç±»å‹ä¹‹é—´çš„æœ€ä¸»è¦å·®åˆ«å°±æ˜¯å†…å­˜åˆ†é…ã€‚å¦‚æœæ²¡æœ‰è¿›è¡Œ
+  åˆå§‹åŒ–ï¼Œå¼•ç”¨ç±»å‹é»˜è®¤ä¸º ~nullï¼Œå€¼ç±»å‹ä¸º ~0ã€‚
 \pause
-\item ÄÚ´æÊÍ·Å
+\item å†…å­˜é‡Šæ”¾
 
-  \CJKindent \small ±äÁ¿³¬³ö×÷ÓÃÓòÊ±£¬ÖµÀàĞÍ×Ô¶¯´ÓÕ»ÖĞÊÍ·Å£¬¶ø¶ÑÖĞµÄÔò²»ÊÍ·Å£¬
-  ¸ù¾İÀ¬»ø×Ô¶¯»ØÊÕÊÕ¼¯¡£
+  \CJKindent \small å˜é‡è¶…å‡ºä½œç”¨åŸŸæ—¶ï¼Œå€¼ç±»å‹è‡ªåŠ¨ä»æ ˆä¸­é‡Šæ”¾ï¼Œè€Œå †ä¸­çš„åˆ™ä¸é‡Šæ”¾ï¼Œ
+  æ ¹æ®åƒåœ¾è‡ªåŠ¨å›æ”¶æ”¶é›†ã€‚
 \pause
-\item ±äÁ¿µÄ¸³Öµ
+\item å˜é‡çš„èµ‹å€¼
 
-  \CJKindent \small ÖµÀàĞÍÖ®¼äµÄ¸³Öµ£¬Ö±½Ó¸´ÖÆÄÚÈİ({\redwarn´«Öµ})£¬¶øÒıÓÃÀàĞÍÖ®¼äÖ»¸´ÖÆÒıÓÃÖµ({\redwarn´«ÒıÓÃ})¡£
+  \CJKindent \small å€¼ç±»å‹ä¹‹é—´çš„èµ‹å€¼ï¼Œç›´æ¥å¤åˆ¶å†…å®¹({\redwarn ä¼ å€¼})ï¼Œè€Œå¼•ç”¨ç±»å‹ä¹‹é—´åªå¤åˆ¶å¼•ç”¨å€¼({\redwarn ä¼ å¼•ç”¨})ã€‚
 \pause
 \end{itemize}
 \begin{lstlisting}[escapeinside=<>]
@@ -792,10 +792,10 @@ struct Circle { public int R; }
 ...
   Circle c = new Circle();
   c.R = 10;
-  Circle d = c; // <d µÄÄÚ´æÔÚÄÄ¶ù>
+  Circle d = c; // <d çš„å†…å­˜åœ¨å“ªå„¿>
   d.R = 20;
   Console.WriteLine(c.R);
-  // <Êä³öÎª> 20
+  // <è¾“å‡ºä¸º> 20
 
 \end{lstlisting}
 
@@ -803,38 +803,38 @@ struct Circle { public int R; }
 
 
 \begin{frame}[fragile]
-\frametitle{ÀàĞÍÖ®¼äµÄ×ª»»}
-\begin{block}{ÒşÊ½×ª»»}
+\frametitle{ç±»å‹ä¹‹é—´çš„è½¬æ¢}
+\begin{block}{éšå¼è½¬æ¢}
   \begin{itemize}
-  \item µ±ĞÅÏ¢²»»á¶ªÊ§Ê±£¬Èç ~int$\rightarrow$long£¬int$\rightarrow$float
-  \item ´ÓÅÉÉúÀàµ½»ùÀàµÄ×ª»»£¬Èç ~Ring$\rightarrow$Circle£¬Ring$\rightarrow$object
+  \item å½“ä¿¡æ¯ä¸ä¼šä¸¢å¤±æ—¶ï¼Œå¦‚ ~int$\rightarrow$longï¼Œint$\rightarrow$float
+  \item ä»æ´¾ç”Ÿç±»åˆ°åŸºç±»çš„è½¬æ¢ï¼Œå¦‚ ~Ring$\rightarrow$Circleï¼ŒRing$\rightarrow$object
   \end{itemize}
 \end{block}
 \pause
-\begin{block}{ÏÔÊ½×ª»»}
+\begin{block}{æ˜¾å¼è½¬æ¢}
   \begin{itemize}
-  \item µ±²»ÄÜ½øĞĞÒşÊ½×ª»»Ê±£¬±ØĞëÊ¹ÓÃÏÔÊ½×ª»»
-  \item Èç¹û²»Ê¹ÓÃÏÔÊ½×ª»»£¬ÏµÍ³»á·¢Éú±àÒë´íÎó
-  \item Óï·¨ÀàËÆ ~C ÖĞµÄÇ¿ÖÆÀàĞÍ×ª»»
+  \item å½“ä¸èƒ½è¿›è¡Œéšå¼è½¬æ¢æ—¶ï¼Œå¿…é¡»ä½¿ç”¨æ˜¾å¼è½¬æ¢
+  \item å¦‚æœä¸ä½¿ç”¨æ˜¾å¼è½¬æ¢ï¼Œç³»ç»Ÿä¼šå‘ç”Ÿç¼–è¯‘é”™è¯¯
+  \item è¯­æ³•ç±»ä¼¼ ~C ä¸­çš„å¼ºåˆ¶ç±»å‹è½¬æ¢
   \end{itemize}
 \end{block}
 \pause
 \begin{lstlisting}[escapeinside=<>]
   int  a = 5;
-  long b = a;         // <ÒşÊ½×ª»»>
-  int  c = (int) b;   // <ÏÔÊ½×ª»»>
+  long b = a;         // <éšå¼è½¬æ¢>
+  int  c = (int) b;   // <æ˜¾å¼è½¬æ¢>
 
 \end{lstlisting}
-\note{×ª»»ÊÇÖ¸°Ñ¶ÔÏó´ÓÒ»ÖÖÀàĞÍ¸Ä±äÎªÁíÍâÒ»ÖÖÀàĞÍµÄÄÜÁ¦¡£}
+\note{è½¬æ¢æ˜¯æŒ‡æŠŠå¯¹è±¡ä»ä¸€ç§ç±»å‹æ”¹å˜ä¸ºå¦å¤–ä¸€ç§ç±»å‹çš„èƒ½åŠ›ã€‚}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÒıÓÃÀàĞÍÖ®¼äµÄ×ª»»}
+\frametitle{å¼•ç”¨ç±»å‹ä¹‹é—´çš„è½¬æ¢}
 \begin{itemize}
-\item ÈÎºÎÀàĞÍ¶¼¿ÉÒÔÒşÊ½×ª»»Îª object
-\item ¶øÔÙ´Ó object »Øµ½¾ßÌåÀàĞÍ£¬ĞèÒªÏÔÊ½×ª»»
-\item ÊµÏÖÁËÄ³ÖÖ½Ó¿ÚµÄÀàĞÍ£¬¿ÉÒşÊ½×ª»»Îª¸Ã½Ó¿ÚµÄÒıÓÃÀàĞÍ
-\item ×ª»»ºóµÄÒıÓÃ¿ÉÒÔµ÷ÓÃ×Ô¼ºµÄ·½·¨£¬²»¹ı¿ÉÄÜÒÑ¾­±»¸²¸Ç
+\item ä»»ä½•ç±»å‹éƒ½å¯ä»¥éšå¼è½¬æ¢ä¸º object
+\item è€Œå†ä» object å›åˆ°å…·ä½“ç±»å‹ï¼Œéœ€è¦æ˜¾å¼è½¬æ¢
+\item å®ç°äº†æŸç§æ¥å£çš„ç±»å‹ï¼Œå¯éšå¼è½¬æ¢ä¸ºè¯¥æ¥å£çš„å¼•ç”¨ç±»å‹
+\item è½¬æ¢åçš„å¼•ç”¨å¯ä»¥è°ƒç”¨è‡ªå·±çš„æ–¹æ³•ï¼Œä¸è¿‡å¯èƒ½å·²ç»è¢«è¦†ç›–
 \end{itemize}
 \pause
 \begin{lstlisting}
@@ -853,31 +853,31 @@ class Test {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÖµÀàĞÍÓëÒıÓÃÀàĞÍÖ®¼äµÄ×ª»»}
-\begin{block}{×°Ïä (\textit{boxing})}
+\frametitle{å€¼ç±»å‹ä¸å¼•ç”¨ç±»å‹ä¹‹é—´çš„è½¬æ¢}
+\begin{block}{è£…ç®± (\textit{boxing})}
   \begin{itemize}
-  \item ½«ÖµÀàĞÍ×ª»»ÎªÒıÓÃÀàĞÍµÄÒşÊ½¹ı³Ì
-  \item ÏµÍ³ÎªÒıÓÃÀàĞÍ·ÖÅäĞÂÄÚ´æ£¬´´½¨¶ÔÏó£¬²¢°ÑÖµÀàĞÍµÄÄÚÈİ¸´ÖÆµ½ĞÂ·ÖÅäµÄÄÚ´æÖĞ¡£
+  \item å°†å€¼ç±»å‹è½¬æ¢ä¸ºå¼•ç”¨ç±»å‹çš„éšå¼è¿‡ç¨‹
+  \item ç³»ç»Ÿä¸ºå¼•ç”¨ç±»å‹åˆ†é…æ–°å†…å­˜ï¼Œåˆ›å»ºå¯¹è±¡ï¼Œå¹¶æŠŠå€¼ç±»å‹çš„å†…å®¹å¤åˆ¶åˆ°æ–°åˆ†é…çš„å†…å­˜ä¸­ã€‚
   \end{itemize}
 \end{block}
 \pause
-\begin{block}{²ğÏä (\textit{unboxing})}
+\begin{block}{æ‹†ç®± (\textit{unboxing})}
   \begin{itemize}
-  \item ½«ÒıÓÃÀàĞÍµÄ¶ÔÏó×ª»»ÎªÖµÀàĞÍµÄ¹ı³Ì
-  \item ²ğÏä¹ı³Ì±ØĞëÊÇÏÔÊ½µÄ
+  \item å°†å¼•ç”¨ç±»å‹çš„å¯¹è±¡è½¬æ¢ä¸ºå€¼ç±»å‹çš„è¿‡ç¨‹
+  \item æ‹†ç®±è¿‡ç¨‹å¿…é¡»æ˜¯æ˜¾å¼çš„
   \end{itemize}
 \end{block}
 \pause
 \begin{lstlisting}[escapeinside=<>]
   int    a = 5;
-  object o = a;       // <ÒşÊ½×ª»»£¬×°Ïä>
-  int    b = (int) o; // <ÏÔÊ½×ª»»£¬²ğÏä>
+  object o = a;       // <éšå¼è½¬æ¢ï¼Œè£…ç®±>
+  int    b = (int) o; // <æ˜¾å¼è½¬æ¢ï¼Œæ‹†ç®±>
 
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{×°ÏäÓë²ğÏä}
+\frametitle{è£…ç®±ä¸æ‹†ç®±}
 
 \begin{lstlisting}
 class Test {
@@ -897,9 +897,9 @@ class Test {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{\texttt{is} ºÍ ~\texttt{as} ²Ù×÷·û}
+\frametitle{\texttt{is} å’Œ ~\texttt{as} æ“ä½œç¬¦}
 \begin{itemize}
-\item is ²Ù×÷·û¼ì²é±äÁ¿ÊÇ·ñÊôÓÚÖ¸¶¨ÀàĞÍ
+\item is æ“ä½œç¬¦æ£€æŸ¥å˜é‡æ˜¯å¦å±äºæŒ‡å®šç±»å‹
 \begin{lstlisting}
 int i = 0;
 bool iIsInt = i is int; // true
@@ -908,7 +908,7 @@ Ring r = new Ring();
 bool rIsCircle = r is Circle; // true
 \end{lstlisting}
 \pause
-\item as ÒıÓÃÀàĞÍµÄ×ª»»£¬Èç¹û×ª»»²»³É¹¦£¬¸³ÖµÎª null
+\item as å¼•ç”¨ç±»å‹çš„è½¬æ¢ï¼Œå¦‚æœè½¬æ¢ä¸æˆåŠŸï¼Œèµ‹å€¼ä¸º null
 \begin{lstlisting}
 Ring   r = new Ring();
 Circle o = r as Circle;
@@ -919,10 +919,10 @@ Console.WriteLine("r {0} a Circle",
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{\texttt{is} ºÍ ~\texttt{as} ²Ù×÷·û (Ğø)}
+\frametitle{\texttt{is} å’Œ ~\texttt{as} æ“ä½œç¬¦ (ç»­)}
 \begin{itemize}
-\item is ¿É×÷ÓÃÓÚÖµÀàĞÍ
-\item as ¿É¼õÉÙÀàĞÍ¼ì²éµÄ´ÎÊı
+\item is å¯ä½œç”¨äºå€¼ç±»å‹
+\item as å¯å‡å°‘ç±»å‹æ£€æŸ¥çš„æ¬¡æ•°
 \end{itemize}
 \begin{lstlisting}
 // use is
@@ -941,10 +941,10 @@ if (o != null){
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{·½·¨µÄ²ÎÊı´«µİ}
+\frametitle{æ–¹æ³•çš„å‚æ•°ä¼ é€’}
 \begin{itemize}
-\item ÖµÀàĞÍµÄ²ÎÊı£¬Ä¬ÈÏÎª{\redwarn´«Öµ}
-\item ÒıÓÃÀàĞÍµÄ²ÎÊı£¬Ä¬ÈÏÎª{\redwarn´«ÒıÓÃ}
+\item å€¼ç±»å‹çš„å‚æ•°ï¼Œé»˜è®¤ä¸º{\redwarn ä¼ å€¼}
+\item å¼•ç”¨ç±»å‹çš„å‚æ•°ï¼Œé»˜è®¤ä¸º{\redwarn ä¼ å¼•ç”¨}
 \end{itemize}
 \begin{columns}
   \column{.5\textwidth}
@@ -977,12 +977,12 @@ public void Test(Point m){
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{\texttt{ref} ºÍ ~\texttt{out}}
+\frametitle{\texttt{ref} å’Œ ~\texttt{out}}
 \begin{itemize}
-\item out ±íÊ¾±»µ÷ÓÃº¯ÊıÍ¨¹ıÈë¿Ú²ÎÊı£¬Ïòµ÷ÓÃº¯Êı·µ»Ø½á¹û
-\item ref ±íÊ¾±»µ÷ÓÃº¯ÊıÊ¹ÓÃÈë¿Ú²ÎÊıµÄÒıÓÃ
-\item µ÷ÓÃÊ±ºòÒ²ĞèÃ÷È·Ö¸³ö ~ref ºÍ ~out ²ÎÊı
-\item Ã÷È·Ê¹ÓÃ ~ref ºÍ ~out ¿ÉÒÔÌá¸ß´úÂë¿É¶ÁĞÔ
+\item out è¡¨ç¤ºè¢«è°ƒç”¨å‡½æ•°é€šè¿‡å…¥å£å‚æ•°ï¼Œå‘è°ƒç”¨å‡½æ•°è¿”å›ç»“æœ
+\item ref è¡¨ç¤ºè¢«è°ƒç”¨å‡½æ•°ä½¿ç”¨å…¥å£å‚æ•°çš„å¼•ç”¨
+\item è°ƒç”¨æ—¶å€™ä¹Ÿéœ€æ˜ç¡®æŒ‡å‡º ~ref å’Œ ~out å‚æ•°
+\item æ˜ç¡®ä½¿ç”¨ ~ref å’Œ ~out å¯ä»¥æé«˜ä»£ç å¯è¯»æ€§
 \end{itemize}
 \pause
 \begin{lstlisting}
@@ -1003,11 +1003,11 @@ static void Main()
 
 
 \begin{frame}[fragile]
-\frametitle{¿É±ä³¤²ÎÊı}
+\frametitle{å¯å˜é•¿å‚æ•°}
 \begin{itemize}
-\item ÓÉ ~params ¹Ø¼ü×ÖĞŞÊÎµÄÊı×é²ÎÊı£¬Ê¹ÓÃÊ±ÊÇ¿É±ä³¤²ÎÊı
-\item Ê¹ÓÃ ~params ¿ÉÒÔ±ÜÃâÏÔÊ½µÄ´´½¨Êı×é¡¢´«µİÊı×éµÄ¹ı³Ì
-\item params Ö»ÄÜÓÃÓÚ×îºóÒ»¸ö²ÎÊı
+\item ç”± ~params å…³é”®å­—ä¿®é¥°çš„æ•°ç»„å‚æ•°ï¼Œä½¿ç”¨æ—¶æ˜¯å¯å˜é•¿å‚æ•°
+\item ä½¿ç”¨ ~params å¯ä»¥é¿å…æ˜¾å¼çš„åˆ›å»ºæ•°ç»„ã€ä¼ é€’æ•°ç»„çš„è¿‡ç¨‹
+\item params åªèƒ½ç”¨äºæœ€åä¸€ä¸ªå‚æ•°
 \end{itemize}
 \pause
 \begin{lstlisting}
@@ -1027,40 +1027,40 @@ static void Main()
 \end{frame}
 
 \begin{frame}
-\frametitle{½á¹¹ÌåºÍÀàµÄ±È½Ï}
+\frametitle{ç»“æ„ä½“å’Œç±»çš„æ¯”è¾ƒ}
 \begin{figure}
   \centering
   \begin{tabular}{l|l|l}
     \hline
-                       & ½á¹¹Ìå   & Àà       \\
+                       & ç»“æ„ä½“   & ç±»       \\
     \hline
-    ÀàĞÍµÄÄ¬ÈÏ·ÃÎÊ¼¶±ğ & internal & internal \\
-    ³ÉÔ±µÄÄ¬ÈÏ·ÃÎÊ¼¶±ğ & private  & private  \\
-    ÀàĞÍ               & ÖµÀàĞÍ   & ÒıÓÃÀàĞÍ \\
-    ÄÜ·ñ×÷Îª»ùÀà       & ²»ÄÜ     & ÄÜ       \\
-    ¹¹Ôìº¯Êı           & ÓĞ$^{1}$ & ÓĞ       \\
-    Îö¹¹º¯Êı           & ÎŞ       & ÓĞ       \\
-    Ç¶Ì×               & ¿ÉÒÔ     & ¿ÉÒÔ     \\
-    ÊµÏÖ½Ó¿Ú           & ¿ÉÒÔ     & ¿ÉÒÔ     \\
-    ²úÉúºÍ´¦ÀíÊÂ¼ş     & ¿ÉÒÔ     & ¿ÉÒÔ     \\
+    ç±»å‹çš„é»˜è®¤è®¿é—®çº§åˆ« & internal & internal \\
+    æˆå‘˜çš„é»˜è®¤è®¿é—®çº§åˆ« & private  & private  \\
+    ç±»å‹               & å€¼ç±»å‹   & å¼•ç”¨ç±»å‹ \\
+    èƒ½å¦ä½œä¸ºåŸºç±»       & ä¸èƒ½     & èƒ½       \\
+    æ„é€ å‡½æ•°           & æœ‰$^{1}$ & æœ‰       \\
+    ææ„å‡½æ•°           & æ—        & æœ‰       \\
+    åµŒå¥—               & å¯ä»¥     & å¯ä»¥     \\
+    å®ç°æ¥å£           & å¯ä»¥     & å¯ä»¥     \\
+    äº§ç”Ÿå’Œå¤„ç†äº‹ä»¶     & å¯ä»¥     & å¯ä»¥     \\
     \hline
   \end{tabular}
 \end{figure}
 \begin{enumerate}
-\item ½á¹¹Ìå²»ÄÜ¶¨ÒåÎŞ²ÎÊıµÄ¹¹Ôìº¯Êı
+\item ç»“æ„ä½“ä¸èƒ½å®šä¹‰æ— å‚æ•°çš„æ„é€ å‡½æ•°
 \end{enumerate}
 
 \end{frame}
 
-\section{»ùÀàµÄ·ÃÎÊ}
+\section{åŸºç±»çš„è®¿é—®}
 
 \begin{frame}[fragile]
-\frametitle{»ùÀàÓëÅÉÉúÀàµÄ¹ØÏµ}
+\frametitle{åŸºç±»ä¸æ´¾ç”Ÿç±»çš„å…³ç³»}
 \begin{itemize}
-\item »ùÀàÖĞµÄ³ÉÔ±£¬³ı ~sealed ³ÉÔ±£¬È«²¿±»ÅÉÉúÀà¼Ì³Ğ
-\item ÓĞ ~private ĞŞÊÎµÄ³ÉÔ±²»¿ÉÒÔ±»ÅÉÉúÀà·ÃÎÊ
+\item åŸºç±»ä¸­çš„æˆå‘˜ï¼Œé™¤ ~sealed æˆå‘˜ï¼Œå…¨éƒ¨è¢«æ´¾ç”Ÿç±»ç»§æ‰¿
+\item æœ‰ ~private ä¿®é¥°çš„æˆå‘˜ä¸å¯ä»¥è¢«æ´¾ç”Ÿç±»è®¿é—®
 \vskip.5cm
-\item ÅÉÉúÀàµÄ×Ö¶Î¿ÉÒÔÖ±½Ó{\redwarnÒş²Ø}»ùÀàÍ¬Ãû×Ö¶Î£¬»òÊ¹ÓÃ ~new ¹Ø¼ü×Ö
+\item æ´¾ç”Ÿç±»çš„å­—æ®µå¯ä»¥ç›´æ¥{\redwarn éšè—}åŸºç±»åŒåå­—æ®µï¼Œæˆ–ä½¿ç”¨ ~new å…³é”®å­—
 \end{itemize}
 \begin{lstlisting}[escapeinside=<>]
 class Circle {
@@ -1074,10 +1074,10 @@ class Ring:Circle {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Òş²Ø»ùÀà·½·¨}
+\frametitle{éšè—åŸºç±»æ–¹æ³•}
 \begin{itemize}
-\item ÅÉÉúÀàµÄ·½·¨Ò²¿ÉÒÔÖ±½ÓÒş²Ø»ùÀà·½·¨£¬µ«»áÓĞ±àÒë¾¯¸æ
-\item ÒªÏÔÊ½Òş²Ø»ùÀà·½·¨£¬ÅÉÉúÀàÒªÓÃ ~new ¹Ø¼ü×ÖÖ¸³ö
+\item æ´¾ç”Ÿç±»çš„æ–¹æ³•ä¹Ÿå¯ä»¥ç›´æ¥éšè—åŸºç±»æ–¹æ³•ï¼Œä½†ä¼šæœ‰ç¼–è¯‘è­¦å‘Š
+\item è¦æ˜¾å¼éšè—åŸºç±»æ–¹æ³•ï¼Œæ´¾ç”Ÿç±»è¦ç”¨ ~new å…³é”®å­—æŒ‡å‡º
 \end{itemize}
   \lstset{emph={new}}
 \begin{lstlisting}
@@ -1095,29 +1095,29 @@ class Ring:Circle { public int r;
 \end{frame}
 
 \begin{frame}
-\frametitle{¶àÌ¬ĞÔ(\textit{Polymorphism})}
+\frametitle{å¤šæ€æ€§(\textit{Polymorphism})}
 
-\begin{block}{¶àÌ¬ĞÔ(\textit{Polymorphism})}
-  \CJKindent ¶àÌ¬ĞÔ¾ÍÊÇ¶àÖÖ±íÏÖĞÎÊ½£¬¾ßÌåÀ´Ëµ£¬¿ÉÒÔÓÃ"Ò»¸ö¶ÔÍâ½Ó¿Ú£¬¶à¸öÄÚÔÚÊµÏÖ·½·¨"±íÊ¾¡£
+\begin{block}{å¤šæ€æ€§(\textit{Polymorphism})}
+  \CJKindent å¤šæ€æ€§å°±æ˜¯å¤šç§è¡¨ç°å½¢å¼ï¼Œå…·ä½“æ¥è¯´ï¼Œå¯ä»¥ç”¨"ä¸€ä¸ªå¯¹å¤–æ¥å£ï¼Œå¤šä¸ªå†…åœ¨å®ç°æ–¹æ³•"è¡¨ç¤ºã€‚
 \end{block}
 
   \begin{itemize}
     \setlength{\itemsep}{8pt plus 1pt}
-  \item Í¬Ò»¸ö¶ÔÏóÖĞ£¬Í¬Ò»¸öÃû×ÖµÄ²»Í¬³ÉÔ±
-  \item Í¬Ò»¸öÀàÖĞ£¬·½·¨µÄÖØÔØ
-  \item ×ÓÀàÓë¸¸ÀàÖ®¼ä
+  \item åŒä¸€ä¸ªå¯¹è±¡ä¸­ï¼ŒåŒä¸€ä¸ªåå­—çš„ä¸åŒæˆå‘˜
+  \item åŒä¸€ä¸ªç±»ä¸­ï¼Œæ–¹æ³•çš„é‡è½½
+  \item å­ç±»ä¸çˆ¶ç±»ä¹‹é—´
     \begin{itemize}
-    \item Í¬Ãû×Ö¶ÎµÄÒş²Ø
-    \item Í¬Ãû·½·¨µÄ¸²¸ÇÓëÒş²Ø
+    \item åŒåå­—æ®µçš„éšè—
+    \item åŒåæ–¹æ³•çš„è¦†ç›–ä¸éšè—
     \end{itemize}
-  \item ÔËĞĞÊ±£¬Ê¹ÓÃÍ¬Ò»¸öÃû×Ö£¬¶¯Ì¬·ÃÎÊ²»Í¬µÄ³ÉÔ±
+  \item è¿è¡Œæ—¶ï¼Œä½¿ç”¨åŒä¸€ä¸ªåå­—ï¼ŒåŠ¨æ€è®¿é—®ä¸åŒçš„æˆå‘˜
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{¶àÌ¬¾ÙÀı(1)}
+\frametitle{å¤šæ€ä¸¾ä¾‹(1)}
 \begin{itemize}
-\item ×Ö¶ÎµÄÒş²Ø
+\item å­—æ®µçš„éšè—
 \end{itemize}
 \begin{columns}
 \column{.4\textwidth}
@@ -1138,16 +1138,16 @@ class B : A {
    {
       B b = new B();
       A a = b;
-      System.Console.WriteLine(b.x);  // <Êä³öÊÇ?>
-      System.Console.WriteLine(a.x);  // <Êä³öÊÇ?>
+      System.Console.WriteLine(b.x);  // <è¾“å‡ºæ˜¯?>
+      System.Console.WriteLine(a.x);  // <è¾“å‡ºæ˜¯?>
    }
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{¶àÌ¬¾ÙÀı(2)}
+\frametitle{å¤šæ€ä¸¾ä¾‹(2)}
 \begin{itemize}
-\item ·½·¨µÄÒş²Ø
+\item æ–¹æ³•çš„éšè—
 \end{itemize}
 \begin{columns}
 \column{.4\textwidth}
@@ -1170,19 +1170,19 @@ class B : A {
    {
       B b = new B();
       A a = b;
-      b.func();   // <Êä³öÎª?>
-      a.func();   // <Êä³öÎª?>
+      b.func();   // <è¾“å‡ºä¸º?>
+      a.func();   // <è¾“å‡ºä¸º?>
    }
 \end{lstlisting}
 \end{frame}
 
 
 \begin{frame}[fragile]
-\frametitle{Ğé·½·¨ (\textit{virtual method})}
+\frametitle{è™šæ–¹æ³• (\textit{virtual method})}
 \begin{itemize}
-\item Èç¹ûÔÊĞíÅÉÉúÀà{\redwarn¸²¸Ç}»ùÀà·½·¨£¬ÒªÓÃ ~virtual ¹Ø¼ü×ÖÖ¸³ö
-\item Í¬Ê±ÅÉÉúÀàÒªÓÃ ~override Ö¸³ö
-\item Ğé·½·¨£¬Ò²¿ÉÒÔÊ¹ÓÃ ~new ¹Ø¼ü×ÖÒş²Ø
+\item å¦‚æœå…è®¸æ´¾ç”Ÿç±»{\redwarn è¦†ç›–}åŸºç±»æ–¹æ³•ï¼Œè¦ç”¨ ~virtual å…³é”®å­—æŒ‡å‡º
+\item åŒæ—¶æ´¾ç”Ÿç±»è¦ç”¨ ~override æŒ‡å‡º
+\item è™šæ–¹æ³•ï¼Œä¹Ÿå¯ä»¥ä½¿ç”¨ ~new å…³é”®å­—éšè—
 \end{itemize}
   \lstset{emph={virtual,override,Area}}
 \begin{lstlisting}
@@ -1199,11 +1199,11 @@ class Ring:Circle { public int r;
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Òş²ØºÍ¸²¸ÇµÄÇø±ğ}
+\frametitle{éšè—å’Œè¦†ç›–çš„åŒºåˆ«}
 \begin{itemize}
-\item Òş²Ø·½·¨£¬ÔÚ»ùÀàÖĞ»¹´æÔÚ£»¸²¸ÇµÄ£¬ÒÑ¾­±»Ìæ»»
+\item éšè—æ–¹æ³•ï¼Œåœ¨åŸºç±»ä¸­è¿˜å­˜åœ¨ï¼›è¦†ç›–çš„ï¼Œå·²ç»è¢«æ›¿æ¢
 \end{itemize}
-Òş²Ø»ùÀàµÄ·½·¨£º
+éšè—åŸºç±»çš„æ–¹æ³•ï¼š
 \lstset{emph={new}}
 \begin{lstlisting}[escapeinside=<>]
 using System;
@@ -1212,12 +1212,12 @@ class A
   { Console.WriteLine ("in class A"); }
 }
 class B:A
-{ public new void Hello() // new <ÓÃÓÚÒş²Ø>
+{ public new void Hello() // new <ç”¨äºéšè—>
   { Console.WriteLine ("in class B"); }
 } ...
   public static void Main()
-  { B b = new B(); // <»ùÀàÒıÓÃ>
-    A a = (A) b;   // <ÅÉÉúÀàÒıÓÃ>
+  { B b = new B(); // <åŸºç±»å¼•ç”¨>
+    A a = (A) b;   // <æ´¾ç”Ÿç±»å¼•ç”¨>
     b.Hello();     // "in class B"
     a.Hello();     // "in class A"
     Console.ReadLine();
@@ -1227,8 +1227,8 @@ class B:A
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Òş²ØºÍ¸²¸ÇµÄÇø±ğ(2)}
-¸²¸Ç»ùÀàµÄ·½·¨£º
+\frametitle{éšè—å’Œè¦†ç›–çš„åŒºåˆ«(2)}
+è¦†ç›–åŸºç±»çš„æ–¹æ³•ï¼š
 \lstset{emph={virtual,override}}
 \begin{lstlisting}[escapeinside=<>]
 using System;
@@ -1237,13 +1237,13 @@ class A
   { Console.WriteLine ("in class A"); }
 }
 class B:A
-{ public override void Hello() // override <ÓÃÓÚ¸²¸Ç>
+{ public override void Hello() // override <ç”¨äºè¦†ç›–>
   { Console.WriteLine ("in class B"); }
 } ...
   public static void Main()
   {
-    B b = new B(); // <»ùÀàÒıÓÃ>
-    A a = (A) b;   // <ÅÉÉúÀàÒıÓÃ>
+    B b = new B(); // <åŸºç±»å¼•ç”¨>
+    A a = (A) b;   // <æ´¾ç”Ÿç±»å¼•ç”¨>
     b.Hello(); // "in class B"
     a.Hello(); // "in class B" !!
     Console.ReadLine();
@@ -1253,16 +1253,16 @@ class B:A
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Òş²ØºÍ¸²¸ÇµÄÇø±ğ(3)}
+\frametitle{éšè—å’Œè¦†ç›–çš„åŒºåˆ«(3)}
 \begin{columns}
   \column{.5\textwidth}
 \begin{itemize}
-\item virtual£¬ÔÊĞíÅÉÉúÀà¸²¸ÇµÄĞé·½·¨
-\item override£¬Ö»ÄÜÓÃÓÚ¸²¸ÇĞé·½·¨
-\item new ¿ÉÒÔÒş²Ø»ùÀà·½·¨
+\item virtualï¼Œå…è®¸æ´¾ç”Ÿç±»è¦†ç›–çš„è™šæ–¹æ³•
+\item overrideï¼Œåªèƒ½ç”¨äºè¦†ç›–è™šæ–¹æ³•
+\item new å¯ä»¥éšè—åŸºç±»æ–¹æ³•
 \vskip.5cm
-\item Í¨¹ıÀàĞÍ×ª»»£¬¿ÉÒÔÊ¹ÓÃ»ùÀàĞÍ±íÊ¾¶ÔÏó
-\item Í¨¹ı»ùÀàÒıÓÃµÄ¶ÔÏó£¬¿ÉÒÔÖ±½Ó·ÃÎÊ»ùÀà·½·¨
+\item é€šè¿‡ç±»å‹è½¬æ¢ï¼Œå¯ä»¥ä½¿ç”¨åŸºç±»å‹è¡¨ç¤ºå¯¹è±¡
+\item é€šè¿‡åŸºç±»å¼•ç”¨çš„å¯¹è±¡ï¼Œå¯ä»¥ç›´æ¥è®¿é—®åŸºç±»æ–¹æ³•
 \end{itemize}
   \column{.5\textwidth}
   \begin{figure}
@@ -1273,9 +1273,9 @@ class B:A
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{\texttt{this}¹Ø¼ü×Ö·ÃÎÊÀà³ÉÔ±}
+\frametitle{\texttt{this}å…³é”®å­—è®¿é—®ç±»æˆå‘˜}
 \begin{itemize}
-\item Ê¹ÓÃ~this~¹Ø¼ü×Ö±íÊ¾µ±Ç°Àà×ÔÉí
+\item ä½¿ç”¨~this~å…³é”®å­—è¡¨ç¤ºå½“å‰ç±»è‡ªèº«
 \end{itemize}
 \lstset{emph={this}}
 \begin{lstlisting}
@@ -1300,9 +1300,9 @@ class Person {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{\texttt{base}¹Ø¼ü×Ö·ÃÎÊ»ùÀà³ÉÔ±}
+\frametitle{\texttt{base}å…³é”®å­—è®¿é—®åŸºç±»æˆå‘˜}
 \begin{itemize}
-\item Ê¹ÓÃ~base~¹Ø¼ü×Ö±íÊ¾»ùÀà
+\item ä½¿ç”¨~base~å…³é”®å­—è¡¨ç¤ºåŸºç±»
 \end{itemize}
 \lstset{emph={base}}
 \begin{lstlisting}
@@ -1326,30 +1326,30 @@ class Student:Person
 \end{lstlisting}
 \end{frame}
 
-\section{ÃüÃû¿Õ¼ä}
+\section{å‘½åç©ºé—´}
 
 \begin{frame}[fragile]
-\frametitle{ÃüÃû¿Õ¼ä}
-\begin{block}{ÃüÃû¿Õ¼ä(namespace)}
-  \CJKindent Àà¡¢½Ó¿Ú¡¢Î¯ÍĞµÈÆäËûÀàĞÍµÄÒ»¸öÂß¼­ÉÏµÄ×éºÏ£¬ÓÃÀ´·ÀÖ¹Ãû×ÖÖ®¼äµÄÃüÃû³åÍ»¡£
+\frametitle{å‘½åç©ºé—´}
+\begin{block}{å‘½åç©ºé—´(namespace)}
+  \CJKindent ç±»ã€æ¥å£ã€å§”æ‰˜ç­‰å…¶ä»–ç±»å‹çš„ä¸€ä¸ªé€»è¾‘ä¸Šçš„ç»„åˆï¼Œç”¨æ¥é˜²æ­¢åå­—ä¹‹é—´çš„å‘½åå†²çªã€‚
 \end{block}
 \pause
-¶¨ÒåÃüÃû¿Õ¼äµÄÒ»°ã¸ñÊ½
+å®šä¹‰å‘½åç©ºé—´çš„ä¸€èˆ¬æ ¼å¼
 \begin{lstlisting}
 namespace <name>{
 ...
 }
 \end{lstlisting}
 \begin{itemize}
-\item ÃüÃû¿Õ¼äÓÃÓÚ×éÖ¯´úÂë£¬·ÀÖ¹Ãû×Ö³åÍ»
-\item ÃüÃû¿Õ¼ä¿ÉÒÔÇ¶Ì×
-\item ÃüÃû¿Õ¼ä¿ÉÒÔ·Ö¿ª¶¨Òå
-\item Èç¹ûÃ»ÓĞÖ¸¶¨ÃüÃû¿Õ¼ä£¬Ä¬ÈÏÔÚ ~\texttt{global} ÃüÃû¿Õ¼äÖĞ
+\item å‘½åç©ºé—´ç”¨äºç»„ç»‡ä»£ç ï¼Œé˜²æ­¢åå­—å†²çª
+\item å‘½åç©ºé—´å¯ä»¥åµŒå¥—
+\item å‘½åç©ºé—´å¯ä»¥åˆ†å¼€å®šä¹‰
+\item å¦‚æœæ²¡æœ‰æŒ‡å®šå‘½åç©ºé—´ï¼Œé»˜è®¤åœ¨ ~\texttt{global} å‘½åç©ºé—´ä¸­
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÃüÃû¿Õ¼äµÄÉùÃ÷}
+\frametitle{å‘½åç©ºé—´çš„å£°æ˜}
 \begin{lstlisting}
 namespace Counter {
   // A simple countdown counter.
@@ -1373,8 +1373,8 @@ namespace Counter {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÃüÃû¿Õ¼äµÄÊ¹ÓÃ}
-ÔÚÃüÃû¿Õ¼äÍâ£¬ĞèÒªÖ¸³öÈ«Ãû£¬Ê¹ÓÃ ~``.'' Á¬½Ó
+\frametitle{å‘½åç©ºé—´çš„ä½¿ç”¨}
+åœ¨å‘½åç©ºé—´å¤–ï¼Œéœ€è¦æŒ‡å‡ºå…¨åï¼Œä½¿ç”¨ ~``.'' è¿æ¥
 \begin{lstlisting}
 class NSDemo {
   public static void Main() {
@@ -1387,32 +1387,32 @@ class NSDemo {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÃüÃû¿Õ¼äµÄÇ¶Ì×}
+\frametitle{å‘½åç©ºé—´çš„åµŒå¥—}
 \begin{lstlisting}[escapeinside=<>]
 namespace Animals{
   namespace Birds{
     public class Sparrow{
-      // <ÀàµÄ¾ßÌåÊµÏÖ>
+      // <ç±»çš„å…·ä½“å®ç°>
     }
   }
 }
-// <Ãû×Ö¿Õ¼äÍâµÄÊ¹ÓÃ>
+// <åå­—ç©ºé—´å¤–çš„ä½¿ç”¨>
 Animals.Birds.Sparrow s = new Animals.Birds.Sparrow();
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{\texttt{using} µ¼ÈëÃüÃû¿Õ¼ä}
+\frametitle{\texttt{using} å¯¼å…¥å‘½åç©ºé—´}
 
 \begin{itemize}
-\item Ê¹ÓÃÃüÃû¿Õ¼ä(using)
+\item ä½¿ç”¨å‘½åç©ºé—´(using)
   \lstset{emph={using}}
 \begin{lstlisting}
 using Animals.Birds;
 ...
   Sparrow s = new Sparrow();
 \end{lstlisting}
-\item Ê¹ÓÃ±ğÃû(alias)£¬~C\# 2.0 ¿ÉÒÔÊ¹ÓÃ ~``::'' ±íÊ¾ÃüÃû¿Õ¼äµÄ±ğÃû
+\item ä½¿ç”¨åˆ«å(alias)ï¼Œ~C\# 2.0 å¯ä»¥ä½¿ç”¨ ~``::'' è¡¨ç¤ºå‘½åç©ºé—´çš„åˆ«å
   \lstset{emph={using}}
 \begin{lstlisting}
 using b = Animals.Birds;
@@ -1424,10 +1424,10 @@ using b = Animals.Birds;
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{·Ö¿ª¶¨Òå}
+\frametitle{åˆ†å¼€å®šä¹‰}
 \begin{itemize}
-\item Í¬Ò»¸öÃüÃû¿Õ¼ä¿ÉÒÔ·Ö²¼ÔÚ²»Í¬ÎÄ¼şÖĞ
-\item Ò²¿ÉÒÔÊÇÍ¬Ò»¸öÎÄ¼şµÄ²»Í¬²¿·Ö
+\item åŒä¸€ä¸ªå‘½åç©ºé—´å¯ä»¥åˆ†å¸ƒåœ¨ä¸åŒæ–‡ä»¶ä¸­
+\item ä¹Ÿå¯ä»¥æ˜¯åŒä¸€ä¸ªæ–‡ä»¶çš„ä¸åŒéƒ¨åˆ†
 \end{itemize}
 \begin{lstlisting}
 namespace Counter{
@@ -1444,7 +1444,7 @@ namespace Counter{
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{·ûºÅ¡¢±äÁ¿¡¢ÀàĞÍ¡¢ÊµÀı¡¢¶ÔÏó}
+\frametitle{ç¬¦å·ã€å˜é‡ã€ç±»å‹ã€å®ä¾‹ã€å¯¹è±¡}
 
 \begin{lstlisting}
 int i = 10;
@@ -1454,11 +1454,11 @@ Circle b = null;
 
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
-\item ·ûºÅ --- ±êÊ¶·û£¬±àÒëÆ÷ÊäÈëµÄÔ´³ÌĞòÖĞ
-\item ±äÁ¿ --- ½ø³ÌÖĞ±íÊ¾Ò»¸ö¾ßÌåµÄÁ¿µÄÃû×Ö
-\item ÀàĞÍ --- Êı¾İ½á¹¹µÄ¶¨Òå
-\item ÊµÀı --- ÎªÊı¾İ½á¹¹·ÖÅäµÄÄÚ´æ
-\item ¶ÔÏó --- ...
+\item ç¬¦å· --- æ ‡è¯†ç¬¦ï¼Œç¼–è¯‘å™¨è¾“å…¥çš„æºç¨‹åºä¸­
+\item å˜é‡ --- è¿›ç¨‹ä¸­è¡¨ç¤ºä¸€ä¸ªå…·ä½“çš„é‡çš„åå­—
+\item ç±»å‹ --- æ•°æ®ç»“æ„çš„å®šä¹‰
+\item å®ä¾‹ --- ä¸ºæ•°æ®ç»“æ„åˆ†é…çš„å†…å­˜
+\item å¯¹è±¡ --- ...
 \end{itemize}
 
 \end{frame}
@@ -1469,5 +1469,5 @@ Circle b = null;
 % TeX-master: "part-02.tex"
 % TeX-header-end: "% End-of-Header$"
 % TeX-trailer-start: "% Start-of-Trailer$"
-% coding: gbk-dos
+% coding: utf-8
 % End:

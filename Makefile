@@ -40,8 +40,7 @@ all:
 $(NUMTARGT): %: part-0%.pdf
 
 $(PDFTARGT): %.pdf: %.tex preamble.tex author.tex 
-	-@res/gbk2uni -s $(BUILDDIR)/$(basename $@)
-	pdflatex -output-directory=$(BUILDDIR) $<
+	xelatex -output-directory=$(BUILDDIR) $<
 	-@mv -f $(BUILDDIR)/$@ ./m$@
 
 encrypt: $(foreach x,$(wildcard part-*.pdf),en-$(x))
@@ -89,4 +88,5 @@ part-08.pdf: $(wildcard *.tex pgf/*.tex)
 
 # Local Variables:
 # mode: makefile-gmake
+# coding: utf-8
 # End:

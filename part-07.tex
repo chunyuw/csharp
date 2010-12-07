@@ -3,15 +3,42 @@
 \input{preamble}
 
 \begin{document}
-\begin{CJK*}{GBK}{kai}
+%\begin{CJK*}{GBK}{kai}
 
 \include{author}
-\title{.NET~�������~---~TODO}
-\date{2006~��~9~��~~��}
+\title{.NET~程序设计~---~TODO}
+\date{2006~年~9~月~~日}
 
 %% End-of-Header
 
 \frame<0| handout:1>{\titlepage}
+
+\begin{frame}[fragile]
+\frametitle{数组}
+声明数组的一般形式：
+\begin{lstlisting}
+<type><array_type> identifier
+   = new <type><array_type> [{initializer list}]
+\end{lstlisting}
+\begin{itemize}
+\item 数组类型可以是 ``\texttt{[]}'' ``\texttt{[,]}'' 或 ``\texttt{[][]}''
+\item 可以省略初始化列表，默认值是 ~{\redwarn\texttt{0}} 或 ~{\redwarn\texttt{null}}
+\item 也可以省略 ~new 表达式，直接通过列表定义
+\end{itemize}
+\pause
+\begin{lstlisting}[escapeinside=<>]
+int[] x; // <声明一个数组变量，默认值为 \texttt{null}>
+int[] list = new int[5];
+int[] list = new int[] {1,2,3,4,5}; // <初始化>
+int[] list = {1,2,3,4,5}; //<short version>
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}
+\frametitle{test}
+test {\ttfamily test} {\bfseries test}
+\end{frame}
+
 
 % \include{}
 % \include{}
@@ -20,12 +47,12 @@
 
 %% Start-of-Trailer
 
-\end{CJK*}
+%\end{CJK*}
 \end{document}
 
 % Local Variables:
 % mode: LaTeX
 % TeX-header-end: "% End-of-Header$"
 % TeX-trailer-start: "% Start-of-Trailer$"
-% coding: gbk-dos
+% coding: utf-8
 % End:

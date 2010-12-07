@@ -1,22 +1,22 @@
 %% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> %%
 
-\part{¿ò¼ÜÀà¿â}
+\part{æ¡†æ¶ç±»åº“}
 \begin{frame}
-\frametitle{Outline}            % {C\# µÄÀà}
+\frametitle{Outline}            % {C\# çš„ç±»}
 \tableofcontents
 \end{frame}
 
-\section{¼¯ºÏºÍ~LINQ ¼ò½é}
+\section{é›†åˆå’Œ~LINQ ç®€ä»‹}
 
 \begin{frame}
-\frametitle{¼¯ºÏ~ System.Collections}
+\frametitle{é›†åˆ~ System.Collections}
 
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
-\item ¼¯ºÏ£¬¼´Ò»×é¶ÔÏó~ (\textit{object})
-\item .NET Ìá¹©ÁË ~Lists, Stacks, Queues, Hash Tables µÈ¼¯ºÏ½á¹¹
-\item Ìá¹©ÁË¶Ô¼¯ºÏ²Ù×÷µÄ½Ó¿Ú£¬ÈçÃ¶¾ÙÆ÷¡¢µü´úÆ÷
-\item System.Collections.Generic Ìá¹©ÁËÏàÓ¦µÄ·ºĞÍ½á¹¹
+\item é›†åˆï¼Œå³ä¸€ç»„å¯¹è±¡~ (\textit{object})
+\item .NET æä¾›äº† ~Lists, Stacks, Queues, Hash Tables ç­‰é›†åˆç»“æ„
+\item æä¾›äº†å¯¹é›†åˆæ“ä½œçš„æ¥å£ï¼Œå¦‚æšä¸¾å™¨ã€è¿­ä»£å™¨
+\item System.Collections.Generic æä¾›äº†ç›¸åº”çš„æ³›å‹ç»“æ„
 \end{itemize}
 
 \end{frame}
@@ -66,17 +66,17 @@ public class SamplesStack  {
 \end{frame}
 
 \begin{frame}
-\frametitle{ICollection ½Ó¿Ú}
-ICollection ¼Ì³Ğ×Ô~ IEnumerable£¬Ìá¹©ÁË»ù±¾µÄ¼¯ºÏ²Ù×÷¡£
+\frametitle{ICollection æ¥å£}
+ICollection ç»§æ‰¿è‡ª~ IEnumerableï¼Œæä¾›äº†åŸºæœ¬çš„é›†åˆæ“ä½œã€‚
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
-\item ÌØĞÔ
+\item ç‰¹æ€§
 \begin{itemize}
 \setlength{\itemsep}{6pt plus 1pt}
-\item \texttt{int Count \{get;\} --- µ±Ç°¼¯ºÏÖĞÔªËØ¸öÊı}
-\item \texttt{object SyncRoot \{get;\} --- ÓÃÓÚ¶àÏß³ÌµÄÍ¬²½}
+\item \texttt{int Count \{get;\} --- å½“å‰é›†åˆä¸­å…ƒç´ ä¸ªæ•°}
+\item \texttt{object SyncRoot \{get;\} --- ç”¨äºå¤šçº¿ç¨‹çš„åŒæ­¥}
 \end{itemize}
-\item ·½·¨
+\item æ–¹æ³•
 \begin{itemize}
 \item \texttt{void CopyTo(Array target, int startIdx)}
 \end{itemize}
@@ -84,45 +84,45 @@ ICollection ¼Ì³Ğ×Ô~ IEnumerable£¬Ìá¹©ÁË»ù±¾µÄ¼¯ºÏ²Ù×÷¡£
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{IList ½Ó¿Ú}
-IList ½Ó¿Ú¼Ì³Ğ×Ô~ ICollection£¬Ìá¹©ÁË»ùÓÚË÷ÒıµÄ²Ù×÷·½Ê½¡£
+\frametitle{IList æ¥å£}
+IList æ¥å£ç»§æ‰¿è‡ª~ ICollectionï¼Œæä¾›äº†åŸºäºç´¢å¼•çš„æ“ä½œæ–¹å¼ã€‚
 \begin{itemize}
-\item Ë÷ÒıÆ÷£º \texttt{object this[int idx] \{ get; set; \}}
+\item ç´¢å¼•å™¨ï¼š \texttt{object this[int idx] \{ get; set; \}}
 \begin{lstlisting}
 ArrayList myAL = new ArrayList();
 myAL[0] = "Hello"; myAL[1] = 123;
 \end{lstlisting}
-\item ÌØĞÔ
+\item ç‰¹æ€§
 \begin{itemize}
 \item \texttt{bool IsFixedSize \{ get; \}}
 \item \texttt{bool IsReadOnly \{ get; \}}
 \end{itemize}
-\item ·½·¨
+\item æ–¹æ³•
 \begin{itemize}
-\item \texttt{int Add(object obj)} --- Ìí¼ÓÔªËØ
-\item \texttt{void Clear()} --- É¾³ıËùÓĞÔªËØ
-\item \texttt{void Remove(object obj)} --- É¾³ıµÚÒ»¸ö ~\texttt{obj}
+\item \texttt{int Add(object obj)} --- æ·»åŠ å…ƒç´ 
+\item \texttt{void Clear()} --- åˆ é™¤æ‰€æœ‰å…ƒç´ 
+\item \texttt{void Remove(object obj)} --- åˆ é™¤ç¬¬ä¸€ä¸ª ~\texttt{obj}
 \item \texttt{Contains, IndexOf, Insert, RemoveAt}
 \end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{IDictionary ½Ó¿Ú}
-\CJKindent IDictionary ½Ó¿Ú¼Ì³Ğ×Ô~ ICollection£¬Ìá¹©ÁË»ùÓÚ¼ü~ (\textit{key}) µÄË÷Òı·½Ê½¡£
+\frametitle{IDictionary æ¥å£}
+\CJKindent IDictionary æ¥å£ç»§æ‰¿è‡ª~ ICollectionï¼Œæä¾›äº†åŸºäºé”®~ (\textit{key}) çš„ç´¢å¼•æ–¹å¼ã€‚
 \begin{itemize}
-\item Ë÷ÒıÆ÷£º
+\item ç´¢å¼•å™¨ï¼š
   \begin{itemize}
   \item \texttt{object this[object key] \{ get; set; \}}
   \end{itemize}
-\item ÌØĞÔ
+\item ç‰¹æ€§
 \begin{itemize}
 \item \texttt{bool IsFixedSize \{ get; \}}
 \item \texttt{bool IsReadOnly \{ get; \}}
-\item \texttt{ICollection Keys \{ get; \}} --- ·µ»ØËùÓĞ¼ü
-\item \texttt{ICollection Values \{ get; \}} --- ·µ»ØËùÓĞÖµ
+\item \texttt{ICollection Keys \{ get; \}} --- è¿”å›æ‰€æœ‰é”®
+\item \texttt{ICollection Values \{ get; \}} --- è¿”å›æ‰€æœ‰å€¼
 \end{itemize}
-\item ·½·¨
+\item æ–¹æ³•
 \begin{itemize}
 \item \texttt{void Add(object k, object v)}
 \item \texttt{Clear, Contains, Remove, ...}
@@ -131,60 +131,60 @@ myAL[0] = "Hello"; myAL[1] = 123;
 \end{frame}
 
 \begin{frame}
-\frametitle{ArrayList Àà}
-ArrayList ÊµÏÖÁË ~ICollection, IList, IEnumerable, ICloneable ½Ó¿Ú¡£
+\frametitle{ArrayList ç±»}
+ArrayList å®ç°äº† ~ICollection, IList, IEnumerable, ICloneable æ¥å£ã€‚
 \begin{itemize}
-\item ¹¹Ôìº¯Êı
+\item æ„é€ å‡½æ•°
 \begin{itemize}
 \item \texttt{public ArrayList()}
 \item \texttt{public ArrayList(ICollection c)}
 \item \texttt{public ArrayList(int \textit{capacity})}
 \end{itemize}
-\item ÌØĞÔ
+\item ç‰¹æ€§
   \begin{itemize}
   \item \texttt{public virtual int Capacity \{ get; set; \}}
   \end{itemize}
-\item ·½·¨
+\item æ–¹æ³•
   \begin{itemize}
   \item \texttt{public virtual void Sort()}
   \item \texttt{public virtual void Sort(IComparer \textit{comp})}
-  \item \href{http://msdn2.microsoft.com/en-us/library/system.collections.arraylist_members.aspx}{\beamergotobutton{²Î¿¼ ~MSDN}}
+  \item \href{http://msdn2.microsoft.com/en-us/library/system.collections.arraylist_members.aspx}{\beamergotobutton{å‚è€ƒ ~MSDN}}
   \end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Hashtable Àà}
+\frametitle{Hashtable ç±»}
 
-\CJKindent Hashtable Ê¹ÓÃ~ \textit{Hashing} ¼¼Êõ´æ´¢Êı¾İ¡£½«¼ü×ª»»
-Îª~\textit{Hash code}£¬ÓÃÓÚÊı¾İµÄË÷Òı£¬¾ö¶¨Êı¾İµÄ´æ´¢Î»ÖÃ¡£
+\CJKindent Hashtable ä½¿ç”¨~ \textit{Hashing} æŠ€æœ¯å­˜å‚¨æ•°æ®ã€‚å°†é”®è½¬æ¢
+ä¸º~\textit{Hash code}ï¼Œç”¨äºæ•°æ®çš„ç´¢å¼•ï¼Œå†³å®šæ•°æ®çš„å­˜å‚¨ä½ç½®ã€‚
 
 \begin{itemize}
-\item ¼ü×ª»»Îª ~Hash code µÄ¹ı³ÌÊÇ×Ô¶¯µÄ
-\item ·ÃÎÊÊ±Ò²Ö»ĞèÊ¹ÓÃ¼ü±¾Éí£¬²»Ê¹ÓÃ ~Hash code
-\item Ê¹ÓÃ ~Hashtable ¿ÉÒÔÌá¸ß×ÖµäµÄ·ÃÎÊĞ§ÂÊ
+\item é”®è½¬æ¢ä¸º ~Hash code çš„è¿‡ç¨‹æ˜¯è‡ªåŠ¨çš„
+\item è®¿é—®æ—¶ä¹Ÿåªéœ€ä½¿ç”¨é”®æœ¬èº«ï¼Œä¸ä½¿ç”¨ ~Hash code
+\item ä½¿ç”¨ ~Hashtable å¯ä»¥æé«˜å­—å…¸çš„è®¿é—®æ•ˆç‡
 \end{itemize}
 
-\CJKindent Hashtable ÊµÏÖÁË~ IDictionary, ICollection, IEnumerable,
-ISerializable, IDeserializationCallback, ºÍ~ICloneable ½Ó¿Ú¡£
+\CJKindent Hashtable å®ç°äº†~ IDictionary, ICollection, IEnumerable,
+ISerializable, IDeserializationCallback, å’Œ~ICloneable æ¥å£ã€‚
 \end{frame}
 
 \begin{frame}
-\frametitle{Hashtable µÄ³ÉÔ±}
+\frametitle{Hashtable çš„æˆå‘˜}
 \begin{itemize}
-\item ¹¹Ôìº¯Êı
+\item æ„é€ å‡½æ•°
 \begin{itemize}
 \item \small \texttt{public Hashtable()}
 \item \small \texttt{public Hashtable(IDictionary c)}
 \item \small \texttt{public Hashtable(int capacity)}
 \item \small \texttt{public Hashtable(int capacity, float fillRatio)}
 \end{itemize}
-\item ÌØĞÔ
+\item ç‰¹æ€§
 \begin{itemize}
 \item \small \texttt{public virtual ICollection Keys \{ get; \}}
 \item \small \texttt{public virtual ICollection Values \{ get; \}}
 \end{itemize}
-\item ·½·¨
+\item æ–¹æ³•
 \begin{itemize}
 \item \texttt{public virtual bool ContainsKey(object k)}
 \item \texttt{public virtual bool ContainsValue(object v)}
@@ -195,7 +195,7 @@ ISerializable, IDeserializationCallback, ºÍ~ICloneable ½Ó¿Ú¡£
 \end{frame}
 
 \begin{frame}[fragile,plain]
-\frametitle{Hashtable Ê¾Àı}
+\frametitle{Hashtable ç¤ºä¾‹}
 \begin{lstlisting}
 using System;
 using System.Collections;
@@ -221,67 +221,67 @@ class HashtableDemo {
 \end{frame}
 
 \begin{frame}
-\frametitle{ÆäËû¼¯ºÏÀà}
+\frametitle{å…¶ä»–é›†åˆç±»}
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
-\item \texttt{SortedList} --- ¸ù¾İ¼üÖµ°´Ñ­ĞòÅÅÁĞµÄÁĞ±í \par
-\CJKindent \small ÊµÏÖÁË~ IDictionary, ICollection, IEnumerable ½Ó¿Ú¡£
-\item \texttt{Stack}      --- Õ» \par
-\CJKindent \small ÊµÏÖÁË~ ICollection, IEnumerable½Ó¿Ú¡£
+\item \texttt{SortedList} --- æ ¹æ®é”®å€¼æŒ‰å¾ªåºæ’åˆ—çš„åˆ—è¡¨ \par
+\CJKindent \small å®ç°äº†~ IDictionary, ICollection, IEnumerable æ¥å£ã€‚
+\item \texttt{Stack}      --- æ ˆ \par
+\CJKindent \small å®ç°äº†~ ICollection, IEnumerableæ¥å£ã€‚
 \begin{itemize}
 \item Posh(), Pop(), Peek(), Contains() \dots
 \end{itemize}
-\item \texttt{Queue}      --- ¶ÓÁĞ \par
-\CJKindent \small ÊµÏÖÁË~ ICollection, IEnumerable ½Ó¿Ú¡£
+\item \texttt{Queue}      --- é˜Ÿåˆ— \par
+\CJKindent \small å®ç°äº†~ ICollection, IEnumerable æ¥å£ã€‚
 \begin{itemize}
 \item Dequeue(), Enqueue(), Peek(), Contains() \dots
 \end{itemize}
-\item \texttt{BitArray}   --- °´Î»~ (\textit{bit}) ´æ´¢ \par
-\CJKindent \small ÊµÏÖÁË~ ICollection, IEnumerable ½Ó¿Ú¡£
+\item \texttt{BitArray}   --- æŒ‰ä½~ (\textit{bit}) å­˜å‚¨ \par
+\CJKindent \small å®ç°äº†~ ICollection, IEnumerable æ¥å£ã€‚
 \begin{itemize}
-\item ¶àÖÖ¹¹Ôìº¯Êı£¬±ãÓÚ´ÓÆäËûÊı¾İÉú³É
+\item å¤šç§æ„é€ å‡½æ•°ï¼Œä¾¿äºä»å…¶ä»–æ•°æ®ç”Ÿæˆ
 \item And(), Or(), Not(), Xor(), Set() \dots
 \end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{×¨ÓÃ¼¯ºÏ}
+\frametitle{ä¸“ç”¨é›†åˆ}
 \begin{itemize}
 \setlength{\itemsep}{5pt plus 1pt}
-\item System.Collections.Specialized ÖĞ¶¨ÒåÁËÒ»Ğ©×¨ÃÅµÄ¼¯ºÏÀà
-\item ÔÚÌØ¶¨ÀàĞÍµÄÉÏÓĞÒ»¶¨µÄÓÅ»¯
+\item System.Collections.Specialized ä¸­å®šä¹‰äº†ä¸€äº›ä¸“é—¨çš„é›†åˆç±»
+\item åœ¨ç‰¹å®šç±»å‹çš„ä¸Šæœ‰ä¸€å®šçš„ä¼˜åŒ–
 \bigskip
-\item \texttt{CollectionsUtil} ´´½¨ºöÂÔ×Ö·û´®´óĞ¡Ğ´µÄ¼¯ºÏ
-\item \texttt{ListDictionary} Ê¹ÓÃµ¥Á´½ÓÁĞ±íÊµÏÖ~ IDictionary
-\item \texttt{NameValueCollection} ¹ØÁª ~String ¼üºÍ~ Object ÖµµÄ¼¯ºÏ
-\item \texttt{OrderedDictionary} ¸ù¾İË÷ÒıÅÅĞòµÄ×Öµä
-\item \texttt{StringCollection} ×Ö·û´®¼¯ºÏ
-\item \texttt{StringDictionary} ½«¼üºÍÖµÇ¿ÀàĞÍ»¯Îª×Ö·û´®µÄ¹şÏ£±í
+\item \texttt{CollectionsUtil} åˆ›å»ºå¿½ç•¥å­—ç¬¦ä¸²å¤§å°å†™çš„é›†åˆ
+\item \texttt{ListDictionary} ä½¿ç”¨å•é“¾æ¥åˆ—è¡¨å®ç°~ IDictionary
+\item \texttt{NameValueCollection} å…³è” ~String é”®å’Œ~ Object å€¼çš„é›†åˆ
+\item \texttt{OrderedDictionary} æ ¹æ®ç´¢å¼•æ’åºçš„å­—å…¸
+\item \texttt{StringCollection} å­—ç¬¦ä¸²é›†åˆ
+\item \texttt{StringDictionary} å°†é”®å’Œå€¼å¼ºç±»å‹åŒ–ä¸ºå­—ç¬¦ä¸²çš„å“ˆå¸Œè¡¨
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{·ºĞÍ¼¯ºÏ½Ó¿Ú}
+\frametitle{æ³›å‹é›†åˆæ¥å£}
 \begin{itemize}
 \setlength{\itemsep}{7pt plus 1pt}
-\item ICollection$<$T$>$ ²Ù×÷·ºĞÍ¼¯ºÏ
-\item IComparer$<$T$>$ ±È½ÏÁ½¸ö¶ÔÏó
-\item IDictionary$<$TK, TV$>$ ¼ü/Öµ¶ÔµÄ·ºĞÍ¼¯ºÏ
-\item IEnumerable$<$T$>$ ·ºĞÍÃ¶¾Ù½Ó¿Ú
-\item IEnumerator$<$T$>$ ·ºĞÍ¼¯ºÏÉÏµü´ú½Ó¿Ú
-\item IEqualityComparer$<$T$>$ ¶ÔÏóµÄÏàµÈ±È½Ï
-\item IList$<$T$>$ °´ÕÕË÷Òıµ¥¶À·ÃÎÊ
+\item ICollection$<$T$>$ æ“ä½œæ³›å‹é›†åˆ
+\item IComparer$<$T$>$ æ¯”è¾ƒä¸¤ä¸ªå¯¹è±¡
+\item IDictionary$<$TK, TV$>$ é”®/å€¼å¯¹çš„æ³›å‹é›†åˆ
+\item IEnumerable$<$T$>$ æ³›å‹æšä¸¾æ¥å£
+\item IEnumerator$<$T$>$ æ³›å‹é›†åˆä¸Šè¿­ä»£æ¥å£
+\item IEqualityComparer$<$T$>$ å¯¹è±¡çš„ç›¸ç­‰æ¯”è¾ƒ
+\item IList$<$T$>$ æŒ‰ç…§ç´¢å¼•å•ç‹¬è®¿é—®
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{·ºĞÍ¼¯ºÏÀà}
+\frametitle{æ³›å‹é›†åˆç±»}
 \begin{itemize}
-\item List$<$T$>$ ·ºĞÍÁĞ±í
-\item Queue$<$T$>$ ·ºĞÍ¶ÓÁĞ
-\item Stack$<$T$>$ ·ºĞÍÕ»
-\item LinkedList$<$T$>$ ·ºĞÍË«ÏòÁ´
+\item List$<$T$>$ æ³›å‹åˆ—è¡¨
+\item Queue$<$T$>$ æ³›å‹é˜Ÿåˆ—
+\item Stack$<$T$>$ æ³›å‹æ ˆ
+\item LinkedList$<$T$>$ æ³›å‹åŒå‘é“¾
 \begin{lstlisting}
 public LinkedList()
 public LinkedList(IEnumerable<T> c)
@@ -299,16 +299,16 @@ public LinkedListNode<T> Last { get; }
 \end{frame}
 
 \begin{frame}
-\frametitle{IEnumerator ºÍ~ IEnumerable ½Ó¿Ú}
+\frametitle{IEnumerator å’Œ~ IEnumerable æ¥å£}
 
-Ö÷ÒªÓÃÓÚ¶Ô¼¯ºÏ½øĞĞµü´ú£¬Èç~\texttt{foreach} Ñ­»·µÈ¡£
+ä¸»è¦ç”¨äºå¯¹é›†åˆè¿›è¡Œè¿­ä»£ï¼Œå¦‚~\texttt{foreach} å¾ªç¯ç­‰ã€‚
 \vskip8pt
 
 IEnumerator:
 \begin{itemize}
-\item \texttt{object Current \{get;\}} --- ·µ»Øµ±Ç°¶ÔÏó
-\item \texttt{bool MoveNext();} --- ÏÂÒÆÒ»¸öÎ»ÖÃ
-\item \texttt{void ReSet();} --- ¸´Î»
+\item \texttt{object Current \{get;\}} --- è¿”å›å½“å‰å¯¹è±¡
+\item \texttt{bool MoveNext();} --- ä¸‹ç§»ä¸€ä¸ªä½ç½®
+\item \texttt{void ReSet();} --- å¤ä½
 \end{itemize}
 \vskip4pt
 
@@ -318,19 +318,19 @@ IEnumerable:
 \end{itemize}
 \vskip8pt
 
-Ê¾Àı£ºIEnumerable.cs \attachfile[description=IEnumerable]{code/IEnumerable.cs}
+%ç¤ºä¾‹ï¼šIEnumerable.cs \attachfile[description=IEnumerable]{code/IEnumerable.cs}
 \end{frame}
 
 \begin{frame}
-\frametitle{IEnumerator$<$T$>$ ºÍ~ IEnumerable$<$T$>$ ½Ó¿Ú}
-ÔÚÃüÃû¿Õ¼ä~System.Collections.Generic ÖĞ
+\frametitle{IEnumerator$<$T$>$ å’Œ~ IEnumerable$<$T$>$ æ¥å£}
+åœ¨å‘½åç©ºé—´~System.Collections.Generic ä¸­
 \vskip8pt
 
 IEnumerator$<$T$>$:
 \begin{itemize}
-\item \texttt{T Current \{get;\}} --- ·µ»Øµ±Ç°¶ÔÏó
-\item \texttt{bool MoveNext();} --- ÏÂÒÆÒ»¸öÎ»ÖÃ
-\item \texttt{void ReSet();} --- ¸´Î»
+\item \texttt{T Current \{get;\}} --- è¿”å›å½“å‰å¯¹è±¡
+\item \texttt{bool MoveNext();} --- ä¸‹ç§»ä¸€ä¸ªä½ç½®
+\item \texttt{void ReSet();} --- å¤ä½
 \end{itemize}
 \vskip4pt 
 
@@ -341,10 +341,10 @@ IEnumerable:
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{µü´úÆ÷ (\textit{Iterators})}
+\frametitle{è¿­ä»£å™¨ (\textit{Iterators})}
 \begin{itemize}
-\item ÓÃÓÚ¼ò»¯ ~IEnumerable ºÍ ~IEnumerator
-\item Ê¹ÓÃ ~\texttt{yield return} ·µ»Ø ~IEnumerator ¶ÔÏó
+\item ç”¨äºç®€åŒ– ~IEnumerable å’Œ ~IEnumerator
+\item ä½¿ç”¨ ~\texttt{yield return} è¿”å› ~IEnumerator å¯¹è±¡
 \end{itemize}
 
 \lstset{emph={yield}}
@@ -369,8 +369,8 @@ class MyClass:IEnumerable {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{¶àÌõ ~\texttt{yield} Óï¾ä}
-\CJKindent ¹Ø¼ü×Ö ~\texttt{yield} ×Ô¶¯¹¹Ôì ~IEnumerator ¶ÔÏó£¬¿ÉÊ¹ÓÃ¶à´Î£º
+\frametitle{å¤šæ¡ ~\texttt{yield} è¯­å¥}
+\CJKindent å…³é”®å­— ~\texttt{yield} è‡ªåŠ¨æ„é€  ~IEnumerator å¯¹è±¡ï¼Œå¯ä½¿ç”¨å¤šæ¬¡ï¼š
 \begin{lstlisting}
 using System;
 using System.Collections;
@@ -391,8 +391,8 @@ class MyClass:IEnumerable {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÖÕÖ¹µü´úÆ÷}
-Ê¹ÓÃ ~\texttt{yield break} ¿ÉÒÔÖÕÖ¹µü´úÆ÷¼ÌĞø½øĞĞ
+\frametitle{ç»ˆæ­¢è¿­ä»£å™¨}
+ä½¿ç”¨ ~\texttt{yield break} å¯ä»¥ç»ˆæ­¢è¿­ä»£å™¨ç»§ç»­è¿›è¡Œ
 \begin{lstlisting}
 ...
   public IEnumerator GetEnumerator() {
@@ -410,8 +410,8 @@ class MyClass:IEnumerable {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÃüÃûµü´úÆ÷}
-Í¨¹ı¶¨Òå·µ»Ø ~IEnumerable ÀàĞÍµÄ·½·¨À´ÊµÏÖ£º
+\frametitle{å‘½åè¿­ä»£å™¨}
+é€šè¿‡å®šä¹‰è¿”å› ~IEnumerable ç±»å‹çš„æ–¹æ³•æ¥å®ç°ï¼š
 \begin{lstlisting}
 public class List
 {
@@ -434,16 +434,16 @@ public class List
 \end{frame}
 
 \begin{frame}
-\frametitle{LINQ ¼ò½é}
+\frametitle{LINQ ç®€ä»‹}
 
 \begin{block}{\textit{LINQ}}
-  \CJKindent ÓïÑÔ¼¯³É²éÑ¯(\textit{Language INtegrated Query}) ÊÇÒ»×é¼¼ÊõµÄÃû
-  ³Æ£¬½¨Á¢ÔÚ½«²éÑ¯¹¦ÄÜÖ±½Ó¼¯³Éµ½~.NET ÓïÑÔµÄ»ù´¡ÉÏ¡£
+  \CJKindent è¯­è¨€é›†æˆæŸ¥è¯¢(\textit{Language INtegrated Query}) æ˜¯ä¸€ç»„æŠ€æœ¯çš„å
+  ç§°ï¼Œå»ºç«‹åœ¨å°†æŸ¥è¯¢åŠŸèƒ½ç›´æ¥é›†æˆåˆ°~.NET è¯­è¨€çš„åŸºç¡€ä¸Šã€‚
 \end{block}
 
 \begin{itemize}
-\item ÒÔ²éÑ¯µÄ·½Ê½¼ìË÷Êı¾İÔ´
-\item Í¨¹ıÒ»ÖÂµÄÄ£ĞÍÊ¹ÓÃ¶àÖÖÊı¾İÔ´
+\item ä»¥æŸ¥è¯¢çš„æ–¹å¼æ£€ç´¢æ•°æ®æº
+\item é€šè¿‡ä¸€è‡´çš„æ¨¡å‹ä½¿ç”¨å¤šç§æ•°æ®æº
 \end{itemize}
 
 \begin{figure}[htbp]
@@ -453,9 +453,9 @@ public class List
 
 
 \begin{frame}[fragile]
-\frametitle{LINQ ±í´ïÊ½}
+\frametitle{LINQ è¡¨è¾¾å¼}
 \begin{itemize}
-\item ÀàËÆÓÚ~SQL Óï¾äµÄ²éÑ¯±í´ïÊ½
+\item ç±»ä¼¼äº~SQL è¯­å¥çš„æŸ¥è¯¢è¡¨è¾¾å¼
 \end{itemize}
 \begin{lstlisting}
 static void Main(string[] args) {
@@ -477,7 +477,7 @@ static void Main(string[] args) {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{LINQ ±í´ïÊ½}
+\frametitle{LINQ è¡¨è¾¾å¼}
 
 \begin{lstlisting}
   var query = from s in names
@@ -487,7 +487,7 @@ static void Main(string[] args) {
 \end{lstlisting}
 \pause
 
-µÈ¼ÛÓÚÈçÏÂ»ùÓÚ·½·¨µÄ²éÑ¯£º
+ç­‰ä»·äºå¦‚ä¸‹åŸºäºæ–¹æ³•çš„æŸ¥è¯¢ï¼š
 \begin{lstlisting}
   var query = names.Where(s => s.Length == 5)
                    .OrderBy(s => s)
@@ -495,7 +495,7 @@ static void Main(string[] args) {
 \end{lstlisting}
 \pause
 
-¼´Ê¹ÓÃ¾²Ì¬Àà~System.Linq.Enumerable µÄÈı¸öÀ©Õ¹·½·¨
+å³ä½¿ç”¨é™æ€ç±»~System.Linq.Enumerable çš„ä¸‰ä¸ªæ‰©å±•æ–¹æ³•
 \begin{lstlisting}
 var query = Enumerable.Select(
             Enumerable.OrderBy(
@@ -507,9 +507,9 @@ var query = Enumerable.Select(
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Enumerable~µÄÀ©Õ¹·½·¨}
+\frametitle{Enumerable~çš„æ‰©å±•æ–¹æ³•}
 
-\CJKindent ÆäÖĞÓÃµ½µÄÊÇ¾²Ì¬Àà~System.Linq.Enumerable ÖĞ¶Ô½Ó¿Ú IEnumerable$<$T$>$ µÄ¼¸¸öÀ©Õ¹·½·¨
+\CJKindent å…¶ä¸­ç”¨åˆ°çš„æ˜¯é™æ€ç±»~System.Linq.Enumerable ä¸­å¯¹æ¥å£ IEnumerable$<$T$>$ çš„å‡ ä¸ªæ‰©å±•æ–¹æ³•
 
 \lstset{emph={[2]Where,OrderBy,Select}}
 \begin{lstlisting}
@@ -534,10 +534,10 @@ public static IEnumerable<R> Select<T, R>(
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{LINQ ±í´ïÊ½µÄÑÓ³ÙÖ´ĞĞ}
+\frametitle{LINQ è¡¨è¾¾å¼çš„å»¶è¿Ÿæ‰§è¡Œ}
 \begin{itemize}
-\item LINQ µÄ½á¹û´æ´¢µÄÊÇ²éÑ¯±í´ïÊ½£¬²¢Ã»ÓĞÊµ¼ÊµÄÖ´ĞĞ
-\item ÔÚ¶Ô½á¹ûÈ¡ÖµÊ±£¬²Å´¥·¢±í´ïÊ½µÄÖ´ĞĞ£¬¼´ÑÓ³ÙÖ´ĞĞ
+\item LINQ çš„ç»“æœå­˜å‚¨çš„æ˜¯æŸ¥è¯¢è¡¨è¾¾å¼ï¼Œå¹¶æ²¡æœ‰å®é™…çš„æ‰§è¡Œ
+\item åœ¨å¯¹ç»“æœå–å€¼æ—¶ï¼Œæ‰è§¦å‘è¡¨è¾¾å¼çš„æ‰§è¡Œï¼Œå³å»¶è¿Ÿæ‰§è¡Œ
 \end{itemize}
 \begin{lstlisting}[escapeinside='']
 static void QueryOverInts()
@@ -545,35 +545,35 @@ static void QueryOverInts()
 
   var subset = from i in numbers where i < 10 select i;
 
-  foreach (var i in subset) // 'LINQ±í´ïÊ½±»ÇóÖµ'
+  foreach (var i in subset) // 'LINQè¡¨è¾¾å¼è¢«æ±‚å€¼'
     Console.WriteLine("{0} < 10", i);
 
   numbers[0] = 4;
-  foreach (var j in subset) // 'LINQ±í´ïÊ½±»ÔÙ´ÎÇóÖµ'
+  foreach (var j in subset) // 'LINQè¡¨è¾¾å¼è¢«å†æ¬¡æ±‚å€¼'
     Console.WriteLine("{0} < 10", j);
 }
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ç¿ÖÆÁ¢¼´Ö´ĞĞ}
+\frametitle{å¼ºåˆ¶ç«‹å³æ‰§è¡Œ}
 \begin{itemize}
-\item ¶Ô²éÑ¯±í´ïÊ½È¡Öµ£¬´¥·¢~LINQ µÄÖ´ĞĞ
-\item Ò²¿ÉÒÔÍ¨¹ı~ToArray$<$T$>$() »ò~ToList$<$T$>$() µÈ·½·¨
+\item å¯¹æŸ¥è¯¢è¡¨è¾¾å¼å–å€¼ï¼Œè§¦å‘~LINQ çš„æ‰§è¡Œ
+\item ä¹Ÿå¯ä»¥é€šè¿‡~ToArray$<$T$>$() æˆ–~ToList$<$T$>$() ç­‰æ–¹æ³•
 \begin{lstlisting}[escapeinside='']
 static void ImmediateExecution()
 { int[] numbers = { 10, 20, 30, 40, 1, 2, 3, 8 };
 
-  int[] toArray =       // 'Á¢¼´Ö´ĞĞ£¬²¢×ª»»ÎªÊı×é'
+  int[] toArray =       // 'ç«‹å³æ‰§è¡Œï¼Œå¹¶è½¬æ¢ä¸ºæ•°ç»„'
              (from i in numbers 
               where i < 10 select i).ToArray<int>();
 
-  List<int> toList =    // 'Á¢¼´Ö´ĞĞ£¬²¢×ª»»Îª¼¯ºÏ'
+  List<int> toList =    // 'ç«‹å³æ‰§è¡Œï¼Œå¹¶è½¬æ¢ä¸ºé›†åˆ'
              (from i in numbers
               where i < 10 select i).ToList<int>();
 }
 \end{lstlisting}
-\item IEnumerable$<$T$>$ µÄÀ©Õ¹·½·¨
+\item IEnumerable$<$T$>$ çš„æ‰©å±•æ–¹æ³•
 \begin{itemize}
 \item System.Linq.Enumerable.ToArray$<$T$>$
 \item System.Linq.Enumerable.ToList$<$T$>$
@@ -583,11 +583,11 @@ static void ImmediateExecution()
 \end{frame}
 
 
-\section{ÎÄ±¾´¦Àí}
+\section{æ–‡æœ¬å¤„ç†}
 
 \begin{frame}[fragile]
-\frametitle{StringBuilder Àà}
-¿É±ä×Ö·û´®Àà~ StringBuilder£º
+\frametitle{StringBuilder ç±»}
+å¯å˜å­—ç¬¦ä¸²ç±»~ StringBuilderï¼š
 \begin{lstlisting}
 public sealed class StringBuilder {
   public method StringBuilder();  
@@ -599,16 +599,16 @@ public sealed class StringBuilder {
 }
 \end{lstlisting}
 \begin{itemize}
-\item capacity --- ´®µÄ³¤¶È
-\item maxCapicity --- ´®µÄ×î´ó³¤¶È
-\item Èç¹ûÃ»ÓĞÖ¸¶¨×î´ó³¤¶È£¬»á×Ô¶¯³É±¶Ôö¼Ó
+\item capacity --- ä¸²çš„é•¿åº¦
+\item maxCapicity --- ä¸²çš„æœ€å¤§é•¿åº¦
+\item å¦‚æœæ²¡æœ‰æŒ‡å®šæœ€å¤§é•¿åº¦ï¼Œä¼šè‡ªåŠ¨æˆå€å¢åŠ 
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{StringBuilder µÄ³ÉÔ±}
+\frametitle{StringBuilder çš„æˆå‘˜}
 \begin{itemize}
-\item ³ÉÔ±ÌØĞÔ
+\item æˆå‘˜ç‰¹æ€§
 \end{itemize}
 \begin{lstlisting}
   public field int Capacity{set; get; } 
@@ -616,7 +616,7 @@ public sealed class StringBuilder {
   public field int MaxCapacity{get; } 
 \end{lstlisting}
 \begin{itemize}
-\item ³ÉÔ±·½·¨
+\item æˆå‘˜æ–¹æ³•
 \begin{itemize}
 \item Append()
 \item AppendFormat()
@@ -629,33 +629,33 @@ public sealed class StringBuilder {
 
 
 % \begin{frame}
-% \frametitle{ÎÄ±¾µÄ±àÂë}
+% \frametitle{æ–‡æœ¬çš„ç¼–ç }
 
 % \end{frame}
 
 % Cookbook Regular Expressions, C# in a Nutshell
 
 \begin{frame}
-\frametitle{ÕıÔò±í´ïÊ½}
+\frametitle{æ­£åˆ™è¡¨è¾¾å¼}
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
-\item Î»ÓÚ ~System.Text.RegularExpressions ÃüÃû¿Õ¼ä
-\item ³£ÓÃµÄÀà
+\item ä½äº ~System.Text.RegularExpressions å‘½åç©ºé—´
+\item å¸¸ç”¨çš„ç±»
 \begin{itemize}
 \setlength{\itemsep}{6pt plus 1pt}
-\item Regex  --- ÓÃÓÚ¹¹ÔìÕıÔò±í´ïÊ½¶ÔÏó£¬Ò²ÓĞÒ»Ğ©¾²Ì¬·½·¨
+\item Regex  --- ç”¨äºæ„é€ æ­£åˆ™è¡¨è¾¾å¼å¯¹è±¡ï¼Œä¹Ÿæœ‰ä¸€äº›é™æ€æ–¹æ³•
 \item Match, MatchCollection \\
-  Ê¹ÓÃÕıÔò±í´ïÊ½½øĞĞÆ¥ÅäµÄ½á¹û£¬»ò½á¹û¼¯ºÏ
+  ä½¿ç”¨æ­£åˆ™è¡¨è¾¾å¼è¿›è¡ŒåŒ¹é…çš„ç»“æœï¼Œæˆ–ç»“æœé›†åˆ
 \item Group, GroupCollection \\
-  ÕıÔò±í´ïÊ½µÄ·Ö×éÆ¥Åä£¬¼´ÕıÔò±í´ïÊ½µÄÒ»²¿·Ö
+  æ­£åˆ™è¡¨è¾¾å¼çš„åˆ†ç»„åŒ¹é…ï¼Œå³æ­£åˆ™è¡¨è¾¾å¼çš„ä¸€éƒ¨åˆ†
 \item Capture, CaptureCollection \\
-  ·Ö×éµÄÆ¥ÅäÖĞ£¬ÓÉ·Ö×éÆ¥ÅäµÄËùÓĞ²¶»ñ
+  åˆ†ç»„çš„åŒ¹é…ä¸­ï¼Œç”±åˆ†ç»„åŒ¹é…çš„æ‰€æœ‰æ•è·
 \end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÕıÔò±í´ïÊ½Ê¾Àı}
+\frametitle{æ­£åˆ™è¡¨è¾¾å¼ç¤ºä¾‹}
 \begin{lstlisting}[escapeinside='']
 using System;
 using System.Text.RegularExpressions;
@@ -677,51 +677,51 @@ public class List
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÌØÊâ×Ö·ûºÍÆÕÍ¨×Ö·û}
+\frametitle{ç‰¹æ®Šå­—ç¬¦å’Œæ™®é€šå­—ç¬¦}
 \begin{tabular}{c|l}
 \hline
-×Ö·û                  & ËµÃ÷                                               \\
+å­—ç¬¦                  & è¯´æ˜                                               \\
 \hline
-\verb|.|              & ÈÎºÎ×Ö·û£¬³ı»»ĞĞ·ûÍâ                               \\
-\verb|* + ?|          & Ç°Ò»²¿·ÖµÄÖØ¸´´ÎÊı£¬¾¡¿ÉÄÜ¶àÆ¥Åä (\textit{greedy}) \\
-\verb|\|              & ×ªÒå×Ö·û                                           \\
-\verb|[|\dots\verb|]| & ×Ö·û¼¯ºÏ£¬±íÊ¾ÆäÖĞµÄÈÎÒâ×Ö·û                       \\
-\verb|(|\dots\verb|)| & ·Ö×é£¬ÓÃÓÚÖØ¸´¡¢ÒıÓÃµÈ                             \\
-\verb|{|n,m\verb|}|   & ±íÊ¾Æ¥Åä´ÎÊı                                       \\
-\verb|$|              & ĞĞÎ²¿Õ´®                                           \\
-\verb|^|              & ĞĞÊ×¿Õ´®                                           \\
+\verb|.|              & ä»»ä½•å­—ç¬¦ï¼Œé™¤æ¢è¡Œç¬¦å¤–                               \\
+\verb|* + ?|          & å‰ä¸€éƒ¨åˆ†çš„é‡å¤æ¬¡æ•°ï¼Œå°½å¯èƒ½å¤šåŒ¹é… (\textit{greedy}) \\
+\verb|\|              & è½¬ä¹‰å­—ç¬¦                                           \\
+\verb|[|\dots\verb|]| & å­—ç¬¦é›†åˆï¼Œè¡¨ç¤ºå…¶ä¸­çš„ä»»æ„å­—ç¬¦                       \\
+\verb|(|\dots\verb|)| & åˆ†ç»„ï¼Œç”¨äºé‡å¤ã€å¼•ç”¨ç­‰                             \\
+\verb|{|n,m\verb|}|   & è¡¨ç¤ºåŒ¹é…æ¬¡æ•°                                       \\
+\verb|$|              & è¡Œå°¾ç©ºä¸²                                           \\
+\verb|^|              & è¡Œé¦–ç©ºä¸²                                           \\
 \hline
-\verb|\b|             & µ¥´Ê±ß½çÉÏµÄ¿Õ´®                                   \\
-\verb|\s|             & Æ¥ÅäÈÎºÎ¿Õ°××Ö·û                                   \\
-\verb|\w|             & Æ¥ÅäÈÎºÎµ¥´Ê                                       \\
-\verb|\d|             & Æ¥ÅäÒ»¸öÊı×Ö                                       \\
-\verb|\cC|            & Æ¥Åä¿ØÖÆ×Ö·û ~Ctrl-C                               \\
+\verb|\b|             & å•è¯è¾¹ç•Œä¸Šçš„ç©ºä¸²                                   \\
+\verb|\s|             & åŒ¹é…ä»»ä½•ç©ºç™½å­—ç¬¦                                   \\
+\verb|\w|             & åŒ¹é…ä»»ä½•å•è¯                                       \\
+\verb|\d|             & åŒ¹é…ä¸€ä¸ªæ•°å­—                                       \\
+\verb|\cC|            & åŒ¹é…æ§åˆ¶å­—ç¬¦ ~Ctrl-C                               \\
 \hline
 \end{tabular}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{·Ö×é¼°ÒıÓÃ}
+\frametitle{åˆ†ç»„åŠå¼•ç”¨}
 \begin{tabular}{c|l}
 \hline
-·Ö×é                                         & Ê¹ÓÃ·½Ê½                                       \\
+åˆ†ç»„                                         & ä½¿ç”¨æ–¹å¼                                       \\
 \hline
-\verb|(|\dots\verb|)|                        & Í¨¹ıÊı×Ö ~\verb|\N| ÒıÓÃ                       \\
-                                             & ÀıÈç ~\verb|(\w)\s+\1|                         \\
-\verb|(?<|\textit{name}\verb|>|\dots\verb|)| & Í¨¹ıÃû×Ö ~\verb|\k<|\textit{name}\verb|>| ÒıÓÃ \\
-                                             & ÀıÈç \verb|(?<word>\w)\s+\k<word>|             \\
+\verb|(|\dots\verb|)|                        & é€šè¿‡æ•°å­— ~\verb|\N| å¼•ç”¨                       \\
+                                             & ä¾‹å¦‚ ~\verb|(\w)\s+\1|                         \\
+\verb|(?<|\textit{name}\verb|>|\dots\verb|)| & é€šè¿‡åå­— ~\verb|\k<|\textit{name}\verb|>| å¼•ç”¨ \\
+                                             & ä¾‹å¦‚ \verb|(?<word>\w)\s+\k<word>|             \\
 \hline
 \hline
-Ìæ»»·½Ê½                                     & ËµÃ÷                                           \\
+æ›¿æ¢æ–¹å¼                                     & è¯´æ˜                                           \\
 \hline
-\verb|$|\textit{N}                           & °´×éºÅÌæ»»                                     \\
-\verb|${|\textit{name}\verb|}|               & °´×éÃû×ÖÌæ»»                                   \\
+\verb|$|\textit{N}                           & æŒ‰ç»„å·æ›¿æ¢                                     \\
+\verb|${|\textit{name}\verb|}|               & æŒ‰ç»„åå­—æ›¿æ¢                                   \\
 \hline
 \end{tabular}
 \medskip
 \begin{lstlisting}[escapeinside='']
 String ChangeDateFormat(String input)
-{ // '½« ~mm/dd/yyyy Ìæ»»Îª ~yyyy-mm-dd ¸ñÊ½'
+{ // 'å°† ~mm/dd/yyyy æ›¿æ¢ä¸º ~yyyy-mm-dd æ ¼å¼'
 return Regex.Replace(input,
 @"\b(?<month>\d{1,2})/(?<day>\d{1,2})/(?<year>\d{2,4})\b",
 "${year}-${month}-${day}");
@@ -730,9 +730,9 @@ return Regex.Replace(input,
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÕıÔò±í´ïÊ½Ê¾Àı}
+\frametitle{æ­£åˆ™è¡¨è¾¾å¼ç¤ºä¾‹}
 \begin{itemize}
-\item ½»»»Ç°Á½¸öµ¥´Ê
+\item äº¤æ¢å‰ä¸¤ä¸ªå•è¯
 \begin{lstlisting}
 string t1 = "the quick brown fox";
 string p1 = @"(\S+)(\s+)(\S+)";
@@ -740,7 +740,7 @@ Regex x1 = new Regex(p1);
 string r1 = x1.Replace(t1, "$3$2$1", 1);
        // "quick the brown fox"
 \end{lstlisting}
-\item Æ¥Åä~ "keyword = value" Ä£Ê½
+\item åŒ¹é…~ "keyword = value" æ¨¡å¼
 \begin{lstlisting}
 string t2 = "myval = 3";
 string p2 = @"(\w+)\s*=\s*(.*)\s*$";
@@ -750,15 +750,15 @@ Match m2 = Regex.Match(t2, p2);
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÕıÔò±í´ïÊ½Ê¾Àı}
+\frametitle{æ­£åˆ™è¡¨è¾¾å¼ç¤ºä¾‹}
 \begin{itemize}
-\item Æ¥ÅäÖÁÉÙ ~40 ×Ö·ûµÄĞĞ
+\item åŒ¹é…è‡³å°‘ ~40 å­—ç¬¦çš„è¡Œ
 \begin{lstlisting}
 string t3 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 string p3 = ".{40,}";
 Match m3 = Regex.Match(t3, p3);
 \end{lstlisting}
-\item Ìæ»»ÓÃ»§Ãû
+\item æ›¿æ¢ç”¨æˆ·å
 \begin{lstlisting}
 string t4 =
     @"C:\Documents and Settings\user1\Desktop";
@@ -770,9 +770,9 @@ string r4 = Regex.Replace(t4,
 \end{frame}
 
 % \begin{frame}[fragile]
-% \frametitle{ÕıÔò±í´ïÊ½Ê¾Àı}
+% \frametitle{æ­£åˆ™è¡¨è¾¾å¼ç¤ºä¾‹}
 % \begin{itemize}
-% \item ²éÕÒËùÓĞ×ÖÄ¸´óĞ´µÄµ¥´Ê
+% \item æŸ¥æ‰¾æ‰€æœ‰å­—æ¯å¤§å†™çš„å•è¯
 % \begin{lstlisting}
 % string t5 = "This IS a Test OF ALL Caps";
 % string p5 = @"(\b[^\Wa-z0-9_]+\b)";
@@ -781,7 +781,7 @@ string r4 = Regex.Replace(t4,
 %    Console.WriteLine(x.Groups[0].Value);
 %    // IS OF ALL
 % \end{lstlisting}
-% \item ²éÕÒËùÓĞÊ××ÖÄ¸´óĞ´µÄµ¥´Ê
+% \item æŸ¥æ‰¾æ‰€æœ‰é¦–å­—æ¯å¤§å†™çš„å•è¯
 % \begin{lstlisting}
 % string t6 = "This is A Test of Initial Caps";
 % string p6 = @"(\b[A-Z][^\WA-Z0-9_]*\b)";
@@ -791,9 +791,9 @@ string r4 = Regex.Replace(t4,
 % \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÕıÔò±í´ïÊ½Ê¾Àı}
+\frametitle{æ­£åˆ™è¡¨è¾¾å¼ç¤ºä¾‹}
 \begin{itemize}
-\item ²éÕÒ ~HTML ÖĞµÄ~URL Á´½Ó
+\item æŸ¥æ‰¾ ~HTML ä¸­çš„~URL é“¾æ¥
 \end{itemize}
 \begin{lstlisting}[escapeinside=!!]
 string t7 = @"
@@ -819,5 +819,5 @@ foreach (Match x in mc7)
 % TeX-master: "part-04.tex"
 % TeX-header-end: "% End-of-Header$"
 % TeX-trailer-start: "% Start-of-Trailer$"
-% coding: gbk-dos
+% coding: utf-8
 % End:

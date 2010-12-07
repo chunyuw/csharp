@@ -1,32 +1,32 @@
 %% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> %%
 
-\section{¶àÏß³Ì}
+\section{å¤šçº¿ç¨‹}
 
 % http://msdn2.microsoft.com/zh-cn/library/system.threading.aspx
 
 \begin{frame}
-\frametitle{¶àÏß³Ì~(\textit{Multithreading})}
+\frametitle{å¤šçº¿ç¨‹~(\textit{Multithreading})}
 \begin{block}{\textit{Thread}}
-  \CJKindent Ïß³Ì±¾ÖÊÉÏÊÇÒ»¸ö¶ÀÁ¢ÔËĞĞµÄ´úÂë¶Î£¬ÊÇ²Ù×÷ÏµÍ³·ÖÅä´¦ÀíÆ÷Ê±¼äµÄ»ù±¾µ¥Ôª£¬.NET ÖĞµÄÏß³ÌÊµ¼Ê
-  ÊÇ²Ù×÷ÏµÍ³Ïß³ÌµÄ°ü×°Æ÷£¬ÓÉ²Ù×÷ÏµÍ³´´½¨ºÍÔËĞĞ¡£
+  \CJKindent çº¿ç¨‹æœ¬è´¨ä¸Šæ˜¯ä¸€ä¸ªç‹¬ç«‹è¿è¡Œçš„ä»£ç æ®µï¼Œæ˜¯æ“ä½œç³»ç»Ÿåˆ†é…å¤„ç†å™¨æ—¶é—´çš„åŸºæœ¬å•å…ƒï¼Œ.NET ä¸­çš„çº¿ç¨‹å®é™…
+  æ˜¯æ“ä½œç³»ç»Ÿçº¿ç¨‹çš„åŒ…è£…å™¨ï¼Œç”±æ“ä½œç³»ç»Ÿåˆ›å»ºå’Œè¿è¡Œã€‚
 \end{block}
 \begin{itemize}
-\item Ê¹ÓÃÏß³Ì£¬¿ÉÒÔÌá¸ßĞÔÄÜ£¬½«ÈÎÎñ·Ö½âÔÚ¶à¸öÏß³ÌÖĞ
-\item Ìá¸ßÏìÓ¦ÄÜÁ¦£¬ÈçÔÚÍ¨¹ıÍøÂç·¢ËÍÎÄ¼şÊ±£¬½ÓÊÜ¼üÅÌÊäÈë
-\item ·½±ãÒÆÖ²µ½¶à´¦ÀíÆ÷µÄ¼ÆËã»úÉÏ
+\item ä½¿ç”¨çº¿ç¨‹ï¼Œå¯ä»¥æé«˜æ€§èƒ½ï¼Œå°†ä»»åŠ¡åˆ†è§£åœ¨å¤šä¸ªçº¿ç¨‹ä¸­
+\item æé«˜å“åº”èƒ½åŠ›ï¼Œå¦‚åœ¨é€šè¿‡ç½‘ç»œå‘é€æ–‡ä»¶æ—¶ï¼Œæ¥å—é”®ç›˜è¾“å…¥
+\item æ–¹ä¾¿ç§»æ¤åˆ°å¤šå¤„ç†å™¨çš„è®¡ç®—æœºä¸Š
 \end{itemize}
 \medskip
 \begin{itemize}
-\item ³ÌĞòÉÔ¸´ÔÓ£¬ĞèÒªÆô¶¯¡¢¼àÊÓ¡¢µÈ´ıÏß³Ì½áÊøµÈ
-\item ¶àÏß³ÌÊ¹ÓÃÍ¬Ò»×ÊÔ´£¬ĞèÒª½øĞĞÍ¬²½£¬¿ÉÄÜ·¢ÉúËÀËø
-\item ¶àÏß³ÌµÄ¿ØÖÆĞèÒªÒ»¶¨µÄ´¦ÀíÆ÷Ê±¼ä
+\item ç¨‹åºç¨å¤æ‚ï¼Œéœ€è¦å¯åŠ¨ã€ç›‘è§†ã€ç­‰å¾…çº¿ç¨‹ç»“æŸç­‰
+\item å¤šçº¿ç¨‹ä½¿ç”¨åŒä¸€èµ„æºï¼Œéœ€è¦è¿›è¡ŒåŒæ­¥ï¼Œå¯èƒ½å‘ç”Ÿæ­»é”
+\item å¤šçº¿ç¨‹çš„æ§åˆ¶éœ€è¦ä¸€å®šçš„å¤„ç†å™¨æ—¶é—´
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Ïß³ÌµÄ×´Ì¬}
+\frametitle{çº¿ç¨‹çš„çŠ¶æ€}
 \begin{itemize}
-\item ÔËĞĞÖĞµÄÏß³ÌÓĞ¼¸ÖÖ²»Í¬×´Ì¬
+\item è¿è¡Œä¸­çš„çº¿ç¨‹æœ‰å‡ ç§ä¸åŒçŠ¶æ€
 \end{itemize}
 \begin{figure}
   \centering
@@ -35,21 +35,21 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{System.Threading ÃüÃû¿Õ¼ä}
+\frametitle{System.Threading å‘½åç©ºé—´}
 \begin{itemize}
 \setlength{\itemsep}{6pt plus 1pt}
-\item Thread ÀàÓÃÓÚ´´½¨ºÍ¹ÜÀíÏß³Ì£¬ÉèÖÃÓÅÏÈ¼¶µÈ
-\item ThreadPool ÀàÌá¹©Ô¤ÏÈ·ÖÅäµÄÏß³Ì³Ø£¬¿ÉÖ±½ÓÊ¹ÓÃ
-\item Monitor Àà¸ºÔğÏß³ÌµÄÍ¬²½£¬ÊµÏÖ¶ÔÏóµÄ·ÃÎÊµÄ»úÖÆ
-\item Mutex ÊµÏÖÒ»¸öÍ¬²½»ùÔª£¬Ò²¿ÉÓÃÓÚ½ø³Ì¼äÍ¬²½
-\item Semaphore ÏŞÖÆ¿ÉÍ¬Ê±·ÃÎÊÄ³Ò»×ÊÔ´µÄÏß³ÌÊı
-\item Timer Ìá¹©ÒÔÖ¸¶¨µÄÊ±¼ä¼ä¸ôÖ´ĞĞ·½·¨µÄ»úÖÆ
+\item Thread ç±»ç”¨äºåˆ›å»ºå’Œç®¡ç†çº¿ç¨‹ï¼Œè®¾ç½®ä¼˜å…ˆçº§ç­‰
+\item ThreadPool ç±»æä¾›é¢„å…ˆåˆ†é…çš„çº¿ç¨‹æ± ï¼Œå¯ç›´æ¥ä½¿ç”¨
+\item Monitor ç±»è´Ÿè´£çº¿ç¨‹çš„åŒæ­¥ï¼Œå®ç°å¯¹è±¡çš„è®¿é—®çš„æœºåˆ¶
+\item Mutex å®ç°ä¸€ä¸ªåŒæ­¥åŸºå…ƒï¼Œä¹Ÿå¯ç”¨äºè¿›ç¨‹é—´åŒæ­¥
+\item Semaphore é™åˆ¶å¯åŒæ—¶è®¿é—®æŸä¸€èµ„æºçš„çº¿ç¨‹æ•°
+\item Timer æä¾›ä»¥æŒ‡å®šçš„æ—¶é—´é—´éš”æ‰§è¡Œæ–¹æ³•çš„æœºåˆ¶
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Thread Àà}
-Thread ÀàµÄ¹¹Ôìº¯Êı£º
+\frametitle{Thread ç±»}
+Thread ç±»çš„æ„é€ å‡½æ•°ï¼š
 \begin{lstlisting}
 public sealed class Thread
 {
@@ -65,14 +65,14 @@ public delegate void ParameterizedThreadStart(object obj);
 \end{lstlisting}
 
 \begin{itemize}
-\item ThreadStart --- ±íÊ¾´ËÏß³Ì¿ªÊ¼Ö´ĞĞÊ±Òªµ÷ÓÃµÄÎ¯ÍĞ
-\item ParameterizedThreadStart --- Í¬ÉÏ£¬µ«¿ÉÓĞÒ»¸ö²ÎÊı
-\item int n --- ÏŞÖÆÏß³Ì¶ÑÕ»´óĞ¡µÄÕûÊı
+\item ThreadStart --- è¡¨ç¤ºæ­¤çº¿ç¨‹å¼€å§‹æ‰§è¡Œæ—¶è¦è°ƒç”¨çš„å§”æ‰˜
+\item ParameterizedThreadStart --- åŒä¸Šï¼Œä½†å¯æœ‰ä¸€ä¸ªå‚æ•°
+\item int n --- é™åˆ¶çº¿ç¨‹å †æ ˆå¤§å°çš„æ•´æ•°
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ïß³ÌµÄÆô¶¯}
+\frametitle{çº¿ç¨‹çš„å¯åŠ¨}
 \begin{lstlisting}
 public sealed class Thread
 {
@@ -84,13 +84,13 @@ public sealed class Thread
 }
 \end{lstlisting}
 \begin{itemize}
-\item Ïß³Ì´´½¨ºó£¬ĞèÒªÍ¨¹ı ~Start ·½·¨¿ªÊ¼Ïß³ÌµÄÔËĞĞ
-\item ²ÎÊı ~obj ´«¸ø´ø²ÎÊıµÄÎ¯ÍĞ
+\item çº¿ç¨‹åˆ›å»ºåï¼Œéœ€è¦é€šè¿‡ ~Start æ–¹æ³•å¼€å§‹çº¿ç¨‹çš„è¿è¡Œ
+\item å‚æ•° ~obj ä¼ ç»™å¸¦å‚æ•°çš„å§”æ‰˜
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{´´½¨²¢ÔËĞĞÏß³Ì}
+\frametitle{åˆ›å»ºå¹¶è¿è¡Œçº¿ç¨‹}
 \begin{lstlisting}[escapeinside='']
 using System;  using System.Threading;
 public class ThreadExample {
@@ -102,7 +102,7 @@ public class ThreadExample {
   public static void Main() {
 
     Thread t = new Thread(new ThreadStart(ThreadProc));
-    t.Start(); // 'Ïß³Ì¿ªÊ¼ÔËĞĞ'
+    t.Start(); // 'çº¿ç¨‹å¼€å§‹è¿è¡Œ'
 
     for (int i = 0; i < 4; i++) {
       Console.WriteLine("Main thread: Do some work.");
@@ -114,8 +114,8 @@ public class ThreadExample {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{¸øÏß³Ì´«µİ²ÎÊı}
-C\# 2.0 ÖĞ£¬¿ÉÒÔÍ¨¹ı~ ParameterizedThreadStart Î¯ÍĞ¸øÏß³Ì´«µİÒ»¸ö¶ÔÏó²ÎÊı
+\frametitle{ç»™çº¿ç¨‹ä¼ é€’å‚æ•°}
+C\# 2.0 ä¸­ï¼Œå¯ä»¥é€šè¿‡~ ParameterizedThreadStart å§”æ‰˜ç»™çº¿ç¨‹ä¼ é€’ä¸€ä¸ªå¯¹è±¡å‚æ•°
 \begin{lstlisting}
   public static void ThreadProc(object o) {
     for (int i = 0; i < (int)o; i++) {
@@ -132,7 +132,7 @@ C\# 2.0 ÖĞ£¬¿ÉÒÔÍ¨¹ı~ ParameterizedThreadStart Î¯ÍĞ¸øÏß³Ì´«µİÒ»¸ö¶ÔÏó²ÎÊı
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Thread ÀàµÄ³ÉÔ±ÌØĞÔ}
+\frametitle{Thread ç±»çš„æˆå‘˜ç‰¹æ€§}
 \begin{lstlisting}
 public sealed class Thread {
   public static Thread CurrentThread
@@ -148,32 +148,32 @@ public sealed class Thread {
 }
 \end{lstlisting}
 \begin{itemize}
-\item CurrentThread --- ¾²Ì¬³ÉÔ±£¬»ñÈ¡µ±Ç°ÕıÔÚÔËĞĞµÄÏß³Ì
-\item Name --- »ñÈ¡»òÉèÖÃÏß³ÌµÄÃû³Æ£¬Ö»Ğ´Ò»´Î
-\item Priority --- »ñÈ¡»òÉèÖÃÒ»¸öÖµ£¬¸ÃÖµÖ¸Ê¾Ïß³ÌµÄµ÷¶ÈÓÅÏÈ¼¶
-\item ThreadState --- »ñÈ¡Ò»¸öÖµ£¬¸ÃÖµ°üº¬µ±Ç°Ïß³ÌµÄ×´Ì¬
+\item CurrentThread --- é™æ€æˆå‘˜ï¼Œè·å–å½“å‰æ­£åœ¨è¿è¡Œçš„çº¿ç¨‹
+\item Name --- è·å–æˆ–è®¾ç½®çº¿ç¨‹çš„åç§°ï¼Œåªå†™ä¸€æ¬¡
+\item Priority --- è·å–æˆ–è®¾ç½®ä¸€ä¸ªå€¼ï¼Œè¯¥å€¼æŒ‡ç¤ºçº¿ç¨‹çš„è°ƒåº¦ä¼˜å…ˆçº§
+\item ThreadState --- è·å–ä¸€ä¸ªå€¼ï¼Œè¯¥å€¼åŒ…å«å½“å‰çº¿ç¨‹çš„çŠ¶æ€
 \end{itemize}
 \end{frame}
 
 % \begin{frame}
-% \frametitle{Thread ÀàµÄ³ÉÔ±·½·¨}
+% \frametitle{Thread ç±»çš„æˆå‘˜æ–¹æ³•}
 % \begin{itemize}
-% \item void Abort() --- Òı·¢ ThreadAbortException£¬ÒÔ¿ªÊ¼ÖÕÖ¹´ËÏß³ÌµÄ¹ı³Ì
-% \item void Interrupt() --- ÖĞ¶Ï´¦ÓÚ WaitSleepJoin Ïß³Ì×´Ì¬µÄÏß³Ì
-% \item void Join() --- ×èÈûµ÷ÓÃÏß³Ì£¬Ö±µ½Ä³¸öÏß³ÌÖÕÖ¹ÎªÖ¹
-% \item bool Join(int/TimeSpan) --- ×èÈûµ÷ÓÃÏß³Ì£¬Ö±µ½Ä³¸öÏß³ÌÖÕÖ¹»ò¾­¹ıÁËÖ¸¶¨Ê±¼äÎªÖ¹
-% \item static void Sleep(int/TimeSpan) --- ½«µ±Ç°Ïß³Ì¹ÒÆğÖ¸¶¨µÄÊ±¼ä
+% \item void Abort() --- å¼•å‘ ThreadAbortExceptionï¼Œä»¥å¼€å§‹ç»ˆæ­¢æ­¤çº¿ç¨‹çš„è¿‡ç¨‹
+% \item void Interrupt() --- ä¸­æ–­å¤„äº WaitSleepJoin çº¿ç¨‹çŠ¶æ€çš„çº¿ç¨‹
+% \item void Join() --- é˜»å¡è°ƒç”¨çº¿ç¨‹ï¼Œç›´åˆ°æŸä¸ªçº¿ç¨‹ç»ˆæ­¢ä¸ºæ­¢
+% \item bool Join(int/TimeSpan) --- é˜»å¡è°ƒç”¨çº¿ç¨‹ï¼Œç›´åˆ°æŸä¸ªçº¿ç¨‹ç»ˆæ­¢æˆ–ç»è¿‡äº†æŒ‡å®šæ—¶é—´ä¸ºæ­¢
+% \item static void Sleep(int/TimeSpan) --- å°†å½“å‰çº¿ç¨‹æŒ‚èµ·æŒ‡å®šçš„æ—¶é—´
 % \end{itemize}
 % \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{´´½¨¶à¸öÏß³Ì}
-´´½¨¶à¸ö ~Thread ÊµÀı¼´¿É£º
+\frametitle{åˆ›å»ºå¤šä¸ªçº¿ç¨‹}
+åˆ›å»ºå¤šä¸ª ~Thread å®ä¾‹å³å¯ï¼š
 \begin{lstlisting}[escapeinside='']
 ...
   public static void Main() {
     Thread t1 = new Thread(new ThreadStart(ThreadProc));
-    Thread t2 = new Thread(ThreadProc)); //'×Ô¶¯×ª»»'
+    Thread t2 = new Thread(ThreadProc)); //'è‡ªåŠ¨è½¬æ¢'
     Thread t3 = new Thread(ThreadProc));
 
     t1.Start();
@@ -189,8 +189,8 @@ public sealed class Thread {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÅĞ¶ÏÏß³ÌµÄ½áÊø}
-Í¨¹ı¶ÁÈ¡ ~IsAlive ÌØĞÔµÄÖµ£º
+\frametitle{åˆ¤æ–­çº¿ç¨‹çš„ç»“æŸ}
+é€šè¿‡è¯»å– ~IsAlive ç‰¹æ€§çš„å€¼ï¼š
 \lstset{emph={IsAlive}}
 \begin{lstlisting}
   Thread t1, t2, t3; // new Thread(...)
@@ -206,18 +206,18 @@ public sealed class Thread {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{µÈ´ıÏß³Ì½áÊø}
-Thread ÖĞ¶¨ÒåµÄ ~Join ·½·¨£º
+\frametitle{ç­‰å¾…çº¿ç¨‹ç»“æŸ}
+Thread ä¸­å®šä¹‰çš„ ~Join æ–¹æ³•ï¼š
 \begin{lstlisting}[escapeinside='']
 public sealed class Thread {
   public void Join ();
   public bool Join (int ms);
   public bool Join (TimeSpan timeout);
-  // 'Èç¹ûµÈ´ıÊ±¼ä½áÊø£¬Ôò·µ»Ø£¬ÖµÎª false'
+  // 'å¦‚æœç­‰å¾…æ—¶é—´ç»“æŸï¼Œåˆ™è¿”å›ï¼Œå€¼ä¸º false'
 }
 \end{lstlisting}
 \pause
-Ê¹ÓÃ ~Join µÈ´ıÏß³Ì½áÊø£¬½«½øÈë ~WaitSleepJoin ×´Ì¬£º
+ä½¿ç”¨ ~Join ç­‰å¾…çº¿ç¨‹ç»“æŸï¼Œå°†è¿›å…¥ ~WaitSleepJoin çŠ¶æ€ï¼š
 \lstset{emph={Join}}
 \begin{lstlisting}
   Thread t1, t2, t3; // new Thread(...)
@@ -234,8 +234,8 @@ public sealed class Thread {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{¹ÒÆğÏß³Ì}
-ÓÃÓÚ¹ÒÆğ~ (\textit{suspend}) ºÍ»Ö¸´~ (\textit{resume}) Ïß³ÌµÄÁ½¸ö·½·¨: 
+\frametitle{æŒ‚èµ·çº¿ç¨‹}
+ç”¨äºæŒ‚èµ·~ (\textit{suspend}) å’Œæ¢å¤~ (\textit{resume}) çº¿ç¨‹çš„ä¸¤ä¸ªæ–¹æ³•: 
 \begin{lstlisting}
 public sealed class Thread{
   public void Resume();
@@ -243,18 +243,18 @@ public sealed class Thread{
 }
 \end{lstlisting}
 \begin{itemize}
-\item ÈÎºÎÏß³Ì¶¼¿ÉÒÔ¹ÒÆğÆäËûÏß³Ì
-\item ±»¹ÒÆğµÄÏß³ÌÖ»ÄÜ±»ÆäËûÏß³Ì»Ö¸´
-\item C\# 2.0 ÍÆ¼öÊ¹ÓÃÆäËû·½Ê½ÔİÍ£Ïß³ÌÖ´ĞĞ
+\item ä»»ä½•çº¿ç¨‹éƒ½å¯ä»¥æŒ‚èµ·å…¶ä»–çº¿ç¨‹
+\item è¢«æŒ‚èµ·çš„çº¿ç¨‹åªèƒ½è¢«å…¶ä»–çº¿ç¨‹æ¢å¤
+\item C\# 2.0 æ¨èä½¿ç”¨å…¶ä»–æ–¹å¼æš‚åœçº¿ç¨‹æ‰§è¡Œ
 \end{itemize}
 
 \end{frame}
 
 
 \begin{frame}[fragile]
-\frametitle{Ê¹Ïß³ÌË¯Ãß}
+\frametitle{ä½¿çº¿ç¨‹ç¡çœ }
 \begin{itemize}
-\item Sleep ¾²Ì¬·½·¨Ê¹Ïß³ÌË¯Ãß£¬½øÈë ~WaitSleepJoin ×´Ì¬
+\item Sleep é™æ€æ–¹æ³•ä½¿çº¿ç¨‹ç¡çœ ï¼Œè¿›å…¥ ~WaitSleepJoin çŠ¶æ€
 \end{itemize}
 \begin{lstlisting}
 public sealed class Thread {
@@ -265,19 +265,19 @@ public sealed class Thread {
 }
 \end{lstlisting}
 \begin{itemize}
-\item int Öµ±íÊ¾ºÁÃëÊı£¬Îª ~0 Ê±¿ÉÓÃÓÚÏß³ÌÇĞ»»
-\item TimeSpan ¿ÉÒÔ·½±ãµÄ±íÊ¾Ê±¼ä¶Î
+\item int å€¼è¡¨ç¤ºæ¯«ç§’æ•°ï¼Œä¸º ~0 æ—¶å¯ç”¨äºçº¿ç¨‹åˆ‡æ¢
+\item TimeSpan å¯ä»¥æ–¹ä¾¿çš„è¡¨ç¤ºæ—¶é—´æ®µ
 \begin{itemize}
-\item TimeSpan.Infinite --- ÎŞÏŞ
-\item TimeSpan.FromDays(2) --- 2 Ìì
+\item TimeSpan.Infinite --- æ— é™
+\item TimeSpan.FromDays(2) --- 2 å¤©
 \end{itemize}
-\item SpinWait µ¼ÖÂÏß³ÌµÈ´ıÓÉ ~iterations ²ÎÊı¶¨ÒåµÄÊ±¼äÁ¿
+\item SpinWait å¯¼è‡´çº¿ç¨‹ç­‰å¾…ç”± ~iterations å‚æ•°å®šä¹‰çš„æ—¶é—´é‡
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÖĞÖ¹Ïß³ÌÖ´ĞĞ}
-Thread ÀàµÄÖĞÖ¹·½·¨£º
+\frametitle{ä¸­æ­¢çº¿ç¨‹æ‰§è¡Œ}
+Thread ç±»çš„ä¸­æ­¢æ–¹æ³•ï¼š
 \begin{lstlisting}
 public sealed class Thread {
   public void Abort();
@@ -286,15 +286,15 @@ public sealed class Thread {
 }
 \end{lstlisting}
 \begin{itemize}
-\item ±»ÖĞÖ¹µÄÏß³Ì»á·¢Éú ~ThreadAbortException Òì³£
-\item Ïß³ÌÖĞµÄ¼´Ê¹ ~catch ¸ÃÒì³££¬Ò²»á±»ÖĞÖ¹£¬³ı·Çµ÷ÓÃ ~Thread.ResetAbort()
-\item ¸ÃÒì³£µÄ³ÉÔ± ~ExceptionState ¼´ ~stateInfo ²ÎÊı
-\item WaitSleepJoin ×´Ì¬µÄÏß³Ì¿É±»ÖĞÖ¹£¬µ« ~Suspended ²»¿ÉÒÔ
+\item è¢«ä¸­æ­¢çš„çº¿ç¨‹ä¼šå‘ç”Ÿ ~ThreadAbortException å¼‚å¸¸
+\item çº¿ç¨‹ä¸­çš„å³ä½¿ ~catch è¯¥å¼‚å¸¸ï¼Œä¹Ÿä¼šè¢«ä¸­æ­¢ï¼Œé™¤éè°ƒç”¨ ~Thread.ResetAbort()
+\item è¯¥å¼‚å¸¸çš„æˆå‘˜ ~ExceptionState å³ ~stateInfo å‚æ•°
+\item WaitSleepJoin çŠ¶æ€çš„çº¿ç¨‹å¯è¢«ä¸­æ­¢ï¼Œä½† ~Suspended ä¸å¯ä»¥
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile,plain]
-\frametitle{Ïß³ÌÖĞÖ¹µÄÊ¾Àı}
+\frametitle{çº¿ç¨‹ä¸­æ­¢çš„ç¤ºä¾‹}
 \lstset{emph={ExceptionState,Abort}}
 \begin{lstlisting}
 ...
@@ -321,8 +321,8 @@ public sealed class Thread {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ïß³ÌµÄÓÅÏÈ¼¶}
-Thread ÀàÖĞµÄÓÅÏÈ¼¶ÌØĞÔ£º
+\frametitle{çº¿ç¨‹çš„ä¼˜å…ˆçº§}
+Thread ç±»ä¸­çš„ä¼˜å…ˆçº§ç‰¹æ€§ï¼š
 \begin{lstlisting}
 public sealed class Thread {
   public ThreadPriority Priority {get; set};
@@ -332,8 +332,8 @@ public enum ThreadPriority {
 }
 \end{lstlisting}
 \begin{itemize}
-\item ¸ßÓÅÏÈ¼¶µÃµ½¸ü¶àµÄ ~CPU Ê±¼ä
-\item ¾ßÌåµ÷¶ÈËã·¨Ëæ²Ù×÷ÏµÍ³¶ø²»Í¬
+\item é«˜ä¼˜å…ˆçº§å¾—åˆ°æ›´å¤šçš„ ~CPU æ—¶é—´
+\item å…·ä½“è°ƒåº¦ç®—æ³•éšæ“ä½œç³»ç»Ÿè€Œä¸åŒ
 \end{itemize}
 \begin{lstlisting}
   Thread t1, t2; // new Thread(...)
@@ -346,36 +346,36 @@ public enum ThreadPriority {
 \end{frame}
 
 \begin{frame}
-\frametitle{Ïß³ÌÍ¬²½}
+\frametitle{çº¿ç¨‹åŒæ­¥}
 \begin{block}{\textit{Synchronizing Threads}}
-\CJKindent È·±£¶à¸öÏß³Ì¶Ô¹²Ïí×ÊÔ´½øĞĞ»¥³â·ÃÎÊµÄ¼¼Êõ¡£
+\CJKindent ç¡®ä¿å¤šä¸ªçº¿ç¨‹å¯¹å…±äº«èµ„æºè¿›è¡Œäº’æ–¥è®¿é—®çš„æŠ€æœ¯ã€‚
 \end{block}
 \begin{itemize}
-\item »¥³âËø~(\textit{Mutex})
-\item ĞÅºÅÁ¿~(\textit{Semaphore})
-\item ÁÙ½çÇø~(\textit{Critical region})
-\item Ïß³Ì°²È«~(\textit{Thread-safe})
+\item äº’æ–¥é”~(\textit{Mutex})
+\item ä¿¡å·é‡~(\textit{Semaphore})
+\item ä¸´ç•ŒåŒº~(\textit{Critical region})
+\item çº¿ç¨‹å®‰å…¨~(\textit{Thread-safe})
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ïß³ÌÍ¬²½}
+\frametitle{çº¿ç¨‹åŒæ­¥}
 % lock, Wait(), Pulse(), PulseAll()
 \begin{itemize}
-\item µ±Í¬Ò»×ÊÔ´Ö»ÄÜ±»Ò»¸öÏß³ÌÊ¹ÓÃÊ±£¬ĞèÒªÊ¹ÓÃÍ¬²½¼¼Êõ
-\item Ê¹ÓÃ ~\texttt{lock} ½øĞĞÍ¬²½·Ç³£ÈİÒ×
-\item Ò²¿ÉÒÔÊ¹ÓÃ¹¦ÄÜ¸üÈ«µÄ ~Monitor ÀàÀ´ÊµÏÖ
+\item å½“åŒä¸€èµ„æºåªèƒ½è¢«ä¸€ä¸ªçº¿ç¨‹ä½¿ç”¨æ—¶ï¼Œéœ€è¦ä½¿ç”¨åŒæ­¥æŠ€æœ¯
+\item ä½¿ç”¨ ~\texttt{lock} è¿›è¡ŒåŒæ­¥éå¸¸å®¹æ˜“
+\item ä¹Ÿå¯ä»¥ä½¿ç”¨åŠŸèƒ½æ›´å…¨çš„ ~Monitor ç±»æ¥å®ç°
 \end{itemize}
 \medskip
 \begin{itemize}
-\item Monitor ÀàÓÃÓÚÏß³ÌµÄÍ¬²½
-\item Mutex ºÍ ~Semaphore Àà¿ÉÓÃÓÚÏß³ÌºÍ½ø³ÌµÄÍ¬²½
+\item Monitor ç±»ç”¨äºçº¿ç¨‹çš„åŒæ­¥
+\item Mutex å’Œ ~Semaphore ç±»å¯ç”¨äºçº¿ç¨‹å’Œè¿›ç¨‹çš„åŒæ­¥
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Monitor Àà}
-¾²Ì¬Àà ~Monitor ÖĞÓÃÓÚ¿ØÖÆ½øÈëÁÙ½çÇøµÄ·½·¨£º
+\frametitle{Monitor ç±»}
+é™æ€ç±» ~Monitor ä¸­ç”¨äºæ§åˆ¶è¿›å…¥ä¸´ç•ŒåŒºçš„æ–¹æ³•ï¼š
 \begin{lstlisting}
 public static class Monitor {
   public static void Enter(object obj);
@@ -388,15 +388,15 @@ public static class Monitor {
 \end{lstlisting}
 
 \begin{itemize}
-\item Monitor ÀàÊ¹ÓÃÄ³¸ö¶ÔÏó ~obj ×÷ÎªÁÙ½çÌõ¼ş
-\item Enter ·½·¨Èç¹ûµÃµ½ ~obj£¬½øÈëÁÙ½çÇø£¬·ñÔò±»×èÈû ~(\textit{blocked})
-\item Exit ·½·¨ÊÍ·Å ~obj£¬ÍË³öÁÙ½çÇø
-\item TryEnter Èç¹ûÃ»ÓĞµÃµ½ ~obj£¬²»»á±»×èÈû£¬µ«·µ»Ø ~\texttt{false}
+\item Monitor ç±»ä½¿ç”¨æŸä¸ªå¯¹è±¡ ~obj ä½œä¸ºä¸´ç•Œæ¡ä»¶
+\item Enter æ–¹æ³•å¦‚æœå¾—åˆ° ~objï¼Œè¿›å…¥ä¸´ç•ŒåŒºï¼Œå¦åˆ™è¢«é˜»å¡ ~(\textit{blocked})
+\item Exit æ–¹æ³•é‡Šæ”¾ ~objï¼Œé€€å‡ºä¸´ç•ŒåŒº
+\item TryEnter å¦‚æœæ²¡æœ‰å¾—åˆ° ~objï¼Œä¸ä¼šè¢«é˜»å¡ï¼Œä½†è¿”å› ~\texttt{false}
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ê¹ÓÃ ~Monitor Í¬²½Ê¾Àı}
+\frametitle{ä½¿ç”¨ ~Monitor åŒæ­¥ç¤ºä¾‹}
 \lstset{emph={Enter,Exit}}
 \begin{lstlisting}
 public class MyClass {
@@ -415,11 +415,11 @@ public class MyClass {
 \end{frame}
 
 % \begin{frame}[fragile]
-% \frametitle{±£»¤¾²Ì¬³ÉÔ±}
+% \frametitle{ä¿æŠ¤é™æ€æˆå‘˜}
 % \begin{itemize}
-% \item ¾²Ì¬³ÉÔ±ÊÇÏàÓ¦ÓÚÀàµÄ£¬µ«ËùÓĞ¶ÔÏó¶¼¿ÉÒÔ·ÃÎÊ
-% \item Õë¶Ô¶ÔÏóµÄÏß³Ì°²È«ÎŞ·¨Ö±½Ó±£»¤¾²Ì¬×Ö¶ÎºÍ·½·¨
-% \item Í¨¹ı ~\texttt{typeof} ²Ù×÷·û·µ»ØÀàµÄÀàĞÍ¶ÔÏó£¬×÷ÎªÁÙ½çÌõ¼ş
+% \item é™æ€æˆå‘˜æ˜¯ç›¸åº”äºç±»çš„ï¼Œä½†æ‰€æœ‰å¯¹è±¡éƒ½å¯ä»¥è®¿é—®
+% \item é’ˆå¯¹å¯¹è±¡çš„çº¿ç¨‹å®‰å…¨æ— æ³•ç›´æ¥ä¿æŠ¤é™æ€å­—æ®µå’Œæ–¹æ³•
+% \item é€šè¿‡ ~\texttt{typeof} æ“ä½œç¬¦è¿”å›ç±»çš„ç±»å‹å¯¹è±¡ï¼Œä½œä¸ºä¸´ç•Œæ¡ä»¶
 % \end{itemize}
 % \lstset{emph={typeof}}
 % \begin{lstlisting}
@@ -435,10 +435,10 @@ public class MyClass {
 % \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{´íÎó´¦Àí}
+\frametitle{é”™è¯¯å¤„ç†}
 \begin{itemize}
-\item ÁÙ½çÇøÄÚ·¢ÉúÒì³££¬Èç¹ûÃ»ÓĞÊÍ·ÅÁÙ½çÌõ¼ş¾Í¿ÉÄÜ·¢ÉúËÀËø
-\item ÒªÊ¹ÓÃ ~\texttt{try/finally} Óï¾äÀ´±ÜÃâ
+\item ä¸´ç•ŒåŒºå†…å‘ç”Ÿå¼‚å¸¸ï¼Œå¦‚æœæ²¡æœ‰é‡Šæ”¾ä¸´ç•Œæ¡ä»¶å°±å¯èƒ½å‘ç”Ÿæ­»é”
+\item è¦ä½¿ç”¨ ~\texttt{try/finally} è¯­å¥æ¥é¿å…
 \end{itemize}
 \lstset{emph={finally, Exit}}
 \begin{lstlisting}
@@ -454,9 +454,9 @@ public class MyClass {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ê¹ÓÃ~\texttt{lock} ¼ò»¯~Monitor}
+\frametitle{ä½¿ç”¨~\texttt{lock} ç®€åŒ–~Monitor}
 \begin{itemize}
-\item ±àÒëÆ÷»á½«¼ÓËøÓï¾ä~(\texttt{lock}) ·­ÒëÎª´øÓĞÒì³£´¦ÀíµÄ ~Monitor Óï¾ä
+\item ç¼–è¯‘å™¨ä¼šå°†åŠ é”è¯­å¥~(\texttt{lock}) ç¿»è¯‘ä¸ºå¸¦æœ‰å¼‚å¸¸å¤„ç†çš„ ~Monitor è¯­å¥
 \end{itemize}
 \begin{lstlisting}
   MyClass obj = new MyClass();
@@ -476,9 +476,9 @@ public class MyClass {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Í¬Ê±ĞèÒª¶à¸öËø}
+\frametitle{åŒæ—¶éœ€è¦å¤šä¸ªé”}
 \begin{itemize}
-\item ¶à¸ö ~\texttt{lock} Óï¾ä±íÊ¾ĞèÒª¶à¸öÁÙ½çÌõ¼ş
+\item å¤šä¸ª ~\texttt{lock} è¯­å¥è¡¨ç¤ºéœ€è¦å¤šä¸ªä¸´ç•Œæ¡ä»¶
 \begin{lstlisting}
   MyClass obj1 = new MyClass();
   MyClass obj2 = new MyClass();
@@ -491,15 +491,15 @@ public class MyClass {
     // Use the objects
   }
 \end{lstlisting}
-\item Èç¹ûÏß³Ì¼ä¼ÓËøË³Ğò²»Í¬£¬»á·¢ÉúËÀËø
-\item ĞèÒª¶à¸öËø£¬×îºÃÊ¹ÓÃ ~\texttt{WaitHandle} Àà
+\item å¦‚æœçº¿ç¨‹é—´åŠ é”é¡ºåºä¸åŒï¼Œä¼šå‘ç”Ÿæ­»é”
+\item éœ€è¦å¤šä¸ªé”ï¼Œæœ€å¥½ä½¿ç”¨ ~\texttt{WaitHandle} ç±»
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{·â×° ~Monitor}
+\frametitle{å°è£… ~Monitor}
 \begin{itemize}
-\item ÔÚ¶ÔÏóÄÚ²¿£¬Ê¹ÓÃ ~this ¹Ø¼ü×Ö¿ÉÒÔ¶Ô×Ô¼º¼ÓËø
+\item åœ¨å¯¹è±¡å†…éƒ¨ï¼Œä½¿ç”¨ ~this å…³é”®å­—å¯ä»¥å¯¹è‡ªå·±åŠ é”
 \end{itemize}
 \lstset{emph={lock,this}}
 \begin{lstlisting}
@@ -518,7 +518,7 @@ public class MyClass{
 \end{frame}
 
 % \begin{frame}[fragile]
-% \frametitle{Monitor ºÍ·ºĞÍ}
+% \frametitle{Monitor å’Œæ³›å‹}
 % \begin{lstlisting}
 % public class MyClass<T>
 % { T m_T;
@@ -530,7 +530,7 @@ public class MyClass{
 % }
 % \end{lstlisting}
 % \begin{itemize}
-% \item Èç¹ûÏë¶ÔÀàĞÍ²ÎÊı¼ÓËø£¬ĞèÒªÏŞÖÆÎªÒıÓÃÀàĞÍ
+% \item å¦‚æœæƒ³å¯¹ç±»å‹å‚æ•°åŠ é”ï¼Œéœ€è¦é™åˆ¶ä¸ºå¼•ç”¨ç±»å‹
 % \end{itemize}
 % \begin{lstlisting}
 % public class MyClass<T> where T : class
@@ -541,11 +541,11 @@ public class MyClass{
 % \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ïß³Ì¼äµÄµÈ´ı}
+\frametitle{çº¿ç¨‹é—´çš„ç­‰å¾…}
 \begin{itemize}
-\item µ±µÃµ½Ëøºó£¬ÓÖÏëÔİÍ£ÔËĞĞ£¬ĞèÒªÔİÊ±ÊÍ·ÅËø
-\item ÆäËûÏß³ÌÍê³ÉÁÙ½çÇøÈÎÎñºó£¬ĞèÒªÍ¨ÖªÔİÍ£µÄÏß³Ì
-\item Monitor ÖĞÌá¹©ÁËÈçÏÂ·½·¨£º
+\item å½“å¾—åˆ°é”åï¼Œåˆæƒ³æš‚åœè¿è¡Œï¼Œéœ€è¦æš‚æ—¶é‡Šæ”¾é”
+\item å…¶ä»–çº¿ç¨‹å®Œæˆä¸´ç•ŒåŒºä»»åŠ¡åï¼Œéœ€è¦é€šçŸ¥æš‚åœçš„çº¿ç¨‹
+\item Monitor ä¸­æä¾›äº†å¦‚ä¸‹æ–¹æ³•ï¼š
 \begin{lstlisting}
 public static class Monitor {
   public static bool Wait(object obj);
@@ -561,14 +561,14 @@ public static class Monitor {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ïß³Ì¼äµÄµÈ´ı}
+\frametitle{çº¿ç¨‹é—´çš„ç­‰å¾…}
 \begin{itemize}
 \setlength{\itemsep}{6pt plus 1pt}
-\item Wait ·½·¨ÊÍ·ÅËø¶ÔÏó ~obj£¬½øÈë ~WaitSleepJoin ×´Ì¬µÈ´ıÍ¨Öª
-\item Pulse ·½·¨Í¨Öª ~obj ¶ÔÏóµÄµÈ´ı¶ÓÁĞÍ·µÄÏß³Ì£¬Ëø¶ÔÏó×´Ì¬¼´½«¸Ä±ä£»´ËÊ±¸ÃÏß³Ì½«´Ó ~WaitSleepJoin
-  ×´Ì¬±äÎª ~Blocked ×´Ì¬£¬µÈ´ıËø¶ÔÏó ~obj ±»ÊÍ·Å
-\item PulseAll ·½·¨Í¬ÉÏ£¬µ«Ó°Ïì ~obj ¶ÔÏóµÈ´ı¶ÓÁĞµÄËùÓĞÏß³Ì
-\item Ö»ÓĞËøµÄÕ¼ÓĞÕß²Å¿ÉÒÔµ÷ÓÃ ~Wait¡¢~Pulse »ò ~PulseAll ·½·¨
+\item Wait æ–¹æ³•é‡Šæ”¾é”å¯¹è±¡ ~objï¼Œè¿›å…¥ ~WaitSleepJoin çŠ¶æ€ç­‰å¾…é€šçŸ¥
+\item Pulse æ–¹æ³•é€šçŸ¥ ~obj å¯¹è±¡çš„ç­‰å¾…é˜Ÿåˆ—å¤´çš„çº¿ç¨‹ï¼Œé”å¯¹è±¡çŠ¶æ€å³å°†æ”¹å˜ï¼›æ­¤æ—¶è¯¥çº¿ç¨‹å°†ä» ~WaitSleepJoin
+  çŠ¶æ€å˜ä¸º ~Blocked çŠ¶æ€ï¼Œç­‰å¾…é”å¯¹è±¡ ~obj è¢«é‡Šæ”¾
+\item PulseAll æ–¹æ³•åŒä¸Šï¼Œä½†å½±å“ ~obj å¯¹è±¡ç­‰å¾…é˜Ÿåˆ—çš„æ‰€æœ‰çº¿ç¨‹
+\item åªæœ‰é”çš„å æœ‰è€…æ‰å¯ä»¥è°ƒç”¨ ~Waitã€~Pulse æˆ– ~PulseAll æ–¹æ³•
 \end{itemize}
 \begin{columns}
 \column{.5\textwidth}
@@ -595,7 +595,7 @@ void Lock_Pulse(object obj) {
 \end{frame}
 
 \begin{frame}[fragile,plain]
-\frametitle{µÈ´ıÊ¾Àı}
+\frametitle{ç­‰å¾…ç¤ºä¾‹}
 \lstset{emph={Wait,Pulse,lock}}
 \begin{lstlisting}[escapeinside='']
 class MonitorSample {
@@ -604,9 +604,9 @@ class MonitorSample {
     int counter = 0;
     lock(q) {
       while(counter < 1000) {
-        Monitor.Wait(q);    // 'ÊÍ·Å²¢µÈ´ı'
+        Monitor.Wait(q);    // 'é‡Šæ”¾å¹¶ç­‰å¾…'
         q.Enqueue(counter++);
-        Monitor.Pulse(q); } // 'Í¨Öª'
+        Monitor.Pulse(q); } // 'é€šçŸ¥'
     }
   }
   public void run2() { // for thread 2
@@ -622,12 +622,12 @@ class MonitorSample {
 \end{frame}
 
 \begin{frame}[fragile,plain]
-\frametitle{Mutex Àà}
+\frametitle{Mutex ç±»}
 % http://msdn2.microsoft.com/zh-cn/library/system.threading.mutex.aspx
 \begin{itemize}
-\item ÓÃÓÚ¶¨Òå»¥³âËø~(\textit{mutex})
-\item µ÷ÓÃ~ WaitOne ·½·¨»ñµÃËø£¬½øÈëÁÙ½çÇø£¬·ñÔò±»×èÈû
-\item ReleaseMutex ·½·¨ÓÃÓÚÊÍ·ÅËø
+\item ç”¨äºå®šä¹‰äº’æ–¥é”~(\textit{mutex})
+\item è°ƒç”¨~ WaitOne æ–¹æ³•è·å¾—é”ï¼Œè¿›å…¥ä¸´ç•ŒåŒºï¼Œå¦åˆ™è¢«é˜»å¡
+\item ReleaseMutex æ–¹æ³•ç”¨äºé‡Šæ”¾é”
 \end{itemize}
 
 \begin{lstlisting}
@@ -651,7 +651,7 @@ public abstract class WaitHandle{
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Mutex µÄÊ¹ÓÃ}
+\frametitle{Mutex çš„ä½¿ç”¨}
 \lstset{emph={WaitOne,ReleaseMutex}}
 \begin{lstlisting}
 public class MutexDemo: IDisposable {
@@ -678,12 +678,12 @@ public class MutexDemo: IDisposable {
 
 
 \begin{frame}[fragile]
-\frametitle{Semaphore Àà}
+\frametitle{Semaphore ç±»}
 % http://msdn2.microsoft.com/zh-cn/library/system.threading.semaphore.aspx
 \begin{itemize}
-\item C\# 2.0 µÄ ~Semaphore Àà£¬ÓÃÓÚÏŞÖÆ·ÃÎÊÁÙ½ç×ÊÔ´µÄÏß³ÌÊı
-\item ³õÊ¼»¯ĞÅºÅÁ¿Ê±£¬¿ÉÖ¸¶¨ÒÑÕ¼ÓÃµÄĞÅºÅÁ¿ºÍ×î´óÊıÁ¿
-\item Release ·½·¨¿ÉÒÔÊÍ·ÅÒ»¸ö»ò¶à¸öĞÅºÅÁ¿
+\item C\# 2.0 çš„ ~Semaphore ç±»ï¼Œç”¨äºé™åˆ¶è®¿é—®ä¸´ç•Œèµ„æºçš„çº¿ç¨‹æ•°
+\item åˆå§‹åŒ–ä¿¡å·é‡æ—¶ï¼Œå¯æŒ‡å®šå·²å ç”¨çš„ä¿¡å·é‡å’Œæœ€å¤§æ•°é‡
+\item Release æ–¹æ³•å¯ä»¥é‡Šæ”¾ä¸€ä¸ªæˆ–å¤šä¸ªä¿¡å·é‡
 \end{itemize}
 \begin{lstlisting}
 public sealed class Semaphore : WaitHandle {
@@ -698,10 +698,10 @@ public sealed class Semaphore : WaitHandle {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Interlocked Àà}
+\frametitle{Interlocked ç±»}
 \begin{itemize}
-\item ¾²Ì¬Àà~Interlocked Îª¶à¸öÏß³Ì¹²ÏíµÄ±äÁ¿Ìá¹©Ô­×Ó²Ù×÷
-\item ¼ò»¯¶Ôµ¥¸ö±äÁ¿·ÃÎÊµÄÏß³Ì°²È«ÎÊÌâ
+\item é™æ€ç±»~Interlocked ä¸ºå¤šä¸ªçº¿ç¨‹å…±äº«çš„å˜é‡æä¾›åŸå­æ“ä½œ
+\item ç®€åŒ–å¯¹å•ä¸ªå˜é‡è®¿é—®çš„çº¿ç¨‹å®‰å…¨é—®é¢˜
 \end{itemize}
 \begin{lstlisting}[escapeinside='']
 public static class Interlocked {
@@ -714,7 +714,7 @@ public static class Interlocked {
 }
 \end{lstlisting}
 \begin{itemize}
-\item ÀıÈç£¬¶Ô¾²Ì¬±äÁ¿µÄĞŞ¸Ä£º
+\item ä¾‹å¦‚ï¼Œå¯¹é™æ€å˜é‡çš„ä¿®æ”¹ï¼š
 \lstset{emph={Interlocked,Increment}}
 \begin{lstlisting}
 public class SomeClass {
@@ -727,14 +727,14 @@ public class SomeClass {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{.NET ¶àÏß³Ì·şÎñ}
+\frametitle{.NET å¤šçº¿ç¨‹æœåŠ¡}
 \begin{itemize}
-\item Ïß³ÌÏà¹ØµÄ¾²Ì¬±äÁ¿
+\item çº¿ç¨‹ç›¸å…³çš„é™æ€å˜é‡
 \begin{lstlisting}
   [ThreadStatic]
   static string m_MyString;
 \end{lstlisting}
-\item Ïß³Ì±¾µØ´æ´¢ ~TLS (\textit{Thread Local Storage})
+\item çº¿ç¨‹æœ¬åœ°å­˜å‚¨ ~TLS (\textit{Thread Local Storage})
 \begin{lstlisting}
 public sealed class Thread {
   public static LocalDataStoreSlot AllocateDataSlot();
@@ -744,17 +744,17 @@ public sealed class Thread {
                       GetNamedDataSlot(string name);
 }
 \end{lstlisting}
-\item Ïß³Ì³Ø ~(\textit{Thread Pool})
+\item çº¿ç¨‹æ±  ~(\textit{Thread Pool})
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ThreadPool Àà}
+\frametitle{ThreadPool ç±»}
 % http://msdn2.microsoft.com/zh-cn/library/0ka9477y.aspx
 \begin{itemize}
-\item Ã¿¸ö½ø³Ì¶¼ÓĞÒ»¸öÏß³Ì³Ø£¬ÓÉ ~.NET ·ÖÅäºÍ¹ÜÀí
-\item Ïß³Ì³ØÖĞµÄÏß³Ì£¬²»ĞèÒª´´½¨£¬¿ÉÒÔÖ±½ÓÊ¹ÓÃ
-\item Í¨¹ı¾²Ì¬Àà ~ThreadPool À´Ê¹ÓÃÏß³Ì³Ø
+\item æ¯ä¸ªè¿›ç¨‹éƒ½æœ‰ä¸€ä¸ªçº¿ç¨‹æ± ï¼Œç”± ~.NET åˆ†é…å’Œç®¡ç†
+\item çº¿ç¨‹æ± ä¸­çš„çº¿ç¨‹ï¼Œä¸éœ€è¦åˆ›å»ºï¼Œå¯ä»¥ç›´æ¥ä½¿ç”¨
+\item é€šè¿‡é™æ€ç±» ~ThreadPool æ¥ä½¿ç”¨çº¿ç¨‹æ± 
 \end{itemize}
 \begin{lstlisting}
 public static class ThreadPool{
@@ -768,10 +768,10 @@ public delegate void WaitCallback (Object s);
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ïß³Ì³ØµÄÊ¹ÓÃ}
+\frametitle{çº¿ç¨‹æ± çš„ä½¿ç”¨}
 \begin{itemize}
-\item Ïß³Ì³ØÏß³ÌÒ²ÊÇÏß³Ì¶ÔÏó£¬¿ÉÒÔ×÷Îª~ Thread ¶ÔÏóÊ¹ÓÃ
-\item Ïß³Ì³ØÏß³ÌÌØĞÔ ~IsThreadPoolThread Îª true
+\item çº¿ç¨‹æ± çº¿ç¨‹ä¹Ÿæ˜¯çº¿ç¨‹å¯¹è±¡ï¼Œå¯ä»¥ä½œä¸º~ Thread å¯¹è±¡ä½¿ç”¨
+\item çº¿ç¨‹æ± çº¿ç¨‹ç‰¹æ€§ ~IsThreadPoolThread ä¸º true
 \end{itemize}
 \lstset{emph={QueueUserWorkItem}}
 \begin{lstlisting}
@@ -791,10 +791,10 @@ public delegate void WaitCallback (Object s);
 
 
 \begin{frame}[fragile]
-\frametitle{Timer Àà}
+\frametitle{Timer ç±»}
 \begin{itemize}
-\item Timer ÀàÓÃÓÚ¶¨Ê±Ö´ĞĞÄ³Ò»ÈÎÎñ
-\item Timer ÀàÊ¹ÓÃÏß³Ì³ØÏß³Ì
+\item Timer ç±»ç”¨äºå®šæ—¶æ‰§è¡ŒæŸä¸€ä»»åŠ¡
+\item Timer ç±»ä½¿ç”¨çº¿ç¨‹æ± çº¿ç¨‹
 \end{itemize}
 \begin{lstlisting}
 public sealed class Timer {
@@ -812,7 +812,7 @@ public delegate void TimerCallback(object state);
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Timer µÄÊ¹ÓÃ}
+\frametitle{Timer çš„ä½¿ç”¨}
 \begin{lstlisting}
 using System;  using System.Threading;
 class prog
@@ -839,6 +839,6 @@ class prog
 % TeX-header-end: "% End-of-Header$"
 % TeX-trailer-start: "% Start-of-Trailer$"
 % fill-column: 100
-% coding: gbk-dos
+% coding: utf-8
 % End:
 

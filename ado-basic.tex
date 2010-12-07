@@ -1,86 +1,87 @@
 %% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> %%
 
-\part{ADO.NET ¼ò½é}
+\part{ADO.NET ç®€ä»‹}
 \begin{frame}
 \frametitle{Outline}
 \tableofcontents
 \end{frame}
 
-\section{ADO.NET »ù´¡}
+\section{ADO.NET åŸºç¡€}
 
 \begin{frame}
-\frametitle{ADO.NET »ù´¡}
+\frametitle{ADO.NET åŸºç¡€}
 \begin{block}{\textit{ActiveX Data Object .NET}}
-  \CJKindent ÓÉ¹«¹²ÓïÑÔÔËĞĞÊ± ~(\textit{CLR}) ¹ÜÀíµÄÊı¾İ¹ÜÀí¿â£¬ÀûÓÃ ~XML ÔÚÓ¦
-  ÓÃ³ÌĞòÖ®¼ä½øĞĞÊı¾İ½»»»¡£
+  \CJKindent ç”±å…¬å…±è¯­è¨€è¿è¡Œæ—¶ ~(\textit{CLR}) ç®¡ç†çš„æ•°æ®ç®¡ç†åº“ï¼Œåˆ©ç”¨ ~XML åœ¨åº”
+  ç”¨ç¨‹åºä¹‹é—´è¿›è¡Œæ•°æ®äº¤æ¢ã€‚
 \end{block}
 \begin{itemize}
-\item ±ãÓÚ´´½¨¸ßĞ§¡¢¿É¿¿»ùÓÚ ~Internet Êı¾İ¿âÓ¦ÓÃ³ÌĞò
-\item Ó¦ÓÃ³ÌĞò¸ù¾İĞèÒªÁ¬½ÓÊı¾İ¿â£¬Èç¶ÁÈ¡»ò¸üĞÂÊ±
-\item ÀûÓÚ·Ö²¼Ê½Êı¾İ·ÃÎÊ£¬½ÚÊ¡×ÊÔ´
-\item ÍĞ¹Ü»·¾³ÖĞÔËĞĞ£¬ÓÉ ~CLR ¸ºÔğ×ÊÔ´¹ÜÀí
-\item ÀûÓÃ ~XML ¶àÖÖ·½Ê½´«µİÊı¾İ£¬±ãÓÚÊı¾İ½»»»
-\item Visual Stuido Ìá¹©¿ÉÊÓ»¯Êı¾İ×é¼ş
+\item ä¾¿äºåˆ›å»ºé«˜æ•ˆã€å¯é åŸºäº ~Internet æ•°æ®åº“åº”ç”¨ç¨‹åº
+\item åº”ç”¨ç¨‹åºæ ¹æ®éœ€è¦è¿æ¥æ•°æ®åº“ï¼Œå¦‚è¯»å–æˆ–æ›´æ–°æ—¶
+\item åˆ©äºåˆ†å¸ƒå¼æ•°æ®è®¿é—®ï¼ŒèŠ‚çœèµ„æº
+\item æ‰˜ç®¡ç¯å¢ƒä¸­è¿è¡Œï¼Œç”± ~CLR è´Ÿè´£èµ„æºç®¡ç†
+\item åˆ©ç”¨ ~XML å¤šç§æ–¹å¼ä¼ é€’æ•°æ®ï¼Œä¾¿äºæ•°æ®äº¤æ¢
+\item Visual Stuido æä¾›å¯è§†åŒ–æ•°æ®ç»„ä»¶
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Microsoft Êı¾İ·ÃÎÊ¼¼Êõ»Ø¹Ë}
+\frametitle{Microsoft æ•°æ®è®¿é—®æŠ€æœ¯å›é¡¾}
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
 \item Open Database Connectivity (ODBC)
- % µÚÒ»¸ö¹æ·¶µÄÊı¾İ·ÃÎÊ¼¼Êõ
- % Ö»ÄÜ·ÃÎÊ¹ØÏµÊı¾İ£¬ÎŞ·¨¼æÈİ·Ç¹ØÏµÊı¾İ
+ % ç¬¬ä¸€ä¸ªè§„èŒƒçš„æ•°æ®è®¿é—®æŠ€æœ¯
+ % åªèƒ½è®¿é—®å…³ç³»æ•°æ®ï¼Œæ— æ³•å…¼å®¹éå…³ç³»æ•°æ®
 \item Data Access Object (DAO)
- % Ò»×é·ÃÎÊÊı¾İ¿âµÄ ~COM ½Ó¿Ú£¬Ö±½Ó·ÃÎÊÊı¾İ¿â
- % ±ãÓÚ·ÃÎÊ ~Access, FoxPro, SQL Server
+ % ä¸€ç»„è®¿é—®æ•°æ®åº“çš„ ~COM æ¥å£ï¼Œç›´æ¥è®¿é—®æ•°æ®åº“
+ % ä¾¿äºè®¿é—® ~Access, FoxPro, SQL Server
 \item MFC ODBC and DAO classes
- % C++ Àà¿â£¬µ«²»¹»Áé»î£¬Ğ§ÂÊÒ²²»ÀíÏë£¬ÒòÎª²ã´ÎÌ«¶à
+ % C++ ç±»åº“ï¼Œä½†ä¸å¤Ÿçµæ´»ï¼Œæ•ˆç‡ä¹Ÿä¸ç†æƒ³ï¼Œå› ä¸ºå±‚æ¬¡å¤ªå¤š
 \item Remote Data Objects (RDO)
- % ²ã´Î¶à£¬Ğ§ÂÊµÍ£¬ÒòÎªÈÔÊ¹ÓÃ ~ODBC£¬Ê¹ÓÃÊÜµ½ÏŞÖÆ
+ % å±‚æ¬¡å¤šï¼Œæ•ˆç‡ä½ï¼Œå› ä¸ºä»ä½¿ç”¨ ~ODBCï¼Œä½¿ç”¨å—åˆ°é™åˆ¶
 \item Object Linking and Embedding Database (OLE DB)
- % Ö§³Ö¶àÖÖÊı¾İÔ´£¬Ê¹ÓÃÁé»î
- % ±ØĞë°²×° ~OLE DB Provider£¬Ê¹ÓÃ½Ï¸´ÔÓ
+ % æ”¯æŒå¤šç§æ•°æ®æºï¼Œä½¿ç”¨çµæ´»
+ % å¿…é¡»å®‰è£… ~OLE DB Providerï¼Œä½¿ç”¨è¾ƒå¤æ‚
 \item ActiveX Data Objects (ADO)
- % Ê¹ÓÃ ~COM °ü×°£¬Ê¹ÓÃ½Ï¼òµ¥
- % Ğ§ÂÊ½Ï¸ß£¬Ê¹ÓÃ½ÏÁé»î
+ % ä½¿ç”¨ ~COM åŒ…è£…ï¼Œä½¿ç”¨è¾ƒç®€å•
+ % æ•ˆç‡è¾ƒé«˜ï¼Œä½¿ç”¨è¾ƒçµæ´»
 \end{itemize}
 % \bigskip
-% \pause Êı¾İ¿âµÄ·ÃÎÊ¡¢¹ÜÀíµÈ£¬ÊÇÆóÒµÓ¦ÓÃ³ÌĞò¿ª·¢ÖĞµÄºËĞÄÎÊÌâ¡£
+% \pause æ•°æ®åº“çš„è®¿é—®ã€ç®¡ç†ç­‰ï¼Œæ˜¯ä¼ä¸šåº”ç”¨ç¨‹åºå¼€å‘ä¸­çš„æ ¸å¿ƒé—®é¢˜ã€‚
 \end{frame}
 
 \begin{frame}
-\frametitle{ADO.NET ÃüÃû¿Õ¼ä}
+\frametitle{ADO.NET å‘½åç©ºé—´}
 
 \begin{itemize}
-\item ADO.NET ÊÇ ~FCL µÄÒ»²¿·Ö
-\item °üº¬ÔÚ³ÌĞò¼¯ ~System.Data.dll ÖĞ
+\item ADO.NET æ˜¯ ~FCL çš„ä¸€éƒ¨åˆ†
+\item åŒ…å«åœ¨ç¨‹åºé›† ~System.Data.dll ä¸­
 \end{itemize}
 
 \begin{tabular}{l|l}
 \hline
 \textbf{Namespaces} & \textbf{Description} \\
 \hline
-\small System.Data & ÊµÏÖ ~ADO.NET µÄÀà¡¢½Ó¿Ú¡¢Î¯ÍĞÀàĞÍµÈ \\
-\small System.Data.Common & ²»Í¬Êı¾İÌá¹©³ÌĞò¹²ÏíµÄÀà \\
-\small System.Data.Odbc & ODBC Êı¾İÌá¹©³ÌĞò \\
-\small System.Data.OleDb & OLE DB Êı¾İÌá¹©³ÌĞò \\
-\small System.Data.OracleClient & Oracle Êı¾İÌá¹©³ÌĞò \\
-\small System.Data.SqlClient & SQL Server Êı¾İÌá¹©³ÌĞò \\
-\small System.Data.Sql & ÓÃÓÚÖ§³Ö ~SQL Server µÄ¹¦ÄÜÀà¿â \\
+\small System.Data & å®ç° ~ADO.NET çš„ç±»ã€æ¥å£ã€å§”æ‰˜ç±»å‹ç­‰ \\
+\small System.Data.Common & ä¸åŒæ•°æ®æä¾›ç¨‹åºå…±äº«çš„ç±» \\
+\small System.Data.Odbc & ODBC æ•°æ®æä¾›ç¨‹åº \\
+\small System.Data.OleDb & OLE DB æ•°æ®æä¾›ç¨‹åº \\
+\small System.Data.OracleClient & Oracle æ•°æ®æä¾›ç¨‹åº \\
+\small System.Data.SqlClient & SQL Server æ•°æ®æä¾›ç¨‹åº \\
+\small System.Data.Sql & ç”¨äºæ”¯æŒ ~SQL Server çš„åŠŸèƒ½ç±»åº“ \\
 \hline
 \end{tabular}
 \end{frame}
 
 \begin{frame}
-\frametitle{ADO.NET µÄ½á¹¹}
+\frametitle{ADO.NET çš„ç»“æ„}
 
 \begin{itemize}
-\item Á½¸öºËĞÄ×é¼ş£º\textit{Data Provider} ºÍ ~\textit{Dataset}
+\item ä¸¤ä¸ªæ ¸å¿ƒç»„ä»¶ï¼š\textit{Data Provider} å’Œ ~\textit{Dataset}
 \end{itemize}
 
 \begin{center}
-  \includegraphics[scale=.46]{ado-arch}
+%  \includegraphics[scale=.46]{ado-arch}
+  \includegraphics[scale=.46]{ado-arch-png}
 \end{center}
 
 \end{frame}
@@ -88,11 +89,11 @@
 \section{Data Provider}
 
 \begin{frame}
-\frametitle{Êı¾İÌá¹©³ÌĞò ~(\textit{Data Provider})}
+\frametitle{æ•°æ®æä¾›ç¨‹åº ~(\textit{Data Provider})}
 \begin{itemize}
-\item Ó¦ÓÃ³ÌĞò·ÃÎÊÊı¾İ¿âÒÀÀµÓÚ ~\textit{.NET Framework data provider}
-\item ¿Í»§³ÌĞòºÍÊı¾İÌá¹©³ÌĞò£¬ÔËĞĞÔÚ ~CLR ÉÏ
-\item Êı¾İÌá¹©³ÌĞò¿ÉÄÜÒÀÀµÆäËü³ÌĞò
+\item åº”ç”¨ç¨‹åºè®¿é—®æ•°æ®åº“ä¾èµ–äº ~\textit{.NET Framework data provider}
+\item å®¢æˆ·ç¨‹åºå’Œæ•°æ®æä¾›ç¨‹åºï¼Œè¿è¡Œåœ¨ ~CLR ä¸Š
+\item æ•°æ®æä¾›ç¨‹åºå¯èƒ½ä¾èµ–å…¶å®ƒç¨‹åº
 \end{itemize}
 \begin{center}
   \includegraphics[scale=.5]{ado-provider}
@@ -100,12 +101,12 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{Êı¾İÌá¹©³ÌĞòµÄ¹¦ÄÜ}
+\frametitle{æ•°æ®æä¾›ç¨‹åºçš„åŠŸèƒ½}
 \begin{itemize}
-\item Connection ½¨Á¢ºÍÊÍ·ÅÁ¬½Ó£¬¿ÉÓÃÓÚÆô¶¯ÊÂÎñ
-\item Command Ö´ĞĞ ~SQL Óï¾ä»ò´æ´¢¹ı³Ì
-\item DataReader Ö»¶Á¡¢Ë³ĞòµÄ ~(\textit{Sequential}) Ö±½Ó·ÃÎÊ¿âÖĞÊı¾İ
-\item DataAdapter ´´½¨²¢×é×° ~DataSet ÊµÀı
+\item Connection å»ºç«‹å’Œé‡Šæ”¾è¿æ¥ï¼Œå¯ç”¨äºå¯åŠ¨äº‹åŠ¡
+\item Command æ‰§è¡Œ ~SQL è¯­å¥æˆ–å­˜å‚¨è¿‡ç¨‹
+\item DataReader åªè¯»ã€é¡ºåºçš„ ~(\textit{Sequential}) ç›´æ¥è®¿é—®åº“ä¸­æ•°æ®
+\item DataAdapter åˆ›å»ºå¹¶ç»„è£… ~DataSet å®ä¾‹
 \end{itemize}
 \begin{center}
   \input{pgf/ado-inprov}
@@ -113,11 +114,11 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{Ìá¹©³ÌĞòµÄÃüÃû¿Õ¼ä}
+\frametitle{æä¾›ç¨‹åºçš„å‘½åç©ºé—´}
 % in System.Data.dll assembly
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
-\item ÌØ¶¨µÄÊı¾İÌá¹©³ÌĞò£¬Î»ÓÚ²»Í¬µÄÃüÃû¿Õ¼ä
+\item ç‰¹å®šçš„æ•°æ®æä¾›ç¨‹åºï¼Œä½äºä¸åŒçš„å‘½åç©ºé—´
 \begin{itemize}
 \setlength{\itemsep}{6pt plus 1pt}
 \item System.Data.Odbc
@@ -125,71 +126,71 @@
 \item System.Data.OracleClient
 \item System.Data.SqlClient
 \end{itemize}
-\item ¹«¹²µÄÊı¾İÌá¹©³ÌĞò
+\item å…¬å…±çš„æ•°æ®æä¾›ç¨‹åº
   \begin{itemize}
   \item System.Data.Common
   \smallskip
-  \item ÓëÆäËüÌá¹©³ÌĞò¹²ÏíµÄÀàºÍ³éÏó»ùÀà
-  \item Ìá¹©ÁËÍ¨ÓÃ±àÂëµÄÊµÏÖ·½Ê½
+  \item ä¸å…¶å®ƒæä¾›ç¨‹åºå…±äº«çš„ç±»å’ŒæŠ½è±¡åŸºç±»
+  \item æä¾›äº†é€šç”¨ç¼–ç çš„å®ç°æ–¹å¼
   \end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{SQL Server µÄÊı¾İÌá¹©³ÌĞò}
+\frametitle{SQL Server çš„æ•°æ®æä¾›ç¨‹åº}
 
 \begin{itemize}
-\item System.Data.SqlClient ÖĞ
-\item ÔÚ ~.NET ÉÏÖ±½Ó·ÃÎÊ ~SQL Server
+\item System.Data.SqlClient ä¸­
+\item åœ¨ ~.NET ä¸Šç›´æ¥è®¿é—® ~SQL Server
 \end{itemize}
 
   \begin{tabular}{l|l}
     \hline
     \textbf{Classes} & \textbf{Description} \\
     \hline
-    \texttt{SqlConnection} & ½¨Á¢Óë ~SQL Server µÄÁ¬½Ó \\
-    \texttt{SqlCommand} & ÓÃÓÚÖ´ĞĞµÄ ~SQL ²éÑ¯¡¢Óï¾ä»ò´æ´¢¹ı³Ì \\
-    \texttt{SqlDataAdapter} & ½¨Á¢Êı¾İÔ´ºÍ ~\textit{datasets} Ö®¼äµÄ¹ØÏµ \\
-    \texttt{SqlDataReader} & ÓÃÓÚÖ»¶ÁµÄ¡¢ÏòÇ°µÄÊı¾İ¿â·ÃÎÊ \\
-    \texttt{SqlError} & »ñÈ¡ ~SQL Server ÖĞµÄ³ö´í»ò¾¯¸æĞÅÏ¢ \\
-    \texttt{SqlException} & Êı¾İ¿âÏà¹ØµÄÒì³£ \\
-    \texttt{SqlParameter} & ±íÊ¾²éÑ¯ÖĞµÄ²ÎÊı \\
-    \texttt{SqlTransaction} & ±íÊ¾ ~SQL Server µÄÊÂÎñ \\
+    \texttt{SqlConnection} & å»ºç«‹ä¸ ~SQL Server çš„è¿æ¥ \\
+    \texttt{SqlCommand} & ç”¨äºæ‰§è¡Œçš„ ~SQL æŸ¥è¯¢ã€è¯­å¥æˆ–å­˜å‚¨è¿‡ç¨‹ \\
+    \texttt{SqlDataAdapter} & å»ºç«‹æ•°æ®æºå’Œ ~\textit{datasets} ä¹‹é—´çš„å…³ç³» \\
+    \texttt{SqlDataReader} & ç”¨äºåªè¯»çš„ã€å‘å‰çš„æ•°æ®åº“è®¿é—® \\
+    \texttt{SqlError} & è·å– ~SQL Server ä¸­çš„å‡ºé”™æˆ–è­¦å‘Šä¿¡æ¯ \\
+    \texttt{SqlException} & æ•°æ®åº“ç›¸å…³çš„å¼‚å¸¸ \\
+    \texttt{SqlParameter} & è¡¨ç¤ºæŸ¥è¯¢ä¸­çš„å‚æ•° \\
+    \texttt{SqlTransaction} & è¡¨ç¤º ~SQL Server çš„äº‹åŠ¡ \\
     \hline
   \end{tabular}
 
 \end{frame}
 
 \begin{frame}
-\frametitle{OLE DataBase µÄÊı¾İÌá¹©³ÌĞò}
+\frametitle{OLE DataBase çš„æ•°æ®æä¾›ç¨‹åº}
 
 \begin{itemize}
-\item System.Data.OleDb ÖĞ
-\item ÔÚ ~.NET ÉÏ£¬Í¨¹ı ~OLE Çı¶¯·ÃÎÊÆäËûÊı¾İ¿â
+\item System.Data.OleDb ä¸­
+\item åœ¨ ~.NET ä¸Šï¼Œé€šè¿‡ ~OLE é©±åŠ¨è®¿é—®å…¶ä»–æ•°æ®åº“
 \end{itemize}
 
   \begin{tabular}{l|l}
     \hline
     \textbf{Classes} & \textbf{Description} \\
     \hline
-    \texttt{OleDbConnection} & ½¨Á¢ÓëÊı¾İ¿âµÄÁ¬½Ó \\
-    \texttt{OleDbCommand} & ÓÃÓÚÖ´ĞĞµÄ ~SQL ²éÑ¯¡¢Óï¾ä»ò´æ´¢¹ı³Ì \\
-    \texttt{OleDbDataAdapter} & ½¨Á¢Êı¾İÔ´ºÍ ~\textit{datasets} Ö®¼äµÄ¹ØÏµ \\
-    \texttt{OleDbDataReader} & ÓÃÓÚÖ»¶ÁµÄ¡¢ÏòÇ°µÄÊı¾İ¿â·ÃÎÊ \\
-    \texttt{OleDbError} & »ñÈ¡Êı¾İ¿âÖĞµÄ³ö´í»ò¾¯¸æĞÅÏ¢ \\
-    \texttt{OleDbException} & Êı¾İ¿âÏà¹ØµÄÒì³£ \\
-    \texttt{OleDbParameter} & ±íÊ¾²éÑ¯ÖĞµÄ²ÎÊı \\
-    \texttt{OleDbTransaction} & ±íÊ¾Êı¾İ¿âµÄÊÂÎñ \\
+    \texttt{OleDbConnection} & å»ºç«‹ä¸æ•°æ®åº“çš„è¿æ¥ \\
+    \texttt{OleDbCommand} & ç”¨äºæ‰§è¡Œçš„ ~SQL æŸ¥è¯¢ã€è¯­å¥æˆ–å­˜å‚¨è¿‡ç¨‹ \\
+    \texttt{OleDbDataAdapter} & å»ºç«‹æ•°æ®æºå’Œ ~\textit{datasets} ä¹‹é—´çš„å…³ç³» \\
+    \texttt{OleDbDataReader} & ç”¨äºåªè¯»çš„ã€å‘å‰çš„æ•°æ®åº“è®¿é—® \\
+    \texttt{OleDbError} & è·å–æ•°æ®åº“ä¸­çš„å‡ºé”™æˆ–è­¦å‘Šä¿¡æ¯ \\
+    \texttt{OleDbException} & æ•°æ®åº“ç›¸å…³çš„å¼‚å¸¸ \\
+    \texttt{OleDbParameter} & è¡¨ç¤ºæŸ¥è¯¢ä¸­çš„å‚æ•° \\
+    \texttt{OleDbTransaction} & è¡¨ç¤ºæ•°æ®åº“çš„äº‹åŠ¡ \\
     \hline
   \end{tabular}
 
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{½¨Á¢Á¬½Ó}
+\frametitle{å»ºç«‹è¿æ¥}
 \begin{itemize}
-\item ³ÌĞòÊ¹ÓÃÊı¾İ¿âÇ°£¬±ØĞë½¨Á¢Ò»¸öÁ¬½Ó
-\item Ê¹ÓÃ ~Connection Àà¶ÔÏóĞÂ½¨Á¬½Ó£¬ÈçÊ¹ÓÃ ~OLE DB
+\item ç¨‹åºä½¿ç”¨æ•°æ®åº“å‰ï¼Œå¿…é¡»å»ºç«‹ä¸€ä¸ªè¿æ¥
+\item ä½¿ç”¨ ~Connection ç±»å¯¹è±¡æ–°å»ºè¿æ¥ï¼Œå¦‚ä½¿ç”¨ ~OLE DB
 \begin{lstlisting}
 using System.Data.OleDb;
 ...
@@ -204,14 +205,14 @@ conn.Close(); // or conn.Dispose()
 \end{lstlisting}
 
 \begin{itemize}
-\item ³£ÓÃµÄ ~Provider ²ÎÊı
+\item å¸¸ç”¨çš„ ~Provider å‚æ•°
 
 \begin{tabular}{l|l}
 \hline
-  \small Microsoft.Jet.OLEDB.4.0 & ·ÃÎÊ ~Access \\
-  DB2OLEDB & ·ÃÎÊ ~DB2 \\
-  MSDAORA & ·ÃÎÊ ~Oracle \\
-  MSDASQL & ·ÃÎÊ ~ODBC \\
+  \small Microsoft.Jet.OLEDB.4.0 & è®¿é—® ~Access \\
+  DB2OLEDB & è®¿é—® ~DB2 \\
+  MSDAORA & è®¿é—® ~Oracle \\
+  MSDASQL & è®¿é—® ~ODBC \\
 \hline
 \end{tabular}
 \end{itemize}
@@ -219,15 +220,15 @@ conn.Close(); // or conn.Dispose()
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Á¬½Ó´® ~(\textit{Connection String})}
+\frametitle{è¿æ¥ä¸² ~(\textit{Connection String})}
 \begin{itemize}
-\item ĞÎÈç ~attribute=value µÄ``ÊôĞÔÃû---Öµ''¶Ô
-\item ²»Í¬µÄÌá¹©³ÌĞòµÄÊôĞÔÃû²»Í¬£¬³£¼ûµÄÊôĞÔÃû
+\item å½¢å¦‚ ~attribute=value çš„``å±æ€§å---å€¼''å¯¹
+\item ä¸åŒçš„æä¾›ç¨‹åºçš„å±æ€§åä¸åŒï¼Œå¸¸è§çš„å±æ€§å
 \begin{itemize}
 \item Provider, Data Source, Inintial Catalog
 \item User ID, Password, Persist Security Info \dots
 \end{itemize}
-\item Ò²¿ÉÒÔÊ¹ÓÃ ConnectionStringBuilder Àà¹¹Ôì
+\item ä¹Ÿå¯ä»¥ä½¿ç”¨ ConnectionStringBuilder ç±»æ„é€ 
 \begin{lstlisting}
 SqlConnectionStringBuilder s = 
   new SqlConnectionStringBuilder();
@@ -244,10 +245,10 @@ conn.Open();
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{´´½¨ÃüÁî¶ÔÏó ~(\textit{Command})}
+\frametitle{åˆ›å»ºå‘½ä»¤å¯¹è±¡ ~(\textit{Command})}
 \begin{itemize}
-\item µ±½¨Á¢ÁËÓëÊı¾İ¿âµÄÁ¬½Óºó£¬ĞèÒªÊ¹ÓÃÃüÁîÓëÊı¾İ¿â½»»¥
-\item Á¬½Ó¶ÔÏóµÄ ~CreateCommand ·½·¨µÃµ½ÃüÁî¶ÔÏó
+\item å½“å»ºç«‹äº†ä¸æ•°æ®åº“çš„è¿æ¥åï¼Œéœ€è¦ä½¿ç”¨å‘½ä»¤ä¸æ•°æ®åº“äº¤äº’
+\item è¿æ¥å¯¹è±¡çš„ ~CreateCommand æ–¹æ³•å¾—åˆ°å‘½ä»¤å¯¹è±¡
 \begin{lstlisting}
   SqlConnection conn = new SqlConnection("...");
   conn.Open();
@@ -255,7 +256,7 @@ conn.Open();
   SqlCommand cmd = conn.CreateCommand();
   cmd.CommandText = "SELECT * FROM users;"
 \end{lstlisting}
-\item »òÖ±½Ó´´½¨ÃüÁî¶ÔÏó£¬È»ºóºÍÁ¬½Ó¹ØÁª
+\item æˆ–ç›´æ¥åˆ›å»ºå‘½ä»¤å¯¹è±¡ï¼Œç„¶åå’Œè¿æ¥å…³è”
 \begin{lstlisting}
   SqlConnection conn = new SqlConnection("...");
   conn.Open();
@@ -268,14 +269,14 @@ conn.Open();
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÃüÁîµÄÖ´ĞĞ}
-Í¨¹ıµ÷ÓÃÃüÁî¶ÔÏóµÄÖ´ĞĞ·½·¨
+\frametitle{å‘½ä»¤çš„æ‰§è¡Œ}
+é€šè¿‡è°ƒç”¨å‘½ä»¤å¯¹è±¡çš„æ‰§è¡Œæ–¹æ³•
 
 \begin{itemize}
-\item \small ExecuteReader() ·µ»Ø ~DataReader£¬ÓÃÓÚ·ÃÎÊ ~SQL ½á¹û
-\item \small ExecuteScalar() ´ÓÊı¾İ¿âÖĞ¼ìË÷µ¥¸öÖµ£¬ÈçÒ»¸ö¾ÛºÏÖµ
-\item \small ExecuteNonQuery() ·µ»ØÊÜÓ°ÏìµÄĞĞÊı£¬Èç ~INSERT, UPDATE µÈ
-\item \small ExecuteXmlReader() ·µ»Ø ~SQL Server µÄ ~XML Êı¾İ
+\item \small ExecuteReader() è¿”å› ~DataReaderï¼Œç”¨äºè®¿é—® ~SQL ç»“æœ
+\item \small ExecuteScalar() ä»æ•°æ®åº“ä¸­æ£€ç´¢å•ä¸ªå€¼ï¼Œå¦‚ä¸€ä¸ªèšåˆå€¼
+\item \small ExecuteNonQuery() è¿”å›å—å½±å“çš„è¡Œæ•°ï¼Œå¦‚ ~INSERT, UPDATE ç­‰
+\item \small ExecuteXmlReader() è¿”å› ~SQL Server çš„ ~XML æ•°æ®
 \end{itemize}
 \begin{lstlisting}
 SqlConnection conn = new SqlConnection(...);
@@ -290,9 +291,9 @@ int count = (int) cmd.ExecuteScalar();
 \end{frame}
 
 % \begin{frame}[fragile]
-% \frametitle{Ê¹ÓÃÃüÁî¶ÔÏó ~(\textit{Command})}
+% \frametitle{ä½¿ç”¨å‘½ä»¤å¯¹è±¡ ~(\textit{Command})}
 % \begin{itemize}
-% \item Á¬½Ó¶ÔÏóµÄ ~CreateCommand ·½·¨µÃµ½ÃüÁî¶ÔÏó
+% \item è¿æ¥å¯¹è±¡çš„ ~CreateCommand æ–¹æ³•å¾—åˆ°å‘½ä»¤å¯¹è±¡
 % \begin{lstlisting}
 %   SqlConnection conn = new SqlConnection("...");
 %   conn.Open();
@@ -300,31 +301,31 @@ int count = (int) cmd.ExecuteScalar();
 %   SqlCommand cmd = conn.CreateCommand();
 %   cmd.CommandText = "SELECT * FROM users;"
 % \end{lstlisting}
-% \item ³£ÓÃ·½·¨
+% \item å¸¸ç”¨æ–¹æ³•
 % \begin{itemize}
-% \item ExecuteReader ·½·¨£¬·µ»Ø ~DataReader£¬ÓÃÓÚ·ÃÎÊ ~SQL ½á¹û
-% \item ExecuteScalar ·½·¨£¬´ÓÊı¾İ¿âÖĞ¼ìË÷µ¥¸öÖµ£¬ÈçÒ»¸ö¾ÛºÏÖµ
-% \item ExecuteNonQuery ·½·¨£¬·µ»ØÊÜÓ°ÏìµÄĞĞÊı£¬Èç ~INSERT, DELETE, UPDATE µÈ²Ù×÷
+% \item ExecuteReader æ–¹æ³•ï¼Œè¿”å› ~DataReaderï¼Œç”¨äºè®¿é—® ~SQL ç»“æœ
+% \item ExecuteScalar æ–¹æ³•ï¼Œä»æ•°æ®åº“ä¸­æ£€ç´¢å•ä¸ªå€¼ï¼Œå¦‚ä¸€ä¸ªèšåˆå€¼
+% \item ExecuteNonQuery æ–¹æ³•ï¼Œè¿”å›å—å½±å“çš„è¡Œæ•°ï¼Œå¦‚ ~INSERT, DELETE, UPDATE ç­‰æ“ä½œ
 % \end{itemize}
-% \item ÃüÁî¶ÔÏó»¹¿ÉÓÃÓÚÖ´ĞĞ{\redwarn´æ´¢¹ı³Ì}ÒÔ¼°ÉèÖÃ²ÎÊıµÈ
+% \item å‘½ä»¤å¯¹è±¡è¿˜å¯ç”¨äºæ‰§è¡Œ{\redwarn å­˜å‚¨è¿‡ç¨‹}ä»¥åŠè®¾ç½®å‚æ•°ç­‰
 % \end{itemize}
 % \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{²ÎÊı»¯ÃüÁî}
+\frametitle{å‚æ•°åŒ–å‘½ä»¤}
 \begin{itemize}
-\item ¹¹Ôì´ø²ÎÊıµÄÃüÁî´®
+\item æ„é€ å¸¦å‚æ•°çš„å‘½ä»¤ä¸²
 \begin{lstlisting}
 SqlCommand cmd = new SqlCommand(
   "UPDATE accounts SET balance=@amount WHERE id=@id",
    conn);
 \end{lstlisting}
-\item Ïò²ÎÊı¶ÔÏóÌí¼Ó²ÎÊı
+\item å‘å‚æ•°å¯¹è±¡æ·»åŠ å‚æ•°
 \begin{lstlisting}
 cmd.Parameters.Add("@amount", SqlDbType.Money);
 cmd.Parameters.Add("@id", SqlDbType.Char);
 \end{lstlisting}
-\item ÔËĞĞÊ±²ÎÊı¸³Öµ
+\item è¿è¡Œæ—¶å‚æ•°èµ‹å€¼
 \begin{lstlisting}
 cmd.Parameters["@amount"].Value = 100;
 cmd.Parameters["@id"].Value = "aabbcc";
@@ -335,9 +336,9 @@ cmd.Parameters["@id"].Value = "aabbcc";
 \begin{frame}[fragile]
 \frametitle{DataReader}
 \begin{itemize}
-\item DataReader ³£ÓÃÀ´¶ÁÈ¡²éÑ¯½á¹û
-\item Ã¿´ÎÖ»ÄÜ·ÃÎÊÒ»ĞĞ£¬¶øÇÒÖ»ÄÜÏòÇ°ÒÆ¶¯
-\item ËÙ¶È¿ì£¬ÄÚ´æÊ¹ÓÃ½ÏÉÙ£¬ÎŞ»º³å
+\item DataReader å¸¸ç”¨æ¥è¯»å–æŸ¥è¯¢ç»“æœ
+\item æ¯æ¬¡åªèƒ½è®¿é—®ä¸€è¡Œï¼Œè€Œä¸”åªèƒ½å‘å‰ç§»åŠ¨
+\item é€Ÿåº¦å¿«ï¼Œå†…å­˜ä½¿ç”¨è¾ƒå°‘ï¼Œæ— ç¼“å†²
 \end{itemize}
 \begin{lstlisting}
 public class SqlDataReader {
@@ -355,7 +356,7 @@ public class SqlDataReader {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ê¹ÓÃ ~DataReader}
+\frametitle{ä½¿ç”¨ ~DataReader}
 \lstset{emph={ExecuteReader,Read}}
 \begin{lstlisting}
 using System.Data.SqlClient;
@@ -378,9 +379,9 @@ public static void Main()
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{·ÃÎÊ ~DataReader µÄÁĞÊı¾İ}
+\frametitle{è®¿é—® ~DataReader çš„åˆ—æ•°æ®}
 \begin{itemize}
-\item DataReader Ìá¹©ÁË¶àÖÖ²»Í¬µÄ·½·¨È¡µÃµ±Ç°ĞĞµÄÊı¾İ
+\item DataReader æä¾›äº†å¤šç§ä¸åŒçš„æ–¹æ³•å–å¾—å½“å‰è¡Œçš„æ•°æ®
 \end{itemize}
 \begin{lstlisting}[escapeinside=<>]
 Cmd.CommandText = "SELECT Name, Age FROM Employees";
@@ -388,16 +389,16 @@ Rdr = cmd.ExecuteReader();
 Rdr.Read();
 string name; int age;
 
-age  = (int) rdr.GetValue(1); // <µÚ ~1 ÁĞµÄÊı¾İ>
-name = rdr.GetString(0);      // <µÚ ~0 ÁĞ£¬²»ĞèÀàĞÍ×ª»»>
-name = (string) rdr["Name"];  // <Í¨¹ıË÷ÒıÆ÷>
-name = (string) rdr[0];       // <Í¨¹ıË÷ÒıÆ÷>
+age  = (int) rdr.GetValue(1); // <ç¬¬ ~1 åˆ—çš„æ•°æ®>
+name = rdr.GetString(0);      // <ç¬¬ ~0 åˆ—ï¼Œä¸éœ€ç±»å‹è½¬æ¢>
+name = (string) rdr["Name"];  // <é€šè¿‡ç´¢å¼•å™¨>
+name = (string) rdr[0];       // <é€šè¿‡ç´¢å¼•å™¨>
 
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{DataReader Ê¾Àı}
+\frametitle{DataReader ç¤ºä¾‹}
 %\lstset{showstringspaces=false}
 \begin{lstlisting}
 using System; using System.Data;
@@ -423,16 +424,16 @@ namespace Chapter05 {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{DataReader Ê¾Àı(Ğø)}
+\frametitle{DataReader ç¤ºä¾‹(ç»­)}
 \begin{lstlisting}[escapeinside=<>]
 ...
       try {
         conn.Open();
         SqlCommand cmd = new SqlCommand(sql, conn);
 
-        SqlDataReader rdr = cmd.ExecuteReader(); //<´´½¨>
+        SqlDataReader rdr = cmd.ExecuteReader(); //<åˆ›å»º>
 
-        while (rdr.Read()) {                     //<±éÀú>
+        while (rdr.Read()) {                     //<éå†>
           Console.WriteLine(" {0} | {1}",
                          rdr[0].ToString().PadLeft(25),
                          rdr[1].ToString().PadLeft(20));
@@ -450,8 +451,8 @@ namespace Chapter05 {
 \end{frame}
 
 \begin{frame}
-\frametitle{DataReader Ê¾Àı(Ğø)}
-ÔËĞĞ½á¹û£º
+\frametitle{DataReader ç¤ºä¾‹(ç»­)}
+è¿è¡Œç»“æœï¼š
 
 \begin{center}
   \includegraphics[width=\textwidth]{ado-rdr}
@@ -459,9 +460,9 @@ namespace Chapter05 {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{¶à½á¹û¼¯}
+\frametitle{å¤šç»“æœé›†}
 \begin{itemize}
-\item NextResult() ·½·¨¿ÉÒÔÓÃÀ´·ÃÎÊ¶à¸ö½á¹û¼¯
+\item NextResult() æ–¹æ³•å¯ä»¥ç”¨æ¥è®¿é—®å¤šä¸ªç»“æœé›†
 \end{itemize}
 \begin{lstlisting}
 string sql1="SELECT companyname, contactname
@@ -485,11 +486,11 @@ do {
 \section{Data Set}
 
 \begin{frame}
-\frametitle{Êı¾İ¼¯ ~(\textit{DataSet})}
+\frametitle{æ•°æ®é›† ~(\textit{DataSet})}
 \begin{block}{\textit{DataSet}}
-\CJKindent ADO.NET µÄÖ÷Òª²¿¼ş£¬×÷Îª´ÓÊı¾İ¿âÖĞÈ¡³öµÄÊı¾İÔÚÄÚ´æµÄ»º´æ¡£ÓÉ¶à¸ö
- ~DataTable ×é³É£¬²¢¿ÉÍ¨¹ı ~ DataRelation Ïà»¥¹ØÁª£»²¢ÇÒ¿ÉÓÃ ~UniqueConstraint
-»ò ~ForeignKeyConstraint ¼ÓÇ¿Êı¾İÍêÕûĞÔ¡£
+\CJKindent ADO.NET çš„ä¸»è¦éƒ¨ä»¶ï¼Œä½œä¸ºä»æ•°æ®åº“ä¸­å–å‡ºçš„æ•°æ®åœ¨å†…å­˜çš„ç¼“å­˜ã€‚ç”±å¤šä¸ª
+ ~DataTable ç»„æˆï¼Œå¹¶å¯é€šè¿‡ ~ DataRelation ç›¸äº’å…³è”ï¼›å¹¶ä¸”å¯ç”¨ ~UniqueConstraint
+æˆ– ~ForeignKeyConstraint åŠ å¼ºæ•°æ®å®Œæ•´æ€§ã€‚
 \end{block}
 \begin{center}
   \input{pgf/ado-dsgraph}
@@ -497,16 +498,16 @@ do {
 \end{frame}
 
 \begin{frame}
-\frametitle{Êı¾İ¼¯µÄÌØµã}
+\frametitle{æ•°æ®é›†çš„ç‰¹ç‚¹}
 \begin{itemize}
 \setlength{\itemsep}{6pt plus 1pt}
-\item Êı¾İ¼¯Ïàµ±ÓÚÄÚ´æÖĞµÄ¼ò»¯µÄÊı¾İ¿â
+\item æ•°æ®é›†ç›¸å½“äºå†…å­˜ä¸­çš„ç®€åŒ–çš„æ•°æ®åº“
 \begin{itemize}
-\item Êı¾İÀ´×ÔÊı¾İÔ´£¬¿ÉÒÔËæÒâ¸ü¸Ä
-\item ¿ÉÒÔ½«Êı¾İµÄ¸ü¸Ä¸üĞÂµ½Êı¾İÔ´
-\item ¿É±»´®ĞĞ»¯£¬¿ÉÓÃÓÚ±£´æ»òÍ¨¹ıÍøÂç´«Êä
+\item æ•°æ®æ¥è‡ªæ•°æ®æºï¼Œå¯ä»¥éšæ„æ›´æ”¹
+\item å¯ä»¥å°†æ•°æ®çš„æ›´æ”¹æ›´æ–°åˆ°æ•°æ®æº
+\item å¯è¢«ä¸²è¡ŒåŒ–ï¼Œå¯ç”¨äºä¿å­˜æˆ–é€šè¿‡ç½‘ç»œä¼ è¾“
 \end{itemize}
-\item Êı¾İ¼¯µÄ×é³É
+\item æ•°æ®é›†çš„ç»„æˆ
 \end{itemize}
 \begin{center}
   \input{pgf/ado-dstree}
@@ -514,11 +515,11 @@ do {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ê¹ÓÃ ~DataSet Àà}
+\frametitle{ä½¿ç”¨ ~DataSet ç±»}
 \begin{center}
   
 \begin{itemize}
-\item Êı¾İ¼¯ ~ DynamicDS ÖĞµÄ ~Customer ±í
+\item æ•°æ®é›† ~ DynamicDS ä¸­çš„ ~Customer è¡¨
 \end{itemize}
   \begin{tabular}{|l|l|l|l|}
     \hline
@@ -547,42 +548,42 @@ ds.Tables.Add("Order"); // another table
 \end{frame}
 
 \begin{frame}
-\frametitle{DataSet ³ÉÔ±}
+\frametitle{DataSet æˆå‘˜}
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
-\item Clear ·½·¨£¬Çå³ıËùÓĞÊı¾İ±íÖĞµÄÊı¾İ
-\item Clone ·½·¨£¬¸´ÖÆÊı¾İ¼¯µÄ½á¹¹¡¢Ä£Ê½µÈ£¬Êı¾İ³ıÍâ
-\item Copy ·½·¨£¬¸´ÖÆ½á¹¹ºÍÈ«²¿Êı¾İ
-\item Merge ·½·¨£¬ºÏ²¢Á½¸öÊı¾İ¼¯
-\item GetXml ·½·¨£¬·µ»ØËùÓĞÊı¾İµÄ ~XML ±íÊ¾ĞÎÊ½
-\item ReadXml ·½·¨£¬´Ó ~XML Êı¾İÖĞ¶ÁÈ¡Êı¾İ
+\item Clear æ–¹æ³•ï¼Œæ¸…é™¤æ‰€æœ‰æ•°æ®è¡¨ä¸­çš„æ•°æ®
+\item Clone æ–¹æ³•ï¼Œå¤åˆ¶æ•°æ®é›†çš„ç»“æ„ã€æ¨¡å¼ç­‰ï¼Œæ•°æ®é™¤å¤–
+\item Copy æ–¹æ³•ï¼Œå¤åˆ¶ç»“æ„å’Œå…¨éƒ¨æ•°æ®
+\item Merge æ–¹æ³•ï¼Œåˆå¹¶ä¸¤ä¸ªæ•°æ®é›†
+\item GetXml æ–¹æ³•ï¼Œè¿”å›æ‰€æœ‰æ•°æ®çš„ ~XML è¡¨ç¤ºå½¢å¼
+\item ReadXml æ–¹æ³•ï¼Œä» ~XML æ•°æ®ä¸­è¯»å–æ•°æ®
 \item \texttt{\dots}
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{DataTable Àà}
+\frametitle{DataTable ç±»}
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
-\item DataTable µÄÁĞ
+\item DataTable çš„åˆ—
 \begin{itemize}
 \setlength{\itemsep}{4pt plus 1pt}
-\item Í¨¹ı¼¯ºÏÀàĞÍ ~DataColumnCollection ±íÊ¾
-\item Í¨¹ıÌØĞÔ ~Columns ·ÃÎÊ
-\item ÃèÊö±íµÄ¶¨Òå£¬ÁĞµÄÀàĞÍ¡¢Ô¼ÊøµÈ
+\item é€šè¿‡é›†åˆç±»å‹ ~DataColumnCollection è¡¨ç¤º
+\item é€šè¿‡ç‰¹æ€§ ~Columns è®¿é—®
+\item æè¿°è¡¨çš„å®šä¹‰ï¼Œåˆ—çš„ç±»å‹ã€çº¦æŸç­‰
 \end{itemize}
-\item DataTable µÄĞĞ
+\item DataTable çš„è¡Œ
 \begin{itemize}
 \setlength{\itemsep}{4pt plus 1pt}
-\item Í¨¹ı¼¯ºÏÀàĞÍ ~DataRowCollection ±íÊ¾
-\item Í¨¹ıÌØĞÔ ~Rows ·ÃÎÊ
-\item ´æ´¢±íµÄÊı¾İ£¬Ò»ĞĞÒ»Ìõ¼ÇÂ¼
+\item é€šè¿‡é›†åˆç±»å‹ ~DataRowCollection è¡¨ç¤º
+\item é€šè¿‡ç‰¹æ€§ ~Rows è®¿é—®
+\item å­˜å‚¨è¡¨çš„æ•°æ®ï¼Œä¸€è¡Œä¸€æ¡è®°å½•
 \end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ê¹ÓÃ ~DataTable ÀàÊ¾Àı}
+\frametitle{ä½¿ç”¨ ~DataTable ç±»ç¤ºä¾‹}
 \begin{lstlisting}
 // ds is DataSet
 DataTable myTable = ds.Tables["OrderDetail"];
@@ -604,10 +605,10 @@ foreach (DataRow r in myTable.Rows){
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ĞŞ¸Ä ~DataTable ÖĞµÄÊı¾İ}
+\frametitle{ä¿®æ”¹ ~DataTable ä¸­çš„æ•°æ®}
 \begin{itemize}
-\item Ê¹ÓÃ ~DataRow ¶ÔÏóÌí¼Ó»òĞŞ¸Ä¼ÇÂ¼
-\item AcceptChanges, RejectChanges µÈ·½·¨¿ØÖÆ¶ÔÊı¾İµÄĞŞ¸Ä
+\item ä½¿ç”¨ ~DataRow å¯¹è±¡æ·»åŠ æˆ–ä¿®æ”¹è®°å½•
+\item AcceptChanges, RejectChanges ç­‰æ–¹æ³•æ§åˆ¶å¯¹æ•°æ®çš„ä¿®æ”¹
 \end{itemize}
 \lstset{emph={AcceptChanges,RejectChanges}}
 \begin{lstlisting}
@@ -625,10 +626,10 @@ tb.RejectChanges();
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{¶¨ÒåÖ÷¼ü ~(\textit{Primary Key})}
+\frametitle{å®šä¹‰ä¸»é”® ~(\textit{Primary Key})}
 \begin{itemize}
-\item ÌØĞÔ ~PrimaryKey ¿ÉÓÃÓÚÉèÖÃ»ò»ñÈ¡±íµÄÖ÷¼ü
-\item ÉèÖÃÖ÷¼üÖ»Ğè¸³Öµ ~DataColumn Êı×é
+\item ç‰¹æ€§ ~PrimaryKey å¯ç”¨äºè®¾ç½®æˆ–è·å–è¡¨çš„ä¸»é”®
+\item è®¾ç½®ä¸»é”®åªéœ€èµ‹å€¼ ~DataColumn æ•°ç»„
 \end{itemize}
 \lstset{emph={PrimaryKey}}
 \begin{lstlisting}
@@ -647,7 +648,7 @@ workTable.PrimaryKey = myKey;
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ô¼Êø ~(\textit{Constraint})}
+\frametitle{çº¦æŸ ~(\textit{Constraint})}
 \begin{itemize}
 \item UniqueConstraint
 \end{itemize}
@@ -677,11 +678,11 @@ custDS.Tables["OrderDetail"].Constraints.Add(custOrderFK);
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{´ÓÊı¾İ¿âÖĞµ¼ÈëÊı¾İ}
+\frametitle{ä»æ•°æ®åº“ä¸­å¯¼å…¥æ•°æ®}
 \begin{itemize}
-\item Ê×ÏÈ´´½¨ ~DataAdapter ºÍ ~DataSet
-\item Í¨¹ı ~DataAdapter µÄ ~Fill ·½·¨Ìî³ä ~DataTable
-\item ¶à´Î ~Fill ¿ÉÒÔÌí¼Ó²¢Ìî³ä¶à¸öÊı¾İ±í
+\item é¦–å…ˆåˆ›å»º ~DataAdapter å’Œ ~DataSet
+\item é€šè¿‡ ~DataAdapter çš„ ~Fill æ–¹æ³•å¡«å…… ~DataTable
+\item å¤šæ¬¡ ~Fill å¯ä»¥æ·»åŠ å¹¶å¡«å……å¤šä¸ªæ•°æ®è¡¨
 \end{itemize}
 \lstset{emph={DataSet, Fill, SqlDataAdapter}}
 \begin{lstlisting}[escapeinside=<>]
@@ -693,12 +694,12 @@ da.SelectCommand = cmd;
 
 DataSet ds = new DataSet();
 
-da.Fill(ds, "NamesAndAges"); // <»á×Ô¶¯Ö´ĞĞ ~cmd>
+da.Fill(ds, "NamesAndAges"); // <ä¼šè‡ªåŠ¨æ‰§è¡Œ ~cmd>
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ìî³ä²¢Ê¹ÓÃÊı¾İ¼¯~~\attachfile[description=Populate DataSet]{code/PopDataSet.cs}}
+\frametitle{å¡«å……å¹¶ä½¿ç”¨æ•°æ®é›†}   %\attachfile[description=Populate DataSet]{code/PopDataSet.cs}
 \begin{lstlisting}[escapeinside='']
 string sql = "select productname,unitprice
          from products where unitprice < 20";
@@ -707,16 +708,16 @@ SqlConnection conn = new SqlConnection(connString);
 SqlDataAdapter da = new SqlDataAdapter(sql, conn);
 ...
 DataSet ds = new DataSet();
-da.Fill(ds, "products"); //'±íÃû~products'
+da.Fill(ds, "products"); //'è¡¨å~products'
 \end{lstlisting}
 \pause
 \begin{lstlisting}[escapeinside='']
-DataTable dt = ds.Tables["products"]; //'·ÃÎÊ±í'
+DataTable dt = ds.Tables["products"]; //'è®¿é—®è¡¨'
 
-foreach (DataRow row in dt.Rows){     //'·ÃÎÊĞĞ'
+foreach (DataRow row in dt.Rows){     //'è®¿é—®è¡Œ'
 
   foreach (DataColumn col in dt.Columns)
-    Console.WriteLine(row[col]);      //'·ÃÎÊÊı¾İ'
+    Console.WriteLine(row[col]);      //'è®¿é—®æ•°æ®'
 
   Console.WriteLine("".PadLeft(20, '='));
 }
@@ -724,13 +725,13 @@ foreach (DataRow row in dt.Rows){     //'·ÃÎÊĞĞ'
 \end{frame}
 
 \begin{frame}
-\frametitle{¸üĞÂÊı¾İ¿â}
+\frametitle{æ›´æ–°æ•°æ®åº“}
 \begin{itemize}
-\item DataAdapter ¼ÓÔØÊı¾İºó£¬ËùÓĞ¸üĞÂ¶¼·¢ÉúÔÚÊı¾İ¼¯ÖĞ
-\item Òª¸üĞÂÊı¾İÔ´£¬ĞèÒªÊ¹ÓÃ ~ DataAdapter µÄÏàÓ¦·½·¨
+\item DataAdapter åŠ è½½æ•°æ®åï¼Œæ‰€æœ‰æ›´æ–°éƒ½å‘ç”Ÿåœ¨æ•°æ®é›†ä¸­
+\item è¦æ›´æ–°æ•°æ®æºï¼Œéœ€è¦ä½¿ç”¨ ~ DataAdapter çš„ç›¸åº”æ–¹æ³•
   \begin{itemize}
-  \item Update ·½·¨¼ì²éÏàÓ¦µÄÊı¾İ¼¯
-  \item InsertCommand, DeleteCommand, UpdateCommand ¸üĞÂDBMS
+  \item Update æ–¹æ³•æ£€æŸ¥ç›¸åº”çš„æ•°æ®é›†
+  \item InsertCommand, DeleteCommand, UpdateCommand æ›´æ–°DBMS
   \end{itemize}
 \end{itemize}
 \begin{center}
@@ -739,7 +740,7 @@ foreach (DataRow row in dt.Rows){     //'·ÃÎÊĞĞ'
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{¸üĞÂÊı¾İ¿âÊ¾Àı}
+\frametitle{æ›´æ–°æ•°æ®åº“ç¤ºä¾‹}
 \lstset{emph={Update,UpdateCommand}}
 \begin{lstlisting}
 SqlDataAdapter dataAdpater = new SqlDataAdapter(
@@ -758,12 +759,12 @@ row ["Name"] = "New Category";
 
 dataAdpater.Update(dataSet, "Categories");
 \end{lstlisting}
-²Î¿¼ ~\href{http://msdn2.microsoft.com/zh-cn/library/33y2221y.aspx}
-{\beamergotobutton{\scriptsize ´úÂëÍêÕû°æ}}
+å‚è€ƒ ~\href{http://msdn2.microsoft.com/zh-cn/library/33y2221y.aspx}
+{\beamergotobutton{\scriptsize ä»£ç å®Œæ•´ç‰ˆ}}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ôö¼ÓÊı¾İÊ¾Àı~~\attachfile[description=Update DataBase]{code/PersistAdd.cs}}
+\frametitle{å¢åŠ æ•°æ®ç¤ºä¾‹} %\attachfile[description=Update DataBase]{code/PersistAdd.cs}
 \begin{lstlisting}
 string qry="select firstname,lastname from employees";
 
@@ -782,7 +783,7 @@ dt.Rows.Add(newRow);
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ôö¼ÓÊı¾İÊ¾Àı(Ğø)}
+\frametitle{å¢åŠ æ•°æ®ç¤ºä¾‹(ç»­)}
 \begin{lstlisting}[escapeinside='']
 ...
 string ins="insert into employees( firstname, lastname)
@@ -790,7 +791,7 @@ string ins="insert into employees( firstname, lastname)
 
 SqlCommand cmd = new SqlCommand(ins, conn);
 
-//'ÉèÖÃ²ÎÊıÀàĞÍ'
+//'è®¾ç½®å‚æ•°ç±»å‹'
 cmd.Parameters.Add("@firstname",
                  SqlDbType.NVarChar, 10, "firstname");
 cmd.Parameters.Add("@lastname",
@@ -802,31 +803,31 @@ da.Update(ds, "employees");
 \end{frame}
 
 \begin{frame}
-\frametitle{Á¬½ÓÄ£ĞÍºÍÎŞÁ¬½ÓÄ£ĞÍ}
+\frametitle{è¿æ¥æ¨¡å‹å’Œæ— è¿æ¥æ¨¡å‹}
 \begin{itemize}
   \setlength{\itemsep}{8pt plus 1pt}
-\item Á¬½ÓÄ£ĞÍ
+\item è¿æ¥æ¨¡å‹
   \begin{itemize}
     \setlength{\itemsep}{6pt plus 1pt}
-  \item Ê¹ÓÃ ~DataReader ·ÃÎÊÊı¾İ¿â£¬ĞèÒªÊ¼ÖÕ±£³ÖÊı¾İ¿âµÄÁ¬½Ó
-  \item ÄÚ´æµÄÊ¹ÓÃ½ÏÉÙ£¬ÊÊºÏ´óÊı¾İÁ¿µÄ´¦Àí
+  \item ä½¿ç”¨ ~DataReader è®¿é—®æ•°æ®åº“ï¼Œéœ€è¦å§‹ç»ˆä¿æŒæ•°æ®åº“çš„è¿æ¥
+  \item å†…å­˜çš„ä½¿ç”¨è¾ƒå°‘ï¼Œé€‚åˆå¤§æ•°æ®é‡çš„å¤„ç†
   \end{itemize}
-\item ÎŞÁ¬½ÓÄ£ĞÍ
+\item æ— è¿æ¥æ¨¡å‹
   \begin{itemize}
     \setlength{\itemsep}{6pt plus 1pt}
-  \item Ê¹ÓÃ ~DataAdapter Ìî³äÊı¾İ±íºó£¬×Ô¶¯¶Ï¿ªÁ¬½Ó
-  \item ĞèÒªµÄÊ±ºò»á×Ô¶¯Á¬½Ó£¬±ÈÈç¸üĞÂÊı¾İÔ´
-  \item ·½±ãËæÊ±¸üĞÂÊı¾İ¿â
+  \item ä½¿ç”¨ ~DataAdapter å¡«å……æ•°æ®è¡¨åï¼Œè‡ªåŠ¨æ–­å¼€è¿æ¥
+  \item éœ€è¦çš„æ—¶å€™ä¼šè‡ªåŠ¨è¿æ¥ï¼Œæ¯”å¦‚æ›´æ–°æ•°æ®æº
+  \item æ–¹ä¾¿éšæ—¶æ›´æ–°æ•°æ®åº“
   \end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{ADO.NET ºÍ ~XML}
+\frametitle{ADO.NET å’Œ ~XML}
 \begin{itemize}
-\item ADO.NET ºÍ ~XML ½ôÃÜ¼¯³É
-\item DataSet Ìá¹©ÁË¶àÖÖ ~XML Êı¾İµÄ´¦Àí·½·¨
-\item DataSet ¿ÉÒÔ×÷Îª ~XML ºÍ¹ØÏµÊı¾İµÄ×ª»»ÖĞ½é
+\item ADO.NET å’Œ ~XML ç´§å¯†é›†æˆ
+\item DataSet æä¾›äº†å¤šç§ ~XML æ•°æ®çš„å¤„ç†æ–¹æ³•
+\item DataSet å¯ä»¥ä½œä¸º ~XML å’Œå…³ç³»æ•°æ®çš„è½¬æ¢ä¸­ä»‹
 \end{itemize}
 \begin{center}
   \includegraphics[width=\textwidth]{ado-xml}
@@ -834,9 +835,9 @@ da.Update(ds, "employees");
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ê¹ÓÃ ~XML ±£´æÊı¾İºÍÄ£Ê½}
+\frametitle{ä½¿ç”¨ ~XML ä¿å­˜æ•°æ®å’Œæ¨¡å¼}
 \begin{itemize}
-\item ·Ö±ğ±£´æ ~XML Êı¾İºÍÄ£Ê½
+\item åˆ†åˆ«ä¿å­˜ ~XML æ•°æ®å’Œæ¨¡å¼
 \end{itemize}
 \lstset{emph={WriteXmlSchema,WriteXml}}
 \begin{lstlisting}
@@ -850,7 +851,7 @@ ds.WriteXml("C:\\movies_data.xml");
 
 \end{lstlisting}
 \begin{itemize}
-\item ½«Ä£Ê½ºÍÊı¾İ±£´æÔÚÒ»¸ö ~XML ÎÄ¼şÖĞ
+\item å°†æ¨¡å¼å’Œæ•°æ®ä¿å­˜åœ¨ä¸€ä¸ª ~XML æ–‡ä»¶ä¸­
 \end{itemize}
 \begin{lstlisting}
 
@@ -860,9 +861,9 @@ ds.WriteXml("all.xml",XmlWriteMode.WriteSchema);
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{´Ó ~XML »Ö¸´ DataSet}
+\frametitle{ä» ~XML æ¢å¤ DataSet}
 \begin{itemize}
-\item Ê¹ÓÃÒÑÓĞµÄ ~XML Ä£Ê½¹¹Ôì ~DataSet
+\item ä½¿ç”¨å·²æœ‰çš„ ~XML æ¨¡å¼æ„é€  ~DataSet
 \end{itemize}
 \begin{lstlisting}
 DataSet ds = new DataSet();
@@ -871,7 +872,7 @@ ds.ReadXmlSchema ("d:\\movie_schema.xsd");
 DataTable tb = ds.Table[0];
 \end{lstlisting}
 \begin{itemize}
-\item ´Ó ~XML ¶ÁÈëÊı¾İ
+\item ä» ~XML è¯»å…¥æ•°æ®
 \end{itemize}
 \begin{lstlisting}
 DataSet ds = new DataSet();
@@ -880,44 +881,44 @@ ds.ReadXml("C:\\movie_data.xml");
 \end{lstlisting}
 \end{frame}
 
-\section{Êı¾İ°ó¶¨}
+\section{æ•°æ®ç»‘å®š}
 
 \begin{frame}
-\frametitle{´°Ìå¿Ø¼şµÄÊı¾İ°ó¶¨}
-\begin{block}{Êı¾İ°ó¶¨}
-  \CJKindent Êı¾İ°ó¶¨ÊÇÒ»ÖÖ½«¿Ø¼şÄÚÈİÓëµ×²ãÊı¾İÔ´Á´½ÓµÄ·½Ê½£¬¶ÔÖĞ¼äÊı¾İÔ´µÄ¸Ä¶¯
-  »á×Ô¶¯·´Ó³µ½ÓëÖ®°ó¶¨µÄÊı¾İ¿Ø¼şÉÏ£¬¶ø¶ÔÊı¾İ¿Ø¼şµÄĞŞ¸ÄÒ²ÄÜ×Ô¶¯»ØËÍ¸øÖĞ¼äÊı¾İÔ´¡£
+\frametitle{çª—ä½“æ§ä»¶çš„æ•°æ®ç»‘å®š}
+\begin{block}{æ•°æ®ç»‘å®š}
+  \CJKindent æ•°æ®ç»‘å®šæ˜¯ä¸€ç§å°†æ§ä»¶å†…å®¹ä¸åº•å±‚æ•°æ®æºé“¾æ¥çš„æ–¹å¼ï¼Œå¯¹ä¸­é—´æ•°æ®æºçš„æ”¹åŠ¨
+  ä¼šè‡ªåŠ¨åæ˜ åˆ°ä¸ä¹‹ç»‘å®šçš„æ•°æ®æ§ä»¶ä¸Šï¼Œè€Œå¯¹æ•°æ®æ§ä»¶çš„ä¿®æ”¹ä¹Ÿèƒ½è‡ªåŠ¨å›é€ç»™ä¸­é—´æ•°æ®æºã€‚
 \end{block}
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
-\item ÖĞ¼äÊı¾İÔ´²»ÊÇÍâ²¿µÄÊı¾İ¿â
-\item ¿Ø¼ş²»ÄÜÍ¨¹ı»î¶¯µÄÁ¬½ÓÖ±½ÓÓëÊı¾İÔ´°ó¶¨
-\item °ó¶¨Ö»ÏŞÓÚÊı¾İµÄÄÚ´æ±íÊ¾£¬ÈçÊı¾İ¼¯µÈ
+\item ä¸­é—´æ•°æ®æºä¸æ˜¯å¤–éƒ¨çš„æ•°æ®åº“
+\item æ§ä»¶ä¸èƒ½é€šè¿‡æ´»åŠ¨çš„è¿æ¥ç›´æ¥ä¸æ•°æ®æºç»‘å®š
+\item ç»‘å®šåªé™äºæ•°æ®çš„å†…å­˜è¡¨ç¤ºï¼Œå¦‚æ•°æ®é›†ç­‰
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{¼òµ¥Êı¾İ°ó¶¨}
+\frametitle{ç®€å•æ•°æ®ç»‘å®š}
 \begin{itemize}
-\item Í¨¹ı¼¯ºÏ ~DataBindings£¬ËùÓĞ¿Ø¼ş¶¼ÄÜÊ¹ÓÃµ¥ÖµÊı¾İ°ó¶¨
-\item ½«Êı¾İÔ´ÓÚ¿Ø¼şµÄÒ»¸ö»ò¶à¸öÊôĞÔÁ´½Ó
+\item é€šè¿‡é›†åˆ ~DataBindingsï¼Œæ‰€æœ‰æ§ä»¶éƒ½èƒ½ä½¿ç”¨å•å€¼æ•°æ®ç»‘å®š
+\item å°†æ•°æ®æºäºæ§ä»¶çš„ä¸€ä¸ªæˆ–å¤šä¸ªå±æ€§é“¾æ¥
 \end{itemize}
 \begin{lstlisting}
 txtUnitCost.DataBindings.Add("Text", dt, "UnitCost");
 \end{lstlisting}
 \begin{itemize}
-\item ½« ~DataTable dt ÖĞ ~UnitCost ÁĞµÄµÚÒ»¸öÖµÏÔÊ¾ÔÚÎÄ±¾¿òÖĞ
-\item ²ÎÊıµÄº¬Òå£º
+\item å°† ~DataTable dt ä¸­ ~UnitCost åˆ—çš„ç¬¬ä¸€ä¸ªå€¼æ˜¾ç¤ºåœ¨æ–‡æœ¬æ¡†ä¸­
+\item å‚æ•°çš„å«ä¹‰ï¼š
 \begin{itemize}
-  \item \verb|"Text"| --- ÌØĞÔµÄÃû×Ö£¬.NET Ê¹ÓÃ·´ÉäÕÒµ½ÏàÓ¦ÌØĞÔ
-  \item \verb|dt| --- Êı¾İÔ´£¬Èç ~DataTable
-  \item \verb|"UnitCost"| --- Êı¾İÔ´ÖĞµÄ×Ö¶ÎÃû
+  \item \verb|"Text"| --- ç‰¹æ€§çš„åå­—ï¼Œ.NET ä½¿ç”¨åå°„æ‰¾åˆ°ç›¸åº”ç‰¹æ€§
+  \item \verb|dt| --- æ•°æ®æºï¼Œå¦‚ ~DataTable
+  \item \verb|"UnitCost"| --- æ•°æ®æºä¸­çš„å­—æ®µå
   \end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{¼òµ¥Êı¾İ°ó¶¨Ê¾Àı}
+\frametitle{ç®€å•æ•°æ®ç»‘å®šç¤ºä¾‹}
 \begin{lstlisting}
 private void
 MultipleControlBinding_Load(object sender, EventArgs e)
@@ -941,14 +942,14 @@ MultipleControlBinding_Load(object sender, EventArgs e)
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÓëÁĞ±í¿Ø¼şµÄ¸´ÔÓ°ó¶¨}
+\frametitle{ä¸åˆ—è¡¨æ§ä»¶çš„å¤æ‚ç»‘å®š}
 \begin{itemize}
-\item µ±¿Ø¼ş°üº¬Êı¾İÔ´¼°Æä³ÉÔ±»òÌØĞÔÊ±£¬Ê¹ÓÃ¸´ÔÓ°ó¶¨
+\item å½“æ§ä»¶åŒ…å«æ•°æ®æºåŠå…¶æˆå‘˜æˆ–ç‰¹æ€§æ—¶ï¼Œä½¿ç”¨å¤æ‚ç»‘å®š
 \begin{itemize}
-\item Èç ListBox, CheckedListBox, DataGrid, DataGridView µÈ
+\item å¦‚ ListBox, CheckedListBox, DataGrid, DataGridView ç­‰
 \end{itemize}
-\item ¸´ÔÓ°ó¶¨ÔÊĞí¿Ø¼ş°ó¶¨µ½Êı¾İ¼¯ÉÏ£¬Í¬Ê±ÏÔÊ¾¶à¸öÊı¾İ
-\item ¿Ø¼şÖÁÉÙĞèÒªÉèÖÃ ~DataSource ºÍ ~DisplayMember Á½¸öÊôĞÔ
+\item å¤æ‚ç»‘å®šå…è®¸æ§ä»¶ç»‘å®šåˆ°æ•°æ®é›†ä¸Šï¼ŒåŒæ—¶æ˜¾ç¤ºå¤šä¸ªæ•°æ®
+\item æ§ä»¶è‡³å°‘éœ€è¦è®¾ç½® ~DataSource å’Œ ~DisplayMember ä¸¤ä¸ªå±æ€§
 \end{itemize}
 \lstset{emph={DataSource, DisplayMember}}
 \begin{lstlisting}
@@ -964,25 +965,25 @@ listBox1.ValueMember = "movies.ID";
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{°ó¶¨¹ÜÀíÆ÷}
+\frametitle{ç»‘å®šç®¡ç†å™¨}
 \begin{itemize}
-\item Êı¾İÔ´¶¼ÓĞÒ»¸ö°ó¶¨¹ÜÀíÆ÷£¬¸ºÔğ¸ú×ÙÊı¾İÔ´µÄËùÓĞÁ¬½Ó
-\item Èç¹ûÊı¾İÔ´¸üĞÂ£¬¹ÜÀíÆ÷¸ºÔğ¸üĞÂÏàÓ¦¿Ø¼ş
-\item Èç¹û¿Ø¼şÓĞ¸ü¸Ä£¬¸ºÔğ¸Ä±äÊı¾İÔ´ÖĞµÄÊı¾İ
-\item ¹ÜÀíÆ÷µÄ³ÉÔ±
+\item æ•°æ®æºéƒ½æœ‰ä¸€ä¸ªç»‘å®šç®¡ç†å™¨ï¼Œè´Ÿè´£è·Ÿè¸ªæ•°æ®æºçš„æ‰€æœ‰è¿æ¥
+\item å¦‚æœæ•°æ®æºæ›´æ–°ï¼Œç®¡ç†å™¨è´Ÿè´£æ›´æ–°ç›¸åº”æ§ä»¶
+\item å¦‚æœæ§ä»¶æœ‰æ›´æ”¹ï¼Œè´Ÿè´£æ”¹å˜æ•°æ®æºä¸­çš„æ•°æ®
+\item ç®¡ç†å™¨çš„æˆå‘˜
 \begin{itemize}
-\item Binding Àà£¬Î¬»¤¿Ø¼şÌØĞÔºÍÄ³¶ÔÏóÌØĞÔÖ®¼äµÄ¼òµ¥°ó¶¨
-\item CurrencyManager Àà£¬¹ÜÀí ~Binding ¶ÔÏóµÄÁĞ±í
-\item PropertyManager Àà\\Î¬»¤¶ÔÏóµÄÌØĞÔÓëÊı¾İ°ó¶¨¿Ø¼şÌØĞÔÖ®¼äµÄ ~Binding
-\item BindingContext Àà\\Á´½Óµ½ÌØ¶¨¿Ø¼şµÄ ~BindingManagerBase ¼¯ºÏÉÏ
+\item Binding ç±»ï¼Œç»´æŠ¤æ§ä»¶ç‰¹æ€§å’ŒæŸå¯¹è±¡ç‰¹æ€§ä¹‹é—´çš„ç®€å•ç»‘å®š
+\item CurrencyManager ç±»ï¼Œç®¡ç† ~Binding å¯¹è±¡çš„åˆ—è¡¨
+\item PropertyManager ç±»\\ç»´æŠ¤å¯¹è±¡çš„ç‰¹æ€§ä¸æ•°æ®ç»‘å®šæ§ä»¶ç‰¹æ€§ä¹‹é—´çš„ ~Binding
+\item BindingContext ç±»\\é“¾æ¥åˆ°ç‰¹å®šæ§ä»¶çš„ ~BindingManagerBase é›†åˆä¸Š
 \end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{BindingManagerBase ä¯ÀÀÁĞ±í}
+\frametitle{BindingManagerBase æµè§ˆåˆ—è¡¨}
 \begin{itemize}
-\item ÔÚÊı¾İÔ´ÁĞ±íÔªËØ¼äÒÆ¶¯£¬Í¬Ê±¸üĞÂÁĞ±í°ó¶¨µÄ¿Ø¼şÄÚÈİ
+\item åœ¨æ•°æ®æºåˆ—è¡¨å…ƒç´ é—´ç§»åŠ¨ï¼ŒåŒæ—¶æ›´æ–°åˆ—è¡¨ç»‘å®šçš„æ§ä»¶å†…å®¹
 \end{itemize}
 \begin{lstlisting}
 listBox1.DataSource = ds;
@@ -1001,9 +1002,9 @@ private bmb_PositionChanged(object s, EventArgs e){
 \end{frame}
 
 \begin{frame}
-\frametitle{Visual Studio ÖĞµÄÅäÖÃÊı¾İÔ´}
+\frametitle{Visual Studio ä¸­çš„é…ç½®æ•°æ®æº}
 \begin{itemize}
-\item ²Ëµ¥ÖĞÑ¡ ~Data/Add New Data Source ÅäÖÃÊı¾İÔ´
+\item èœå•ä¸­é€‰ ~Data/Add New Data Source é…ç½®æ•°æ®æº
 \end{itemize}
 \begin{figure}
   \centering
@@ -1013,9 +1014,9 @@ private bmb_PositionChanged(object s, EventArgs e){
 \end{frame}
 
 \begin{frame}
-\frametitle{Visual Studio ÖĞµÄÅäÖÃÊı¾İÔ´}
+\frametitle{Visual Studio ä¸­çš„é…ç½®æ•°æ®æº}
 \begin{itemize}
-\item ¸ù¾İÌáÊ¾ÉèÖÃ ~Connection String
+\item æ ¹æ®æç¤ºè®¾ç½® ~Connection String
 \end{itemize}
 \begin{figure}
   \centering
@@ -1024,9 +1025,9 @@ private bmb_PositionChanged(object s, EventArgs e){
 \end{frame}
 
 \begin{frame}
-\frametitle{ÏòÏîÄ¿Ìí¼ÓÊı¾İ¼¯}
+\frametitle{å‘é¡¹ç›®æ·»åŠ æ•°æ®é›†}
 \begin{itemize}
-\item ²Ëµ¥ÖĞÑ¡ ~Project/Add New Item ¿ÉÒÔÌí¼Ó¸÷ÖÖ¿Ø¼ş»ò×é¼ş
+\item èœå•ä¸­é€‰ ~Project/Add New Item å¯ä»¥æ·»åŠ å„ç§æ§ä»¶æˆ–ç»„ä»¶
 \end{itemize}
 \begin{figure}
   \centering
@@ -1035,10 +1036,10 @@ private bmb_PositionChanged(object s, EventArgs e){
 \end{frame}
 
 \begin{frame}
-\frametitle{Ê¹ÓÃ¿ÉÊÓ»¯¹¤¾ßÉè¼ÆÊı¾İ¼¯}
+\frametitle{ä½¿ç”¨å¯è§†åŒ–å·¥å…·è®¾è®¡æ•°æ®é›†}
 \begin{itemize}
-\item ÔÚ ~Data Source ´°¿ÚÖĞä¯ÀÀÊı¾İ¼¯
-\item ÓÒ¼üÑ¡Ôñ ~Designer ÖĞ±à¼­
+\item åœ¨ ~Data Source çª—å£ä¸­æµè§ˆæ•°æ®é›†
+\item å³é”®é€‰æ‹© ~Designer ä¸­ç¼–è¾‘
 \end{itemize}
 \begin{figure}
   \centering
@@ -1047,9 +1048,9 @@ private bmb_PositionChanged(object s, EventArgs e){
 \end{frame}
 
 \begin{frame}
-\frametitle{Í¨¹ıÍÏ×§°ó¶¨¿Ø¼ş}
+\frametitle{é€šè¿‡æ‹–æ‹½ç»‘å®šæ§ä»¶}
 \begin{itemize}
-\item ÍÏ×§ ~DataSet µ½´°Ìå£¬¿ÉÒÔ×Ô¶¯Éú³ÉÒ»Ğ©¿Ø¼şºÍ×é¼ş
+\item æ‹–æ‹½ ~DataSet åˆ°çª—ä½“ï¼Œå¯ä»¥è‡ªåŠ¨ç”Ÿæˆä¸€äº›æ§ä»¶å’Œç»„ä»¶
 \end{itemize}
 \begin{figure}
   \centering
@@ -1058,10 +1059,10 @@ private bmb_PositionChanged(object s, EventArgs e){
 \end{frame}
 
 \begin{frame}
-\frametitle{Í¨¹ıÍÏ×§°ó¶¨¿Ø¼ş}
+\frametitle{é€šè¿‡æ‹–æ‹½ç»‘å®šæ§ä»¶}
 \begin{itemize}
-\item ĞŞ¸Ä ~DataColumn ÏÔÊ¾Îª¸÷ÖÖ¿Ø¼ş
-\item ÍÏ×§ ~DataColumn µ½´°Ìå£¬×Ô¶¯Éú³É°ó¶¨µÄ¿Ø¼ş
+\item ä¿®æ”¹ ~DataColumn æ˜¾ç¤ºä¸ºå„ç§æ§ä»¶
+\item æ‹–æ‹½ ~DataColumn åˆ°çª—ä½“ï¼Œè‡ªåŠ¨ç”Ÿæˆç»‘å®šçš„æ§ä»¶
 \end{itemize}
 \begin{figure}
   \centering
@@ -1075,6 +1076,6 @@ private bmb_PositionChanged(object s, EventArgs e){
 % TeX-master: "part-05.tex"
 % TeX-header-end: "% End-of-Header$"
 % TeX-trailer-start: "% Start-of-Trailer$"
-% coding: gbk-dos
+% coding: utf-8
 % End:
 

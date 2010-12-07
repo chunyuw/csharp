@@ -1,24 +1,24 @@
 %% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> %%
 
-\part{C\# ¸ß¼¶ÌØĞÔ}
+\part{C\# é«˜çº§ç‰¹æ€§}
 \begin{frame}
-\frametitle{Outline}            % {C\# ¸ß¼¶ÌØĞÔ}
+\frametitle{Outline}            % {C\# é«˜çº§ç‰¹æ€§}
 \tableofcontents
 \end{frame}
 
-\section{³éÏóÀà}
+\section{æŠ½è±¡ç±»}
 
 \begin{frame}[fragile]
-\frametitle{³éÏóÀà}
-\begin{block}{³éÏóÀà}
-  \CJKindent Î´ÍêÈ«ÊµÏÖµÄÀà£¬ÆäÖĞµÄ·½·¨ºÍÌØĞÔµÈ¿ÉÒÔÖ»ÉùÃ÷²»ÊµÏÖ¡£Ö»ÄÜÓÃÓÚÆäËûÀà
-  µÄ»ùÀà£¬ÆäÅÉÉúÀà¿ÉÒÔÊÇ³éÏóÀà£¬·ñÔò±ØĞëÊµÏÖ¼Ì³ĞÀ´µÄ³éÏó·½·¨¡£
+\frametitle{æŠ½è±¡ç±»}
+\begin{block}{æŠ½è±¡ç±»}
+  \CJKindent æœªå®Œå…¨å®ç°çš„ç±»ï¼Œå…¶ä¸­çš„æ–¹æ³•å’Œç‰¹æ€§ç­‰å¯ä»¥åªå£°æ˜ä¸å®ç°ã€‚åªèƒ½ç”¨äºå…¶ä»–ç±»
+  çš„åŸºç±»ï¼Œå…¶æ´¾ç”Ÿç±»å¯ä»¥æ˜¯æŠ½è±¡ç±»ï¼Œå¦åˆ™å¿…é¡»å®ç°ç»§æ‰¿æ¥çš„æŠ½è±¡æ–¹æ³•ã€‚
 \end{block}
 \pause
 \begin{itemize}
-\item ³éÏóÀà²»ÄÜÉú³ÉÊµÀı£¬ĞèÒª~\texttt{abstract} ĞŞÊÎ
-\item ³éÏó·½·¨Ö»¸ø³ö·½·¨µÄÉùÃ÷£¬ÎŞ¾ßÌåÊµÏÖ£¬Ò²ĞèÒª~\texttt{abstract}
-\item ¶ø¾ßÌåÊµÏÖÓÉÅÉÉúÀàÍê³É
+\item æŠ½è±¡ç±»ä¸èƒ½ç”Ÿæˆå®ä¾‹ï¼Œéœ€è¦~\texttt{abstract} ä¿®é¥°
+\item æŠ½è±¡æ–¹æ³•åªç»™å‡ºæ–¹æ³•çš„å£°æ˜ï¼Œæ— å…·ä½“å®ç°ï¼Œä¹Ÿéœ€è¦~\texttt{abstract}
+\item è€Œå…·ä½“å®ç°ç”±æ´¾ç”Ÿç±»å®Œæˆ
 \end{itemize}
 \lstset{emph={abstract}}
 \begin{lstlisting}
@@ -31,7 +31,7 @@ public abstract class Graphics{
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{³éÏó·½·¨}
+\frametitle{æŠ½è±¡æ–¹æ³•}
 \lstset{emph={abstract}}
 \begin{lstlisting}
 public abstract class Graphics{
@@ -55,7 +55,7 @@ class Circle:Graphics {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{³éÏóÌØĞÔ}
+\frametitle{æŠ½è±¡ç‰¹æ€§}
 \lstset{emph={abstract}}
 \begin{lstlisting}
 public abstract class Shape {
@@ -80,8 +80,8 @@ public class Square : Shape {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÃÜ·âÀà}
-Ê¹ÓÃ ~\texttt{sealed} ĞŞÊÎµÄÀà£¬²»¿ÉÒÔ±»¼Ì³Ğ£º
+\frametitle{å¯†å°ç±»}
+ä½¿ç”¨ ~\texttt{sealed} ä¿®é¥°çš„ç±»ï¼Œä¸å¯ä»¥è¢«ç»§æ‰¿ï¼š
 \lstset{emph={sealed}}
 \begin{lstlisting}
 public sealed class A {
@@ -96,8 +96,8 @@ public class B : A { // ERROR!
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{¾²Ì¬Àà}
-Ê¹ÓÃ ~\texttt{static} ĞŞÊÎµÄÀà£¬Ö»ÓĞ¾²Ì¬³ÉÔ±£¬²»ÄÜ±»ÊµÀı»¯£º
+\frametitle{é™æ€ç±»}
+ä½¿ç”¨ ~\texttt{static} ä¿®é¥°çš„ç±»ï¼Œåªæœ‰é™æ€æˆå‘˜ï¼Œä¸èƒ½è¢«å®ä¾‹åŒ–ï¼š
 %\lstset{emph={static}}
 \begin{lstlisting}[escapeinside=<>]
 public static class NumericFn {
@@ -118,13 +118,13 @@ public static class NumericFn {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÄÚÇ¶Àà}
+\frametitle{å†…åµŒç±»}
 \begin{itemize}
-\item ÔÚÀàÄÚ²¿¶¨ÒåµÄÀà
+\item åœ¨ç±»å†…éƒ¨å®šä¹‰çš„ç±»
 \begin{lstlisting}[escapeinside=<>]
-public class OuterClass     //<³ÆÎªÍâ²¿Àà>
+public class OuterClass     //<ç§°ä¸ºå¤–éƒ¨ç±»>
 {  ...
-  public class NestedClass  //<³ÆÎªÄÚÇ¶Àà>
+  public class NestedClass  //<ç§°ä¸ºå†…åµŒç±»>
   {  // Insert code to implement NestedClass.
   }
   public void func()
@@ -133,38 +133,38 @@ public class OuterClass     //<³ÆÎªÍâ²¿Àà>
 ...
   OuterClass.NestedClass y = new OuterClass.NestedClass();
 \end{lstlisting}
-\item ÔÚÍâ²¿ÀàÖĞÖ±½ÓÊ¹ÓÃÄÚÇ¶Àà
-\item ÔÚÍâ²¿ÀàÍâÃæ·ÃÎÊÀà£¬Ê¹ÓÃÈ«Ãû
+\item åœ¨å¤–éƒ¨ç±»ä¸­ç›´æ¥ä½¿ç”¨å†…åµŒç±»
+\item åœ¨å¤–éƒ¨ç±»å¤–é¢è®¿é—®ç±»ï¼Œä½¿ç”¨å…¨å
   \begin{itemize}
   \item ~\texttt{OuterClass.NestedClass}
   \end{itemize}
-\item ·ÃÎÊÈ¨ÏŞÓÉ~\texttt{OuterClass} ºÍ~\texttt{NestedClass} ¹²Í¬¾ö¶¨
+\item è®¿é—®æƒé™ç”±~\texttt{OuterClass} å’Œ~\texttt{NestedClass} å…±åŒå†³å®š
 \end{itemize}
 \end{frame}
 
-\section{½Ó¿Ú}
+\section{æ¥å£}
 
 \begin{frame}[fragile]
-\frametitle{½Ó¿Ú}
+\frametitle{æ¥å£}
   \begin{block}{\textit{interface}}
-    \CJKindent ÄÜÉùÃ÷ÌØĞÔ¡¢Ë÷ÒıÆ÷¡¢ÊÂ¼şºÍ·½·¨µÄÌØÊâ½á¹¹£¬Ö»ÎªÕâĞ©³ÉÔ±Ìá¹©ÉùÃ÷£¬
-    Ã»ÓĞ¾ßÌåÊµÏÖ¡£
+    \CJKindent èƒ½å£°æ˜ç‰¹æ€§ã€ç´¢å¼•å™¨ã€äº‹ä»¶å’Œæ–¹æ³•çš„ç‰¹æ®Šç»“æ„ï¼Œåªä¸ºè¿™äº›æˆå‘˜æä¾›å£°æ˜ï¼Œ
+    æ²¡æœ‰å…·ä½“å®ç°ã€‚
   \end{block}
-½Ó¿ÚµÄÒ»°ã¶¨Òå
+æ¥å£çš„ä¸€èˆ¬å®šä¹‰
 \begin{lstlisting}
 [attributes]
 [modifiers] interface identifier [:baselist]
 { interface_body } [;]
 \end{lstlisting}
 \begin{itemize}
-\item ½Ó¿ÚÉùÃ÷µÄÓï·¨ºÍÀà»ù±¾ÏàÍ¬
-\item ½Ó¿ÚÊµ¼ÊÒ²ÊÇÒ»ÖÖÀàĞÍ
-\item ½Ó¿ÚµÄÊµÏÖÓÉÀàÍê³É
+\item æ¥å£å£°æ˜çš„è¯­æ³•å’Œç±»åŸºæœ¬ç›¸åŒ
+\item æ¥å£å®é™…ä¹Ÿæ˜¯ä¸€ç§ç±»å‹
+\item æ¥å£çš„å®ç°ç”±ç±»å®Œæˆ
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile,t]
-\frametitle{½Ó¿ÚÊ¾Àı}
+\frametitle{æ¥å£ç¤ºä¾‹}
 
 \begin{onlyenv}<1-2| handout:1>
   \lstset{emph={interface}}
@@ -207,20 +207,20 @@ class Rectangle:IMeasurement {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{½Ó¿ÚµÄÌØµã}
+\frametitle{æ¥å£çš„ç‰¹ç‚¹}
 \begin{itemize}
 %\setlength{\itemsep}{8pt plus 1pt}
-\item ÎªÀàÌá¹©ÁËÀ¶Í¼£¬¹æ·¶ÁËÀàÖ®¼äµÄ½»»¥·½Ê½
-\item Í¨¹ı¼Ì³ĞÆäËû½Ó¿Ú£¬¿ÉÊÇÊµÏÖ½Ó¿ÚµÄÖØÓÃ
-\item ºÍ³éÏóÀàÒ»Ñù£¬²»¿ÉÒÔÉú³ÉÊµÀı
-\item ½Ó¿Ú³ÉÔ±Ä¬ÈÏÎª~ public ºÍ~ abstract
-\item ½Ó¿ÚÒ²ÊÇÒ»ÖÖÀàĞÍ£¬¿ÉÒÔ¶¨Òå±äÁ¿£¬·ÃÎÊ×ÓÀà¶ÔÏó
+\item ä¸ºç±»æä¾›äº†è“å›¾ï¼Œè§„èŒƒäº†ç±»ä¹‹é—´çš„äº¤äº’æ–¹å¼
+\item é€šè¿‡ç»§æ‰¿å…¶ä»–æ¥å£ï¼Œå¯æ˜¯å®ç°æ¥å£çš„é‡ç”¨
+\item å’ŒæŠ½è±¡ç±»ä¸€æ ·ï¼Œä¸å¯ä»¥ç”Ÿæˆå®ä¾‹
+\item æ¥å£æˆå‘˜é»˜è®¤ä¸º~ public å’Œ~ abstract
+\item æ¥å£ä¹Ÿæ˜¯ä¸€ç§ç±»å‹ï¼Œå¯ä»¥å®šä¹‰å˜é‡ï¼Œè®¿é—®å­ç±»å¯¹è±¡
 \begin{lstlisting}[escapeinside=<>]
 IMeasurement x = new Recangle(); 
-                          // <Ê¹ÓÃÁËÒşÊ½×ª»»>
-x.Area();                 // x<¿ÉÒÔÖ±½Ó·ÃÎÊ>Area()<·½·¨>
+                          // <ä½¿ç”¨äº†éšå¼è½¬æ¢>
+x.Area();                 // x<å¯ä»¥ç›´æ¥è®¿é—®>Area()<æ–¹æ³•>
 \end{lstlisting}
-\item Ò²¿ÉÒÔÊ¹ÓÃ~ is ºÍ~ as ²Ù×÷·ûÅĞ¶Ï½Ó¿ÚÀàĞÍ
+\item ä¹Ÿå¯ä»¥ä½¿ç”¨~ is å’Œ~ as æ“ä½œç¬¦åˆ¤æ–­æ¥å£ç±»å‹
 \begin{lstlisting}
 if (o is IMeasurement) ...
 IMeasurement x = o as IMeasurement;
@@ -229,15 +229,15 @@ IMeasurement x = o as IMeasurement;
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{½Ó¿ÚºÍ³éÏóÀàµÄÇø±ğ}
+\frametitle{æ¥å£å’ŒæŠ½è±¡ç±»çš„åŒºåˆ«}
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
-\item Ö»ÓĞËÄÖÖ³ÉÔ±£¬½öÌá¹©¶¨Òå¶ø²»ÊµÏÖ
+\item åªæœ‰å››ç§æˆå‘˜ï¼Œä»…æä¾›å®šä¹‰è€Œä¸å®ç°
   \begin{itemize}
-  \item ÌØĞÔ¡¢Ë÷ÒıÆ÷¡¢ÊÂ¼şºÍ·½·¨
+  \item ç‰¹æ€§ã€ç´¢å¼•å™¨ã€äº‹ä»¶å’Œæ–¹æ³•
   \end{itemize}
-\item ¶¨Òå²»ĞèÒª~ public ºÍ~ abstract£¬ÊµÏÖ²»ĞèÒª~ override
-\item ÀàÖ»ÄÜ¼Ì³ĞÒ»¸öÀà£¬µ«¿ÉÒÔÊµÏÖ¶à¸ö½Ó¿Ú
+\item å®šä¹‰ä¸éœ€è¦~ public å’Œ~ abstractï¼Œå®ç°ä¸éœ€è¦~ override
+\item ç±»åªèƒ½ç»§æ‰¿ä¸€ä¸ªç±»ï¼Œä½†å¯ä»¥å®ç°å¤šä¸ªæ¥å£
 
   \lstset{emph={[2]First,Second}}
 \begin{lstlisting}
@@ -250,25 +250,25 @@ class MyClass : First, Second
 \end{frame}
 
 % \begin{frame}
-% \frametitle{½Ó¿ÚµÄ×÷ÓÃ}
+% \frametitle{æ¥å£çš„ä½œç”¨}
 % \begin{itemize}
 % \setlength{\itemsep}{8pt plus 1pt}
-% \item ½Ó¿Ú¹æ¶¨ÁËÀàµÄÒ»ÖÖĞĞÎª·½Ê½£¬¹æ·¶ÁËÀàµÄĞĞÎª
-% \item ÊµÏÖÄ³Ò»½Ó¿ÚµÄ¸÷ÖÖÀà£¬ÔÚÕâ·½ÃæµÄĞĞÎªÊÇÒ»ÖÂµÄ
-% \item Í¨¹ı½Ó¿ÚÁ¬½ÓµÄÄ£¿é£¬´úÂëÖ®¼äµÄñîºÏ¶ÈĞ¡
-% \item ÏµÍ³Ìá¹©ÁË´óÁ¿µÄÏÖ³É½Ó¿Ú
+% \item æ¥å£è§„å®šäº†ç±»çš„ä¸€ç§è¡Œä¸ºæ–¹å¼ï¼Œè§„èŒƒäº†ç±»çš„è¡Œä¸º
+% \item å®ç°æŸä¸€æ¥å£çš„å„ç§ç±»ï¼Œåœ¨è¿™æ–¹é¢çš„è¡Œä¸ºæ˜¯ä¸€è‡´çš„
+% \item é€šè¿‡æ¥å£è¿æ¥çš„æ¨¡å—ï¼Œä»£ç ä¹‹é—´çš„è€¦åˆåº¦å°
+% \item ç³»ç»Ÿæä¾›äº†å¤§é‡çš„ç°æˆæ¥å£
 % \begin{itemize}
 % \setlength{\itemsep}{6pt plus 1pt}
-% \item System.IComparable --- ÆäÖĞµÄ ~CompareTo() ÓÃÓÚ±È½Ï
-% \item System.Collections.ICollection --- ¼¯ºÏ²Ù×÷
-% \item System.Collections.IEnumerator --- µü´ú²Ù×÷
+% \item System.IComparable --- å…¶ä¸­çš„ ~CompareTo() ç”¨äºæ¯”è¾ƒ
+% \item System.Collections.ICollection --- é›†åˆæ“ä½œ
+% \item System.Collections.IEnumerator --- è¿­ä»£æ“ä½œ
 % \end{itemize}
 % \end{itemize}
 % \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{½Ó¿ÚÖĞµÄÌØĞÔ}
-ÊµÏÖÒ»¸ö×Ô¶¯·µ»ØĞòÁĞµÄÌØĞÔ£º
+\frametitle{æ¥å£ä¸­çš„ç‰¹æ€§}
+å®ç°ä¸€ä¸ªè‡ªåŠ¨è¿”å›åºåˆ—çš„ç‰¹æ€§ï¼š
 \begin{lstlisting}
 using System;
 public interface ISeries {  // An interface property.
@@ -293,7 +293,7 @@ class ByTwos : ISeries {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{½Ó¿ÚÖĞµÄË÷ÒıÆ÷}
+\frametitle{æ¥å£ä¸­çš„ç´¢å¼•å™¨}
 \begin{lstlisting}
 using System;
 
@@ -320,18 +320,18 @@ public interface ISeries {  // an interface property
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{½Ó¿ÚÊ¾Àı}
+\frametitle{æ¥å£ç¤ºä¾‹}
 
 \begin{itemize}
-\item ÏßĞÔ±íÀà~LinkedList ºÍ½Ó¿Ú~Linkable (³ÌĞò~LinkedList.cs)
-\attachfile[description=Interface example]{code/LinkedList.cs}
+\item çº¿æ€§è¡¨ç±»~LinkedList å’Œæ¥å£~Linkable (ç¨‹åº~LinkedList.cs)
+%\attachfile[description=Interface example]{code/LinkedList.cs}
 
 \begin{lstlisting}[escapeinside=<>]
 interface Linkable {
   Linkable Next { get; set; }  
 }
 
-class LinkedList  { // <Ê¹ÓÃ> Linkable <½Ó¿Ú>
+class LinkedList  { // <ä½¿ç”¨> Linkable <æ¥å£>
   Linkable head;
   public Linkable Head { get { return head; } }
 
@@ -341,14 +341,14 @@ class LinkedList  { // <Ê¹ÓÃ> Linkable <½Ó¿Ú>
   public Linkable removeFromTail()        { ... }
 }
 
-class XXX: Linkable { ... } // <ÊµÏÖ> Linkable <½Ó¿Ú>
+class XXX: Linkable { ... } // <å®ç°> Linkable <æ¥å£>
 \end{lstlisting}
 \end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{½Ó¿ÚµÄ¼Ì³Ğ}
+\frametitle{æ¥å£çš„ç»§æ‰¿}
 \begin{lstlisting}
 public interface A {
   void meth1();
@@ -362,13 +362,13 @@ public interface B : A {
 
 \end{lstlisting}
 \begin{itemize}
-\item ½Ó¿ÚÖĞÒ²¿ÉÒÔÊ¹ÓÃ ~new ¹Ø¼ü×ÖÒş²Ø»ù½Ó¿Ú³ÉÔ±
+\item æ¥å£ä¸­ä¹Ÿå¯ä»¥ä½¿ç”¨ ~new å…³é”®å­—éšè—åŸºæ¥å£æˆå‘˜
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÏÔÊ½ÊµÏÖ½Ó¿Ú}
- ½Ó¿ÚÄ¬ÈÏÊÇ~ public£¬Èç¹ûĞèÒª ~private ÒªÊ¹ÓÃÏÔÊ½ÊµÏÖ
+\frametitle{æ˜¾å¼å®ç°æ¥å£}
+ æ¥å£é»˜è®¤æ˜¯~ publicï¼Œå¦‚æœéœ€è¦ ~private è¦ä½¿ç”¨æ˜¾å¼å®ç°
 \begin{lstlisting}
 using System;
 interface IEven {
@@ -389,7 +389,7 @@ class MyClass : IEven {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÏÔÊ½ÊµÏÖÏû³ıÆçÒå}
+\frametitle{æ˜¾å¼å®ç°æ¶ˆé™¤æ­§ä¹‰}
 \begin{lstlisting}
 using System;
 interface IMyIF_A {
@@ -412,9 +412,9 @@ class MyClass : IMyIF_A, IMyIF_B {
 \end{lstlisting}
 
 % \begin{frame}[fragile]
-% \frametitle{µü´úÆ÷}
+% \frametitle{è¿­ä»£å™¨}
 % \begin{itemize}
-% \item System.Collections.IEnumerable ½Ó¿Ú (³ÌĞò~IEnumerable.cs)
+% \item System.Collections.IEnumerable æ¥å£ (ç¨‹åº~IEnumerable.cs)
 % \begin{lstlisting}[escapeinside=<>]
 % interface IEnumerable 
 % {
@@ -427,50 +427,50 @@ class MyClass : IMyIF_A, IMyIF_B {
 %   void Reset();
 % }
 % \end{lstlisting}
-% \item ³£ÓÃÓÚ~foreach Ñ­»·µÄµü´ú
+% \item å¸¸ç”¨äº~foreach å¾ªç¯çš„è¿­ä»£
 % \end{itemize}
 % \end{frame}
 
 \end{frame}
 
-\section{Î¯ÍĞ}
+\section{å§”æ‰˜}
 
 \begin{frame}[fragile]
-\frametitle{Î¯ÍĞ}
+\frametitle{å§”æ‰˜}
   \begin{block}{\textit{delegate}}
-    \CJKindent ¾ßÓĞÌØ¶¨·µ»ØÀàĞÍºÍ²ÎÊıÁĞ±íµÄ·½·¨µÄÒıÓÃÀàĞÍ£»·½·¨Ãû×ÖÈÎÒâ£¬¿ÉÒÔÊÇ
-    ¾²Ì¬»òÊµÀı·½·¨£¬Ö»ÒªÀàĞÍ·ûºÏ£»¶Ô·½·¨Êµ¼ÊÄÜ½øĞĞµÄ²Ù×÷Ã»ÓĞÏŞÖÆ¡£
+    \CJKindent å…·æœ‰ç‰¹å®šè¿”å›ç±»å‹å’Œå‚æ•°åˆ—è¡¨çš„æ–¹æ³•çš„å¼•ç”¨ç±»å‹ï¼›æ–¹æ³•åå­—ä»»æ„ï¼Œå¯ä»¥æ˜¯
+    é™æ€æˆ–å®ä¾‹æ–¹æ³•ï¼Œåªè¦ç±»å‹ç¬¦åˆï¼›å¯¹æ–¹æ³•å®é™…èƒ½è¿›è¡Œçš„æ“ä½œæ²¡æœ‰é™åˆ¶ã€‚
   \end{block}
-Î¯ÍĞ¶¨ÒåµÄÒ»°ã¸ñÊ½£º
+å§”æ‰˜å®šä¹‰çš„ä¸€èˆ¬æ ¼å¼ï¼š
 \begin{lstlisting}
 [modifiers] delegate <returntype> <name> ([parameter list]);
 \end{lstlisting} \pause
 
   \begin{itemize}
-  \item Î¯ÍĞÒ²ÊÇÒ»ÖÖÀàĞÍ£¬ÓÃÓÚ°ü×°·½·¨
-  \item ¶¨ÒåÎ¯ÍĞºó£¬ĞèÒªÉùÃ÷£¬²¢´´½¨Î¯ÍĞµÄÊµÀı
-  \item Î¯ÍĞµÄÊµÀı£¬Ïàµ±ÓÚ·½·¨µÄÈİÆ÷£¬¿ÉÒÔÌí¼Ó»òÈ¥µô·½·¨
-  \item µ÷ÓÃÎ¯ÍĞ£¬Ïàµ±ÓÚµ÷ÓÃÆäÖĞµÄÈ«²¿·½·¨
-  \item Í¨¹ıÎ¯ÍĞ£¬³ÌĞò¿ÉÒÔÔÚÔËĞĞÊ±¶¯Ì¬µÄµ÷ÓÃ²»Í¬µÄ·½·¨
+  \item å§”æ‰˜ä¹Ÿæ˜¯ä¸€ç§ç±»å‹ï¼Œç”¨äºåŒ…è£…æ–¹æ³•
+  \item å®šä¹‰å§”æ‰˜åï¼Œéœ€è¦å£°æ˜ï¼Œå¹¶åˆ›å»ºå§”æ‰˜çš„å®ä¾‹
+  \item å§”æ‰˜çš„å®ä¾‹ï¼Œç›¸å½“äºæ–¹æ³•çš„å®¹å™¨ï¼Œå¯ä»¥æ·»åŠ æˆ–å»æ‰æ–¹æ³•
+  \item è°ƒç”¨å§”æ‰˜ï¼Œç›¸å½“äºè°ƒç”¨å…¶ä¸­çš„å…¨éƒ¨æ–¹æ³•
+  \item é€šè¿‡å§”æ‰˜ï¼Œç¨‹åºå¯ä»¥åœ¨è¿è¡Œæ—¶åŠ¨æ€çš„è°ƒç”¨ä¸åŒçš„æ–¹æ³•
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Î¯ÍĞÊ¾Àı(1)}
+\frametitle{å§”æ‰˜ç¤ºä¾‹(1)}
 \begin{lstlisting}[escapeinside=<>]
-// <¶¨ÒåÎ¯ÍĞ~ Compute>
+// <å®šä¹‰å§”æ‰˜~ Compute>
 delegate int Compute (int a, int b);
 
 class Test {
-  public Compute comp;        // <ÉùÃ÷Î¯ÍĞ>
+  public Compute comp;        // <å£°æ˜å§”æ‰˜>
   public int add (int x, int y)
     { return x + y; }
 }
 ...
   Test n = new Test();
-  n.comp = new Compute(n.add); // <´´½¨Î¯ÍĞÊµÀı>
+  n.comp = new Compute(n.add); // <åˆ›å»ºå§”æ‰˜å®ä¾‹>
 
-  int r  = n.comp (20,40);    // <µ÷ÓÃÎ¯ÍĞ>
+  int r  = n.comp (20,40);    // <è°ƒç”¨å§”æ‰˜>
 
   System.Console.WriteLine (r);
 \end{lstlisting}
@@ -478,7 +478,7 @@ class Test {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Î¯ÍĞÊ¾Àı(2)}
+\frametitle{å§”æ‰˜ç¤ºä¾‹(2)}
 \lstset{emph={[2]replaceSpaces,removeSpaces,reverse}}
 \begin{lstlisting}
 using System;
@@ -503,14 +503,14 @@ class DelegateTest {
 \end{lstlisting}
 \end{frame}
 \begin{frame}[fragile]
-\frametitle{Î¯ÍĞÊ¾Àı(2Ğø)}
+\frametitle{å§”æ‰˜ç¤ºä¾‹(2ç»­)}
 \begin{lstlisting}[escapeinside=<>]
 public static void Main() {
-  // <´´½¨Î¯ÍĞ>
+  // <åˆ›å»ºå§”æ‰˜>
   StrMod strOp = new StrMod(replaceSpaces);
   string str;
 
-  // <µ÷ÓÃÎ¯ÍĞ>
+  // <è°ƒç”¨å§”æ‰˜>
   str = strOp("This is a test.");
   Console.WriteLine("Resulting string: " + str);
   Console.WriteLine();
@@ -529,35 +529,35 @@ public static void Main() {
 \end{frame}
 
 \begin{frame}
-\frametitle{Î¯ÍĞµÄÓÅÊÆ}
+\frametitle{å§”æ‰˜çš„ä¼˜åŠ¿}
 
 \begin{itemize}
 \setlength{\itemsep}{6pt plus 1pt}
-\item ´«Í³µÄ ~Microsoft Windows Ê¹ÓÃº¯ÊıÖ¸Õë½øĞĞ»Øµ÷
-\item º¯ÊıÖ¸ÕëÖ¸ÏòµÄµØÖ·²»Ò»¶¨ÓĞĞ§£¬ÈİÒ×·¢Éú´íÎó
-\item C\# ÔòÍ¨¹ıÀàĞÍ°²È«µÄÎ¯ÍĞ½øĞĞ»Øµ÷
-\item ±àÒëÆ÷Íê³ÉÀàĞÍ¼ì²é£¬È·±£ÆäÖĞµÄ·½·¨¿É¿¿
-\item ²»ĞèÊ¹ÓÃº¯ÊıÖ¸Õë£¬Ò×ÓÚÎ¬»¤
+\item ä¼ ç»Ÿçš„ ~Microsoft Windows ä½¿ç”¨å‡½æ•°æŒ‡é’ˆè¿›è¡Œå›è°ƒ
+\item å‡½æ•°æŒ‡é’ˆæŒ‡å‘çš„åœ°å€ä¸ä¸€å®šæœ‰æ•ˆï¼Œå®¹æ˜“å‘ç”Ÿé”™è¯¯
+\item C\# åˆ™é€šè¿‡ç±»å‹å®‰å…¨çš„å§”æ‰˜è¿›è¡Œå›è°ƒ
+\item ç¼–è¯‘å™¨å®Œæˆç±»å‹æ£€æŸ¥ï¼Œç¡®ä¿å…¶ä¸­çš„æ–¹æ³•å¯é 
+\item ä¸éœ€ä½¿ç”¨å‡½æ•°æŒ‡é’ˆï¼Œæ˜“äºç»´æŠ¤
 \end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{×Ô¶¯ÀàĞÍ×ª»»}
-\CJKindent C\# 2.0 ÖĞ£¬¿ÉÒÔÊ¡ÂÔ ~new ±í´ïÊ½£¬Ö±½ÓÊ¹ÓÃ·½·¨Ãû´´½¨Î¯ÍĞÊµÀı£¬Ìí¼ÓÎ¯ÍĞ
+\frametitle{è‡ªåŠ¨ç±»å‹è½¬æ¢}
+\CJKindent C\# 2.0 ä¸­ï¼Œå¯ä»¥çœç•¥ ~new è¡¨è¾¾å¼ï¼Œç›´æ¥ä½¿ç”¨æ–¹æ³•ååˆ›å»ºå§”æ‰˜å®ä¾‹ï¼Œæ·»åŠ å§”æ‰˜
 \begin{lstlisting}[escapeinside=<>]
 public static void Main() {
-  // <×Ô¶¯½«·½·¨×ª»»ÎªÎ¯ÍĞ>
+  // <è‡ªåŠ¨å°†æ–¹æ³•è½¬æ¢ä¸ºå§”æ‰˜>
   StrMod strOp = replaceSpaces;
   string str;
 
-  // <Î¯ÍĞµ÷ÓÃ>
+  // <å§”æ‰˜è°ƒç”¨>
   str = strOp("This is a test.");
 
-  strOp = removeSpaces; // <×Ô¶¯×ª»»>
+  strOp = removeSpaces; // <è‡ªåŠ¨è½¬æ¢>
   str = strOp("This is a test.");
 
-  strOp = reverse; // <×Ô¶¯×ª»»>
+  strOp = reverse; // <è‡ªåŠ¨è½¬æ¢>
   str = strOp("This is a test.");
 }
 \end{lstlisting}
@@ -565,7 +565,7 @@ public static void Main() {
 
 
 \begin{frame}[fragile]
-\frametitle{¶à²¥Î¯ÍĞ}
+\frametitle{å¤šæ’­å§”æ‰˜}
 \begin{lstlisting}
 public static void Main() {
 
@@ -588,19 +588,19 @@ public static void Main() {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{¶à²¥Î¯ÍĞ}
+\frametitle{å¤šæ’­å§”æ‰˜}
 \begin{itemize}
 \setlength{\itemsep}{4pt plus 1pt}
-\item<1-| handout:1> ¶à²¥Î¯ÍĞÖĞ£¬Î¯ÍĞÏàµ±ÓÚÒ»¸ö·½·¨µÄµ÷ÓÃÁĞ±í
-\item<2-| handout:1> Í¨¹ı ~\texttt{+}»ò~\texttt{+=} ²Ù×÷·ûÌí¼ÓÆäËûµÄÎ¯ÍĞ(»ò·½·¨)
-\item<2-| handout:1> Í¨¹ı ~\texttt{-}»ò~\texttt{-=} ²Ù×÷·ûÈ¥µôÒÑÓĞµÄÎ¯ÍĞ(»ò·½·¨)
-\item<3-| handout:1> ¶à²¥Î¯ÍĞµÄ·µ»ØÖµÓ¦¸ÃÊÇ ~void
-\item<3-| handout:1> Ìí¼ÓºÍÈ¥µô·½·¨µÄ¸ñÊ½±È½Ï×ÔÓÉ
+\item<1-| handout:1> å¤šæ’­å§”æ‰˜ä¸­ï¼Œå§”æ‰˜ç›¸å½“äºä¸€ä¸ªæ–¹æ³•çš„è°ƒç”¨åˆ—è¡¨
+\item<2-| handout:1> é€šè¿‡ ~\texttt{+}æˆ–~\texttt{+=} æ“ä½œç¬¦æ·»åŠ å…¶ä»–çš„å§”æ‰˜(æˆ–æ–¹æ³•)
+\item<2-| handout:1> é€šè¿‡ ~\texttt{-}æˆ–~\texttt{-=} æ“ä½œç¬¦å»æ‰å·²æœ‰çš„å§”æ‰˜(æˆ–æ–¹æ³•)
+\item<3-| handout:1> å¤šæ’­å§”æ‰˜çš„è¿”å›å€¼åº”è¯¥æ˜¯ ~void
+\item<3-| handout:1> æ·»åŠ å’Œå»æ‰æ–¹æ³•çš„æ ¼å¼æ¯”è¾ƒè‡ªç”±
 \end{itemize}
 \begin{onlyenv}<1-| handout:1>
 \begin{lstlisting}[escapeinside=<>]
-  delegate void MyOperation (int i);    // <¶¨ÒåÎ¯ÍĞ>
-  MyOperation myop = new MyOperation(); // <´´½¨Î¯ÍĞ>
+  delegate void MyOperation (int i);    // <å®šä¹‰å§”æ‰˜>
+  MyOperation myop = new MyOperation(); // <åˆ›å»ºå§”æ‰˜>
 
   myop += SomeMethod;
   myop += new MyOperation(AnotherMethod);
@@ -615,7 +615,7 @@ public static void Main() {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Î¯ÍĞµÄĞ­±ä~ (\textit{Covariance})}
+\frametitle{å§”æ‰˜çš„åå˜~ (\textit{Covariance})}
 \begin{lstlisting}
 class Mammal {}
 class Dog : Mammal{}
@@ -638,7 +638,7 @@ class Program
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Î¯ÍĞµÄÄæ±ä~ (\textit{Contravariance})}
+\frametitle{å§”æ‰˜çš„é€†å˜~ (\textit{Contravariance})}
 \begin{lstlisting}
 class Mammal{}
 class Dog : Mammal{}
@@ -661,7 +661,7 @@ class Program
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Î¯ÍĞµÄÄæ±ä(Ê¾Àı2)}
+\frametitle{å§”æ‰˜çš„é€†å˜(ç¤ºä¾‹2)}
 \begin{lstlisting}
 System.DateTime lastActivity;
 public Form1() // Form1 Constructor
@@ -689,48 +689,48 @@ MultiHandler(object sender, System.EventArgs e)
 \item Covariance permits a method to have a {\redwarn more derived} return type
   than what is defined in the delegate.
 \begin{itemize}
-\item ·µ»ØÀàĞÍ¿ÉÒÔ²»Í¬
-\item ·½·¨µÄ·µ»ØÀàĞÍÊÇÎ¯ÍĞµÄÅÉÉúÀà
+\item è¿”å›ç±»å‹å¯ä»¥ä¸åŒ
+\item æ–¹æ³•çš„è¿”å›ç±»å‹æ˜¯å§”æ‰˜çš„æ´¾ç”Ÿç±»
 \end{itemize}
 \item Contravariance permits a method with parameter types that are
   {\redwarn less derived} than in the delegate type.
 \begin{itemize}
-\item ²ÎÊıÀàĞÍ¿ÉÒÔ²»Í¬
-\item ·½·¨µÄ²ÎÊıÀàĞÍÊÇÎ¯ÍĞµÄ»ùÀà
+\item å‚æ•°ç±»å‹å¯ä»¥ä¸åŒ
+\item æ–¹æ³•çš„å‚æ•°ç±»å‹æ˜¯å§”æ‰˜çš„åŸºç±»
 \end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÄäÃû·½·¨}
+\frametitle{åŒ¿åæ–¹æ³•}
 \begin{block}{\textit{anonymous method}}
-  \CJKindent ÄäÃû·½·¨¾ÍÊÇ¿ÉÒÔÖ´ĞĞµÄÒ»¶Î´úÂë¿é£¬Ã»ÓĞ·½·¨Ãû£¬Ö»ÄÜÍ¨¹ıÎ¯ÍĞµ÷ÓÃ¡£
+  \CJKindent åŒ¿åæ–¹æ³•å°±æ˜¯å¯ä»¥æ‰§è¡Œçš„ä¸€æ®µä»£ç å—ï¼Œæ²¡æœ‰æ–¹æ³•åï¼Œåªèƒ½é€šè¿‡å§”æ‰˜è°ƒç”¨ã€‚
 \end{block}
-ÄäÃû·½·¨µÄÒ»°ã¸ñÊ½£º
+åŒ¿åæ–¹æ³•çš„ä¸€èˆ¬æ ¼å¼ï¼š
 \begin{lstlisting}
 delegate [(parameter-list)] { anonymous-method-block}
 \end{lstlisting}
 \begin{itemize}
-\item C\# 2.0 ÖĞÊ¹ÓÃÎ¯ÍĞ¿ÉÒÔ´´½¨ÄäÃû·½·¨
-\item Ê¹ÓÃÄäÃû·½·¨£¬¿ÉÒÔ¼ò»¯³ÌĞò£¬²»ÓÃÎª¼òµ¥µÄ²Ù×÷¶¨Òå·½·¨
+\item C\# 2.0 ä¸­ä½¿ç”¨å§”æ‰˜å¯ä»¥åˆ›å»ºåŒ¿åæ–¹æ³•
+\item ä½¿ç”¨åŒ¿åæ–¹æ³•ï¼Œå¯ä»¥ç®€åŒ–ç¨‹åºï¼Œä¸ç”¨ä¸ºç®€å•çš„æ“ä½œå®šä¹‰æ–¹æ³•
 \end{itemize}
 \end{frame}
 \begin{frame}[fragile]
-\frametitle{ÄäÃû·½·¨Ê¾Àı}
+\frametitle{åŒ¿åæ–¹æ³•ç¤ºä¾‹}
 \begin{lstlisting}[escapeinside='']
 using System;
-// '¶¨ÒåÎ¯ÍĞ'
+// 'å®šä¹‰å§”æ‰˜'
 delegate void CountIt();
 
 class AnonMethDemo {
 
   public static void Main() {
 
-    // 'Ìí¼ÓÒ»¸öÄäÃû·½·¨'
+    // 'æ·»åŠ ä¸€ä¸ªåŒ¿åæ–¹æ³•'
     CountIt count = delegate {
       for(int i=0; i <= 5; i++)
         Console.WriteLine(i);
-    }; // '×¢ÒâÕâÀïµÄ·ÖºÅ'
+    }; // 'æ³¨æ„è¿™é‡Œçš„åˆ†å·'
 
     count();
   }
@@ -740,17 +740,17 @@ class AnonMethDemo {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{´ø²ÎÊıµÄÄäÃû·½·¨}
+\frametitle{å¸¦å‚æ•°çš„åŒ¿åæ–¹æ³•}
 \begin{lstlisting}[escapeinside='']
 using System;
-// '¶¨Òå´ø²ÎÊıµÄÎ¯ÍĞ'
+// 'å®šä¹‰å¸¦å‚æ•°çš„å§”æ‰˜'
 delegate void CountIt(int end);
 
 class AnonMethDemo2 {
 
   public static void Main() {
 
-    // 'Ìí¼ÓÒ»¸öÄäÃû·½·¨'
+    // 'æ·»åŠ ä¸€ä¸ªåŒ¿åæ–¹æ³•'
     CountIt count = delegate (int end) {
       for(int i=0; i <= end; i++)
         Console.WriteLine(i);
@@ -764,7 +764,7 @@ class AnonMethDemo2 {
 \end{frame}
 
 \begin{frame}[fragile, plain]
-\frametitle{´ø·µ»ØÖµµÄÄäÃû·½·¨}
+\frametitle{å¸¦è¿”å›å€¼çš„åŒ¿åæ–¹æ³•}
 \begin{lstlisting}
 using System;
 delegate int CountIt(int end); // return int
@@ -791,11 +791,11 @@ class AnonMethDemo3 {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Î¯ÍĞµÄÏàµÈĞÔ}
+\frametitle{å§”æ‰˜çš„ç›¸ç­‰æ€§}
 \begin{itemize}
-\item ²»Í¬µÄÎ¯ÍĞ¼ä£¬ÅĞ¶ÏÊÇ·ñÒÑ¾­µ÷ÓÃÄ³¸ö·½·¨£¬ĞèÒªÅĞ¶ÏÎ¯ÍĞµÄÏàµÈĞÔ
-\item ¶ÔÓÚµ¥¸öÎ¯ÍĞ£¬Ö»ĞèÅĞ¶ÏÀàĞÍºÍÎ¯ÍĞÖĞµÄ·½·¨
-\item ¶ÔÓÚ¶à²¥Î¯ÍĞ£¬»¹ĞèÒªÅĞ¶Ï·½·¨¸öÊıºÍË³Ğò
+\item ä¸åŒçš„å§”æ‰˜é—´ï¼Œåˆ¤æ–­æ˜¯å¦å·²ç»è°ƒç”¨æŸä¸ªæ–¹æ³•ï¼Œéœ€è¦åˆ¤æ–­å§”æ‰˜çš„ç›¸ç­‰æ€§
+\item å¯¹äºå•ä¸ªå§”æ‰˜ï¼Œåªéœ€åˆ¤æ–­ç±»å‹å’Œå§”æ‰˜ä¸­çš„æ–¹æ³•
+\item å¯¹äºå¤šæ’­å§”æ‰˜ï¼Œè¿˜éœ€è¦åˆ¤æ–­æ–¹æ³•ä¸ªæ•°å’Œé¡ºåº
 \end{itemize}
 \begin{lstlisting}
   StrMod strOp1;
@@ -809,29 +809,29 @@ class AnonMethDemo3 {
 
 
 
-\section{ÊÂ¼ş}
+\section{äº‹ä»¶}
 
 \begin{frame}[fragile]
-\frametitle{ÊÂ¼ş}
+\frametitle{äº‹ä»¶}
 \begin{block}{\textit{events}}
-  \CJKindent ÀàÖĞ°²È«µÄÎ¯ÍĞ³ÉÔ±£¬~Windows ±à³ÌÖĞµÄÊÂ¼şÔÚ ~C\# ÓïÑÔÖĞµÄÌåÏÖ£¬ÊÇ
-  ³ÌĞòÔªËØÖ®¼äÍ¨ĞÅµÄ¶¯Ì¬¸ñÊ½¡£
+  \CJKindent ç±»ä¸­å®‰å…¨çš„å§”æ‰˜æˆå‘˜ï¼Œ~Windows ç¼–ç¨‹ä¸­çš„äº‹ä»¶åœ¨ ~C\# è¯­è¨€ä¸­çš„ä½“ç°ï¼Œæ˜¯
+  ç¨‹åºå…ƒç´ ä¹‹é—´é€šä¿¡çš„åŠ¨æ€æ ¼å¼ã€‚
 \end{block}
-ÊÂ¼ş¶¨ÒåµÄÒ»°ã¸ñÊ½£º
+äº‹ä»¶å®šä¹‰çš„ä¸€èˆ¬æ ¼å¼ï¼š
 \begin{lstlisting}
 [modifier] event <delegatetype> <eventname>;
 \end{lstlisting}
 \pause
 \begin{itemize}
-\item ÊÂ¼ş²»ÊÇ´Ó³ÌĞòµÄÒ»²¿·Öµ½ÁíÒ»²¿·ÖµÄ¹ı³ÌÁ÷
-\item Ö»ÊÇ½¨Á¢ÔÚ³ÌĞòÖ®¼äµÄÁ¬½ÓµÄ·½·¨ºÍÔËĞĞ¹ı³ÌÖĞµÄÖÕ½á²Ù×÷
-\item ³ÌĞòÔËĞĞÆÚ¼ä£¬ÊÂ¼şÓÃÓÚÍ¨Öª¸ĞĞËÈ¤µÄ¿Í»§
-\item ÓÃÓÚ ~C\# µÄ×é¼ş£¬Ìá¹©»Øµ÷¹¦ÄÜ
+\item äº‹ä»¶ä¸æ˜¯ä»ç¨‹åºçš„ä¸€éƒ¨åˆ†åˆ°å¦ä¸€éƒ¨åˆ†çš„è¿‡ç¨‹æµ
+\item åªæ˜¯å»ºç«‹åœ¨ç¨‹åºä¹‹é—´çš„è¿æ¥çš„æ–¹æ³•å’Œè¿è¡Œè¿‡ç¨‹ä¸­çš„ç»ˆç»“æ“ä½œ
+\item ç¨‹åºè¿è¡ŒæœŸé—´ï¼Œäº‹ä»¶ç”¨äºé€šçŸ¥æ„Ÿå…´è¶£çš„å®¢æˆ·
+\item ç”¨äº ~C\# çš„ç»„ä»¶ï¼Œæä¾›å›è°ƒåŠŸèƒ½
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{¶¨ÒåÊÂ¼ş}
+\frametitle{å®šä¹‰äº‹ä»¶}
 \begin{lstlisting}
 using System;
 public delegate void MenuHandler();
@@ -856,39 +856,39 @@ public class MenuItem
 \end{frame}
 
 \begin{frame}
-\frametitle{·¢²¼/¶©ÔÄÄ£Ê½}
+\frametitle{å‘å¸ƒ/è®¢é˜…æ¨¡å¼}
 \begin{itemize}
-\item Ìá¹©ÊÂ¼şµÄÀà¿ÉÒÔ³ÆÎªÊÂ¼şµÄÌá¹©Æ÷»ò·¢²¼Æ÷ (\textit{publisher})
-\item ĞèÒª±»Í¨ÖªµÄ×é¼ş¿ÉÒÔ³ÆÎª¶©ÔÄÆ÷ (\textit{subscriber})
+\item æä¾›äº‹ä»¶çš„ç±»å¯ä»¥ç§°ä¸ºäº‹ä»¶çš„æä¾›å™¨æˆ–å‘å¸ƒå™¨ (\textit{publisher})
+\item éœ€è¦è¢«é€šçŸ¥çš„ç»„ä»¶å¯ä»¥ç§°ä¸ºè®¢é˜…å™¨ (\textit{subscriber})
 \end{itemize}
 \bigskip \pause
 \begin{itemize}
 \setlength{\itemsep}{4pt plus 1pt}
-\item ¶©ÔÄÆ÷Í¨¹ıÏòÊÂ¼şÖĞÌí¼ÓÊÂ¼ş´¦Àí·½·¨À´´ïµ½¶©ÔÄµÄÄ¿µÄ
-\item ÒòÎªÊÂ¼şÒ»°ã¶¼Îª ~\texttt{public}£¬Òò´ËÈÎºÎ×é¼ş¶¼¿ÉÒÔ¶©ÔÄ
-\item ¶øÒòÎªÎ¯ÍĞ¿ÉÒÔÌí¼Ó¶à¸ö·½·¨£¬ËùÒÔÍ¬Ò»Ê±¼ä¿ÉÓÉ¶à¸ö×é¼ş¶©ÔÄ
-\item ¶øÊÂ¼ş·¢²¼Æ÷Í¨¹ıµ÷ÓÃÎ¯ÍĞ£¬À´´¥·¢ ~(\textit{fire}) ÊÂ¼ş
-\item ÊÂ¼şµÄ´¥·¢Êµ¼Ê¾ÍÊÇÎ¯ÍĞµ÷ÓÃµÄ¹ı³Ì
+\item è®¢é˜…å™¨é€šè¿‡å‘äº‹ä»¶ä¸­æ·»åŠ äº‹ä»¶å¤„ç†æ–¹æ³•æ¥è¾¾åˆ°è®¢é˜…çš„ç›®çš„
+\item å› ä¸ºäº‹ä»¶ä¸€èˆ¬éƒ½ä¸º ~\texttt{public}ï¼Œå› æ­¤ä»»ä½•ç»„ä»¶éƒ½å¯ä»¥è®¢é˜…
+\item è€Œå› ä¸ºå§”æ‰˜å¯ä»¥æ·»åŠ å¤šä¸ªæ–¹æ³•ï¼Œæ‰€ä»¥åŒä¸€æ—¶é—´å¯ç”±å¤šä¸ªç»„ä»¶è®¢é˜…
+\item è€Œäº‹ä»¶å‘å¸ƒå™¨é€šè¿‡è°ƒç”¨å§”æ‰˜ï¼Œæ¥è§¦å‘ ~(\textit{fire}) äº‹ä»¶
+\item äº‹ä»¶çš„è§¦å‘å®é™…å°±æ˜¯å§”æ‰˜è°ƒç”¨çš„è¿‡ç¨‹
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Î¯ÍĞºÍÊÂ¼ş}
-ÎªÊ²Ã´²»Ö±½ÓÊ¹ÓÃÎ¯ÍĞÄØ£¿
+\frametitle{å§”æ‰˜å’Œäº‹ä»¶}
+ä¸ºä»€ä¹ˆä¸ç›´æ¥ä½¿ç”¨å§”æ‰˜å‘¢ï¼Ÿ
 \begin{itemize}
 \setlength{\itemsep}{6pt plus 1pt}
-\item Î¯ÍĞÓÃÓÚÊÂ¼şÊ±£¬ĞèÒªÉùÃ÷Îª ~\texttt{public}£¬ÆäËû×é¼ş²ÅÄÜ¶©ÔÄ
-\item µ«Í¬Ê±Ò²¿ÉÒÔ´¥·¢£¬¼´Î¯ÍĞµÄµ÷ÓÃ£¬²»¹»°²È«
-\item Òò´Ë ~C\# ½«Î¯ÍĞ°ü×°ÎªÊÂ¼ş£¬¶ÔÍâ×¨ÃÅÓÃÓÚ¶©ÔÄ
-\item ¶¨ÒåÎªÊÂ¼şºó£¬ÆäËû×é¼şÒ²Ö»ÄÜ¶©ÔÄºÍÉ¾³ı
-\item ¶ø×÷ÎªÎ¯ÍĞµÄµ÷ÓÃ£¬Ö»ÄÜÓÉ·¢²¼Æ÷Àà×Ô¼ºÍê³É
+\item å§”æ‰˜ç”¨äºäº‹ä»¶æ—¶ï¼Œéœ€è¦å£°æ˜ä¸º ~\texttt{public}ï¼Œå…¶ä»–ç»„ä»¶æ‰èƒ½è®¢é˜…
+\item ä½†åŒæ—¶ä¹Ÿå¯ä»¥è§¦å‘ï¼Œå³å§”æ‰˜çš„è°ƒç”¨ï¼Œä¸å¤Ÿå®‰å…¨
+\item å› æ­¤ ~C\# å°†å§”æ‰˜åŒ…è£…ä¸ºäº‹ä»¶ï¼Œå¯¹å¤–ä¸“é—¨ç”¨äºè®¢é˜…
+\item å®šä¹‰ä¸ºäº‹ä»¶åï¼Œå…¶ä»–ç»„ä»¶ä¹Ÿåªèƒ½è®¢é˜…å’Œåˆ é™¤
+\item è€Œä½œä¸ºå§”æ‰˜çš„è°ƒç”¨ï¼Œåªèƒ½ç”±å‘å¸ƒå™¨ç±»è‡ªå·±å®Œæˆ
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile,plain]
-\frametitle{ÊÂ¼ş·ÃÎÊÆ÷}
-\CJKindent Ìí¼Ó·½·¨µ½ÊÂ¼ş£¬»ò´ÓÊÂ¼şÖĞÉ¾³ıµÄ¹ı³ÌÊÇ¿ÉÒÔ¶¨ÖÆµÄ£¬ÈçÍ¨¹ı{\redwarn ÊÂ
-¼ş·ÃÎÊÆ÷}Ìí¼ÓºÍÉ¾³ıÊÂ¼ş¡£
+\frametitle{äº‹ä»¶è®¿é—®å™¨}
+\CJKindent æ·»åŠ æ–¹æ³•åˆ°äº‹ä»¶ï¼Œæˆ–ä»äº‹ä»¶ä¸­åˆ é™¤çš„è¿‡ç¨‹æ˜¯å¯ä»¥å®šåˆ¶çš„ï¼Œå¦‚é€šè¿‡{\redwarn äº‹
+ä»¶è®¿é—®å™¨}æ·»åŠ å’Œåˆ é™¤äº‹ä»¶ã€‚
 \lstset{emph={add,remove}, emph={[2]MenuSelection}}
 \begin{lstlisting}
 public delegate void
@@ -912,22 +912,22 @@ public class MenuItem
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÊÂ¼şµÄÆäËûÌØĞÔ}
+\frametitle{äº‹ä»¶çš„å…¶ä»–ç‰¹æ€§}
 \setlength{\itemsep}{6pt plus 1pt}
 \begin{itemize}
-\item ÊÂ¼ş¿ÉÒÔÔÚ½Ó¿ÚÖĞ£¬ÊµÏÖ½Ó¿ÚµÄÀà±ØĞëÊµÏÖ¸ÃÊÂ¼ş
-\item ÊÂ¼ş¿ÉÒÔÊÇ³éÏó~ (\texttt{abstract}) µÄ£¬ÓÉÅÉÉúÀà¼Ì³Ğ²¢ÊµÏÖ
-\item ÊÂ¼ş·ÃÎÊÆ÷²»¿ÉÒÔÊÇ³éÏóµÄ
-\item ÊÂ¼ş¿ÉÒÔ±»ÃÜ·â~ (\texttt{sealed})£¬·ÀÖ¹±»¼Ì³Ğ
-\item ÊÂ¼ş¿ÉÒÔÊÇĞéµÄ~ (\texttt{virtual})£¬ÔÊĞíÅÉÉúÀàµÄ¸²¸Ç~(\texttt{override})
+\item äº‹ä»¶å¯ä»¥åœ¨æ¥å£ä¸­ï¼Œå®ç°æ¥å£çš„ç±»å¿…é¡»å®ç°è¯¥äº‹ä»¶
+\item äº‹ä»¶å¯ä»¥æ˜¯æŠ½è±¡~ (\texttt{abstract}) çš„ï¼Œç”±æ´¾ç”Ÿç±»ç»§æ‰¿å¹¶å®ç°
+\item äº‹ä»¶è®¿é—®å™¨ä¸å¯ä»¥æ˜¯æŠ½è±¡çš„
+\item äº‹ä»¶å¯ä»¥è¢«å¯†å°~ (\texttt{sealed})ï¼Œé˜²æ­¢è¢«ç»§æ‰¿
+\item äº‹ä»¶å¯ä»¥æ˜¯è™šçš„~ (\texttt{virtual})ï¼Œå…è®¸æ´¾ç”Ÿç±»çš„è¦†ç›–~(\texttt{override})
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{.NET ÖĞµÄÊÂ¼ş}
+\frametitle{.NET ä¸­çš„äº‹ä»¶}
 \begin{itemize}
-\item ¶¨ÒåÊÂ¼ş£¬¿ÉÒÔÊ¹ÓÃÈÎÒâµÄ·µ»ØÖµÀàĞÍºÍ²ÎÊıÀàĞÍ
-\item µ« ~.NET ¿ò¼ÜÍÆ¼öÁËÒ»ÖÖ±ê×¼£¬¼´£º
+\item å®šä¹‰äº‹ä»¶ï¼Œå¯ä»¥ä½¿ç”¨ä»»æ„çš„è¿”å›å€¼ç±»å‹å’Œå‚æ•°ç±»å‹
+\item ä½† ~.NET æ¡†æ¶æ¨èäº†ä¸€ç§æ ‡å‡†ï¼Œå³ï¼š
 \begin{lstlisting}
 void Handler (object source, EventArgs arg){
   // ...
@@ -936,15 +936,15 @@ void Handler (object source, EventArgs arg){
 \end{itemize}
 \medskip
 \begin{itemize}
-\item source ÓÃÓÚµ÷ÓÃ·½·¨°Ñ×Ô¼º (\texttt{this}) ´«¸ø¿Í»§
-\item arg ÊÇ ~System.EventArgs Àà»òÆäÅÉÉúÀàĞÍµÄ²ÎÊı
-\item ×Ô¶¨ÒåµÄ ~EventArgs ¿É´æ·ÅÈÎºÎĞÅÏ¢
+\item source ç”¨äºè°ƒç”¨æ–¹æ³•æŠŠè‡ªå·± (\texttt{this}) ä¼ ç»™å®¢æˆ·
+\item arg æ˜¯ ~System.EventArgs ç±»æˆ–å…¶æ´¾ç”Ÿç±»å‹çš„å‚æ•°
+\item è‡ªå®šä¹‰çš„ ~EventArgs å¯å­˜æ”¾ä»»ä½•ä¿¡æ¯
 \end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{.NET ÊÂ¼şÊ¾Àı(1)}
+\frametitle{.NET äº‹ä»¶ç¤ºä¾‹(1)}
 \begin{lstlisting}
 using System;
 class MyEventArgs : EventArgs { public int eventnum; }
@@ -968,7 +968,7 @@ class MyEvent {   static int count = 0;
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{.NET ÊÂ¼şÊ¾Àı(2)}
+\frametitle{.NET äº‹ä»¶ç¤ºä¾‹(2)}
 \begin{lstlisting}
 class X {
   public void handler(object s, MyEventArgs arg) {..} }
@@ -992,7 +992,7 @@ class EventDemo6 {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÊÂ¼şÓëÄäÃû·½·¨}
+\frametitle{äº‹ä»¶ä¸åŒ¿åæ–¹æ³•}
 \begin{lstlisting}
 using System;
 delegate void MyEventHandler();
@@ -1018,27 +1018,27 @@ class MyEvent {
 
 \end{frame}
 
-\section{·ºĞÍ}
+\section{æ³›å‹}
 
 \begin{frame}[fragile]
-\frametitle{·ºĞÍ}
+\frametitle{æ³›å‹}
 \begin{block}{\textit{Generics}}
-  \CJKindent ·ºĞÍ¾ÍÊÇÀàĞÍ²ÎÊı»¯£¬¿ÉÒÔ½«ÀàĞÍ×÷Îª²ÎÊı£¬¸ù¾İĞèÒª¸Ä±äÀàÖĞ³ÉÔ±µÄÀàĞÍ¡£
-  ·ºĞÍÊÇ ~.NET 2.0 µÄĞÂÌØĞÔ¡£
+  \CJKindent æ³›å‹å°±æ˜¯ç±»å‹å‚æ•°åŒ–ï¼Œå¯ä»¥å°†ç±»å‹ä½œä¸ºå‚æ•°ï¼Œæ ¹æ®éœ€è¦æ”¹å˜ç±»ä¸­æˆå‘˜çš„ç±»å‹ã€‚
+  æ³›å‹æ˜¯ ~.NET 2.0 çš„æ–°ç‰¹æ€§ã€‚
 \end{block}
 \pause
 \begin{itemize}
-\item Í¨¹ı·¶ĞÍ£¬¿ÉÒÔ±£Ö¤¸üºÃµÄÀàĞÍ°²È«
-\item ¸ü¸ßĞ§µÄÖØÓÃ´úÂë£¬¼õÉÙÖØ¸´¿ª·¢ºÍ´úÂë¿½±´
+\item é€šè¿‡èŒƒå‹ï¼Œå¯ä»¥ä¿è¯æ›´å¥½çš„ç±»å‹å®‰å…¨
+\item æ›´é«˜æ•ˆçš„é‡ç”¨ä»£ç ï¼Œå‡å°‘é‡å¤å¼€å‘å’Œä»£ç æ‹·è´
 \end{itemize}
 \pause
-·ºĞÍÀà¶¨ÒåµÄÒ»°ã¸ñÊ½
+æ³›å‹ç±»å®šä¹‰çš„ä¸€èˆ¬æ ¼å¼
 \lstset{emph={<,>}}
 \begin{lstlisting}
 class identifier<type-param-list>
 { ... }
 \end{lstlisting}
-·ºĞÍÀàÊ¹ÓÃµÄÒ»°ã¸ñÊ½
+æ³›å‹ç±»ä½¿ç”¨çš„ä¸€èˆ¬æ ¼å¼
 \begin{lstlisting}
 identifier<type-arg-list>  varname =
   new identifier<type-arg-list>(cons-arg-list);
@@ -1047,7 +1047,7 @@ identifier<type-arg-list>  varname =
 
 
 \begin{frame}[fragile]
-\frametitle{·ºĞÍµÄÀı×Ó}
+\frametitle{æ³›å‹çš„ä¾‹å­}
 \begin{lstlisting}
 class Gen<T> {
   T ob;
@@ -1068,18 +1068,18 @@ class Gen<T> {
 
 
 \begin{frame}[fragile]
-\frametitle{Ô¼ÊøÌõ¼ş}
+\frametitle{çº¦æŸæ¡ä»¶}
 
-\CJKindent Ê¹ÓÃÔ¼ÊøÌõ¼ş£¬¿ÉÒÔÏŞÖÆ·ºĞÍÖĞÊ¹ÓÃµÄÀàĞÍ£¬¿ÉÒÔÍ¨Öª±àÒëÆ÷¿ÉÓÃµÄ³ÉÔ±¡£
+\CJKindent ä½¿ç”¨çº¦æŸæ¡ä»¶ï¼Œå¯ä»¥é™åˆ¶æ³›å‹ä¸­ä½¿ç”¨çš„ç±»å‹ï¼Œå¯ä»¥é€šçŸ¥ç¼–è¯‘å™¨å¯ç”¨çš„æˆå‘˜ã€‚
 
-ÀàĞÍÔ¼ÊøµÄÒ»°ã¸ñÊ½£º
+ç±»å‹çº¦æŸçš„ä¸€èˆ¬æ ¼å¼ï¼š
 \lstset{emph={where}}
 \begin{lstlisting}
 class classname<type_param>
   where type_param : constraints
 { ... }
 \end{lstlisting}
-ÀıÈç
+ä¾‹å¦‚
 \begin{lstlisting}
 class Test<T> where T : A {
   T obj;
@@ -1094,24 +1094,24 @@ class Test<T> where T : A {
 
 
 \begin{frame}[fragile]
-\frametitle{Ô¼ÊøµÄÖÖÀà}
+\frametitle{çº¦æŸçš„ç§ç±»}
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
-\item »ùÀàÔ¼Êø£ºÔÚÌõ¼ş±í´ïÊ½ÖĞÖ¸¶¨»ùÀàÃû×Ö
-\item ½Ó¿ÚÔ¼Êø£ºÔÚÌõ¼ş±í´ïÊ½ÖĞÖ¸¶¨Ò»¸ö»ò¶à¸ö½Ó¿ÚÃû×Ö
-\item ¹¹Ôìº¯ÊıÔ¼Êø£ºÎŞ²ÎÊıµÄ¹¹Ôìº¯ÊıÔ¼Êø£¬Ê¹ÓÃ ~\texttt{new()}
-\item ÒıÓÃÀàĞÍÔ¼Êø£ºÊ¹ÓÃ ~\texttt{class}£¬ÏŞÖÆÎªÒıÓÃÀàĞÍ
-\item ÖµÀàĞÍÔ¼Êø£ºÊ¹ÓÃ ~\texttt{struct}£¬ÏŞÖÆÎªÖµÀàĞÍ
+\item åŸºç±»çº¦æŸï¼šåœ¨æ¡ä»¶è¡¨è¾¾å¼ä¸­æŒ‡å®šåŸºç±»åå­—
+\item æ¥å£çº¦æŸï¼šåœ¨æ¡ä»¶è¡¨è¾¾å¼ä¸­æŒ‡å®šä¸€ä¸ªæˆ–å¤šä¸ªæ¥å£åå­—
+\item æ„é€ å‡½æ•°çº¦æŸï¼šæ— å‚æ•°çš„æ„é€ å‡½æ•°çº¦æŸï¼Œä½¿ç”¨ ~\texttt{new()}
+\item å¼•ç”¨ç±»å‹çº¦æŸï¼šä½¿ç”¨ ~\texttt{class}ï¼Œé™åˆ¶ä¸ºå¼•ç”¨ç±»å‹
+\item å€¼ç±»å‹çº¦æŸï¼šä½¿ç”¨ ~\texttt{struct}ï¼Œé™åˆ¶ä¸ºå€¼ç±»å‹
 \end{itemize}
 
 \end{frame}
 
 
 \begin{frame}[fragile]
-\frametitle{»ùÀàÔ¼Êø}
+\frametitle{åŸºç±»çº¦æŸ}
 \begin{itemize}
-\item »ùÀàÔ¼Êø£¬Ê¹·ºĞÍÀà¿ÉÒÔ·ÃÎÊ»ùÀà³ÉÔ±£¬Ìá¸ßÁË¿ÉÓÃĞÔ
-\item Ö»ÓĞÊµÏÖÁË»ùÀàµÄÀà²ÅÓĞĞ§£¬±£Ö¤ÁËÀàĞÍ°²È«
+\item åŸºç±»çº¦æŸï¼Œä½¿æ³›å‹ç±»å¯ä»¥è®¿é—®åŸºç±»æˆå‘˜ï¼Œæé«˜äº†å¯ç”¨æ€§
+\item åªæœ‰å®ç°äº†åŸºç±»çš„ç±»æ‰æœ‰æ•ˆï¼Œä¿è¯äº†ç±»å‹å®‰å…¨
 \end{itemize}
 \begin{lstlisting}
 class A {
@@ -1136,8 +1136,8 @@ class Test<T> where T : A {
 
 
 \begin{frame}[fragile]
-\frametitle{½Ó¿ÚÔ¼Êø}
-½Ó¿ÚÔ¼Êø¿ÉÒÔÓĞ¶à¸ö
+\frametitle{æ¥å£çº¦æŸ}
+æ¥å£çº¦æŸå¯ä»¥æœ‰å¤šä¸ª
 \begin{lstlisting}
 public interface A { ... }
 public interface B { ... }
@@ -1152,7 +1152,7 @@ class Test<T> where T : A, B {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{¹¹Ôìº¯ÊıÔ¼Êø}
+\frametitle{æ„é€ å‡½æ•°çº¦æŸ}
 \begin{lstlisting}
 class A<T> // where T:new()
 {
@@ -1173,8 +1173,8 @@ class test
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ìõ¼ş±í´ïÊ½µÄÆäËûÓÃ·¨}
-±íÊ¾ÀàĞÍÖ®¼äµÄ¼Ì³Ğ¹ØÏµ
+\frametitle{æ¡ä»¶è¡¨è¾¾å¼çš„å…¶ä»–ç”¨æ³•}
+è¡¨ç¤ºç±»å‹ä¹‹é—´çš„ç»§æ‰¿å…³ç³»
 \begin{lstlisting}
 class A     { ... }
 class B : A { ... }
@@ -1184,7 +1184,7 @@ class Gen<T, V> where V : T {...}
   Gen<A, B> x = new Gen<A, B>;
 \end{lstlisting}
 \pause
-¶àÌõÔ¼Êø
+å¤šæ¡çº¦æŸ
 \begin{lstlisting}
 class Gen<T>
   where T : MyClass, IMyInterface, new()
@@ -1198,20 +1198,20 @@ class Gen<T, V> where T : class
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{×Ô¶¯È±Ê¡Öµ}
-ÒıÓÃÀàĞÍºÍÖµÀàĞÍµÄÈ±Ê¡Öµ·Ö±ğÎª ~\texttt{null} ºÍ ~\texttt{0}£¬Èç¹ûÔÚ·ºĞÍÖĞ³õÊ¼
-»¯£º
+\frametitle{è‡ªåŠ¨ç¼ºçœå€¼}
+å¼•ç”¨ç±»å‹å’Œå€¼ç±»å‹çš„ç¼ºçœå€¼åˆ†åˆ«ä¸º ~\texttt{null} å’Œ ~\texttt{0}ï¼Œå¦‚æœåœ¨æ³›å‹ä¸­åˆå§‹
+åŒ–ï¼š
 \begin{lstlisting}[escapeinside='']
 class Test<T> {   T obj;
   ...
   public Test() {
-    obj = null; // 'Èç¹ûÊÇÒıÓÃÀàĞÍ'
-    obj = 0;    // 'Èç¹ûÊÇÖµÀàĞÍ'
+    obj = null; // 'å¦‚æœæ˜¯å¼•ç”¨ç±»å‹'
+    obj = 0;    // 'å¦‚æœæ˜¯å€¼ç±»å‹'
   }
 }
 \end{lstlisting}
 
-Ê¹ÓÃ ~\texttt{default}£¬×Ô¶¯Ö¸¶¨
+ä½¿ç”¨ ~\texttt{default}ï¼Œè‡ªåŠ¨æŒ‡å®š
 \begin{lstlisting}
 ...
   obj = default(T);
@@ -1220,8 +1220,8 @@ class Test<T> {   T obj;
 
 
 \begin{frame}[fragile]
-\frametitle{·ºĞÍ½á¹¹Ìå}
-·ºĞÍ½á¹¹ÌåºÍ·ºĞÍÀàÀàËÆ£º
+\frametitle{æ³›å‹ç»“æ„ä½“}
+æ³›å‹ç»“æ„ä½“å’Œæ³›å‹ç±»ç±»ä¼¼ï¼š
 \begin{lstlisting}
 struct XY<T> {
   T x;
@@ -1232,7 +1232,7 @@ struct XY<T> {
   }
 }
 \end{lstlisting}
-Ò²¿ÉÒÔÓĞÔ¼Êø£º
+ä¹Ÿå¯ä»¥æœ‰çº¦æŸï¼š
 \begin{lstlisting}
 struct XY<T> where T : struct {
 // ...
@@ -1241,10 +1241,10 @@ struct XY<T> where T : struct {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{·ºĞÍ·½·¨}
+\frametitle{æ³›å‹æ–¹æ³•}
 \begin{itemize}
-\item ·ºĞÍÀàÖĞµÄ·½·¨¿ÉÒÔÊ¹ÓÃÀàµÄĞÎ²Î£¬×Ô¶¯³ÉÎª·ºĞÍ·½·¨
-\item ÆÕÍ¨ÀàÖĞ£¬Ò²¿ÉÒÔ¶¨Òå·ºĞÍ·½·¨
+\item æ³›å‹ç±»ä¸­çš„æ–¹æ³•å¯ä»¥ä½¿ç”¨ç±»çš„å½¢å‚ï¼Œè‡ªåŠ¨æˆä¸ºæ³›å‹æ–¹æ³•
+\item æ™®é€šç±»ä¸­ï¼Œä¹Ÿå¯ä»¥å®šä¹‰æ³›å‹æ–¹æ³•
 \end{itemize}
 \begin{lstlisting}
 class ArrayUtils {
@@ -1259,15 +1259,15 @@ class ArrayUtils {
   }
 }
 \end{lstlisting}
-·ºĞÍ·½·¨Ò²¿ÉÒÔÖ¸¶¨Ô¼ÊøÌõ¼ş
+æ³›å‹æ–¹æ³•ä¹Ÿå¯ä»¥æŒ‡å®šçº¦æŸæ¡ä»¶
 \begin{lstlisting}
 ... copyInsert<T>(T e, ... ) where T : class {...}
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{·ºĞÍ·½·¨µÄÊ¹ÓÃ}
-Ê¹ÓÃÊ±¿ÉÒÔÒşÊ½Ö¸¶¨·ºĞÍÀàĞÍ
+\frametitle{æ³›å‹æ–¹æ³•çš„ä½¿ç”¨}
+ä½¿ç”¨æ—¶å¯ä»¥éšå¼æŒ‡å®šæ³›å‹ç±»å‹
 \begin{lstlisting}
   int[] nums = { 1, 2, 3 };
   int[] nums2 = new int[4];
@@ -1279,7 +1279,7 @@ class ArrayUtils {
 
   ArrayUtils.copyInsert("in C#", 1, strs, strs2);
 \end{lstlisting}
-\pause µ±²»ÄÜ×Ô¶¯ÅĞ¶ÏÀàĞÍÊ±£¬ĞèÒªÃ÷È·Ö¸³ö
+\pause å½“ä¸èƒ½è‡ªåŠ¨åˆ¤æ–­ç±»å‹æ—¶ï¼Œéœ€è¦æ˜ç¡®æŒ‡å‡º
 \begin{lstlisting}
 // class B:A ...
 B[] b = { new B(), new B(), new B() };
@@ -1290,20 +1290,20 @@ ArrayUtils.copyInsert<A>(new A(), 1, b, a);
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{·ºĞÍÎ¯ÍĞºÍ·ºĞÍ½Ó¿Ú}
-·ºĞÍÎ¯ÍĞ
+\frametitle{æ³›å‹å§”æ‰˜å’Œæ³›å‹æ¥å£}
+æ³›å‹å§”æ‰˜
 \begin{lstlisting}
 delegate T SomeOp<T>(T v);
 ...
   SomeOp<int> intDel = sum;
 \end{lstlisting}
-·ºĞÍ½Ó¿Ú
+æ³›å‹æ¥å£
 \begin{lstlisting}[escapeinside='']
 public interface ISeries<T> {
   T getNext();
   void setStart(T v);
 }
-// '¼Ì³ĞÁË·ºĞÍ½Ó¿ÚµÄÀà£¬±ØĞëÊÇ·ºĞÍÀà'
+// 'ç»§æ‰¿äº†æ³›å‹æ¥å£çš„ç±»ï¼Œå¿…é¡»æ˜¯æ³›å‹ç±»'
 class ByTwos<T> : ISeries<T> {
   T start;
   T val;
@@ -1313,13 +1313,13 @@ class ByTwos<T> : ISeries<T> {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{·ºĞÍµÄÏŞÖÆ}
+\frametitle{æ³›å‹çš„é™åˆ¶}
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
-\item ÌØĞÔ¡¢²Ù×÷·û¡¢Ë÷ÒıÆ÷ºÍÊÂ¼ş£¬Ã»ÓĞ·ºĞÍĞÎÊ½£¬µ«¿ÉÒÔÔÚ·ºĞÍÀàÖĞÊ¹ÓÃÀàĞÍ²ÎÊı
-\item \texttt{extern} ²»ÄÜĞŞÊÎ·ºĞÍ·½·¨£¬¼´·ºĞÍ·½·¨²»ÄÜÍâ²¿ÊµÏÖ
-\item Ö¸ÕëÀàĞÍ²»ÄÜÓÃÓÚ·ºĞÍµÄ²ÎÊı
-\item ¾²Ì¬³ÉÔ±Ö»ÏàÓ¦ÓÚ¾ßÌåµÄ·ºĞÍÀàĞÍ£¬¶ø²»ÊÇ·ºĞÍÀà±¾Éí
+\item ç‰¹æ€§ã€æ“ä½œç¬¦ã€ç´¢å¼•å™¨å’Œäº‹ä»¶ï¼Œæ²¡æœ‰æ³›å‹å½¢å¼ï¼Œä½†å¯ä»¥åœ¨æ³›å‹ç±»ä¸­ä½¿ç”¨ç±»å‹å‚æ•°
+\item \texttt{extern} ä¸èƒ½ä¿®é¥°æ³›å‹æ–¹æ³•ï¼Œå³æ³›å‹æ–¹æ³•ä¸èƒ½å¤–éƒ¨å®ç°
+\item æŒ‡é’ˆç±»å‹ä¸èƒ½ç”¨äºæ³›å‹çš„å‚æ•°
+\item é™æ€æˆå‘˜åªç›¸åº”äºå…·ä½“çš„æ³›å‹ç±»å‹ï¼Œè€Œä¸æ˜¯æ³›å‹ç±»æœ¬èº«
 \begin{lstlisting}
 class Gen<T> {
   public static T x;
@@ -1337,5 +1337,5 @@ class Gen<T> {
 % TeX-master: "part-03.tex"
 % TeX-header-end: "% End-of-Header$"
 % TeX-trailer-start: "% Start-of-Trailer$"
-% coding: gbk-dos
+% coding: utf-8
 % End:

@@ -1,92 +1,92 @@
 %% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> %%
 
-\section{ÎÄ¼şºÍÊı¾İÁ÷}
+\section{æ–‡ä»¶å’Œæ•°æ®æµ}
 
 \begin{frame}
-\frametitle{Êı¾İÁ÷}
+\frametitle{æ•°æ®æµ}
 \begin{block}{\textit{Stream}}
-  \CJKindent C\# ½« ~I/O ³éÏó³ÉÊı¾İÁ÷µÄĞÎÊ½£¬ÆÁ±ÎÁË²»Í¬ ~I/O Éè±¸Ö®¼äµÄ²îÒì£¬Ìá
-  ¹©Ò»ÖÂµÄÃæÏòÁ÷µÄĞĞÎª·½Ê½£¬²¢Í¨¹ı³éÏóÀà ~\texttt{Stream} ÌåÏÖ¡£
+  \CJKindent C\# å°† ~I/O æŠ½è±¡æˆæ•°æ®æµçš„å½¢å¼ï¼Œå±è”½äº†ä¸åŒ ~I/O è®¾å¤‡ä¹‹é—´çš„å·®å¼‚ï¼Œæ
+  ä¾›ä¸€è‡´çš„é¢å‘æµçš„è¡Œä¸ºæ–¹å¼ï¼Œå¹¶é€šè¿‡æŠ½è±¡ç±» ~\texttt{Stream} ä½“ç°ã€‚
 \end{block}
 \begin{itemize}
-\item ÕâĞ©Àà¶¼ÔÚ ~System.IO ÃüÃû¿Õ¼äÖĞ
-\item Á÷µÄ»ù±¾²Ù×÷
+\item è¿™äº›ç±»éƒ½åœ¨ ~System.IO å‘½åç©ºé—´ä¸­
+\item æµçš„åŸºæœ¬æ“ä½œ
 \begin{itemize}
-\item ´ÓÁ÷¶ÁÈ¡£º´ÓÁ÷µ½Êı¾İ½á¹¹µÄÊı¾İ´«Êä
-\item ÏòÁ÷Ğ´Èë£º´ÓÊı¾İÔ´µ½Á÷µÄÊı¾İ´«Êä
-\item Ö§³Ö²éÕÒ£º¶ÔÁ÷ÄÚµÄµ±Ç°Î»ÖÃ½øĞĞµÄ²éÑ¯ºÍĞŞ¸Ä
+\item ä»æµè¯»å–ï¼šä»æµåˆ°æ•°æ®ç»“æ„çš„æ•°æ®ä¼ è¾“
+\item å‘æµå†™å…¥ï¼šä»æ•°æ®æºåˆ°æµçš„æ•°æ®ä¼ è¾“
+\item æ”¯æŒæŸ¥æ‰¾ï¼šå¯¹æµå†…çš„å½“å‰ä½ç½®è¿›è¡Œçš„æŸ¥è¯¢å’Œä¿®æ”¹
 \end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Stream Àà}
+\frametitle{Stream ç±»}
 
-³éÏóÀà ~Stream Ìá¹©ÁË¶ÔÁ÷µÄ»ù±¾²Ù×÷£º
+æŠ½è±¡ç±» ~Stream æä¾›äº†å¯¹æµçš„åŸºæœ¬æ“ä½œï¼š
 \begin{itemize}
-\item void \textbf{Close}() --- ¹Ø±ÕÊı¾İÁ÷
-\item void \textbf{Flush}() --- ½«»º³åÖĞµÄÊı¾İĞ´ÈëÉè±¸
-\item int \textbf{ReadByte}() --- ¶ÁÈ¡Ò»¸öÓÃÕûÊı±íÊ¾µÄ×Ö½Ú
+\item void \textbf{Close}() --- å…³é—­æ•°æ®æµ
+\item void \textbf{Flush}() --- å°†ç¼“å†²ä¸­çš„æ•°æ®å†™å…¥è®¾å¤‡
+\item int \textbf{ReadByte}() --- è¯»å–ä¸€ä¸ªç”¨æ•´æ•°è¡¨ç¤ºçš„å­—èŠ‚
 \item int \textbf{Read}(byte[] buf, int offset, int numBytes) \\
-  ½«¶ÁÈëµÄ×Ö½ÚĞ´Èë ~buf »º³åÖĞ
+  å°†è¯»å…¥çš„å­—èŠ‚å†™å…¥ ~buf ç¼“å†²ä¸­
 \item long \textbf{Seek}(long offset, SeekOrigin origin)  \\
-  ÔÚÊı¾İÁ÷ÖĞÉèÖÃµ±Ç°Î»ÖÃ
-\item void \textbf{WriteByte}(byte b) -- ÏòÁ÷ÖĞĞ´ÈëÒ»¸ö×Ö½Ú
+  åœ¨æ•°æ®æµä¸­è®¾ç½®å½“å‰ä½ç½®
+\item void \textbf{WriteByte}(byte b) -- å‘æµä¸­å†™å…¥ä¸€ä¸ªå­—èŠ‚
 \item void \textbf{Write}(byte[] buf, int offset, int numBytes) \\
-  ½« ~buf ÖĞµÄÊı¾İĞ´ÈëÁ÷
+  å°† ~buf ä¸­çš„æ•°æ®å†™å…¥æµ
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Stream ÀàµÄÌØĞÔ}
-Stream µÄÅÉÉúÀàÖĞ£¬²»Ò»¶¨¶¼Ö§³ÖËùÓĞµÄ²Ù×÷£¬¿ÉÈçÏÂÅĞ¶Ï£º
+\frametitle{Stream ç±»çš„ç‰¹æ€§}
+Stream çš„æ´¾ç”Ÿç±»ä¸­ï¼Œä¸ä¸€å®šéƒ½æ”¯æŒæ‰€æœ‰çš„æ“ä½œï¼Œå¯å¦‚ä¸‹åˆ¤æ–­ï¼š
 \begin{itemize}
-\item bool CanRead --- ÊÇ·ñ¿ÉÒÔ¶ÁÈ¡
-\item bool CanWrite --- ÊÇ·ñ¿ÉÒÔĞ´Èë
-\item bool CanSeek --- ÊÇ·ñÖ§³Ö¶¨Î»
-\item bool CanTimeout --- ÊÇ·ñ»áÓĞ³¬Ê±
-\item long Length --- Á÷µÄ³¤¶È
-\item long Position --- Ä¿Ç°ÔÚÁ÷ÖĞµÄÎ»ÖÃ£¬¿ÉÒÔĞŞ¸Ä
+\item bool CanRead --- æ˜¯å¦å¯ä»¥è¯»å–
+\item bool CanWrite --- æ˜¯å¦å¯ä»¥å†™å…¥
+\item bool CanSeek --- æ˜¯å¦æ”¯æŒå®šä½
+\item bool CanTimeout --- æ˜¯å¦ä¼šæœ‰è¶…æ—¶
+\item long Length --- æµçš„é•¿åº¦
+\item long Position --- ç›®å‰åœ¨æµä¸­çš„ä½ç½®ï¼Œå¯ä»¥ä¿®æ”¹
 \end{itemize}
 \end{frame}
 
 
 \begin{frame}<0| handout:0>
-\frametitle{»ù±¾µÄ~I/O ×Ö½ÚÁ÷Àà}
+\frametitle{åŸºæœ¬çš„~I/O å­—èŠ‚æµç±»}
 \color{red}
 
-Stream ÊÇ³éÏóÀà£¬ÈçÏÂ¼¸¸öÊÇËüµÄÖ±½Ó
+Stream æ˜¯æŠ½è±¡ç±»ï¼Œå¦‚ä¸‹å‡ ä¸ªæ˜¯å®ƒçš„ç›´æ¥
 
 \begin{tabular}[htbp]{l|l}
 \hline
-»ù±¾ ~I/O Á÷Àà & ¹¦ÄÜ                                                     \\
+åŸºæœ¬ ~I/O æµç±» & åŠŸèƒ½                                                     \\
 \hline
-BufferedStream & \small ÓÃÓÚ¸øÆäËûµÄÁ÷Ìí¼Ó»º³å£¬Ìá¸ßĞÔÄÜ                  \\
-CryptoStream   & \small ÔÚ ~System.Security.Cryptography ÖĞ£¬ÓÃÓÚ¼ÓÃÜ     \\
-MemoryStream   & \small ÔÚÄÚ´æÖĞÖ±½Ó·ÃÎÊËù·â×°µÄÊı¾İ                      \\
-NetworkStream  & \small ÔÚ ~System.Net.Sockets ÖĞ£¬ÓÃÓÚ·â×°ÍøÂçÁ¬½ÓÉÏµÄÁ÷ \\
-FileStream     & \small »ù±¾µÄÎÄ¼ş²Ù×÷Àà                                  \\
+BufferedStream & \small ç”¨äºç»™å…¶ä»–çš„æµæ·»åŠ ç¼“å†²ï¼Œæé«˜æ€§èƒ½                  \\
+CryptoStream   & \small åœ¨ ~System.Security.Cryptography ä¸­ï¼Œç”¨äºåŠ å¯†     \\
+MemoryStream   & \small åœ¨å†…å­˜ä¸­ç›´æ¥è®¿é—®æ‰€å°è£…çš„æ•°æ®                      \\
+NetworkStream  & \small åœ¨ ~System.Net.Sockets ä¸­ï¼Œç”¨äºå°è£…ç½‘ç»œè¿æ¥ä¸Šçš„æµ \\
+FileStream     & \small åŸºæœ¬çš„æ–‡ä»¶æ“ä½œç±»                                  \\
 \hline
 \end{tabular}
 
 \end{frame}
 
 \begin{frame}
-\frametitle{FileStream Àà}
-{\CJKindent FileStream ÊÇ¶ÔÎÄ¼ş½øĞĞ¶ÁÈ¡¡¢Ğ´ÈëºÍ¹Ø±Õ²Ù×÷£¬¶Ô¹ÜµÀ¡¢±ê×¼ÊäÈëÊä³öµÈÉè±¸µÄ²Ù×÷¡£}
+\frametitle{FileStream ç±»}
+{\CJKindent FileStream æ˜¯å¯¹æ–‡ä»¶è¿›è¡Œè¯»å–ã€å†™å…¥å’Œå…³é—­æ“ä½œï¼Œå¯¹ç®¡é“ã€æ ‡å‡†è¾“å…¥è¾“å‡ºç­‰è®¾å¤‡çš„æ“ä½œã€‚}
 \begin{figure}
   \centering
   \input{pgf/lib-filestream}
 \end{figure}
 \begin{itemize}
-\item FileMode Ö¸¶¨ÎÄ¼şµÄ´ò¿ª·½Ê½
-\item FileAccess Ö¸¶¨ÎÄ¼şµÄ·ÃÎÊ·½Ê½
-\item FileShare Ö¸¶¨ÎÄ¼şµÄ¹²Ïí·½Ê½
+\item FileMode æŒ‡å®šæ–‡ä»¶çš„æ‰“å¼€æ–¹å¼
+\item FileAccess æŒ‡å®šæ–‡ä»¶çš„è®¿é—®æ–¹å¼
+\item FileShare æŒ‡å®šæ–‡ä»¶çš„å…±äº«æ–¹å¼
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{FileStream Ê¾Àı}
+\frametitle{FileStream ç¤ºä¾‹}
 \lstset{emph={WriteByte,ReadByte,Position,Length}}
 \begin{lstlisting}
 FileStream fs = new FileStream (@"C:\abc.txt", 
@@ -104,16 +104,16 @@ for (int i=0; i<fs.Length; i++)
 fs.Close();
 \end{lstlisting}
 \begin{itemize}
-\item \texttt{fs.Position} Ö±½Ó¶¨Î»µ±Ç°Î»ÖÃ
-\item \texttt{fs.Length} Ö±½ÓÈ¡µÃÎÄ¼ş³¤¶È
+\item \texttt{fs.Position} ç›´æ¥å®šä½å½“å‰ä½ç½®
+\item \texttt{fs.Length} ç›´æ¥å–å¾—æ–‡ä»¶é•¿åº¦
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{MemoryStream Àà}
-\CJKindent MemoryStream Ö÷ÒªÓÃÓÚÁÙÊ±Êı¾İ´æ´¢£¬ÔÚÄÚ´æÖĞÊ¹ÓÃÁ÷µÄ·½Ê½´¦ÀíÊı¾İ¡£
+\frametitle{MemoryStream ç±»}
+\CJKindent MemoryStream ä¸»è¦ç”¨äºä¸´æ—¶æ•°æ®å­˜å‚¨ï¼Œåœ¨å†…å­˜ä¸­ä½¿ç”¨æµçš„æ–¹å¼å¤„ç†æ•°æ®ã€‚
 \begin{lstlisting}[escapeinside=<>]
-// <Ê¹ÓÃ> MemoryStream <»º³åÒ»¸öÎÄ¼ş>
+// <ä½¿ç”¨> MemoryStream <ç¼“å†²ä¸€ä¸ªæ–‡ä»¶>
 FileStream fsIn = new FileStream(...);
 
 MemoryStream ms = new MemoryStream();
@@ -124,15 +124,15 @@ while ((oneByte = fsIn.ReadeByte()) != -1){
 }
 fsIn.Close();
 
-// <Á÷> ms <ÖĞµÄÄÚÈİºÍÎÄ¼şÒ»Ñù£¬µ«Ğ§ÂÊ¸ü¸ß>
+// <æµ> ms <ä¸­çš„å†…å®¹å’Œæ–‡ä»¶ä¸€æ ·ï¼Œä½†æ•ˆç‡æ›´é«˜>
 
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{BufferedStream Àà}
-\CJKindent BufferedStream Í¨¹ıÌá¹©Ä¬ÈÏ ~4096 ×Ö½ÚµÄ»º³å£¬Ìá¸ß ~I/O µÄĞ§ÂÊ¡£Õâ
-¼¸¸ö ~Stream Àà¶¼ÊÇ»ùÓÚ×Ö½ÚµÄ£¬¼´×Ö½ÚÁ÷ ~(\textit{Byte Stream})¡£
+\frametitle{BufferedStream ç±»}
+\CJKindent BufferedStream é€šè¿‡æä¾›é»˜è®¤ ~4096 å­—èŠ‚çš„ç¼“å†²ï¼Œæé«˜ ~I/O çš„æ•ˆç‡ã€‚è¿™
+å‡ ä¸ª ~Stream ç±»éƒ½æ˜¯åŸºäºå­—èŠ‚çš„ï¼Œå³å­—èŠ‚æµ ~(\textit{Byte Stream})ã€‚
 \begin{lstlisting}
 Stream fs = new FileStream(@"C:\temp.txt"
     FileMode.OpenOrCreate, FileAccess.Write);
@@ -151,18 +151,18 @@ fs.Close();
 \end{frame}
 
 \begin{frame}
-\frametitle{³éÏóÀà~ TextReader/TextWriter}
-\CJKindent ÓÃÓÚ´¦ÀíÎÄ±¾¶ø²»ÊÇÔ­Ê¼×Ö½ÚµÄ³éÏóÀà¡£
+\frametitle{æŠ½è±¡ç±»~ TextReader/TextWriter}
+\CJKindent ç”¨äºå¤„ç†æ–‡æœ¬è€Œä¸æ˜¯åŸå§‹å­—èŠ‚çš„æŠ½è±¡ç±»ã€‚
 \medskip
 \begin{itemize}
 \setlength{\itemsep}{6pt plus 1pt}
-\item TextReader Àà
+\item TextReader ç±»
 \begin{itemize}
 \setlength{\itemsep}{4pt plus 1pt}
 \item Peek(), Read(), ReadBlock(), ReadLine(), ReadToEnd()
 \item Dispose(), Close()
 \end{itemize}
-\item TextWriter Àà
+\item TextWriter ç±»
 \begin{itemize}
 \setlength{\itemsep}{4pt plus 1pt}
 \item Write(), WriteLine(), Flush(), Dispose()
@@ -173,11 +173,11 @@ fs.Close();
 
 \begin{frame}[fragile]
 \frametitle{StreamReader/StreamWriter}
-\CJKindent ¼Ì³Ğ×Ô ~TextReader/TextWriter ÓÃÓÚ´¦ÀíÁ÷ÉÏµÄ×Ö·ûµÄÀà£¬¼´×Ö·ûÁ÷~
-(\textit{Character Stream})¡£¶ÔÓÚÎÄ¼şÀ´Ëµ£¬´¦Àí»ùÓÚ ~FileStream µÄ×Ö·ûÊı¾İ¡£
+\CJKindent ç»§æ‰¿è‡ª ~TextReader/TextWriter ç”¨äºå¤„ç†æµä¸Šçš„å­—ç¬¦çš„ç±»ï¼Œå³å­—ç¬¦æµ~
+(\textit{Character Stream})ã€‚å¯¹äºæ–‡ä»¶æ¥è¯´ï¼Œå¤„ç†åŸºäº ~FileStream çš„å­—ç¬¦æ•°æ®ã€‚
 \medskip
 
-¶àÖÖ¹¹Ôìº¯Êı£¬¶àÖÖ·½Ê½´´½¨ÊµÀı£º
+å¤šç§æ„é€ å‡½æ•°ï¼Œå¤šç§æ–¹å¼åˆ›å»ºå®ä¾‹ï¼š
 \lstset{emph={[4]path,s,append,e}}
 \begin{lstlisting}
 public StreamWriter(string path)
@@ -192,7 +192,7 @@ public StreamWriter(stream    s, bool append, Encoding e)
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{×Ö·ûÁ÷Ê¾Àı}
+\frametitle{å­—ç¬¦æµç¤ºä¾‹}
 \lstset{emph={Read,ReadToEnd}}
 \begin{lstlisting}
 FileStream fs = new FileStream(...); // Open a text file
@@ -213,7 +213,7 @@ while((line = reader.ReadLine() != null){
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{±àÂë×ª»»µÄÊ¾Àı}
+\frametitle{ç¼–ç è½¬æ¢çš„ç¤ºä¾‹}
 \begin{lstlisting}
 using System; using System.IO; using System.Text;
 public class Convert
@@ -238,8 +238,8 @@ public class Convert
 
 \begin{frame}[fragile]
 \frametitle{StringReader/StringWriter}
-\CJKindent Í¨¹ı ~StringBuilder ´æ´¢µÄÄÚ´æ×Ö·ûÁ÷£¬²Ù×÷·½Ê½ºÍÁ÷ÏàÍ¬£¬µ«¿ÉÒÔÍ¨¹ı
-~GetStringBuilder »ñÈ¡ ~StringBuilder ¶ÔÏó¡£
+\CJKindent é€šè¿‡ ~StringBuilder å­˜å‚¨çš„å†…å­˜å­—ç¬¦æµï¼Œæ“ä½œæ–¹å¼å’Œæµç›¸åŒï¼Œä½†å¯ä»¥é€šè¿‡
+~GetStringBuilder è·å– ~StringBuilder å¯¹è±¡ã€‚
 
 \begin{lstlisting}
 StringWriter writer = new StringWriter();
@@ -258,12 +258,12 @@ Console.WriteLine(s.ToString());
 
 \begin{frame}[fragile]
 \frametitle{BinaryReader/BinaryWriter}
-\CJKindent ÓÃÓÚ´¦ÀíÖµÀàĞÍµÄÊı¾İµÄÊı¾İÁ÷£¬¶ÁĞ´µÄÊı¾İÊ¹ÓÃ¼ÆËã»úÄÚ²¿µÄ¶ş½øÖÆ¸ñÊ½¡£
+\CJKindent ç”¨äºå¤„ç†å€¼ç±»å‹çš„æ•°æ®çš„æ•°æ®æµï¼Œè¯»å†™çš„æ•°æ®ä½¿ç”¨è®¡ç®—æœºå†…éƒ¨çš„äºŒè¿›åˆ¶æ ¼å¼ã€‚
 
 \begin{columns}[t]
   \column{.5\textwidth}
   \begin{itemize}
-  \item BinaryWriter ÖØÔØ¸÷ÖÖÊı¾İµÄĞ´²Ù×÷\lstset{emph={[4]val}}
+  \item BinaryWriter é‡è½½å„ç§æ•°æ®çš„å†™æ“ä½œ\lstset{emph={[4]val}}
 \begin{lstlisting}
 void Write(byte   val)
 void Write(sbyte  val)
@@ -277,7 +277,7 @@ void Write(string val)
   \end{itemize}
   \column{.5\textwidth}
   \begin{itemize}
-  \item BinaryReader Ìá¹©²»Í¬¶Á²Ù×÷µÄ·½·¨
+  \item BinaryReader æä¾›ä¸åŒè¯»æ“ä½œçš„æ–¹æ³•
 \begin{lstlisting}
 bool   ReadBoolean()
 byte   ReadByte()
@@ -293,14 +293,14 @@ float  ReadSingle()
 \end{frame}
 
 \begin{frame}
-\frametitle{Stream Ö®¼äµÄÇø±ğ}
+\frametitle{Stream ä¹‹é—´çš„åŒºåˆ«}
 \begin{itemize}
 \setlength{\itemsep}{6pt plus 1pt}
-\item Stream ÊÇÁ÷ÀàĞÍµÄ³éÏó»ùÀà
-\item TextReader/TextWriter ÊÇ´¦Àí×Ö·û(ÎÄ±¾)µÄ³éÏó»ùÀà
-\item »ùÓÚ×Ö½ÚµÄÁ÷ÀàĞÍ£º{\small FileStream, BufferedStream, MemoryStream}
-\item »ùÓÚ×Ö·ûµÄÁ÷ÀàĞÍ£º{\small StreamReader/StreamWriter, StringReader/StringWriter}
-\item »ùÓÚÊı¾İµÄÁ÷ÀàĞÍ£º{\small BinaryReader/BinaryWriter}
+\item Stream æ˜¯æµç±»å‹çš„æŠ½è±¡åŸºç±»
+\item TextReader/TextWriter æ˜¯å¤„ç†å­—ç¬¦(æ–‡æœ¬)çš„æŠ½è±¡åŸºç±»
+\item åŸºäºå­—èŠ‚çš„æµç±»å‹ï¼š{\small FileStream, BufferedStream, MemoryStream}
+\item åŸºäºå­—ç¬¦çš„æµç±»å‹ï¼š{\small StreamReader/StreamWriter, StringReader/StringWriter}
+\item åŸºäºæ•°æ®çš„æµç±»å‹ï¼š{\small BinaryReader/BinaryWriter}
 \end{itemize}
 \begin{figure}
   \centering
@@ -310,36 +310,36 @@ float  ReadSingle()
 
 \begin{frame}[fragile]
 \frametitle{Console I/O}
-\CJKindent Console I/O ¶¨ÒåÔÚ ~System ÃüÃû¿Õ¼äÖĞ£¬Ìá¹©»ù±¾µÄ¿ØÖÆÌ¨²Ù×÷¡£
+\CJKindent Console I/O å®šä¹‰åœ¨ ~System å‘½åç©ºé—´ä¸­ï¼Œæä¾›åŸºæœ¬çš„æ§åˆ¶å°æ“ä½œã€‚
 \begin{itemize}
-\item ±ê×¼ ~I/O Á÷ ~Console.In, Console.Out, Console.Error
+\item æ ‡å‡† ~I/O æµ ~Console.In, Console.Out, Console.Error
 \begin{lstlisting}
 Console.In.ReadLine();   // TextReader
 Console.Out.WriteLine(); // TextWriter
 \end{lstlisting}
-\item Console ÀàÌá¹©¾²Ì¬µÄ·½·¨£¬Ö±½Ó·ÃÎÊ±ê×¼ ~I/O Á÷\\
+\item Console ç±»æä¾›é™æ€çš„æ–¹æ³•ï¼Œç›´æ¥è®¿é—®æ ‡å‡† ~I/O æµ\\
 Read(), ReadLine(), Write(), WriteLine()
 
 \item static ConsoleKeyInfo \textbf{ReadKey}() \\
-ConsoleKeyInfo Ìá¹©»ù±¾µÄ°´¼üĞÅÏ¢£¬ÈçËù°´µÄ¼üÖµºÍ ~\texttt{ALT, CTRL, SHIFT} µÈ
+ConsoleKeyInfo æä¾›åŸºæœ¬çš„æŒ‰é”®ä¿¡æ¯ï¼Œå¦‚æ‰€æŒ‰çš„é”®å€¼å’Œ ~\texttt{ALT, CTRL, SHIFT} ç­‰
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Ä¿Â¼ºÍÎÄ¼ş}
-\CJKindent System.IO ÃüÃû¿Õ¼äÖĞ»¹ÓĞÓÃÓÚ²Ù×÷ÎÄ¼şºÍÄ¿Â¼µÄÀà¡£
+\frametitle{ç›®å½•å’Œæ–‡ä»¶}
+\CJKindent System.IO å‘½åç©ºé—´ä¸­è¿˜æœ‰ç”¨äºæ“ä½œæ–‡ä»¶å’Œç›®å½•çš„ç±»ã€‚
 \begin{itemize}
-\item DirectoryInfo Àà£¬Directory Àà
+\item DirectoryInfo ç±»ï¼ŒDirectory ç±»
 \begin{itemize}
-\item Create(), Delete() --- ´´½¨É¾³ıÄ¿Â¼
-\item GetDirectories(), GetFiles() --- µÃµ½ÎÄ¼şÄ¿Â¼ÁĞ±í
+\item Create(), Delete() --- åˆ›å»ºåˆ é™¤ç›®å½•
+\item GetDirectories(), GetFiles() --- å¾—åˆ°æ–‡ä»¶ç›®å½•åˆ—è¡¨
 \end{itemize}
-\item FileInfo Àà£¬File Àà
+\item FileInfo ç±»ï¼ŒFile ç±»
 \begin{itemize}
-\item Open(), Create(), OpenWrite() --- ·µ»Ø ~FileStream ¶ÔÏó
-\item OpenText(), CreateText() --- ·µ»Ø StreamWriter ¶ÔÏó
+\item Open(), Create(), OpenWrite() --- è¿”å› ~FileStream å¯¹è±¡
+\item OpenText(), CreateText() --- è¿”å› StreamWriter å¯¹è±¡
 \end{itemize}
-\item Path Àà
+\item Path ç±»
 \begin{itemize}
 \item GetDirectoryName(), GetFullFileName() \dots
 \end{itemize}
@@ -347,34 +347,34 @@ ConsoleKeyInfo Ìá¹©»ù±¾µÄ°´¼üĞÅÏ¢£¬ÈçËù°´µÄ¼üÖµºÍ ~\texttt{ALT, CTRL, SHIFT} µÈ
 
 \end{frame}
 
-\section{´®ĞĞ»¯ºÍ·´Éä}
+\section{ä¸²è¡ŒåŒ–å’Œåå°„}
 
 \begin{frame}
-\frametitle{´®ĞĞ»¯}
+\frametitle{ä¸²è¡ŒåŒ–}
 \begin{block}{\textit{Serialization}}
-\CJKindent ½«¶ÔÏó»ò¶ÔÏóµÄ¼¯ºÏ×ª»»ÎªÌØ¶¨µÄ¸ñÊ½£¬ÊÊÓÚÍøÂç´«µİ£¬´æ´¢ÔÚÎÄ¼ş¡¢Êı¾İ
-¿âÄÚµÄ¹ı³Ì£¬³ÆÎª¶ÔÏóµÄ´®ĞĞ»¯¡£
+\CJKindent å°†å¯¹è±¡æˆ–å¯¹è±¡çš„é›†åˆè½¬æ¢ä¸ºç‰¹å®šçš„æ ¼å¼ï¼Œé€‚äºç½‘ç»œä¼ é€’ï¼Œå­˜å‚¨åœ¨æ–‡ä»¶ã€æ•°æ®
+åº“å†…çš„è¿‡ç¨‹ï¼Œç§°ä¸ºå¯¹è±¡çš„ä¸²è¡ŒåŒ–ã€‚
 
-{\emÄæ´®ĞĞ»¯} ~(\textit{Deserialization}) ¹ı³ÌÕıºÃÏà·´£¬
-½«Ëù´æ´¢µÄÄÚÈİ£¬×ª»»»ØÔ­À´µÄ¶ÔÏó¡£
+{\em é€†ä¸²è¡ŒåŒ–} ~(\textit{Deserialization}) è¿‡ç¨‹æ­£å¥½ç›¸åï¼Œ
+å°†æ‰€å­˜å‚¨çš„å†…å®¹ï¼Œè½¬æ¢å›åŸæ¥çš„å¯¹è±¡ã€‚
 \end{block}
-.NET Ö§³ÖÈıÖÖÖ÷ÒªµÄ´®ĞĞ»¯£º
+.NET æ”¯æŒä¸‰ç§ä¸»è¦çš„ä¸²è¡ŒåŒ–ï¼š
 \begin{itemize}
-\item ¶ş½øÖÆ´®ĞĞ»¯£¬×ª»»Îª¶ş½øÖÆÁ÷~(BinaryFormatter Àà)
-\item SOAP ´®ĞĞ»¯£¬×ª»»Îª~SOAP ±ê×¼¸ñÊ½~(SoapFormatter Àà)
-\item XML ´®ĞĞ»¯£¬×ª»»Îª~XML ¸ñÊ½~(XmlSerializer Àà)
+\item äºŒè¿›åˆ¶ä¸²è¡ŒåŒ–ï¼Œè½¬æ¢ä¸ºäºŒè¿›åˆ¶æµ~(BinaryFormatter ç±»)
+\item SOAP ä¸²è¡ŒåŒ–ï¼Œè½¬æ¢ä¸º~SOAP æ ‡å‡†æ ¼å¼~(SoapFormatter ç±»)
+\item XML ä¸²è¡ŒåŒ–ï¼Œè½¬æ¢ä¸º~XML æ ¼å¼~(XmlSerializer ç±»)
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{´®ĞĞ»¯µÄ¹ı³Ì}
+\frametitle{ä¸²è¡ŒåŒ–çš„è¿‡ç¨‹}
 \begin{itemize}
-\item ´®ĞĞ»¯Ê±£¬¸ù¾İ¶ÔÏóµÄÒıÓÃ¹ØÏµ£¬¹¹½¨Ò»¸ö¶ÔÏóÍ¼
-\item ÒÀ´Î½«¸Ã¶ÔÏó°üÀ¨µÄÈ«²¿³ÉÔ±¶ÔÏó´®ĞĞ»¯£¬Íê³ÉÉî¿½±´
-\item ´®ĞĞ»¯·¢ÉúÇ°ºó»áÒı·¢~OnSerializing ºÍ~OnSerialized ÊÂ¼ş
-\item ´®ĞĞ»¯ÊÇ»ùÓÚ¶ÔÏóµÄ£¬Òò´Ë²»°üÀ¨¾²Ì¬³ÉÔ±
+\item ä¸²è¡ŒåŒ–æ—¶ï¼Œæ ¹æ®å¯¹è±¡çš„å¼•ç”¨å…³ç³»ï¼Œæ„å»ºä¸€ä¸ªå¯¹è±¡å›¾
+\item ä¾æ¬¡å°†è¯¥å¯¹è±¡åŒ…æ‹¬çš„å…¨éƒ¨æˆå‘˜å¯¹è±¡ä¸²è¡ŒåŒ–ï¼Œå®Œæˆæ·±æ‹·è´
+\item ä¸²è¡ŒåŒ–å‘ç”Ÿå‰åä¼šå¼•å‘~OnSerializing å’Œ~OnSerialized äº‹ä»¶
+\item ä¸²è¡ŒåŒ–æ˜¯åŸºäºå¯¹è±¡çš„ï¼Œå› æ­¤ä¸åŒ…æ‹¬é™æ€æˆå‘˜
 \medskip \pause
-\item ´®ĞĞ»¯Í¨¹ı²»Í¬~Formatter Íê³É£¬ÓĞ¹²Í¬µÄ½Ó¿Ú~IFormatter
+\item ä¸²è¡ŒåŒ–é€šè¿‡ä¸åŒ~Formatter å®Œæˆï¼Œæœ‰å…±åŒçš„æ¥å£~IFormatter
 \begin{lstlisting}
 public interface IFormatter {
   object Deserialize(Stream s);
@@ -382,15 +382,15 @@ public interface IFormatter {
   // other members
 }
 \end{lstlisting}
-\item C\# 2.0 »¹Ìá¹©ÁË·ºĞÍ½Ó¿Ú ~IGenericFormatter
+\item C\# 2.0 è¿˜æä¾›äº†æ³›å‹æ¥å£ ~IGenericFormatter
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{¶ş½øÖÆ´®ĞĞ»¯}
+\frametitle{äºŒè¿›åˆ¶ä¸²è¡ŒåŒ–}
 \begin{itemize}
-\item Ê¹ÓÃ ~BinaryFormatter 
-\item ¶¨ÒåÔÚ ~System.Runtime.Serialization.Formatters.Binary
+\item ä½¿ç”¨ ~BinaryFormatter 
+\item å®šä¹‰åœ¨ ~System.Runtime.Serialization.Formatters.Binary
 \end{itemize}
 \begin{lstlisting}
   Circle c = new Circle();
@@ -404,10 +404,10 @@ public interface IFormatter {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{SOAP ´®ĞĞ»¯}
+\frametitle{SOAP ä¸²è¡ŒåŒ–}
 \begin{itemize}
-\item Ê¹ÓÃ ~SoapFormatter
-\item ¶¨ÒåÔÚ ~System.Runtime.Serialization.Formatters.Soap
+\item ä½¿ç”¨ ~SoapFormatter
+\item å®šä¹‰åœ¨ ~System.Runtime.Serialization.Formatters.Soap
 \end{itemize}
 \begin{lstlisting}
 using System.Runtime.Serialization.Formatters.Soap;
@@ -426,11 +426,11 @@ public class MyClass{
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{¿É´®ĞĞ»¯ÊôĞÔ}
+\frametitle{å¯ä¸²è¡ŒåŒ–å±æ€§}
 \begin{itemize}
-\item ´®ĞĞ»¯µÄÀà±ØĞëÊ¹ÓÃ~\texttt{[Serializable]} ÊôĞÔ
-\item ²»Ï£Íû´®ĞĞ»¯µÄ³ÉÔ±£¬ĞèÒªÓÃ~\texttt{[NonSerialized]} ÊôĞÔ
-\item ¿É´®ĞĞ»¯ÊôĞÔÎŞ·¨Í¨¹ı¼Ì³ĞµÃµ½
+\item ä¸²è¡ŒåŒ–çš„ç±»å¿…é¡»ä½¿ç”¨~\texttt{[Serializable]} å±æ€§
+\item ä¸å¸Œæœ›ä¸²è¡ŒåŒ–çš„æˆå‘˜ï¼Œéœ€è¦ç”¨~\texttt{[NonSerialized]} å±æ€§
+\item å¯ä¸²è¡ŒåŒ–å±æ€§æ— æ³•é€šè¿‡ç»§æ‰¿å¾—åˆ°
 \end{itemize}
 \begin{lstlisting}
 [Serializable]
@@ -445,10 +445,10 @@ public class MyClass {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{²»¿É´®ĞĞ»¯µÄ³ÉÔ±}
+\frametitle{ä¸å¯ä¸²è¡ŒåŒ–çš„æˆå‘˜}
 \begin{itemize}
-\item Î´±»´®ĞĞ»¯µÄ³ÉÔ±£¬ÔÚÄæ´®ĞĞ»¯Ê±£¬»Ö¸´Îª¸ÃÀàĞÍµÄÄ¬ÈÏÖµ
-\item µ«¿ÉÒÔÍ¨¹ı~IDeserializationCallback ½Ó¿Ú½øĞĞ¶¨ÖÆ
+\item æœªè¢«ä¸²è¡ŒåŒ–çš„æˆå‘˜ï¼Œåœ¨é€†ä¸²è¡ŒåŒ–æ—¶ï¼Œæ¢å¤ä¸ºè¯¥ç±»å‹çš„é»˜è®¤å€¼
+\item ä½†å¯ä»¥é€šè¿‡~IDeserializationCallback æ¥å£è¿›è¡Œå®šåˆ¶
 \begin{lstlisting}
 public interface IDeserializationCallback {
   void OnDeserialization(object sender);
@@ -472,12 +472,12 @@ public class MyClass:IDeserializationCallback {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{´®ĞĞ»¯ºÍÊÂ¼ş}
+\frametitle{ä¸²è¡ŒåŒ–å’Œäº‹ä»¶}
 \begin{itemize}
-\item ´®ĞĞ»¯ÊÂ¼ş£ºOnSerializing, OnSerialized
-\item Äæ´®ĞĞ»¯ÊÂ¼ş£ºOnDeSerializing, OnDeSerialized
-\item ÊÂ¼ş´¦ÀíµÄ·½·¨£¬ÔÚ±»´®ĞĞ»¯µÄ¶ÔÏóÖĞÊµÏÖ
-\item ÊÂ¼şµÄÀàĞÍ£º
+\item ä¸²è¡ŒåŒ–äº‹ä»¶ï¼šOnSerializing, OnSerialized
+\item é€†ä¸²è¡ŒåŒ–äº‹ä»¶ï¼šOnDeSerializing, OnDeSerialized
+\item äº‹ä»¶å¤„ç†çš„æ–¹æ³•ï¼Œåœ¨è¢«ä¸²è¡ŒåŒ–çš„å¯¹è±¡ä¸­å®ç°
+\item äº‹ä»¶çš„ç±»å‹ï¼š
 \begin{lstlisting}
 void EVENTNAME(StreamingContext context);
 \end{lstlisting}
@@ -493,9 +493,9 @@ public class Chair {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{´®ĞĞ»¯¶à¸ö¶ÔÏó}
+\frametitle{ä¸²è¡ŒåŒ–å¤šä¸ªå¯¹è±¡}
 \begin{itemize}
-\item ÒÀ´Î·ÅÈëÊı¾İÁ÷½øĞĞ´®ĞĞ»¯
+\item ä¾æ¬¡æ”¾å…¥æ•°æ®æµè¿›è¡Œä¸²è¡ŒåŒ–
 \end{itemize}
 \begin{lstlisting}
 ClassA obj1 = new ClassA();
@@ -506,7 +506,7 @@ formatter.Serialize(stream, obj2);
 
 \end{lstlisting}
 \begin{itemize}
-\item Äæ´®ĞĞ»¯£¬ÒÀ´Î´ÓÊı¾İÁ÷ÖĞ¶Á³ö¼´¿É
+\item é€†ä¸²è¡ŒåŒ–ï¼Œä¾æ¬¡ä»æ•°æ®æµä¸­è¯»å‡ºå³å¯
 \end{itemize}
 \begin{lstlisting}[escapeinside=<>]
 // <\dots{} \dots{}>
@@ -517,18 +517,18 @@ ClassB b = (ClassB) formatter.Deserialize(stream);
 
 
 \begin{frame}
-\frametitle{·´Éä~(\textit{Reflection})}
+\frametitle{åå°„~(\textit{Reflection})}
 \begin{itemize}
 \setlength{\itemsep}{6pt plus 1pt}
-\item ²é¿´ÔªÊı¾İ£¬ÓÃÓÚ¸¨Öú¹¤¾ßµÄÏÔÊ¾¹¦ÄÜµÈ
-\item ÀàĞÍ·¢ÏÖ£¬ÓÃ»§¶¨ÖÆ½Å±¾ºÍ´úÂë½»»¥
-\item ºóÆÚ°ó¶¨£¬»ùÓÚÀàĞÍ·¢ÏÖµÄ¶¯Ì¬Ö´ĞĞ·½·¨¡¢ÉèÖÃÌØĞÔµÈ
-\item ÔËĞĞÊ±¶¯Ì¬´´½¨ÀàĞÍ
+\item æŸ¥çœ‹å…ƒæ•°æ®ï¼Œç”¨äºè¾…åŠ©å·¥å…·çš„æ˜¾ç¤ºåŠŸèƒ½ç­‰
+\item ç±»å‹å‘ç°ï¼Œç”¨æˆ·å®šåˆ¶è„šæœ¬å’Œä»£ç äº¤äº’
+\item åæœŸç»‘å®šï¼ŒåŸºäºç±»å‹å‘ç°çš„åŠ¨æ€æ‰§è¡Œæ–¹æ³•ã€è®¾ç½®ç‰¹æ€§ç­‰
+\item è¿è¡Œæ—¶åŠ¨æ€åˆ›å»ºç±»å‹
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{»ñµÃÀàĞÍĞÅÏ¢}
+\frametitle{è·å¾—ç±»å‹ä¿¡æ¯}
 \lstset{emph={Type,GetTypes}}
 \begin{lstlisting}
 using System; using System.Reflection;
@@ -544,7 +544,7 @@ public static void Main()
       "{0} types found", types.Length );
 }
 \end{lstlisting}
-³ÌĞòÊä³ö£º\scriptsize
+ç¨‹åºè¾“å‡ºï¼š\scriptsize
 \begin{verbatim}
 Type is System.Object
 Type is System.__Canon
@@ -556,7 +556,7 @@ Type is System.Collections.IList
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{»ñµÃ³ÉÔ±ĞÅÏ¢}
+\frametitle{è·å¾—æˆå‘˜ä¿¡æ¯}
 \lstset{emph={MemberInfo,GetMembers}}
 \begin{lstlisting}
 public static void Main( )
@@ -567,7 +567,7 @@ public static void Main( )
   { Console.WriteLine("{0} is a {1}", m, m.MemberType); }
 }
 \end{lstlisting}
-³ÌĞòÊä³ö£º\scriptsize
+ç¨‹åºè¾“å‡ºï¼š\scriptsize
 \begin{verbatim}
 System.String ToString() is a Method
 Int16 Parse(System.String) is a Method
@@ -580,7 +580,7 @@ Int16 MinValue is a Field
 
 
 \begin{frame}[fragile]
-\frametitle{»ñµÃÌØ¶¨µÄ³ÉÔ±ĞÅÏ¢}
+\frametitle{è·å¾—ç‰¹å®šçš„æˆå‘˜ä¿¡æ¯}
 \lstset{emph={FindMembers}}
 \begin{lstlisting}
 public static void Main( )
@@ -596,7 +596,7 @@ public static void Main( )
     Console.WriteLine("{0} is a {1}", m, m.MemberType);
 }
 \end{lstlisting}
-³ÌĞòÊä³ö£º\scriptsize
+ç¨‹åºè¾“å‡ºï¼š\scriptsize
 \begin{verbatim}
 System.Reflection.Assembly GetAssembly(System.Type) is a Method
 System.Reflection.Assembly GetExecutingAssembly() is a Method
@@ -607,9 +607,9 @@ System.Reflection.Assembly GetEntryAssembly() is a Method
 
 
 \begin{frame}[fragile]
-\frametitle{ºóÆÚ°ó¶¨~(\textit{Late Binding})}
+\frametitle{åæœŸç»‘å®š~(\textit{Late Binding})}
 \begin{itemize}
-\item Í¨¹ıºóÆÚ°ó¶¨£¬¿ÉÒÔÔÚÔËĞĞÊ±¶¯Ì¬µ÷ÓÃ¾ßÌå·½·¨
+\item é€šè¿‡åæœŸç»‘å®šï¼Œå¯ä»¥åœ¨è¿è¡Œæ—¶åŠ¨æ€è°ƒç”¨å…·ä½“æ–¹æ³•
 \end{itemize}
 \lstset{emph={Invoke,GetMethod}}
 \begin{lstlisting}
@@ -637,5 +637,5 @@ Console.WriteLine(
 % TeX-master: "part-04.tex"
 % TeX-header-end: "% End-of-Header$"
 % TeX-trailer-start: "% Start-of-Trailer$"
-% coding: gbk-dos
+% coding: utf-8
 % End:

@@ -3,11 +3,11 @@
 \section{C\# 3.0}
 
 \begin{frame}[fragile]
-\frametitle{Òşº¬ÀàĞÍ¾Ö²¿±äÁ¿~(\textit{Implicitly typed local variable})}
+\frametitle{éšå«ç±»å‹å±€éƒ¨å˜é‡~(\textit{Implicitly typed local variable})}
 
 \begin{itemize}
-\item ¹Ø¼ü×Ö~\texttt{var} ¿ÉÓÃÓÚÉùÃ÷¾Ö²¿±äÁ¿
-\item ¾ßÌåÀàĞÍÓÉ±àÒëÆ÷¸ù¾İ³õÊ¼»¯±í´ïÊ½ÍÆ¶Ï
+\item å…³é”®å­—~\texttt{var} å¯ç”¨äºå£°æ˜å±€éƒ¨å˜é‡
+\item å…·ä½“ç±»å‹ç”±ç¼–è¯‘å™¨æ ¹æ®åˆå§‹åŒ–è¡¨è¾¾å¼æ¨æ–­
 \begin{lstlisting}
   var i = 5;
   var s = "Hello";
@@ -16,7 +16,7 @@
   var orders = new Dictionary<int,Order>();
 \end{lstlisting}
 \pause
-\item ÉÏÃæµÄÉùÃ÷µÈ¼ÛÓÚ
+\item ä¸Šé¢çš„å£°æ˜ç­‰ä»·äº
 \begin{lstlisting}
   int i = 5;
   string s = "Hello";
@@ -29,18 +29,18 @@
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Òşº¬ÀàĞÍ¾Ö²¿±äÁ¿~(2)}
+\frametitle{éšå«ç±»å‹å±€éƒ¨å˜é‡~(2)}
 \begin{itemize}
-\item ÒşÊ½ÀàĞÍ±ØĞë³õÊ¼»¯£¬ÓÃÓÚ±àÒëÆ÷ÍÆ¶ÏÀàĞÍ
-\item ³õÊ¼»¯Ê±£¬Öµ²»ÄÜÊÇ~\texttt{null}
-\item ÈçÏÂµÄ¼¸ÖÖÉùÃ÷£¬±àÒëÆ÷ÎŞ·¨ÍÆ¶ÏÀàĞÍ
+\item éšå¼ç±»å‹å¿…é¡»åˆå§‹åŒ–ï¼Œç”¨äºç¼–è¯‘å™¨æ¨æ–­ç±»å‹
+\item åˆå§‹åŒ–æ—¶ï¼Œå€¼ä¸èƒ½æ˜¯~\texttt{null}
+\item å¦‚ä¸‹çš„å‡ ç§å£°æ˜ï¼Œç¼–è¯‘å™¨æ— æ³•æ¨æ–­ç±»å‹
 \begin{lstlisting}[escapeinside=<>]
-var x;                // <´íÎó£¬Ã»ÓĞ³õÊ¼»¯>
-var y = {1, 2, 3};    // <´íÎó£¬Ã»ÓĞÊı×éÉùÃ÷>
-var z = null;         // <´íÎó£¬null ÎŞ·¨ÍÆ¶ÏÀàĞÍ>
+var x;                // <é”™è¯¯ï¼Œæ²¡æœ‰åˆå§‹åŒ–>
+var y = {1, 2, 3};    // <é”™è¯¯ï¼Œæ²¡æœ‰æ•°ç»„å£°æ˜>
+var z = null;         // <é”™è¯¯ï¼Œnull æ— æ³•æ¨æ–­ç±»å‹>
 \end{lstlisting}
 \pause
-\item Êı×éµÄÒşº¬ÀàĞÍ¿ÉÒÔÔÙ¼ò»¯
+\item æ•°ç»„çš„éšå«ç±»å‹å¯ä»¥å†ç®€åŒ–
 \begin{lstlisting}
 var a = new[] { "hello", null, " world" }; //<string>[]
 var b = new[] { new[] {1,2,3,4},
@@ -52,20 +52,20 @@ var x = new[] { 1, "one", 2, "two" };      //<Error>
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Òşº¬ÀàĞÍ¾Ö²¿±äÁ¿~(3)}
+\frametitle{éšå«ç±»å‹å±€éƒ¨å˜é‡~(3)}
 
-¹Ø¼ü×Ö~\texttt{var} ¿ÉÓÃÓÚÒÔÏÂÇé¿ö
+å…³é”®å­—~\texttt{var} å¯ç”¨äºä»¥ä¸‹æƒ…å†µ
 \begin{itemize}[<+->]
-\item ¾Ö²¿±äÁ¿
-\item ÔÚ~\texttt{for} µÄ³õÊ¼»¯Óï¾äÖĞ
+\item å±€éƒ¨å˜é‡
+\item åœ¨~\texttt{for} çš„åˆå§‹åŒ–è¯­å¥ä¸­
 \begin{lstlisting}
 for(var x = 1; x < 10; x++) { ... }
 \end{lstlisting}
-\item ÔÚ~\texttt{foreach} µÄ³õÊ¼»¯Óï¾äÖĞ
+\item åœ¨~\texttt{foreach} çš„åˆå§‹åŒ–è¯­å¥ä¸­
 \begin{lstlisting}
 foreach(var item in list){...}
 \end{lstlisting}
-\item ÔÚ~\texttt{using} Óï¾äÖĞ
+\item åœ¨~\texttt{using} è¯­å¥ä¸­
 \begin{lstlisting}
 using (var f = new StreamReader("...")) {...}
 \end{lstlisting}
@@ -73,9 +73,9 @@ using (var f = new StreamReader("...")) {...}
 \end{frame}
 
 % \begin{frame}[fragile]
-% \frametitle{Òşº¬ÀàĞÍÊı×é~(\textit{Implicitly typed arrays})}
+% \frametitle{éšå«ç±»å‹æ•°ç»„~(\textit{Implicitly typed arrays})}
 % \begin{itemize}
-% \item ÓÉ±àÒëÆ÷ÍÆ¶ÏÊı×éÀàĞÍ
+% \item ç”±ç¼–è¯‘å™¨æ¨æ–­æ•°ç»„ç±»å‹
 % \end{itemize}
 % \begin{lstlisting}[escapeinside=<>]
 % var a = new[] { 1, 10, 100, 1000 };       // <int>[]
@@ -86,15 +86,15 @@ using (var f = new StreamReader("...")) {...}
 % \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{À©Õ¹·½·¨~(\textit{Extension Method})}
+\frametitle{æ‰©å±•æ–¹æ³•~(\textit{Extension Method})}
 \begin{block}{\textit{Extension Methods}}
-\CJKindent ¶¨ÒåÔÚ¾²Ì¬ÀàÖĞµÄÌØÊâ·½·¨£¬¿ÉÒÔÔÚ²»¸Ä±äÏÖÓĞ´úÂëµÄÇé¿öÏÂ£¬À©Õ¹ÎªÒÑÓĞÀàĞÍµÄÊµÀı·½·¨¡£
+\CJKindent å®šä¹‰åœ¨é™æ€ç±»ä¸­çš„ç‰¹æ®Šæ–¹æ³•ï¼Œå¯ä»¥åœ¨ä¸æ”¹å˜ç°æœ‰ä»£ç çš„æƒ…å†µä¸‹ï¼Œæ‰©å±•ä¸ºå·²æœ‰ç±»å‹çš„å®ä¾‹æ–¹æ³•ã€‚
 \end{block}
 
 \begin{itemize}
-\item Í¨¹ı±àÒë¼¼Êõ£¬½«ÊµÀı·½·¨×ª»»Îª¾²Ì¬·½·¨
-\item ±ØĞëÔÚ¾²Ì¬ÀàÖĞÊµÏÖ£¬ÇÒ²»ÄÜÊÇÇ¶Ì×Àà»ò·ºĞÍÀà
-\item ¸Ã·½·¨µÄµÚÒ»¸ö²ÎÊı±ØĞëÓĞ~\texttt{this} ĞŞÊÎ
+\item é€šè¿‡ç¼–è¯‘æŠ€æœ¯ï¼Œå°†å®ä¾‹æ–¹æ³•è½¬æ¢ä¸ºé™æ€æ–¹æ³•
+\item å¿…é¡»åœ¨é™æ€ç±»ä¸­å®ç°ï¼Œä¸”ä¸èƒ½æ˜¯åµŒå¥—ç±»æˆ–æ³›å‹ç±»
+\item è¯¥æ–¹æ³•çš„ç¬¬ä¸€ä¸ªå‚æ•°å¿…é¡»æœ‰~\texttt{this} ä¿®é¥°
 \end{itemize}
 
 \lstset{emph={this}}
@@ -110,9 +110,9 @@ public static class Extensions{
 
 
 \begin{frame}[fragile]
-\frametitle{À©Õ¹·½·¨µÄÊ¾Àı}
+\frametitle{æ‰©å±•æ–¹æ³•çš„ç¤ºä¾‹}
 \begin{itemize}
-\item Îª~\texttt{int} ÀàĞÍÌí¼Ó·½·¨ \texttt{Square()}
+\item ä¸º~\texttt{int} ç±»å‹æ·»åŠ æ–¹æ³• \texttt{Square()}
 \end{itemize}
 \lstset{emph={this,static}}
 \lstset{emph={[2]Square}}
@@ -138,10 +138,10 @@ static class Extensions
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{À©Õ¹·½·¨µÄÊ¾Àı(Ğø)}
+\frametitle{æ‰©å±•æ–¹æ³•çš„ç¤ºä¾‹(ç»­)}
 
 \begin{itemize}
-\item ±àÒëÖ®ºóµÄ~IL ´úÂë
+\item ç¼–è¯‘ä¹‹åçš„~IL ä»£ç 
 \end{itemize}
 \lstset{emph={[2]CSharp,Extensions,Square}}
 \begin{lstlisting}
@@ -166,9 +166,9 @@ static class Extensions
 
 
 \begin{frame}[fragile]
-\frametitle{À©Õ¹·½·¨µÄÊ¾Àı(Ğø)}
+\frametitle{æ‰©å±•æ–¹æ³•çš„ç¤ºä¾‹(ç»­)}
 \begin{itemize}
-\item Ïàµ±ÓÚ¾²Ì¬Ààº¯ÊıÔÚ¶ÔÏóÉÏµÄµ÷ÓÃ
+\item ç›¸å½“äºé™æ€ç±»å‡½æ•°åœ¨å¯¹è±¡ä¸Šçš„è°ƒç”¨
 \end{itemize}
 \lstset{emph={[2]Square}}
 \begin{lstlisting}
@@ -194,11 +194,11 @@ static class Extensions
 
 
 \begin{frame}[fragile]
-\frametitle{½Ó¿ÚµÄÀ©Õ¹º¯Êı}
+\frametitle{æ¥å£çš„æ‰©å±•å‡½æ•°}
 \begin{itemize}
-\item ¶Ô½Ó¿ÚµÄÀ©Õ¹Óë¶ÔÀàĞÍµÄÏàÍ¬
-\item µ«ÏÔÈ»²»ÄÜÖ±½ÓÔÚ½Ó¿ÚÉÏµ÷ÓÃÀ©Õ¹º¯Êı
-\item Ö»ÄÜÀí½âÎª£¬ËùÓĞÊµÏÖÁË¸Ã½Ó¿ÚµÄ¶ÔÏóÉÏÔö¼ÓÁËÀ©Õ¹º¯Êı
+\item å¯¹æ¥å£çš„æ‰©å±•ä¸å¯¹ç±»å‹çš„ç›¸åŒ
+\item ä½†æ˜¾ç„¶ä¸èƒ½ç›´æ¥åœ¨æ¥å£ä¸Šè°ƒç”¨æ‰©å±•å‡½æ•°
+\item åªèƒ½ç†è§£ä¸ºï¼Œæ‰€æœ‰å®ç°äº†è¯¥æ¥å£çš„å¯¹è±¡ä¸Šå¢åŠ äº†æ‰©å±•å‡½æ•°
 \end{itemize}
 \lstset{emph={this}}
 \lstset{emph={[2]IMath}}
@@ -221,7 +221,7 @@ public static class ExtIMath
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{¶ÔÏó³õÊ¼»¯Æ÷~(\textit{Object initializer})}
+\frametitle{å¯¹è±¡åˆå§‹åŒ–å™¨~(\textit{Object initializer})}
 \begin{lstlisting}
 public class Point
 {  int x, y;
@@ -230,11 +230,11 @@ public class Point
 }
 \end{lstlisting}
 \begin{itemize}
-\item ´´½¨¶ÔÏóµÄÍ¬Ê±£¬Îª¶ÔÏó³õÊ¼»¯³ÉÔ±
+\item åˆ›å»ºå¯¹è±¡çš„åŒæ—¶ï¼Œä¸ºå¯¹è±¡åˆå§‹åŒ–æˆå‘˜
 \begin{lstlisting}
 var a = new Point { X = 0, Y = 1 };
 \end{lstlisting}
-\item µÈÍ¬ÓÚ
+\item ç­‰åŒäº
 \begin{lstlisting}
 var a = new Point();
 a.X = 0;
@@ -244,9 +244,9 @@ a.Y = 1;
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{×Ô¶¯ÌØĞÔ~(\textit{Automatic Propertie})}
+\frametitle{è‡ªåŠ¨ç‰¹æ€§~(\textit{Automatic Propertie})}
 \begin{itemize}
-\item Î´Ê¹ÓÃ×Ô¶¯ÌØĞÔ
+\item æœªä½¿ç”¨è‡ªåŠ¨ç‰¹æ€§
 \begin{lstlisting}
 class Person
 { private string _Name;
@@ -256,7 +256,7 @@ class Person
 }
 \end{lstlisting}
 \pause
-\item Ê¹ÓÃ×Ô¶¯ÌØĞÔ
+\item ä½¿ç”¨è‡ªåŠ¨ç‰¹æ€§
 \begin{lstlisting}
 class Person
 {
@@ -264,27 +264,27 @@ class Person
 }
 \end{lstlisting}
 \pause
-\item ÔÚ´´½¨ÌØĞÔµÄÍ¬Ê±£¬×Ô¶¯´´½¨Ë½ÓĞ×Ö¶Î
-\item ¡°Ë½ÓĞ×Ö¶Î$+$¹«ÓĞÌØĞÔ¡±¿ÉÒÔÎª¶ÔÏóÌá¹©Á¼ºÃµÄ·â×°ĞÔ¡£
+\item åœ¨åˆ›å»ºç‰¹æ€§çš„åŒæ—¶ï¼Œè‡ªåŠ¨åˆ›å»ºç§æœ‰å­—æ®µ
+\item â€œç§æœ‰å­—æ®µ$+$å…¬æœ‰ç‰¹æ€§â€å¯ä»¥ä¸ºå¯¹è±¡æä¾›è‰¯å¥½çš„å°è£…æ€§ã€‚
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{×Ô¶¯ÌØĞÔ}
+\frametitle{è‡ªåŠ¨ç‰¹æ€§}
 \begin{itemize}[<+->]
 \setlength{\itemsep}{6pt plus 1pt}
-\item Ë½ÓĞ³ÉÔ±µÄÃû×ÖÓÉ±àÒëÆ÷Éú³É£¬³ÌĞòÖĞ²»¿É·ÃÎÊ
-\item ²»ÄÜÍ¨¹ı×Ô¶¯ÌØĞÔ´´½¨Ö»¶Á»òÖ»Ğ´µÄÌØĞÔ
+\item ç§æœ‰æˆå‘˜çš„åå­—ç”±ç¼–è¯‘å™¨ç”Ÿæˆï¼Œç¨‹åºä¸­ä¸å¯è®¿é—®
+\item ä¸èƒ½é€šè¿‡è‡ªåŠ¨ç‰¹æ€§åˆ›å»ºåªè¯»æˆ–åªå†™çš„ç‰¹æ€§
 \begin{lstlisting}[escapeinside=<>]
-public int MyReadOnlyProp  { get; } // <Ö»¶ÁÌØĞÔ? ´íÎó>
-public int MyWriteOnlyProp { set; } // <Ö»Ğ´ÌØĞÔ? ´íÎó>
+public int MyReadOnlyProp  { get; } // <åªè¯»ç‰¹æ€§? é”™è¯¯>
+public int MyWriteOnlyProp { set; } // <åªå†™ç‰¹æ€§? é”™è¯¯>
 \end{lstlisting}
-\item ¶ÁĞ´·ÃÎÊÆ÷¿ÉÒÔÓĞ²»Í¬µÄ·ÃÎÊÈ¨ÏŞ
+\item è¯»å†™è®¿é—®å™¨å¯ä»¥æœ‰ä¸åŒçš„è®¿é—®æƒé™
 \lstset{emph={[2]protected,set}}
 \begin{lstlisting}
   public string PetName { get; protected set; }
 \end{lstlisting}
-µÈÍ¬ÓÚ
+ç­‰åŒäº
 \lstset{emph={[2]protected,set}}
 \begin{lstlisting}
   private string _petName
@@ -298,14 +298,14 @@ public int MyWriteOnlyProp { set; } // <Ö»Ğ´ÌØĞÔ? ´íÎó>
 
 
 \begin{frame}[fragile]
-\frametitle{ÄäÃûÀàĞÍ}
+\frametitle{åŒ¿åç±»å‹}
 \begin{block}{\textit{Anonymous Type}}
-  \CJKindent ÄäÃûÀàĞÍÌá¹©ÁËÒ»ÖÖ·½±ãµÄ·½·¨£¬¿ÉÓÃÀ´½«Ò»×éÖ»¶ÁÊôĞÔ·â×°µ½µ¥¸ö¶ÔÏó
-  ÖĞ£¬¶øÎŞĞèÊ×ÏÈÏÔÊ½¶¨ÒåÒ»¸öÀàĞÍ¡£
+  \CJKindent åŒ¿åç±»å‹æä¾›äº†ä¸€ç§æ–¹ä¾¿çš„æ–¹æ³•ï¼Œå¯ç”¨æ¥å°†ä¸€ç»„åªè¯»å±æ€§å°è£…åˆ°å•ä¸ªå¯¹è±¡
+  ä¸­ï¼Œè€Œæ— éœ€é¦–å…ˆæ˜¾å¼å®šä¹‰ä¸€ä¸ªç±»å‹ã€‚
 \end{block}
 \begin{itemize}
-\item ÀàĞÍÃûÓÉ±àÒëÆ÷Éú³É£¬²¢ÇÒ²»ÄÜÔÚÔ´´úÂë¼¶Ê¹ÓÃ
-\item ÕâĞ©ÊôĞÔµÄÀàĞÍÓÉ±àÒëÆ÷ÍÆ¶Ï
+\item ç±»å‹åç”±ç¼–è¯‘å™¨ç”Ÿæˆï¼Œå¹¶ä¸”ä¸èƒ½åœ¨æºä»£ç çº§ä½¿ç”¨
+\item è¿™äº›å±æ€§çš„ç±»å‹ç”±ç¼–è¯‘å™¨æ¨æ–­
 \pause
 \begin{lstlisting}
 var myCar = new { Color = "Bright Pink",
@@ -319,13 +319,13 @@ Console.WriteLine("My car is a {0} {1}.",
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÄäÃûÀàĞÍ}
+\frametitle{åŒ¿åç±»å‹}
 \begin{itemize}
-\item ÄäÃûÀàµÄ¶¨Òå
+\item åŒ¿åç±»çš„å®šä¹‰
 \begin{lstlisting}[escapeinside=<>]
 new { <$p_1$> = <$e_1$>, <$p_2$> = <$e_2$> <\ldots>}
 \end{lstlisting}
-\item ±àÒëÆ÷×Ô¶¯Éú³ÉµÄÄÚ²¿ÀàĞÍ
+\item ç¼–è¯‘å™¨è‡ªåŠ¨ç”Ÿæˆçš„å†…éƒ¨ç±»å‹
 \begin{lstlisting}[escapeinside=<>]
 class __Anonymous1
 {
@@ -341,7 +341,7 @@ class __Anonymous1
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÄäÃûÀàĞÍµÄÏàµÈĞÔ}
+\frametitle{åŒ¿åç±»å‹çš„ç›¸ç­‰æ€§}
 \lstset{basicstyle=\ttfamily\scriptsize}
 \begin{lstlisting}
 class Person {
@@ -369,7 +369,7 @@ p3.Equals(p4)= False\\
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ÄäÃûÀàĞÍµÄÊ¹ÓÃ}
+\frametitle{åŒ¿åç±»å‹çš„ä½¿ç”¨}
 \begin{lstlisting}
 var productQuery =
     from prod in products
@@ -382,42 +382,42 @@ foreach (var v in productQuery)
 }
 \end{lstlisting}
 \begin{itemize}[<+->]
-\item ³£ÓÃÔÚ²éÑ¯±í´ïÊ½(LINQ)µÄ~\texttt{select}×Ó¾äÖĞ£¬ÒÔ±ã·µ»ØÔ´ĞòÁĞÖĞÃ¿¸ö¶ÔÏóµÄÊôĞÔ×Ó¼¯
-\item ÄäÃûÀàĞÍÊÇÖ±½Ó´Ó¶ÔÏóÅÉÉúµÄÒıÓÃÀàĞÍ£¬²»ÄÜÇ¿ÖÆ×ª»»Îª³ı~\texttt{object}ÒÔÍâµÄÈÎºÎ½Ó¿Ú»òÀàĞÍ
-\item ÓĞ·½·¨·¶Î§ÏŞÖÆ£¬ÈôÒªÏò·½·¨±ß½çÍâ²¿´«µİ£¬±ØĞëÇ¿ÖÆ×ª»»Îª¶ÔÏó£¬ÇÒ»áÊ¹ÄäÃûÀàĞÍµÄÇ¿ÀàĞÍ»¯ÎŞĞ§
+\item å¸¸ç”¨åœ¨æŸ¥è¯¢è¡¨è¾¾å¼(LINQ)çš„~\texttt{select}å­å¥ä¸­ï¼Œä»¥ä¾¿è¿”å›æºåºåˆ—ä¸­æ¯ä¸ªå¯¹è±¡çš„å±æ€§å­é›†
+\item åŒ¿åç±»å‹æ˜¯ç›´æ¥ä»å¯¹è±¡æ´¾ç”Ÿçš„å¼•ç”¨ç±»å‹ï¼Œä¸èƒ½å¼ºåˆ¶è½¬æ¢ä¸ºé™¤~\texttt{object}ä»¥å¤–çš„ä»»ä½•æ¥å£æˆ–ç±»å‹
+\item æœ‰æ–¹æ³•èŒƒå›´é™åˆ¶ï¼Œè‹¥è¦å‘æ–¹æ³•è¾¹ç•Œå¤–éƒ¨ä¼ é€’ï¼Œå¿…é¡»å¼ºåˆ¶è½¬æ¢ä¸ºå¯¹è±¡ï¼Œä¸”ä¼šä½¿åŒ¿åç±»å‹çš„å¼ºç±»å‹åŒ–æ— æ•ˆ
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{\textit{Lambda} ±í´ïÊ½}
+\frametitle{\textit{Lambda} è¡¨è¾¾å¼}
 \begin{block}{\textit{Lambda expression}}
-\CJKindent ÓÃÓÚ´´½¨ÄäÃûº¯ÊıµÄ¼ò±ã·½Ê½£¬¿ÉÒÔ°üº¬±í´ïÊ½ºÍÓï¾ä¡£
+\CJKindent ç”¨äºåˆ›å»ºåŒ¿åå‡½æ•°çš„ç®€ä¾¿æ–¹å¼ï¼Œå¯ä»¥åŒ…å«è¡¨è¾¾å¼å’Œè¯­å¥ã€‚
 \end{block}
-Ò»°ã¸ñÊ½£º
+ä¸€èˆ¬æ ¼å¼ï¼š
 \begin{lstlisting}[escapeinside=<>]
    ( <parameters> ) => <expression>
 \end{lstlisting}
 \begin{itemize}
-\item \textit{Lambda} ±í´ïÊ½\footnote{ÃÀ¹úÊıÑ§¼Ò~Alonzo Church ÔÚ~1936 Äê½«Æä¸ÅÄî»¯}×îÔç¿É¼ûÓÚ~LISP ÓïÑÔ
-\item ´´½¨ÄÚÁªº¯Êı(\textit{inline method})µÄÖ±½Ó·½·¨
-\item Ö÷ÒªÓÃÓÚ¼ò»¯Î¯ÍĞµÄÊ¹ÓÃ
+\item \textit{Lambda} è¡¨è¾¾å¼\footnote{ç¾å›½æ•°å­¦å®¶~Alonzo Church åœ¨~1936 å¹´å°†å…¶æ¦‚å¿µåŒ–}æœ€æ—©å¯è§äº~LISP è¯­è¨€
+\item åˆ›å»ºå†…è”å‡½æ•°(\textit{inline method})çš„ç›´æ¥æ–¹æ³•
+\item ä¸»è¦ç”¨äºç®€åŒ–å§”æ‰˜çš„ä½¿ç”¨
 \begin{itemize}
-\item ÊÂ¼ş´¦Àíº¯ÊıµÄ´´½¨
-\item ²éÑ¯±í´ïÊ½µÄ´´½¨
+\item äº‹ä»¶å¤„ç†å‡½æ•°çš„åˆ›å»º
+\item æŸ¥è¯¢è¡¨è¾¾å¼çš„åˆ›å»º
 \end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{\textit{Lambda} ±í´ïÊ½Ê¾Àı}
+\frametitle{\textit{Lambda} è¡¨è¾¾å¼ç¤ºä¾‹}
 \begin{itemize}
-\item Ê¹ÓÃ~\textit{Lambda} ±í´ïÊ½
+\item ä½¿ç”¨~\textit{Lambda} è¡¨è¾¾å¼
 \begin{lstlisting}
    delegate int Del(int i);
    Del compute = x => x * x;
    int j = compute(5); //j = 25
 \end{lstlisting}
-\item Ê¹ÓÃÄäÃû·½·¨
+\item ä½¿ç”¨åŒ¿åæ–¹æ³•
 \begin{lstlisting}
    delegate int Del(int i);
    Del compute = delegate (int x) { return x * x; };
@@ -428,19 +428,19 @@ foreach (var v in productQuery)
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{\textit{Lambda} ±í´ïÊ½µÄÖÖÀà}
+\frametitle{\textit{Lambda} è¡¨è¾¾å¼çš„ç§ç±»}
 \begin{itemize}
-\item ÒşÊ½ÀàĞÍ
+\item éšå¼ç±»å‹
 \begin{lstlisting}
 x => x + 1             // expression body
 x => { return x + 1; } // statement body
 \end{lstlisting}
-\item ÏÔÊ¾ÀàĞÍ
+\item æ˜¾ç¤ºç±»å‹
 \begin{lstlisting}
 (int x) => x + 1
 (int x) => { return x + 1; }
 \end{lstlisting}
-\item ²ÎÊı¸öÊı
+\item å‚æ•°ä¸ªæ•°
 \begin{lstlisting}
 () => Console.WriteLine()
 (x, y) => x * y
@@ -449,9 +449,9 @@ x => { return x + 1; } // statement body
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{\textit{Lambda} ±í´ïÊ½µÄ×ª»»}
+\frametitle{\textit{Lambda} è¡¨è¾¾å¼çš„è½¬æ¢}
 \begin{itemize}
-\item \textit{Lambda} ±í´ïÊ½µÄÀàĞÍºÍÎ¯ÍĞÀàĞÍÏà·û£¬¿ÉÒÔ½øĞĞ×ª»»
+\item \textit{Lambda} è¡¨è¾¾å¼çš„ç±»å‹å’Œå§”æ‰˜ç±»å‹ç›¸ç¬¦ï¼Œå¯ä»¥è¿›è¡Œè½¬æ¢
 \begin{lstlisting}
 delegate R Func<A,R>(A arg);
 
@@ -461,21 +461,21 @@ Func<int,double> f2 = x => x + 1; // Ok
 Func<double,int> f3 = x => x + 1; // Error
 \end{lstlisting}
 \begin{itemize}
-\item \texttt{f3} ÖĞ¸ø¶¨~\texttt{x} Îª~\texttt{double}£¬±àÒëÆ÷ÍÆ¶ÏµÃµ½~\texttt{x+1} Ò²Îª~\texttt{double}£¬Òò´Ë²»ÄÜÒşÊ½×ª»»
-  Îª~\texttt{int} ĞÍ
+\item \texttt{f3} ä¸­ç»™å®š~\texttt{x} ä¸º~\texttt{double}ï¼Œç¼–è¯‘å™¨æ¨æ–­å¾—åˆ°~\texttt{x+1} ä¹Ÿä¸º~\texttt{double}ï¼Œå› æ­¤ä¸èƒ½éšå¼è½¬æ¢
+  ä¸º~\texttt{int} å‹
 \end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{\textit{Lambda} ±í´ïÊ½µÄÊ¹ÓÃ~(1)}
+\frametitle{\textit{Lambda} è¡¨è¾¾å¼çš„ä½¿ç”¨~(1)}
 \begin{lstlisting}[escapeinside='']
   string[] list = new string[] { "abc", "12", "java" };
 
   string[] ll=Array.FindAll(list,
       delegate(string s) { return s.IndexOf("a") >= 0;}
       );
-  // '»òÊ¹ÓÃ¸ü·½±ãµÄ\textit{Lambda}±í´ïÊ½'
+  // 'æˆ–ä½¿ç”¨æ›´æ–¹ä¾¿çš„\textit{Lambda}è¡¨è¾¾å¼'
   string[] ll=Array.FindAll(list, s=>(s.IndexOf("a")>=0));
 
   foreach (string var in ll)
@@ -484,29 +484,29 @@ Func<double,int> f3 = x => x + 1; // Error
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{\textit{Lambda} ±í´ïÊ½µÄÊ¹ÓÃ~(2)}
+\frametitle{\textit{Lambda} è¡¨è¾¾å¼çš„ä½¿ç”¨~(2)}
 \begin{itemize}
-\item ÔÚ²éÑ¯±í´ïÊ½ÖĞÊ¹ÓÃ
+\item åœ¨æŸ¥è¯¢è¡¨è¾¾å¼ä¸­ä½¿ç”¨
 \end{itemize}
 \begin{lstlisting}[escapeinside='']
 static void Main()
 {
   int[] scores = { 90, 71, 82, 93, 75, 82 };
 
-  // 'LINQµÄ²éÑ¯±í´ïÊ½º¯Êı'
+  // 'LINQçš„æŸ¥è¯¢è¡¨è¾¾å¼å‡½æ•°'
   int highScoreCount = scores.Where(n => n>80).Count();
 
   Console.WriteLine("{0} scores are greater than 80",
                                          highScoreCount);
-  // 'Êä³ö£º4 scores are greater than 80'
+  // 'è¾“å‡ºï¼š4 scores are greater than 80'
 }
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{\textit{Lambda} ±í´ïÊ½µÄÊ¹ÓÃ~(3)}
+\frametitle{\textit{Lambda} è¡¨è¾¾å¼çš„ä½¿ç”¨~(3)}
 \begin{itemize}
-\item ÔÚÊÂ¼ş´¦ÀíÖĞÊ¹ÓÃ
+\item åœ¨äº‹ä»¶å¤„ç†ä¸­ä½¿ç”¨
 \end{itemize}
 \begin{lstlisting}[escapeinside='']
 public partial class Form1 : Form
@@ -517,7 +517,7 @@ public partial class Form1 : Form
 
       this.Click +=
            (s, e) => {MessageBox.Show("Hello World!");};
-                                       // 'ÏÔÊ¾ÏûÏ¢´°¿Ú'
+                                       // 'æ˜¾ç¤ºæ¶ˆæ¯çª—å£'
     }
 }
 \end{lstlisting}
@@ -529,6 +529,6 @@ public partial class Form1 : Form
 % TeX-master: "part-03.tex"
 % TeX-header-end: "% End-of-Header$"
 % TeX-trailer-start: "% Start-of-Trailer$"
-% coding: gbk-dos
+% coding: utf-8
 % End:
 

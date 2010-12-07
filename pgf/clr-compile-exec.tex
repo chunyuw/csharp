@@ -1,4 +1,4 @@
-%% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> %%
+%% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> %% -*- coding: utf-8 -*-
 
 \begin{tikzpicture}[rounded corners, >=stealth]
 \tikzstyle{tnode}=[fill=red!30, text width=1.7cm, rounded corners,
@@ -7,20 +7,20 @@ minimum height=1.1cm, minimum width=1.7cm, anchor=south west, text centered]
 \draw[dashed,fill=blue!20, fill opacity=.4] (.7, .5) rectangle +(8.4,1.8);
 \draw[dashed,fill=blue!20, fill opacity=.4] (.7,2.5) rectangle +(8.4,1.9);
 
-\only<2-| handout:1>{\draw (4.5,4.1) node {≥Ã–Ú±‡“Î};
-\draw (1,2.7) node[style=tnode] (aa) {≥Ã–Ú‘¥¬Î} ;   
-\draw (4,2.7) node[style=tnode] (bb) {±‡“Î∆˜} ; 
+\only<2-| handout:1>{\draw (4.5,4.1) node {Á®ãÂ∫èÁºñËØë};
+\draw (1,2.7) node[style=tnode] (aa) {Á®ãÂ∫èÊ∫êÁ†Å} ;   
+\draw (4,2.7) node[style=tnode] (bb) {ÁºñËØëÂô®} ; 
 \draw[->] (aa.east) -- (bb.west);
 \draw (7,2.7) node[style=tnode] (cc) 
-{\only<3-| handout:1>{\color<3| handout:0>{red}÷–º‰”Ô—‘} \only<2| handout:0>{\small DLL/EXE}} ;
+{\only<3-| handout:1>{\color<3| handout:0>{red}‰∏≠Èó¥ËØ≠Ë®Ä} \only<2| handout:0>{\small DLL/EXE}} ;
 \draw[->] (bb.east) -- (cc.west);
 }
 
 \only<4-| handout:1>{
-\draw (4.5,.8)  node {≥Ã–Ú÷¥––};
+\draw (4.5,.8)  node {Á®ãÂ∫èÊâßË°å};
 
-\draw (4,1)   node[style=tnode] (dd) {JIT±‡“Î∆˜} ;
-\draw (1,1)   node[style=tnode] (ee) {±æµÿ¥˙¬Î} ;   
+\draw (4,1)   node[style=tnode] (dd) {JITÁºñËØëÂô®} ;
+\draw (1,1)   node[style=tnode] (ee) {Êú¨Âú∞‰ª£Á†Å} ;   
 
 \draw[->] (dd.west) -- (ee.east);
 \draw[->] (cc.south) .. controls (cc.south|-dd.east) .. (dd.east);

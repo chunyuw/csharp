@@ -1,72 +1,72 @@
 %% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> %%
 
-\part{C\# ÓïÑÔ»ù´¡}
+\part{C\# è¯­è¨€åŸºç¡€}
 
 \begin{frame}
-\frametitle{Outline}            % {C\# ÓïÑÔ»ù´¡}
+\frametitle{Outline}            % {C\# è¯­è¨€åŸºç¡€}
 \tableofcontents
 \end{frame}
 
-\section{C\# ÓïÑÔ¼ò½é}
+\section{C\# è¯­è¨€ç®€ä»‹}
 
 \begin{frame}
-\frametitle{ÓïÑÔ¼ò½é}
+\frametitle{è¯­è¨€ç®€ä»‹}
 
 \begin{itemize}
     \setlength{\itemsep}{6pt plus 1pt}
-\item C\# ÊÇÒ»ÖÖ¼ò½à¡¢ÀàĞÍ°²È«µÄÃæÏò¶ÔÏóµÄÓïÑÔ\par
-\smallskip  \CJKindent ¿ÉÒÔ´´½¨´«Í³µÄ~ Windows ¿Í»§¶ËÓ¦ÓÃ³ÌĞò¡¢XML Web Services¡¢·Ö²¼Ê½×é
-  ¼ş¡¢¿Í»§¶Ë---·şÎñÆ÷Ó¦ÓÃ³ÌĞò¡¢Êı¾İ¿âÓ¦ÓÃ³ÌĞòÒÔ¼°ºÜ¶àÆäËûÀàĞÍµÄ³ÌĞò¡£
-\item Ö»ÓĞ²»µ½~ 90 ¸ö¹Ø¼ü×Ö
-\item Ö§³Ö·ºĞÍµÄ·½·¨ºÍÀàĞÍ
-\item Ö§³Ö·â×°¡¢¼Ì³ĞºÍ¶àÌ¬ĞÔ¸ÅÄî
-    % * ·â×°µÄ·½·¨Ç©Ãû£¨³ÆÎªÎ¯ÍĞ£©£¬ËüÊµÏÖÁËÀàĞÍ°²È«µÄÊÂ¼şÍ¨Öª¡£
-    % * ÊôĞÔ (Property)£¬³äµ±Ë½ÓĞ³ÉÔ±±äÁ¿µÄ·ÃÎÊÆ÷¡£
-    % * ÊôĞÔ (Attribute)£¬Ìá¹©¹ØÓÚÔËĞĞÊ±ÀàĞÍµÄÉùÃ÷ĞÔÔªÊı¾İ¡£
-    % * ÄÚÁª XML ÎÄµµ×¢ÊÍ¡£
-\item Ö§³ÖÖ¸ÕëºÍ¡°²»°²È«¡±´úÂëµÄ¸ÅÄî
+\item C\# æ˜¯ä¸€ç§ç®€æ´ã€ç±»å‹å®‰å…¨çš„é¢å‘å¯¹è±¡çš„è¯­è¨€\par
+\smallskip  \CJKindent å¯ä»¥åˆ›å»ºä¼ ç»Ÿçš„~ Windows å®¢æˆ·ç«¯åº”ç”¨ç¨‹åºã€XML Web Servicesã€åˆ†å¸ƒå¼ç»„
+  ä»¶ã€å®¢æˆ·ç«¯---æœåŠ¡å™¨åº”ç”¨ç¨‹åºã€æ•°æ®åº“åº”ç”¨ç¨‹åºä»¥åŠå¾ˆå¤šå…¶ä»–ç±»å‹çš„ç¨‹åºã€‚
+\item åªæœ‰ä¸åˆ°~ 90 ä¸ªå…³é”®å­—
+\item æ”¯æŒæ³›å‹çš„æ–¹æ³•å’Œç±»å‹
+\item æ”¯æŒå°è£…ã€ç»§æ‰¿å’Œå¤šæ€æ€§æ¦‚å¿µ
+    % * å°è£…çš„æ–¹æ³•ç­¾åï¼ˆç§°ä¸ºå§”æ‰˜ï¼‰ï¼Œå®ƒå®ç°äº†ç±»å‹å®‰å…¨çš„äº‹ä»¶é€šçŸ¥ã€‚
+    % * å±æ€§ (Property)ï¼Œå……å½“ç§æœ‰æˆå‘˜å˜é‡çš„è®¿é—®å™¨ã€‚
+    % * å±æ€§ (Attribute)ï¼Œæä¾›å…³äºè¿è¡Œæ—¶ç±»å‹çš„å£°æ˜æ€§å…ƒæ•°æ®ã€‚
+    % * å†…è” XML æ–‡æ¡£æ³¨é‡Šã€‚
+\item æ”¯æŒæŒ‡é’ˆå’Œâ€œä¸å®‰å…¨â€ä»£ç çš„æ¦‚å¿µ
 \end{itemize}
 
 \end{frame}
 
 
 % \begin{frame}
-% \frametitle{C\# ÓïÑÔ¼ò½é}
+% \frametitle{C\# è¯­è¨€ç®€ä»‹}
 % \begin{itemize}
-% \item ¿ª·¢¼òµ¥£¬¹¦ÄÜÇ¿´ó£¬²¿Êğ¼òµ¥
-% \item<1-| handout:1> ÃæÏò¶ÔÏó£¬Ò»ÇĞ½ÔÎª¶ÔÏó\\ÓïÑÔ±¾ÉíÖ§³Ö³éÏóÀà¡¢½Ó¿Ú¡¢ÌØĞÔºÍÊÂ¼şµÈ
-% \item<2-| handout:1> »ùÓÚ×é¼şµÄ¿ª·¢\\Ìá¹©ÄÚÖÃµÄ°æ±¾Ö§³Ö£¬½Ó¿ÚÓëÊµÏÖ·ÖÀë£¬ÊÂ¼şµÄ·¢²¼Óë¶©ÔÄµÈ
-% \item<3-| handout:1> Óë~Web~¿ª·¢Ïà½áºÏ\\¿ÉÒÔ½«×é¼ş×ª±äÎª~Web~·şÎñ£¬Ö§³ÖÔ¶³Ìµ÷ÓÃµÈ
-% \item<4-| handout:1> ¸ü¸ßµÄĞ§ÂÊ\\À¬»ø×Ô¶¯»ØÊÕ£¬±äÁ¿ÊÇÀàĞÍ°²È«µÄ£¬±äÁ¿×Ô¶¯³õÊ¼»¯µÈ
-% \item<4-| handout:1> Ö§³Ö¾Ö²¿Àà¡¢·ºĞÍµÈ¸ß¼¶ÌØĞÔ
+% \item å¼€å‘ç®€å•ï¼ŒåŠŸèƒ½å¼ºå¤§ï¼Œéƒ¨ç½²ç®€å•
+% \item<1-| handout:1> é¢å‘å¯¹è±¡ï¼Œä¸€åˆ‡çš†ä¸ºå¯¹è±¡\\è¯­è¨€æœ¬èº«æ”¯æŒæŠ½è±¡ç±»ã€æ¥å£ã€ç‰¹æ€§å’Œäº‹ä»¶ç­‰
+% \item<2-| handout:1> åŸºäºç»„ä»¶çš„å¼€å‘\\æä¾›å†…ç½®çš„ç‰ˆæœ¬æ”¯æŒï¼Œæ¥å£ä¸å®ç°åˆ†ç¦»ï¼Œäº‹ä»¶çš„å‘å¸ƒä¸è®¢é˜…ç­‰
+% \item<3-| handout:1> ä¸~Web~å¼€å‘ç›¸ç»“åˆ\\å¯ä»¥å°†ç»„ä»¶è½¬å˜ä¸º~Web~æœåŠ¡ï¼Œæ”¯æŒè¿œç¨‹è°ƒç”¨ç­‰
+% \item<4-| handout:1> æ›´é«˜çš„æ•ˆç‡\\åƒåœ¾è‡ªåŠ¨å›æ”¶ï¼Œå˜é‡æ˜¯ç±»å‹å®‰å…¨çš„ï¼Œå˜é‡è‡ªåŠ¨åˆå§‹åŒ–ç­‰
+% \item<4-| handout:1> æ”¯æŒå±€éƒ¨ç±»ã€æ³›å‹ç­‰é«˜çº§ç‰¹æ€§
 % \end{itemize}
 % \end{frame}
 
 \note{
   \begin{itemize}
-  \item C\#ÊÇÒ»ÃÅ½ÏĞÂµÄÓïÑÔ£¬ÔÚÃæÏò¶ÔÏó±à³É±È½ÏÈÈµÄÊ±ºòµ®Éú£¬Òò´ËÈ«ÃæµÄÖ§³ÖÃæÏò
-    ¶ÔÏó¿ª·¢¡£CTS ±¾ÉíÒ²ÊÇÃæÏò¶ÔÏóµÄÏµÍ³
-  \item Ö§³Ö±È½ÏÏÖ´úµÄÈí¼ş¿ª·¢µÄ·½·¨£¬×é¼ş¿ª·¢
-  \item ÖµµÃÒ»ÌáµÄÊÇ½øĞĞ Web Service µÄ¿ª·¢
-  \item ºÍ Java ÀàËÆ£¬µ«ÓÅÓÚJava£¬³ıÖ§³ÖÀ¬»ø×Ô¶¯»ØÊÕµÈ£¬»¹Ö§³Ö¾Ö²¿Àà·ºĞÍµÈ
+  \item C\#æ˜¯ä¸€é—¨è¾ƒæ–°çš„è¯­è¨€ï¼Œåœ¨é¢å‘å¯¹è±¡ç¼–æˆæ¯”è¾ƒçƒ­çš„æ—¶å€™è¯ç”Ÿï¼Œå› æ­¤å…¨é¢çš„æ”¯æŒé¢å‘
+    å¯¹è±¡å¼€å‘ã€‚CTS æœ¬èº«ä¹Ÿæ˜¯é¢å‘å¯¹è±¡çš„ç³»ç»Ÿ
+  \item æ”¯æŒæ¯”è¾ƒç°ä»£çš„è½¯ä»¶å¼€å‘çš„æ–¹æ³•ï¼Œç»„ä»¶å¼€å‘
+  \item å€¼å¾—ä¸€æçš„æ˜¯è¿›è¡Œ Web Service çš„å¼€å‘
+  \item å’Œ Java ç±»ä¼¼ï¼Œä½†ä¼˜äºJavaï¼Œé™¤æ”¯æŒåƒåœ¾è‡ªåŠ¨å›æ”¶ç­‰ï¼Œè¿˜æ”¯æŒå±€éƒ¨ç±»æ³›å‹ç­‰
   \end{itemize}
 }
 
-% \section{C\#µÄ»ù±¾Óï·¨}
+% \section{C\#çš„åŸºæœ¬è¯­æ³•}
 \begin{frame}[fragile]
-\frametitle{C\# ÓïÑÔµÄÓï·¨}
+\frametitle{C\# è¯­è¨€çš„è¯­æ³•}
 \begin{itemize}
-% \item Óë C ×åÓïÑÔÀàËÆ(C/C++/Java)
+% \item ä¸ C æ—è¯­è¨€ç±»ä¼¼(C/C++/Java)
 %   \pause
-\item ±êÊ¶·ûÇø·Ö´óĞ¡£¬²»ÄÜÒÔÊı×Ö¿ªÊ¼
+\item æ ‡è¯†ç¬¦åŒºåˆ†å¤§å°ï¼Œä¸èƒ½ä»¥æ•°å­—å¼€å§‹
   \pause
-\item ±äÁ¿¿ÉÒÔËæÊ±ÉùÃ÷£¬ÓÃ ~new ¹Ø¼ü×Ö´´½¨ÀàµÄÊµÀı
+\item å˜é‡å¯ä»¥éšæ—¶å£°æ˜ï¼Œç”¨ ~new å…³é”®å­—åˆ›å»ºç±»çš„å®ä¾‹
 \begin{lstlisting}
 int    a = 10;
 Circle b = new Circle();
 \end{lstlisting}
   \pause
-\item ×¢ÊÍÓĞÈıÖÖ·ç¸ñ
+\item æ³¨é‡Šæœ‰ä¸‰ç§é£æ ¼
 \begin{lstlisting}
 /* multi-line comments */
 // single-line comments
@@ -75,7 +75,7 @@ Circle b = new Circle();
 
   \pause
 
-\item  Í¨¹ı~XML~×¢ÊÍ£¬¿É×Ô¶¯Éú³É³ÌĞòÎÄµµ
+\item  é€šè¿‡~XML~æ³¨é‡Šï¼Œå¯è‡ªåŠ¨ç”Ÿæˆç¨‹åºæ–‡æ¡£
   \cmd{csc /doc:doc.xml source.cs}
 
 \end{itemize}
@@ -83,19 +83,19 @@ Circle b = new Circle();
 
 \note{
   \begin{itemize}
-  \item Óï·¨ÀàËÆ C/C++/Java
-  \item Í¬ÑùµÄ±äÁ¿ÉùÃ÷£¬´´½¨ÀàÊµÀı£¬ÈçÀı×ÓËùÊ¾
+  \item è¯­æ³•ç±»ä¼¼ C/C++/Java
+  \item åŒæ ·çš„å˜é‡å£°æ˜ï¼Œåˆ›å»ºç±»å®ä¾‹ï¼Œå¦‚ä¾‹å­æ‰€ç¤º
   \end{itemize}
 }
 
 \begin{frame}[fragile]
-\frametitle{C\# ³ÌĞòÊ¾Àı}
+\frametitle{C\# ç¨‹åºç¤ºä¾‹}
 \begin{itemize}
-\item<1-| handout:1> ËùÓĞ³ÌĞòÂß¼­ºÍÊı¾İ±ØĞë°üº¬ÔÚÀàĞÍÖĞ£¬Ã»ÓĞÈ«¾Ö±äÁ¿
+\item<1-| handout:1> æ‰€æœ‰ç¨‹åºé€»è¾‘å’Œæ•°æ®å¿…é¡»åŒ…å«åœ¨ç±»å‹ä¸­ï¼Œæ²¡æœ‰å…¨å±€å˜é‡
 
-\item<1-| handout:1> Í¨¹ı ~using Ê¹ÓÃÏµÍ³Àà¿â
+\item<1-| handout:1> é€šè¿‡ ~using ä½¿ç”¨ç³»ç»Ÿç±»åº“
 
-\item<1-| handout:1> ¿ÉÖ´ĞĞÎÄ¼ş±ØĞëÓĞÒ»¸ö ~\texttt{Main()} ·½·¨£¬²¢ÓÃ ~\texttt{static} ĞŞÊÎ
+\item<1-| handout:1> å¯æ‰§è¡Œæ–‡ä»¶å¿…é¡»æœ‰ä¸€ä¸ª ~\texttt{Main()} æ–¹æ³•ï¼Œå¹¶ç”¨ ~\texttt{static} ä¿®é¥°
 
   \begin{uncoverenv}<2-| handout:1>
 \begin{lstlisting}
@@ -116,45 +116,45 @@ class MyFirstCSharpClass
 \end{frame}
 
 
-\section{»ù±¾ÀàĞÍ}
+\section{åŸºæœ¬ç±»å‹}
 
 % \begin{frame}<0>
-% \frametitle{»ù±¾Êı¾İÀàĞÍ  (\textit{Primitive Data Types})}
+% \frametitle{åŸºæœ¬æ•°æ®ç±»å‹  (\textit{Primitive Data Types})}
 % \begin{tabular}{l|l|l}
 % \hline
-%   C\#ÀàĞÍ & FCL ÀàĞÍ       & ËµÃ÷                 \\
+%   C\#ç±»å‹ & FCL ç±»å‹       & è¯´æ˜                 \\
 % \hline
-%   object  & System.Object  & ËùÓĞ¶ÔÏóµÄ»ùÀàĞÍ     \\
-%   string  & System.String  & Unicode ×Ö·ûĞòÁĞ     \\
-%   bool    & System.Boolean & true »ò ~false       \\
-%   char    & System.Char    & ×Ö·ûĞÍ£¬2 ×Ö½Ú       \\
-%   byte    & System.Byte    & µ¥×Ö½ÚÓĞ·ûºÅÕûÊı     \\
-%   sbyte   & System.SByte   & µ¥×Ö½ÚÎŞ·ûºÅÕûÊı     \\
-%   short   & System.Int16   & 2 ×Ö½ÚÓĞ·ûºÅÕûÊı     \\
-%   ushort  & System.UInt16  & 2 ×Ö½ÚÎŞ·ûºÅÕûÊı     \\
-%   int     & System.Int32   & 4 ×Ö½ÚÓĞ·ûºÅÕûÊı     \\
-%   uint    & System.UInt32  & 4 ×Ö½ÚÎŞ·ûºÅÕûÊı     \\
-%   long    & System.Int65   & 8 ×Ö½ÚÓĞ·ûºÅÕûÊı     \\
-%   ulong   & System.UInt64  & 8 ×Ö½ÚÎŞ·ûºÅÕûÊı     \\
-%   float   & System.Single  & µ¥¾«¶È¸¡µãÊı(4×Ö½Ú)  \\
-%   double  & System.Double  & Ë«¾«¶È¸¡µãÊı(8×Ö½Ú)  \\
-%   decimal & System.Decimal & ¸ß¾«¶È¸¡µãÊı(16×Ö½Ú) \\
+%   object  & System.Object  & æ‰€æœ‰å¯¹è±¡çš„åŸºç±»å‹     \\
+%   string  & System.String  & Unicode å­—ç¬¦åºåˆ—     \\
+%   bool    & System.Boolean & true æˆ– ~false       \\
+%   char    & System.Char    & å­—ç¬¦å‹ï¼Œ2 å­—èŠ‚       \\
+%   byte    & System.Byte    & å•å­—èŠ‚æœ‰ç¬¦å·æ•´æ•°     \\
+%   sbyte   & System.SByte   & å•å­—èŠ‚æ— ç¬¦å·æ•´æ•°     \\
+%   short   & System.Int16   & 2 å­—èŠ‚æœ‰ç¬¦å·æ•´æ•°     \\
+%   ushort  & System.UInt16  & 2 å­—èŠ‚æ— ç¬¦å·æ•´æ•°     \\
+%   int     & System.Int32   & 4 å­—èŠ‚æœ‰ç¬¦å·æ•´æ•°     \\
+%   uint    & System.UInt32  & 4 å­—èŠ‚æ— ç¬¦å·æ•´æ•°     \\
+%   long    & System.Int65   & 8 å­—èŠ‚æœ‰ç¬¦å·æ•´æ•°     \\
+%   ulong   & System.UInt64  & 8 å­—èŠ‚æ— ç¬¦å·æ•´æ•°     \\
+%   float   & System.Single  & å•ç²¾åº¦æµ®ç‚¹æ•°(4å­—èŠ‚)  \\
+%   double  & System.Double  & åŒç²¾åº¦æµ®ç‚¹æ•°(8å­—èŠ‚)  \\
+%   decimal & System.Decimal & é«˜ç²¾åº¦æµ®ç‚¹æ•°(16å­—èŠ‚) \\
 % \end{tabular}
 % \end{frame}
 
 \begin{frame}
-\frametitle{»ù±¾²Ù×÷·û}
+\frametitle{åŸºæœ¬æ“ä½œç¬¦}
 \begin{itemize}
-\item ËãÊıÔËËã \par
+\item ç®—æ•°è¿ç®— \par
 \texttt{$+,-,*,/,\%, +=,-=,*=,/=,++,--$}\par
-Ö¸ÊıÔËËã²Ù×÷·ûÓÃ\texttt{System.Math.Pow()}
-\item ¹ØÏµÔËËã \par
+æŒ‡æ•°è¿ç®—æ“ä½œç¬¦ç”¨\texttt{System.Math.Pow()}
+\item å…³ç³»è¿ç®— \par
 \texttt{$>, >=, <, <=, !=, ==$}
-\item Âß¼­ÔËËã \par
+\item é€»è¾‘è¿ç®— \par
 \texttt{\&\&, ||, !}
-\item Î»ÔËËã \par
+\item ä½è¿ç®— \par
 \texttt{\&, |, \^}
-\item ÆäËû \par
+\item å…¶ä»– \par
 \texttt{?:}
 \end{itemize}
 
@@ -162,39 +162,39 @@ class MyFirstCSharpClass
 
 
 \begin{frame}
-\frametitle{»ù±¾Êı¾İÀàĞÍ  (\textit{Primitive Data Types})}
+\frametitle{åŸºæœ¬æ•°æ®ç±»å‹  (\textit{Primitive Data Types})}
 \begin{itemize}
     \setlength{\itemsep}{8pt plus 1pt}
-\item ²¼¶ûĞÍ£ºbool, ÖµÎª~ true »ò~ false
-\item ×Ö·ûĞÍ£ºchar, ³¤¶ÈÎª~ 2 ×Ö½ÚµÄ ~Unicode ×Ö·û
-\item ÕûÊıĞÍ£ºbyte, sbyte, short, ushort, int, uint, long, ulong
-\item ¸¡µãĞÍ£ºfloat, double, decimal
-\item ×Ö·û´®ĞÍ£ºstring
-%\item ÒıÓÃĞÍ£ºobject, reference
-\item Ã¶¾ÙÀàĞÍ£ºenum
-%\item ½á¹¹ÌåĞÍ£ºstruct
+\item å¸ƒå°”å‹ï¼šbool, å€¼ä¸º~ true æˆ–~ false
+\item å­—ç¬¦å‹ï¼šchar, é•¿åº¦ä¸º~ 2 å­—èŠ‚çš„ ~Unicode å­—ç¬¦
+\item æ•´æ•°å‹ï¼šbyte, sbyte, short, ushort, int, uint, long, ulong
+\item æµ®ç‚¹å‹ï¼šfloat, double, decimal
+\item å­—ç¬¦ä¸²å‹ï¼šstring
+%\item å¼•ç”¨å‹ï¼šobject, reference
+\item æšä¸¾ç±»å‹ï¼šenum
+%\item ç»“æ„ä½“å‹ï¼šstruct
 \end{itemize}
 \end{frame}
 
 \note{
   \begin{itemize}
-  \item C\# ÖĞÓĞ½Ï·á¸»µÄÊı¾İÀàĞÍ
-  \item ĞÂµÄÄÚÖÃÊı¾İÀàĞÍ ~string ºÍ ~bool£¬bool ³¤¶ÈÎª 1 ×Ö½Ú£¬ÖµÎª true/false
-  \item ·Ö±ğÖ§³Ö 1/2/4/8 ×Ö½Ú³¤µÄÕûĞÍ
-  \item ÒÔ¼° 4/8/16 ×Ö½Ú³¤µÄ¸¡µãĞÍ
+  \item C\# ä¸­æœ‰è¾ƒä¸°å¯Œçš„æ•°æ®ç±»å‹
+  \item æ–°çš„å†…ç½®æ•°æ®ç±»å‹ ~string å’Œ ~boolï¼Œbool é•¿åº¦ä¸º 1 å­—èŠ‚ï¼Œå€¼ä¸º true/false
+  \item åˆ†åˆ«æ”¯æŒ 1/2/4/8 å­—èŠ‚é•¿çš„æ•´å‹
+  \item ä»¥åŠ 4/8/16 å­—èŠ‚é•¿çš„æµ®ç‚¹å‹
   \end{itemize}
 }
 
 \begin{frame}[fragile]
-\frametitle{C\# ÀàĞÍÓë~FCL ÀàĞÍ}
+\frametitle{C\# ç±»å‹ä¸~FCL ç±»å‹}
 \begin{itemize}
-\item C\# µÄ»ù±¾ÀàĞÍÊµ¼Ê¾ÍÊÇ ~FCL ÀàĞÍµÄ±ğÃû
+\item C\# çš„åŸºæœ¬ç±»å‹å®é™…å°±æ˜¯ ~FCL ç±»å‹çš„åˆ«å
 \begin{lstlisting}
 System.Int32 x = 100; // int x
 int y = x;
 \end{lstlisting}
 \pause
-\item Òò´ËÀàĞÍ±¾ÉíÒ²ÓÉ ~FCL Ìá¹©ÁËÒ»Ğ©»ù±¾µÄ³ÉÔ±ºÍ·½·¨
+\item å› æ­¤ç±»å‹æœ¬èº«ä¹Ÿç”± ~FCL æä¾›äº†ä¸€äº›åŸºæœ¬çš„æˆå‘˜å’Œæ–¹æ³•
 
 \begin{lstlisting}
 short smax = short.MaxValue;  //  32767
@@ -212,21 +212,21 @@ z = decimal.Remainder(pi,1.3M); // 0.54159265...
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{»ù±¾ÀàĞÍÖ®¼äµÄ×ª»»}
+\frametitle{åŸºæœ¬ç±»å‹ä¹‹é—´çš„è½¬æ¢}
 \begin{itemize}
-\item ÊıÖµÖ®¼ä
+\item æ•°å€¼ä¹‹é—´
 \begin{lstlisting}[escapeinside=<>]
-int  i = 100;  long l = i;       // <ÒşÊ½×ª»»>
-long l = 100;  int  i = (int) l; // <ÏÔÊ¾×ª»»>
+int  i = 100;  long l = i;       // <éšå¼è½¬æ¢>
+long l = 100;  int  i = (int) l; // <æ˜¾ç¤ºè½¬æ¢>
 \end{lstlisting}
 \pause
-\item Óë´®Ö®¼ä
+\item ä¸ä¸²ä¹‹é—´
 \begin{lstlisting}
 int i = int.Parse("100");  string s =   i.ToString();
 char c = char.Parse("A");  string s = 'A'.ToString();
 \end{lstlisting}
 \pause
-\item Óë×Ö·ûÖ®¼ä
+\item ä¸å­—ç¬¦ä¹‹é—´
 \begin{lstlisting}
 int i = (int) '0';   // 0x30 or 48
 char c = (char) 110; // 'n'
@@ -235,18 +235,18 @@ char c = (char) 110; // 'n'
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Êı¾İµÄ±íÊ¾}
+\frametitle{æ•°æ®çš„è¡¨ç¤º}
 
 \begin{itemize}
-\item bool Ö»ÄÜÓĞ ~\lstinline|true| ºÍ ~\lstinline|false| Á½¸öÖµ \pause
-\item Êı×ÖµÄºó×º
+\item bool åªèƒ½æœ‰ ~\lstinline|true| å’Œ ~\lstinline|false| ä¸¤ä¸ªå€¼ \pause
+\item æ•°å­—çš„åç¼€
   \begin{itemize}
     \lstset{emph={[3]L,M,U,UL,F}}
   \item \lstinline|100, 100U, 100L, 100UL; // int, uint, long, ulong|
   \item \lstinline|2.12F, 2.12, 2.12M;     // float, double, decimal|
   \end{itemize}
 \pause
-\item char ÀàĞÍ±íÊ¾ ~Unicode ×Ö·û (\lstinline| char c;|)
+\item char ç±»å‹è¡¨ç¤º ~Unicode å­—ç¬¦ (\lstinline| char c;|)
   \begin{columns}
     \column{.35\textwidth}
 \begin{lstlisting}
@@ -271,12 +271,12 @@ char.IsLetterOrDigit(s,1);
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{×Ö·û´®}
-% unicode ×Ö·ûĞòÁĞ
+\frametitle{å­—ç¬¦ä¸²}
+% unicode å­—ç¬¦åºåˆ—
 \begin{itemize}
-\item C\# ÖĞ»ù±¾µÄÊı¾İÀàĞÍ£¬ Unicode ×Ö·ûĞòÁĞ\pause
-\item ÔÚ¶ÑÖĞ·ÖÅä£¬µ«Ê¹ÓÃĞ§¹ûºÍÖµÀàĞÍÏàËÆ\pause
-\item Ê¹ÓÃ ~``\texttt{@}'' ×Ö·ûĞŞÊÎ£¬±íÊ¾{\redwarnÖğ×Ö´®}(\textit{Verbatim String})
+\item C\# ä¸­åŸºæœ¬çš„æ•°æ®ç±»å‹ï¼Œ Unicode å­—ç¬¦åºåˆ—\pause
+\item åœ¨å †ä¸­åˆ†é…ï¼Œä½†ä½¿ç”¨æ•ˆæœå’Œå€¼ç±»å‹ç›¸ä¼¼\pause
+\item ä½¿ç”¨ ~``\texttt{@}'' å­—ç¬¦ä¿®é¥°ï¼Œè¡¨ç¤º{\redwarn é€å­—ä¸²}(\textit{Verbatim String})
 \begin{lstlisting}
 string s1, s2;
 s1 =  "C:\\WINDOWS\\system32";
@@ -293,9 +293,9 @@ s2 = @"cd ""Program Files""";
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{×Ö·û´®µÄ²Ù×÷}
+\frametitle{å­—ç¬¦ä¸²çš„æ“ä½œ}
 \begin{itemize}
-\item Ê¹ÓÃ ~``\texttt{+}'' ¿ÉÒÔÖ±½ÓÁ¬½Ó´®
+\item ä½¿ç”¨ ~``\texttt{+}'' å¯ä»¥ç›´æ¥è¿æ¥ä¸²
 \begin{lstlisting}
 s1 = "Hello"; s2 = " World!";
 s3 = s1 + s2 ;
@@ -304,10 +304,10 @@ s4 = "20.0/3 = " + 20.0/3;
 // "20.0/3 = 6.66666666666667"
 \end{lstlisting}
 
-  \CJKindent \small µ«ĞèÒª×¢Òâ£¬×Ö·û´®µÄÁ¬½Ó»áÉú³ÉĞÂµÄ´®£¬Èç¹û´óÁ¿²Ù×÷£¬»áÓ°Ïì
-  Ğ§ÂÊ£¬»òÓÃ~ System.Text.StringBuilder ¡£
+  \CJKindent \small ä½†éœ€è¦æ³¨æ„ï¼Œå­—ç¬¦ä¸²çš„è¿æ¥ä¼šç”Ÿæˆæ–°çš„ä¸²ï¼Œå¦‚æœå¤§é‡æ“ä½œï¼Œä¼šå½±å“
+  æ•ˆç‡ï¼Œæˆ–ç”¨~ System.Text.StringBuilder ã€‚
 \pause
-\item Ê¹ÓÃ ~``=='' ÅĞ¶ÏÊÇ·ñÏàµÈ
+\item ä½¿ç”¨ ~``=='' åˆ¤æ–­æ˜¯å¦ç›¸ç­‰
 \begin{lstlisting}
 string a = "abcdefgabcde";
 string b = "abcdefgabcde";
@@ -317,16 +317,16 @@ Console.WriteLine(a==b); // Prints "True"
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{×Ö·û´®µÄ²Ù×÷}
-string ÀàĞÍÖĞÌá¹©µÄ³ÉÔ±
+\frametitle{å­—ç¬¦ä¸²çš„æ“ä½œ}
+string ç±»å‹ä¸­æä¾›çš„æˆå‘˜
 \medskip
   \begin{itemize}
 \setlength{\itemsep}{6pt plus 1pt}
-  \item ²éÕÒ×Ö´®~ \texttt{IndexOf()}
-  \item ±È½Ï×Ö·û´®~ \texttt{CompareTo(), Equals()}
-  \item ×ª»»´óĞ¡Ğ´~ \texttt{ToLower(), ToUpper()}
-  % \item ¶ÔÏóµÄ~ ToString() ·½·¨
-  \item ´®µÄ³¤¶È~ \texttt{Length}
+  \item æŸ¥æ‰¾å­—ä¸²~ \texttt{IndexOf()}
+  \item æ¯”è¾ƒå­—ç¬¦ä¸²~ \texttt{CompareTo(), Equals()}
+  \item è½¬æ¢å¤§å°å†™~ \texttt{ToLower(), ToUpper()}
+  % \item å¯¹è±¡çš„~ ToString() æ–¹æ³•
+  \item ä¸²çš„é•¿åº¦~ \texttt{Length}
   \end{itemize}
 \begin{lstlisting}
 string s = "This is a string";
@@ -336,8 +336,8 @@ int y = "Hello World".Length;
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{×Ö·û´®µÄ²Ù×÷}
-³éÈ¡×Ó´®
+\frametitle{å­—ç¬¦ä¸²çš„æ“ä½œ}
+æŠ½å–å­ä¸²
 \begin{lstlisting}
 string s = "This is a string";
 string t;
@@ -346,7 +346,7 @@ t = s.Substring(8); // "a string"
 t = s.Substring(0,4); // "This"
 \end{lstlisting}
 
-¶¨Î»×Ó´®
+å®šä½å­ä¸²
 \begin{lstlisting}
 string s = "This is a string";
 int i;
@@ -356,10 +356,10 @@ i = s.IndexOf("a"); // i=8
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{¸ñÊ½»¯×Ö·û´®}
+\frametitle{æ ¼å¼åŒ–å­—ç¬¦ä¸²}
 \CJKindent
 \begin{itemize}
-\item Ê¹ÓÃ~ ``\{N\}'' ±íÊ¾ºóÃæ²ÎÊı´ÎĞò
+\item ä½¿ç”¨~ ``\{N\}'' è¡¨ç¤ºåé¢å‚æ•°æ¬¡åº
 \begin{lstlisting}
 string s1;
 s1 = string.Format("Result is: {0}, {1}", 20, 3.22);
@@ -367,13 +367,13 @@ s1 = string.Format("Result is: {0}, {1}", 20, 3.22);
 
 \end{lstlisting}
 \pause
-\item ×Ô¶¨ÒåµÄ¸ñÊ½
+\item è‡ªå®šä¹‰çš„æ ¼å¼
 \begin{lstlisting}
  s1 = string.Format("{0:0##.##}", 3.223); // "003.22"
  s1 = string.Format("{0:##%}", 0.45); // "45%"
 \end{lstlisting}
 \pause
-\item Ê±¼äÈÕÆÚ
+\item æ—¶é—´æ—¥æœŸ
 \begin{lstlisting}
 DateTime dt = DateTime.Now;
 s1 = string.Format("{0:yyyy/MM/dd hh:mm:ss}", dt);
@@ -384,8 +384,8 @@ s1 = dt.ToString("yyyy-dd-MM");
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{½á¹¹ÌåÀàĞÍ}
-\CJKindent ½á¹¹ÌåÊÇºÍÀà(class)ÏàËÆµÄÒ»ÖÖ¼òµ¥µÄ·â×°¹¹Ôì£¬Í¬Ñù¿ÉÒÔ°üº¬³ÉÔ±±äÁ¿ºÍ·½·¨¡£
+\frametitle{ç»“æ„ä½“ç±»å‹}
+\CJKindent ç»“æ„ä½“æ˜¯å’Œç±»(class)ç›¸ä¼¼çš„ä¸€ç§ç®€å•çš„å°è£…æ„é€ ï¼ŒåŒæ ·å¯ä»¥åŒ…å«æˆå‘˜å˜é‡å’Œæ–¹æ³•ã€‚
 \begin{lstlisting}[escapeinside=<>]
 struct Point {
   int x,y;
@@ -394,19 +394,19 @@ struct Point {
 }
 \end{lstlisting}
 \begin{itemize}
-\item ½á¹¹Ìå²»ÄÜ¶¨ÒåÎŞ²ÎÊıµÄ¹¹Ôìº¯Êı£¬²»ÄÜ¶¨ÒåÎö¹¹º¯Êı
-\item Èç¹û¶¨Òå¹¹Ôìº¯Êı£¬±ØĞëÎª½á¹¹ÌåÖĞµÄÃ¿¸ö×Ö¶Î¸³Öµ
+\item ç»“æ„ä½“ä¸èƒ½å®šä¹‰æ— å‚æ•°çš„æ„é€ å‡½æ•°ï¼Œä¸èƒ½å®šä¹‰ææ„å‡½æ•°
+\item å¦‚æœå®šä¹‰æ„é€ å‡½æ•°ï¼Œå¿…é¡»ä¸ºç»“æ„ä½“ä¸­çš„æ¯ä¸ªå­—æ®µèµ‹å€¼
 \end{itemize}
 \end{frame}
 
 \note{
   \begin{itemize}
-  \item Ò²Ö§³Ö struct£¬ºÍ class ÀàËÆ
+  \item ä¹Ÿæ”¯æŒ structï¼Œå’Œ class ç±»ä¼¼
   \end{itemize}}
 
 \begin{frame}[fragile]
-\frametitle{Ã¶¾ÙÀàĞÍ}
-Ã¶¾ÙÀàĞÍµÄÒ»°ã¸ñÊ½
+\frametitle{æšä¸¾ç±»å‹}
+æšä¸¾ç±»å‹çš„ä¸€èˆ¬æ ¼å¼
 \begin{lstlisting}
 [access modifiers] enum <identifier> [:enum-base]
 { body }
@@ -414,14 +414,14 @@ struct Point {
 
 \begin{itemize}
     \setlength{\itemsep}{8pt plus 1pt}
-\item Ã¶¾ÙÀàĞÍ
+\item æšä¸¾ç±»å‹
 \begin{lstlisting}
 enum Color
 {Red, Blue=2, Green}
 
 \end{lstlisting}
 
-\item ¸Ä±äÃ¶¾ÙÀàĞÍµÄÄ¬ÈÏÕûÊı
+\item æ”¹å˜æšä¸¾ç±»å‹çš„é»˜è®¤æ•´æ•°
 \begin{lstlisting}
 enum Color:short
 {Red=1, Blue=2, Green=3}
@@ -430,11 +430,11 @@ enum Color:short
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ê¹ÓÃÃ¶¾Ù}
+\frametitle{ä½¿ç”¨æšä¸¾}
 \begin{itemize}
-\item Ã¶¾Ù¿ÉÒÔ·½±ãµÄ´´½¨³£Á¿
-\item ¿ÉÒÔÌá¸ß³ÌĞòµÄ¿É¶ÁĞÔ
-\item Ã¶¾ÙÊÇÒ»¸öÀàĞÍ£¬×÷Îª²ÎÊı¿ÉÒÔ¼õÉÙ´íÎó·¢Éú
+\item æšä¸¾å¯ä»¥æ–¹ä¾¿çš„åˆ›å»ºå¸¸é‡
+\item å¯ä»¥æé«˜ç¨‹åºçš„å¯è¯»æ€§
+\item æšä¸¾æ˜¯ä¸€ä¸ªç±»å‹ï¼Œä½œä¸ºå‚æ•°å¯ä»¥å‡å°‘é”™è¯¯å‘ç”Ÿ
 \end{itemize}
 \begin{lstlisting}
 public int GetRGBValue(Color c){
@@ -449,12 +449,12 @@ public int GetRGBValue(Color c){
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{System.Enum µÄ·½·¨}
-System.Enum ÊÇÏµÍ³µÄÃ¶¾Ù»ùÀà
+\frametitle{System.Enum çš„æ–¹æ³•}
+System.Enum æ˜¯ç³»ç»Ÿçš„æšä¸¾åŸºç±»
 \begin{itemize}
-\item Enum.IsDefined() --- ÅĞ¶Ï×Ö·û´®ÊÇ·ñÊÇÄ³¸öÃ¶¾ÙµÄ³ÉÔ±
-\item Enum.Parse() --- ½âÎö×Ö·û´®ÎªÃ¶¾ÙÖµ
-\item Enum.GetName() --- Í¨¹ıÃ¶¾ÙÖµ·µ»ØÃ¶¾ÙÃû×Ö×Ö·û´®
+\item Enum.IsDefined() --- åˆ¤æ–­å­—ç¬¦ä¸²æ˜¯å¦æ˜¯æŸä¸ªæšä¸¾çš„æˆå‘˜
+\item Enum.Parse() --- è§£æå­—ç¬¦ä¸²ä¸ºæšä¸¾å€¼
+\item Enum.GetName() --- é€šè¿‡æšä¸¾å€¼è¿”å›æšä¸¾åå­—å­—ç¬¦ä¸²
 \end{itemize}
 \pause
 \begin{lstlisting}
@@ -470,37 +470,37 @@ System.Enum ÊÇÏµÍ³µÄÃ¶¾Ù»ùÀà
 \end{lstlisting}
 \end{frame}
 
-\section{Êı×é}
+\section{æ•°ç»„}
 
 \begin{frame}[fragile]
-\frametitle{Êı×é}
-ÉùÃ÷Êı×éµÄÒ»°ãĞÎÊ½£º
+\frametitle{æ•°ç»„}
+å£°æ˜æ•°ç»„çš„ä¸€èˆ¬å½¢å¼ï¼š
 \begin{lstlisting}
 <type><array_type> identifier
    = new <type><array_type> [{initializer list}]
 \end{lstlisting}
 \begin{itemize}
-\item Êı×éÀàĞÍ¿ÉÒÔÊÇ ``\texttt{[]}'' ``\texttt{[,]}'' »ò ``\texttt{[][]}''
-\item ¿ÉÒÔÊ¡ÂÔ³õÊ¼»¯ÁĞ±í£¬Ä¬ÈÏÖµÊÇ ~{\redwarn\texttt{0}} »ò ~{\redwarn\texttt{null}}
-\item Ò²¿ÉÒÔÊ¡ÂÔ ~new ±í´ïÊ½£¬Ö±½ÓÍ¨¹ıÁĞ±í¶¨Òå
+\item æ•°ç»„ç±»å‹å¯ä»¥æ˜¯ ``\texttt{[]}'' ``\texttt{[,]}'' æˆ– ``\texttt{[][]}''
+\item å¯ä»¥çœç•¥åˆå§‹åŒ–åˆ—è¡¨ï¼Œé»˜è®¤å€¼æ˜¯ ~{\redwarn\texttt{0}} æˆ– ~{\redwarn\texttt{null}}
+\item ä¹Ÿå¯ä»¥çœç•¥ ~new è¡¨è¾¾å¼ï¼Œç›´æ¥é€šè¿‡åˆ—è¡¨å®šä¹‰
 \end{itemize}
 \pause
 \begin{lstlisting}[escapeinside=<>]
-int[] x; // <ÉùÃ÷Ò»¸öÊı×é±äÁ¿£¬Ä¬ÈÏÖµÎª \texttt{null}>
+int[] x; // <å£°æ˜ä¸€ä¸ªæ•°ç»„å˜é‡ï¼Œé»˜è®¤å€¼ä¸º \texttt{null}>
 int[] list = new int[5];
-int[] list = new int[] {1,2,3,4,5}; // <³õÊ¼»¯>
+int[] list = new int[] {1,2,3,4,5}; // <åˆå§‹åŒ–>
 int[] list = {1,2,3,4,5}; //<short version>
 \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Êı×é}
+\frametitle{æ•°ç»„}
 \begin{itemize}
-\item Ò»Î¬Êı×é£¬¾ØĞÎ¶àÎ¬Êı×é (\textit{Multidimensional Arrays})
+\item ä¸€ç»´æ•°ç»„ï¼ŒçŸ©å½¢å¤šç»´æ•°ç»„ (\textit{Multidimensional Arrays})
 \begin{lstlisting}[escapeinside=<>,mathescape]
-int[] x = new int[5]; // <Ò»Î¬Êı×é>
+int[] x = new int[5]; // <ä¸€ç»´æ•°ç»„>
 
-int[,] y = new int[2,5]; // $2\times5$ <¶şÎ¬Êı×é>
+int[,] y = new int[2,5]; // $2\times5$ <äºŒç»´æ•°ç»„>
 \end{lstlisting}
 \end{itemize} \pause
 
@@ -511,22 +511,22 @@ int[,] y = new int[2,5]; // $2\times5$ <¶şÎ¬Êı×é>
 
 \note{
   \begin{itemize}
-  \item Êı×éµÄÉùÃ÷ÉÔÓĞ²»Í¬£¬²»¹ıºÍ Java ÀàËÆ
-  \item int[]±íÊ¾ÀàĞÍ£¬ĞèÒª´´½¨ÊµÀı
-  \item int[,] ºÍ int[][]²»Í¬
+  \item æ•°ç»„çš„å£°æ˜ç¨æœ‰ä¸åŒï¼Œä¸è¿‡å’Œ Java ç±»ä¼¼
+  \item int[]è¡¨ç¤ºç±»å‹ï¼Œéœ€è¦åˆ›å»ºå®ä¾‹
+  \item int[,] å’Œ int[][]ä¸åŒ
   \end{itemize}
 }
 
 \begin{frame}[fragile]
-\frametitle{¶àÎ¬Êı×é}
+\frametitle{å¤šç»´æ•°ç»„}
 \begin{itemize}
-\item ¾â³İĞÎ¶àÎ¬Êı×é (\textit{Jagged Arrays})
+\item é”¯é½¿å½¢å¤šç»´æ•°ç»„ (\textit{Jagged Arrays})
 \begin{lstlisting}[escapeinside=<>]
 int[][] z = new int[3][];
-     z[0] = new int[4]; // z[0]<³¤¶ÈÎª4>
-     z[1] = new int[3]; // z[1]<³¤¶ÈÎª3>
-     z[2] = new int[5]; // z[2]<³¤¶ÈÎª5>
-//z[0]<Ö»ÊÇÊı×é±äÁ¿£»>z[0][0]<²ÅÊÇÕûÊı>
+     z[0] = new int[4]; // z[0]<é•¿åº¦ä¸º4>
+     z[1] = new int[3]; // z[1]<é•¿åº¦ä¸º3>
+     z[2] = new int[5]; // z[2]<é•¿åº¦ä¸º5>
+//z[0]<åªæ˜¯æ•°ç»„å˜é‡ï¼›>z[0][0]<æ‰æ˜¯æ•´æ•°>
 
 \end{lstlisting}
 \end{itemize} \pause
@@ -537,15 +537,15 @@ int[][] z = new int[3][];
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Êı×éµÄÊ¹ÓÃ}
-~\texttt{System.Array} ÊÇÀà¿âÖĞÊı×éÀàĞÍµÄ»ùÀà
+\frametitle{æ•°ç»„çš„ä½¿ç”¨}
+~\texttt{System.Array} æ˜¯ç±»åº“ä¸­æ•°ç»„ç±»å‹çš„åŸºç±»
 
 \begin{itemize}
-\item \texttt{Length} --- Êı×éµÄ³¤¶È
-\item \texttt{Clear()} --- ½«Êı×éÇå¿Õ (0 »ò ~null)
-\item \texttt{Sort()} --- ½«Êı×éÅÅĞò
-\item \texttt{Reverse()} ---- µ¹ĞòÅÅÁĞ
-\item \texttt{Find()} --- ÕÒµ½ÌØ¶¨µÄÔªËØ
+\item \texttt{Length} --- æ•°ç»„çš„é•¿åº¦
+\item \texttt{Clear()} --- å°†æ•°ç»„æ¸…ç©º (0 æˆ– ~null)
+\item \texttt{Sort()} --- å°†æ•°ç»„æ’åº
+\item \texttt{Reverse()} ---- å€’åºæ’åˆ—
+\item \texttt{Find()} --- æ‰¾åˆ°ç‰¹å®šçš„å…ƒç´ 
 \end{itemize}
 \begin{lstlisting}
 char[] x = new char[] {'b', 'a', 'c'};
@@ -557,22 +557,22 @@ System.Array.Reverse(x);
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Òç³ö¼ì²é}
+\frametitle{æº¢å‡ºæ£€æŸ¥}
 \begin{itemize}
-\item ½øĞĞÒç³ö¼ì²é
+\item è¿›è¡Œæº¢å‡ºæ£€æŸ¥
   \lstset{emph={checked,unchecked}}
 \begin{lstlisting}[escapeinside=<>]
 int i = 1000000, j = 1000000;
 int x = checked(i*j);
-//<·¢ÉúÔËĞĞÊ±Òì³££º>System.OverflowException
+//<å‘ç”Ÿè¿è¡Œæ—¶å¼‚å¸¸ï¼š>System.OverflowException
 
 \end{lstlisting}
 
-\item ²»½øĞĞÒç³ö¼ì²é
+\item ä¸è¿›è¡Œæº¢å‡ºæ£€æŸ¥
 \begin{lstlisting}[escapeinside=<>]
 int i = 1000000, j = 1000000;
 int x = unchecked(i*j);
-//<ÎŞÒì³£³öÏÖ£¬µ«> x=-727379968
+//<æ— å¼‚å¸¸å‡ºç°ï¼Œä½†> x=-727379968
 
 \end{lstlisting}
 \end{itemize}
@@ -580,15 +580,15 @@ int x = unchecked(i*j);
 
 
 \begin{frame}[fragile]
-\frametitle{Ô¤´¦ÀíÖ¸Áî}
+\frametitle{é¢„å¤„ç†æŒ‡ä»¤}
 \begin{itemize}
-\item ¶¨Òåºê(\textit{macro})£¬¼ìÑéºê\\
+\item å®šä¹‰å®(\textit{macro})ï¼Œæ£€éªŒå®\\
 
 \texttt{\#define, \#undef, \#if, \#else, \#elif, \#endif}
 \cmd{csc /Define:XX hello.cs}
 \pause
 
-\item ²úÉú±àÒë´íÎó»ò¾¯¸æ
+\item äº§ç”Ÿç¼–è¯‘é”™è¯¯æˆ–è­¦å‘Š
 
 \texttt{\#error, \#warn}
 
@@ -603,9 +603,9 @@ int x = unchecked(i*j);
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Ô¤´¦ÀíÖ¸Áî(Ğø)}
+\frametitle{é¢„å¤„ç†æŒ‡ä»¤(ç»­)}
 \begin{itemize}
-\item ¶¨Òå´úÂë¶Î£¬ÓÃÓÚ Visual Studio µÄ´úÂëÕÛµş
+\item å®šä¹‰ä»£ç æ®µï¼Œç”¨äº Visual Studio çš„ä»£ç æŠ˜å 
 
 \texttt{\#region, \#endregion}
 
@@ -616,7 +616,7 @@ int x = unchecked(i*j);
 \end{lstlisting}
 \pause
 
-\item ¸Ä±ä±àÒëÆ÷µ±Ç°µÄÎÄ¼şÃûºÍĞĞºÅ
+\item æ”¹å˜ç¼–è¯‘å™¨å½“å‰çš„æ–‡ä»¶åå’Œè¡Œå·
 
 \texttt{\#line}
 
@@ -628,12 +628,12 @@ int x = unchecked(i*j);
 \end{itemize}
 
 \end{frame}
-\section{Á÷³Ì¿ØÖÆ}
+\section{æµç¨‹æ§åˆ¶}
 
 \begin{frame}[fragile]
-\frametitle{·ÖÖ§Óï¾ä}
+\frametitle{åˆ†æ”¯è¯­å¥}
   \begin{itemize}
-  \item if-else Óï¾ä
+  \item if-else è¯­å¥
 \begin{lstlisting}
   if (a>=b){
     x =  1;
@@ -642,19 +642,19 @@ int x = unchecked(i*j);
   }
 \end{lstlisting}
     \pause
-  \item ÅĞ¶ÏÌõ¼şµÄÖµ±ØĞëÊÇ~ \texttt{bool} ĞÍµÄ~ \texttt{true} »ò~ \texttt{false}
+  \item åˆ¤æ–­æ¡ä»¶çš„å€¼å¿…é¡»æ˜¯~ \texttt{bool} å‹çš„~ \texttt{true} æˆ–~ \texttt{false}
 \begin{lstlisting}[escapeinside=<>]
   int i = 1;
   if (i) { ... }
-  // <±àÒë´íÎó£ºÎŞ·¨ÒşÊ½µÄ½«~int~×ªÎª~bool>
+  // <ç¼–è¯‘é”™è¯¯ï¼šæ— æ³•éšå¼çš„å°†~int~è½¬ä¸º~bool>
 \end{lstlisting}
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{·ÖÖ§Óï¾ä}
+\frametitle{åˆ†æ”¯è¯­å¥}
   \begin{itemize}
-  \item switch Óï¾ä
+  \item switch è¯­å¥
   \end{itemize}
   \begin{columns}
     \column{.5\textwidth}
@@ -691,26 +691,26 @@ switch(Score/10){
 \end{frame}
 \note{
   \begin{itemize}
-  \item case Óï¾äÖ®¼ä
-  \item Èç¹ûÓï¾äÎª¿Õ£¬¿ÉÒÔ×Ô¶¯½øÈëÏÂÒ»¸ö case Óï¾ä
-  \item Èç¹û²»¿Õ±ØĞëÏÔÊ½Ê¹ÓÃ goto case xx; Óï¾ä
+  \item case è¯­å¥ä¹‹é—´
+  \item å¦‚æœè¯­å¥ä¸ºç©ºï¼Œå¯ä»¥è‡ªåŠ¨è¿›å…¥ä¸‹ä¸€ä¸ª case è¯­å¥
+  \item å¦‚æœä¸ç©ºå¿…é¡»æ˜¾å¼ä½¿ç”¨ goto case xx; è¯­å¥
   \end{itemize}
 }
 \begin{frame}[fragile]
-\frametitle{Ñ­»·Óï¾ä}
+\frametitle{å¾ªç¯è¯­å¥}
 \begin{itemize}
-\item while/do-while Ñ­»·
+\item while/do-while å¾ªç¯
 \begin{lstlisting}
 while (condition) { ... }
 do { ... } while (condition);
 \end{lstlisting}
   \pause
-\item for Ñ­»·
+\item for å¾ªç¯
 \begin{lstlisting}
 for(int i=0; i<5; i++) { ... }
 \end{lstlisting}
   \pause
-\item foreach Ñ­»·
+\item foreach å¾ªç¯
 \begin{lstlisting}
 string[] colors={"Red","Green","Blue"};
 foreach (string x in colors) {
@@ -718,24 +718,24 @@ foreach (string x in colors) {
 }
 \end{lstlisting}
 \begin{itemize}
-\item foreach Ñ­»·¶ÔÊµÏÖÁË~IEnumerable$<$T$>$ µÄ¶ÔÏó½øĞĞµü´ú
-\item µü´úÖĞ£¬¶ÔÆäÖĞµÄ¶ÔÏóÖ»ÄÜÖ»¶Á·ÃÎÊ
+\item foreach å¾ªç¯å¯¹å®ç°äº†~IEnumerable$<$T$>$ çš„å¯¹è±¡è¿›è¡Œè¿­ä»£
+\item è¿­ä»£ä¸­ï¼Œå¯¹å…¶ä¸­çš„å¯¹è±¡åªèƒ½åªè¯»è®¿é—®
 \end{itemize}
 \end{itemize}
 \end{frame}
 
 \note{
   \begin{itemize}
-  \item foreach ºÍ VB ÖĞµÄÀàËÆ£¬ÓÃÀ´¶ÔÊı×éÖĞµÄÃ¿¸öÔªËØ½øĞĞµü´ú
-  \item Ê¹ÓÃ foreach ¿ÉÒÔÊ¡È¥Ê¹ÓÃË÷Òı±äÁ¿µÄÂé·³£¬Ò²²»ÓÃÅĞ¶ÏÊı×éµÄ³¤¶È
+  \item foreach å’Œ VB ä¸­çš„ç±»ä¼¼ï¼Œç”¨æ¥å¯¹æ•°ç»„ä¸­çš„æ¯ä¸ªå…ƒç´ è¿›è¡Œè¿­ä»£
+  \item ä½¿ç”¨ foreach å¯ä»¥çœå»ä½¿ç”¨ç´¢å¼•å˜é‡çš„éº»çƒ¦ï¼Œä¹Ÿä¸ç”¨åˆ¤æ–­æ•°ç»„çš„é•¿åº¦
   \end{itemize}
 }
 
 \begin{frame}[fragile]
-\frametitle{foreach Óë¶àÎ¬Êı×é}
+\frametitle{foreach ä¸å¤šç»´æ•°ç»„}
 \begin{itemize}
-\item foreach ¶Ô¶àÎ¬Êı×éµü´ú£¬°´ĞĞÒÀ´Î·µ»Ø¸÷ÔªËØ
-\item ²»ĞèÒªÇ¶Ì×Ñ­»·£¬²»ĞèÒª¼ÆËã´óĞ¡
+\item foreach å¯¹å¤šç»´æ•°ç»„è¿­ä»£ï¼ŒæŒ‰è¡Œä¾æ¬¡è¿”å›å„å…ƒç´ 
+\item ä¸éœ€è¦åµŒå¥—å¾ªç¯ï¼Œä¸éœ€è¦è®¡ç®—å¤§å°
 \end{itemize}
 \begin{lstlisting}
 public static void Main() {
@@ -756,48 +756,48 @@ public static void Main() {
 
 
 \begin{frame}
-\frametitle{Ìø×ªÓï¾ä}
+\frametitle{è·³è½¬è¯­å¥}
 \begin{itemize}
-\item break \\ÓÃÀ´ÍË³öÑ­»·»ò~ swich ·ÖÖ§Óï¾äµÈ
-\item continue \\ÓÃÀ´ÖĞ¶ÏÑ­»·µÄµ±Ç°µü´ú£¬²¢¼ÌĞøÑ­»·
-\item goto \\ÈÎÒâÌø×ª
-\item return \\·µ»Ø·½·¨µÄµ÷ÓÃ
+\item break \\ç”¨æ¥é€€å‡ºå¾ªç¯æˆ–~ swich åˆ†æ”¯è¯­å¥ç­‰
+\item continue \\ç”¨æ¥ä¸­æ–­å¾ªç¯çš„å½“å‰è¿­ä»£ï¼Œå¹¶ç»§ç»­å¾ªç¯
+\item goto \\ä»»æ„è·³è½¬
+\item return \\è¿”å›æ–¹æ³•çš„è°ƒç”¨
 \end{itemize}
 \end{frame}
 
-%\section{Òì³£}
+%\section{å¼‚å¸¸}
 \begin{frame}
-\frametitle{´íÎó´¦Àí}
+\frametitle{é”™è¯¯å¤„ç†}
 \begin{itemize}
     \setlength{\itemsep}{8pt plus 1pt}
-\item C\# Ìá¹©µÄ±ê×¼´¦Àí·½Ê½---Òì³£(\textit{Exception})
-\item ²¶×½ºÍ´¦Àí¿ÉÄÜÔÚÔËĞĞÊ±·¢ÉúµÄ´íÎóµÄ¼¼Êõ
-\item C\# ÖĞµÄÒì³£¾ÍÊÇÒ»¸ö¶ÔÏó£¬°üº¬ÁË´íÎóµÄÀàĞÍºÍÏêÏ¸ĞÅÏ¢
-\item Òì³£ÄÜ¹»¸ø³öµ÷ÓÃÕ»µÄĞòÁĞ£¬ÓÃÓÚ·ÖÎöÒì³£·¢ÉúµÄÎ»ÖÃ
-\item Òì³£¿ÉÒÔ±»²¶»ñ£¬²¢¼ÓÒÔ´¦Àí(C\# µÄ´íÎó´¦Àí»úÖÆ)
-\item Òì³£¿ÉÒÔ·ÖÀà£¬¿ÉÒÔ×Ô¼º´´½¨
-\item Î´±»²¶»ñµÄÒì³£½«Ìá½»¸ø ~CLR£¬²¢ÖĞÖ¹³ÌĞòÔËĞĞ
+\item C\# æä¾›çš„æ ‡å‡†å¤„ç†æ–¹å¼---å¼‚å¸¸(\textit{Exception})
+\item æ•æ‰å’Œå¤„ç†å¯èƒ½åœ¨è¿è¡Œæ—¶å‘ç”Ÿçš„é”™è¯¯çš„æŠ€æœ¯
+\item C\# ä¸­çš„å¼‚å¸¸å°±æ˜¯ä¸€ä¸ªå¯¹è±¡ï¼ŒåŒ…å«äº†é”™è¯¯çš„ç±»å‹å’Œè¯¦ç»†ä¿¡æ¯
+\item å¼‚å¸¸èƒ½å¤Ÿç»™å‡ºè°ƒç”¨æ ˆçš„åºåˆ—ï¼Œç”¨äºåˆ†æå¼‚å¸¸å‘ç”Ÿçš„ä½ç½®
+\item å¼‚å¸¸å¯ä»¥è¢«æ•è·ï¼Œå¹¶åŠ ä»¥å¤„ç†(C\# çš„é”™è¯¯å¤„ç†æœºåˆ¶)
+\item å¼‚å¸¸å¯ä»¥åˆ†ç±»ï¼Œå¯ä»¥è‡ªå·±åˆ›å»º
+\item æœªè¢«æ•è·çš„å¼‚å¸¸å°†æäº¤ç»™ ~CLRï¼Œå¹¶ä¸­æ­¢ç¨‹åºè¿è¡Œ
 \end{itemize}
 
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Òì³£´¦Àí}
+\frametitle{å¼‚å¸¸å¤„ç†}
 \begin{itemize}
-\item try ¼à²âÒì³£µÄ·¢Éú
+\item try ç›‘æµ‹å¼‚å¸¸çš„å‘ç”Ÿ
 \begin{lstlisting}
 try { ... }
 \end{lstlisting}
   \pause
-\item catch ²¶»ñ²¢´¦ÀíÒì³£
+\item catch æ•è·å¹¶å¤„ç†å¼‚å¸¸
 \begin{lstlisting}[escapeinside=<>]
 catch (SomeException e) {
-  // <´¦Àí> SomeException <ÀàĞÍµÄÒì³£> e
+  // <å¤„ç†> SomeException <ç±»å‹çš„å¼‚å¸¸> e
 }
 
 \end{lstlisting}
   \pause
-\item finally È·±£±ØÒª²Ù×÷Ò»¶¨»áÖ´ĞĞ
+\item finally ç¡®ä¿å¿…è¦æ“ä½œä¸€å®šä¼šæ‰§è¡Œ
 \begin{lstlisting}
 finally { ... }
 \end{lstlisting}
@@ -806,12 +806,12 @@ finally { ... }
 
 \note{
   \begin{itemize}
-  \item ÒÔÒ»ÖÖÓÅÑÅµÄ·½Ê½´¦Àí´íÎó
-  \item ¿ÉÒÔ½«Õı³£´úÂëºÍ´íÎó´¦Àí´úÂë·Ö¿ª
+  \item ä»¥ä¸€ç§ä¼˜é›…çš„æ–¹å¼å¤„ç†é”™è¯¯
+  \item å¯ä»¥å°†æ­£å¸¸ä»£ç å’Œé”™è¯¯å¤„ç†ä»£ç åˆ†å¼€
   \end{itemize}}
 
 \begin{frame}[fragile]
-\frametitle{Òì³£´¦ÀíÊ¾Àı}
+\frametitle{å¼‚å¸¸å¤„ç†ç¤ºä¾‹}
 \begin{lstlisting}
 // using System; using System.IO;
 StreamWriter sw = null;
@@ -835,8 +835,8 @@ finally {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Å×³öÒì³£}
-Ê¹ÓÃ¹Ø¼ü×Ö ~\texttt{throw} ÏòÏµÍ³Å×³öÒì³£¡£
+\frametitle{æŠ›å‡ºå¼‚å¸¸}
+ä½¿ç”¨å…³é”®å­— ~\texttt{throw} å‘ç³»ç»ŸæŠ›å‡ºå¼‚å¸¸ã€‚
 \begin{lstlisting}
 try {
 
@@ -858,21 +858,21 @@ try {
 
 \note{
   \begin{itemize}
-  \item Àı×ÓÖĞ´ò¿ªÎÄ¼ş´¦¿ÉÄÜ·¢Éú´íÎó£¬ÈçÎÄ¼ş²»´æÔÚ£¬»òÕß²»¿É¶Á
-  \item µ±²»´æÔÚÊ±£¬ÔÚµÚÒ»¸öcatch´¦²¶»ñ£¬²¢´¦Àí
-  \item ÆäËûÈÎºÎ´íÎó£¬¶¼»á±»¸üÍ¨ÓÃµÄÒì³£ÀàĞÍ²¶»ñ
-  \item finally±£Ö¤£¬ÎŞÂÛÊÇ·ñ·¢ÉúÒì³££¬´Ë´¦´úÂë¶¼»á±»Ö´ĞĞ
+  \item ä¾‹å­ä¸­æ‰“å¼€æ–‡ä»¶å¤„å¯èƒ½å‘ç”Ÿé”™è¯¯ï¼Œå¦‚æ–‡ä»¶ä¸å­˜åœ¨ï¼Œæˆ–è€…ä¸å¯è¯»
+  \item å½“ä¸å­˜åœ¨æ—¶ï¼Œåœ¨ç¬¬ä¸€ä¸ªcatchå¤„æ•è·ï¼Œå¹¶å¤„ç†
+  \item å…¶ä»–ä»»ä½•é”™è¯¯ï¼Œéƒ½ä¼šè¢«æ›´é€šç”¨çš„å¼‚å¸¸ç±»å‹æ•è·
+  \item finallyä¿è¯ï¼Œæ— è®ºæ˜¯å¦å‘ç”Ÿå¼‚å¸¸ï¼Œæ­¤å¤„ä»£ç éƒ½ä¼šè¢«æ‰§è¡Œ
   \end{itemize}}
 
 \begin{frame}
-\frametitle{Òì³£µÄ·ÖÀà}
+\frametitle{å¼‚å¸¸çš„åˆ†ç±»}
 \begin{columns}
   \column{.6\textwidth}
   \begin{itemize}
-  \item Exception ¼Ì³Ğ×Ô ~Object£¬ÊÇÒì³£ÏµÍ³µÄ¸ù
-  \item SystemException Í¨³£ÓÉ ~CLR Å×³ö
-  \item ApplicationException ÓÃÓÚÓ¦ÓÃ³ÌĞò×Ô¶¨ÒåÒì³£
-  \item ³£¼ûÒì³£
+  \item Exception ç»§æ‰¿è‡ª ~Objectï¼Œæ˜¯å¼‚å¸¸ç³»ç»Ÿçš„æ ¹
+  \item SystemException é€šå¸¸ç”± ~CLR æŠ›å‡º
+  \item ApplicationException ç”¨äºåº”ç”¨ç¨‹åºè‡ªå®šä¹‰å¼‚å¸¸
+  \item å¸¸è§å¼‚å¸¸
     \begin{itemize}
     \item FileNotFoundException
     \item EndOfStreamException
@@ -889,5 +889,5 @@ try {
 % TeX-master: "part-02.tex"
 % TeX-header-end: "% End-of-Header$"
 % TeX-trailer-start: "% Start-of-Trailer$"
-% coding: gbk-dos
+% coding: utf-8
 % End:
