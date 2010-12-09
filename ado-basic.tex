@@ -11,15 +11,15 @@
 \begin{frame}
 \frametitle{ADO.NET 基础}
 \begin{block}{\textit{ActiveX Data Object .NET}}
-  \CJKindent 由公共语言运行时 ~(\textit{CLR}) 管理的数据管理库，利用 ~XML 在应
+  \CJKindent 由公共语言运行时 (\textit{CLR}) 管理的数据管理库，利用 XML 在应
   用程序之间进行数据交换。
 \end{block}
 \begin{itemize}
-\item 便于创建高效、可靠基于 ~Internet 数据库应用程序
+\item 便于创建高效、可靠基于 Internet 数据库应用程序
 \item 应用程序根据需要连接数据库，如读取或更新时
 \item 利于分布式数据访问，节省资源
-\item 托管环境中运行，由 ~CLR 负责资源管理
-\item 利用 ~XML 多种方式传递数据，便于数据交换
+\item 托管环境中运行，由 CLR 负责资源管理
+\item 利用 XML 多种方式传递数据，便于数据交换
 \item Visual Stuido 提供可视化数据组件
 \end{itemize}
 \end{frame}
@@ -32,17 +32,17 @@
  % 第一个规范的数据访问技术
  % 只能访问关系数据，无法兼容非关系数据
 \item Data Access Object (DAO)
- % 一组访问数据库的 ~COM 接口，直接访问数据库
- % 便于访问 ~Access, FoxPro, SQL Server
+ % 一组访问数据库的 COM 接口，直接访问数据库
+ % 便于访问 Access, FoxPro, SQL Server
 \item MFC ODBC and DAO classes
  % C++ 类库，但不够灵活，效率也不理想，因为层次太多
 \item Remote Data Objects (RDO)
- % 层次多，效率低，因为仍使用 ~ODBC，使用受到限制
+ % 层次多，效率低，因为仍使用 ODBC，使用受到限制
 \item Object Linking and Embedding Database (OLE DB)
  % 支持多种数据源，使用灵活
- % 必须安装 ~OLE DB Provider，使用较复杂
+ % 必须安装 OLE DB Provider，使用较复杂
 \item ActiveX Data Objects (ADO)
- % 使用 ~COM 包装，使用较简单
+ % 使用 COM 包装，使用较简单
  % 效率较高，使用较灵活
 \end{itemize}
 % \bigskip
@@ -53,21 +53,21 @@
 \frametitle{ADO.NET 命名空间}
 
 \begin{itemize}
-\item ADO.NET 是 ~FCL 的一部分
-\item 包含在程序集 ~System.Data.dll 中
+\item ADO.NET 是 FCL 的一部分
+\item 包含在程序集 System.Data.dll 中
 \end{itemize}
 
 \begin{tabular}{l|l}
 \hline
 \textbf{Namespaces} & \textbf{Description} \\
 \hline
-\small System.Data & 实现 ~ADO.NET 的类、接口、委托类型等 \\
+\small System.Data & 实现 ADO.NET 的类、接口、委托类型等 \\
 \small System.Data.Common & 不同数据提供程序共享的类 \\
 \small System.Data.Odbc & ODBC 数据提供程序 \\
 \small System.Data.OleDb & OLE DB 数据提供程序 \\
 \small System.Data.OracleClient & Oracle 数据提供程序 \\
 \small System.Data.SqlClient & SQL Server 数据提供程序 \\
-\small System.Data.Sql & 用于支持 ~SQL Server 的功能类库 \\
+\small System.Data.Sql & 用于支持 SQL Server 的功能类库 \\
 \hline
 \end{tabular}
 \end{frame}
@@ -76,7 +76,7 @@
 \frametitle{ADO.NET 的结构}
 
 \begin{itemize}
-\item 两个核心组件：\textit{Data Provider} 和 ~\textit{Dataset}
+\item 两个核心组件：\textit{Data Provider} 和 \textit{Dataset}
 \end{itemize}
 
 \begin{center}
@@ -89,10 +89,10 @@
 \section{Data Provider}
 
 \begin{frame}
-\frametitle{数据提供程序 ~(\textit{Data Provider})}
+\frametitle{数据提供程序 (\textit{Data Provider})}
 \begin{itemize}
-\item 应用程序访问数据库依赖于 ~\textit{.NET Framework data provider}
-\item 客户程序和数据提供程序，运行在 ~CLR 上
+\item 应用程序访问数据库依赖于 \textit{.NET Framework data provider}
+\item 客户程序和数据提供程序，运行在 CLR 上
 \item 数据提供程序可能依赖其它程序
 \end{itemize}
 \begin{center}
@@ -104,9 +104,9 @@
 \frametitle{数据提供程序的功能}
 \begin{itemize}
 \item Connection 建立和释放连接，可用于启动事务
-\item Command 执行 ~SQL 语句或存储过程
-\item DataReader 只读、顺序的 ~(\textit{Sequential}) 直接访问库中数据
-\item DataAdapter 创建并组装 ~DataSet 实例
+\item Command 执行 SQL 语句或存储过程
+\item DataReader 只读、顺序的 (\textit{Sequential}) 直接访问库中数据
+\item DataAdapter 创建并组装 DataSet 实例
 \end{itemize}
 \begin{center}
   \input{pgf/ado-inprov}
@@ -141,21 +141,21 @@
 
 \begin{itemize}
 \item System.Data.SqlClient 中
-\item 在 ~.NET 上直接访问 ~SQL Server
+\item 在 .NET 上直接访问 SQL Server
 \end{itemize}
 
   \begin{tabular}{l|l}
     \hline
     \textbf{Classes} & \textbf{Description} \\
     \hline
-    \texttt{SqlConnection} & 建立与 ~SQL Server 的连接 \\
-    \texttt{SqlCommand} & 用于执行的 ~SQL 查询、语句或存储过程 \\
-    \texttt{SqlDataAdapter} & 建立数据源和 ~\textit{datasets} 之间的关系 \\
+    \texttt{SqlConnection} & 建立与 SQL Server 的连接 \\
+    \texttt{SqlCommand} & 用于执行的 SQL 查询、语句或存储过程 \\
+    \texttt{SqlDataAdapter} & 建立数据源和 \textit{datasets} 之间的关系 \\
     \texttt{SqlDataReader} & 用于只读的、向前的数据库访问 \\
-    \texttt{SqlError} & 获取 ~SQL Server 中的出错或警告信息 \\
+    \texttt{SqlError} & 获取 SQL Server 中的出错或警告信息 \\
     \texttt{SqlException} & 数据库相关的异常 \\
     \texttt{SqlParameter} & 表示查询中的参数 \\
-    \texttt{SqlTransaction} & 表示 ~SQL Server 的事务 \\
+    \texttt{SqlTransaction} & 表示 SQL Server 的事务 \\
     \hline
   \end{tabular}
 
@@ -166,7 +166,7 @@
 
 \begin{itemize}
 \item System.Data.OleDb 中
-\item 在 ~.NET 上，通过 ~OLE 驱动访问其他数据库
+\item 在 .NET 上，通过 OLE 驱动访问其他数据库
 \end{itemize}
 
   \begin{tabular}{l|l}
@@ -174,8 +174,8 @@
     \textbf{Classes} & \textbf{Description} \\
     \hline
     \texttt{OleDbConnection} & 建立与数据库的连接 \\
-    \texttt{OleDbCommand} & 用于执行的 ~SQL 查询、语句或存储过程 \\
-    \texttt{OleDbDataAdapter} & 建立数据源和 ~\textit{datasets} 之间的关系 \\
+    \texttt{OleDbCommand} & 用于执行的 SQL 查询、语句或存储过程 \\
+    \texttt{OleDbDataAdapter} & 建立数据源和 \textit{datasets} 之间的关系 \\
     \texttt{OleDbDataReader} & 用于只读的、向前的数据库访问 \\
     \texttt{OleDbError} & 获取数据库中的出错或警告信息 \\
     \texttt{OleDbException} & 数据库相关的异常 \\
@@ -190,7 +190,7 @@
 \frametitle{建立连接}
 \begin{itemize}
 \item 程序使用数据库前，必须建立一个连接
-\item 使用 ~Connection 类对象新建连接，如使用 ~OLE DB
+\item 使用 Connection 类对象新建连接，如使用 OLE DB
 \begin{lstlisting}
 using System.Data.OleDb;
 ...
@@ -205,14 +205,14 @@ conn.Close(); // or conn.Dispose()
 \end{lstlisting}
 
 \begin{itemize}
-\item 常用的 ~Provider 参数
+\item 常用的 Provider 参数
 
 \begin{tabular}{l|l}
 \hline
-  \small Microsoft.Jet.OLEDB.4.0 & 访问 ~Access \\
-  DB2OLEDB & 访问 ~DB2 \\
-  MSDAORA & 访问 ~Oracle \\
-  MSDASQL & 访问 ~ODBC \\
+  \small Microsoft.Jet.OLEDB.4.0 & 访问 Access \\
+  DB2OLEDB & 访问 DB2 \\
+  MSDAORA & 访问 Oracle \\
+  MSDASQL & 访问 ODBC \\
 \hline
 \end{tabular}
 \end{itemize}
@@ -220,9 +220,9 @@ conn.Close(); // or conn.Dispose()
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{连接串 ~(\textit{Connection String})}
+\frametitle{连接串 (\textit{Connection String})}
 \begin{itemize}
-\item 形如 ~attribute=value 的``属性名---值''对
+\item 形如 attribute=value 的``属性名---值''对
 \item 不同的提供程序的属性名不同，常见的属性名
 \begin{itemize}
 \item Provider, Data Source, Inintial Catalog
@@ -245,10 +245,10 @@ conn.Open();
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{创建命令对象 ~(\textit{Command})}
+\frametitle{创建命令对象 (\textit{Command})}
 \begin{itemize}
 \item 当建立了与数据库的连接后，需要使用命令与数据库交互
-\item 连接对象的 ~CreateCommand 方法得到命令对象
+\item 连接对象的 CreateCommand 方法得到命令对象
 \begin{lstlisting}
   SqlConnection conn = new SqlConnection("...");
   conn.Open();
@@ -273,10 +273,10 @@ conn.Open();
 通过调用命令对象的执行方法
 
 \begin{itemize}
-\item \small ExecuteReader() 返回 ~DataReader，用于访问 ~SQL 结果
+\item \small ExecuteReader() 返回 DataReader，用于访问 SQL 结果
 \item \small ExecuteScalar() 从数据库中检索单个值，如一个聚合值
-\item \small ExecuteNonQuery() 返回受影响的行数，如 ~INSERT, UPDATE 等
-\item \small ExecuteXmlReader() 返回 ~SQL Server 的 ~XML 数据
+\item \small ExecuteNonQuery() 返回受影响的行数，如 INSERT, UPDATE 等
+\item \small ExecuteXmlReader() 返回 SQL Server 的 XML 数据
 \end{itemize}
 \begin{lstlisting}
 SqlConnection conn = new SqlConnection(...);
@@ -291,9 +291,9 @@ int count = (int) cmd.ExecuteScalar();
 \end{frame}
 
 % \begin{frame}[fragile]
-% \frametitle{使用命令对象 ~(\textit{Command})}
+% \frametitle{使用命令对象 (\textit{Command})}
 % \begin{itemize}
-% \item 连接对象的 ~CreateCommand 方法得到命令对象
+% \item 连接对象的 CreateCommand 方法得到命令对象
 % \begin{lstlisting}
 %   SqlConnection conn = new SqlConnection("...");
 %   conn.Open();
@@ -303,9 +303,9 @@ int count = (int) cmd.ExecuteScalar();
 % \end{lstlisting}
 % \item 常用方法
 % \begin{itemize}
-% \item ExecuteReader 方法，返回 ~DataReader，用于访问 ~SQL 结果
+% \item ExecuteReader 方法，返回 DataReader，用于访问 SQL 结果
 % \item ExecuteScalar 方法，从数据库中检索单个值，如一个聚合值
-% \item ExecuteNonQuery 方法，返回受影响的行数，如 ~INSERT, DELETE, UPDATE 等操作
+% \item ExecuteNonQuery 方法，返回受影响的行数，如 INSERT, DELETE, UPDATE 等操作
 % \end{itemize}
 % \item 命令对象还可用于执行{\redwarn 存储过程}以及设置参数等
 % \end{itemize}
@@ -356,7 +356,7 @@ public class SqlDataReader {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{使用 ~DataReader}
+\frametitle{使用 DataReader}
 \lstset{emph={ExecuteReader,Read}}
 \begin{lstlisting}
 using System.Data.SqlClient;
@@ -379,7 +379,7 @@ public static void Main()
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{访问 ~DataReader 的列数据}
+\frametitle{访问 DataReader 的列数据}
 \begin{itemize}
 \item DataReader 提供了多种不同的方法取得当前行的数据
 \end{itemize}
@@ -389,8 +389,8 @@ Rdr = cmd.ExecuteReader();
 Rdr.Read();
 string name; int age;
 
-age  = (int) rdr.GetValue(1); // <第 ~1 列的数据>
-name = rdr.GetString(0);      // <第 ~0 列，不需类型转换>
+age  = (int) rdr.GetValue(1); // <第 1 列的数据>
+name = rdr.GetString(0);      // <第 0 列，不需类型转换>
 name = (string) rdr["Name"];  // <通过索引器>
 name = (string) rdr[0];       // <通过索引器>
 
@@ -486,11 +486,11 @@ do {
 \section{Data Set}
 
 \begin{frame}
-\frametitle{数据集 ~(\textit{DataSet})}
+\frametitle{数据集 (\textit{DataSet})}
 \begin{block}{\textit{DataSet}}
 \CJKindent ADO.NET 的主要部件，作为从数据库中取出的数据在内存的缓存。由多个
- ~DataTable 组成，并可通过 ~ DataRelation 相互关联；并且可用 ~UniqueConstraint
-或 ~ForeignKeyConstraint 加强数据完整性。
+ DataTable 组成，并可通过  DataRelation 相互关联；并且可用 UniqueConstraint
+或 ForeignKeyConstraint 加强数据完整性。
 \end{block}
 \begin{center}
   \input{pgf/ado-dsgraph}
@@ -515,11 +515,11 @@ do {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{使用 ~DataSet 类}
+\frametitle{使用 DataSet 类}
 \begin{center}
   
 \begin{itemize}
-\item 数据集 ~ DynamicDS 中的 ~Customer 表
+\item 数据集  DynamicDS 中的 Customer 表
 \end{itemize}
   \begin{tabular}{|l|l|l|l|}
     \hline
@@ -555,8 +555,8 @@ ds.Tables.Add("Order"); // another table
 \item Clone 方法，复制数据集的结构、模式等，数据除外
 \item Copy 方法，复制结构和全部数据
 \item Merge 方法，合并两个数据集
-\item GetXml 方法，返回所有数据的 ~XML 表示形式
-\item ReadXml 方法，从 ~XML 数据中读取数据
+\item GetXml 方法，返回所有数据的 XML 表示形式
+\item ReadXml 方法，从 XML 数据中读取数据
 \item \texttt{\dots}
 \end{itemize}
 \end{frame}
@@ -568,22 +568,22 @@ ds.Tables.Add("Order"); // another table
 \item DataTable 的列
 \begin{itemize}
 \setlength{\itemsep}{4pt plus 1pt}
-\item 通过集合类型 ~DataColumnCollection 表示
-\item 通过特性 ~Columns 访问
+\item 通过集合类型 DataColumnCollection 表示
+\item 通过特性 Columns 访问
 \item 描述表的定义，列的类型、约束等
 \end{itemize}
 \item DataTable 的行
 \begin{itemize}
 \setlength{\itemsep}{4pt plus 1pt}
-\item 通过集合类型 ~DataRowCollection 表示
-\item 通过特性 ~Rows 访问
+\item 通过集合类型 DataRowCollection 表示
+\item 通过特性 Rows 访问
 \item 存储表的数据，一行一条记录
 \end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{使用 ~DataTable 类示例}
+\frametitle{使用 DataTable 类示例}
 \begin{lstlisting}
 // ds is DataSet
 DataTable myTable = ds.Tables["OrderDetail"];
@@ -605,9 +605,9 @@ foreach (DataRow r in myTable.Rows){
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{修改 ~DataTable 中的数据}
+\frametitle{修改 DataTable 中的数据}
 \begin{itemize}
-\item 使用 ~DataRow 对象添加或修改记录
+\item 使用 DataRow 对象添加或修改记录
 \item AcceptChanges, RejectChanges 等方法控制对数据的修改
 \end{itemize}
 \lstset{emph={AcceptChanges,RejectChanges}}
@@ -626,10 +626,10 @@ tb.RejectChanges();
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{定义主键 ~(\textit{Primary Key})}
+\frametitle{定义主键 (\textit{Primary Key})}
 \begin{itemize}
-\item 特性 ~PrimaryKey 可用于设置或获取表的主键
-\item 设置主键只需赋值 ~DataColumn 数组
+\item 特性 PrimaryKey 可用于设置或获取表的主键
+\item 设置主键只需赋值 DataColumn 数组
 \end{itemize}
 \lstset{emph={PrimaryKey}}
 \begin{lstlisting}
@@ -648,7 +648,7 @@ workTable.PrimaryKey = myKey;
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{约束 ~(\textit{Constraint})}
+\frametitle{约束 (\textit{Constraint})}
 \begin{itemize}
 \item UniqueConstraint
 \end{itemize}
@@ -680,9 +680,9 @@ custDS.Tables["OrderDetail"].Constraints.Add(custOrderFK);
 \begin{frame}[fragile]
 \frametitle{从数据库中导入数据}
 \begin{itemize}
-\item 首先创建 ~DataAdapter 和 ~DataSet
-\item 通过 ~DataAdapter 的 ~Fill 方法填充 ~DataTable
-\item 多次 ~Fill 可以添加并填充多个数据表
+\item 首先创建 DataAdapter 和 DataSet
+\item 通过 DataAdapter 的 Fill 方法填充 DataTable
+\item 多次 Fill 可以添加并填充多个数据表
 \end{itemize}
 \lstset{emph={DataSet, Fill, SqlDataAdapter}}
 \begin{lstlisting}[escapeinside=<>]
@@ -694,7 +694,7 @@ da.SelectCommand = cmd;
 
 DataSet ds = new DataSet();
 
-da.Fill(ds, "NamesAndAges"); // <会自动执行 ~cmd>
+da.Fill(ds, "NamesAndAges"); // <会自动执行 cmd>
 \end{lstlisting}
 \end{frame}
 
@@ -708,7 +708,7 @@ SqlConnection conn = new SqlConnection(connString);
 SqlDataAdapter da = new SqlDataAdapter(sql, conn);
 ...
 DataSet ds = new DataSet();
-da.Fill(ds, "products"); //'表名~products'
+da.Fill(ds, "products"); //'表名products'
 \end{lstlisting}
 \pause
 \begin{lstlisting}[escapeinside='']
@@ -728,7 +728,7 @@ foreach (DataRow row in dt.Rows){     //'访问行'
 \frametitle{更新数据库}
 \begin{itemize}
 \item DataAdapter 加载数据后，所有更新都发生在数据集中
-\item 要更新数据源，需要使用 ~ DataAdapter 的相应方法
+\item 要更新数据源，需要使用  DataAdapter 的相应方法
   \begin{itemize}
   \item Update 方法检查相应的数据集
   \item InsertCommand, DeleteCommand, UpdateCommand 更新DBMS
@@ -759,7 +759,7 @@ row ["Name"] = "New Category";
 
 dataAdpater.Update(dataSet, "Categories");
 \end{lstlisting}
-参考 ~\href{http://msdn2.microsoft.com/zh-cn/library/33y2221y.aspx}
+参考 \href{http://msdn2.microsoft.com/zh-cn/library/33y2221y.aspx}
 {\beamergotobutton{\scriptsize 代码完整版}}
 \end{frame}
 
@@ -809,13 +809,13 @@ da.Update(ds, "employees");
 \item 连接模型
   \begin{itemize}
     \setlength{\itemsep}{6pt plus 1pt}
-  \item 使用 ~DataReader 访问数据库，需要始终保持数据库的连接
+  \item 使用 DataReader 访问数据库，需要始终保持数据库的连接
   \item 内存的使用较少，适合大数据量的处理
   \end{itemize}
 \item 无连接模型
   \begin{itemize}
     \setlength{\itemsep}{6pt plus 1pt}
-  \item 使用 ~DataAdapter 填充数据表后，自动断开连接
+  \item 使用 DataAdapter 填充数据表后，自动断开连接
   \item 需要的时候会自动连接，比如更新数据源
   \item 方便随时更新数据库
   \end{itemize}
@@ -823,11 +823,11 @@ da.Update(ds, "employees");
 \end{frame}
 
 \begin{frame}
-\frametitle{ADO.NET 和 ~XML}
+\frametitle{ADO.NET 和 XML}
 \begin{itemize}
-\item ADO.NET 和 ~XML 紧密集成
-\item DataSet 提供了多种 ~XML 数据的处理方法
-\item DataSet 可以作为 ~XML 和关系数据的转换中介
+\item ADO.NET 和 XML 紧密集成
+\item DataSet 提供了多种 XML 数据的处理方法
+\item DataSet 可以作为 XML 和关系数据的转换中介
 \end{itemize}
 \begin{center}
   \includegraphics[width=\textwidth]{ado-xml}
@@ -835,9 +835,9 @@ da.Update(ds, "employees");
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{使用 ~XML 保存数据和模式}
+\frametitle{使用 XML 保存数据和模式}
 \begin{itemize}
-\item 分别保存 ~XML 数据和模式
+\item 分别保存 XML 数据和模式
 \end{itemize}
 \lstset{emph={WriteXmlSchema,WriteXml}}
 \begin{lstlisting}
@@ -851,7 +851,7 @@ ds.WriteXml("C:\\movies_data.xml");
 
 \end{lstlisting}
 \begin{itemize}
-\item 将模式和数据保存在一个 ~XML 文件中
+\item 将模式和数据保存在一个 XML 文件中
 \end{itemize}
 \begin{lstlisting}
 
@@ -861,9 +861,9 @@ ds.WriteXml("all.xml",XmlWriteMode.WriteSchema);
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{从 ~XML 恢复 DataSet}
+\frametitle{从 XML 恢复 DataSet}
 \begin{itemize}
-\item 使用已有的 ~XML 模式构造 ~DataSet
+\item 使用已有的 XML 模式构造 DataSet
 \end{itemize}
 \begin{lstlisting}
 DataSet ds = new DataSet();
@@ -872,7 +872,7 @@ ds.ReadXmlSchema ("d:\\movie_schema.xsd");
 DataTable tb = ds.Table[0];
 \end{lstlisting}
 \begin{itemize}
-\item 从 ~XML 读入数据
+\item 从 XML 读入数据
 \end{itemize}
 \begin{lstlisting}
 DataSet ds = new DataSet();
@@ -900,18 +900,18 @@ ds.ReadXml("C:\\movie_data.xml");
 \begin{frame}[fragile]
 \frametitle{简单数据绑定}
 \begin{itemize}
-\item 通过集合 ~DataBindings，所有控件都能使用单值数据绑定
+\item 通过集合 DataBindings，所有控件都能使用单值数据绑定
 \item 将数据源于控件的一个或多个属性链接
 \end{itemize}
 \begin{lstlisting}
 txtUnitCost.DataBindings.Add("Text", dt, "UnitCost");
 \end{lstlisting}
 \begin{itemize}
-\item 将 ~DataTable dt 中 ~UnitCost 列的第一个值显示在文本框中
+\item 将 DataTable dt 中 UnitCost 列的第一个值显示在文本框中
 \item 参数的含义：
 \begin{itemize}
   \item \verb|"Text"| --- 特性的名字，.NET 使用反射找到相应特性
-  \item \verb|dt| --- 数据源，如 ~DataTable
+  \item \verb|dt| --- 数据源，如 DataTable
   \item \verb|"UnitCost"| --- 数据源中的字段名
   \end{itemize}
 \end{itemize}
@@ -949,7 +949,7 @@ MultipleControlBinding_Load(object sender, EventArgs e)
 \item 如 ListBox, CheckedListBox, DataGrid, DataGridView 等
 \end{itemize}
 \item 复杂绑定允许控件绑定到数据集上，同时显示多个数据
-\item 控件至少需要设置 ~DataSource 和 ~DisplayMember 两个属性
+\item 控件至少需要设置 DataSource 和 DisplayMember 两个属性
 \end{itemize}
 \lstset{emph={DataSource, DisplayMember}}
 \begin{lstlisting}
@@ -973,9 +973,9 @@ listBox1.ValueMember = "movies.ID";
 \item 管理器的成员
 \begin{itemize}
 \item Binding 类，维护控件特性和某对象特性之间的简单绑定
-\item CurrencyManager 类，管理 ~Binding 对象的列表
-\item PropertyManager 类\\维护对象的特性与数据绑定控件特性之间的 ~Binding
-\item BindingContext 类\\链接到特定控件的 ~BindingManagerBase 集合上
+\item CurrencyManager 类，管理 Binding 对象的列表
+\item PropertyManager 类\\维护对象的特性与数据绑定控件特性之间的 Binding
+\item BindingContext 类\\链接到特定控件的 BindingManagerBase 集合上
 \end{itemize}
 \end{itemize}
 \end{frame}
@@ -1004,7 +1004,7 @@ private bmb_PositionChanged(object s, EventArgs e){
 \begin{frame}
 \frametitle{Visual Studio 中的配置数据源}
 \begin{itemize}
-\item 菜单中选 ~Data/Add New Data Source 配置数据源
+\item 菜单中选 Data/Add New Data Source 配置数据源
 \end{itemize}
 \begin{figure}
   \centering
@@ -1016,7 +1016,7 @@ private bmb_PositionChanged(object s, EventArgs e){
 \begin{frame}
 \frametitle{Visual Studio 中的配置数据源}
 \begin{itemize}
-\item 根据提示设置 ~Connection String
+\item 根据提示设置 Connection String
 \end{itemize}
 \begin{figure}
   \centering
@@ -1027,7 +1027,7 @@ private bmb_PositionChanged(object s, EventArgs e){
 \begin{frame}
 \frametitle{向项目添加数据集}
 \begin{itemize}
-\item 菜单中选 ~Project/Add New Item 可以添加各种控件或组件
+\item 菜单中选 Project/Add New Item 可以添加各种控件或组件
 \end{itemize}
 \begin{figure}
   \centering
@@ -1038,8 +1038,8 @@ private bmb_PositionChanged(object s, EventArgs e){
 \begin{frame}
 \frametitle{使用可视化工具设计数据集}
 \begin{itemize}
-\item 在 ~Data Source 窗口中浏览数据集
-\item 右键选择 ~Designer 中编辑
+\item 在 Data Source 窗口中浏览数据集
+\item 右键选择 Designer 中编辑
 \end{itemize}
 \begin{figure}
   \centering
@@ -1050,7 +1050,7 @@ private bmb_PositionChanged(object s, EventArgs e){
 \begin{frame}
 \frametitle{通过拖拽绑定控件}
 \begin{itemize}
-\item 拖拽 ~DataSet 到窗体，可以自动生成一些控件和组件
+\item 拖拽 DataSet 到窗体，可以自动生成一些控件和组件
 \end{itemize}
 \begin{figure}
   \centering
@@ -1061,8 +1061,8 @@ private bmb_PositionChanged(object s, EventArgs e){
 \begin{frame}
 \frametitle{通过拖拽绑定控件}
 \begin{itemize}
-\item 修改 ~DataColumn 显示为各种控件
-\item 拖拽 ~DataColumn 到窗体，自动生成绑定的控件
+\item 修改 DataColumn 显示为各种控件
+\item 拖拽 DataColumn 到窗体，自动生成绑定的控件
 \end{itemize}
 \begin{figure}
   \centering

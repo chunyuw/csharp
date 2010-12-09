@@ -5,11 +5,11 @@
 \begin{frame}
 \frametitle{数据流}
 \begin{block}{\textit{Stream}}
-  \CJKindent C\# 将 ~I/O 抽象成数据流的形式，屏蔽了不同 ~I/O 设备之间的差异，提
-  供一致的面向流的行为方式，并通过抽象类 ~\texttt{Stream} 体现。
+  \CJKindent C\# 将 I/O 抽象成数据流的形式，屏蔽了不同 I/O 设备之间的差异，提
+  供一致的面向流的行为方式，并通过抽象类 \texttt{Stream} 体现。
 \end{block}
 \begin{itemize}
-\item 这些类都在 ~System.IO 命名空间中
+\item 这些类都在 System.IO 命名空间中
 \item 流的基本操作
 \begin{itemize}
 \item 从流读取：从流到数据结构的数据传输
@@ -22,18 +22,18 @@
 \begin{frame}
 \frametitle{Stream 类}
 
-抽象类 ~Stream 提供了对流的基本操作：
+抽象类 Stream 提供了对流的基本操作：
 \begin{itemize}
 \item void \textbf{Close}() --- 关闭数据流
 \item void \textbf{Flush}() --- 将缓冲中的数据写入设备
 \item int \textbf{ReadByte}() --- 读取一个用整数表示的字节
 \item int \textbf{Read}(byte[] buf, int offset, int numBytes) \\
-  将读入的字节写入 ~buf 缓冲中
+  将读入的字节写入 buf 缓冲中
 \item long \textbf{Seek}(long offset, SeekOrigin origin)  \\
   在数据流中设置当前位置
 \item void \textbf{WriteByte}(byte b) -- 向流中写入一个字节
 \item void \textbf{Write}(byte[] buf, int offset, int numBytes) \\
-  将 ~buf 中的数据写入流
+  将 buf 中的数据写入流
 \end{itemize}
 \end{frame}
 
@@ -52,19 +52,19 @@ Stream 的派生类中，不一定都支持所有的操作，可如下判断：
 
 
 \begin{frame}<0| handout:0>
-\frametitle{基本的~I/O 字节流类}
+\frametitle{基本的I/O 字节流类}
 \color{red}
 
 Stream 是抽象类，如下几个是它的直接
 
 \begin{tabular}[htbp]{l|l}
 \hline
-基本 ~I/O 流类 & 功能                                                     \\
+基本 I/O 流类 & 功能                                                     \\
 \hline
 BufferedStream & \small 用于给其他的流添加缓冲，提高性能                  \\
-CryptoStream   & \small 在 ~System.Security.Cryptography 中，用于加密     \\
+CryptoStream   & \small 在 System.Security.Cryptography 中，用于加密     \\
 MemoryStream   & \small 在内存中直接访问所封装的数据                      \\
-NetworkStream  & \small 在 ~System.Net.Sockets 中，用于封装网络连接上的流 \\
+NetworkStream  & \small 在 System.Net.Sockets 中，用于封装网络连接上的流 \\
 FileStream     & \small 基本的文件操作类                                  \\
 \hline
 \end{tabular}
@@ -131,8 +131,8 @@ fsIn.Close();
 
 \begin{frame}[fragile]
 \frametitle{BufferedStream 类}
-\CJKindent BufferedStream 通过提供默认 ~4096 字节的缓冲，提高 ~I/O 的效率。这
-几个 ~Stream 类都是基于字节的，即字节流 ~(\textit{Byte Stream})。
+\CJKindent BufferedStream 通过提供默认 4096 字节的缓冲，提高 I/O 的效率。这
+几个 Stream 类都是基于字节的，即字节流 (\textit{Byte Stream})。
 \begin{lstlisting}
 Stream fs = new FileStream(@"C:\temp.txt"
     FileMode.OpenOrCreate, FileAccess.Write);
@@ -151,7 +151,7 @@ fs.Close();
 \end{frame}
 
 \begin{frame}
-\frametitle{抽象类~ TextReader/TextWriter}
+\frametitle{抽象类 TextReader/TextWriter}
 \CJKindent 用于处理文本而不是原始字节的抽象类。
 \medskip
 \begin{itemize}
@@ -173,8 +173,8 @@ fs.Close();
 
 \begin{frame}[fragile]
 \frametitle{StreamReader/StreamWriter}
-\CJKindent 继承自 ~TextReader/TextWriter 用于处理流上的字符的类，即字符流~
-(\textit{Character Stream})。对于文件来说，处理基于 ~FileStream 的字符数据。
+\CJKindent 继承自 TextReader/TextWriter 用于处理流上的字符的类，即字符流
+(\textit{Character Stream})。对于文件来说，处理基于 FileStream 的字符数据。
 \medskip
 
 多种构造函数，多种方式创建实例：
@@ -238,8 +238,8 @@ public class Convert
 
 \begin{frame}[fragile]
 \frametitle{StringReader/StringWriter}
-\CJKindent 通过 ~StringBuilder 存储的内存字符流，操作方式和流相同，但可以通过
-~GetStringBuilder 获取 ~StringBuilder 对象。
+\CJKindent 通过 StringBuilder 存储的内存字符流，操作方式和流相同，但可以通过
+GetStringBuilder 获取 StringBuilder 对象。
 
 \begin{lstlisting}
 StringWriter writer = new StringWriter();
@@ -310,18 +310,18 @@ float  ReadSingle()
 
 \begin{frame}[fragile]
 \frametitle{Console I/O}
-\CJKindent Console I/O 定义在 ~System 命名空间中，提供基本的控制台操作。
+\CJKindent Console I/O 定义在 System 命名空间中，提供基本的控制台操作。
 \begin{itemize}
-\item 标准 ~I/O 流 ~Console.In, Console.Out, Console.Error
+\item 标准 I/O 流 Console.In, Console.Out, Console.Error
 \begin{lstlisting}
 Console.In.ReadLine();   // TextReader
 Console.Out.WriteLine(); // TextWriter
 \end{lstlisting}
-\item Console 类提供静态的方法，直接访问标准 ~I/O 流\\
+\item Console 类提供静态的方法，直接访问标准 I/O 流\\
 Read(), ReadLine(), Write(), WriteLine()
 
 \item static ConsoleKeyInfo \textbf{ReadKey}() \\
-ConsoleKeyInfo 提供基本的按键信息，如所按的键值和 ~\texttt{ALT, CTRL, SHIFT} 等
+ConsoleKeyInfo 提供基本的按键信息，如所按的键值和 \texttt{ALT, CTRL, SHIFT} 等
 \end{itemize}
 \end{frame}
 
@@ -336,7 +336,7 @@ ConsoleKeyInfo 提供基本的按键信息，如所按的键值和 ~\texttt{ALT,
 \end{itemize}
 \item FileInfo 类，File 类
 \begin{itemize}
-\item Open(), Create(), OpenWrite() --- 返回 ~FileStream 对象
+\item Open(), Create(), OpenWrite() --- 返回 FileStream 对象
 \item OpenText(), CreateText() --- 返回 StreamWriter 对象
 \end{itemize}
 \item Path 类
@@ -355,14 +355,14 @@ ConsoleKeyInfo 提供基本的按键信息，如所按的键值和 ~\texttt{ALT,
 \CJKindent 将对象或对象的集合转换为特定的格式，适于网络传递，存储在文件、数据
 库内的过程，称为对象的串行化。
 
-{\em 逆串行化} ~(\textit{Deserialization}) 过程正好相反，
+{\em 逆串行化} (\textit{Deserialization}) 过程正好相反，
 将所存储的内容，转换回原来的对象。
 \end{block}
 .NET 支持三种主要的串行化：
 \begin{itemize}
-\item 二进制串行化，转换为二进制流~(BinaryFormatter 类)
-\item SOAP 串行化，转换为~SOAP 标准格式~(SoapFormatter 类)
-\item XML 串行化，转换为~XML 格式~(XmlSerializer 类)
+\item 二进制串行化，转换为二进制流(BinaryFormatter 类)
+\item SOAP 串行化，转换为SOAP 标准格式(SoapFormatter 类)
+\item XML 串行化，转换为XML 格式(XmlSerializer 类)
 \end{itemize}
 \end{frame}
 
@@ -371,10 +371,10 @@ ConsoleKeyInfo 提供基本的按键信息，如所按的键值和 ~\texttt{ALT,
 \begin{itemize}
 \item 串行化时，根据对象的引用关系，构建一个对象图
 \item 依次将该对象包括的全部成员对象串行化，完成深拷贝
-\item 串行化发生前后会引发~OnSerializing 和~OnSerialized 事件
+\item 串行化发生前后会引发OnSerializing 和OnSerialized 事件
 \item 串行化是基于对象的，因此不包括静态成员
 \medskip \pause
-\item 串行化通过不同~Formatter 完成，有共同的接口~IFormatter
+\item 串行化通过不同Formatter 完成，有共同的接口IFormatter
 \begin{lstlisting}
 public interface IFormatter {
   object Deserialize(Stream s);
@@ -382,15 +382,15 @@ public interface IFormatter {
   // other members
 }
 \end{lstlisting}
-\item C\# 2.0 还提供了泛型接口 ~IGenericFormatter
+\item C\# 2.0 还提供了泛型接口 IGenericFormatter
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{二进制串行化}
 \begin{itemize}
-\item 使用 ~BinaryFormatter 
-\item 定义在 ~System.Runtime.Serialization.Formatters.Binary
+\item 使用 BinaryFormatter 
+\item 定义在 System.Runtime.Serialization.Formatters.Binary
 \end{itemize}
 \begin{lstlisting}
   Circle c = new Circle();
@@ -406,8 +406,8 @@ public interface IFormatter {
 \begin{frame}[fragile]
 \frametitle{SOAP 串行化}
 \begin{itemize}
-\item 使用 ~SoapFormatter
-\item 定义在 ~System.Runtime.Serialization.Formatters.Soap
+\item 使用 SoapFormatter
+\item 定义在 System.Runtime.Serialization.Formatters.Soap
 \end{itemize}
 \begin{lstlisting}
 using System.Runtime.Serialization.Formatters.Soap;
@@ -428,8 +428,8 @@ public class MyClass{
 \begin{frame}[fragile]
 \frametitle{可串行化属性}
 \begin{itemize}
-\item 串行化的类必须使用~\texttt{[Serializable]} 属性
-\item 不希望串行化的成员，需要用~\texttt{[NonSerialized]} 属性
+\item 串行化的类必须使用\texttt{[Serializable]} 属性
+\item 不希望串行化的成员，需要用\texttt{[NonSerialized]} 属性
 \item 可串行化属性无法通过继承得到
 \end{itemize}
 \begin{lstlisting}
@@ -448,7 +448,7 @@ public class MyClass {
 \frametitle{不可串行化的成员}
 \begin{itemize}
 \item 未被串行化的成员，在逆串行化时，恢复为该类型的默认值
-\item 但可以通过~IDeserializationCallback 接口进行定制
+\item 但可以通过IDeserializationCallback 接口进行定制
 \begin{lstlisting}
 public interface IDeserializationCallback {
   void OnDeserialization(object sender);
@@ -517,7 +517,7 @@ ClassB b = (ClassB) formatter.Deserialize(stream);
 
 
 \begin{frame}
-\frametitle{反射~(\textit{Reflection})}
+\frametitle{反射(\textit{Reflection})}
 \begin{itemize}
 \setlength{\itemsep}{6pt plus 1pt}
 \item 查看元数据，用于辅助工具的显示功能等
@@ -607,7 +607,7 @@ System.Reflection.Assembly GetEntryAssembly() is a Method
 
 
 \begin{frame}[fragile]
-\frametitle{后期绑定~(\textit{Late Binding})}
+\frametitle{后期绑定(\textit{Late Binding})}
 \begin{itemize}
 \item 通过后期绑定，可以在运行时动态调用具体方法
 \end{itemize}

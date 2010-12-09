@@ -3,10 +3,10 @@
 \section{C\# 3.0}
 
 \begin{frame}[fragile]
-\frametitle{隐含类型局部变量~(\textit{Implicitly typed local variable})}
+\frametitle{隐含类型局部变量(\textit{Implicitly typed local variable})}
 
 \begin{itemize}
-\item 关键字~\texttt{var} 可用于声明局部变量
+\item 关键字\texttt{var} 可用于声明局部变量
 \item 具体类型由编译器根据初始化表达式推断
 \begin{lstlisting}
   var i = 5;
@@ -29,10 +29,10 @@
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{隐含类型局部变量~(2)}
+\frametitle{隐含类型局部变量(2)}
 \begin{itemize}
 \item 隐式类型必须初始化，用于编译器推断类型
-\item 初始化时，值不能是~\texttt{null}
+\item 初始化时，值不能是\texttt{null}
 \item 如下的几种声明，编译器无法推断类型
 \begin{lstlisting}[escapeinside=<>]
 var x;                // <错误，没有初始化>
@@ -52,20 +52,20 @@ var x = new[] { 1, "one", 2, "two" };      //<Error>
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{隐含类型局部变量~(3)}
+\frametitle{隐含类型局部变量(3)}
 
-关键字~\texttt{var} 可用于以下情况
+关键字\texttt{var} 可用于以下情况
 \begin{itemize}[<+->]
 \item 局部变量
-\item 在~\texttt{for} 的初始化语句中
+\item 在\texttt{for} 的初始化语句中
 \begin{lstlisting}
 for(var x = 1; x < 10; x++) { ... }
 \end{lstlisting}
-\item 在~\texttt{foreach} 的初始化语句中
+\item 在\texttt{foreach} 的初始化语句中
 \begin{lstlisting}
 foreach(var item in list){...}
 \end{lstlisting}
-\item 在~\texttt{using} 语句中
+\item 在\texttt{using} 语句中
 \begin{lstlisting}
 using (var f = new StreamReader("...")) {...}
 \end{lstlisting}
@@ -73,7 +73,7 @@ using (var f = new StreamReader("...")) {...}
 \end{frame}
 
 % \begin{frame}[fragile]
-% \frametitle{隐含类型数组~(\textit{Implicitly typed arrays})}
+% \frametitle{隐含类型数组(\textit{Implicitly typed arrays})}
 % \begin{itemize}
 % \item 由编译器推断数组类型
 % \end{itemize}
@@ -86,7 +86,7 @@ using (var f = new StreamReader("...")) {...}
 % \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{扩展方法~(\textit{Extension Method})}
+\frametitle{扩展方法(\textit{Extension Method})}
 \begin{block}{\textit{Extension Methods}}
 \CJKindent 定义在静态类中的特殊方法，可以在不改变现有代码的情况下，扩展为已有类型的实例方法。
 \end{block}
@@ -94,7 +94,7 @@ using (var f = new StreamReader("...")) {...}
 \begin{itemize}
 \item 通过编译技术，将实例方法转换为静态方法
 \item 必须在静态类中实现，且不能是嵌套类或泛型类
-\item 该方法的第一个参数必须有~\texttt{this} 修饰
+\item 该方法的第一个参数必须有\texttt{this} 修饰
 \end{itemize}
 
 \lstset{emph={this}}
@@ -112,7 +112,7 @@ public static class Extensions{
 \begin{frame}[fragile]
 \frametitle{扩展方法的示例}
 \begin{itemize}
-\item 为~\texttt{int} 类型添加方法 \texttt{Square()}
+\item 为\texttt{int} 类型添加方法 \texttt{Square()}
 \end{itemize}
 \lstset{emph={this,static}}
 \lstset{emph={[2]Square}}
@@ -141,7 +141,7 @@ static class Extensions
 \frametitle{扩展方法的示例(续)}
 
 \begin{itemize}
-\item 编译之后的~IL 代码
+\item 编译之后的IL 代码
 \end{itemize}
 \lstset{emph={[2]CSharp,Extensions,Square}}
 \begin{lstlisting}
@@ -221,7 +221,7 @@ public static class ExtIMath
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{对象初始化器~(\textit{Object initializer})}
+\frametitle{对象初始化器(\textit{Object initializer})}
 \begin{lstlisting}
 public class Point
 {  int x, y;
@@ -244,7 +244,7 @@ a.Y = 1;
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{自动特性~(\textit{Automatic Propertie})}
+\frametitle{自动特性(\textit{Automatic Propertie})}
 \begin{itemize}
 \item 未使用自动特性
 \begin{lstlisting}
@@ -382,8 +382,8 @@ foreach (var v in productQuery)
 }
 \end{lstlisting}
 \begin{itemize}[<+->]
-\item 常用在查询表达式(LINQ)的~\texttt{select}子句中，以便返回源序列中每个对象的属性子集
-\item 匿名类型是直接从对象派生的引用类型，不能强制转换为除~\texttt{object}以外的任何接口或类型
+\item 常用在查询表达式(LINQ)的\texttt{select}子句中，以便返回源序列中每个对象的属性子集
+\item 匿名类型是直接从对象派生的引用类型，不能强制转换为除\texttt{object}以外的任何接口或类型
 \item 有方法范围限制，若要向方法边界外部传递，必须强制转换为对象，且会使匿名类型的强类型化无效
 \end{itemize}
 \end{frame}
@@ -398,7 +398,7 @@ foreach (var v in productQuery)
    ( <parameters> ) => <expression>
 \end{lstlisting}
 \begin{itemize}
-\item \textit{Lambda} 表达式\footnote{美国数学家~Alonzo Church 在~1936 年将其概念化}最早可见于~LISP 语言
+\item \textit{Lambda} 表达式\footnote{美国数学家Alonzo Church 在1936 年将其概念化}最早可见于LISP 语言
 \item 创建内联函数(\textit{inline method})的直接方法
 \item 主要用于简化委托的使用
 \begin{itemize}
@@ -411,7 +411,7 @@ foreach (var v in productQuery)
 \begin{frame}[fragile]
 \frametitle{\textit{Lambda} 表达式示例}
 \begin{itemize}
-\item 使用~\textit{Lambda} 表达式
+\item 使用\textit{Lambda} 表达式
 \begin{lstlisting}
    delegate int Del(int i);
    Del compute = x => x * x;
@@ -461,14 +461,14 @@ Func<int,double> f2 = x => x + 1; // Ok
 Func<double,int> f3 = x => x + 1; // Error
 \end{lstlisting}
 \begin{itemize}
-\item \texttt{f3} 中给定~\texttt{x} 为~\texttt{double}，编译器推断得到~\texttt{x+1} 也为~\texttt{double}，因此不能隐式转换
-  为~\texttt{int} 型
+\item \texttt{f3} 中给定\texttt{x} 为\texttt{double}，编译器推断得到\texttt{x+1} 也为\texttt{double}，因此不能隐式转换
+  为\texttt{int} 型
 \end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{\textit{Lambda} 表达式的使用~(1)}
+\frametitle{\textit{Lambda} 表达式的使用(1)}
 \begin{lstlisting}[escapeinside='']
   string[] list = new string[] { "abc", "12", "java" };
 
@@ -484,7 +484,7 @@ Func<double,int> f3 = x => x + 1; // Error
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{\textit{Lambda} 表达式的使用~(2)}
+\frametitle{\textit{Lambda} 表达式的使用(2)}
 \begin{itemize}
 \item 在查询表达式中使用
 \end{itemize}
@@ -504,7 +504,7 @@ static void Main()
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{\textit{Lambda} 表达式的使用~(3)}
+\frametitle{\textit{Lambda} 表达式的使用(3)}
 \begin{itemize}
 \item 在事件处理中使用
 \end{itemize}

@@ -15,9 +15,9 @@
 \begin{itemize}
     \setlength{\itemsep}{6pt plus 1pt}
 \item C\# 是一种简洁、类型安全的面向对象的语言\par
-\smallskip  \CJKindent 可以创建传统的~ Windows 客户端应用程序、XML Web Services、分布式组
+\smallskip  \CJKindent 可以创建传统的 Windows 客户端应用程序、XML Web Services、分布式组
   件、客户端---服务器应用程序、数据库应用程序以及很多其他类型的程序。
-\item 只有不到~ 90 个关键字
+\item 只有不到 90 个关键字
 \item 支持泛型的方法和类型
 \item 支持封装、继承和多态性概念
     % * 封装的方法签名（称为委托），它实现了类型安全的事件通知。
@@ -36,7 +36,7 @@
 % \item 开发简单，功能强大，部署简单
 % \item<1-| handout:1> 面向对象，一切皆为对象\\语言本身支持抽象类、接口、特性和事件等
 % \item<2-| handout:1> 基于组件的开发\\提供内置的版本支持，接口与实现分离，事件的发布与订阅等
-% \item<3-| handout:1> 与~Web~开发相结合\\可以将组件转变为~Web~服务，支持远程调用等
+% \item<3-| handout:1> 与Web开发相结合\\可以将组件转变为Web服务，支持远程调用等
 % \item<4-| handout:1> 更高的效率\\垃圾自动回收，变量是类型安全的，变量自动初始化等
 % \item<4-| handout:1> 支持局部类、泛型等高级特性
 % \end{itemize}
@@ -60,7 +60,7 @@
 %   \pause
 \item 标识符区分大小，不能以数字开始
   \pause
-\item 变量可以随时声明，用 ~new 关键字创建类的实例
+\item 变量可以随时声明，用 new 关键字创建类的实例
 \begin{lstlisting}
 int    a = 10;
 Circle b = new Circle();
@@ -75,7 +75,7 @@ Circle b = new Circle();
 
   \pause
 
-\item  通过~XML~注释，可自动生成程序文档
+\item  通过XML注释，可自动生成程序文档
   \cmd{csc /doc:doc.xml source.cs}
 
 \end{itemize}
@@ -93,9 +93,9 @@ Circle b = new Circle();
 \begin{itemize}
 \item<1-| handout:1> 所有程序逻辑和数据必须包含在类型中，没有全局变量
 
-\item<1-| handout:1> 通过 ~using 使用系统类库
+\item<1-| handout:1> 通过 using 使用系统类库
 
-\item<1-| handout:1> 可执行文件必须有一个 ~\texttt{Main()} 方法，并用 ~\texttt{static} 修饰
+\item<1-| handout:1> 可执行文件必须有一个 \texttt{Main()} 方法，并用 \texttt{static} 修饰
 
   \begin{uncoverenv}<2-| handout:1>
 \begin{lstlisting}
@@ -126,7 +126,7 @@ class MyFirstCSharpClass
 % \hline
 %   object  & System.Object  & 所有对象的基类型     \\
 %   string  & System.String  & Unicode 字符序列     \\
-%   bool    & System.Boolean & true 或 ~false       \\
+%   bool    & System.Boolean & true 或 false       \\
 %   char    & System.Char    & 字符型，2 字节       \\
 %   byte    & System.Byte    & 单字节有符号整数     \\
 %   sbyte   & System.SByte   & 单字节无符号整数     \\
@@ -165,8 +165,8 @@ class MyFirstCSharpClass
 \frametitle{基本数据类型  (\textit{Primitive Data Types})}
 \begin{itemize}
     \setlength{\itemsep}{8pt plus 1pt}
-\item 布尔型：bool, 值为~ true 或~ false
-\item 字符型：char, 长度为~ 2 字节的 ~Unicode 字符
+\item 布尔型：bool, 值为 true 或 false
+\item 字符型：char, 长度为 2 字节的 Unicode 字符
 \item 整数型：byte, sbyte, short, ushort, int, uint, long, ulong
 \item 浮点型：float, double, decimal
 \item 字符串型：string
@@ -179,22 +179,22 @@ class MyFirstCSharpClass
 \note{
   \begin{itemize}
   \item C\# 中有较丰富的数据类型
-  \item 新的内置数据类型 ~string 和 ~bool，bool 长度为 1 字节，值为 true/false
+  \item 新的内置数据类型 string 和 bool，bool 长度为 1 字节，值为 true/false
   \item 分别支持 1/2/4/8 字节长的整型
   \item 以及 4/8/16 字节长的浮点型
   \end{itemize}
 }
 
 \begin{frame}[fragile]
-\frametitle{C\# 类型与~FCL 类型}
+\frametitle{C\# 类型与FCL 类型}
 \begin{itemize}
-\item C\# 的基本类型实际就是 ~FCL 类型的别名
+\item C\# 的基本类型实际就是 FCL 类型的别名
 \begin{lstlisting}
 System.Int32 x = 100; // int x
 int y = x;
 \end{lstlisting}
 \pause
-\item 因此类型本身也由 ~FCL 提供了一些基本的成员和方法
+\item 因此类型本身也由 FCL 提供了一些基本的成员和方法
 
 \begin{lstlisting}
 short smax = short.MaxValue;  //  32767
@@ -238,7 +238,7 @@ char c = (char) 110; // 'n'
 \frametitle{数据的表示}
 
 \begin{itemize}
-\item bool 只能有 ~\lstinline|true| 和 ~\lstinline|false| 两个值 \pause
+\item bool 只能有 \lstinline|true| 和 \lstinline|false| 两个值 \pause
 \item 数字的后缀
   \begin{itemize}
     \lstset{emph={[3]L,M,U,UL,F}}
@@ -246,7 +246,7 @@ char c = (char) 110; // 'n'
   \item \lstinline|2.12F, 2.12, 2.12M;     // float, double, decimal|
   \end{itemize}
 \pause
-\item char 类型表示 ~Unicode 字符 (\lstinline| char c;|)
+\item char 类型表示 Unicode 字符 (\lstinline| char c;|)
   \begin{columns}
     \column{.35\textwidth}
 \begin{lstlisting}
@@ -276,7 +276,7 @@ char.IsLetterOrDigit(s,1);
 \begin{itemize}
 \item C\# 中基本的数据类型， Unicode 字符序列\pause
 \item 在堆中分配，但使用效果和值类型相似\pause
-\item 使用 ~``\texttt{@}'' 字符修饰，表示{\redwarn 逐字串}(\textit{Verbatim String})
+\item 使用 ``\texttt{@}'' 字符修饰，表示{\redwarn 逐字串}(\textit{Verbatim String})
 \begin{lstlisting}
 string s1, s2;
 s1 =  "C:\\WINDOWS\\system32";
@@ -295,7 +295,7 @@ s2 = @"cd ""Program Files""";
 \begin{frame}[fragile]
 \frametitle{字符串的操作}
 \begin{itemize}
-\item 使用 ~``\texttt{+}'' 可以直接连接串
+\item 使用 ``\texttt{+}'' 可以直接连接串
 \begin{lstlisting}
 s1 = "Hello"; s2 = " World!";
 s3 = s1 + s2 ;
@@ -305,9 +305,9 @@ s4 = "20.0/3 = " + 20.0/3;
 \end{lstlisting}
 
   \CJKindent \small 但需要注意，字符串的连接会生成新的串，如果大量操作，会影响
-  效率，或用~ System.Text.StringBuilder 。
+  效率，或用 System.Text.StringBuilder 。
 \pause
-\item 使用 ~``=='' 判断是否相等
+\item 使用 ``=='' 判断是否相等
 \begin{lstlisting}
 string a = "abcdefgabcde";
 string b = "abcdefgabcde";
@@ -322,11 +322,11 @@ string 类型中提供的成员
 \medskip
   \begin{itemize}
 \setlength{\itemsep}{6pt plus 1pt}
-  \item 查找字串~ \texttt{IndexOf()}
-  \item 比较字符串~ \texttt{CompareTo(), Equals()}
-  \item 转换大小写~ \texttt{ToLower(), ToUpper()}
-  % \item 对象的~ ToString() 方法
-  \item 串的长度~ \texttt{Length}
+  \item 查找字串 \texttt{IndexOf()}
+  \item 比较字符串 \texttt{CompareTo(), Equals()}
+  \item 转换大小写 \texttt{ToLower(), ToUpper()}
+  % \item 对象的 ToString() 方法
+  \item 串的长度 \texttt{Length}
   \end{itemize}
 \begin{lstlisting}
 string s = "This is a string";
@@ -359,7 +359,7 @@ i = s.IndexOf("a"); // i=8
 \frametitle{格式化字符串}
 \CJKindent
 \begin{itemize}
-\item 使用~ ``\{N\}'' 表示后面参数次序
+\item 使用 ``\{N\}'' 表示后面参数次序
 \begin{lstlisting}
 string s1;
 s1 = string.Format("Result is: {0}, {1}", 20, 3.22);
@@ -481,8 +481,8 @@ System.Enum 是系统的枚举基类
 \end{lstlisting}
 \begin{itemize}
 \item 数组类型可以是 ``\texttt{[]}'' ``\texttt{[,]}'' 或 ``\texttt{[][]}''
-\item 可以省略初始化列表，默认值是 ~{\redwarn\texttt{0}} 或 ~{\redwarn\texttt{null}}
-\item 也可以省略 ~new 表达式，直接通过列表定义
+\item 可以省略初始化列表，默认值是 {\redwarn\texttt{0}} 或 {\redwarn\texttt{null}}
+\item 也可以省略 new 表达式，直接通过列表定义
 \end{itemize}
 \pause
 \begin{lstlisting}[escapeinside=<>]
@@ -538,11 +538,11 @@ int[][] z = new int[3][];
 
 \begin{frame}[fragile]
 \frametitle{数组的使用}
-~\texttt{System.Array} 是类库中数组类型的基类
+\texttt{System.Array} 是类库中数组类型的基类
 
 \begin{itemize}
 \item \texttt{Length} --- 数组的长度
-\item \texttt{Clear()} --- 将数组清空 (0 或 ~null)
+\item \texttt{Clear()} --- 将数组清空 (0 或 null)
 \item \texttt{Sort()} --- 将数组排序
 \item \texttt{Reverse()} ---- 倒序排列
 \item \texttt{Find()} --- 找到特定的元素
@@ -642,11 +642,11 @@ int x = unchecked(i*j);
   }
 \end{lstlisting}
     \pause
-  \item 判断条件的值必须是~ \texttt{bool} 型的~ \texttt{true} 或~ \texttt{false}
+  \item 判断条件的值必须是 \texttt{bool} 型的 \texttt{true} 或 \texttt{false}
 \begin{lstlisting}[escapeinside=<>]
   int i = 1;
   if (i) { ... }
-  // <编译错误：无法隐式的将~int~转为~bool>
+  // <编译错误：无法隐式的将int转为bool>
 \end{lstlisting}
   \end{itemize}
 \end{frame}
@@ -718,7 +718,7 @@ foreach (string x in colors) {
 }
 \end{lstlisting}
 \begin{itemize}
-\item foreach 循环对实现了~IEnumerable$<$T$>$ 的对象进行迭代
+\item foreach 循环对实现了IEnumerable$<$T$>$ 的对象进行迭代
 \item 迭代中，对其中的对象只能只读访问
 \end{itemize}
 \end{itemize}
@@ -758,7 +758,7 @@ public static void Main() {
 \begin{frame}
 \frametitle{跳转语句}
 \begin{itemize}
-\item break \\用来退出循环或~ swich 分支语句等
+\item break \\用来退出循环或 swich 分支语句等
 \item continue \\用来中断循环的当前迭代，并继续循环
 \item goto \\任意跳转
 \item return \\返回方法的调用
@@ -776,7 +776,7 @@ public static void Main() {
 \item 异常能够给出调用栈的序列，用于分析异常发生的位置
 \item 异常可以被捕获，并加以处理(C\# 的错误处理机制)
 \item 异常可以分类，可以自己创建
-\item 未被捕获的异常将提交给 ~CLR，并中止程序运行
+\item 未被捕获的异常将提交给 CLR，并中止程序运行
 \end{itemize}
 
 \end{frame}
@@ -836,7 +836,7 @@ finally {
 
 \begin{frame}[fragile]
 \frametitle{抛出异常}
-使用关键字 ~\texttt{throw} 向系统抛出异常。
+使用关键字 \texttt{throw} 向系统抛出异常。
 \begin{lstlisting}
 try {
 
@@ -869,8 +869,8 @@ try {
 \begin{columns}
   \column{.6\textwidth}
   \begin{itemize}
-  \item Exception 继承自 ~Object，是异常系统的根
-  \item SystemException 通常由 ~CLR 抛出
+  \item Exception 继承自 Object，是异常系统的根
+  \item SystemException 通常由 CLR 抛出
   \item ApplicationException 用于应用程序自定义异常
   \item 常见异常
     \begin{itemize}

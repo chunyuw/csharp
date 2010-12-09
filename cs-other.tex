@@ -4,14 +4,14 @@
 % Chapter 19 in "C# 2.0 - The Complete Reference, 2nd Edition"
 
 \begin{frame}[fragile]
-\frametitle{不安全代码 ~\textit{Unsafe Code}}
+\frametitle{不安全代码 \textit{Unsafe Code}}
 % unsafe, pointers
 
 \begin{itemize}
-\item 指不受 ~CLR 完全控制的代码 (\textit{unmanaged code})
+\item 指不受 CLR 完全控制的代码 (\textit{unmanaged code})
 \item 不安全代码中，无法保证类型安全
 \item 对内存操作，需要使用指针 (\textit{pointers})
-\item 编译带有不安全代码的程序，需要使用 ~\texttt{/unsafe} 选项
+\item 编译带有不安全代码的程序，需要使用 \texttt{/unsafe} 选项
 \end{itemize}
 
 C\# 中的指针
@@ -54,7 +54,7 @@ void*  p   // <指向未知类型的指针>
 
 \begin{frame}[fragile]
 \frametitle{不安全代码的使用}
-使用关键字 ~\texttt{unsafe} 标记语句或方法
+使用关键字 \texttt{unsafe} 标记语句或方法
 \lstset{emph={unsafe}}
 \begin{lstlisting}
 using System;
@@ -77,7 +77,7 @@ class example {
 
 \begin{frame}[fragile]
 \frametitle{\texttt{fixed} 表达式}
-为防止 ~GC 改变对象地址，可使用 ~\texttt{fixed} 进行限制
+为防止 GC 改变对象地址，可使用 \texttt{fixed} 进行限制
 \lstset{emph={fixed}}
 \begin{lstlisting}
 class Test {
@@ -121,7 +121,7 @@ pl = pl + 1;   // Move 4 byte too
 
 \begin{frame}[fragile]
 \frametitle{可空值类型}
-当需要值类型也可以 ~\texttt{null} 时，使用可空值类型
+当需要值类型也可以 \texttt{null} 时，使用可空值类型
 
 \begin{lstlisting}[escapeinside='']
 System.Nullable<int> count = null;
@@ -144,12 +144,12 @@ if (count.HasValue) { ... } // '可空值的特性'
 \begin{frame}[fragile]
 \frametitle{可空值类型}
 \begin{itemize}
-\item 可空值类型表示可被赋值为~\texttt{null} 值的值类型变量
-\item 语法~\texttt{T?} 是~\lstinline|Nullable<T>| 的简写，\texttt{T} 为值类型，两种形式可以互换
-\item 使用~\texttt{HasValue} 和~\texttt{Value} 只读属性测试是否为空和检索值
+\item 可空值类型表示可被赋值为\texttt{null} 值的值类型变量
+\item 语法\texttt{T?} 是\lstinline|Nullable<T>| 的简写，\texttt{T} 为值类型，两种形式可以互换
+\item 使用\texttt{HasValue} 和\texttt{Value} 只读属性测试是否为空和检索值
 \begin{itemize}
-\item 布尔值~\texttt{HasValue} 表示是否包含有效值
-\item 如果已赋值，则~\texttt{Value} 属性返回该值，否则将引发异常 System.InvalidOperationException 
+\item 布尔值\texttt{HasValue} 表示是否包含有效值
+\item 如果已赋值，则\texttt{Value} 属性返回该值，否则将引发异常 System.InvalidOperationException 
 \end{itemize}
 \end{itemize}
 \end{frame}
@@ -175,7 +175,7 @@ currentBalance = balance ?? 0.0;
 
 \begin{frame}[fragile]
 \frametitle{部分类 (\textit{partial class})}
-使用 ~\texttt{partial} 修饰，可以将类的定义拆分到多个文件中
+使用 \texttt{partial} 修饰，可以将类的定义拆分到多个文件中
 \lstset{emph={partial}}
 \begin{lstlisting}
 partial class XY {
@@ -228,7 +228,7 @@ partial class CarLocator
 
 \begin{frame}[fragile]
 \frametitle{\texttt{extern} 关键字}
-关键字 ~\texttt{extern} 声明外部方法，创建外部程序及别名
+关键字 \texttt{extern} 声明外部方法，创建外部程序及别名
 \cmd{csc /t:library test1.cs}
 \cmd{csc /r:Asm1=test1.dll test2.cs}
 
@@ -247,13 +247,13 @@ class Demo {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{\texttt{lock} 和~ \texttt{volatile}}
+\frametitle{\texttt{lock} 和 \texttt{volatile}}
 \begin{itemize}
-\item 关键字 ~\texttt{lock} 用于多线程执行时，进入临界区
+\item 关键字 \texttt{lock} 用于多线程执行时，进入临界区
 \begin{lstlisting}
 lock(obj) { /* critical section */ }
 \end{lstlisting}
-\item 关键字 ~\texttt{volatile} 表示字段可能被多个并发执行线程修改
+\item 关键字 \texttt{volatile} 表示字段可能被多个并发执行线程修改
 \begin{lstlisting}
 public volatile int i;
 \end{lstlisting}

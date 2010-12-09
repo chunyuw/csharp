@@ -16,8 +16,8 @@
 \end{block}
 \pause
 \begin{itemize}
-\item 抽象类不能生成实例，需要~\texttt{abstract} 修饰
-\item 抽象方法只给出方法的声明，无具体实现，也需要~\texttt{abstract}
+\item 抽象类不能生成实例，需要\texttt{abstract} 修饰
+\item 抽象方法只给出方法的声明，无具体实现，也需要\texttt{abstract}
 \item 而具体实现由派生类完成
 \end{itemize}
 \lstset{emph={abstract}}
@@ -81,7 +81,7 @@ public class Square : Shape {
 
 \begin{frame}[fragile]
 \frametitle{密封类}
-使用 ~\texttt{sealed} 修饰的类，不可以被继承：
+使用 \texttt{sealed} 修饰的类，不可以被继承：
 \lstset{emph={sealed}}
 \begin{lstlisting}
 public sealed class A {
@@ -97,7 +97,7 @@ public class B : A { // ERROR!
 
 \begin{frame}[fragile]
 \frametitle{静态类}
-使用 ~\texttt{static} 修饰的类，只有静态成员，不能被实例化：
+使用 \texttt{static} 修饰的类，只有静态成员，不能被实例化：
 %\lstset{emph={static}}
 \begin{lstlisting}[escapeinside=<>]
 public static class NumericFn {
@@ -136,9 +136,9 @@ public class OuterClass     //<称为外部类>
 \item 在外部类中直接使用内嵌类
 \item 在外部类外面访问类，使用全名
   \begin{itemize}
-  \item ~\texttt{OuterClass.NestedClass}
+  \item \texttt{OuterClass.NestedClass}
   \end{itemize}
-\item 访问权限由~\texttt{OuterClass} 和~\texttt{NestedClass} 共同决定
+\item 访问权限由\texttt{OuterClass} 和\texttt{NestedClass} 共同决定
 \end{itemize}
 \end{frame}
 
@@ -213,14 +213,14 @@ class Rectangle:IMeasurement {
 \item 为类提供了蓝图，规范了类之间的交互方式
 \item 通过继承其他接口，可是实现接口的重用
 \item 和抽象类一样，不可以生成实例
-\item 接口成员默认为~ public 和~ abstract
+\item 接口成员默认为 public 和 abstract
 \item 接口也是一种类型，可以定义变量，访问子类对象
 \begin{lstlisting}[escapeinside=<>]
 IMeasurement x = new Recangle(); 
                           // <使用了隐式转换>
 x.Area();                 // x<可以直接访问>Area()<方法>
 \end{lstlisting}
-\item 也可以使用~ is 和~ as 操作符判断接口类型
+\item 也可以使用 is 和 as 操作符判断接口类型
 \begin{lstlisting}
 if (o is IMeasurement) ...
 IMeasurement x = o as IMeasurement;
@@ -236,7 +236,7 @@ IMeasurement x = o as IMeasurement;
   \begin{itemize}
   \item 特性、索引器、事件和方法
   \end{itemize}
-\item 定义不需要~ public 和~ abstract，实现不需要~ override
+\item 定义不需要 public 和 abstract，实现不需要 override
 \item 类只能继承一个类，但可以实现多个接口
 
   \lstset{emph={[2]First,Second}}
@@ -259,7 +259,7 @@ class MyClass : First, Second
 % \item 系统提供了大量的现成接口
 % \begin{itemize}
 % \setlength{\itemsep}{6pt plus 1pt}
-% \item System.IComparable --- 其中的 ~CompareTo() 用于比较
+% \item System.IComparable --- 其中的 CompareTo() 用于比较
 % \item System.Collections.ICollection --- 集合操作
 % \item System.Collections.IEnumerator --- 迭代操作
 % \end{itemize}
@@ -323,7 +323,7 @@ public interface ISeries {  // an interface property
 \frametitle{接口示例}
 
 \begin{itemize}
-\item 线性表类~LinkedList 和接口~Linkable (程序~LinkedList.cs)
+\item 线性表类LinkedList 和接口Linkable (程序LinkedList.cs)
 %\attachfile[description=Interface example]{code/LinkedList.cs}
 
 \begin{lstlisting}[escapeinside=<>]
@@ -362,13 +362,13 @@ public interface B : A {
 
 \end{lstlisting}
 \begin{itemize}
-\item 接口中也可以使用 ~new 关键字隐藏基接口成员
+\item 接口中也可以使用 new 关键字隐藏基接口成员
 \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{显式实现接口}
- 接口默认是~ public，如果需要 ~private 要使用显式实现
+ 接口默认是 public，如果需要 private 要使用显式实现
 \begin{lstlisting}
 using System;
 interface IEven {
@@ -414,7 +414,7 @@ class MyClass : IMyIF_A, IMyIF_B {
 % \begin{frame}[fragile]
 % \frametitle{迭代器}
 % \begin{itemize}
-% \item System.Collections.IEnumerable 接口 (程序~IEnumerable.cs)
+% \item System.Collections.IEnumerable 接口 (程序IEnumerable.cs)
 % \begin{lstlisting}[escapeinside=<>]
 % interface IEnumerable 
 % {
@@ -427,7 +427,7 @@ class MyClass : IMyIF_A, IMyIF_B {
 %   void Reset();
 % }
 % \end{lstlisting}
-% \item 常用于~foreach 循环的迭代
+% \item 常用于foreach 循环的迭代
 % \end{itemize}
 % \end{frame}
 
@@ -458,7 +458,7 @@ class MyClass : IMyIF_A, IMyIF_B {
 \begin{frame}[fragile]
 \frametitle{委托示例(1)}
 \begin{lstlisting}[escapeinside=<>]
-// <定义委托~ Compute>
+// <定义委托 Compute>
 delegate int Compute (int a, int b);
 
 class Test {
@@ -533,7 +533,7 @@ public static void Main() {
 
 \begin{itemize}
 \setlength{\itemsep}{6pt plus 1pt}
-\item 传统的 ~Microsoft Windows 使用函数指针进行回调
+\item 传统的 Microsoft Windows 使用函数指针进行回调
 \item 函数指针指向的地址不一定有效，容易发生错误
 \item C\# 则通过类型安全的委托进行回调
 \item 编译器完成类型检查，确保其中的方法可靠
@@ -544,7 +544,7 @@ public static void Main() {
 
 \begin{frame}[fragile]
 \frametitle{自动类型转换}
-\CJKindent C\# 2.0 中，可以省略 ~new 表达式，直接使用方法名创建委托实例，添加委托
+\CJKindent C\# 2.0 中，可以省略 new 表达式，直接使用方法名创建委托实例，添加委托
 \begin{lstlisting}[escapeinside=<>]
 public static void Main() {
   // <自动将方法转换为委托>
@@ -592,9 +592,9 @@ public static void Main() {
 \begin{itemize}
 \setlength{\itemsep}{4pt plus 1pt}
 \item<1-| handout:1> 多播委托中，委托相当于一个方法的调用列表
-\item<2-| handout:1> 通过 ~\texttt{+}或~\texttt{+=} 操作符添加其他的委托(或方法)
-\item<2-| handout:1> 通过 ~\texttt{-}或~\texttt{-=} 操作符去掉已有的委托(或方法)
-\item<3-| handout:1> 多播委托的返回值应该是 ~void
+\item<2-| handout:1> 通过 \texttt{+}或\texttt{+=} 操作符添加其他的委托(或方法)
+\item<2-| handout:1> 通过 \texttt{-}或\texttt{-=} 操作符去掉已有的委托(或方法)
+\item<3-| handout:1> 多播委托的返回值应该是 void
 \item<3-| handout:1> 添加和去掉方法的格式比较自由
 \end{itemize}
 \begin{onlyenv}<1-| handout:1>
@@ -615,7 +615,7 @@ public static void Main() {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{委托的协变~ (\textit{Covariance})}
+\frametitle{委托的协变 (\textit{Covariance})}
 \begin{lstlisting}
 class Mammal {}
 class Dog : Mammal{}
@@ -638,7 +638,7 @@ class Program
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{委托的逆变~ (\textit{Contravariance})}
+\frametitle{委托的逆变 (\textit{Contravariance})}
 \begin{lstlisting}
 class Mammal{}
 class Dog : Mammal{}
@@ -814,7 +814,7 @@ class AnonMethDemo3 {
 \begin{frame}[fragile]
 \frametitle{事件}
 \begin{block}{\textit{events}}
-  \CJKindent 类中安全的委托成员，~Windows 编程中的事件在 ~C\# 语言中的体现，是
+  \CJKindent 类中安全的委托成员，Windows 编程中的事件在 C\# 语言中的体现，是
   程序元素之间通信的动态格式。
 \end{block}
 事件定义的一般格式：
@@ -826,7 +826,7 @@ class AnonMethDemo3 {
 \item 事件不是从程序的一部分到另一部分的过程流
 \item 只是建立在程序之间的连接的方法和运行过程中的终结操作
 \item 程序运行期间，事件用于通知感兴趣的客户
-\item 用于 ~C\# 的组件，提供回调功能
+\item 用于 C\# 的组件，提供回调功能
 \end{itemize}
 \end{frame}
 
@@ -865,9 +865,9 @@ public class MenuItem
 \begin{itemize}
 \setlength{\itemsep}{4pt plus 1pt}
 \item 订阅器通过向事件中添加事件处理方法来达到订阅的目的
-\item 因为事件一般都为 ~\texttt{public}，因此任何组件都可以订阅
+\item 因为事件一般都为 \texttt{public}，因此任何组件都可以订阅
 \item 而因为委托可以添加多个方法，所以同一时间可由多个组件订阅
-\item 而事件发布器通过调用委托，来触发 ~(\textit{fire}) 事件
+\item 而事件发布器通过调用委托，来触发 (\textit{fire}) 事件
 \item 事件的触发实际就是委托调用的过程
 \end{itemize}
 \end{frame}
@@ -877,9 +877,9 @@ public class MenuItem
 为什么不直接使用委托呢？
 \begin{itemize}
 \setlength{\itemsep}{6pt plus 1pt}
-\item 委托用于事件时，需要声明为 ~\texttt{public}，其他组件才能订阅
+\item 委托用于事件时，需要声明为 \texttt{public}，其他组件才能订阅
 \item 但同时也可以触发，即委托的调用，不够安全
-\item 因此 ~C\# 将委托包装为事件，对外专门用于订阅
+\item 因此 C\# 将委托包装为事件，对外专门用于订阅
 \item 定义为事件后，其他组件也只能订阅和删除
 \item 而作为委托的调用，只能由发布器类自己完成
 \end{itemize}
@@ -916,10 +916,10 @@ public class MenuItem
 \setlength{\itemsep}{6pt plus 1pt}
 \begin{itemize}
 \item 事件可以在接口中，实现接口的类必须实现该事件
-\item 事件可以是抽象~ (\texttt{abstract}) 的，由派生类继承并实现
+\item 事件可以是抽象 (\texttt{abstract}) 的，由派生类继承并实现
 \item 事件访问器不可以是抽象的
-\item 事件可以被密封~ (\texttt{sealed})，防止被继承
-\item 事件可以是虚的~ (\texttt{virtual})，允许派生类的覆盖~(\texttt{override})
+\item 事件可以被密封 (\texttt{sealed})，防止被继承
+\item 事件可以是虚的 (\texttt{virtual})，允许派生类的覆盖(\texttt{override})
 \end{itemize}
 \end{frame}
 
@@ -927,7 +927,7 @@ public class MenuItem
 \frametitle{.NET 中的事件}
 \begin{itemize}
 \item 定义事件，可以使用任意的返回值类型和参数类型
-\item 但 ~.NET 框架推荐了一种标准，即：
+\item 但 .NET 框架推荐了一种标准，即：
 \begin{lstlisting}
 void Handler (object source, EventArgs arg){
   // ...
@@ -937,8 +937,8 @@ void Handler (object source, EventArgs arg){
 \medskip
 \begin{itemize}
 \item source 用于调用方法把自己 (\texttt{this}) 传给客户
-\item arg 是 ~System.EventArgs 类或其派生类型的参数
-\item 自定义的 ~EventArgs 可存放任何信息
+\item arg 是 System.EventArgs 类或其派生类型的参数
+\item 自定义的 EventArgs 可存放任何信息
 \end{itemize}
 
 \end{frame}
@@ -1024,7 +1024,7 @@ class MyEvent {
 \frametitle{泛型}
 \begin{block}{\textit{Generics}}
   \CJKindent 泛型就是类型参数化，可以将类型作为参数，根据需要改变类中成员的类型。
-  泛型是 ~.NET 2.0 的新特性。
+  泛型是 .NET 2.0 的新特性。
 \end{block}
 \pause
 \begin{itemize}
@@ -1099,9 +1099,9 @@ class Test<T> where T : A {
 \setlength{\itemsep}{8pt plus 1pt}
 \item 基类约束：在条件表达式中指定基类名字
 \item 接口约束：在条件表达式中指定一个或多个接口名字
-\item 构造函数约束：无参数的构造函数约束，使用 ~\texttt{new()}
-\item 引用类型约束：使用 ~\texttt{class}，限制为引用类型
-\item 值类型约束：使用 ~\texttt{struct}，限制为值类型
+\item 构造函数约束：无参数的构造函数约束，使用 \texttt{new()}
+\item 引用类型约束：使用 \texttt{class}，限制为引用类型
+\item 值类型约束：使用 \texttt{struct}，限制为值类型
 \end{itemize}
 
 \end{frame}
@@ -1199,7 +1199,7 @@ class Gen<T, V> where T : class
 
 \begin{frame}[fragile]
 \frametitle{自动缺省值}
-引用类型和值类型的缺省值分别为 ~\texttt{null} 和 ~\texttt{0}，如果在泛型中初始
+引用类型和值类型的缺省值分别为 \texttt{null} 和 \texttt{0}，如果在泛型中初始
 化：
 \begin{lstlisting}[escapeinside='']
 class Test<T> {   T obj;
@@ -1211,7 +1211,7 @@ class Test<T> {   T obj;
 }
 \end{lstlisting}
 
-使用 ~\texttt{default}，自动指定
+使用 \texttt{default}，自动指定
 \begin{lstlisting}
 ...
   obj = default(T);

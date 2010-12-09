@@ -72,7 +72,7 @@ public class YYY { ... }
 
 \begin{itemize}
 \item 属性也可以对类的成员起作用
-\item 遵循 ~CLR 的编译器会将属性信息写入元数据中
+\item 遵循 CLR 的编译器会将属性信息写入元数据中
 \item .NET 框架中定义了几百个预定义的属性，功能繁多
 \end{itemize}
 \end{frame}
@@ -102,8 +102,8 @@ class AttriTest
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{访问 ~DLL}
-调用 ~powrprof.dll 中方法执行系统休眠：
+\frametitle{访问 DLL}
+调用 powrprof.dll 中方法执行系统休眠：
 \lstset{emph={DllImport,extern}}
 \begin{lstlisting}
 using System;
@@ -146,7 +146,7 @@ class suspend
 \bigskip \pause
 
 \begin{itemize}
-\item 如果省略，默认的访问权限为 ~internal
+\item 如果省略，默认的访问权限为 internal
 \item 派生类和基类要有相同的访问权限
 \end{itemize}
 \end{frame}
@@ -179,10 +179,10 @@ class Ring : Circle {
     \setlength{\itemsep}{8pt plus 1pt}
   \item 建立类的层次结构，公用的功能放在基类\pause
   \item 代码重用，基类的字段和代码\pause
-  \item 派生类继承基类的所有成员，但基类可以通过 ~\texttt{private} 限制派生类访问\pause
-  \item C\#~只允许单继承，但可实现多个接口(\textit{interface})\par
+  \item 派生类继承基类的所有成员，但基类可以通过 \texttt{private} 限制派生类访问\pause
+  \item C\#只允许单继承，但可实现多个接口(\textit{interface})\par
 \lstinline|public class MyClass:Interface1, Interface2 {...}|\pause
-  \item 通过~\texttt{sealed}~修饰的密封类，不能被继承\par
+  \item 通过\texttt{sealed}修饰的密封类，不能被继承\par
 \lstinline|public sealed class secret {...}|
   \end{itemize}
 \end{frame}
@@ -218,7 +218,7 @@ class Ring : Circle {
 \frametitle{静态成员和实例成员}
 \begin{onlyenv}<1| handout:1>
   \begin{itemize}
-  \item 静态成员使用关键字~static~修饰，否则为实例成员
+  \item 静态成员使用关键字static修饰，否则为实例成员
 \begin{lstlisting}[escapeinside=<>]
 class Circle {
   // <实例变量>
@@ -254,7 +254,7 @@ Circle.pi = 3.14159265;   // <访问静态变量>
 \frametitle{常量和只读变量}
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
-\item 分别使用~const~和~readonly~修饰
+\item 分别使用const和readonly修饰
 \item 常量在编译时初始化，只读变量在运行时初始化
 \item 初始化之后，都不可以被修改
 \item 引用类型只能使用只读变量，因为无法在编译时初始化
@@ -297,7 +297,7 @@ Circle.pi = 3.14159265;   // <访问静态变量>
 \item virtual --- 虚方法，可以在子类中被覆盖
 \item override --- (只能)用于覆盖基类中的同名的虚方法
 \item new --- 用于隐藏基类中的方法，无论是否是虚方法
-\item sealed --- 禁止派生类覆盖该方法，同时需要 ~override 修饰
+\item sealed --- 禁止派生类覆盖该方法，同时需要 override 修饰
 \item abstract --- 只有方法声明，没有具体实现
 \item extern --- 只有方法声明，在外部实现
 \end{itemize}
@@ -331,7 +331,7 @@ class Circle { public int R;
 \begin{frame}[fragile]
 \frametitle{私有构造函数}
 \begin{itemize}
-\item 用 ~private 修饰的构造函数，不允许类以外的成员访问。
+\item 用 private 修饰的构造函数，不允许类以外的成员访问。
 \end{itemize}
 \begin{lstlisting}
 class Conversions{
@@ -344,7 +344,7 @@ class Conversions{
 \end{lstlisting}
 \pause
 \begin{itemize}
-\item 因为 ~private 修饰，无法为类创建实例
+\item 因为 private 修饰，无法为类创建实例
 \item 一般用于使用静态方法和成员提供服务的类
 \pause
 \item 比如 System.Math 类
@@ -361,16 +361,16 @@ class Conversions{
 \frametitle{析构函数(\textit{destructors})}
 析构函数是当对象被清除时被调用的特殊方法。
 \begin{itemize}
-\item 名字：以字符“\verb|~|”开始的类名，无返回类型
+\item 名字：以字符“\verb||”开始的类名，无返回类型
 \begin{lstlisting}[escapeinside=<>]
 class Circle {
   public int R;
   public Circle() { R=1;}
-  ~Circle() { /* <析构函数体> */  }
+  Circle() { /* <析构函数体> */  }
 }
 \end{lstlisting}
   \pause
-\item 由于 ~C\# 的自动垃圾回收，一般不需要自己创建析构函数
+\item 由于 C\# 的自动垃圾回收，一般不需要自己创建析构函数
   \pause
 \item 构造函数和析构函数的定义都不是必须的
 \end{itemize}
@@ -386,7 +386,7 @@ public class Person {
     Count++ ;
     Console.WriteLine("total number is: {0}", Count);
   }
-  ~Person() { if(Count>0) Count--;}
+  Person() { if(Count>0) Count--;}
 }
 
 class test{
@@ -428,7 +428,7 @@ class Circle{   public int R;
 
 \begin{frame}[fragile]
 \frametitle{重载操作符(\textit{operator overload})}
-C\# 可以对操作符重载，和 ~C++ 中的类似。一般格式为
+C\# 可以对操作符重载，和 C++ 中的类似。一般格式为
 \pause
 \begin{lstlisting}
 public static <return_type> operator <op> (<para_list>)
@@ -436,12 +436,12 @@ public static <return_type> operator <op> (<para_list>)
 \end{lstlisting}
 \pause
 \begin{itemize}
-\item 必须使用 ~public 和 ~static 修饰
-\item 返回类型不能是 ~void
+\item 必须使用 public 和 static 修饰
+\item 返回类型不能是 void
 \item 参数个数要匹配
 \end{itemize}
 \pause
-String 类型之间通过 ~``+'' 的连接操作，就是一种重载：
+String 类型之间通过 ``+'' 的连接操作，就是一种重载：
 \begin{lstlisting}
 string a = "abc";
 string b = "efg";
@@ -477,7 +477,7 @@ class Ring:Circle
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{重载~ true 和~ false}
+\frametitle{重载 true 和 false}
 \begin{lstlisting}
 class Point {
   int x, y, z; // 3-D coordinates
@@ -527,7 +527,7 @@ public static ThreeD operator ++(ThreeD op)
 \begin{frame}[fragile]
 \frametitle{转换重载}
 \begin{itemize}
-\item 转换~ (\textit{conversion}) 重载允许自己定义类型间的转换
+\item 转换 (\textit{conversion}) 重载允许自己定义类型间的转换
 \item 可以分为隐式和显式重载
 \item 对于同一种类型，不能同时存在隐式和显式重载
 \end{itemize}
@@ -587,7 +587,7 @@ public static operator explicit <target>(<source> v)
 \end{block}
 \begin{itemize}
 \item 特性的访问是透明的，类似成员变量
-\item get~提供读访问，set~提供写访问，可以有不同的访问权限
+\item get提供读访问，set提供写访问，可以有不同的访问权限
 \item 通过特性可进行完整性检查，类似成员方法
 \end{itemize}
 \pause
@@ -615,7 +615,7 @@ class Circle {
       if(value<0)
         throw new ArgumentOutOfRangeException(
              "Radius must be greater than 0.");
-      R = value;    // `set 的参数 ~value'
+      R = value;    // `set 的参数 value'
     }
   }
 }
@@ -637,8 +637,8 @@ class Circle {
   \item abstract --- 用在抽象类中
   \item new, virtal, override --- 继承与覆盖关系
   \end{itemize}
-\item set 中有一个隐式参数 ~value
-\item set 和 ~get 可以只有一个
+\item set 中有一个隐式参数 value
+\item set 和 get 可以只有一个
 \end{itemize}
 \end{frame}
 
@@ -653,8 +653,8 @@ class Circle {
 \end{block}
 \begin{itemize}
 \item 索引器表现和数组类似，通过索引访问
-\item 实现方式和特性类似，可以有 ~get 和 ~set 访问器
-\item 索引器不可以用 ~static 修饰，因为只与实例相关
+\item 实现方式和特性类似，可以有 get 和 set 访问器
+\item 索引器不可以用 static 修饰，因为只与实例相关
 \end{itemize}
 
 索引器的一般格式：
@@ -717,10 +717,10 @@ class Ring:Circle{
 
 \setbeamerfont{table}{size=\small}
 \begin{frame}
-\frametitle{所有类的基类 ~System.Object}
+\frametitle{所有类的基类 System.Object}
 \begin{itemize}
 \item C\#中的所有类型直接或间接的基类，也是 .NET Framework 中所有类的最终基类
-\item 自定义的类，都对 ~Object 隐式继承，不需要在类的定义中声明
+\item 自定义的类，都对 Object 隐式继承，不需要在类的定义中声明
 \end{itemize}
 \pause
 \begin{block}{为派生类提供的底层服务}
@@ -775,7 +775,7 @@ class Circle { public int R; }
 \item 内存分配
 
   \CJKindent \small 值类型和引用类型之间的最主要差别就是内存分配。如果没有进行
-  初始化，引用类型默认为 ~null，值类型为 ~0。
+  初始化，引用类型默认为 null，值类型为 0。
 \pause
 \item 内存释放
 
@@ -806,8 +806,8 @@ struct Circle { public int R; }
 \frametitle{类型之间的转换}
 \begin{block}{隐式转换}
   \begin{itemize}
-  \item 当信息不会丢失时，如 ~int$\rightarrow$long，int$\rightarrow$float
-  \item 从派生类到基类的转换，如 ~Ring$\rightarrow$Circle，Ring$\rightarrow$object
+  \item 当信息不会丢失时，如 int$\rightarrow$long，int$\rightarrow$float
+  \item 从派生类到基类的转换，如 Ring$\rightarrow$Circle，Ring$\rightarrow$object
   \end{itemize}
 \end{block}
 \pause
@@ -815,7 +815,7 @@ struct Circle { public int R; }
   \begin{itemize}
   \item 当不能进行隐式转换时，必须使用显式转换
   \item 如果不使用显式转换，系统会发生编译错误
-  \item 语法类似 ~C 中的强制类型转换
+  \item 语法类似 C 中的强制类型转换
   \end{itemize}
 \end{block}
 \pause
@@ -897,7 +897,7 @@ class Test {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{\texttt{is} 和 ~\texttt{as} 操作符}
+\frametitle{\texttt{is} 和 \texttt{as} 操作符}
 \begin{itemize}
 \item is 操作符检查变量是否属于指定类型
 \begin{lstlisting}
@@ -919,7 +919,7 @@ Console.WriteLine("r {0} a Circle",
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{\texttt{is} 和 ~\texttt{as} 操作符 (续)}
+\frametitle{\texttt{is} 和 \texttt{as} 操作符 (续)}
 \begin{itemize}
 \item is 可作用于值类型
 \item as 可减少类型检查的次数
@@ -977,12 +977,12 @@ public void Test(Point m){
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{\texttt{ref} 和 ~\texttt{out}}
+\frametitle{\texttt{ref} 和 \texttt{out}}
 \begin{itemize}
 \item out 表示被调用函数通过入口参数，向调用函数返回结果
 \item ref 表示被调用函数使用入口参数的引用
-\item 调用时候也需明确指出 ~ref 和 ~out 参数
-\item 明确使用 ~ref 和 ~out 可以提高代码可读性
+\item 调用时候也需明确指出 ref 和 out 参数
+\item 明确使用 ref 和 out 可以提高代码可读性
 \end{itemize}
 \pause
 \begin{lstlisting}
@@ -1005,8 +1005,8 @@ static void Main()
 \begin{frame}[fragile]
 \frametitle{可变长参数}
 \begin{itemize}
-\item 由 ~params 关键字修饰的数组参数，使用时是可变长参数
-\item 使用 ~params 可以避免显式的创建数组、传递数组的过程
+\item 由 params 关键字修饰的数组参数，使用时是可变长参数
+\item 使用 params 可以避免显式的创建数组、传递数组的过程
 \item params 只能用于最后一个参数
 \end{itemize}
 \pause
@@ -1057,10 +1057,10 @@ static void Main()
 \begin{frame}[fragile]
 \frametitle{基类与派生类的关系}
 \begin{itemize}
-\item 基类中的成员，除 ~sealed 成员，全部被派生类继承
-\item 有 ~private 修饰的成员不可以被派生类访问
+\item 基类中的成员，除 sealed 成员，全部被派生类继承
+\item 有 private 修饰的成员不可以被派生类访问
 \vskip.5cm
-\item 派生类的字段可以直接{\redwarn 隐藏}基类同名字段，或使用 ~new 关键字
+\item 派生类的字段可以直接{\redwarn 隐藏}基类同名字段，或使用 new 关键字
 \end{itemize}
 \begin{lstlisting}[escapeinside=<>]
 class Circle {
@@ -1077,7 +1077,7 @@ class Ring:Circle {
 \frametitle{隐藏基类方法}
 \begin{itemize}
 \item 派生类的方法也可以直接隐藏基类方法，但会有编译警告
-\item 要显式隐藏基类方法，派生类要用 ~new 关键字指出
+\item 要显式隐藏基类方法，派生类要用 new 关键字指出
 \end{itemize}
   \lstset{emph={new}}
 \begin{lstlisting}
@@ -1180,9 +1180,9 @@ class B : A {
 \begin{frame}[fragile]
 \frametitle{虚方法 (\textit{virtual method})}
 \begin{itemize}
-\item 如果允许派生类{\redwarn 覆盖}基类方法，要用 ~virtual 关键字指出
-\item 同时派生类要用 ~override 指出
-\item 虚方法，也可以使用 ~new 关键字隐藏
+\item 如果允许派生类{\redwarn 覆盖}基类方法，要用 virtual 关键字指出
+\item 同时派生类要用 override 指出
+\item 虚方法，也可以使用 new 关键字隐藏
 \end{itemize}
   \lstset{emph={virtual,override,Area}}
 \begin{lstlisting}
@@ -1275,7 +1275,7 @@ class B:A
 \begin{frame}[fragile]
 \frametitle{\texttt{this}关键字访问类成员}
 \begin{itemize}
-\item 使用~this~关键字表示当前类自身
+\item 使用this关键字表示当前类自身
 \end{itemize}
 \lstset{emph={this}}
 \begin{lstlisting}
@@ -1302,7 +1302,7 @@ class Person {
 \begin{frame}[fragile]
 \frametitle{\texttt{base}关键字访问基类成员}
 \begin{itemize}
-\item 使用~base~关键字表示基类
+\item 使用base关键字表示基类
 \end{itemize}
 \lstset{emph={base}}
 \begin{lstlisting}
@@ -1344,7 +1344,7 @@ namespace <name>{
 \item 命名空间用于组织代码，防止名字冲突
 \item 命名空间可以嵌套
 \item 命名空间可以分开定义
-\item 如果没有指定命名空间，默认在 ~\texttt{global} 命名空间中
+\item 如果没有指定命名空间，默认在 \texttt{global} 命名空间中
 \end{itemize}
 \end{frame}
 
@@ -1374,7 +1374,7 @@ namespace Counter {
 
 \begin{frame}[fragile]
 \frametitle{命名空间的使用}
-在命名空间外，需要指出全名，使用 ~``.'' 连接
+在命名空间外，需要指出全名，使用 ``.'' 连接
 \begin{lstlisting}
 class NSDemo {
   public static void Main() {
@@ -1412,7 +1412,7 @@ using Animals.Birds;
 ...
   Sparrow s = new Sparrow();
 \end{lstlisting}
-\item 使用别名(alias)，~C\# 2.0 可以使用 ~``::'' 表示命名空间的别名
+\item 使用别名(alias)，C\# 2.0 可以使用 ``::'' 表示命名空间的别名
   \lstset{emph={using}}
 \begin{lstlisting}
 using b = Animals.Birds;

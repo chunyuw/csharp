@@ -6,15 +6,15 @@
 \tableofcontents
 \end{frame}
 
-\section{集合和~LINQ 简介}
+\section{集合和LINQ 简介}
 
 \begin{frame}
-\frametitle{集合~ System.Collections}
+\frametitle{集合 System.Collections}
 
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
-\item 集合，即一组对象~ (\textit{object})
-\item .NET 提供了 ~Lists, Stacks, Queues, Hash Tables 等集合结构
+\item 集合，即一组对象 (\textit{object})
+\item .NET 提供了 Lists, Stacks, Queues, Hash Tables 等集合结构
 \item 提供了对集合操作的接口，如枚举器、迭代器
 \item System.Collections.Generic 提供了相应的泛型结构
 \end{itemize}
@@ -67,7 +67,7 @@ public class SamplesStack  {
 
 \begin{frame}
 \frametitle{ICollection 接口}
-ICollection 继承自~ IEnumerable，提供了基本的集合操作。
+ICollection 继承自 IEnumerable，提供了基本的集合操作。
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
 \item 特性
@@ -85,7 +85,7 @@ ICollection 继承自~ IEnumerable，提供了基本的集合操作。
 
 \begin{frame}[fragile]
 \frametitle{IList 接口}
-IList 接口继承自~ ICollection，提供了基于索引的操作方式。
+IList 接口继承自 ICollection，提供了基于索引的操作方式。
 \begin{itemize}
 \item 索引器： \texttt{object this[int idx] \{ get; set; \}}
 \begin{lstlisting}
@@ -101,7 +101,7 @@ myAL[0] = "Hello"; myAL[1] = 123;
 \begin{itemize}
 \item \texttt{int Add(object obj)} --- 添加元素
 \item \texttt{void Clear()} --- 删除所有元素
-\item \texttt{void Remove(object obj)} --- 删除第一个 ~\texttt{obj}
+\item \texttt{void Remove(object obj)} --- 删除第一个 \texttt{obj}
 \item \texttt{Contains, IndexOf, Insert, RemoveAt}
 \end{itemize}
 \end{itemize}
@@ -109,7 +109,7 @@ myAL[0] = "Hello"; myAL[1] = 123;
 
 \begin{frame}
 \frametitle{IDictionary 接口}
-\CJKindent IDictionary 接口继承自~ ICollection，提供了基于键~ (\textit{key}) 的索引方式。
+\CJKindent IDictionary 接口继承自 ICollection，提供了基于键 (\textit{key}) 的索引方式。
 \begin{itemize}
 \item 索引器：
   \begin{itemize}
@@ -132,7 +132,7 @@ myAL[0] = "Hello"; myAL[1] = 123;
 
 \begin{frame}
 \frametitle{ArrayList 类}
-ArrayList 实现了 ~ICollection, IList, IEnumerable, ICloneable 接口。
+ArrayList 实现了 ICollection, IList, IEnumerable, ICloneable 接口。
 \begin{itemize}
 \item 构造函数
 \begin{itemize}
@@ -148,7 +148,7 @@ ArrayList 实现了 ~ICollection, IList, IEnumerable, ICloneable 接口。
   \begin{itemize}
   \item \texttt{public virtual void Sort()}
   \item \texttt{public virtual void Sort(IComparer \textit{comp})}
-  \item \href{http://msdn2.microsoft.com/en-us/library/system.collections.arraylist_members.aspx}{\beamergotobutton{参考 ~MSDN}}
+  \item \href{http://msdn2.microsoft.com/en-us/library/system.collections.arraylist_members.aspx}{\beamergotobutton{参考 MSDN}}
   \end{itemize}
 \end{itemize}
 \end{frame}
@@ -156,17 +156,17 @@ ArrayList 实现了 ~ICollection, IList, IEnumerable, ICloneable 接口。
 \begin{frame}
 \frametitle{Hashtable 类}
 
-\CJKindent Hashtable 使用~ \textit{Hashing} 技术存储数据。将键转换
-为~\textit{Hash code}，用于数据的索引，决定数据的存储位置。
+\CJKindent Hashtable 使用 \textit{Hashing} 技术存储数据。将键转换
+为\textit{Hash code}，用于数据的索引，决定数据的存储位置。
 
 \begin{itemize}
-\item 键转换为 ~Hash code 的过程是自动的
-\item 访问时也只需使用键本身，不使用 ~Hash code
-\item 使用 ~Hashtable 可以提高字典的访问效率
+\item 键转换为 Hash code 的过程是自动的
+\item 访问时也只需使用键本身，不使用 Hash code
+\item 使用 Hashtable 可以提高字典的访问效率
 \end{itemize}
 
-\CJKindent Hashtable 实现了~ IDictionary, ICollection, IEnumerable,
-ISerializable, IDeserializationCallback, 和~ICloneable 接口。
+\CJKindent Hashtable 实现了 IDictionary, ICollection, IEnumerable,
+ISerializable, IDeserializationCallback, 和ICloneable 接口。
 \end{frame}
 
 \begin{frame}
@@ -225,19 +225,19 @@ class HashtableDemo {
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
 \item \texttt{SortedList} --- 根据键值按循序排列的列表 \par
-\CJKindent \small 实现了~ IDictionary, ICollection, IEnumerable 接口。
+\CJKindent \small 实现了 IDictionary, ICollection, IEnumerable 接口。
 \item \texttt{Stack}      --- 栈 \par
-\CJKindent \small 实现了~ ICollection, IEnumerable接口。
+\CJKindent \small 实现了 ICollection, IEnumerable接口。
 \begin{itemize}
 \item Posh(), Pop(), Peek(), Contains() \dots
 \end{itemize}
 \item \texttt{Queue}      --- 队列 \par
-\CJKindent \small 实现了~ ICollection, IEnumerable 接口。
+\CJKindent \small 实现了 ICollection, IEnumerable 接口。
 \begin{itemize}
 \item Dequeue(), Enqueue(), Peek(), Contains() \dots
 \end{itemize}
-\item \texttt{BitArray}   --- 按位~ (\textit{bit}) 存储 \par
-\CJKindent \small 实现了~ ICollection, IEnumerable 接口。
+\item \texttt{BitArray}   --- 按位 (\textit{bit}) 存储 \par
+\CJKindent \small 实现了 ICollection, IEnumerable 接口。
 \begin{itemize}
 \item 多种构造函数，便于从其他数据生成
 \item And(), Or(), Not(), Xor(), Set() \dots
@@ -253,8 +253,8 @@ class HashtableDemo {
 \item 在特定类型的上有一定的优化
 \bigskip
 \item \texttt{CollectionsUtil} 创建忽略字符串大小写的集合
-\item \texttt{ListDictionary} 使用单链接列表实现~ IDictionary
-\item \texttt{NameValueCollection} 关联 ~String 键和~ Object 值的集合
+\item \texttt{ListDictionary} 使用单链接列表实现 IDictionary
+\item \texttt{NameValueCollection} 关联 String 键和 Object 值的集合
 \item \texttt{OrderedDictionary} 根据索引排序的字典
 \item \texttt{StringCollection} 字符串集合
 \item \texttt{StringDictionary} 将键和值强类型化为字符串的哈希表
@@ -299,9 +299,9 @@ public LinkedListNode<T> Last { get; }
 \end{frame}
 
 \begin{frame}
-\frametitle{IEnumerator 和~ IEnumerable 接口}
+\frametitle{IEnumerator 和 IEnumerable 接口}
 
-主要用于对集合进行迭代，如~\texttt{foreach} 循环等。
+主要用于对集合进行迭代，如\texttt{foreach} 循环等。
 \vskip8pt
 
 IEnumerator:
@@ -322,8 +322,8 @@ IEnumerable:
 \end{frame}
 
 \begin{frame}
-\frametitle{IEnumerator$<$T$>$ 和~ IEnumerable$<$T$>$ 接口}
-在命名空间~System.Collections.Generic 中
+\frametitle{IEnumerator$<$T$>$ 和 IEnumerable$<$T$>$ 接口}
+在命名空间System.Collections.Generic 中
 \vskip8pt
 
 IEnumerator$<$T$>$:
@@ -343,8 +343,8 @@ IEnumerable:
 \begin{frame}[fragile]
 \frametitle{迭代器 (\textit{Iterators})}
 \begin{itemize}
-\item 用于简化 ~IEnumerable 和 ~IEnumerator
-\item 使用 ~\texttt{yield return} 返回 ~IEnumerator 对象
+\item 用于简化 IEnumerable 和 IEnumerator
+\item 使用 \texttt{yield return} 返回 IEnumerator 对象
 \end{itemize}
 
 \lstset{emph={yield}}
@@ -369,8 +369,8 @@ class MyClass:IEnumerable {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{多条 ~\texttt{yield} 语句}
-\CJKindent 关键字 ~\texttt{yield} 自动构造 ~IEnumerator 对象，可使用多次：
+\frametitle{多条 \texttt{yield} 语句}
+\CJKindent 关键字 \texttt{yield} 自动构造 IEnumerator 对象，可使用多次：
 \begin{lstlisting}
 using System;
 using System.Collections;
@@ -392,7 +392,7 @@ class MyClass:IEnumerable {
 
 \begin{frame}[fragile]
 \frametitle{终止迭代器}
-使用 ~\texttt{yield break} 可以终止迭代器继续进行
+使用 \texttt{yield break} 可以终止迭代器继续进行
 \begin{lstlisting}
 ...
   public IEnumerator GetEnumerator() {
@@ -411,7 +411,7 @@ class MyClass:IEnumerable {
 
 \begin{frame}[fragile]
 \frametitle{命名迭代器}
-通过定义返回 ~IEnumerable 类型的方法来实现：
+通过定义返回 IEnumerable 类型的方法来实现：
 \begin{lstlisting}
 public class List
 {
@@ -438,7 +438,7 @@ public class List
 
 \begin{block}{\textit{LINQ}}
   \CJKindent 语言集成查询(\textit{Language INtegrated Query}) 是一组技术的名
-  称，建立在将查询功能直接集成到~.NET 语言的基础上。
+  称，建立在将查询功能直接集成到.NET 语言的基础上。
 \end{block}
 
 \begin{itemize}
@@ -455,7 +455,7 @@ public class List
 \begin{frame}[fragile]
 \frametitle{LINQ 表达式}
 \begin{itemize}
-\item 类似于~SQL 语句的查询表达式
+\item 类似于SQL 语句的查询表达式
 \end{itemize}
 \begin{lstlisting}
 static void Main(string[] args) {
@@ -495,7 +495,7 @@ static void Main(string[] args) {
 \end{lstlisting}
 \pause
 
-即使用静态类~System.Linq.Enumerable 的三个扩展方法
+即使用静态类System.Linq.Enumerable 的三个扩展方法
 \begin{lstlisting}
 var query = Enumerable.Select(
             Enumerable.OrderBy(
@@ -507,9 +507,9 @@ var query = Enumerable.Select(
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{Enumerable~的扩展方法}
+\frametitle{Enumerable的扩展方法}
 
-\CJKindent 其中用到的是静态类~System.Linq.Enumerable 中对接口 IEnumerable$<$T$>$ 的几个扩展方法
+\CJKindent 其中用到的是静态类System.Linq.Enumerable 中对接口 IEnumerable$<$T$>$ 的几个扩展方法
 
 \lstset{emph={[2]Where,OrderBy,Select}}
 \begin{lstlisting}
@@ -558,8 +558,8 @@ static void QueryOverInts()
 \begin{frame}[fragile]
 \frametitle{强制立即执行}
 \begin{itemize}
-\item 对查询表达式取值，触发~LINQ 的执行
-\item 也可以通过~ToArray$<$T$>$() 或~ToList$<$T$>$() 等方法
+\item 对查询表达式取值，触发LINQ 的执行
+\item 也可以通过ToArray$<$T$>$() 或ToList$<$T$>$() 等方法
 \begin{lstlisting}[escapeinside='']
 static void ImmediateExecution()
 { int[] numbers = { 10, 20, 30, 40, 1, 2, 3, 8 };
@@ -587,7 +587,7 @@ static void ImmediateExecution()
 
 \begin{frame}[fragile]
 \frametitle{StringBuilder 类}
-可变字符串类~ StringBuilder：
+可变字符串类 StringBuilder：
 \begin{lstlisting}
 public sealed class StringBuilder {
   public method StringBuilder();  
@@ -639,7 +639,7 @@ public sealed class StringBuilder {
 \frametitle{正则表达式}
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
-\item 位于 ~System.Text.RegularExpressions 命名空间
+\item 位于 System.Text.RegularExpressions 命名空间
 \item 常用的类
 \begin{itemize}
 \setlength{\itemsep}{6pt plus 1pt}
@@ -695,7 +695,7 @@ public class List
 \verb|\s|             & 匹配任何空白字符                                   \\
 \verb|\w|             & 匹配任何单词                                       \\
 \verb|\d|             & 匹配一个数字                                       \\
-\verb|\cC|            & 匹配控制字符 ~Ctrl-C                               \\
+\verb|\cC|            & 匹配控制字符 Ctrl-C                               \\
 \hline
 \end{tabular}
 \end{frame}
@@ -706,9 +706,9 @@ public class List
 \hline
 分组                                         & 使用方式                                       \\
 \hline
-\verb|(|\dots\verb|)|                        & 通过数字 ~\verb|\N| 引用                       \\
-                                             & 例如 ~\verb|(\w)\s+\1|                         \\
-\verb|(?<|\textit{name}\verb|>|\dots\verb|)| & 通过名字 ~\verb|\k<|\textit{name}\verb|>| 引用 \\
+\verb|(|\dots\verb|)|                        & 通过数字 \verb|\N| 引用                       \\
+                                             & 例如 \verb|(\w)\s+\1|                         \\
+\verb|(?<|\textit{name}\verb|>|\dots\verb|)| & 通过名字 \verb|\k<|\textit{name}\verb|>| 引用 \\
                                              & 例如 \verb|(?<word>\w)\s+\k<word>|             \\
 \hline
 \hline
@@ -721,7 +721,7 @@ public class List
 \medskip
 \begin{lstlisting}[escapeinside='']
 String ChangeDateFormat(String input)
-{ // '将 ~mm/dd/yyyy 替换为 ~yyyy-mm-dd 格式'
+{ // '将 mm/dd/yyyy 替换为 yyyy-mm-dd 格式'
 return Regex.Replace(input,
 @"\b(?<month>\d{1,2})/(?<day>\d{1,2})/(?<year>\d{2,4})\b",
 "${year}-${month}-${day}");
@@ -740,7 +740,7 @@ Regex x1 = new Regex(p1);
 string r1 = x1.Replace(t1, "$3$2$1", 1);
        // "quick the brown fox"
 \end{lstlisting}
-\item 匹配~ "keyword = value" 模式
+\item 匹配 "keyword = value" 模式
 \begin{lstlisting}
 string t2 = "myval = 3";
 string p2 = @"(\w+)\s*=\s*(.*)\s*$";
@@ -752,7 +752,7 @@ Match m2 = Regex.Match(t2, p2);
 \begin{frame}[fragile]
 \frametitle{正则表达式示例}
 \begin{itemize}
-\item 匹配至少 ~40 字符的行
+\item 匹配至少 40 字符的行
 \begin{lstlisting}
 string t3 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 string p3 = ".{40,}";
@@ -793,7 +793,7 @@ string r4 = Regex.Replace(t4,
 \begin{frame}[fragile]
 \frametitle{正则表达式示例}
 \begin{itemize}
-\item 查找 ~HTML 中的~URL 链接
+\item 查找 HTML 中的URL 链接
 \end{itemize}
 \begin{lstlisting}[escapeinside=!!]
 string t7 = @"

@@ -3,7 +3,7 @@
 \section{.NET 开发工具}
 
 \begin{frame}[fragile]
-\frametitle{传统的 ~Windows 开发}
+\frametitle{传统的 Windows 开发}
 
 \CJKindent 创建并显示一个窗口：
 
@@ -54,19 +54,19 @@ form1.Show();
 \item Visual C\# .NET  \par
   \smallskip \small .NET 平台首推的开发语言
 \item Visual Basic .NET \par
-  \smallskip \small 方便 ~VB 程序员进行 ~.NET 开发
+  \smallskip \small 方便 VB 程序员进行 .NET 开发
 \item Visual C++ .NET (Managed C++) \par
-  \smallskip \small 同时利用 ~C++ 和 .NET 平台(类库)
+  \smallskip \small 同时利用 C++ 和 .NET 平台(类库)
 \item Visual J\# .NET (Java) \par
-  \smallskip \small 方便 ~Java 程序员，移植现有 ~Java 项目到 ~.NET 平台
+  \smallskip \small 方便 Java 程序员，移植现有 Java 项目到 .NET 平台
 \item JScript .NET \par
-  \smallskip \small 使用 ~JScript 利用 ~.NET 平台(类库)
+  \smallskip \small 使用 JScript 利用 .NET 平台(类库)
 \end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{.NET 编程语言}
-\framesubtitle{其他可以在 ~.NET 平台编译的语言 }
+\framesubtitle{其他可以在 .NET 平台编译的语言 }
 \begin{columns}[t]
   \column{.28\textwidth}
   \begin{itemize}
@@ -106,7 +106,7 @@ form1.Show();
 \frametitle{.NET 开发工具}
 
 \begin{exampleblock}{\textit{Microsoft .NET Framework Redistributable}}
-  \CJKindent .NET 框架可再发行组件包，包括 ~.NET Framework 应用程序运行所需的库及相关文件。
+  \CJKindent .NET 框架可再发行组件包，包括 .NET Framework 应用程序运行所需的库及相关文件。
 \end{exampleblock}
 \pause
 \begin{exampleblock}{\textit{Software Development Kit (SDK)}}
@@ -123,15 +123,15 @@ form1.Show();
 
 \begin{frame}[t]
 \frametitle{SDK 中的工具 --- \textit{csc}}
-\begin{exampleblock}{C\# 编译器 ~csc.exe}
+\begin{exampleblock}{C\# 编译器 csc.exe}
   \begin{tabular}{l|l}
     \hline
     \multicolumn{1}{c|}{Option}      & \multicolumn{1}{c}{Description}                  \\\hline
     \texttt{/help}                   & 列出所有命令行选项                               \\
     \texttt{/define:\textsl{symbol}} & 定义编译预处理符号                               \\
-    \texttt{/doc:\textsl{name}}      & 从源码 ~XML 注释中生成 ~XML 文档                 \\
+    \texttt{/doc:\textsl{name}}      & 从源码 XML 注释中生成 XML 文档                 \\
     \texttt{/out:\textsl{name}}      & 输出文件名                                       \\
-    \texttt{/target:\textsl{target}} & 输出文件格式 ~{\small exe/winexe/library/module} \\
+    \texttt{/target:\textsl{target}} & 输出文件格式 {\small exe/winexe/library/module} \\
     \hline
   \end{tabular}
 \end{exampleblock}
@@ -152,7 +152,7 @@ form1.Show();
 
 \begin{frame}[fragile,t]
 \frametitle{SDK 中的工具 --- \textit{ildasm}}
-\begin{exampleblock}{MSIL 的反编译工具 ~ildasm.exe}
+\begin{exampleblock}{MSIL 的反编译工具 ildasm.exe}
   \uncover<1-| handout:1>{  \texttt{csc /target:exe     /out:Hello.exe MyHello.cs}\\}
   \uncover<2-| handout:1>{  \texttt{ildasm Hello.exe}\\
   }
@@ -196,9 +196,9 @@ class Hello
 \begin{itemize}
     \setlength{\itemsep}{8pt plus 1pt}
 \item 多种开发语言共存，使用同样的开发方式
-\item 与 ~MSDN 共享同一个 ~IDE
+\item 与 MSDN 共享同一个 IDE
 \item 动态帮助，代码自动生成
-\item 集成 ~Web 浏览器
+\item 集成 Web 浏览器
 \item 各种设计的图形视图
 \end{itemize}
 \end{frame}

@@ -13,8 +13,8 @@
 \item System.Web.UI.MobileControls --- 智能设备窗体的设计
 \end{itemize}
 \item 各种控件的使用方式灵活，如直接使用或继承后定制
-\item 由于 ~C\# 语言的特点，使图形界面编程非常简单
-\item 方便有效的工具，如 ~Visual Studio 2008 
+\item 由于 C\# 语言的特点，使图形界面编程非常简单
+\item 方便有效的工具，如 Visual Studio 2008 
 \end{itemize}
 \end{frame}
 
@@ -23,7 +23,7 @@
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
 \item 图形界面的编程，就是用利用各种控件类的实例
-\item 由~ CLR 根据控件类型，完成图形界面底层的细节
+\item 由 CLR 根据控件类型，完成图形界面底层的细节
 \item 生成并利用实例的代码，在设计时和运行时是一样的
 \item 直接修改控件的特性，即完成控件的设置
 \item 对事件的响应，可使用事件句柄或覆盖相应的基类方法
@@ -35,7 +35,7 @@
 \begin{itemize}
 \item .NET 中的控件实际就是不同的类
   \begin{itemize}
-  \item 窗体类 ~Form，按钮类 ~Button，文本框类 ~TextBox
+  \item 窗体类 Form，按钮类 Button，文本框类 TextBox
   \end{itemize}
 \item 通过类的成员和方法控制和使用控件
 \begin{lstlisting}
@@ -53,12 +53,12 @@ using System.Drawing;
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{控件基类~(\textit{Control})}
-所有的控件都继承自 ~System.Windows.Forms.Control 类。
+\frametitle{控件基类(\textit{Control})}
+所有的控件都继承自 System.Windows.Forms.Control 类。
 \begin{itemize}
 \item Control 类主要用于实现控件的基本功能
-\item Control 类有 ~200 多个成员，其中包括各种特性和事件
-\item 通过 ~Control 类，控件之间可以共享相同的行为
+\item Control 类有 200 多个成员，其中包括各种特性和事件
+\item 通过 Control 类，控件之间可以共享相同的行为
 \item 也可以通过{\redwarn 覆盖}(\textit{override})，实现自己的不同行为
 \end{itemize}
 \begin{figure}[htbp]
@@ -83,7 +83,7 @@ using System.Drawing;
 \begin{frame}[fragile]
 \frametitle{窗体类(\textit{Form})}
 \begin{itemize}
-\item 直接使用 ~Form 类的实例
+\item 直接使用 Form 类的实例
 \item \cmd{csc /t:winexe form.cs}
 \end{itemize}
 \begin{columns}[t]
@@ -116,8 +116,8 @@ class test
 \begin{frame}[fragile]
 \frametitle{继承窗体类}
 \begin{itemize}
-\item 通过继承，可以扩展现有控件，自己定制 ~(\textit{Customize})
-\item 例如，派生的 ~MyForm 窗体，包含一个 ~TextBox 成员：
+\item 通过继承，可以扩展现有控件，自己定制 (\textit{Customize})
+\item 例如，派生的 MyForm 窗体，包含一个 TextBox 成员：
 \lstset{emph={MyForm}}
 \begin{lstlisting}
 class MyForm : Form {
@@ -142,7 +142,7 @@ class MyForm : Form {
 \frametitle{控件之间的关系}
 \begin{itemize}
 \item 仅仅作为成员的控件，CLR 无法显示出来
-\item 需要将其放入~Form 的{\redwarn 控件容器} ~Controls 中
+\item 需要将其放入Form 的{\redwarn 控件容器} Controls 中
 \item 通过控件容器，实现了控件之间的容纳关系
 \end{itemize}
 \begin{columns}[t]
@@ -160,8 +160,8 @@ class MyForm : Form {
 \frametitle{控件容器}
 \begin{itemize}
 \item System.Windows.Forms.Control.ControlCollection 的实例
-\item 实现了 ~ICollection, IList, IEnumerable 等接口
-\item 使用 ~Add, Remove 的方法，添加、删除控件
+\item 实现了 ICollection, IList, IEnumerable 等接口
+\item 使用 Add, Remove 的方法，添加、删除控件
 \end{itemize}
 \begin{lstlisting}
   // init button1 and groupBox1, then 
@@ -178,7 +178,7 @@ class MyForm : Form {
 \frametitle{访问控件}
 \begin{itemize}
 \item 使用成员变量，直接访问控件的实例
-\item 通过控件的 ~Controls 容器，逐个遍历
+\item 通过控件的 Controls 容器，逐个遍历
 \end{itemize}
 \begin{lstlisting}
 class MyForm : Form {
@@ -202,7 +202,7 @@ class MyForm : Form {
 \frametitle{修改控件行为}
 \begin{itemize}
 \item 修改控件上默认的方法来修改默认行为
-\item 扩展的 ~NumericTextBox 只能输入数字
+\item 扩展的 NumericTextBox 只能输入数字
 \end{itemize}
 \lstset{emph={override}}
 \begin{lstlisting}
@@ -221,9 +221,9 @@ public class NumericTextBox : TextBox
 \end{frame}
 
 \begin{frame}
-\frametitle{使用~ Visual Studio}
+\frametitle{使用 Visual Studio}
 \begin{itemize}
-\item 使用 ~Visual Studio 进行图形界面的设计非常方便
+\item 使用 Visual Studio 进行图形界面的设计非常方便
 \item 可以通过拖动控件的方式完成设计，修改属性也很方便
 \item Visual Studio 中用于图形设计的新项目模板
 \begin{itemize}
@@ -260,7 +260,7 @@ public class NumericTextBox : TextBox
 \begin{frame}
 \frametitle{智能标签}
 \begin{itemize}
-\item Visual Studio 还为部分控件提供了智能标签~(\textit{Smart Tag})
+\item Visual Studio 还为部分控件提供了智能标签(\textit{Smart Tag})
 \item 提供了一些简单任务的快捷方式，直接编辑
 \end{itemize}
 \begin{figure}[htbp]
@@ -272,7 +272,7 @@ public class NumericTextBox : TextBox
 \begin{frame}
 \frametitle{自动生成的代码}
 \begin{itemize}
-\item 当创建一个 ~Windows Application 后，Visual Studio 会自动生成三个源码文件
+\item 当创建一个 Windows Application 后，Visual Studio 会自动生成三个源码文件
 \begin{itemize}
 \item Program.cs --- 程序的入口函数所在文件
 \item Form1.Designer.cs --- 主窗口的派生类，及各种控件的初始化
@@ -288,7 +288,7 @@ public class NumericTextBox : TextBox
 \begin{frame}[fragile]
 \frametitle{自动生成的组件代码}
 \begin{itemize}
-\item 使用 ~InitializeComponent 方法放置组件初始化的代码
+\item 使用 InitializeComponent 方法放置组件初始化的代码
 \end{itemize}
 \lstset{emph={partial,InitializeComponent}}
 \begin{lstlisting}
@@ -315,7 +315,7 @@ namespace TestWin
 \begin{frame}[fragile]
 \frametitle{主函数代码}
 \begin{itemize}
-\item STAThread 表示线程模式，用于和~COM 交互
+\item STAThread 表示线程模式，用于和COM 交互
 \item Application.Run() 开始运行标准应用程序消息循环
 \end{itemize}
 \begin{lstlisting}
@@ -364,7 +364,7 @@ static void Main()
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{处理事件~ --- 覆盖基类方法}
+\frametitle{处理事件 --- 覆盖基类方法}
 通过覆盖基类方法，处理事件
 \lstset{emph={override}}
 \begin{lstlisting}
@@ -383,7 +383,7 @@ public class NumericTextBox : TextBox
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{处理事件~ --- 句柄函数}
+\frametitle{处理事件 --- 句柄函数}
 使用句柄函数处理事件：
 \lstset{emph={Click, clk_handler}}
 \begin{lstlisting}
@@ -447,7 +447,7 @@ BackColor, ForeColor & 前景色和背景色                     \\
 Text                 & 控件相关的文本，如标题、按钮文字等 \\
 Font                 & 默认的字体                         \\
 \hline
-TabIndex, TabStop    & 按 ~TAB 建的顺序和焦点             \\
+TabIndex, TabStop    & 按 TAB 建的顺序和焦点             \\
 MouseButton          & 鼠标的按键                         \\
 MousePosition        & 鼠标的位置                         \\
 Cursor               & 光标的形状                         \\
@@ -458,15 +458,15 @@ Cursor               & 光标的形状                         \\
 \begin{frame}[fragile]
 \frametitle{使用举例}
 \begin{itemize}
-\item 控件的停靠 ~(\textit{Dock})
+\item 控件的停靠 (\textit{Dock})
 \begin{lstlisting}
 TextBox1.Dock = DockStyle.Top;
 \end{lstlisting}
-\item 控件的锚定 ~(\textit{Anchor})
+\item 控件的锚定 (\textit{Anchor})
 \begin{lstlisting}
 Pnl.Anchor = (AnchorStyle.Bottom|AnchorStyle.Left);
 \end{lstlisting}
-\item 设置 ~TAB 键顺序
+\item 设置 TAB 键顺序
 \begin{lstlisting}
 TextBox1.TabIndex = 1;
 Button1.TabIndex  = 2;
@@ -492,8 +492,8 @@ Button2.TabIndex  = 4;
     Dispose()    & 释放所有资源         \\
     Scale()      & 缩放控件和任何子控件 \\
     \hline
-    OnClick()    & 引发~Click事件       \\
-    OnEnter()    & 引发~Enter事件       \\
+    OnClick()    & 引发Click事件       \\
+    OnEnter()    & 引发Enter事件       \\
     \hline
   \end{tabular}
 \end{figure}
@@ -508,7 +508,7 @@ Button2.TabIndex  = 4;
 \begin{lstlisting}
 delegate void EventHandler(object sender, EventArgs e)
 \end{lstlisting}
-其中的~\texttt{EventArgs} 对不同的事件稍有不同：
+其中的\texttt{EventArgs} 对不同的事件稍有不同：
 \begin{figure}[htbp]
   \centering
   \begin{tabular}{l|l}
@@ -541,7 +541,7 @@ delegate void EventHandler(object sender, EventArgs e)
 \hline
 成员特性 & 说明                                             \\  
 \hline
-Button   & 枚举~MouseButtons 的值~Left, Middle, Right, None \\
+Button   & 枚举MouseButtons 的值Left, Middle, Right, None \\
 Clicks   & 鼠标的点击次数                                   \\
 Delta    & 鼠标滚轮旋转次数，正数向前，负数向后             \\
 X, Y     & 鼠标相对于容器的坐标位置，即控件的 MousePosition \\
@@ -584,16 +584,16 @@ void OnMouseLeave(object s, EventArgs e){
 \end{frame}
 
 \begin{frame}
-\frametitle{组件~(\textit{Component})}
+\frametitle{组件(\textit{Component})}
 \begin{itemize}
 \item 窗体上除了可以放置控件之外，还可以使用组件
-\item 组件就是不可见的控件 ~(\textit{invisible controls})
+\item 组件就是不可见的控件 (\textit{invisible controls})
 \begin{itemize}
 \item 显示帮助窗口的组件，系统托盘中显示图标的组件
-\item 定时器 ~Timer，数据库连接 ~SqlConnection
+\item 定时器 Timer，数据库连接 SqlConnection
 \end{itemize}
 \item 组件和控件的使用基本类似，但不占用窗体空间
-\item 在 ~Visual Studio 中显示在设计窗口之下
+\item 在 Visual Studio 中显示在设计窗口之下
 \end{itemize}
 \begin{figure}[htbp]
   \centering
@@ -633,7 +633,7 @@ public class TimerTest {
 \setlength{\itemsep}{6pt plus 1pt}
 \item 一般将组件称为不可见的控件
 \item 但实际，控件是组件的一种，控件类继承自组件类
-\item 组件不需要放入 ~Controls 容器中
+\item 组件不需要放入 Controls 容器中
 \item 组件如果使用了非托管的资源，需要显式的释放
 \item Visual Studio 会自动分配一个组件容器
 \begin{lstlisting}
@@ -674,8 +674,8 @@ private
 \begin{itemize}
 \item 实现 MDI (\textit{Multi-Document Interface}) 窗口非常简单
   \begin{itemize}
-  \item 设置父窗体的 ~IsMdiContainer 为 \texttt{true}
-  \item 设置子窗体的 ~MdiParent 为父窗体即可
+  \item 设置父窗体的 IsMdiContainer 为 \texttt{true}
+  \item 设置子窗体的 MdiParent 为父窗体即可
   \end{itemize}
 \end{itemize}
 \begin{columns}
@@ -703,7 +703,7 @@ Application.Run(f1);
 \begin{columns}
 \column{.5\textwidth}
   \begin{itemize}
-  \item 将控件 ~MenuStrip 拖到窗体
+  \item 将控件 MenuStrip 拖到窗体
   \item 按提示输入想要的菜单项
   \item 选中菜单项，在事件工具栏中选择句柄函数
   \item Visual Studio 自动生成代码
