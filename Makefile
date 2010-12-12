@@ -66,8 +66,8 @@ pull:;	git pull
 
 s:; $(SHOWPDF)
 
-rar:; winrar -m5 a dotnet.rar $(CURRPDF)
-7z:;  7z    -mx9 a dotnet.7z  $(CURRPDF)
+rar:; winrar -m5 a dotnet.rar $(CURRPDF) code
+7z:;  7z    -mx9 a dotnet.7z  $(CURRPDF) code
 
 # DIRNAME = dotnet
 # src:; (cd ..; 7z a $(DIRNAME)-src.7z $(DIRNAME) -xr@$(DIRNAME)/res/srcexclude.txt)
