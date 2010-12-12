@@ -63,6 +63,7 @@ ci:;    git commit -m "$(AUTOCSTR)" .
 
 push:;	git push
 pull:;	git pull
+sync:   pull push
 
 s:; $(SHOWPDF)
 
