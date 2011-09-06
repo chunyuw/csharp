@@ -617,16 +617,16 @@ public static void Main() {
 \begin{frame}[fragile]
 \frametitle{委托的协变 (\textit{Covariance})}
 \begin{lstlisting}
-class Mammal {}
-class Dog : Mammal{}
+class Dog {}
+class Labrador : Dog {}
 
 class Program
-{ public delegate Mammal HandlerMethod();
+{ public delegate Dog HandlerMethod();
 
-  public static Mammal FirstHandler()  
-    { ...; return someMammal; }
-  public static Dog SecondHandler()
-    { ...; return someDog; }
+  public static Dog FirstHandler()  
+    { ...; return aDog; }
+  public static Labrador SecondHandler()
+    { ...; return aLabrador; }
 
   static void Main() 
     {
@@ -640,15 +640,15 @@ class Program
 \begin{frame}[fragile]
 \frametitle{委托的逆变 (\textit{Contravariance})}
 \begin{lstlisting}
-class Mammal{}
-class Dog : Mammal{}
+class Dog {}
+class Chiwawa : Dog {}
  
 class Program
-{ public delegate void HandlerMethod(Dog d);
+{ public delegate void HandlerMethod(Chiwawa c);
  
-  public static void FirstMethod(Mammal elephant)
+  public static void FirstMethod(Dog dog)
     {...}
-  public static void SecondMethod(Dog sheepdogs)
+  public static void SecondMethod(Chiwawa c)
     {...}
  
   static void Main()

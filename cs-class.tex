@@ -361,12 +361,12 @@ class Conversions{
 \frametitle{析构函数(\textit{destructors})}
 析构函数是当对象被清除时被调用的特殊方法。
 \begin{itemize}
-\item 名字：以字符“\verb||”开始的类名，无返回类型
+\item 名字：以字符“\verb|~|”开始的类名，无返回类型
 \begin{lstlisting}[escapeinside=<>]
 class Circle {
   public int R;
   public Circle() { R=1;}
-  Circle() { /* <析构函数体> */  }
+  ~Circle() { /* <析构函数体> */  }
 }
 \end{lstlisting}
   \pause
@@ -386,7 +386,7 @@ public class Person {
     Count++ ;
     Console.WriteLine("total number is: {0}", Count);
   }
-  Person() { if(Count>0) Count--;}
+  ~Person() { if(Count>0) Count--;}
 }
 
 class test{
@@ -776,16 +776,13 @@ class Circle { public int R; }
 
   \CJKindent \small 值类型和引用类型之间的最主要差别就是内存分配。如果没有进行
   初始化，引用类型默认为 null，值类型为 0。
-\pause
 \item 内存释放
 
   \CJKindent \small 变量超出作用域时，值类型自动从栈中释放，而堆中的则不释放，
   根据垃圾自动回收收集。
-\pause
 \item 变量的赋值
 
   \CJKindent \small 值类型之间的赋值，直接复制内容({\redwarn 传值})，而引用类型之间只复制引用值({\redwarn 传引用})。
-\pause
 \end{itemize}
 \begin{lstlisting}[escapeinside=<>]
 struct Circle { public int R; }
