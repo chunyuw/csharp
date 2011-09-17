@@ -455,6 +455,30 @@ Console.WriteLine("file "+e.ChangeType+": "+e.FullPath);
 \end{frame}
 
 
+\begin{frame}[fragile]
+\frametitle{Web访问}
+\begin{itemize}
+\item WebRequest/WebResponse 可以用来处理 HTTP 和 FTP 客户端访问
+\item WebClient 实现了简单的 Web 客户端
+\begin{lstlisting}
+void DownloadFile(string url, string fileName);
+string DownloadString(string url);
+byte[] DownloadData (string url);
+Stream OpenRead (string url);
+byte[] UploadFile (string url, string fileName);
+...
+\end{lstlisting}
+\item WebClient 示例
+\begin{lstlisting}
+WebClient wc = new WebClient();
+wc.Proxy = null;
+wc.DownloadFile("http://localhost:8000/f.txt", "f2.txt");
+System.Diagnostics.Process.Start("f2.txt");
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+
 \section{串行化和反射}
 
 \begin{frame}
