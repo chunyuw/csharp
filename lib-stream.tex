@@ -566,22 +566,23 @@ virtual void EndWrite(IAsyncResult ar);
 
 \begin{frame}[fragile]
 \frametitle{异步 IO 举例}
-\begin{lstlisting}
+\begin{lstlisting}[escapeinside=<>]
 NetworkStream n; byte[] buf; AsyncCallback call;
 void run()
-{ buf = new byte[5];
-  call += callfunc;
+{ buf   = new byte[8]; // <or 256, 1024 \ldots>
+  call += readFunc; 
 
-  using (TcpClient client = new TcpClient(host, 4242))
-  using (n = client.GetStream()){
-    n.BeginRead(buf, 0, 5, call, null);   }
+  using(TcpClient client = new TcpClient(host, 4242))
+  using(n = client.GetStream()){
+    n.BeginRead(buf, 0, buf.Length, call, null);   }
 }
-static void callfunc(IAsyncResult r) {
+static void readFunc(IAsyncResult r) {
   int len = n.EndRead(r);
   if (len > 0) {
-    string s = Encoding.ASCII.GetString(buf, 0, len);
+    string s = Encoding.GetEncoding(
+                       "gbk").GetString(buf, 0, len);
     Console.Write(s);
-    n.BeginRead(buf, 0, 5, call, null);
+    n.BeginRead(buf, 0, buf.Length, call, null);
   }
 }
 \end{lstlisting}
