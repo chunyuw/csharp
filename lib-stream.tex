@@ -483,6 +483,111 @@ System.Diagnostics.Process.Start("f2.txt");
 \end{frame}
 
 
+\begin{frame}[fragile]
+\frametitle{Mail 和 SMTP}
+
+\begin{itemize}
+\item 邮件的使用 SmtpClient
+\end{itemize}
+\begin{lstlisting}
+SmtpClient client = new SmtpClient();
+client.Host = "mail.myisp.net";
+MailMessage mm = new MailMessage();
+
+mm.Sender = new MailAddress ("kay@domain.com", "Kay");
+mm.From   = new MailAddress ("kay@domain.com", "Kay");
+mm.To.Add(  new MailAddress ("bob@domain.com", "Bob"));
+
+mm.Subject  = "Hello!";
+mm.Body     = "Hi there. Here's the photo!";
+mm.IsBodyHtml = false;
+mm.Priority = MailPriority.High;
+
+Attachment a = new Attachment ("photo.jpg",
+             System.Net.Mime.MediaTypeNames.Image.Jpeg);
+mm.Attachments.Add (a);
+client.Send (mm);
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{TCP 和 UDP}
+\begin{itemize}
+\item 客户端 TCP 直接使用 TcpClient 类，连接后得 Stream
+\begin{lstlisting}[escapeinside=<>]
+using(var client = new TcpClient (<address>, <port>))
+using(NetworkStream n = client.GetStream())
+{ // <Read and write to the network stream\ldots>
+}
+\end{lstlisting}
+\item 服务端 TCP 直接使用 TcpListener 类
+\item 通过 AcceptTcpClient 返回 TcpClient 对象
+\begin{lstlisting}[escapeinside=<>]
+TcpListener srv = new TcpListener (<address>, <port>);
+srv.Start();
+
+while(true)
+  using(TcpClient c = listener.AcceptTcpClient())
+  using(NetworkStream n = c.GetStream())
+  { // <Read and write to the network stream\ldots>
+  }
+srv.Stop();
+\end{lstlisting}
+\end{itemize} 
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{异步 IO}
+
+\begin{itemize}
+\item 在异步操作中完成 IO 操作
+\begin{lstlisting}
+public delegate void AsyncCallback(IAsyncResult ar);
+\end{lstlisting}
+\item Stream 的异步操作支持
+\begin{lstlisting}
+virtual IAsyncResult BeginRead(
+     byte[] buffer, int offset, int count, 
+          AsyncCallback callback, Object state );
+
+virtual int EndRead(IAsyncResult ar);
+\end{lstlisting}
+\begin{lstlisting}
+virtual IAsyncResult BeginWrite(
+     byte[] buffer, int offset, int count,
+          AsyncCallback callback, Object state );
+
+virtual void EndWrite(IAsyncResult ar);
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{异步 IO 举例}
+\begin{lstlisting}
+NetworkStream n; byte[] buf; AsyncCallback call;
+void run()
+{ buf = new byte[5];
+  call += callfunc;
+
+  using (TcpClient client = new TcpClient(host, 4242))
+  using (n = client.GetStream()){
+    n.BeginRead(buf, 0, 5, call, null);   }
+}
+static void callfunc(IAsyncResult r) {
+  int len = n.EndRead(r);
+  if (len > 0) {
+    string s = Encoding.ASCII.GetString(buf, 0, len);
+    Console.Write(s);
+    n.BeginRead(buf, 0, 5, call, null);
+  }
+}
+\end{lstlisting}
+\end{frame}
+
+
 \section{串行化和反射}
 
 \begin{frame}
