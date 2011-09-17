@@ -354,7 +354,7 @@ ConsoleKeyInfo 提供基本的按键信息，如所按的键值和 \texttt{ALT, 
 
 \begin{frame}[fragile]
 \frametitle{File类}
-\CJKindent 静态类 File，使用绝对或相对文件名管理文件系统。
+静态类 File，使用绝对或相对文件名管理文件系统。
 \begin{lstlisting}
 bool Exists (string path); // true if present
 
@@ -362,7 +362,9 @@ void Delete (string path);
 void Copy (string src, string dst);
 void Move (string src, string dst);
 void Replace (string src, string dst, string bak);
-
+\end{lstlisting}
+除文件操作，也可以修改文件属性等。
+\begin{lstlisting}
 FileAttributes GetAttributes (string path);
 void SetAttributes (string path, FileAttributes attr);
 
@@ -383,12 +385,14 @@ void SetLastWriteTime (string path, DateTime t);
 string filePath = @"c:\temp\test.txt";
 
 FileAttributes fa = File.GetAttributes (filePath);
+
 if((fa & FileAttributes.ReadOnly) > 0)
-{ fa ^= FileAttributes.ReadOnly;
-  File.SetAttributes (filePath, fa); }
+{ 
+  fa ^= FileAttributes.ReadOnly;
+  File.SetAttributes (filePath, fa); 
+}
 
 File.Delete (filePath);
-
 \end{lstlisting}
 \end{frame}
 
@@ -431,7 +435,7 @@ static void Main(string[] args)
 
 static void watcher(object sender, FileSystemEventArgs e)
 {
-Console.WriteLine("file "+e.ChangeType+": "+e.FullPath);
+ Console.WriteLine("file "+e.ChangeType+": "+e.FullPath);
 }
 \end{lstlisting}
 \end{frame}
@@ -444,14 +448,14 @@ Console.WriteLine("file "+e.ChangeType+": "+e.FullPath);
 \begin{itemize}
 \item System.Net
 \begin{itemize}
-\item WebClient, WebResquest, WebResponse, HttpListener, Dns, \ldots
+\item WebClient, WebResquest/WebResponse, Dns, \ldots
 \end{itemize}
 \item System.Net.Socket
 \begin{itemize}
 \item Socket, TcpListener, TcpClient, UdpClient
 \end{itemize}
 \end{itemize}
-\includegraphics[width=8cm]{network-arch}
+\center \includegraphics[width=7cm]{network-arch}
 \end{frame}
 
 
