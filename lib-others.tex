@@ -172,7 +172,7 @@ g.DrawEllipse(new Pen(Color.Blue, 6), 10, 30, 20, 20);
 \begin{lstlisting}[escapeinside=<>]
 Image canvas = new Bitmap(100, 100);
 Graphics g = Graphics.FromImage(canvas);
-g.Clear(Color.FromArgb(255,0,0,0)); // <透明背景>
+g.Clear(Color.FromArgb(0, 0, 0, 0)); // <透明背景>
 g.FillEllipse(Brushes.Red, 6, 60, 60, 60);
 g.DrawBezier(new Pen(Color.Blue, 2),
                         0, 0, 80, 30, 20, 70, 100, 100);
