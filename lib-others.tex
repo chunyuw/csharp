@@ -164,7 +164,18 @@ g.DrawEllipse(new Pen(Color.Red, 6), 10, 10, 20, 20);
 g.SmoothingMode = SmoothingMode.AntiAlias;
 g.DrawEllipse(new Pen(Color.Blue, 6), 10, 30, 20, 20);
 \end{lstlisting}
-\includegraphics[width=4cm]{gdi-antialias}
+  \begin{columns}
+    \column{.45\textwidth}
+  \includegraphics[width=4cm]{gdi-antialias}
+    \column{.54\textwidth}
+\begin{itemize}
+\item Graphics.SmoothingMode
+\item Graphics.CompositingMode
+\item Graphics.CompositingQuality
+\item Graphics.TextContrast
+\item Graphics.TextRenderingHint
+\end{itemize}
+  \end{columns}
 \end{frame}
 
 \begin{frame}[fragile]
