@@ -353,8 +353,8 @@ ConsoleKeyInfo 提供基本的按键信息，如所按的键值和 \texttt{ALT, 
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{File类}
-静态类 File，使用绝对或相对文件名管理文件系统。
+\frametitle{File 类}
+静态类 File，使用绝对或相对文件名管理文件系统：
 \begin{lstlisting}
 bool Exists (string path); // true if present
 
@@ -363,7 +363,7 @@ void Copy (string src, string dst);
 void Move (string src, string dst);
 void Replace (string src, string dst, string bak);
 \end{lstlisting}
-除文件操作，也可以修改文件属性等。
+除文件操作，也可以修改文件属性等：
 \begin{lstlisting}
 FileAttributes GetAttributes (string path);
 void SetAttributes (string path, FileAttributes attr);
@@ -377,6 +377,22 @@ void SetLastWriteTime (string path, DateTime t);
 \end{lstlisting}
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{File 类}
+直接读取文件内容：
+\begin{lstlisting}
+byte[]   ReadAllBytes(string path);
+string[] ReadAllLines(string path, Encoding e);
+string   ReadAllText (string path, Encoding e);
+IEnumerable<string> ReadLines(string path, Encoding e);
+\end{lstlisting}
+直接向文件写入内容：
+\begin{lstlisting}
+void WriteAllbytes(string path, byte[] buf);
+void WriteAllLines(string path, IEnumerable<str> c);
+void WriteAllText (string path, string content)
+\end{lstlisting}
+\end{frame}
 
 \begin{frame}[fragile]
 \frametitle{File 类举例}
@@ -401,19 +417,23 @@ File.Delete (filePath);
 \CJKindent FileSystemWatcher 类用于监视文件系统的变化，可以捕获文件的创建、修改、
 删除等事件。
 
-\begin{lstlisting}[escapeinside=<>]
-//<特性>
+\begin{itemize}
+\item 特性
+\begin{lstlisting}
 bool   EnableRaisingEvents;
 bool   IncludeSubdirectories;
 string Filter;
 string Path;
 NotifyFilters NotifyFilter;
-//<事件>
+\end{lstlisting}
+\item 事件
+\begin{lstlisting}
 FileSystemEventHandler Changed;
 FileSystemEventHandler Created;
 FileSystemEventHandler Deleted;
 RenamedEventHandler    Renamed;
 \end{lstlisting}
+\end{itemize}
 \end{frame}
 
 

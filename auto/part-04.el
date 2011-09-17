@@ -6,5 +6,6 @@
      "lib-basic"
      "lib-thread"
      "lib-stream"
-     "lib-forms")))
+     "lib-forms"
+     "lib-others")))
 
