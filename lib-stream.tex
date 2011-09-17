@@ -574,7 +574,8 @@ void run()
 
   using(TcpClient client = new TcpClient(host, 4242))
   using(n = client.GetStream()){
-    n.BeginRead(buf, 0, buf.Length, call, null);   }
+    n.BeginRead(buf, 0, buf.Length, call, null);
+  }
 }
 static void readFunc(IAsyncResult r) {
   int len = n.EndRead(r);
