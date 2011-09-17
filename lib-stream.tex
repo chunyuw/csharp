@@ -350,8 +350,110 @@ ConsoleKeyInfo 提供基本的按键信息，如所按的键值和 \texttt{ALT, 
 \item GetDirectoryName(), GetFullFileName() \dots
 \end{itemize}
 \end{itemize}
-
 \end{frame}
+
+\begin{frame}[fragile]
+\frametitle{File类}
+\CJKindent 静态类 File，使用绝对或相对文件名管理文件系统。
+\begin{lstlisting}
+bool Exists (string path); // true if present
+
+void Delete (string path);
+void Copy (string src, string dst);
+void Move (string src, string dst);
+void Replace (string src, string dst, string bak);
+
+FileAttributes GetAttributes (string path);
+void SetAttributes (string path, FileAttributes attr);
+
+DateTime GetCreationTime (string path); 
+DateTime GetLastAccessTime (string path);
+DateTime GetLastWriteTime (string path);
+void SetCreationTime (string path, DateTime t);
+void SetLastAccessTime (string path, DateTime t);
+void SetLastWriteTime (string path, DateTime t);
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{File 类举例}
+
+\begin{lstlisting}
+string filePath = @"c:\temp\test.txt";
+
+FileAttributes fa = File.GetAttributes (filePath);
+if((fa & FileAttributes.ReadOnly) > 0)
+{ fa ^= FileAttributes.ReadOnly;
+  File.SetAttributes (filePath, fa); }
+
+File.Delete (filePath);
+
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{FileSystemWatcher 类}
+\CJKindent FileSystemWatcher 类用于监视文件系统的变化，可以捕获文件的创建、修改、
+删除等事件。
+
+\begin{lstlisting}[escapeinside=<>]
+//<特性>
+bool   EnableRaisingEvents;
+bool   IncludeSubdirectories;
+string Filter;
+string Path;
+NotifyFilters NotifyFilter;
+//<事件>
+FileSystemEventHandler Changed;
+FileSystemEventHandler Created;
+FileSystemEventHandler Deleted;
+RenamedEventHandler    Renamed;
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{FileSystemWatcher 类举例}
+\begin{lstlisting}
+static void Main(string[] args)
+{
+  var w = new FileSystemWatcher(@"d:\download","*.txt");
+  w.Created += watcher;     w.Deleted += watcher;
+  w.Renamed += (s, e) => 
+    Console.WriteLine("renamed "+e.OldName+"->"+e.Name);
+
+  w.IncludeSubdirectories = true;
+  w.EnableRaisingEvents = true;
+  Console.WriteLine("Now I'm watching...");
+  Console.ReadLine();
+}
+
+static void watcher(object sender, FileSystemEventArgs e)
+{
+Console.WriteLine("file "+e.ChangeType+": "+e.FullPath);
+}
+\end{lstlisting}
+\end{frame}
+
+
+\section{网络}
+
+\begin{frame}
+\frametitle{网络}
+\begin{itemize}
+\item System.Net
+\begin{itemize}
+\item WebClient, WebResquest, WebResponse, HttpListener, Dns, \ldots
+\end{itemize}
+\item System.Net.Socket
+\begin{itemize}
+\item Socket, TcpListener, TcpClient, UdpClient
+\end{itemize}
+\end{itemize}
+\includegraphics[width=8cm]{network-arch}
+\end{frame}
+
 
 \section{串行化和反射}
 
