@@ -5,14 +5,14 @@
 \begin{frame}
 \frametitle{GDI+}
 \begin{block}{\textit{GDI+ (Graphical Device Interface Plus)}}
-  \CJKindent Windows 图形设计界面 (GDI) 的高级实现，可用于创建图形、绘制文本以
+  \CJKindent Windows 图形设计界面(GDI)的高级实现，可用于创建图形、绘制文本以
   及将图形图像作为对象操作，可以在 Windows 窗体和控件上呈现图形图像。
 \end{block}
 
 \begin{itemize}
-\item 目前是在 Windows 窗体应用程序中以编程方式呈现图形的唯一方法
-\item 虽然无法在 Web 窗体直接使用，但可通过 Web 服务器Image控件显示
-\item 所在名字空间
+\item 图形窗口应用程序中以编程方式呈现图形的唯一方法
+\item 无法用在 Web 窗体中，但服务器端 Image 控件可以显示
+\item 名字空间
 
 \begin{itemize}
 \item System.Drawing 
@@ -34,12 +34,14 @@
 \begin{lstlisting}[escapeinside=<>]
 public void Form1_Paint(object s, PaintEventArgs e) 
 {  Graphics g = e.Graphics; <\ldots>  }
+\end{lstlisting}
+\begin{lstlisting}[escapeinside=<>]
 protected override void OnPaint(PaintEventArgs e)
 {  base.OnPaint(e); <\ldots> }
 \end{lstlisting}
 \item 控件的 CreateGraphics() 方法
 \begin{lstlisting}
-   Graphics g = this.CreateGraphics();
+Graphics g = this.CreateGraphics();
 \end{lstlisting}
 \item 从 Image 对象创建
 \begin{lstlisting}[escapeinside=<>]
@@ -70,7 +72,7 @@ g.DrawString(string s, Font f, Brush b, PointF p);
 g.DrawImage(<\ldots>);     g.DrawIcon(<\ldots>);
 \end{lstlisting}
 \item 变换
-\begin{lstlisting}
+\begin{lstlisting}[escapeinside=<>]
 g.RotateTransform(<\ldots>); g.ScaleTransform(<\ldots>);
 \end{lstlisting}
 \end{itemize}
@@ -81,9 +83,9 @@ g.RotateTransform(<\ldots>); g.ScaleTransform(<\ldots>);
 \begin{itemize}
 \item Pen 绘制线条
 \begin{lstlisting}
-  Pen p       = new Pen(Color.Blue, 5);
-  p.DashStyle = DashStyle.Dot;
-  p.EndCap    = LineCap.ArrowAnchor;
+Pen p       = new Pen(Color.Blue, 5);
+p.DashStyle = DashStyle.Dot;
+p.EndCap    = LineCap.ArrowAnchor;
 \end{lstlisting}
 \item Brush 填充图形
 \begin{itemize}
@@ -94,9 +96,9 @@ g.RotateTransform(<\ldots>); g.ScaleTransform(<\ldots>);
 \item PathGradientBrush 自定义的路径和颜色渐变绘制
 \end{itemize}
 \begin{lstlisting}
-  HatchBrush b = new HatchBrush( HatchStyle.Horizontal,
-              Color.Red, Color.FromArgb(128, 255, 255));
-  g.FillEllipse(b, 0, 0, 100, 60);
+HatchBrush b = new HatchBrush(HatchStyle.Horizontal,
+           Color.Red, Color.FromArgb(128, 255, 255));
+g.FillEllipse(b, 0, 0, 100, 60);
 \end{lstlisting}
 \end{itemize}
 \end{frame}
@@ -131,7 +133,7 @@ Color color2 = Color.FromArgb(128, 255, 0, 0); //<半透明>
   gp.AddBezier(p1,p2,p3,p4);
   g.DrawPath(Pens.Red, gp);
 \end{lstlisting}
-\includegraphics[width=6cm]{gdi-bezier}
+\includegraphics[width=4cm]{gdi-bezier}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -150,7 +152,7 @@ g.FillRegion(Brushes.Blue, r2);
 r1.Intersect(r2);
 g.FillRegion(Brushes.Yellow, r1);
 \end{lstlisting}
-\includegraphics[width=4cm]{gdi-range}
+\includegraphics[width=3.5cm]{gdi-range}
 \end{frame}
 
 
@@ -162,7 +164,7 @@ g.DrawEllipse(new Pen(Color.Red, 6), 10, 10, 20, 20);
 g.SmoothingMode = SmoothingMode.AntiAlias;
 g.DrawEllipse(new Pen(Color.Blue, 6), 10, 30, 20, 20);
 \end{lstlisting}
-\includegraphics[width=6cm]{gdi-antialias}
+\includegraphics[width=4cm]{gdi-antialias}
 \end{frame}
 
 \begin{frame}[fragile]
