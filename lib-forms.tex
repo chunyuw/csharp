@@ -54,7 +54,7 @@ using System.Drawing;
 
 \begin{frame}[fragile]
 \frametitle{控件基类(\textit{Control})}
-所有的控件都继承自 System.Windows.Forms.Control 类。
+所有的控件都继承 System.Windows.Forms.Control 类。
 \begin{itemize}
 \item Control 类主要用于实现控件的基本功能
 \item Control 类有 200 多个成员，其中包括各种特性和事件
@@ -632,7 +632,7 @@ public class TimerTest {
 \begin{itemize}
 \setlength{\itemsep}{6pt plus 1pt}
 \item 一般将组件称为不可见的控件
-\item 但实际，控件是组件的一种，控件类继承自组件类
+\item 但实际，控件是组件的一种，控件类继承了组件类
 \item 组件不需要放入 Controls 容器中
 \item 组件如果使用了非托管的资源，需要显式的释放
 \item Visual Studio 会自动分配一个组件容器

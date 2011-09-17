@@ -67,7 +67,7 @@ public class SamplesStack  {
 
 \begin{frame}
 \frametitle{ICollection 接口}
-ICollection 继承自 IEnumerable，提供了基本的集合操作。
+ICollection 继承了 IEnumerable，提供了基本的集合操作。
 \begin{itemize}
 \setlength{\itemsep}{8pt plus 1pt}
 \item 特性
@@ -85,7 +85,7 @@ ICollection 继承自 IEnumerable，提供了基本的集合操作。
 
 \begin{frame}[fragile]
 \frametitle{IList 接口}
-IList 接口继承自 ICollection，提供了基于索引的操作方式。
+IList 接口继承了 ICollection，提供了基于索引的操作方式。
 \begin{itemize}
 \item 索引器： \texttt{object this[int idx] \{ get; set; \}}
 \begin{lstlisting}
@@ -109,7 +109,7 @@ myAL[0] = "Hello"; myAL[1] = 123;
 
 \begin{frame}
 \frametitle{IDictionary 接口}
-\CJKindent IDictionary 接口继承自 ICollection，提供了基于键 (\textit{key}) 的索引方式。
+\CJKindent IDictionary 接口继承了 ICollection，提供了基于键 (\textit{key}) 的索引方式。
 \begin{itemize}
 \item 索引器：
   \begin{itemize}
