@@ -133,7 +133,7 @@ Color color2 = Color.FromArgb(128, 255, 0, 0); //<半透明>
   gp.AddBezier(p1,p2,p3,p4);
   g.DrawPath(Pens.Red, gp);
 \end{lstlisting}
-\includegraphics[width=4cm]{gdi-bezier}
+\centering \includegraphics[width=4cm]{gdi-bezier}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -152,7 +152,7 @@ g.FillRegion(Brushes.Blue, r2);
 r1.Intersect(r2);
 g.FillRegion(Brushes.Yellow, r1);
 \end{lstlisting}
-\includegraphics[width=3.5cm]{gdi-range}
+\centering \includegraphics[width=3.5cm]{gdi-range}
 \end{frame}
 
 
@@ -166,7 +166,7 @@ g.DrawEllipse(new Pen(Color.Blue, 6), 10, 30, 20, 20);
 \end{lstlisting}
   \begin{columns}
     \column{.45\textwidth}
-  \includegraphics[width=4cm]{gdi-antialias}
+\centering   \includegraphics[width=4cm]{gdi-antialias}
     \column{.54\textwidth}
 \begin{itemize}
 \item Graphics.SmoothingMode
@@ -189,7 +189,7 @@ g.DrawBezier(new Pen(Color.Blue, 2),
                         0, 0, 80, 30, 20, 70, 100, 100);
 canvas.Save(@"d:\dotnet\gdi-image.png", ImageFormat.Png);
 \end{lstlisting}
-\includegraphics[width=2.5cm]{gdi-image}
+\centering \includegraphics[width=2.5cm]{gdi-image}
 \end{frame}
 
 % \section{其他类库}

@@ -242,15 +242,15 @@ Content-Length: length
 \CJKindent
 \item 概念和体系结构
 
-  描述了 CLI 的体系结构，公共类型系统 (CTS)、虚拟执行系统 (VES)和公共语言规范 (CLS)的标准。\pause
+  描述了 CLI 的体系结构，公共类型系统 (CTS)、虚拟执行系统 (VES)和公共语言规范 (CLS)的标准。
 
 \item 元数据的定义和语法
 
-  元数据的标准化定义：文件中的物理布局、逻辑内容，以及针对编译器的语法结构。\pause
+  元数据的标准化定义：文件中的物理布局、逻辑内容，以及针对编译器的语法结构。
 
 \item 公共中间语言(CIL)的指令集
 
-  类似汇编语言的指令集，指令的语法结构。\pause
+  类似汇编语言的指令集，指令的语法结构。
 
 \item 相关文件和库
 \item 针对调试的中间格式
@@ -264,6 +264,8 @@ Content-Length: length
 \begin{frame}
 \frametitle{Microsoft .NET Framework}
 \framesubtitle{功能丰富的开发平台}
+
+\centering \includegraphics[width=4cm]{logo-dn}
 
 \CJKindent 对开发人员来说 .NET 一般就是 .NET Framework，.NET Framework SDK 和 Visual Studio .NET
 三个方面。
@@ -397,10 +399,13 @@ Content-Length: length
 
 \only<.| handout:0>{
 \begin{itemize}
-\item<.-> 并行扩展，PLINQ
+\item<.-> DLR, 并行扩展，PLINQ
 \item<.-> IronPython, IronRuby, F\# 的完整支持
-\item<.-> $\cdots \cdots \cdots \cdots$
 \end{itemize}}
+\item Framework 4.5 Preview (2011-9-13)
+\begin{itemize}
+\item HTML5, Metro界面(Win8), Windows Phone...
+\end{itemize}
 \end{itemize}
 
 \column{.41\textwidth}
@@ -408,7 +413,6 @@ Content-Length: length
 \centerline{\includegraphics[width=4cm]{otl-dotnet}}
 \end{figure}
 \end{columns}
-
 \end{frame}
 
 
@@ -431,8 +435,8 @@ Content-Length: length
 \item<3-| handout:1> 提供多种语言都支持的\alert<3| handout:0>{公共类型系统}，定义如何声
   明和管理 CLR 中的类型
 \item<4-| handout:1> 支持跨语言集成，允许不同语言之间的交互
-\item<5-| handout:1> 管理类型系统的安全，管理组件的安全
-\item<6-| handout:1> 负责访问其他系统资源，提供 Win32 API, COM 等访问接口
+\item<4-| handout:1> 管理类型系统的安全，管理组件的安全
+\item<4-| handout:1> 访问其他系统资源，提供 Win32 API, COM 等访问接口
 \end{itemize}
 
 % \begin{itemize}
@@ -454,11 +458,12 @@ Content-Length: length
   别的信息，即元数据 (\textit{metadata})。
 \end{block}
 
+\pause
 \begin{itemize}
-\item<2-| handout:1> 托管代码的运行受 CLR 控制，如内存分配、类型检查、安全验证、垃圾回收等
-\item<3-| handout:1> 由公共语言运行时的垃圾回收器进行分配和释放的数据，称为托管数据
-\item<4-| handout:1> 默认情况下，所有 C\#, Visual Basic.NET 和 JScript.NET 代码都是托管代码
-\item<5-| handout:1> Visual Studio.NET C++ 默认情况下不是，但通过编译器命令行开关 (\texttt{/CLR})，也可以生成托管代码
+\item 托管代码的运行受 CLR 控制，如内存分配、类型检查、安全验证、垃圾回收等
+\item 由公共语言运行时的垃圾回收器进行分配和释放的数据，称为托管数据
+\item 默认情况下，所有 C\#, Visual Basic.NET 和 JScript.NET 代码都是托管代码
+\item Visual Studio.NET C++ 默认情况下不是，但通过编译器命令行开关 (\texttt{/CLR})，也可以生成托管代码
 \end{itemize}
 \end{frame}
 
@@ -678,8 +683,8 @@ Content-Length: length
 \end{block}
 \pause
 \begin{itemize}
-\item 程序集可以有一个或多个文件 \pause
-\item 程序集都有一个{\color<handout:0>{red!65!black}清单} (\textit{manifest}{}) \pause
+\item 程序集可以有一个或多个文件
+\item 程序集都有一个{\color<handout:0>{red!65!black}清单} (\textit{manifest}{})
 \item 清单描述程序集的内容信息
   \begin{enumerate}
   \item 程序集的名字
@@ -824,13 +829,13 @@ Content-Length: length
 \frametitle{命名空间的结构}
 
 \begin{itemize}
-\item<1-| handout:1> 类库是通过{\color<handout:0>{red!60!black}命名空间} (\textit{namespace})构成的树形结构
-\item<2-| handout:1> 命名空间 \texttt{System} 是树形结构的根
-\item<3-| handout:1> 命名空间下可以有{\color<handout:0>{red!60!black}子命名空间}或{\color<handout:0>{red!60!black}类}
-\item<4-| handout:1> 用``\textbf{\texttt{.}}''连接，构成命名空间或类库的完整名字 \\ 如 \texttt{System.Data.DataSet}
+\item 类库是通过{\color<handout:0>{red!60!black}命名空间} (\textit{namespace})构成的树形结构
+\item 命名空间 \texttt{System} 是树形结构的根
+\item 命名空间下可以有{\color<handout:0>{red!60!black}子命名空间}或{\color<handout:0>{red!60!black}类}
+\item 用``\textbf{\texttt{.}}''连接，构成命名空间或类库的完整名字 \\ 如 \texttt{System.Data.DataSet}
 \end{itemize}
 
-\begin{onlyenv}<1-| handout:1>
+\begin{onlyenv}
   \begin{figure}[h] \label<1| handout:1>{fig:fcl-namespaces} \centering
     \input{pgf/fcl-namespaces}
   \end{figure}
@@ -841,7 +846,6 @@ Content-Length: length
 \frametitle{System 命名空间}
 
 \CJKindent \texttt{\textbf{System}} 是整个类库的根，除了容纳大量的子空间之外，还有很多基本的对象和类型
-\pause
 \begin{itemize}
 \item CTS 定义的基本数据类型
   \begin{itemize}
@@ -849,14 +853,10 @@ Content-Length: length
   \item 引用类型，如 \texttt{Array}, \texttt{Delegate} 等等
   \item 所有对象的基类 \texttt{System.Object}
   \end{itemize}
-\pause
 \item \texttt{\textbf{System.Console}} 类，提供控制台（字符界面）的输入输出功能，如 \texttt{WriteLine()},
   \texttt{ReadLine()}等
-\pause
 \item \texttt{\textbf{System.Math}} 类，各种数学函数运算，如 \texttt{Sqrt()}, \texttt{Sin()}, \texttt{Ceiling()}, \texttt{Log()}等
-\pause
 \item \texttt{\textbf{System.Enviroment}} 类，用于提供当前运行环境信息，如操作系统、当前目录、内存使用量等
-\pause
 \item \texttt{\textbf{System.Random}} 类，用于产生随机数
 
 \end{itemize}
@@ -871,18 +871,15 @@ Content-Length: length
 
   \small 基本的输入输出，文件、目录以及内存数据流的访问。
   \smallskip
-\pause
 \item \texttt{\textbf{System.Net}} --- 网络数据的访问    \smallskip
 
   \small 使用各种网络协议 HTTP, FTP, Mail, 基本的 Socket 等进行网络数据通信，简化了
   网络应用程序的开发。
   \smallskip
-\pause
 \item \texttt{\textbf{System.Text}} --- 文本处理    \smallskip
 
   \small 提供不同编码文本之间的转换功能，文本处理功能，正则表达式搜索及匹配文本等等。
   \smallskip
-\pause
 \item \texttt{\textbf{System.Data}} --- ADO.NET 的基础    \smallskip
 
   \small 实现了 ADO.NET 的类库，用于访问各种数据源，如

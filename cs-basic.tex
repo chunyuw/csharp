@@ -59,22 +59,17 @@
 % \item 与 C 族语言类似(C/C++/Java)
 %   \pause
 \item 标识符区分大小，不能以数字开始
-  \pause
 \item 变量可以随时声明，用 new 关键字创建类的实例
 \begin{lstlisting}
 int    a = 10;
 Circle b = new Circle();
 \end{lstlisting}
-  \pause
 \item 注释有三种风格
 \begin{lstlisting}
 /* multi-line comments */
 // single-line comments
 /// <summary> XML comments </summary>
 \end{lstlisting}
-
-  \pause
-
 \item  通过XML注释，可自动生成程序文档
   \cmd{csc /doc:doc.xml source.cs}
 
@@ -91,13 +86,12 @@ Circle b = new Circle();
 \begin{frame}[fragile]
 \frametitle{C\# 程序示例}
 \begin{itemize}
-\item<1-| handout:1> 所有程序逻辑和数据必须包含在类型中，没有全局变量
+\item 所有程序逻辑和数据必须包含在类型中，没有全局变量
 
-\item<1-| handout:1> 通过 using 使用系统类库
+\item 通过 using 使用系统类库
 
-\item<1-| handout:1> 可执行文件必须有一个 \texttt{Main()} 方法，并用 \texttt{static} 修饰
+\item 可执行文件必须有一个 \texttt{Main()} 方法，并用 \texttt{static} 修饰
 
-  \begin{uncoverenv}<2-| handout:1>
 \begin{lstlisting}
 using System;
 class MyFirstCSharpClass
@@ -110,7 +104,6 @@ class MyFirstCSharpClass
   }
 }
 \end{lstlisting}
-  \end{uncoverenv}
 
 \end{itemize}
 \end{frame}
@@ -274,7 +267,7 @@ char.IsLetterOrDigit(s,1);
 \frametitle{字符串}
 % unicode 字符序列
 \begin{itemize}
-\item C\# 中基本的数据类型， Unicode 字符序列\pause
+\item C\# 中基本的数据类型， Unicode 字符序列
 \item 在堆中分配，但使用效果和值类型相似\pause
 \item 使用 ``\texttt{@}'' 字符修饰，表示{\redwarn 逐字串}(\textit{Verbatim String})
 \begin{lstlisting}
@@ -456,7 +449,6 @@ System.Enum 是系统的枚举基类
 \item Enum.Parse() --- 解析字符串为枚举值
 \item Enum.GetName() --- 通过枚举值返回枚举名字字符串
 \end{itemize}
-\pause
 \begin{lstlisting}
   string s = "Green";
   if ( Enum.IsDefined( typeof(Color), s ) )
@@ -586,7 +578,6 @@ int x = unchecked(i*j);
 
 \texttt{\#define, \#undef, \#if, \#else, \#elif, \#endif}
 \cmd{csc /Define:XX hello.cs}
-\pause
 
 \item 产生编译错误或警告
 
@@ -603,7 +594,7 @@ int x = unchecked(i*j);
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{预处理指令(续)}
+\frametitle{预处理指令}
 \begin{itemize}
 \item 定义代码段，用于 Visual Studio 的代码折叠
 
@@ -614,7 +605,6 @@ int x = unchecked(i*j);
   ...
 #endregion
 \end{lstlisting}
-\pause
 
 \item 改变编译器当前的文件名和行号
 
@@ -641,7 +631,6 @@ int x = unchecked(i*j);
     x = -1;
   }
 \end{lstlisting}
-    \pause
   \item 判断条件的值必须是 \texttt{bool} 型的 \texttt{true} 或 \texttt{false}
 \begin{lstlisting}[escapeinside=<>]
   int i = 1;
@@ -704,7 +693,6 @@ switch(Score/10){
 while (condition) { ... }
 do { ... } while (condition);
 \end{lstlisting}
-  \pause
 \item for 循环
 \begin{lstlisting}
 for(int i=0; i<5; i++) { ... }
@@ -788,7 +776,6 @@ public static void Main() {
 \begin{lstlisting}
 try { ... }
 \end{lstlisting}
-  \pause
 \item catch 捕获并处理异常
 \begin{lstlisting}[escapeinside=<>]
 catch (SomeException e) {
@@ -796,7 +783,6 @@ catch (SomeException e) {
 }
 
 \end{lstlisting}
-  \pause
 \item finally 确保必要操作一定会执行
 \begin{lstlisting}
 finally { ... }

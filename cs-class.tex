@@ -68,7 +68,6 @@ public class XXX { ... }
 public class YYY { ... }
 
 \end{lstlisting}
-\pause
 
 \begin{itemize}
 \item 属性也可以对类的成员起作用
@@ -131,7 +130,7 @@ class suspend
 \frametitle{访问修饰符}
 
 {\CJKindent C\# 中通过类或类成员的访问限制，能够完全控制谁能使用类或类的成员。}
-\bigskip \pause
+\bigskip
 
 \begin{tabular}[tb]{l|l}
   \hline 修饰符      & 访问权限                               \\
@@ -143,7 +142,7 @@ class suspend
   public             & 任何程序集中都可以访问                 \\
   \hline
 \end{tabular}
-\bigskip \pause
+\bigskip
 
 \begin{itemize}
 \item 如果省略，默认的访问权限为 internal
@@ -157,7 +156,6 @@ class suspend
   \begin{block}{继承}
     \CJKindent 一个类（派生类）从另一个类（基类）中共享特性和行为的方法。
   \end{block}
-\pause
 
 \begin{lstlisting}[escapeinside=<>]
 class Circle {
@@ -177,11 +175,11 @@ class Ring : Circle {
 \frametitle{类的继承}
   \begin{itemize}
     \setlength{\itemsep}{8pt plus 1pt}
-  \item 建立类的层次结构，公用的功能放在基类\pause
-  \item 代码重用，基类的字段和代码\pause
-  \item 派生类继承基类的所有成员，但基类可以通过 \texttt{private} 限制派生类访问\pause
+  \item 建立类的层次结构，公用的功能放在基类
+  \item 代码重用，基类的字段和代码
+  \item 派生类继承基类的所有成员，但基类可以通过 \texttt{private} 限制派生类访问
   \item C\#只允许单继承，但可实现多个接口(\textit{interface})\par
-\lstinline|public class MyClass:Interface1, Interface2 {...}|\pause
+\lstinline|public class MyClass:Interface1, Interface2 {...}|
   \item 通过\texttt{sealed}修饰的密封类，不能被继承\par
 \lstinline|public sealed class secret {...}|
   \end{itemize}
@@ -310,7 +308,7 @@ Circle.pi = 3.14159265;   // <访问静态变量>
   \CJKindent 构造函数是一个（或多个）特殊的方法，用于初始化对象。可以分为静态构
   造函数和实例构造函数两种。
 \end{block}
-\pause \medskip
+\medskip
 \begin{itemize}
 \item 构造函数名字与类名相同，但无返回类型
 \begin{lstlisting}[escapeinside=<>]
@@ -318,7 +316,7 @@ class Circle { public int R;
   // <初始化为单位圆，实例构造函数>
   public Circle() { R=1;}    }
 \end{lstlisting}
-  \pause \medskip
+\medskip
 \item 静态构造函数(用static修饰)，在加载类时调用，用于初始化静态变量
 \end{itemize}
 \end{frame}
@@ -342,11 +340,9 @@ class Conversions{
   private Constructors() {...}
 }
 \end{lstlisting}
-\pause
 \begin{itemize}
 \item 因为 private 修饰，无法为类创建实例
 \item 一般用于使用静态方法和成员提供服务的类
-\pause
 \item 比如 System.Math 类
 \begin{itemize}
 \item System.Math.PI, System.Math.E   --- 静态成员
@@ -369,9 +365,7 @@ class Circle {
   ~Circle() { /* <析构函数体> */  }
 }
 \end{lstlisting}
-  \pause
 \item 由于 C\# 的自动垃圾回收，一般不需要自己创建析构函数
-  \pause
 \item 构造函数和析构函数的定义都不是必须的
 \end{itemize}
 \end{frame}
@@ -410,12 +404,10 @@ class test{
   \CJKindent 对不同的对象，使用相同的方法进行操作。在同一个类中，定义同一名称的
   多个成员，被重载的成员方法之间的唯一差别就是具有不同的参数类型和个数。
 \end{block}
-\pause
 \begin{itemize}
 \item 索引器、构造函数、操作符都可以重载
 \item 调用时，C\#会根据参数列表的不同自动选择
 \end{itemize}
-\pause
 \begin{lstlisting}[escapeinside=<>]
 class Circle{   public int R;
   public Circle()      { R = 1;}
@@ -429,18 +421,15 @@ class Circle{   public int R;
 \begin{frame}[fragile]
 \frametitle{重载操作符(\textit{operator overload})}
 C\# 可以对操作符重载，和 C++ 中的类似。一般格式为
-\pause
 \begin{lstlisting}
 public static <return_type> operator <op> (<para_list>)
 { ... }
 \end{lstlisting}
-\pause
 \begin{itemize}
 \item 必须使用 public 和 static 修饰
 \item 返回类型不能是 void
 \item 参数个数要匹配
 \end{itemize}
-\pause
 String 类型之间通过 ``+'' 的连接操作，就是一种重载：
 \begin{lstlisting}
 string a = "abc";
@@ -531,7 +520,6 @@ public static ThreeD operator ++(ThreeD op)
 \item 可以分为隐式和显式重载
 \item 对于同一种类型，不能同时存在隐式和显式重载
 \end{itemize}
-\pause
 转换重载的一般形式
 \lstset{emph={implicit, explicit}}
 \begin{lstlisting}
@@ -590,7 +578,6 @@ public static operator explicit <target>(<source> v)
 \item get提供读访问，set提供写访问，可以有不同的访问权限
 \item 通过特性可进行完整性检查，类似成员方法
 \end{itemize}
-\pause
 特性的一般格式：
 \begin{lstlisting}
 [attributes] <modifiter> <data_type> <property_name>
@@ -722,7 +709,7 @@ class Ring:Circle{
 \item C\#中的所有类型直接或间接的基类，也是 .NET Framework 中所有类的最终基类
 \item 自定义的类，都对 Object 隐式继承，不需要在类的定义中声明
 \end{itemize}
-\pause
+
 \begin{block}{为派生类提供的底层服务}
   \usebeamerfont{table}
   \begin{tabular}{l|l}
@@ -807,7 +794,7 @@ struct Circle { public int R; }
   \item 从派生类到基类的转换，如 Ring$\rightarrow$Circle，Ring$\rightarrow$object
   \end{itemize}
 \end{block}
-\pause
+
 \begin{block}{显式转换}
   \begin{itemize}
   \item 当不能进行隐式转换时，必须使用显式转换
@@ -815,7 +802,7 @@ struct Circle { public int R; }
   \item 语法类似 C 中的强制类型转换
   \end{itemize}
 \end{block}
-\pause
+
 \begin{lstlisting}[escapeinside=<>]
   int  a = 5;
   long b = a;         // <隐式转换>
@@ -833,7 +820,6 @@ struct Circle { public int R; }
 \item 实现了某种接口的类型，可隐式转换为该接口的引用类型
 \item 转换后的引用可以调用自己的方法，不过可能已经被覆盖
 \end{itemize}
-\pause
 \begin{lstlisting}
 using System;
 using System.Text;
@@ -857,14 +843,12 @@ class Test {
   \item 系统为引用类型分配新内存，创建对象，并把值类型的内容复制到新分配的内存中。
   \end{itemize}
 \end{block}
-\pause
 \begin{block}{拆箱 (\textit{unboxing})}
   \begin{itemize}
   \item 将引用类型的对象转换为值类型的过程
   \item 拆箱过程必须是显式的
   \end{itemize}
 \end{block}
-\pause
 \begin{lstlisting}[escapeinside=<>]
   int    a = 5;
   object o = a;       // <隐式转换，装箱>
@@ -904,7 +888,6 @@ bool iIsInt = i is int; // true
 Ring r = new Ring();
 bool rIsCircle = r is Circle; // true
 \end{lstlisting}
-\pause
 \item as 引用类型的转换，如果转换不成功，赋值为 null
 \begin{lstlisting}
 Ring   r = new Ring();
@@ -981,7 +964,7 @@ public void Test(Point m){
 \item 调用时候也需明确指出 ref 和 out 参数
 \item 明确使用 ref 和 out 可以提高代码可读性
 \end{itemize}
-\pause
+\lstset{emph={ref,out}}
 \begin{lstlisting}
 static void FillArray (out double[] prices)
 {  prices = new double[4] { 10,20,30,40 };  }
@@ -1006,7 +989,6 @@ static void Main()
 \item 使用 params 可以避免显式的创建数组、传递数组的过程
 \item params 只能用于最后一个参数
 \end{itemize}
-\pause
 \begin{lstlisting}
 static double Average (string n, params double[] l)
 {  double total = 0.0;
@@ -1330,7 +1312,6 @@ class Student:Person
 \begin{block}{命名空间(namespace)}
   \CJKindent 类、接口、委托等其他类型的一个逻辑上的组合，用来防止名字之间的命名冲突。
 \end{block}
-\pause
 定义命名空间的一般格式
 \begin{lstlisting}
 namespace <name>{

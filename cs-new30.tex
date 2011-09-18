@@ -1,6 +1,6 @@
 %% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> %%
 
-\section{C\# 3.0}
+\section{C\# 3.0/4.0}
 
 \begin{frame}[fragile]
 \frametitle{隐含类型局部变量(\textit{Implicitly typed local variable})}
@@ -15,7 +15,7 @@
   var numbers = new int[] {1, 2, 3};
   var orders = new Dictionary<int,Order>();
 \end{lstlisting}
-\pause
+
 \item 上面的声明等价于
 \begin{lstlisting}
   int i = 5;
@@ -39,7 +39,7 @@ var x;                // <错误，没有初始化>
 var y = {1, 2, 3};    // <错误，没有数组声明>
 var z = null;         // <错误，null 无法推断类型>
 \end{lstlisting}
-\pause
+
 \item 数组的隐含类型可以再简化
 \begin{lstlisting}
 var a = new[] { "hello", null, " world" }; //<string>[]
@@ -55,7 +55,7 @@ var x = new[] { 1, "one", 2, "two" };      //<Error>
 \frametitle{隐含类型局部变量(3)}
 
 关键字\texttt{var} 可用于以下情况
-\begin{itemize}[<+->]
+\begin{itemize}
 \item 局部变量
 \item 在\texttt{for} 的初始化语句中
 \begin{lstlisting}
@@ -255,7 +255,6 @@ class Person
     set { _name = value; } }
 }
 \end{lstlisting}
-\pause
 \item 使用自动特性
 \begin{lstlisting}
 class Person
@@ -263,7 +262,6 @@ class Person
   public string Name { get; set; }
 }
 \end{lstlisting}
-\pause
 \item 在创建特性的同时，自动创建私有字段
 \item “私有字段$+$公有特性”可以为对象提供良好的封装性。
 \end{itemize}
@@ -271,7 +269,7 @@ class Person
 
 \begin{frame}[fragile]
 \frametitle{自动特性}
-\begin{itemize}[<+->]
+\begin{itemize}%[<+->]
 \setlength{\itemsep}{6pt plus 1pt}
 \item 私有成员的名字由编译器生成，程序中不可访问
 \item 不能通过自动特性创建只读或只写的特性
@@ -306,7 +304,6 @@ public int MyWriteOnlyProp { set; } // <只写特性? 错误>
 \begin{itemize}
 \item 类型名由编译器生成，并且不能在源代码级使用
 \item 这些属性的类型由编译器推断
-\pause
 \begin{lstlisting}
 var myCar = new { Color = "Bright Pink",
                   Make = "Saab",
@@ -381,7 +378,7 @@ foreach (var v in productQuery)
                                   v.Color, v.Price);
 }
 \end{lstlisting}
-\begin{itemize}[<+->]
+\begin{itemize}%[<+->]
 \item 常用在查询表达式(LINQ)的\texttt{select}子句中，以便返回源序列中每个对象的属性子集
 \item 匿名类型是直接从对象派生的引用类型，不能强制转换为除\texttt{object}以外的任何接口或类型
 \item 有方法范围限制，若要向方法边界外部传递，必须强制转换为对象，且会使匿名类型的强类型化无效
@@ -523,6 +520,134 @@ public partial class Form1 : Form
 \end{lstlisting}
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{动态调度(\textit{Dynamic Lookup})}
+\begin{itemize}
+\item C\# 现在支持动态后期绑定
+\item 此前需要通过“反射”完成的调用，可以通过动态调用实现
+\begin{lstlisting}
+object o = GetObject();
+Type t = o.GetType();
+object result = t.InvokeMember("MyMethod", 
+  BindingFlags.InvokeMethod, null, o, new object[] { });
+int i = Convert.ToInt32(result);
+\end{lstlisting}
+\item 使用 \lstinline|dynamic| 类型动态调用
+\begin{lstlisting}
+dynamic o = GetObject();
+int i = o.MyMethod();
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{动态语言运行时}
+\begin{block}{\textit{DLR}}
+  \CJKindent 动态语言运行时，CLR 之上新的 .NET Framework运行库，负责在启动动态
+  操作的语言与实际发生动态操作的对象之间协调每个动态操作，支持动态语言的基础结
+  构。
+\end{block}
+\begin{itemize}
+\item 来自动态语言，如 Python, Ruby 等
+\item 通过 IDispatch 访问的 COM 对象
+\end{itemize}
+\centering \includegraphics[height=6cm]{cs-dlr}
+
+\end{frame}
+
+\begin{frame}[fragile,plain]
+\frametitle{动态调度示例}
+\begin{lstlisting}
+  dynamic d = new MyDynamicObject();
+  d.Bar("Baz", 3, d);
+\end{lstlisting}
+
+\begin{lstlisting}
+using System.Dynamic;
+class MyDynamicObject : DynamicObject {
+  public override bool TryInvokeMember(
+                     InvokeMemberBinder binder,
+                     object[] args, out object result) {
+    Console.WriteLine("Method: {0}", binder.Name);
+    foreach (var arg in args)
+      Console.WriteLine("Argument: {0}", arg);
+    result = args[0];
+    return true;
+  }
+}
+\end{lstlisting}
+
+\begin{lstlisting}[language=Clean]
+Method: Bar
+Argument: Baz
+Argument: 3
+Argument: MyDynamicObject
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{可选参数(\textit{Optional Parameters})}
+\begin{itemize}
+\item 函数定义时给定默认值
+\begin{lstlisting}
+public void func(int x, int y = 5, int z = 7);
+\end{lstlisting}
+\item 函数调用时，可以省略有默认值的参数
+\begin{lstlisting}[escapeinside=<>]
+func(1, 2, 3); // <正常调用>
+func(1, 2);    // <省略z, 等价于>func(1, 2, 7)
+func(1);       // <省略z, 等价于>func(1, 5, 7)
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{命名参数(\textit{Named Argments})}
+\begin{itemize}
+\item 参数(\textit{Parameters})名作为名字
+\begin{lstlisting}
+public void func(int x, int y = 5, int z = 7);
+\end{lstlisting}
+\item 调用时，通过名字指定值
+\begin{lstlisting}[escapeinside=<>]
+func(1, z: 3);    // <等价于>func(1,2,3)
+func(x: 3, z: 5); // <等价于>func(3,2,5)
+func(z: 3, x: 1); // <同上>
+\end{lstlisting}
+\end{itemize}
+\textbf{命名参数}和\textbf{可选参数}简化函数的重载。
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{范型的逆变与协变}
+\lstset{emph={Of}}
+\begin{lstlisting}[escapeinside='']
+IList<string> listStr = new List<string>();
+IList<object> listObj = listStr; //'非法转换'
+public interface IList<Of T> { ... };
+\end{lstlisting}
+
+\begin{lstlisting}[escapeinside='']
+// Manager'$\rightarrow$'Employee '(隐式转换)'
+IEnumerable<Manager> ms = GetManagers();
+IEnumerable<Employee> es = ms;   //'合法转换'
+\end{lstlisting}
+\begin{itemize}
+\item 协变
+\lstset{emph={out}}
+\begin{lstlisting}
+public interface IEnumerable<out T> { /* ... */ }
+\end{lstlisting}
+\item 逆变
+\lstset{emph={in}}
+\begin{lstlisting}
+public interface IComparable<in T> { 
+  bool CompareTo(T other); 
+}
+\end{lstlisting}
+\end{itemize}
+\end{frame}
 
 % Local Variables:
 % mode: LaTeX

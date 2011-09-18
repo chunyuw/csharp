@@ -14,7 +14,6 @@
   \CJKindent 未完全实现的类，其中的方法和特性等可以只声明不实现。只能用于其他类
   的基类，其派生类可以是抽象类，否则必须实现继承来的抽象方法。
 \end{block}
-\pause
 \begin{itemize}
 \item 抽象类不能生成实例，需要\texttt{abstract} 修饰
 \item 抽象方法只给出方法的声明，无具体实现，也需要\texttt{abstract}
@@ -444,7 +443,7 @@ class MyClass : IMyIF_A, IMyIF_B {
 委托定义的一般格式：
 \begin{lstlisting}
 [modifiers] delegate <returntype> <name> ([parameter list]);
-\end{lstlisting} \pause
+\end{lstlisting} 
 
   \begin{itemize}
   \item 委托也是一种类型，用于包装方法
@@ -591,13 +590,12 @@ public static void Main() {
 \frametitle{多播委托}
 \begin{itemize}
 \setlength{\itemsep}{4pt plus 1pt}
-\item<1-| handout:1> 多播委托中，委托相当于一个方法的调用列表
-\item<2-| handout:1> 通过 \texttt{+}或\texttt{+=} 操作符添加其他的委托(或方法)
-\item<2-| handout:1> 通过 \texttt{-}或\texttt{-=} 操作符去掉已有的委托(或方法)
-\item<3-| handout:1> 多播委托的返回值应该是 void
-\item<3-| handout:1> 添加和去掉方法的格式比较自由
+\item 多播委托中，委托相当于一个方法的调用列表
+\item 通过 \texttt{+}或\texttt{+=} 操作符添加其他的委托(或方法)
+\item 通过 \texttt{-}或\texttt{-=} 操作符去掉已有的委托(或方法)
+\item 多播委托的返回值应该是 void
+\item 添加和去掉方法的格式比较自由
 \end{itemize}
-\begin{onlyenv}<1-| handout:1>
 \begin{lstlisting}[escapeinside=<>]
   delegate void MyOperation (int i);    // <定义委托>
   MyOperation myop = new MyOperation(); // <创建委托>
@@ -611,7 +609,6 @@ public static void Main() {
   myop -= AnotherMethod;
 
 \end{lstlisting}
-\end{onlyenv}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -821,7 +818,6 @@ class AnonMethDemo3 {
 \begin{lstlisting}
 [modifier] event <delegatetype> <eventname>;
 \end{lstlisting}
-\pause
 \begin{itemize}
 \item 事件不是从程序的一部分到另一部分的过程流
 \item 只是建立在程序之间的连接的方法和运行过程中的终结操作
@@ -1026,7 +1022,7 @@ class MyEvent {
   \CJKindent 泛型就是类型参数化，可以将类型作为参数，根据需要改变类中成员的类型。
   泛型是 .NET 2.0 的新特性。
 \end{block}
-\pause
+
 \begin{itemize}
 \item 通过范型，可以保证更好的类型安全
 \item 更高效的重用代码，减少重复开发和代码拷贝
@@ -1183,7 +1179,6 @@ class Gen<T, V> where V : T {...}
 ...
   Gen<A, B> x = new Gen<A, B>;
 \end{lstlisting}
-\pause
 多条约束
 \begin{lstlisting}
 class Gen<T>
@@ -1279,7 +1274,7 @@ class ArrayUtils {
 
   ArrayUtils.copyInsert("in C#", 1, strs, strs2);
 \end{lstlisting}
-\pause 当不能自动判断类型时，需要明确指出
+当不能自动判断类型时，需要明确指出
 \begin{lstlisting}
 // class B:A ...
 B[] b = { new B(), new B(), new B() };
