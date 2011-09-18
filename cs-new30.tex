@@ -542,16 +542,15 @@ int i = o.MyMethod();
 
 \begin{frame}
 \frametitle{动态语言运行时}
-\begin{block}{\textit{DLR}}
-  \CJKindent 动态语言运行时，CLR 之上新的 .NET Framework运行库，负责在启动动态
-  操作的语言与实际发生动态操作的对象之间协调每个动态操作，支持动态语言的基础结
-  构。
+\begin{block}{动态语言运行时(\textit{DLR})}
+  \CJKindent 在 CLR 之上的新 .NET Framework 运行库，负责在启动动态操作的语言与
+  实际发生动态操作的对象之间协调每个动态操作，支持动态语言的基础结构。
 \end{block}
 \begin{itemize}
 \item 来自动态语言，如 Python, Ruby 等
 \item 通过 IDispatch 访问的 COM 对象
 \end{itemize}
-\centering \includegraphics[width=6cm]{cs-dlr}
+\centering \includegraphics[width=10cm]{cs-dlr}
 
 \end{frame}
 
@@ -587,7 +586,7 @@ Argument: MyDynamicObject
 
 
 \begin{frame}[fragile]
-\frametitle{可选参数(\textit{Optional Parameters})}
+\frametitle{可选参数(\textit{Optional Arguments})}
 \begin{itemize}
 \item 函数定义时给定默认值
 \begin{lstlisting}
@@ -616,7 +615,7 @@ func(x: 3, z: 5); // <等价于>func(3,2,5)
 func(z: 3, x: 1); // <同上>
 \end{lstlisting}
 \end{itemize}
-\textbf{命名参数}和\textbf{可选参数}简化函数的重载。
+\textbf{命名参数}和\textbf{可选参数}简化了函数的重载。
 \end{frame}
 
 \begin{frame}[fragile]
