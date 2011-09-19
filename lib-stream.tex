@@ -226,10 +226,10 @@ public class Convert
 { static void Main()
   {
   StreamReader sr = new 
-   StreamReader("G.txt",Encoding.GetEncoding("gb2312"));
+   StreamReader("G.txt",Encoding.GetEncoding("big5"));
 
   StreamWriter sw = new 
-   StreamWriter("B.txt",false,Encoding.GetEncoding("big5"));
+   StreamWriter("B.txt",false,Encoding.GetEncoding("gbk"));
 
   string str = null;
   
@@ -470,7 +470,7 @@ static void watcher(object sender, FileSystemEventArgs e)
 \item System.Net.Socket: {\scriptsize Socket, TcpListener, TcpClient, UdpClient, \ldots}
 \item System.Net.Mail: {\scriptsize SmtpClient, Attachment, MailAddress}
 \end{itemize}
-\center \includegraphics[width=7cm]{network-arch}
+\centering \includegraphics[width=7cm]{network-arch}
 \end{frame}
 
 
@@ -489,9 +489,9 @@ byte[] UploadFile (string url, string fileName);
 \end{lstlisting}
 \item WebClient 示例
 \begin{lstlisting}
-WebClient wc = new WebClient();
-wc.Proxy = null;
-wc.DownloadFile("http://localhost:8000/f.txt", "f2.txt");
+WebClient c = new WebClient();
+c.Proxy = null;
+c.DownloadFile("http://localhost:8000/f.txt", "f2.txt");
 System.Diagnostics.Process.Start("f2.txt");
 \end{lstlisting}
 \end{itemize}
