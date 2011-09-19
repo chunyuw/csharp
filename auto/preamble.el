@@ -13,6 +13,7 @@
      "listings"
      "xeCJK"
      "fullpage"
+     "hyperref"
      "amssymb"
      "xcolor"
      "svgnames"
