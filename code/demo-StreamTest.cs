@@ -85,4 +85,23 @@ class Program
     r.Close();
     w.Close();
   }
+  static void Main7(string[] args)
+  {
+    var w = new FileSystemWatcher(@"d:\download", "*.txt");
+    w.Created += watcher;
+    w.Deleted += watcher;
+    w.Changed += watcher;
+    w.Renamed += (s, e) => 
+      Console.WriteLine("renamed " + e.OldName + "->" + e.Name);
+
+    w.IncludeSubdirectories = true;
+    w.EnableRaisingEvents = true;
+    Console.WriteLine("Now I'm watching...");
+    Console.ReadLine();
+  }
+
+  static void watcher(object sender, FileSystemEventArgs e)
+  {
+    Console.WriteLine("file " + e.ChangeType + ": " + e.FullPath);
+  }
 }
