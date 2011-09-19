@@ -39,7 +39,7 @@ all:
 
 $(NUMTARGT): %: part-0%.pdf
 
-$(PDFTARGT): %.pdf: %.tex preamble.tex author.tex 
+$(PDFTARGT): %.pdf: %.tex preamble.tex
 	xelatex -output-directory=$(BUILDDIR) $<
 	-@mv -f $(BUILDDIR)/$@ ./m$@
 
