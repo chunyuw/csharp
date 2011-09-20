@@ -8,45 +8,24 @@ using System.Net.Sockets;
 
 class Program
 {
-  static byte[] buf;
-  static AsyncCallback read;
-  static NetworkStream n;
-  static void Main()
+  static void Main1()
   {
-
-
-    TcpClient c = new TcpClient();
-    c.Connect("localhost", 4242);
-    n = c.GetStream();
-
-    buf = new byte[4];
-
-    read += readfunc;
-    n.BeginRead(buf, 0, buf.Length, read, null);
-    // for write
-    string s = Console.ReadLine();
-    while (s != "quit")
-      {
-	byte[] ww = Encoding.GetEncoding("gbk").GetBytes(s+"\n");
-	n.Write(ww, 0, ww.Length);
-	s = Console.ReadLine();
-      }
-    n.Close();
-    c.Close();
-
+    WebClient w = new WebClient();
+    w.DownloadFile("http://localhost:8000/data/article.txt", "file.txt");
   }
-  public static void readfunc(IAsyncResult ar)
+  static void Main2()
   {
-    int len = n.EndRead(ar);
-    if (len > 0)
-      {
-	string ns = Encoding.GetEncoding("gbk").GetString(buf, 0, len);
-	Console.Write(ns);
-	//for read: buf
-	n.BeginRead(buf, 0, buf.Length, read, null);
-      }
+    using (TcpClient client = new TcpClient("localhost", 4242))
+      using (NetworkStream n = client.GetStream())
+	{
+	  BinaryWriter w = new BinaryWriter(n);
+	  //BinaryReader r = new BinaryReader(n);
+	  w.Write("Hello");
+	  w.Flush();
+	  //Console.WriteLine(r.ReadString());
+	}
   }
-  static void Main7()
+  static void Main3()
   {
     TcpListener server = new TcpListener(IPAddress.Any, 4343);
     server.Start();
@@ -65,25 +44,40 @@ class Program
 	  } // disposing the writer.
     server.Stop();
   }
-  static void Main6()
+
+  static NetworkStream n;
+  static byte[] rbuf, wbuf;
+  static AsyncCallback readCall, writeCall;
+  static void Main4()
   {
+    rbuf = new byte[10];
+    readCall += readFunc;
+    writeCall += r => n.EndWrite(r);
+
     using (TcpClient client = new TcpClient("localhost", 4242))
-      using (NetworkStream n = client.GetStream())
+      using (n = client.GetStream())
 	{
-	  BinaryWriter w = new BinaryWriter(n);
-	  //BinaryReader r = new BinaryReader(n);
-	  w.Write("Hello");
-	  w.Flush();
-	  //Console.WriteLine(r.ReadString());
-
+	  n.BeginRead(rbuf, 0, rbuf.Length, readCall, null);
+	  while (true)
+	    {
+	      string s = Console.ReadLine();
+	      wbuf = Encoding.GetEncoding("gb18030").GetBytes(s + "\n");
+	      n.Write(wbuf, 0, wbuf.Length);
+	      //n.BeginWrite(wbuf, 0, wbuf.Length, writeCall, null);
+	    }
 	}
-  }
-  static void Main5()
-  {
-    WebClient w = new WebClient();
-    w.DownloadFile("http://localhost:8000/aoe2.7z", "test.bin");
 
-    string s = w.DownloadString("http://localhost:8000/text.txt");
-    Console.WriteLine(s);
   }
+  static void readFunc(IAsyncResult r)
+  {
+    int len = n.EndRead(r);
+    if (len > 0)
+      {
+	string s = Encoding.GetEncoding("gb18030").GetString(rbuf, 0, len);
+	Console.Write(s);
+	n.BeginRead(rbuf, 0, rbuf.Length, readCall, null);
+      }
+
+  }
+
 }
