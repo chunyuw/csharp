@@ -16,6 +16,12 @@
 
 \documentclass[13pt,xcolor=svgnames,table,xetex]{beamer} % 或使用 handout 选项
 
+\author[\textsf{chunyu@hit.edu.cn}]{王春宇}
+\mode<presentation> {\institute[哈尔滨工业大学]{计算机科学与技术学院\\软件基础教研室}}
+\date{}
+% \date{2006年7月13日} \date{2007年10月30日} \date{2008年10月28日} \date{2009年8月31日}
+% \date{2010年9月2日} \date{2011年8月22日}
+
 %\documentclass[a4paper]{article}                      % article only
 %\usepackage[noxcolor]{beamerarticle}
 
@@ -109,7 +115,7 @@
   bookmarksopen=true,
   pdfstartview=Fit,             % FitV
   pdffitwindow=true,
-  pdfpagemode=None,             % FullScreen
+  pdfpagemode=UseNone,             % FullScreen
   % pdfmenubar=false,
   % pdftoolbar=false,
   CJKbookmarks=true,
@@ -144,10 +150,10 @@
   \hypersetup{%
     pdfpagemode=UseOutlines,    % 打开书签
     pdfstartview=Fit}
-  \ifhandoutprint                 % print only handout
-    \usepackage{pgfpages}         % 一页多帧
-    \pgfpagesuselayout{2 on 1}[a4paper,border shrink=1mm]
-    % \nofiles                    % 防止页码错误
+  \ifhandoutprint               % print only handout
+    \usepackage{pgfpages}       % 一页多帧
+    %\pgfpagesuselayout{2 on 1}[a4paper,border shrink=1mm]
+    %\nofiles                   % 防止页码错误
     \lstset{basicstyle=\ttfamily\footnotesize, keywordstyle=\bfseries,
       keywordstyle=[2]\bfseries, commentstyle=\sl, emphstyle=\bfseries,
       emphstyle=[2]\bfseries, emphstyle=[3]\bfseries, emphstyle=[4]\sl,
