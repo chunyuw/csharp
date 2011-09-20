@@ -1,0 +1,4 @@
+InfoKey: Title
+InfoValue: .NET 程序设计
+InfoKey: URL
+InfoValue: http://cst.hit.edu.cn/~chunyu/dotnet
