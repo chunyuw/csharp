@@ -43,15 +43,19 @@ $(PDFTARGT): %.pdf: %.tex preamble.tex
 	xelatex -output-directory=$(BUILDDIR) $<
 	-@mv -f $(BUILDDIR)/$@ ./m$@
 
-encrypt: $(foreach x,$(wildcard part-*.pdf),en-$(x))
+handout: $(subst mpart,slides-p,$(wildcard mpart-*.pdf))
 
-en-%.pdf: %.pdf ; pdftk $< output $@ owner_pw $(PASSWORD) allow printing
+slides-p-%.pdf: mpart-%.pdf ; pdfjam --batch --nup 1x2 --no-landscape --outfile $@ $<
+
+encrypt: $(subst m,en-,$(wildcard mpart-*.pdf))
+
+en-%.pdf: m%.pdf ; pdftk $< output $@ owner_pw $(PASSWORD) allow printing
 
 distclean: cleanall tclean
 
 cleanall: cpdf clean
 
-cpdf:;  -$(RM) $(wildcard en-part-*.pdf part-*.pdf test.pdf z_region.pdf)
+cpdf:;  -$(RM) $(wildcard en-part-*.pdf part-*.pdf slides-*.pdf test.pdf z_region.pdf)
 
 clean:; -$(RM) $(foreach s,$(CLSUFFIX),$(wildcard *.$(s))) $(wildcard test.exe */z_region*)
 
