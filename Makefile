@@ -43,6 +43,10 @@ $(PDFTARGT): %.pdf: %.tex preamble.tex
 	xelatex -output-directory=$(BUILDDIR) $<
 	-@mv -f $(BUILDDIR)/$@ ./m$@
 
+# outON:  ; cp preamble.tex preamble.bak ; sed -b -e "s/\[13/\[handout,13/" preamble.bak > preamble.tex
+# outPnt: ; cp preamble.tex preamble.bak ; sed -b -e "s/\[13/\[handout,13/" -e "s/\{handoutprint\}\{false\}/\{handoutprint\}\{true\}/" preamble.bak > preamble.tex
+# outOFF: ; cp preamble.tex preamble.bak ; sed -b "s/handout,//" preamble.bak |sed -b "s" > preamble.tex
+
 handout: $(subst mpart,slides-p,$(wildcard mpart-*.pdf))
 
 slides-p-%.pdf: mpart-%.pdf ; pdfjam --batch --nup 1x2 --no-landscape --outfile $@ $<
