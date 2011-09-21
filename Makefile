@@ -26,7 +26,7 @@ endif
 PASSWORD  = cy.net
 
 CLSUFFIX  = aux log snm toc vrb out out.bak dvi nav
-GITCOMMD  = push pull sync status st
+GITCOMMD  = push pull status st
 
 Author    = "Chunyu Wang <chunyu@hit.edu.cn>"
 Copyright = "Copyright (C) $(shell seq -s, 2006 $(shell $(DATE) +%Y)) "$(Author)"."
@@ -74,6 +74,7 @@ tclean:; -$(RM) -rf $(foreach s,test z_region,$(wildcard $(s).* */$(s).*))
 
 $(GITCOMMD):; git $@
 ci:; git commit -m "$(AUTOCSTR)" .
+sync: pull push
 
 s:; $(SHOWPDF)
 
