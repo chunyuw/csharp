@@ -72,7 +72,7 @@ s:; $(SHOWPDF)
 rar:; winrar -m5 a dotnet.rar $(CURRPDF) code
 7z:;  7z    -mx9 a dotnet.7z  $(CURRPDF) code
 
-publish: $(wildcard mpart-*.pdf) $(wildcard slides*.pdf)
+publish: $(wildcard mpart*.pdf) $(wildcard slides*.pdf)
 	scp mpart-*.pdf cst.hit.edu.cn:public_html/dotnet/pdf/
 	scp slides*.pdf cst.hit.edu.cn:public_html/dotnet/slides/handout/
 
