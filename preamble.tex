@@ -16,19 +16,18 @@
 
 \documentclass[13pt,xcolor=svgnames,table,xetex]{beamer} % 或使用 handout 选项
 
-\author[\textsf{chunyu@hit.edu.cn}]{王春宇}
-\mode<presentation> {\institute[哈尔滨工业大学]{计算机科学与技术学院\\软件基础教研室}}
-\date{}
-% \date{2006年7月13日} \date{2007年10月30日} \date{2008年10月28日} \date{2009年8月31日}
-% \date{2010年9月2日} \date{2011年8月22日}
-
 %\documentclass[a4paper]{article}                      % article only
 %\usepackage[noxcolor]{beamerarticle}
 
-\mode<handout>{%                % 用于打印的 handout 模式 (每页A4两帧)
+\author[\textsf{chunyu@hit.edu.cn}]{王春宇}
+\mode<presentation>{\institute[哈尔滨工业大学]{计算机科学与技术学院\\软件基础教研室}}
+\date{} % {2011年8月22日}
+% {2010年9月2日} {2009年8月31日} {2008年10月28日} {2007年10月30日} {2006年7月13日}
+
+\mode<handout>{%
   \RequirePackage{ifthen}       %
-  \newboolean{handoutprint}     % 将该变量置为 true 即可
-  \setboolean{handoutprint}{false}} % true
+  \newboolean{handoutprint}     % true: 白色背景
+  \setboolean{handoutprint}{false}}
 
 \mode<article>{%                % article only
   \usepackage[svgnames]{xcolor}
@@ -115,7 +114,7 @@
   bookmarksopen=true,
   pdfstartview=Fit,             % FitV
   pdffitwindow=true,
-  pdfpagemode=UseNone,             % FullScreen
+  pdfpagemode=UseNone,          % FullScreen
   % pdfmenubar=false,
   % pdftoolbar=false,
   CJKbookmarks=true,
