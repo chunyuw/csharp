@@ -27,12 +27,12 @@ DIROUT    = handout
 
 all:
 	@echo "Usage:"
-	@echo "    make [0-8] | lecture | handout | a4paper | screen"
+	@echo "    make [0-8] | s[0-8] | p[0-8]"
+	@echo "    make lecture | handout | a4paper | screen"
 	@echo "    make publish | s | src | encrypt | ci | rar | 7z"
 	@echo "    make cpdf | clean | cleanall | distclean"
 
 $(NUMTARGT): %: part-0%.pdf
-mpart-%.pdf: part-%.pdf ; 
 part-%.pdf: part-%.tex preamble.tex
 	-@mkdir -p $(BUILDDIR)
 	xelatex -output-directory=$(BUILDDIR) $<
@@ -45,15 +45,19 @@ lecture: $(NUMTARGT)
 handout: screen a4paper
 screen:  $(NUMTARGT:%=s-s0%.pdf)
 a4paper: $(NUMTARGT:%=s-p0%.pdf)
-slide%.pdf: %.pdf ;
 s-s%.pdf: $(DIROUT)/s-s%.pdf ; cp $< slide$@
 s-p%.pdf: $(DIROUT)/s-p%.pdf ; pdfjam --batch --nup 1x2 --no-landscape --outfile slide$@ $<
-$(DIROUT)/s%.pdf: $(DIROUT)/s%.tex ; xelatex -output-directory=$(@D) $<
+$(DIROUT)/s%.pdf:   $(DIROUT)/s%.tex ; xelatex -output-directory=$(@D) $<
 $(DIROUT)/s-s%.tex: $(DIROUT)/spre.tex part-%.tex; sed -b -e "s|preamble|$(DIROUT)/spre|" $(lastword $^) > $@
 $(DIROUT)/s-p%.tex: $(DIROUT)/ppre.tex part-%.tex; sed -b -e "s|preamble|$(DIROUT)/ppre|" $(lastword $^) > $@
 $(DIROUT)/spre.tex: preamble.tex ; mkdir -p $(DIROUT); sed -b -e "s/\[13/\[handout,13/" $< > $@
 $(DIROUT)/ppre.tex: preamble.tex
 	mkdir -p $(DIROUT); sed -b -e "s/\[13/\[handout,13/" -e "s/\(print..\)false/\1true/"  $< > $@
+
+slide%.pdf: %.pdf ;
+mpart-%.pdf: part-%.pdf ; 
+$(NUMTARGT:%=s%): s%: s-s0%.pdf ;
+$(NUMTARGT:%=p%): p%: s-p0%.pdf ;
 
 distclean:; -$(RM) -rv auto $(BUILDDIR) $(DIROUT) z* *.{pdf,7z,zip,rar}
 clean:;     -$(RM) $(wildcard en*.pdf part*.pdf z*.pdf slide*.pdf)
