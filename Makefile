@@ -5,6 +5,7 @@ TXTFILES  = {.,pgf}/*.tex $(PRGFILES) OUTLINE.txt code/*.cs figures/*.txt .dired
 BINFILES  = figures/*.{jpg,png,pdf} res/*.7z
 
 NUMTARGT  = $(shell seq 0 8)
+NUMTARGT2 = $(shell seq 0 5)
 PDFTARGT  = $(NUMTARGT:%=part-0%.pdf)
 
 AUTOCSTR  = Batch checkin by Makefile ($(shell $(DATE) "+%Y-%m-%d %H:%M") on $(shell uname -n))
@@ -25,15 +26,17 @@ endif
 PASSWORD  = cy.net
 
 CLSUFFIX  = aux log snm toc vrb out out.bak dvi nav
+GITCOMMD  = push pull sync status st
 
 Author    = "Chunyu Wang <chunyu@hit.edu.cn>"
 Copyright = "Copyright (C) $(shell seq -s, 2006 $(shell $(DATE) +%Y)) "$(Author)"."
 
 BUILDDIR  = zbuild
+DIRDIR    = handout
 
 all:
 	@echo "Usage:"
-	@echo "    make [0-8] | s | encrypt"
+	@echo "    make [0-8] | s | encrypt | handout { a4paper | screen }"
 	@echo "    make cpdf | clean | cleanall | distclean"
 	@echo "    make ci | st | push | pull | rar | 7z"
 
@@ -43,17 +46,21 @@ $(PDFTARGT): %.pdf: %.tex preamble.tex
 	xelatex -output-directory=$(BUILDDIR) $<
 	-@mv -f $(BUILDDIR)/$@ ./m$@
 
-# outON:  ; cp preamble.tex preamble.bak ; sed -b -e "s/\[13/\[handout,13/" preamble.bak > preamble.tex
-# outPnt: ; cp preamble.tex preamble.bak ; sed -b -e "s/\[13/\[handout,13/" -e "s/\{handoutprint\}\{false\}/\{handoutprint\}\{true\}/" preamble.bak > preamble.tex
-# outOFF: ; cp preamble.tex preamble.bak ; sed -b "s/handout,//" preamble.bak |sed -b "s" > preamble.tex
+encrypt: $(subst m,en-m,$(wildcard mpart-*.pdf)) $(subst sl,en-sl,$(wildcard slides*.pdf))
+en-%.pdf: %.pdf ; pdftk $< output $@ owner_pw $(PASSWORD) allow printing
 
-handout: $(subst mpart,slides-p,$(wildcard mpart-*.pdf))
-
-slides-p-%.pdf: mpart-%.pdf ; pdfjam --batch --nup 1x2 --no-landscape --outfile $@ $<
-
-encrypt: $(subst m,en-,$(wildcard mpart-*.pdf))
-
-en-%.pdf: m%.pdf ; pdftk $< output $@ owner_pw $(PASSWORD) allow printing
+lecture: $(NUMTARGT2)
+handout: screen a4paper
+screen:  $(NUMTARGT2:%=s-s0%.pdf)
+a4paper: $(NUMTARGT2:%=s-p0%.pdf)
+s-s%.pdf: $(DIRDIR)/s-s%.pdf ; cp $< slide$@
+s-p%.pdf: $(DIRDIR)/s-p%.pdf ; pdfjam --batch --nup 1x2 --no-landscape --outfile slide$@ $<
+$(DIRDIR)/s%.pdf: $(DIRDIR)/s%.tex ; xelatex -output-directory=$(@D) $<
+$(DIRDIR)/s-s%.tex: $(DIRDIR)/spre.tex part-%.tex; sed -b -e "s|preamble|$(DIRDIR)/spre|" $(lastword $^) > $@
+$(DIRDIR)/s-p%.tex: $(DIRDIR)/ppre.tex part-%.tex; sed -b -e "s|preamble|$(DIRDIR)/ppre|" $(lastword $^) > $@
+$(DIRDIR)/spre.tex: preamble.tex ; mkdir -p $(DIRDIR); sed -b -e "s/\[13/\[handout,13/" $< > $@
+$(DIRDIR)/ppre.tex: preamble.tex
+	mkdir -p $(DIRDIR); sed -b -e "s/\[13/\[handout,13/" -e "s/\(print..\)false/\1true/"  $< > $@
 
 distclean: cleanall tclean
 
@@ -65,18 +72,17 @@ clean:; -$(RM) $(foreach s,$(CLSUFFIX),$(wildcard *.$(s))) $(wildcard test.exe *
 
 tclean:; -$(RM) -rf $(foreach s,test z_region,$(wildcard $(s).* */$(s).*))
 
-st:;    @git st .
-
-ci:;    git commit -m "$(AUTOCSTR)" .
-
-push:;	git push
-pull:;	git pull
-sync:   pull push
+$(GITCOMMD): git $@
+ci:; git commit -m "$(AUTOCSTR)" .
 
 s:; $(SHOWPDF)
 
 rar:; winrar -m5 a dotnet.rar $(CURRPDF) code
 7z:;  7z    -mx9 a dotnet.7z  $(CURRPDF) code
+
+publish: $(wildcard mpart-*.pdf) $(wildcard slides*.pdf)
+	scp mpart-*.pdf cst.hit.edu.cn:public_html/dotnet/pdf/
+	scp slides*.pdf cst.hit.edu.cn:public_html/dotnet/slides/handout/
 
 # DIRNAME = dotnet
 # src:; (cd ..; 7z a $(DIRNAME)-src.7z $(DIRNAME) -xr@$(DIRNAME)/res/srcexclude.txt)
