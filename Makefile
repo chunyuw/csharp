@@ -36,8 +36,8 @@ DIRDIR    = handout
 
 all:
 	@echo "Usage:"
-	@echo "    make [0-8] | s | encrypt | handout { a4paper | screen }"
-	@echo "    make cpdf | clean | cleanall | distclean"
+	@echo "    make [0-8] | s | lecture | handout { a4paper | screen }"
+	@echo "    make encrypt | cpdf | clean | cleanall | distclean"
 	@echo "    make ci | st | push | pull | rar | 7z"
 
 $(NUMTARGT): %: part-0%.pdf
