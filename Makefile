@@ -72,7 +72,7 @@ clean:; -$(RM) $(foreach s,$(CLSUFFIX),$(wildcard *.$(s))) $(wildcard test.exe *
 
 tclean:; -$(RM) -rf $(foreach s,test z_region,$(wildcard $(s).* */$(s).*))
 
-$(GITCOMMD): git $@
+$(GITCOMMD):; git $@
 ci:; git commit -m "$(AUTOCSTR)" .
 
 s:; $(SHOWPDF)
