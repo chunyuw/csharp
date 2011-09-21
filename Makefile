@@ -1,12 +1,9 @@
 ## Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> ##
 
-PRGFILES  = Makefile auto/*.el
-TXTFILES  = {.,pgf}/*.tex $(PRGFILES) OUTLINE.txt code/*.cs figures/*.txt .dired 
-BINFILES  = figures/*.{jpg,png,pdf} res/*.7z
+Author    = "Chunyu Wang <chunyu@hit.edu.cn>"
+Copyright = "Copyright (C) $(shell seq -s, 2006 $(shell $(DATE) +%Y)) "$(Author)"."
 
-NUMTARGT  = $(shell seq 0 8)
-NUMTARGT2 = $(shell seq 0 5)
-PDFTARGT  = $(NUMTARGT:%=part-0%.pdf)
+NUMTARGT  = $(shell seq 0 5)
 
 AUTOCSTR  = Batch checkin by Makefile ($(shell $(DATE) "+%Y-%m-%d %H:%M") on $(shell uname -n))
 ifeq ($(shell uname -s), windows32) 
@@ -25,12 +22,6 @@ endif
 
 PASSWORD  = cy.net
 
-CLSUFFIX  = aux log snm toc vrb out out.bak dvi nav
-GITCOMMD  = push pull status st
-
-Author    = "Chunyu Wang <chunyu@hit.edu.cn>"
-Copyright = "Copyright (C) $(shell seq -s, 2006 $(shell $(DATE) +%Y)) "$(Author)"."
-
 BUILDDIR  = zbuild
 DIROUT    = handout
 
@@ -41,19 +32,20 @@ all:
 	@echo "    make cpdf | clean | cleanall | distclean"
 
 $(NUMTARGT): %: part-0%.pdf
-
-$(PDFTARGT): %.pdf: %.tex preamble.tex
-	mkdir -p $(BUILDDIR)
+mpart-%.pdf: part-%.pdf ; 
+part-%.pdf: part-%.tex preamble.tex
+	-@mkdir -p $(BUILDDIR)
 	xelatex -output-directory=$(BUILDDIR) $<
 	-@mv -f $(BUILDDIR)/$@ ./m$@
 
 encrypt: $(subst m,en-m,$(wildcard mpart-*.pdf)) $(subst sl,en-sl,$(wildcard slides*.pdf))
 en-%.pdf: %.pdf ; pdftk $< output $@ owner_pw $(PASSWORD) allow printing
 
-lecture: $(NUMTARGT2)
+lecture: $(NUMTARGT)
 handout: screen a4paper
-screen:  $(NUMTARGT2:%=s-s0%.pdf)
-a4paper: $(NUMTARGT2:%=s-p0%.pdf)
+screen:  $(NUMTARGT:%=s-s0%.pdf)
+a4paper: $(NUMTARGT:%=s-p0%.pdf)
+slide%.pdf: %.pdf ;
 s-s%.pdf: $(DIROUT)/s-s%.pdf ; cp $< slide$@
 s-p%.pdf: $(DIROUT)/s-p%.pdf ; pdfjam --batch --nup 1x2 --no-landscape --outfile slide$@ $<
 $(DIROUT)/s%.pdf: $(DIROUT)/s%.tex ; xelatex -output-directory=$(@D) $<
@@ -66,6 +58,7 @@ $(DIROUT)/ppre.tex: preamble.tex
 distclean:; -$(RM) -rv $(BUILDDIR)/* $(DIROUT) z_region* */z_region* *.{pdf,7z,zip,rar}
 clean:;     -$(RM) $(wildcard en*.pdf part*.pdf z*.pdf slide*.pdf)
 
+GITCOMMD  = push pull status st
 $(GITCOMMD):; git $@
 ci:; git commit -m "$(AUTOCSTR)" .
 sync: pull push
@@ -85,15 +78,15 @@ src:; 7z a csharp-src.7z *.tex figures pgf Makefile code
 
 .SUFFIXES: .tex .pdf .dvi .ps .eps .jpg .png
 
-part-00.pdf: dn-intro.tex
-part-01.pdf: $(wildcard  dn-*.tex pgf/*.tex)
-part-02.pdf: $(wildcard  cs-*.tex pgf/cs-*.tex)
-part-03.pdf: $(wildcard  cs-*.tex pgf/cs-*.tex)
-part-04.pdf: $(wildcard lib-*.tex pgf/lib-*.tex)
-part-05.pdf: $(wildcard ado-*.tex pgf/ado-*.tex)
-part-06.pdf: $(wildcard dev-*.tex pgf/dev-*.tex)
-part-07.pdf: 
-part-08.pdf: $(wildcard *.tex pgf/*.tex)
+# part-00.pdf: dn-intro.tex
+# part-01.pdf: $(wildcard  dn-*.tex pgf/*.tex)
+# part-02.pdf: $(wildcard  cs-*.tex pgf/cs-*.tex)
+# part-03.pdf: $(wildcard  cs-*.tex pgf/cs-*.tex)
+# part-04.pdf: $(wildcard lib-*.tex pgf/lib-*.tex)
+# part-05.pdf: $(wildcard ado-*.tex pgf/ado-*.tex)
+# part-06.pdf: $(wildcard dev-*.tex pgf/dev-*.tex)
+# part-07.pdf: 
+# part-08.pdf: $(wildcard *.tex pgf/*.tex)
 
 # Local Variables:
 # mode: makefile-gmake
