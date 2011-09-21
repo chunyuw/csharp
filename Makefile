@@ -66,7 +66,7 @@ distclean: cleanall tclean
 
 cleanall: cpdf clean
 
-cpdf:;  -$(RM) $(wildcard en-part-*.pdf part-*.pdf slides-*.pdf test.pdf z_region.pdf)
+cpdf:;  -$(RM) $(wildcard en-*.pdf part-*.pdf slides-*.pdf test.pdf z_region.pdf)
 
 clean:; -$(RM) $(foreach s,$(CLSUFFIX),$(wildcard *.$(s))) $(wildcard test.exe */z_region*)
 
