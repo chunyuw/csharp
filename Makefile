@@ -32,7 +32,7 @@ Author    = "Chunyu Wang <chunyu@hit.edu.cn>"
 Copyright = "Copyright (C) $(shell seq -s, 2006 $(shell $(DATE) +%Y)) "$(Author)"."
 
 BUILDDIR  = zbuild
-DIRDIR    = handout
+DIROUT    = handout
 
 all:
 	@echo "Usage:"
@@ -53,14 +53,14 @@ lecture: $(NUMTARGT2)
 handout: screen a4paper
 screen:  $(NUMTARGT2:%=s-s0%.pdf)
 a4paper: $(NUMTARGT2:%=s-p0%.pdf)
-s-s%.pdf: $(DIRDIR)/s-s%.pdf ; cp $< slide$@
-s-p%.pdf: $(DIRDIR)/s-p%.pdf ; pdfjam --batch --nup 1x2 --no-landscape --outfile slide$@ $<
-$(DIRDIR)/s%.pdf: $(DIRDIR)/s%.tex ; xelatex -output-directory=$(@D) $<
-$(DIRDIR)/s-s%.tex: $(DIRDIR)/spre.tex part-%.tex; sed -b -e "s|preamble|$(DIRDIR)/spre|" $(lastword $^) > $@
-$(DIRDIR)/s-p%.tex: $(DIRDIR)/ppre.tex part-%.tex; sed -b -e "s|preamble|$(DIRDIR)/ppre|" $(lastword $^) > $@
-$(DIRDIR)/spre.tex: preamble.tex ; mkdir -p $(DIRDIR); sed -b -e "s/\[13/\[handout,13/" $< > $@
-$(DIRDIR)/ppre.tex: preamble.tex
-	mkdir -p $(DIRDIR); sed -b -e "s/\[13/\[handout,13/" -e "s/\(print..\)false/\1true/"  $< > $@
+s-s%.pdf: $(DIROUT)/s-s%.pdf ; cp $< slide$@
+s-p%.pdf: $(DIROUT)/s-p%.pdf ; pdfjam --batch --nup 1x2 --no-landscape --outfile slide$@ $<
+$(DIROUT)/s%.pdf: $(DIROUT)/s%.tex ; xelatex -output-directory=$(@D) $<
+$(DIROUT)/s-s%.tex: $(DIROUT)/spre.tex part-%.tex; sed -b -e "s|preamble|$(DIROUT)/spre|" $(lastword $^) > $@
+$(DIROUT)/s-p%.tex: $(DIROUT)/ppre.tex part-%.tex; sed -b -e "s|preamble|$(DIROUT)/ppre|" $(lastword $^) > $@
+$(DIROUT)/spre.tex: preamble.tex ; mkdir -p $(DIROUT); sed -b -e "s/\[13/\[handout,13/" $< > $@
+$(DIROUT)/ppre.tex: preamble.tex
+	mkdir -p $(DIROUT); sed -b -e "s/\[13/\[handout,13/" -e "s/\(print..\)false/\1true/"  $< > $@
 
 distclean: cleanall tclean
 
