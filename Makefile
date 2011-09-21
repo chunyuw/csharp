@@ -55,7 +55,7 @@ $(DIROUT)/spre.tex: preamble.tex ; mkdir -p $(DIROUT); sed -b -e "s/\[13/\[hando
 $(DIROUT)/ppre.tex: preamble.tex
 	mkdir -p $(DIROUT); sed -b -e "s/\[13/\[handout,13/" -e "s/\(print..\)false/\1true/"  $< > $@
 
-distclean:; -$(RM) -rv $(BUILDDIR)/* $(DIROUT) z_region* */z_region* *.{pdf,7z,zip,rar}
+distclean:; -$(RM) -rv auto $(BUILDDIR) $(DIROUT) z* *.{pdf,7z,zip,rar}
 clean:;     -$(RM) $(wildcard en*.pdf part*.pdf z*.pdf slide*.pdf)
 
 GITCOMMD  = push pull status st
