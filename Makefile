@@ -36,13 +36,14 @@ DIROUT    = handout
 
 all:
 	@echo "Usage:"
-	@echo "    make [0-8] | s | lecture | handout { a4paper | screen }"
-	@echo "    make encrypt | cpdf | clean | cleanall | distclean"
-	@echo "    make ci | st | push | pull | rar | 7z"
+	@echo "    make [0-8] | lecture | handout | a4paper | screen"
+	@echo "    make publish | s | src | encrypt | ci | rar | 7z"
+	@echo "    make cpdf | clean | cleanall | distclean"
 
 $(NUMTARGT): %: part-0%.pdf
 
 $(PDFTARGT): %.pdf: %.tex preamble.tex
+	mkdir -p $(BUILDDIR)
 	xelatex -output-directory=$(BUILDDIR) $<
 	-@mv -f $(BUILDDIR)/$@ ./m$@
 
@@ -62,15 +63,8 @@ $(DIROUT)/spre.tex: preamble.tex ; mkdir -p $(DIROUT); sed -b -e "s/\[13/\[hando
 $(DIROUT)/ppre.tex: preamble.tex
 	mkdir -p $(DIROUT); sed -b -e "s/\[13/\[handout,13/" -e "s/\(print..\)false/\1true/"  $< > $@
 
-distclean: cleanall tclean
-
-cleanall: cpdf clean
-
-cpdf:;  -$(RM) $(wildcard en-*.pdf part-*.pdf slides-*.pdf test.pdf z_region.pdf)
-
-clean:; -$(RM) $(foreach s,$(CLSUFFIX),$(wildcard *.$(s))) $(wildcard test.exe */z_region*)
-
-tclean:; -$(RM) -rf $(foreach s,test z_region,$(wildcard $(s).* */$(s).*))
+distclean:; -$(RM) -rv $(BUILDDIR)/* $(DIROUT) z_region* */z_region* *.{pdf,7z,zip,rar}
+clean:;     -$(RM) $(wildcard en*.pdf part*.pdf z*.pdf slide*.pdf)
 
 $(GITCOMMD):; git $@
 ci:; git commit -m "$(AUTOCSTR)" .
@@ -85,10 +79,9 @@ publish: $(wildcard mpart-*.pdf) $(wildcard slides*.pdf)
 	scp mpart-*.pdf cst.hit.edu.cn:public_html/dotnet/pdf/
 	scp slides*.pdf cst.hit.edu.cn:public_html/dotnet/slides/handout/
 
-# DIRNAME = dotnet
-# src:; (cd ..; 7z a $(DIRNAME)-src.7z $(DIRNAME) -xr@$(DIRNAME)/res/srcexclude.txt)
+src:; 7z a csharp-src.7z *.tex figures pgf Makefile code
 
-.PHONY: all ci clean cleanall cpdf encrypt s st $(shell seq 0 8)  $(SUBDIRS)
+.PHONY: lecture handout screen a4paper all ci clean encrypt s publish $(shell seq 0 8) $(SUBDIRS)
 
 .SUFFIXES: .tex .pdf .dvi .ps .eps .jpg .png
 
