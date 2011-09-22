@@ -20,6 +20,14 @@
   - [[file:lib-others.tex][其他类库]]
   - [[file:dev-vsto.tex][Office 开发]]
 
+* TexLive 2011
+  - 在 Linux 安装及使用 Windows 上的字体
+    :  sudo ./install-tl -repository http://run.hit.edu.cn/CTAN/tex/systems/texlive/tlnet
+    : 
+    :  sudo cp -rf ~/WinFonts/ /usr/share/fonts/
+    :  sudo fc-cache -fsv
+
+
 * Visual Studio
 
 ** Text Editor 
