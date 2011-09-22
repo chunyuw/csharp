@@ -46,13 +46,12 @@ handout: screen a4paper
 screen:  $(NUMTARGT:%=s-s0%.pdf)
 a4paper: $(NUMTARGT:%=s-p0%.pdf)
 s-s%.pdf: $(DIROUT)/s-s%.pdf ; cp $< slide$@
-s-p%.pdf: $(DIROUT)/s-p%.pdf ; pdfjam --batch --nup 1x2 --no-landscape --outfile slide$@ $<
+s-p%.pdf: $(DIROUT)/s-p%.pdf ; pdfjam --quiet --batch --nup 1x2 --no-landscape --outfile slide$@ $<
 $(DIROUT)/s%.pdf:   $(DIROUT)/s%.tex ; xelatex -output-directory=$(@D) $<
-$(DIROUT)/s-s%.tex: $(DIROUT)/spre.tex part-%.tex; sed -b -e "s|preamble|$(DIROUT)/spre|" $(lastword $^) > $@
-$(DIROUT)/s-p%.tex: $(DIROUT)/ppre.tex part-%.tex; sed -b -e "s|preamble|$(DIROUT)/ppre|" $(lastword $^) > $@
-$(DIROUT)/spre.tex: preamble.tex ; mkdir -p $(DIROUT); sed -b -e "s/\[13/\[handout,13/" $< > $@
-$(DIROUT)/ppre.tex: preamble.tex
-	mkdir -p $(DIROUT); sed -b -e "s/\[13/\[handout,13/" -e "s/\(print..\)false/\1true/"  $< > $@
+$(DIROUT)/s-s%.tex: $(DIROUT)/pre-s.tex part-%.tex; sed -b -e "s|preamble|$(DIROUT)/pre-s|" $(lastword $^) > $@
+$(DIROUT)/s-p%.tex: $(DIROUT)/pre-p.tex part-%.tex; sed -b -e "s|preamble|$(DIROUT)/pre-p|" $(lastword $^) > $@
+$(DIROUT)/pre-s.tex: preamble.tex ; mkdir -p $(DIROUT); sed -b -e "s/\[13/\[handout,13/" $< > $@
+$(DIROUT)/pre-p.tex: $(DIROUT)/pre-s.tex ; sed -b -e "s/\(print..\)false/\1true/" $< > $@
 
 slide%.pdf: %.pdf ;
 mpart-%.pdf: part-%.pdf ; 
