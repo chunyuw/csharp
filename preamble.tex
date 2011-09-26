@@ -1,23 +1,8 @@
 %% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> %%
 
-% ,----[ 输出说明 ]
-% |
-% | 文档可以使用 beamer 文档类输出幻灯片，也可以使用 article 文档类输出内容。
-% |
-% |   * 使用 beamer 时，可以有两种输出模式：
-% |     - 默认的 beamer 模式；
-% |     - 可选的一般 handout 模式，使用 handout 选项；
-% |     - 用于打印的 handout 模式，使用 handout 选项，设置 handoutprint 为 true；
-% |
-% |   * 使用 article 时，也可输出全部内容：
-% |     - 需要加载 beamerarticle 宏包。
-% |
-% `----
-
-\documentclass[13pt,xcolor=svgnames,table,xetex]{beamer} % 或使用 handout 选项
-
-%\documentclass[a4paper]{article}                      % article only
-%\usepackage[noxcolor]{beamerarticle}
+\documentclass[13pt,xcolor=svgnames,table,xetex]{beamer} % Line: 3
+%\documentclass[a4paper]{article}                        % Line: 4
+%\usepackage[noxcolor]{beamerarticle}                    % Line: 5
 
 \author[\textsf{chunyu@hit.edu.cn}]{王春宇}
 \mode<presentation>{\institute[哈尔滨工业大学]{计算机科学与技术学院\\软件基础教研室}}
@@ -27,7 +12,7 @@
 \mode<handout>{%
   \RequirePackage{ifthen}       %
   \newboolean{handoutprint}     % true: 白色背景
-  \setboolean{handoutprint}{false}}
+  \setboolean{handoutprint}{false}}                      % Line: 16
 
 \mode<article>{%                % article only
   \usepackage[svgnames]{xcolor}
