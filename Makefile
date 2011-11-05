@@ -55,7 +55,7 @@ $(DIROUT)/pre-p.tex: $(DIROUT)/pre-s.tex ; sed -b -e "15 s/false/true/" $< > $@
 
 article:  $(DIROUT)/s-a.pdf;  mv $< article.pdf
 $(DIROUT)/s-a.tex:  $(DIROUT)/pre-a.tex part-08.tex; sed -b -e "s|preamble|$(DIROUT)/pre-a|" part-08.tex > $@
-$(DIROUT)/pre-a.tex: preamble.tex ; mkdir -p $(DIROUT); sed -b -e "4,5 s/%//" -e "3 s/^/%/" $< > $@
+$(DIROUT)/pre-a.tex: preamble.tex ; mkdir -p $(DIROUT); sed -b -e "3 s/^/%/;4,5 s/%//" $< > $@
 
 slide%.pdf: %.pdf ;
 mpart-%.pdf: part-%.pdf ; 
