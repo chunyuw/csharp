@@ -48,14 +48,14 @@ a4paper: $(NUMTARGT:%=s-p0%.pdf)
 s-s%.pdf: $(DIROUT)/s-s%.pdf; cp $< slide$@
 s-p%.pdf: $(DIROUT)/s-p%.pdf; pdfjam --quiet --batch --nup 1x2 --no-landscape --outfile slide$@ $<
 $(DIROUT)/s%.pdf:   $(DIROUT)/s%.tex ; xelatex -output-directory=$(@D) $<
-$(DIROUT)/s-s%.tex: $(DIROUT)/pre-s.tex part-%.tex; sed -b -e "s|preamble|$(DIROUT)/pre-s|" $(lastword $^) > $@
-$(DIROUT)/s-p%.tex: $(DIROUT)/pre-p.tex part-%.tex; sed -b -e "s|preamble|$(DIROUT)/pre-p|" $(lastword $^) > $@
-$(DIROUT)/pre-s.tex: preamble.tex ; mkdir -p $(DIROUT); sed -b -e "3 s/13pt/handout,&/" $< > $@
-$(DIROUT)/pre-p.tex: $(DIROUT)/pre-s.tex ; sed -b -e "15 s/false/true/" $< > $@
+$(DIROUT)/s-s%.tex: $(DIROUT)/pre-s.tex part-%.tex; sed -b "s|preamble|$(DIROUT)/pre-s|" $(lastword $^) > $@
+$(DIROUT)/s-p%.tex: $(DIROUT)/pre-p.tex part-%.tex; sed -b "s|preamble|$(DIROUT)/pre-p|" $(lastword $^) > $@
+$(DIROUT)/pre-s.tex: preamble.tex ; mkdir -p $(DIROUT); sed -b "/{beamer}/ s/,/,handout,/" $< > $@
+$(DIROUT)/pre-p.tex: $(DIROUT)/pre-s.tex ; sed -b "/{handoutprint}/ s/false/true/" $< > $@
 
 article:  $(DIROUT)/s-a.pdf;  mv $< article.pdf
-$(DIROUT)/s-a.tex:  $(DIROUT)/pre-a.tex part-08.tex; sed -b -e "s|preamble|$(DIROUT)/pre-a|" part-08.tex > $@
-$(DIROUT)/pre-a.tex: preamble.tex ; mkdir -p $(DIROUT); sed -b -e "3 s/^/%/;4,5 s/%//" $< > $@
+$(DIROUT)/s-a.tex:  $(DIROUT)/pre-a.tex part-08.tex; sed -b "s|preamble|$(DIROUT)/pre-a|" part-08.tex > $@
+$(DIROUT)/pre-a.tex: preamble.tex ; mkdir -p $(DIROUT); sed -b "/{beamer}/ s/^/%/;/a4paper/,/beamerarticle/ s/%//" $< > $@
 
 slide%.pdf: %.pdf ;
 mpart-%.pdf: part-%.pdf ; 

@@ -1,8 +1,8 @@
 %% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> %%
 
-\documentclass[13pt,xcolor=svgnames,table,xetex]{beamer} % Line: 3
-%\documentclass[a4paper]{article}                        % Line: 4
-%\usepackage[noxcolor]{beamerarticle}                    % Line: 5
+\documentclass[13pt,xcolor=svgnames,table,xetex]{beamer}
+%\documentclass[a4paper]{article}
+%\usepackage[noxcolor]{beamerarticle}
 
 \author[\textsf{chunyu@hit.edu.cn}]{王春宇}
 \mode<presentation>{\institute[哈尔滨工业大学]{计算机科学与技术学院\\软件基础教研室}}
@@ -11,8 +11,7 @@
 
 \mode<handout>{%
   \RequirePackage{ifthen}       %
-  \newboolean{handoutprint}     % true: 白色背景
-  \setboolean{handoutprint}{false}}                      % Line: 16
+  \newboolean{handoutprint}\setboolean{handoutprint}{false}} % true: 白色背景
 
 \mode<article>{%                % article only
   \usepackage[svgnames]{xcolor}
