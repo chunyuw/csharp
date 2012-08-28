@@ -11,8 +11,7 @@
 \begin{frame}
 \frametitle{什么是 Microsoft .NET}
 
-\CJKindent .NET 是 Microsoft 用以创建 XML Web 服务的平台，该平台将信息、设
-备和人以一种统一的、个性化的方式联系起来。
+\CJKindent 由微软开发，致力于敏捷软件开发、快速应用开发、平台无关性和网络透明化的软件开发平台。
 
 \smallskip
 
@@ -47,33 +46,33 @@
 
 \end{frame}
 
-\begin{frame}
-\frametitle{Microsoft .NET 平台的设计目标}
-\CJKindent
+% \begin{frame}
+% \frametitle{Microsoft .NET 平台的设计目标}
+% \CJKindent
 
-Microsoft .NET 平台利用以互联网为基础的计算和通讯激增的特点，通过先进的软件，
-利用网络协议和格式，协调众多的智能设备与网站，从而提供更简单、更为个性化、更
-有效的互联网服务。.NET 为一个集成环境，可以在 Internet，Windows 桌面以及移动
-设备上进行无缝地开发和运行应用程序。
+% Microsoft .NET 平台利用以互联网为基础的计算和通讯激增的特点，通过先进的软件，
+% 利用网络协议和格式，协调众多的智能设备与网站，从而提供更简单、更为个性化、更
+% 有效的互联网服务。.NET 为一个集成环境，可以在 Internet，Windows 桌面以及移动
+% 设备上进行无缝地开发和运行应用程序。
 
+% % \begin{itemize}
+% % \item 组件化编程，无论模块大小都可以即插即用
+% % \item 多语言集成，可以二十几种语言协同开发
+% % \item 通过 Web 服务支持分布式计算
+% % \item 简化开发与部署，避免模块冲突
+% % \item 更加可靠与安全
+% % \end{itemize}
+% % 兼容 Win32 API 和 COM
 % \begin{itemize}
-% \item 组件化编程，无论模块大小都可以即插即用
-% \item 多语言集成，可以二十几种语言协同开发
-% \item 通过 Web 服务支持分布式计算
+% \item 提供一致的面向对象编程环境，对象代码可以在本地或远程执行(或存储)
 % \item 简化开发与部署，避免模块冲突
-% \item 更加可靠与安全
+% \item 保证代码的安全执行
+% \item 多语言集成，可以二十几种语言协同开发
+% \item 消除脚本或解释执行系统中的性能问题
+% \item 统一的开发环境与经验
 % \end{itemize}
-% 兼容 Win32 API 和 COM
-\begin{itemize}
-\item 提供一致的面向对象编程环境，对象代码可以在本地或远程执行(或存储)
-\item 简化开发与部署，避免模块冲突
-\item 保证代码的安全执行
-\item 多语言集成，可以二十几种语言协同开发
-\item 消除脚本或解释执行系统中的性能问题
-\item 统一的开发环境与经验
-\end{itemize}
 
-\end{frame}
+% \end{frame}
 
 \begin{frame}[t]
 \frametitle{Microsoft .NET 相关技术标准}
@@ -267,14 +266,15 @@ Content-Length: length
 
 \centering \includegraphics[width=4cm]{logo-dn}
 
-\CJKindent 对开发人员来说 .NET 一般就是 .NET Framework，.NET Framework SDK 和 Visual Studio .NET
-三个方面。
+%\CJKindent 对开发人员来说 .NET 一般就是 .NET Framework，.NET Framework SDK 和 Visual Studio .NET 三
+%个方面。
+.NET Framework 是集成在 Windows 中的组件，支持生成和运行下一代应用程序与 XML Web Services。
 
 \begin{itemize}
-\item \large 基于互联网的分布式应用程序
-\item \large 创建与运行 Windows 应用程序的基础
-\item \large 创建与使用 Web Services 的工具
-\item \large 便携设备的开发和运行的环境
+\item 提供一致的面向对象的编程环境，而无论对象代码是在本地或远程的存储和执行
+\item 可提高代码执行安全性的代码执行环境
+\item 可消除脚本环境或解释环境的性能问题
+\item 将软件部署和版本控制冲突最小化
 \end{itemize}
 \end{frame}
 
@@ -786,7 +786,7 @@ Content-Length: length
   \CJKindent 应用程序域为安全性、可靠性、版本控制以及卸载程序集提供了隔离边界。应用程序域通常由运行库
   宿主创建，运行库宿主负责在运行应用程序之前引导公共语言运行库。
 \end{block}
-\pause
+%\pause
 \begin{itemize}
 \item 加载 CLR 的程序称为{\color<handout:0>{red!65!black}运行库宿主} (\textit{runtime host})
 \item 应用程序域，由运行库宿主创建
