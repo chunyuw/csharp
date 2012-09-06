@@ -962,6 +962,7 @@ public void Test(Point m){
 \item out 表示被调用函数通过入口参数，向调用函数返回结果
 \item ref 表示被调用函数使用入口参数的引用
 \item 调用时候也需明确指出 ref 和 out 参数
+\item ref 有进有出，out 无进只出
 \item 明确使用 ref 和 out 可以提高代码可读性
 \end{itemize}
 \lstset{emph={ref,out}}
@@ -1077,7 +1078,7 @@ class Ring:Circle { public int r;
 \frametitle{多态性(\textit{Polymorphism})}
 
 \begin{block}{多态性(\textit{Polymorphism})}
-  \CJKindent 多态性就是多种表现形式，具体来说，可以用"一个对外接口，多个内在实现方法"表示。
+  \CJKindent 多态性就是多种表现形式，具体来说，可以用“一个对外接口，多个内在实现方法”表示。
 \end{block}
 
   \begin{itemize}
