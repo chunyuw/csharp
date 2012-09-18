@@ -583,6 +583,217 @@ static void ImmediateExecution()
 \end{frame}
 
 
+\begin{frame}[fragile]
+\frametitle{LINQ 使用}
+\begin{itemize}
+\item \textit{namelist.txt}
+\end{itemize}
+\begin{lstlisting}[escapeinside='']
+1       于彦秋  1090310102      0903101
+2       马成龙  1090310103      0903101
+3       王雪琦  1090310104      0903101
+4       陈云飞  1090310105      0903101
+5       张晗成  1090310106      0903101
+'\dots \dots \dots ' 
+\end{lstlisting}
+
+\begin{lstlisting}[escapeinside='']
+class Student{
+    public int n; public string name, id, cid;
+    public Student('\ldots') {
+       '\ldots'
+    }
+    public override string ToString() {
+        return string.Format(
+           "序号:{0,3}  姓名:{1,4}  学号:{2}  班级:{3}",
+           n, name, id, cid);}
+}
+\end{lstlisting}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{LINQ 使用}
+
+\begin{lstlisting}
+static void Main(string[] args)
+{
+  string[] names = File.ReadAllLines(@"namelist.txt");
+
+  var students = from x in names
+                 select new Student(x.Split(' '));
+  
+  foreach (var x in students) Console.WriteLine(x);
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+  Student[] students = (from x in names
+             select new Student(x.Split(' '))).ToArray();
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{LINQ 使用 --- Basic}
+\begin{itemize}
+\item Drilldown
+\end{itemize}
+\begin{lstlisting}
+var result = from x in students
+             where x.name.Length == 2 && x.cid == "0903102"
+             select x;
+\end{lstlisting}
+\begin{itemize}
+\item Projection
+\end{itemize}
+\begin{lstlisting}
+var result = from x in students
+             select new {x.id, x.name};
+\end{lstlisting}
+\begin{itemize}
+\item Filter
+\end{itemize}
+\begin{lstlisting}
+var result = students.Where(
+  (x, i) => i % int.Parse(x.id.Substring(8,2)) == 0);
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{LINQ 使用 --- Partition}
+\begin{itemize}
+\item \texttt{Take()}和\texttt{Skip()}
+\begin{lstlisting}[escapeinside='']
+students.Take(10)   // '前10个'
+students.Skip(100)  // '除去前100个'
+\end{lstlisting}
+
+\begin{lstlisting}
+(from x in students where x.cid == "0903105"
+        select x.name).Take(10);
+\end{lstlisting}
+\item \texttt{TakeWhile()}和\texttt{SkipWhile()}
+
+选“张某”之前的
+\begin{lstlisting}
+students.TakeWhile( x => x.name != "张某");
+\end{lstlisting}
+选15号之后的
+\begin{lstlisting}
+students.SkipWhile( x => x.n < 15);
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+
+
+
+\begin{frame}[fragile]
+\frametitle{LINQ 使用 --- Sort}
+\begin{itemize}
+\item OrderBy
+\begin{lstlisting}
+from x in students  orderby x.name  select x;
+
+from x in students 
+  orderby x.name.Length descending  select x;
+\end{lstlisting}
+\item OrderBy, ThenBy
+\begin{lstlisting}
+from x in students
+  orderby x.cid, x.name  select x;
+\end{lstlisting}
+\item Reverse
+\begin{lstlisting}
+(from x in students
+  orderby x.cid, x.name  select x).Reverse();
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{LINQ 使用 --- Grouping}
+\begin{itemize}
+\item GroupBy
+\lstset{emph={group, by}}
+\begin{lstlisting}
+var result = from x in students group x by x.cid;
+
+foreach (var x in result) {
+    Console.WriteLine("{0}: ", x.Key);
+
+    foreach (var y in x.ToList())
+        Console.WriteLine("    {0} {1}", y.id, y.name);
+
+}
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{LINQ 使用 --- Grouping}
+\begin{itemize}
+\item GroupBy
+\lstset{emph={group, by, into}}
+\begin{lstlisting}
+var result = from x in students
+     group x by x.name.Substring(0, 1) into y
+     select new { FirstName = y.Key, Students = y };
+
+foreach (var x in result) {
+    Console.WriteLine("{0}: ", x.FirstName);
+
+    foreach (var y in x.Students)
+        Console.WriteLine("   {0} {1}", y.id, y.name);
+}
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{LINQ 使用 --- Quantifier/Conversion}
+\begin{itemize}
+\item \texttt{Any, All}
+\begin{lstlisting}
+var result = students.Any(x => x.name == "张某");
+var result = students.All(x => x.name.Length >0);
+\end{lstlisting}
+\item ToArray, ToList, ToDictionary
+\item OfType
+\begin{lstlisting}
+object[] numbers = { null, 1.0, "two", 
+                     3, "four", 5, "six", 7.0 }; 
+var doubles = numbers.OfType<double>(); 
+foreach (var d in doubles) Console.WriteLine(d); 
+// 1.0, 7.0
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+\frametitle{LINQ 使用 --- Aggregate Operators}
+\begin{itemize}
+\item Count
+\begin{lstlisting}
+students.Count();
+students.Count(n => n.name.Length==3);
+\end{lstlisting}
+\item Sum, Min, Max, Average
+\begin{lstlisting}
+students.Sum(n => n.name.Length);
+students.Max(n => n.name.Length);
+students.Average(n => n.name.Length);
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+
 \section{文本处理}
 
 \begin{frame}[fragile]
