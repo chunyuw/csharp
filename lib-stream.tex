@@ -573,6 +573,54 @@ private static void toClient(object o) {
 \end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{单向 netcat 模拟}
+\begin{itemize}
+\item Server 写，Client 读
+\begin{lstlisting}[escapeinside=<>]
+// <Server's code, client use \texttt{netcat}>
+TcpListener s = new TcpListener(4343);
+s.Start();
+
+using (TcpClient c = s.AcceptTcpClient())
+using (NetworkStream n = c.GetStream())
+{
+  while (true)
+  {
+    string r = Console.ReadLine();
+    byte[] buf = Encoding.GetEncoding(
+                        "gb18030").GetBytes(r+"\n");
+    n.Write(buf, 0, buf.Length);
+  }
+}
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{单向 netcat 模拟}
+\begin{itemize}
+\item Server 读，Client 写
+\begin{lstlisting}[escapeinside=<>]
+// <Server's code, client use \texttt{netcat}>
+TcpListener s = new TcpListener(4343);
+s.Start();
+
+using (TcpClient c = s.AcceptTcpClient())
+using (NetworkStream n = c.GetStream())
+{
+  while (true)
+  {
+    StreamReader sr = new StreamReader(n, 
+                    Encoding.GetEncoding("gb18030"));
+    string r = sr.ReadLine();
+    Console.WriteLine(r);
+  }
+}
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
 
 % \begin{frame}[fragile]
 % \frametitle{异步 IO}
@@ -600,9 +648,8 @@ private static void toClient(object o) {
 % \end{itemize}
 % \end{frame}
 
-
 \begin{frame}[fragile]
-\frametitle{Socket Stream 异步编程}
+\frametitle{Network Stream 异步编程}
 \begin{lstlisting}[escapeinside=<>]
 NetworkStream n; byte[] buf; AsyncCallback callback;
 void run()
@@ -612,6 +659,7 @@ void run()
   using(TcpClient client = new TcpClient(host, 4242))
   using(n = client.GetStream()){
     n.BeginRead(buf, 0, buf.Length, callback, null);
+    while(true) { <\ldots\ for write \ldots\ >}
   }
 }
 static void readFunc(IAsyncResult r) {
@@ -625,6 +673,8 @@ static void readFunc(IAsyncResult r) {
 }
 \end{lstlisting}
 \end{frame}
+
+\section{异步}
 
 \begin{frame}
 \frametitle{异步编程模型}
@@ -771,19 +821,104 @@ public void longwork()  { <$\cdots$> }
 
 \begin{itemize}
 \item 回调方式
-\begin{lstlisting}
+\lstset{emph={callback, cbHandle}}
+\begin{lstlisting}[escapeinside=<>]
 public void longwork()  { <$\cdots$> }
 
+public void Main(){
   Action d = longwork;
   AsyncCallback callback = cbHandle;
-  IAsyncResult ar = d.BeginInvoke(callback, d);
+  IAsyncResult ar = d.BeginInvoke(callback, null);
+  <$\cdots\ \cdots$>
+}
 
 public void cbHandle(IAsyncResult ar) {
-  Action d = (Action) ar.AsyncState;
-  result = d.EndInvoke(ar);
+  AsyncResult r = (AsyncResult) ar.AsyncDelegate;
+  result = r.EndInvoke(ar);
 }
 \end{lstlisting}
 \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{通用异步操作模型}
+
+FCL中有很多支持 \textit{Begin}\texttt{Xxx}/\textit{End}\texttt{Xxx} 异步操作的类。
+
+\begin{itemize}
+\setlength{\itemsep}{6pt plus 1pt}
+\item FileStream, NetworkStream
+\begin{itemize}
+\item[-] BeginRead / BeginWrite
+\end{itemize}
+\item TcpListener
+\begin{itemize}
+\item[-] BeginAcceptSocket / BeginAcceptTcpClient
+\end{itemize}
+\item HttpWebRequest
+\begin{itemize}
+\item[-] BeginGetRequestStream / BeginGetResponse
+\end{itemize}
+\item SqlCommand
+\begin{itemize}
+\item[-] BeginExecuteNonQuery
+\item[-] BeginExecuteReader
+\item[-] BeginExecuteXmlReader
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{回调方式举例(1)}
+
+\begin{itemize}
+\item myAction --- 异步用的委托类型
+\item job --- 模拟长时间任务
+\end{itemize}
+\begin{lstlisting}
+delegate int myAction (int i);
+
+static int job(int n) {
+    for (int i = 0; i < (int)n; i++) {
+        Thread.Sleep( 100);
+        Console.WriteLine(" *");
+    }
+    return Thread.CurrentThread.ManagedThreadId;
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{回调方式举例(2)}
+\begin{itemize}
+\item AsyncCallback --- 回调委托
+\end{itemize}
+\begin{lstlisting}
+static void Main(string[] args)
+{
+    Console.WriteLine("Main Started...");
+    myAction d = job;
+    AsyncCallback callback = jobDoneHandle;
+
+    IAsyncResult ar = d.BeginInvoke(10, callback, d);
+
+    Console.WriteLine("Main Done.");
+    Thread.Sleep(1500);
+}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{回调方式举例(3)}
+\begin{lstlisting}
+static void jobDoneHandle(IAsyncResult ar){
+    // using System.Runtime.Remoting.Messaging;
+    myAction d = (myAction)((AsyncResult)ar).AsyncDelegate;
+
+    int id = d.EndInvoke(ar);
+    Console.WriteLine("Thread ID: {0}", id);
+}
+\end{lstlisting}
 \end{frame}
 
 
