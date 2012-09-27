@@ -543,7 +543,7 @@ public static void Main() {
 
 \begin{frame}[fragile]
 \frametitle{自动类型转换}
-\CJKindent C\# 2.0 中，可以省略 new 表达式，直接使用方法名创建委托实例，添加委托
+\CJKindent 可以省略 new 表达式，直接使用方法名创建委托实例，添加委托
 \begin{lstlisting}[escapeinside=<>]
 public static void Main() {
   // <自动将方法转换为委托>
@@ -708,7 +708,7 @@ MultiHandler(object sender, System.EventArgs e)
 delegate [(parameter-list)] { anonymous-method-block}
 \end{lstlisting}
 \begin{itemize}
-\item C\# 2.0 中使用委托可以创建匿名方法
+\item 使用 \texttt{delegate} 可以创建匿名方法
 \item 使用匿名方法，可以简化程序，不用为简单的操作定义方法
 \end{itemize}
 \end{frame}
@@ -1020,7 +1020,6 @@ class MyEvent {
 \frametitle{泛型}
 \begin{block}{\textit{Generics}}
   \CJKindent 泛型就是类型参数化，可以将类型作为参数，根据需要改变类中成员的类型。
-  泛型是 .NET 2.0 的新特性。
 \end{block}
 
 \begin{itemize}

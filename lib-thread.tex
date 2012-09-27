@@ -115,7 +115,7 @@ public class ThreadExample {
 
 \begin{frame}[fragile]
 \frametitle{给线程传递参数}
-C\# 2.0 中，可以通过 ParameterizedThreadStart 委托给线程传递一个对象参数
+可以通过 ParameterizedThreadStart 委托给线程传递一个对象参数
 \begin{lstlisting}
   public static void ThreadProc(object o) {
     for (int i = 0; i < (int)o; i++) {
@@ -245,7 +245,7 @@ public sealed class Thread{
 \begin{itemize}
 \item 任何线程都可以挂起其他线程
 \item 被挂起的线程只能被其他线程恢复
-\item C\# 2.0 推荐使用其他方式暂停线程执行
+\item C\# 2.0 之后推荐使用其他方式暂停线程执行
 \end{itemize}
 
 \end{frame}
@@ -681,7 +681,7 @@ public class MutexDemo: IDisposable {
 \frametitle{Semaphore 类}
 % http://msdn2.microsoft.com/zh-cn/library/system.threading.semaphore.aspx
 \begin{itemize}
-\item C\# 2.0 的 Semaphore 类，用于限制访问临界资源的线程数
+\item Semaphore 类，用于限制访问临界资源的线程数
 \item 初始化信号量时，可指定已占用的信号量和最大数量
 \item Release 方法可以释放一个或多个信号量
 \end{itemize}
