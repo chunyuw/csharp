@@ -922,7 +922,7 @@ static void jobDoneHandle(IAsyncResult ar){
 \end{frame}
 
 
-\section{串行化和反射}
+\section{串行化}
 
 \begin{frame}
 \frametitle{串行化}
@@ -1087,123 +1087,6 @@ formatter.Serialize(stream, obj2);
 // <\dots{} \dots{}>
 ClassA a = (ClassA) formatter.Deserialize(stream);
 ClassB b = (ClassB) formatter.Deserialize(stream);
-\end{lstlisting}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{反射(\textit{Reflection})}
-\begin{itemize}
-\setlength{\itemsep}{6pt plus 1pt}
-\item 查看元数据，用于辅助工具的显示功能等
-\item 类型发现，用户定制脚本和代码交互
-\item 后期绑定，基于类型发现的动态执行方法、设置特性等
-\item 运行时动态创建类型
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{获得类型信息}
-\lstset{emph={Type,GetTypes}}
-\begin{lstlisting}
-using System; using System.Reflection;
-public static void Main()
-{
-   Assembly a = Assembly.Load( "Mscorlib" );
-   Type[] types = a.GetTypes( );
-   foreach ( Type t in types )
-   {
-      Console.WriteLine( "Type is {0}", t );
-   }
-   Console.WriteLine(
-      "{0} types found", types.Length );
-}
-\end{lstlisting}
-程序输出：\scriptsize
-\begin{verbatim}
-Type is System.Object
-Type is System.__Canon
-Type is System.ICloneable
-Type is System.Collections.IEnumerable
-Type is System.Collections.IList
-...
-\end{verbatim}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{获得成员信息}
-\lstset{emph={MemberInfo,GetMembers}}
-\begin{lstlisting}
-public static void Main( )
-{ Type theType = Type.GetType("System.Int16");
-  MemberInfo[] mbrInfoArray = theType.GetMembers();
-
-  foreach (MemberInfo m in mbrInfoArray )
-  { Console.WriteLine("{0} is a {1}", m, m.MemberType); }
-}
-\end{lstlisting}
-程序输出：\scriptsize
-\begin{verbatim}
-System.String ToString() is a Method
-Int16 Parse(System.String) is a Method
-Boolean TryParse(System.String, Int16 ByRef) is a Method
-Int16 MaxValue is a Field
-Int16 MinValue is a Field
-...
-\end{verbatim}
-\end{frame}
-
-
-\begin{frame}[fragile]
-\frametitle{获得特定的成员信息}
-\lstset{emph={FindMembers}}
-\begin{lstlisting}
-public static void Main( )
-{ Type theType = 
-          Type.GetType("System.Reflection.Assembly");
-  
-  MemberInfo[] mbrInfoArray =
-   theType.FindMembers(MemberTypes.Method,
-      BindingFlags.Public|BindingFlags.Static,
-      Type.FilterName, "Get*" );
-
-  foreach(MemberInfo m in mbrInfoArray)
-    Console.WriteLine("{0} is a {1}", m, m.MemberType);
-}
-\end{lstlisting}
-程序输出：\scriptsize
-\begin{verbatim}
-System.Reflection.Assembly GetAssembly(System.Type) is a Method
-System.Reflection.Assembly GetExecutingAssembly() is a Method
-System.Reflection.Assembly GetCallingAssembly() is a Method
-System.Reflection.Assembly GetEntryAssembly() is a Method
-\end{verbatim}
-\end{frame}
-
-
-\begin{frame}[fragile]
-\frametitle{后期绑定(\textit{Late Binding})}
-\begin{itemize}
-\item 通过后期绑定，可以在运行时动态调用具体方法
-\end{itemize}
-\lstset{emph={Invoke,GetMethod}}
-\begin{lstlisting}
-Type theMathType = Type.GetType( "System.Math" );
-Type[] p = new Type[1];
-p[0] = Type.GetType( "System.Double" );
-
-MethodInfo CosineInfo =
-   theMathType.GetMethod( "Cos", p );
-
-Object[] parameters = new Object[1];
-parameters[0] = 45 * ( Math.PI / 180 );
-
-Object returnVal =
-   CosineInfo.Invoke( theMathType, parameters );
-
-Console.WriteLine(
-   "The cosine of a 45 degree angle {0}",
-   returnVal );
 \end{lstlisting}
 \end{frame}
 
