@@ -3,7 +3,7 @@
 Author    = "Chunyu Wang <chunyu@hit.edu.cn>"
 Copyright = "Copyright (C) $(shell seq -s, 2006 $(shell $(DATE) +%Y)) "$(Author)"."
 
-NUMTARGT  = $(shell seq 0 5)
+NUMTARGT  = $(shell seq 0 6)
 
 AUTOCSTR  = Batch checkin by Makefile ($(shell $(DATE) "+%Y-%m-%d %H:%M") on $(shell uname -n))
 ifeq ($(shell uname -s), windows32) 
