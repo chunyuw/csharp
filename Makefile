@@ -30,7 +30,7 @@ all:
 	@echo "    make [0-8] | s[0-8] | p[0-8]"
 	@echo "    make lecture | handout | a4paper | screen | article"
 	@echo "    make publish | s | src | encrypt | ci | rar | 7z"
-	@echo "    make cpdf | clean | cleanall | distclean"
+	@echo "    make clean | distclean"
 
 $(NUMTARGT): %: part-0%.pdf
 part-%.pdf: part-%.tex preamble.tex
