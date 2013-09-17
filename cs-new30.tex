@@ -210,13 +210,13 @@ class MyCalc : IMath
 
 public static class ExtIMath
 {
-  public static int Subtract(this IMath itf, int x, int y)
+  public static int Substract(this IMath itf, int x, int y)
   { return x - y; }
 }
 ...  // in Main()
   MyCalc c = new MyCalc();
   Console.WriteLine("1 + 2 = {0}", c.Add(1, 2));
-  Console.WriteLine("1 - 2 = {0}", c.Subtract(1, 2));
+  Console.WriteLine("1 - 2 = {0}", c.Substract(1, 2));
 \end{lstlisting}
 \end{frame}
 
