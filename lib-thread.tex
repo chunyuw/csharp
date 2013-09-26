@@ -1,5 +1,10 @@
 %% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> %%
 
+\begin{frame}
+\frametitle{Outline}            % {C\# 的类}
+\tableofcontents
+\end{frame}
+
 \section{多线程}
 
 % http://msdn2.microsoft.com/zh-cn/library/system.threading.aspx
@@ -833,9 +838,162 @@ class prog
 \end{lstlisting}
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{Task 类}
+\begin{itemize}
+\item .NET Framework 4.0 引入的新类型，用于异步操作
+\item 功能强于 Thread 和 ThreadPool，且使用方便
+\item 名字空间 System.Threading.Tasks
+\end{itemize}
+\lstset{emph={Task}}
+\begin{lstlisting}[escapeinside='']
+class Task : IThreadPoolWorkItem, IAsyncResult, '$\cdots$' {
+  public Task(Action action) {}
+  public void Start() {}
+  public void Wait() {}
+
+  public static Task Run(Action action) {}
+  public static void WaitAll(params Task[] tasks) {}
+  public static int WaitAny(params Task[] tasks) {}
+  '$\ldots$'
+  public bool IsCanceled
+  public bool IsCompleted
+  public bool IsFaulted
+  public TaskStatus Status
+  '$\ldots$'
+}
+\end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{创建 Task}
+\begin{itemize}
+\item 任务委托 Action，参数和返回值都为空
+\end{itemize}
+\begin{lstlisting}
+public delegate void Action();
+\end{lstlisting}
+\begin{itemize}
+\item 通过创建 Task 对象
+\lstset{emph={new}}
+\begin{lstlisting}
+Task t = new Task(() => Console.WriteLine("Hello"));
+t.Start();
+\end{lstlisting}
+\item 通过静态方法 Run 创建并直接运行
+\lstset{emph={Run}}
+\begin{lstlisting}
+Task t = Task.Run (() => Console.WriteLine ("Hello"));
+\end{lstlisting}
+\item 通过工厂创建并运行
+\lstset{emph={StartNew}}
+\begin{lstlisting}
+Task t = Task.Factory.StartNew(
+                    () => Console.WriteLine("Hello"));
+
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{带有返回值的 Task<TResult>}
+\begin{itemize}
+\item Task<TResult> 的构造函数
+\begin{lstlisting}
+Task<TResult>(Func<TResult>)
+\end{lstlisting}
+\item 其中 Func<TResult> 为
+\begin{lstlisting}
+public delegate TResult Func<out TResult>()
+\end{lstlisting}
+入口参数为空即返回值为 TResult 的委托
+\item 创建并获得返回值
+\begin{lstlisting}
+var t = Task<int>.Factory.StartNew(
+                              () => { return 1+1; });
+t.Wait();
+int i = t.Result;
+\end{lstlisting}
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{Task 异常处理}
+
+\begin{itemize}
+\item Task 中的异常会传递给 \texttt{Wait()} 调用者或 \texttt{Result} 的访问者
+\item 与 Thread 相比，使用更方便
+\begin{lstlisting}
+Task task = Task.Run (() => { throw null; });
+try {
+
+  task.Wait();
+
+} catch (AggregateException aex) {
+
+  if (aex.InnerException is NullReferenceException)
+    Console.WriteLine ("Null!");
+  else
+    throw;
+}
+\end{lstlisting}
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile,t]
+\frametitle{连续的 Task (Continuations)}
+\vskip2em
+\begin{lstlisting}
+Task<int> primeNumberTask = Task.Run(() =>
+  Enumerable.Range(2, 3000000).Count(n =>
+    Enumerable.Range(2, 
+          (int)Math.Sqrt(n) - 1).All(i => n \% i > 0)));
+
+primeNumberTask.ContinueWith(antecedent => {
+    int result = antecedent.Result;
+    Console.WriteLine(result);
+});
+
+\end{lstlisting}
+\begin{itemize}
+\item 利用 \texttt{ContinueWith()} 方法，延续其他任务
+\item \texttt{ContinueWith()} 返回类型为 Task，可再次用于延续任务
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile,t]
+\vskip2em
+\frametitle{连续的 Task (Continuations)}
+\begin{lstlisting}
+Task<int> primeNumberTask = Task.Run(() =>
+  Enumerable.Range(2, 3000000).Count(n =>
+    Enumerable.Range(2, 
+          (int)Math.Sqrt(n) - 1).All(i => n \% i > 0)));
+
+var awaiter = primeNumberTask.GetAwaiter();
+awaiter.OnCompleted(() => {
+    int result = awaiter.GetResult();
+    Console.WriteLine(result);
+});
+\end{lstlisting}
+\begin{itemize}
+\item 或利用 awaiter 对象的 OnCompleted() 方法
+\item \texttt{GetResult()}可以捕获 Task 异常，便于处理
+\end{itemize}
+\end{frame}
+
+
+
+
 % Local Variables:
 % mode: LaTeX
-% TeX-master: "part-04.tex"
+% TeX-master: "part-05.tex"
 % TeX-header-end: "% End-of-Header$"
 % TeX-trailer-start: "% Start-of-Trailer$"
 % fill-column: 100
