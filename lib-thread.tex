@@ -754,7 +754,103 @@ public sealed class Thread {
 \end{frame}
 
 \begin{frame}[fragile]
-\frametitle{ThreadPool 类}
+\frametitle{线程本地存储 (\textit{Thread Local Storage})}
+
+\begin{itemize}
+\item TLS 的 ThreadStatic 特性
+\end{itemize}
+\begin{lstlisting}[escapeinside='']
+[ThreadStatic]                //'TLS中的str变量'
+static string str = "Hello";
+
+static void Main() {
+  Thread th = new Thread(()=>{ str="World"; Display(); });
+  th.Start(); th.Join(); // '线程只能修改自己TLS中的str'
+  Display();
+}
+ 
+static void Display() {
+    Console.WriteLine("{0} {1}", 
+               Thread.CurrentThread.ManagedThreadId, str);
+}
+
+// 3 World
+// 1 Hello
+\end{lstlisting}
+\end{frame}
+
+
+\begin{frame}[fragile]
+\frametitle{本地存储(\textit{Local Data Store Slot})}
+\begin{itemize}
+\item 使用命名的本地存储
+\end{itemize}
+\lstset{basicstyle=\tiny\ttfamily}
+\begin{lstlisting}[escapeinside='']
+static void Main() {
+  // '创建名字为 \texttt{foobar} 的 \texttt{DataSlot'}
+  LocalDataStoreSlot slot = Thread.AllocateNamedDataSlot("foobar");
+
+  Thread.SetData(slot, "Hello!!");            // '存储数据'
+
+  Thread th = new Thread(() => {
+           Thread.SetData(slot, "Aloha~~");   // '线程中修改'
+           Display();
+  });
+  th.Start();  th.Join(); 
+
+  Display();
+  Thread.FreeNamedDataSlot("foobar");         // '释放'
+}
+
+static void Display() {
+  LocalDataStoreSlot dataslot = Thread.GetNamedDataSlot("foobar");
+  Console.WriteLine("{0} {1}", Thread.CurrentThread.ManagedThreadId,
+                                            Thread.GetData(dataslot));
+}
+
+// 3 Aloha~~
+// 1 Hello!!
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{\texttt{ThreadLocal<T>类}}
+\begin{itemize}
+\item .NET Framework 4.0 提供了新的基于泛型的本地存储
+\item 通过 \texttt{Value} 使用数据
+\end{itemize}
+\lstset{basicstyle=\tiny\ttfamily}
+\begin{lstlisting}[escapeinside='']
+static ThreadLocal<string> local;
+
+static void Main() {
+    // '创建ThreadLocal并提供默认值'
+    local = new ThreadLocal<string>(() => "Hello");
+    
+    Thread th = new Thread(() => {
+        local.Value = "World";  // '线程中修改'
+        Display();
+    });
+
+    th.Start(); th.Join();
+    Display();
+}
+
+static void Display()  {
+    Console.WriteLine("{0} {1}", Thread.CurrentThread.ManagedThreadId, local.Value);
+}
+
+// 3 World
+// 1 Hello
+
+\end{lstlisting}
+\end{frame}
+
+
+
+\begin{frame}[fragile]
+\frametitle{线程池 ThreadPool 类}
 % http://msdn2.microsoft.com/zh-cn/library/0ka9477y.aspx
 \begin{itemize}
 \item 每个进程都有一个线程池，由 .NET 分配和管理
