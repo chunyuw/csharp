@@ -922,9 +922,73 @@ static void jobDoneHandle(IAsyncResult ar){
 \end{frame}
 
 
-\begin{frame}[fragile]
-\frametitle{\texttt{async}和\texttt{await}}
+\begin{frame}[fragile,t]
+\frametitle{使用 Task 的异步编程}
+\begin{lstlisting}[escapeinside='']
+Bitmap img = new Bitmap(@"path\to\filename.jpg");
+Bitmap Blur(Bitmap image) { '$\cdots$' }      // '长时间任务'
+\end{lstlisting}
+\begin{itemize}
+\item 同步调用，会导致主线程失去响应
+\begin{lstlisting}[escapeinside='']
+void button1_Click(object s, EventArgs e) {
+  pictureBox1.Image = Blur(img);  // '同步调用'
+}
+\end{lstlisting}
+\item 使用 Task，但直接读取 Result，也会等待其结束
+\lstset{emph={[2]Result}}
+\begin{lstlisting}[escapeinside='']
+void button1_Click(object s, EventArgs e) {
+  Task<Bitmap> t = new Task<Bitmap>.Run(() => Blur(img));
+  pictureBox1.Image = t.Result;   // '等待\texttt{Task}结束'
+}
+\end{lstlisting}
+%\lstset{basicstyle=\tiny\ttfamily}
+\end{itemize}
+\end{frame}
 
+\begin{frame}[fragile,t]
+\frametitle{使用 Task 的异步编程}
+\begin{lstlisting}[escapeinside='']
+Bitmap img = new Bitmap(@"path\to\filename.jpg");
+Bitmap Blur(Bitmap image) { '$\cdots$' }      // '长时间任务'
+\end{lstlisting}
+\begin{itemize}
+\item 利用 Awaiter 异步完成，主线程正常响应
+\lstset{emph={[2]GetAwaiter, OnCompleted}}
+\begin{lstlisting}[escapeinside='']
+void button1_Click(object s, EventArgs e) {
+  Task<Bitmap> t = new Task<Bitmap>.Run(() => Blur(img));
+
+  var awaiter = t.GetAwaiter();
+  awaiter.OnCompleted(() => { 
+             pictureBox1.Image = t.Result; 
+  });
+}
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}[fragile,t]
+\frametitle{C\# 5.0 的 \texttt{async} 和 \texttt{await} 简化异步过程}
+\begin{lstlisting}[escapeinside='']
+Bitmap img = new Bitmap(@"path\to\filename.jpg");
+Bitmap Blur(Bitmap image) { '$\cdots$' }      // '长时间任务'
+\end{lstlisting}
+\begin{itemize}
+\item 使用 \texttt{await} 修饰 Task 对象
+\item 使用 \texttt{async} 修饰该方法
+\lstset{emph={async, await}}
+\begin{lstlisting}
+async void button1_Click(object s, EventArgs e) {
+
+    pictureBox1.Image = 
+             await Task<Bitmap>.Run(() => Blur(b));
+}
+\end{lstlisting}
+\end{itemize}
 \end{frame}
 
 
