@@ -481,6 +481,7 @@ static void watcher(object sender, FileSystemEventArgs e)
 \item WebClient 实现了简单的 Web 客户端
 \begin{lstlisting}
 void DownloadFile(string url, string fileName);
+void DownloadFileAsync(Uri uri, string fileName);
 string DownloadString(string url);
 byte[] DownloadData (string url);
 Stream OpenRead (string url);
