@@ -497,6 +497,27 @@ System.Diagnostics.Process.Start("f2.txt");
 \end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]
+\frametitle{WebClient 的异步下载}
+\lstset{basicstyle=\tiny\ttfamily}
+\begin{lstlisting}
+private void btnDownload_Click(object sender, EventArgs e){
+  WebClient c = new WebClient();
+  c.DownloadFileCompleted += new AsyncCompletedEventHandler(Completed);
+  c.DownloadProgressChanged += new DownloadProgressChangedEventHandler(ProgressChanged);
+  c.DownloadFileAsync(new Uri("http://mysite.com/myfile.txt"), @"c:\myfile.txt");
+}
+
+private void ProgressChanged(object sender, DownloadProgressChangedEventArgs e) {
+  progressBar.Value = e.ProgressPercentage;
+}
+
+private void Completed(object sender, AsyncCompletedEventArgs e) {
+  MessageBox.Show("Download completed!");
+}
+\end{lstlisting}
+\end{frame}
+
 
 \begin{frame}[fragile]
 \frametitle{Mail 和 SMTP}

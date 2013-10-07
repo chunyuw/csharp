@@ -938,7 +938,7 @@ class prog
 \frametitle{Task 类}
 \begin{itemize}
 \item .NET Framework 4.0 引入的新类型，用于异步操作
-\item 功能强于 Thread 和 ThreadPool，且使用方便
+\item 功能强于直接使用 Thread 和 ThreadPool，且更简便
 \item 名字空间 System.Threading.Tasks
 \end{itemize}
 \lstset{emph={Task}}
@@ -1022,7 +1022,7 @@ int i = t.Result;
 
 \begin{itemize}
 \item Task 中的异常会传递给 \texttt{Wait()} 调用者或 \texttt{Result} 的访问者
-\item 与 Thread 相比，使用更方便
+\item 与 Thread 相比，便于实现异常的集中处理
 \begin{lstlisting}
 Task task = Task.Run (() => { throw null; });
 try {
