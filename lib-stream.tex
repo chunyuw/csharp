@@ -499,6 +499,10 @@ System.Diagnostics.Process.Start("f2.txt");
 
 \begin{frame}[fragile]
 \frametitle{WebClient 的异步下载}
+\begin{itemize}
+\item WebClient 的 DownloadFileAsync 利用线程池线程下载
+\item 虽然下载过程不会阻塞主线程，但在开始下载前的域名解析会阻塞
+\end{itemize}
 \lstset{basicstyle=\tiny\ttfamily}
 \begin{lstlisting}
 private void btnDownload_Click(object sender, EventArgs e){
