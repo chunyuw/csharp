@@ -62,8 +62,8 @@ mpart-%.pdf: part-%.pdf ;
 $(NUMTARGT:%=s%): s%: s-s0%.pdf ;
 $(NUMTARGT:%=p%): p%: s-p0%.pdf ;
 
-swf: $(NUMTARGT:%=slides-s0%.swf)
-slide%.swf: slide%.pdf ; pdf2swf -B res/rfxview.swf -t $< -o $@
+swf: $(NUMTARGT:%=ch0%.swf)
+ch%.swf: slides-s%.pdf ; pdf2swf -B res/rfxview.swf -t $< -o $@
 
 distclean:; -$(RM) -rv auto $(BUILDDIR) $(DIROUT) z_region* *.pdf *.7z *.zip *.rar *.swf
 clean:;     -$(RM) $(wildcard en*.pdf part*.pdf z*.pdf slide*.pdf *.swf)
@@ -78,9 +78,10 @@ s:; $(SHOWPDF)
 rar:; winrar -m5 a dotnet.rar $(CURRPDF) code
 7z:;  7z    -mx9 a dotnet.7z  $(CURRPDF) code
 
-publish: $(wildcard mpart*.pdf) $(wildcard slides*.pdf)
+publish: $(wildcard mpart*.pdf) $(wildcard slides*.pdf) $(wildcard ch*.swf)
 	scp mpart-*.pdf cst.hit.edu.cn:public_html/dotnet/pdf/
 	scp slides*.pdf cst.hit.edu.cn:public_html/dotnet/slides/handout/
+	scp ch*.swf     cst.hit.edu.cn:public_html/dotnet/slides/swf
 
 src:; 7z a csharp-src.7z *.tex figures pgf Makefile code
 
