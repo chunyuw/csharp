@@ -62,8 +62,11 @@ mpart-%.pdf: part-%.pdf ;
 $(NUMTARGT:%=s%): s%: s-s0%.pdf ;
 $(NUMTARGT:%=p%): p%: s-p0%.pdf ;
 
-distclean:; -$(RM) -rv auto $(BUILDDIR) $(DIROUT) z_region* *.pdf *.7z *.zip *.rar
-clean:;     -$(RM) $(wildcard en*.pdf part*.pdf z*.pdf slide*.pdf)
+swf: $(NUMTARGT:%=slides-s0%.swf)
+slide%.swf: slide%.pdf ; pdf2swf -B res/rfxview.swf -t $< -o $@
+
+distclean:; -$(RM) -rv auto $(BUILDDIR) $(DIROUT) z_region* *.pdf *.7z *.zip *.rar *.swf
+clean:;     -$(RM) $(wildcard en*.pdf part*.pdf z*.pdf slide*.pdf *.swf)
 
 GITCOMMD  = push pull status st
 $(GITCOMMD):; git $@
