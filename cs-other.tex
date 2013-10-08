@@ -225,6 +225,43 @@ partial class CarLocator
 
 
 \begin{frame}[fragile]
+\frametitle{\texttt{using} 指令/语句}
+\begin{itemize}
+\item using directive(指令)用于使用命名空间
+\begin{lstlisting}[escapeinside=<>]
+using System.Text;
+using Project = MyCompany.Project;      // <命名空间别名>
+using testClass = NameSpace1.MyClass;   // <类别名>
+
+\end{lstlisting}
+\item using statement(语句)用于释放资源
+\lstset{basicstyle=\tiny\ttfamily}
+\begin{lstlisting}
+using System;
+class C : IDisposable {
+    public void UseLimitedResource() {
+        Console.WriteLine("Using limited resource...");
+    }
+    void IDisposable.Dispose() {
+        Console.WriteLine("Disposing limited resource.");
+    }
+}
+
+class Program {
+    static void Main() {
+        using (C c = new C()) {
+            c.UseLimitedResource();
+        }
+        Console.WriteLine("Now outside using statement.");
+        Console.ReadLine();
+    }
+}
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[fragile]
 \frametitle{\texttt{extern} 关键字}
 关键字 \texttt{extern} 声明外部方法，创建外部程序及别名
 \cmd{csc /t:library test1.cs}
@@ -258,6 +295,21 @@ public volatile int i;
 \end{itemize}
 % using Statement
 \end{frame}
+
+\begin{frame}[fragile]
+\frametitle{使用关键字作标识符}
+\begin{itemize}
+\item CLR 允许多语言集成
+\item 根据 CLI 规范，可能有其他语言的变量名是 C\# 关键字
+\item 使用 \textit{@} 符号可以转义，将 C\# 关键字变为标识符
+\begin{lstlisting}[escapeinside=<>]
+var <\texttt{@object}> = new object();
+var <\texttt{@string}> = "";
+var <\texttt{@if}> = IpsoFacto();
+\end{lstlisting}
+\end{itemize}
+\end{frame}
+
 
 % Local Variables:
 % mode: LaTeX

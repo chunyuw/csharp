@@ -1,12 +1,12 @@
 %% Slides for ".NET Programming" by Chunyu Wang <chunyu@hit.edu.cn> %%
 
-\part{类}
+%\part{类}
 \begin{frame}
 \frametitle{Outline}            % {C\# 的类}
 \tableofcontents
 \end{frame}
 
-\section{类的基本组成}
+\section{类}
 
 \begin{frame}[fragile]
 \frametitle{类的定义}
@@ -1310,13 +1310,13 @@ class Student:Person
 
 \begin{frame}[fragile]
 \frametitle{命名空间}
-\begin{block}{命名空间(namespace)}
+\begin{block}{命名空间(\textit{namespace})}
   \CJKindent 类、接口、委托等其他类型的一个逻辑上的组合，用来防止名字之间的命名冲突。
 \end{block}
 定义命名空间的一般格式
-\begin{lstlisting}
-namespace <name>{
-...
+\begin{lstlisting}[escapeinside=<>]
+namespace <name> {
+  <... ...>
 }
 \end{lstlisting}
 \begin{itemize}
@@ -1398,6 +1398,12 @@ using b = Animals.Birds;
 ...
   b.Sparrow s = new b.Sparrow();
   b::Sparrow s = new b::Sparrow();
+\end{lstlisting}
+\item 使用 \texttt{global::} 防止第三方库与系统库冲突
+\lstset{emph={global}}
+\begin{lstlisting}
+global::System.Collections.ArrayList myList =
+          new global::System.Collections.ArrayList();
 \end{lstlisting}
 \end{itemize}
 \end{frame}

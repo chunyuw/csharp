@@ -66,7 +66,7 @@ swf: $(NUMTARGT:%=ch0%.swf)
 ch%.swf: slides-s%.pdf ; pdf2swf -B res/rfxview.swf -t $< -o $@
 
 distclean:; -$(RM) -rv auto $(BUILDDIR) $(DIROUT) z_region* *.pdf *.7z *.zip *.rar *.swf
-clean:;     -$(RM) $(wildcard en*.pdf part*.pdf z*.pdf slide*.pdf *.swf)
+clean:;     -$(RM) $(wildcard z_region* en*.pdf part*.pdf z*.pdf slide*.pdf *.swf)
 
 GITCOMMD  = push pull status st
 $(GITCOMMD):; git $@

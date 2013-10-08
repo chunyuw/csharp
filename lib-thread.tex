@@ -966,11 +966,9 @@ class Task : IThreadPoolWorkItem, IAsyncResult, '$\cdots$' {
 \frametitle{创建 Task}
 \begin{itemize}
 \item 任务委托 Action，参数和返回值都为空
-\end{itemize}
 \begin{lstlisting}
 public delegate void Action();
 \end{lstlisting}
-\begin{itemize}
 \item 通过创建 Task 对象
 \lstset{emph={new}}
 \begin{lstlisting}
@@ -1049,7 +1047,7 @@ try {
 Task<int> primeNumberTask = Task.Run(() =>
   Enumerable.Range(2, 3000000).Count(n =>
     Enumerable.Range(2, 
-          (int)Math.Sqrt(n) - 1).All(i => n \% i > 0)));
+          (int)Math.Sqrt(n) - 1).All(i => n % i > 0)));
 
 primeNumberTask.ContinueWith(antecedent => {
     int result = antecedent.Result;
@@ -1070,7 +1068,7 @@ primeNumberTask.ContinueWith(antecedent => {
 Task<int> primeNumberTask = Task.Run(() =>
   Enumerable.Range(2, 3000000).Count(n =>
     Enumerable.Range(2, 
-          (int)Math.Sqrt(n) - 1).All(i => n \% i > 0)));
+          (int)Math.Sqrt(n) - 1).All(i => n % i > 0)));
 
 var awaiter = primeNumberTask.GetAwaiter();
 awaiter.OnCompleted(() => {

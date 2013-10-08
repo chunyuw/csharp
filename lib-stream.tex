@@ -396,7 +396,9 @@ void WriteAllText (string path, string content)
 
 \begin{frame}[fragile]
 \frametitle{File 类举例}
-
+\begin{itemize}
+\item 利用 File, FileAttributes 修改文件系统属性
+\end{itemize}
 \begin{lstlisting}
 string filePath = @"c:\temp\test.txt";
 
@@ -683,6 +685,7 @@ using (NetworkStream n = c.GetStream())
 
 \begin{frame}[fragile]
 \frametitle{Network Stream 异步编程}
+\lstset{basicstyle=\scriptsize\ttfamily}
 \begin{lstlisting}[escapeinside=<>]
 NetworkStream n; byte[] buf; AsyncCallback callback;
 void run()
@@ -926,6 +929,7 @@ static int job(int n) {
 \begin{itemize}
 \item AsyncCallback --- 回调委托
 \end{itemize}
+\lstset{basicstyle=\scriptsize\ttfamily}
 \begin{lstlisting}
 static void Main(string[] args)
 {
@@ -938,12 +942,7 @@ static void Main(string[] args)
     Console.WriteLine("Main Done.");
     Thread.Sleep(1500);
 }
-\end{lstlisting}
-\end{frame}
 
-\begin{frame}[fragile]
-\frametitle{回调方式举例(3)}
-\begin{lstlisting}
 static void jobDoneHandle(IAsyncResult ar){
     // using System.Runtime.Remoting.Messaging;
     myAction d = (myAction)((AsyncResult)ar).AsyncDelegate;
@@ -953,7 +952,6 @@ static void jobDoneHandle(IAsyncResult ar){
 }
 \end{lstlisting}
 \end{frame}
-
 
 \begin{frame}[fragile,t]
 \frametitle{使用 Task 的异步编程}

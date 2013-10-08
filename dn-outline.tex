@@ -133,76 +133,76 @@
 
 \end{frame}
 
-\begin{frame}[t]
-\frametitle{Web 服务}
-\begin{block}{\textit{Web Services}}
-  {\CJKindent Web Services 是可远程访问的应用程序组件，并且响应以 HTTP 为主访
-    问请求，提供基于文本的信息服务。}
-\end{block}
-\begin{onlyenv}<1| handout:1>
-  \begin{columns}
-\column{.6\textwidth}
-    \begin{itemize}
-    \item 提供了信息发布的标准方式，方便应用程序访问
-    \item 信息不再是网页或文件，可以根据需要各取所需
-    \item 消除了使用不同组件模型、操作系统之间存在的差异
-    \item 便于创建分布式应用程序
-    \end{itemize}
-\column{.4\textwidth}
-    \begin{figure}[htbp]
-      \centering
-      \includegraphics[width=4cm]{web-services}
-    \end{figure}
-  \end{columns}
-\end{onlyenv}
-\end{frame}
+% \begin{frame}[t]
+% \frametitle{Web 服务}
+% \begin{block}{\textit{Web Services}}
+%   {\CJKindent Web Services 是可远程访问的应用程序组件，并且响应以 HTTP 为主访
+%     问请求，提供基于文本的信息服务。}
+% \end{block}
+% \begin{onlyenv}<1| handout:1>
+%   \begin{columns}
+% \column{.6\textwidth}
+%     \begin{itemize}
+%     \item 提供了信息发布的标准方式，方便应用程序访问
+%     \item 信息不再是网页或文件，可以根据需要各取所需
+%     \item 消除了使用不同组件模型、操作系统之间存在的差异
+%     \item 便于创建分布式应用程序
+%     \end{itemize}
+% \column{.4\textwidth}
+%     \begin{figure}[htbp]
+%       \centering
+%       \includegraphics[width=4cm]{web-services}
+%     \end{figure}
+%   \end{columns}
+% \end{onlyenv}
+% \end{frame}
 
-\begin{frame}[fragile,t]
-\frametitle{Web 服务示例}
+% \begin{frame}[fragile,t]
+% \frametitle{Web 服务示例}
 
-\begin{itemize}
-\item http://www.webservicex.net/globalweather.asmx
-\item \only<1| handout:1>{通过 SOAP 的访问} \only<2| handout:0>{返回的结果}
-\end{itemize}
+% \begin{itemize}
+% \item http://www.webservicex.net/globalweather.asmx
+% \item \only<1| handout:1>{通过 SOAP 的访问} \only<2| handout:0>{返回的结果}
+% \end{itemize}
 
-\begin{onlyenv}<1| handout:1>
-\begin{lstlisting}[language=XML, showstringspaces=false]
-POST /globalweather.asmx HTTP/1.1
-Host: www.webservicex.net
-Content-Type: text/xml; charset=utf-8
-Content-Length: length
-SOAPAction: "http://www.webserviceX.NET/GetWeather"
+% \begin{onlyenv}<1| handout:1>
+% \begin{lstlisting}[language=XML, showstringspaces=false]
+% POST /globalweather.asmx HTTP/1.1
+% Host: www.webservicex.net
+% Content-Type: text/xml; charset=utf-8
+% Content-Length: length
+% SOAPAction: "http://www.webserviceX.NET/GetWeather"
 
-<?xml version="1.0" encoding="utf-8"?>
-<soap:Envelope xmlns:xsi= ... >
- <soap:Body>
-  <GetWeather xmlns="http://www.webserviceX.NET">
-   <CityName>Harbin</CityName>
-   <CountryName>China</CountryName>
-  </GetWeather>
- </soap:Body>
-</soap:Envelope>
-\end{lstlisting}
-\end{onlyenv}
+% <?xml version="1.0" encoding="utf-8"?>
+% <soap:Envelope xmlns:xsi= ... >
+%  <soap:Body>
+%   <GetWeather xmlns="http://www.webserviceX.NET">
+%    <CityName>Harbin</CityName>
+%    <CountryName>China</CountryName>
+%   </GetWeather>
+%  </soap:Body>
+% </soap:Envelope>
+% \end{lstlisting}
+% \end{onlyenv}
 
-\begin{onlyenv}<2| handout:0>
-\begin{lstlisting}[language=XML, showstringspaces=false]
-HTTP/1.1 200 OK
-Content-Type: text/xml; charset=utf-8
-Content-Length: length
+% \begin{onlyenv}<2| handout:0>
+% \begin{lstlisting}[language=XML, showstringspaces=false]
+% HTTP/1.1 200 OK
+% Content-Type: text/xml; charset=utf-8
+% Content-Length: length
 
-<?xml version="1.0" encoding="utf-8"?>
-<soap:Envelope xmlns:xsi= ... >
- <soap:Body>
-  <GetWeatherResponse
-           xmlns="http://www.webserviceX.NET">
-   <GetWeatherResult>string</GetWeatherResult>
-  </GetWeatherResponse>
- </soap:Body>
-</soap:Envelope>
-\end{lstlisting}
-\end{onlyenv}
-\end{frame}
+% <?xml version="1.0" encoding="utf-8"?>
+% <soap:Envelope xmlns:xsi= ... >
+%  <soap:Body>
+%   <GetWeatherResponse
+%            xmlns="http://www.webserviceX.NET">
+%    <GetWeatherResult>string</GetWeatherResult>
+%   </GetWeatherResponse>
+%  </soap:Body>
+% </soap:Envelope>
+% \end{lstlisting}
+% \end{onlyenv}
+% \end{frame}
 
 \begin{frame}
 \frametitle{公共语言基础结构}
@@ -409,13 +409,13 @@ Content-Length: length
 \only<.| handout:0>{
 \begin{itemize}
 \item<.-> HTML5, Metro界面(Win8)
-\item<.-> Windows Phone \ldots
+\item<.-> Task 异步模型 \ldots
 \end{itemize}}
 \end{itemize}
 
 \column{.41\textwidth}
 \begin{figure}
-\centerline{\includegraphics[width=4cm]{otl-dotnet}}
+\centerline{\includegraphics[width=4.6cm]{otl-dotnet}}
 \end{figure}
 \end{columns}
 \end{frame}
@@ -750,7 +750,7 @@ Content-Length: length
 \end{block}
 \pause
 \begin{itemize}
-\item 通过区分专用和共享程序集，确定如何{\color<handout:0>{red!65!black}部署} (\textit{Deploy}) 程序集
+\item 通过区分专用和共享程序集，确定如何{\color<handout:0>{red!65!black}部署} (\textit{Deploy})
 \item 根据增强型名称，判断是否接受程序集，或新的版本
 \item 根据版本管理特性，保证下载的代码不会影响本地应用程序的执行
 \end{itemize}
