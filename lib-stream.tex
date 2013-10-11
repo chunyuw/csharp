@@ -577,7 +577,7 @@ TcpListener srv = new TcpListener (<address>, <port>);
 srv.Start();
 
 while(true)
-  using(TcpClient c = listener.AcceptTcpClient())
+  using(TcpClient c = srv.AcceptTcpClient())
   using(NetworkStream n = c.GetStream())
   { // <Read and write to the network stream\ldots>
   }
@@ -743,7 +743,7 @@ public interface IAsyncResult {
   Boolean    IsCompleted     { get; } // <用于轮询>
   Object     AsyncState      { get; } // <用于回调>
   Boolean    CompletedSynchronously { get; }
-                                      // <转为同步>
+                                      // <用于同步>
 }
 \end{lstlisting}
 \item \texttt{Begin\textbf{Xxx}} \ldots\ \texttt{End\textbf{Xxx}} --- 异步操作的开始和结束
